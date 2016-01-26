@@ -41,7 +41,7 @@ private:
   ShaderParser(const ShaderParser&);            // No copies.
 
 public:
-  ~ShaderParser();
+  virtual ~ShaderParser();
   
 private:
   ShaderParser& operator=(const ShaderParser&); // No assignments.

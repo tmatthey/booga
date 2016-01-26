@@ -155,7 +155,7 @@ INLINE int MBistableObject<TInteractionObject, TBistableObject, TObject, TObject
 ::activate(TWorld*, const TPath* path, int , int )
 {
   toggle();                                // switch to other state
-  subjectChanged(path);                    // send message to proxy
+  this->subjectChanged(path);                    // send message to proxy
   
   return 0;
 }

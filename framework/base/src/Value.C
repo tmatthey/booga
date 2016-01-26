@@ -57,7 +57,7 @@ static const int MATRIX2D = 5;
 
 static const int maxNoOfValues = BITS(int)/2;
 
-#define encodeValues(type1,type2) ((1<<maxNoOfValues+(type1))+(1<<(type2)))
+#define encodeValues(type1,type2) ((1<<(maxNoOfValues+(type1)))+(1<<(type2)))
 #define binaryType(value1,value2) encodeValues((value1).myType,(value2).myType)
 
 // static const int UNKNOWN=0;

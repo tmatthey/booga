@@ -181,32 +181,28 @@ Vector2D Transform2D::transformAsPoint(const Vector2D& vec) const
 {
   if (myTrans == NULL)
     return vec;
-  else
-    return ::transformAsPoint(vec, *myTrans);
+  return ::transformAsPoint(vec, const_cast<const TransMatrix2D&>(*myTrans));
 }
 
 Vector2D Transform2D::transformAsVector(const Vector2D& vec) const
 {
   if (myTrans == NULL)
     return vec;
-  else
-    return ::transformAsVector(vec, *myTrans);
+  return ::transformAsVector(vec, const_cast<const TransMatrix2D&>(*myTrans));
 }
 
 Vector2D Transform2D::invTransformAsPoint(const Vector2D& vec) const
 {
   if (myTrans == NULL)
     return vec;
-  else
-    return ::transformAsPoint(vec, getInvTransMatrix());
+  return ::transformAsPoint(vec, getInvTransMatrix());
 }
 
 Vector2D Transform2D::invTransformAsVector(const Vector2D& vec) const
 {
  if (myTrans == NULL)
     return vec;
-  else
-    return ::transformAsVector(vec, getInvTransMatrix());
+ return ::transformAsVector(vec, getInvTransMatrix());
 }
 
 void Transform2D::buildInverse() const

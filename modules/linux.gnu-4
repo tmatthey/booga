@@ -1,0 +1,29 @@
+#!/bin/bash
+export PLATFORM=linux
+export COMPILER=gnu-4
+export COMP=g++
+export WORKSPACE=$HOME/booga
+export PROJECT_HOME=$WORKSPACE
+export SHARED_HOME=$WORKSPACE
+export CORE_SHARED_SRC=$WORKSPACE 
+export CORE_SHARED_OBJ=$WORKSPACE
+export APP_SHARED_SRC=$WORKSPACE
+export APP_SHARED_OBJ=$WORKSPACE
+export REPOSITORY=$WORKSPACE
+export PATH=$PATH:$PROJECT_HOME/bin
+export SHARED_SRC=$CORE_SHARED_SRC
+export SHARED_OBJ=$CORE_SHARED_OBJ
+export CONFIGURATION=
+export SNIFF_RELATIVE_ROOT_DIR=$WORKSPACE
+if test $?LIBPATH != 0 ; then
+        export  LIBPATH=$SHARED_OBJ/framework/lib:$LIBPATH
+else
+        export  LIBPATH=$SHARED_OBJ/framework/lib
+fi
+export    LIBPATH=$LIBPATH:$WORKSPACE/framework/lib
+export    PATH=$PATH:$SHARED_OBJ/applications/bin:$WORKSPACE/applications/bin
+if test $?LD_LIBRARY_PATH != 0 ; then
+        export LD_LIBRARY_PATH=$LIBPATH:$LD_LIBRARY_PATH
+else
+        export LD_LIBRARY_PATH=$LIBPATH
+fi

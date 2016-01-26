@@ -109,8 +109,9 @@ void NeuroQuantize::apply(AbstractPixmap* pm)
   neuroInxbuild();
 
   int index;
-  for (pos=0, bgrPos=0; pos<size; pos++) {
-    index = neuroInxsearch(bgrData[bgrPos++], bgrData[bgrPos++], bgrData[bgrPos++]);
+  for (pos=0, bgrPos=0; pos<size; pos++,bgrPos+=3) {
+    index = neuroInxsearch(bgrData[bgrPos], bgrData[bgrPos+1], bgrData[bgrPos+2]);
+    
     pm->setPosition(pos);
     pm->setColor(colorMap[index].getRed(), 
                  colorMap[index].getGreen(), 

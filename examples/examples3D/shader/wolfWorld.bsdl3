@@ -1,0 +1,45 @@
+
+#ifndef _boogaWorld_bsdl3
+#define _boogaWorld_bsdl3
+
+using 3D;
+
+camera {
+  perspective {
+  eye [30,0,0];
+  lookat [0,0,0];
+  resolution(400,400);
+  fov 15;
+  }
+  background [.9,.9,.9];
+}
+
+pointLight (1, [1, 1, 1]) {
+  position [10,15,0];
+}
+
+pointLight (1, [1, 1, 1]) {
+  position [40,-40,15];
+}
+
+sphere (1.65, [0,0,0]) { 
+ shader("earth.bsl");
+ rotateZ(-53);
+ rotateY(-15);
+}
+
+  turn {                             // Rotation of secondhand
+    action (0,60,0) {                // from frame 0 to 60, endless
+      center [0,0,0];                // Rotationcenter (0,0,0)
+      axis [0,0,1];                  // Rotationaxis (1,0,0)
+      alpha (-360,"id", 0, 1, 1/60); // Constant rotation of -360 degres 
+                                     //  in 60 frames with a step of -6 degrees
+    }                                
+sphere (5, [0,0,0]) { 
+  shader("wolf.bsl");
+  rotateX(-15);
+}
+}
+
+#endif // _boogaWorld_bsdl3
+

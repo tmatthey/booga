@@ -39,7 +39,7 @@ public:
   Transform2D(const TransMatrix2D& matrix);
   Transform2D(Exemplar);
   Transform2D(const Transform2D& transform);
-  ~Transform2D();
+  virtual ~Transform2D();
 
   Transform2D& operator=(const Transform2D& transform);
   Transform2D& operator*=(const Transform2D& transform);

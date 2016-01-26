@@ -42,7 +42,7 @@ private:
   BSDLParser(const BSDLParser&);            // No copies.
 
 public:
-  ~BSDLParser();
+  virtual ~BSDLParser();
   
 private:
   BSDLParser& operator=(const BSDLParser&); // No assignments.

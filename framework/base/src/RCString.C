@@ -147,8 +147,8 @@ RCString::RCString(std::stringstream& stream)
   rcDeref();                          // Remove empty string.
 
   stream << std::ends;                    // Terminate the string
-  char* buf = (char *)stream.str().c_str();
-  myLetter = new RCStringRep(&buf);   // Call the private constructor.
+
+  myLetter = new RCStringRep(const_cast<const char*>(stream.str().c_str()));
 }
 
 RCString::RCString(char** r) 

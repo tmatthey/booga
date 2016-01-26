@@ -204,7 +204,7 @@ Vector3D TextureUtilities::DNoise3(Vector3D& point)
   Real result_x,result_y,result_z;
   register int ix, iy, iz, jx, jy, jz;
   Real x, y, z;
-  Real px, py, pz, s;
+  Real s;
   Real sx, sy, sz, tx, ty, tz;
   short	m;
 
@@ -224,60 +224,60 @@ Vector3D TextureUtilities::DNoise3(Vector3D& point)
    *  interpolate!
    */
   m = Hash3d( ix, iy, iz ) & 0xFF;
-  px = x-ix;  py = y-iy;  pz = z-iz;
+  //px = x-ix;  py = y-iy;  pz = z-iz;
   s = tx*ty*tz;
-  result_x = INCRSUM(m,s,px,py,pz);
-  result_y = INCRSUM(m+4,s,px,py,pz);
-  result_z = INCRSUM(m+8,s,px,py,pz);
+  result_x = INCRSUM(m,s,0,0,0 /* px,py,pz */);
+  result_y = INCRSUM(m+4,s,0,0,0 /* px,py,pz */);
+  result_z = INCRSUM(m+8,s,0,0,0 /* px,py,pz */);
 
   m = Hash3d( jx, iy, iz ) & 0xFF;
-  px = x-jx;
+  //px = x-jx;
   s = sx*ty*tz;
-  result_x += INCRSUM(m,s,px,py,pz);
-  result_y += INCRSUM(m+4,s,px,py,pz);
-  result_z += INCRSUM(m+8,s,px,py,pz);
+  result_x += INCRSUM(m,s,0,0,0 /* px,py,pz */);
+  result_y += INCRSUM(m+4,s,0,0,0 /* px,py,pz */);
+  result_z += INCRSUM(m+8,s,0,0,0 /* px,py,pz */);
 
   m = Hash3d( jx, jy, iz ) & 0xFF;
-  py = y-jy;
+  //py = y-jy;
   s = sx*sy*tz;
-  result_x += INCRSUM(m,s,px,py,pz);
-  result_y += INCRSUM(m+4,s,px,py,pz);
-  result_z += INCRSUM(m+8,s,px,py,pz);
+  result_x += INCRSUM(m,s,0,0,0 /* px,py,pz */);
+  result_y += INCRSUM(m+4,s,0,0,0 /* px,py,pz */);
+  result_z += INCRSUM(m+8,s,0,0,0 /* px,py,pz */);
 
   m = Hash3d( ix, jy, iz ) & 0xFF;
-  px = x-ix;
+  //px = x-ix;
   s = tx*sy*tz;
-  result_x += INCRSUM(m,s,px,py,pz);
-  result_y += INCRSUM(m+4,s,px,py,pz);
-  result_z += INCRSUM(m+8,s,px,py,pz);
+  result_x += INCRSUM(m,s,0,0,0 /* px,py,pz */);
+  result_y += INCRSUM(m+4,s,0,0,0 /* px,py,pz */);
+  result_z += INCRSUM(m+8,s,0,0,0 /* px,py,pz */);
 
   m = Hash3d( ix, jy, jz ) & 0xFF;
-  pz = z-jz;
+  //pz = z-jz;
   s = tx*sy*sz;
-  result_x += INCRSUM(m,s,px,py,pz);
-  result_y += INCRSUM(m+4,s,px,py,pz);
-  result_z += INCRSUM(m+8,s,px,py,pz);
+  result_x += INCRSUM(m,s,0,0,0 /* px,py,pz */);
+  result_y += INCRSUM(m+4,s,0,0,0 /* px,py,pz */);
+  result_z += INCRSUM(m+8,s,0,0,0 /* px,py,pz */);
 
   m = Hash3d( jx, jy, jz ) & 0xFF;
-  px = x-jx;
+  //px = x-jx;
   s = sx*sy*sz;
-  result_x += INCRSUM(m,s,px,py,pz);
-  result_y += INCRSUM(m+4,s,px,py,pz);
-  result_z += INCRSUM(m+8,s,px,py,pz);
+  result_x += INCRSUM(m,s,0,0,0 /* px,py,pz */);
+  result_y += INCRSUM(m+4,s,0,0,0 /* px,py,pz */);
+  result_z += INCRSUM(m+8,s,0,0,0 /* px,py,pz */);
 
   m = Hash3d( jx, iy, jz ) & 0xFF;
-  py = y-iy;
+  //py = y-iy;
   s = sx*ty*sz;
-  result_x += INCRSUM(m,s,px,py,pz);
-  result_y += INCRSUM(m+4,s,px,py,pz);
-  result_z += INCRSUM(m+8,s,px,py,pz);
+  result_x += INCRSUM(m,s,0,0,0 /* px,py,pz */);
+  result_y += INCRSUM(m+4,s,0,0,0 /* px,py,pz */);
+  result_z += INCRSUM(m+8,s,0,0,0 /* px,py,pz */);
 
   m = Hash3d( ix, iy, jz ) & 0xFF;
-  px = x-ix;
+  //px = x-ix;
   s = tx*ty*sz;
-  result_x += INCRSUM(m,s,px,py,pz);
-  result_y += INCRSUM(m+4,s,px,py,pz);
-  result_z += INCRSUM(m+8,s,px,py,pz);
+  result_x += INCRSUM(m,s,0,0,0 /* px,py,pz */);
+  result_y += INCRSUM(m+4,s,0,0,0 /* px,py,pz */);
+  result_z += INCRSUM(m+8,s,0,0,0 /* px,py,pz */);
 	
   result_x = result_x / 2 + 0.5;        // scale into the range
   result_y = result_y / 2 + 0.5;        // of 0..1 !

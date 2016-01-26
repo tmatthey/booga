@@ -39,7 +39,7 @@
 class VRMLParserImpl : public VRMLYacc {
 public:
   VRMLParserImpl() {};
-  // ~VRMLParserImpl();   // Use default version.
+  virtual ~VRMLParserImpl(){}   // Use default version.
 
   int parse(World3D* world3D, FILE* input = stdin); 
   // Return 1, if parsing was not successful, 0 otherwise.

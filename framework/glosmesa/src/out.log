@@ -1,0 +1,603 @@
+Compiling and Linking in STATIC mode.
+
+Compiling framework/glosmesa/src/osmesa.C
+
+Compiling framework/glosmesa/src/context.C
+context.C: In function ‘GLvisual* gl_create_visual(GLboolean, GLboolean, GLboolean, GLint, GLint, GLint, GLint, GLfloat, GLfloat, GLfloat, GLfloat, GLint, GLint, GLint, GLint)’:
+context.C:1007:19: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if (depth_bits > 8*sizeof(GLdepth)) {
+                   ^
+context.C:1011:21: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if (stencil_bits > 8*sizeof(GLstencil)) {
+                     ^
+context.C:1015:19: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if (accum_bits > 8*sizeof(GLaccum)) {
+                   ^
+context.C: In function ‘void gl_ResizeBuffersMESA(GLcontext*)’:
+context.C:1608:32: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    newsize = ctx->Buffer->Width!=buf_width || ctx->Buffer->Height!=buf_height;
+                                ^
+context.C:1608:66: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    newsize = ctx->Buffer->Width!=buf_width || ctx->Buffer->Height!=buf_height;
+                                                                  ^
+
+Compiling framework/glosmesa/src/matrix.C
+
+Compiling framework/glosmesa/src/hash.C
+
+Compiling framework/glosmesa/src/texobj.C
+texobj.C: In function ‘void gl_GenTextures(GLcontext*, GLsizei, GLuint*)’:
+texobj.C:374:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    for (i=0;i<n;i++) {
+              ^
+texobj.C:379:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    for (i=0;i<n;i++) {
+              ^
+texobj.C:382:33: warning: unused variable ‘newTexObj’ [-Wunused-variable]
+       struct gl_texture_object *newTexObj = gl_alloc_texture_object(ctx->Shared, name, dims);
+                                 ^
+texobj.C: In function ‘void gl_DeleteTextures(GLcontext*, GLsizei, const GLuint*)’:
+texobj.C:400:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    for (i=0;i<n;i++) {
+              ^
+texobj.C: In function ‘void gl_PrioritizeTextures(GLcontext*, GLsizei, const GLuint*, const GLclampf*)’:
+texobj.C:575:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    for (i=0;i<n;i++) {
+              ^
+texobj.C: In function ‘GLboolean gl_AreTexturesResident(GLcontext*, GLsizei, const GLuint*, GLboolean*)’:
+texobj.C:608:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    for (i=0;i<n;i++) {
+              ^
+
+Compiling framework/glosmesa/src/dlist.C
+In file included from dlist.C:144:0:
+dlist.C: In function ‘Node* alloc_instruction(GLcontext*, OpCode, GLint)’:
+dlist.C:394:18: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    assert( count == argcount+1 );
+                  ^
+dlist.C: In function ‘void gl_save_CallLists(GLcontext*, GLsizei, GLenum, const GLvoid*)’:
+dlist.C:843:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    for (i=0;i<n;i++) {
+              ^
+dlist.C: In function ‘GLuint gl_GenLists(GLcontext*, GLsizei)’:
+dlist.C:3165:18: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       for (i=0; i<range; i++) {
+                  ^
+dlist.C: In function ‘void gl_EndList(GLcontext*)’:
+dlist.C:3221:10: warning: variable ‘n’ set but not used [-Wunused-but-set-variable]
+    Node *n;
+          ^
+dlist.C: In function ‘void gl_CallLists(GLcontext*, GLsizei, GLenum, const GLvoid*)’:
+dlist.C:3274:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    for (i=0;i<n;i++) {
+              ^
+dlist.C: In function ‘char* enum_string(GLenum)’:
+dlist.C:3309:31: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+       case GL_POINTS:  return "GL_POINTS";
+                               ^
+dlist.C:3310:30: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+       case GL_LINES:  return "GL_LINES";
+                              ^
+dlist.C:3311:34: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+       case GL_LINE_STRIP: return "GL_LINE_STRIP";
+                                  ^
+dlist.C:3312:33: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+       case GL_LINE_LOOP: return "GL_LINE_LOOP";
+                                 ^
+dlist.C:3313:33: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+       case GL_TRIANGLES: return "GL_TRIANGLES";
+                                 ^
+dlist.C:3314:38: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+       case GL_TRIANGLE_STRIP: return "GL_TRIANGLE_STRIP";
+                                      ^
+dlist.C:3315:36: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+       case GL_TRIANGLE_FAN: return "GL_TRIANGLE_FAN";
+                                    ^
+dlist.C:3316:30: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+       case GL_QUADS:  return "GL_QUADS";
+                              ^
+dlist.C:3317:34: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+       case GL_QUAD_STRIP: return "GL_QUAD_STRIP";
+                                  ^
+dlist.C:3318:32: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+       case GL_POLYGON:  return "GL_POLYGON";
+                                ^
+dlist.C:3319:30: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+       case GL_FRONT:  return "GL_FRONT";
+                              ^
+dlist.C:3320:29: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+       case GL_BACK:  return "GL_BACK";
+                             ^
+dlist.C:3321:38: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+       case GL_FRONT_AND_BACK: return "GL_FRONT_AND_BACK";
+                                      ^
+dlist.C:3322:32: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+       case GL_AMBIENT:  return "GL_AMBIENT";
+                                ^
+dlist.C:3323:32: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+       case GL_DIFFUSE:  return "GL_DIFFUSE";
+                                ^
+dlist.C:3324:33: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+       case GL_SPECULAR:  return "GL_SPECULAR";
+                                 ^
+dlist.C:3325:33: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+       case GL_SHININESS: return "GL_SHININESS";
+                                 ^
+
+Compiling framework/glosmesa/src/light.C
+light.C: In function ‘void gl_compute_material_shine_table(gl_material*)’:
+light.C:744:11: warning: unused variable ‘exponent’ [-Wunused-variable]
+    double exponent = m->Shininess;
+           ^
+
+Compiling framework/glosmesa/src/teximage.C
+teximage.C: In function ‘void gl_TexSubImage1D(GLcontext*, GLenum, GLint, GLint, GLsizei, GLenum, GLenum, gl_image*)’:
+teximage.C:1460:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if (xoffset + width > destTex->Width + destTex->Border) {
+                        ^
+teximage.C: In function ‘void gl_TexSubImage2D(GLcontext*, GLenum, GLint, GLint, GLint, GLsizei, GLsizei, GLenum, GLenum, gl_image*)’:
+teximage.C:1573:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if (xoffset + width > destTex->Width + destTex->Border) {
+                        ^
+teximage.C:1577:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if (yoffset + height > destTex->Height + destTex->Border) {
+                         ^
+teximage.C: In function ‘void gl_TexSubImage3DEXT(GLcontext*, GLenum, GLint, GLint, GLint, GLint, GLsizei, GLsizei, GLsizei, GLenum, GLenum, gl_image*)’:
+teximage.C:1708:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if (xoffset + width > destTex->Width+destTex->Border) {
+                        ^
+teximage.C:1712:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if (yoffset + height > destTex->Height+destTex->Border) {
+                         ^
+teximage.C:1716:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if (zoffset + depth  > destTex->Depth+destTex->Border) {
+                         ^
+teximage.C: In function ‘void gl_CopyTexSubImage1D(GLcontext*, GLenum, GLint, GLint, GLint, GLint, GLsizei)’:
+teximage.C:2151:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       if (xoffset+width > teximage->Width+teximage->Border) {
+                         ^
+teximage.C: In function ‘void gl_CopyTexSubImage2D(GLcontext*, GLenum, GLint, GLint, GLint, GLint, GLint, GLsizei, GLsizei)’:
+teximage.C:2207:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       if (xoffset+width > teximage->Width+teximage->Border) {
+                         ^
+teximage.C:2212:26: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       if (yoffset+height > teximage->Height+teximage->Border) {
+                          ^
+teximage.C: In function ‘void gl_CopyTexSubImage3DEXT(GLcontext*, GLenum, GLint, GLint, GLint, GLint, GLint, GLint, GLsizei, GLsizei)’:
+teximage.C:2273:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       if (xoffset+width > teximage->Width+teximage->Border) {
+                         ^
+teximage.C:2278:26: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       if (yoffset+height > teximage->Height+teximage->Border) {
+                          ^
+teximage.C:2283:19: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       if (zoffset > teximage->Depth+teximage->Border) {
+                   ^
+
+Compiling framework/glosmesa/src/mmath.C
+
+Compiling framework/glosmesa/src/eval.C
+eval.C: In function ‘GLfloat* gl_copy_map_points1f(GLenum, GLint, GLint, const GLfloat*)’:
+eval.C:601:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       for(i=0, p=buffer; i<uorder; i++, points+=ustride)
+                           ^
+eval.C: In function ‘GLfloat* gl_copy_map_points1d(GLenum, GLint, GLint, const GLdouble*)’:
+eval.C:627:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       for(i=0, p=buffer; i<uorder; i++, points+=ustride)
+                           ^
+eval.C: In function ‘GLfloat* gl_copy_map_points2f(GLenum, GLint, GLint, GLint, GLint, const GLfloat*)’:
+eval.C:676:28: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       for (i=0, p=buffer; i<uorder; i++, points += uinc)
+                            ^
+eval.C:677:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for (j=0; j<vorder; j++, points += vstride)
+              ^
+eval.C: In function ‘GLfloat* gl_copy_map_points2d(GLenum, GLint, GLint, GLint, GLint, const GLdouble*)’:
+eval.C:719:28: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       for (i=0, p=buffer; i<uorder; i++, points += uinc)
+                            ^
+eval.C:720:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for (j=0; j<vorder; j++, points += vstride)
+              ^
+eval.C: In function ‘void gl_Map1f(GLcontext*, GLenum, GLfloat, GLfloat, GLint, GLint, const GLfloat*, GLboolean)’:
+eval.C:870:15: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if (stride < k) {
+               ^
+eval.C: In function ‘void gl_Map2f(GLcontext*, GLenum, GLfloat, GLfloat, GLint, GLint, GLfloat, GLfloat, GLint, GLint, const GLfloat*, GLboolean)’:
+eval.C:1025:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if (ustride < k) {
+                ^
+eval.C:1029:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if (vstride < k) {
+                ^
+eval.C: In function ‘void gl_EvalPoint1(GLcontext*, GLint)’:
+eval.C:2283:12: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  else if (i==ctx->Eval.MapGrid1un) {
+            ^
+eval.C: In function ‘void gl_EvalPoint2(GLcontext*, GLint, GLint)’:
+eval.C:2304:12: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  else if (i==ctx->Eval.MapGrid2un) {
+            ^
+eval.C:2316:12: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  else if (j==ctx->Eval.MapGrid2vn) {
+            ^
+eval.C: In function ‘void gl_EvalMesh1(GLcontext*, GLenum, GLint, GLint)’:
+eval.C:2361:13: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   else if (i==ctx->Eval.MapGrid1un) {
+             ^
+eval.C: In function ‘void gl_EvalMesh2(GLcontext*, GLenum, GLint, GLint, GLint, GLint)’:
+eval.C:2404:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  else if ((J)==ctx->Eval.MapGrid2vn) { \
+              ^
+eval.C:2415:4: note: in expansion of macro ‘J_TO_V’
+    J_TO_V( j, v );
+    ^
+eval.C:2393:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  else if ((I)==ctx->Eval.MapGrid2un) { \
+              ^
+eval.C:2417:5: note: in expansion of macro ‘I_TO_U’
+     I_TO_U( i, u );
+     ^
+eval.C:2404:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  else if ((J)==ctx->Eval.MapGrid2vn) { \
+              ^
+eval.C:2425:4: note: in expansion of macro ‘J_TO_V’
+    J_TO_V( j, v );
+    ^
+eval.C:2393:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  else if ((I)==ctx->Eval.MapGrid2un) { \
+              ^
+eval.C:2428:5: note: in expansion of macro ‘I_TO_U’
+     I_TO_U( i, u );
+     ^
+eval.C:2393:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  else if ((I)==ctx->Eval.MapGrid2un) { \
+              ^
+eval.C:2434:4: note: in expansion of macro ‘I_TO_U’
+    I_TO_U( i, u );
+    ^
+eval.C:2404:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  else if ((J)==ctx->Eval.MapGrid2vn) { \
+              ^
+eval.C:2437:5: note: in expansion of macro ‘J_TO_V’
+     J_TO_V( j, v );
+     ^
+eval.C:2404:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  else if ((J)==ctx->Eval.MapGrid2vn) { \
+              ^
+eval.C:2448:4: note: in expansion of macro ‘J_TO_V’
+    J_TO_V( j, v1 );
+    ^
+eval.C:2404:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  else if ((J)==ctx->Eval.MapGrid2vn) { \
+              ^
+eval.C:2449:4: note: in expansion of macro ‘J_TO_V’
+    J_TO_V( j+1, v2 );
+    ^
+eval.C:2393:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  else if ((I)==ctx->Eval.MapGrid2un) { \
+              ^
+eval.C:2451:5: note: in expansion of macro ‘I_TO_U’
+     I_TO_U( i, u );
+     ^
+
+Compiling framework/glosmesa/src/vb.C
+
+Compiling framework/glosmesa/src/pb.C
+
+Compiling framework/glosmesa/src/pointers.C
+
+Compiling framework/glosmesa/src/stencil.C
+stencil.C: In function ‘void apply_stencil_op_to_span(GLcontext*, GLuint, GLint, GLint, GLenum, GLubyte*)’:
+stencil.C:227:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (i=0;i<n;i++) {
+                ^
+stencil.C:234:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (i=0;i<n;i++) {
+                ^
+stencil.C:243:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (i=0;i<n;i++) {
+                ^
+stencil.C:250:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (i=0;i<n;i++) {
+                ^
+stencil.C:260:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (i=0;i<n;i++) {
+                ^
+stencil.C:270:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (i=0;i<n;i++) {
+                ^
+stencil.C:283:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (i=0;i<n;i++) {
+                ^
+stencil.C:293:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (i=0;i<n;i++) {
+                ^
+stencil.C:306:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (i=0;i<n;i++) {
+                ^
+stencil.C:314:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (i=0;i<n;i++) {
+                ^
+stencil.C: In function ‘void apply_stencil_op_to_pixels(GLcontext*, GLuint, const GLint*, const GLint*, GLenum, GLubyte*)’:
+stencil.C:590:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (i=0;i<n;i++) {
+                ^
+stencil.C:598:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (i=0;i<n;i++) {
+                ^
+stencil.C:608:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (i=0;i<n;i++) {
+                ^
+stencil.C:616:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (i=0;i<n;i++) {
+                ^
+stencil.C:626:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (i=0;i<n;i++) {
+                ^
+stencil.C:636:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (i=0;i<n;i++) {
+                ^
+stencil.C:648:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (i=0;i<n;i++) {
+                ^
+stencil.C:658:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (i=0;i<n;i++) {
+                ^
+stencil.C:670:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (i=0;i<n;i++) {
+                ^
+stencil.C:678:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (i=0;i<n;i++) {
+                ^
+
+Compiling framework/glosmesa/src/accum.C
+
+Compiling framework/glosmesa/src/alphabuf.C
+
+Compiling framework/glosmesa/src/vbfill.C
+
+Compiling framework/glosmesa/src/texstate.C
+
+Compiling framework/glosmesa/src/points.C
+
+Compiling framework/glosmesa/src/lines.C
+
+Compiling framework/glosmesa/src/triangle.C
+
+Compiling framework/glosmesa/src/quads.C
+
+Compiling framework/glosmesa/src/get.C
+
+Compiling framework/glosmesa/src/clip.C
+
+Compiling framework/glosmesa/src/depth.C
+
+Compiling framework/glosmesa/src/blend.C
+
+Compiling framework/glosmesa/src/image.C
+
+Compiling framework/glosmesa/src/alpha.C
+
+Compiling framework/glosmesa/src/bitmap.C
+
+Compiling framework/glosmesa/src/misc.C
+misc.C: In function ‘const GLubyte* gl_GetString(GLcontext*, GLenum)’:
+misc.C:315:26: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+    static char *vendor = "Brian Paul";
+                          ^
+misc.C:316:27: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+    static char *version = "1.1 Mesa 2.6";
+                           ^
+misc.C:320:30: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+    static char *extensions = "GL_EXT_blend_color GL_EXT_blend_minmax GL_EXT_blend_logic_op GL_EXT_blend_subtract GL_EXT_paletted_texture GL_EXT_point_parameters GL_EXT_polygon_offset GL_EXT_vertex_array GL_EXT_texture_object GL_EXT_texture3D GL_MESA_window_pos GL_MESA_resize_buffers GL_EXT_shared_texture_palette";
+                              ^
+
+Compiling framework/glosmesa/src/masking.C
+
+Compiling framework/glosmesa/src/colortab.C
+
+Compiling framework/glosmesa/src/copypix.C
+copypix.C: In function ‘void copy_ci_pixels(GLcontext*, GLint, GLint, GLint, GLint, GLint, GLint)’:
+copypix.C:267:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+             if (indx[i] < ctx->Pixel.MapItoIsize) {
+                         ^
+
+Compiling framework/glosmesa/src/pixel.C
+pixel.C: In function ‘void gl_PixelMapfv(GLcontext*, GLenum, GLint, const GLfloat*)’:
+pixel.C:554:20: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+          for (i=0;i<mapsize;i++) {
+                    ^
+pixel.C:560:20: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+          for (i=0;i<mapsize;i++) {
+                    ^
+pixel.C:566:20: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+          for (i=0;i<mapsize;i++) {
+                    ^
+pixel.C:572:20: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+          for (i=0;i<mapsize;i++) {
+                    ^
+pixel.C:578:20: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+          for (i=0;i<mapsize;i++) {
+                    ^
+pixel.C:584:20: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+          for (i=0;i<mapsize;i++) {
+                    ^
+pixel.C:590:20: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+          for (i=0;i<mapsize;i++) {
+                    ^
+pixel.C:596:20: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+          for (i=0;i<mapsize;i++) {
+                    ^
+pixel.C:602:20: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+          for (i=0;i<mapsize;i++) {
+                    ^
+pixel.C:608:20: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+          for (i=0;i<mapsize;i++) {
+                    ^
+pixel.C: In function ‘void gl_GetPixelMapfv(GLcontext*, GLenum, GLfloat*)’:
+pixel.C:631:20: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+          for (i=0;i<ctx->Pixel.MapItoIsize;i++) {
+                    ^
+pixel.C:636:20: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+          for (i=0;i<ctx->Pixel.MapStoSsize;i++) {
+                    ^
+pixel.C: In function ‘void gl_GetPixelMapuiv(GLcontext*, GLenum, GLuint*)’:
+pixel.C:686:13: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for (i=0;i<ctx->Pixel.MapItoRsize;i++) {
+             ^
+pixel.C:691:13: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for (i=0;i<ctx->Pixel.MapItoGsize;i++) {
+             ^
+pixel.C:696:13: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for (i=0;i<ctx->Pixel.MapItoBsize;i++) {
+             ^
+pixel.C:701:13: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for (i=0;i<ctx->Pixel.MapItoAsize;i++) {
+             ^
+pixel.C:706:13: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for (i=0;i<ctx->Pixel.MapRtoRsize;i++) {
+             ^
+pixel.C:711:13: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for (i=0;i<ctx->Pixel.MapGtoGsize;i++) {
+             ^
+pixel.C:716:13: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for (i=0;i<ctx->Pixel.MapBtoBsize;i++) {
+             ^
+pixel.C:721:13: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for (i=0;i<ctx->Pixel.MapAtoAsize;i++) {
+             ^
+pixel.C: In function ‘void gl_GetPixelMapusv(GLcontext*, GLenum, GLushort*)’:
+pixel.C:741:13: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for (i=0;i<ctx->Pixel.MapItoIsize;i++) {
+             ^
+pixel.C:746:13: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for (i=0;i<ctx->Pixel.MapStoSsize;i++) {
+             ^
+pixel.C:751:13: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for (i=0;i<ctx->Pixel.MapItoRsize;i++) {
+             ^
+pixel.C:756:13: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for (i=0;i<ctx->Pixel.MapItoGsize;i++) {
+             ^
+pixel.C:761:13: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for (i=0;i<ctx->Pixel.MapItoBsize;i++) {
+             ^
+pixel.C:766:13: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for (i=0;i<ctx->Pixel.MapItoAsize;i++) {
+             ^
+pixel.C:771:13: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for (i=0;i<ctx->Pixel.MapRtoRsize;i++) {
+             ^
+pixel.C:776:13: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for (i=0;i<ctx->Pixel.MapGtoGsize;i++) {
+             ^
+pixel.C:781:13: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for (i=0;i<ctx->Pixel.MapBtoBsize;i++) {
+             ^
+pixel.C:786:13: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for (i=0;i<ctx->Pixel.MapAtoAsize;i++) {
+             ^
+
+Compiling framework/glosmesa/src/span.C
+In file included from span.C:81:0:
+span.C: In function ‘void gl_write_monoindex_span(GLcontext*, GLuint, GLint, GLint, GLdepth*, GLuint, GLenum)’:
+../../../framework/include/booga/glosmesa/macros.h:232:39: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  memcpy( (void *) (DST), (void *) (SRC), (size_t) (BYTES) )
+                                       ^
+span.C:316:10: note: in expansion of macro ‘MEMCPY’
+          MEMCPY( index_save, index, n * sizeof(GLuint) );
+          ^
+span.C: In function ‘void gl_read_color_span(GLcontext*, GLuint, GLint, GLint, GLubyte*, GLubyte*, GLubyte*, GLubyte*)’:
+span.C:845:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       if (x>=0 && x+n<=ctx->Buffer->Width) {
+                      ^
+In file included from span.C:81:0:
+../../../framework/include/booga/glosmesa/macros.h:159:29: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+ #define MIN2( A, B )   ( (A)<(B) ? (A) : (B) )
+                             ^
+span.C:862:7: note: in expansion of macro ‘MIN2’
+   n = MIN2( n, ctx->Buffer->Width - x );
+       ^
+span.C: In function ‘void gl_read_index_span(GLcontext*, GLuint, GLint, GLint, GLuint*)’:
+span.C:890:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       if (x>=0 && x+n<=ctx->Buffer->Width) {
+                      ^
+In file included from span.C:81:0:
+../../../framework/include/booga/glosmesa/macros.h:159:29: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+ #define MIN2( A, B )   ( (A)<(B) ? (A) : (B) )
+                             ^
+span.C:904:7: note: in expansion of macro ‘MIN2’
+   n = MIN2( n, ctx->Buffer->Width - x );
+       ^
+
+Compiling framework/glosmesa/src/polygon.C
+
+Compiling framework/glosmesa/src/enable.C
+
+Compiling framework/glosmesa/src/drawpix.C
+
+Compiling framework/glosmesa/src/fog.C
+
+Compiling framework/glosmesa/src/feedback.C
+
+Compiling framework/glosmesa/src/logic.C
+
+Compiling framework/glosmesa/src/attrib.C
+
+Compiling framework/glosmesa/src/rastpos.C
+
+Compiling framework/glosmesa/src/shade.C
+shade.C: In function ‘void gl_color_shade_vertices(GLcontext*, GLuint, GLuint, GLfloat (*)[4], GLfloat (*)[3], GLubyte (*)[4])’:
+shade.C:126:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    for (j=0;j<n;j++) {
+              ^
+shade.C: In function ‘void gl_color_shade_vertices_fast(GLcontext*, GLuint, GLuint, GLfloat (*)[3], GLubyte (*)[4])’:
+shade.C:336:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    for (j=0;j<n;j++) {
+              ^
+shade.C: In function ‘void gl_index_shade_vertices(GLcontext*, GLuint, GLuint, GLfloat (*)[4], GLfloat (*)[3], GLuint*)’:
+shade.C:450:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    for (j=0;j<n;j++) {
+              ^
+
+Compiling framework/glosmesa/src/rect.C
+
+Compiling framework/glosmesa/src/scissor.C
+
+Compiling framework/glosmesa/src/winpos.C
+
+Compiling framework/glosmesa/src/xform.C
+
+Compiling framework/glosmesa/src/texture.C
+texture.C: In function ‘void get_3d_texel(const gl_texture_object*, const gl_texture_image*, GLint, GLint, GLint, GLubyte*, GLubyte*, GLubyte*, GLubyte*)’:
+texture.C:1334:10: warning: unused variable ‘depth’ [-Wunused-variable]
+    GLint depth = img->Depth;    /* includes border */
+          ^
+
+Compiling framework/glosmesa/src/varray.C
+
+Compiling framework/glosmesa/src/vbrender.C
+vbrender.C: In function ‘void unfilled_polygon(GLcontext*, GLuint, GLuint*, GLuint, GLuint)’:
+vbrender.C:285:17: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       for (i=0;i<n;i++) {
+                 ^
+vbrender.C: In function ‘GLfloat polygon_area(const vertex_buffer*, GLuint, const GLuint*)’:
+vbrender.C:342:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    for (i=0;i<n;i++) {
+              ^
+vbrender.C: In function ‘void render_polygon(GLcontext*, GLuint, GLuint*)’:
+vbrender.C:425:20: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+          for (i=2;i<n;i++) {
+                    ^
+vbrender.C: In function ‘void render_clipped_polygon(GLcontext*, GLuint, GLuint*)’:
+vbrender.C:585:20: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+          for (i=2;i<n;i++) {
+                    ^
+
+Compiling framework/glosmesa/src/readpix.C
+
+Compiling framework/glosmesa/src/vbxform.C
+
+Building STATIC Library libglosmesa.a
+----------------------

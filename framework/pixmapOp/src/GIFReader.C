@@ -230,40 +230,40 @@ static int LWZReadByte(FILE* fd, int flag, int input_code_size)
 static int DoExtension(FILE* fd, int label)
 {
   static char buf[256];
-  char* str;
+  //const char* str;
 
-  struct {
+  /* struct {
     int transparent;
     int delayTime;
     int inputFlag;
     int disposal;
-  } 
-  Gif89 = {  -1, -1, -1, 0 };
+  }; */ 
+  //Gif89 = {  -1, -1, -1, 0 };
 
   switch (label) {
     case 0x01:			// Plain Text Extension 
-	str = "Plain Text Extension";
+        //str = "Plain Text Extension";
 	break;
     case 0xff:			// Application Extension 
-	str = "Application Extension";
+        //str = "Application Extension";
 	break;
     case 0xfe:			// Comment Extension 
-	str = "Comment Extension";
+        //str = "Comment Extension";
 	while (GetDataBlock(fd, (unsigned char *) buf) != 0);
 	return false;
     case 0xf9:			// Graphic Control Extension
-	str = "Graphic Control Extension";
+        //str = "Graphic Control Extension";
 	(void) GetDataBlock(fd, (unsigned char *) buf);
-	Gif89.disposal = (buf[0] >> 2) & 0x7;
-	Gif89.inputFlag = (buf[0] >> 1) & 0x1;
-	Gif89.delayTime = LM_to_uint(buf[1], buf[2]);
-	if ((buf[0] & 0x1) != 0)
-	    Gif89.transparent = buf[3];
+	//Gif89.disposal = (buf[0] >> 2) & 0x7;
+	//Gif89.inputFlag = (buf[0] >> 1) & 0x1;
+	//Gif89.delayTime = LM_to_uint(buf[1], buf[2]);
+	//if ((buf[0] & 0x1) != 0)
+	//    Gif89.transparent = buf[3];
 
 	while (GetDataBlock(fd, (unsigned char *) buf) != 0);
 	return false;
     default:
-	str = buf;
+        //str = buf;
 	sprintf(buf, "UNKNOWN (0x%02x)", label);
 	break;
     }
@@ -401,8 +401,8 @@ GIFReader::GIFReader(Exemplar anExemplar)
 AbstractPixmap* GIFReader::read(const AbstractFile& ifs){
   FileFD fs(ifs,"rb");
   if (fs.bad()) {
-    Report::warning("GIFReader:can't open file\n");
-    return false;
+    Report::warning("GIFReader:can't open file");
+    return NULL;
   }
   return read(fs);
 }

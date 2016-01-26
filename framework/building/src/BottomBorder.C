@@ -113,7 +113,7 @@ Object3D* BottomBorder::doCreateSubject(Building* building) const
   List3D* bottom = new List3D();
   List<Vector3D> temp = computeLedge(building->getPolygon(0));
   PolygonExtrude* extrude = new PolygonExtrude(myBorderDepth,temp);
-  if (extrude)
+  if (extrude){
     if(!isClosed()){
       extrude->addHole(building->getPolygon(0));
       if (getLedge() > EPSILON + getBorderHeight()) 
@@ -126,6 +126,7 @@ Object3D* BottomBorder::doCreateSubject(Building* building) const
 	extrude->addHole(computeLedge(building->getPolygon(i+1)));   
       bottom->adoptObject(extrude);
     }
+  }
   if (getBorderWidth() > EPSILON)
     bottom->adoptObject(new PolygonExtrude(getBorderHeight(),temp, 
                                          Geometry3D::computeLayerXYPlane(-getBorderWidth(),temp)));

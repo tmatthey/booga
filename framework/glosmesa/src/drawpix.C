@@ -100,7 +100,7 @@ static void draw_index_pixels( GLcontext* ctx, GLsizei width, GLsizei height,
 			       GLenum type, const GLvoid *pixels )
 {
    GLint x, y, desty;
-   GLuint i, j;
+   GLint i, j;
    GLdepth zspan[MAX_WIDTH];
    GLboolean zoom;
 
@@ -245,7 +245,7 @@ static void draw_stencil_pixels( GLcontext* ctx, GLsizei width, GLsizei height,
 			         GLenum type, const GLvoid *pixels )
 {
    GLint x, y, desty;
-   GLuint i, j;
+   GLint i, j;
    GLboolean zoom;
 
    zoom = ctx->Pixel.ZoomX!=1.0 || ctx->Pixel.ZoomY!=1.0;
@@ -385,7 +385,7 @@ static void draw_depth_pixels( GLcontext* ctx, GLsizei width, GLsizei height,
       MEMSET( alpha, a, width );
    }
    else {
-      GLuint i;
+      GLint i;
       for (i=0;i<width;i++) {
 	 ispan[i] = ctx->Current.RasterIndex;
       }
@@ -394,7 +394,7 @@ static void draw_depth_pixels( GLcontext* ctx, GLsizei width, GLsizei height,
    if (type==GL_UNSIGNED_SHORT && sizeof(GLdepth)==sizeof(GLushort)
        && !bias_or_scale && !zoom && ctx->Visual->RGBAflag) {
       /* Special case: directly write 16-bit depth values */
-      GLuint j;
+      GLint j;
       for (j=0;j<height;j++,y++) {
          GLdepth *zptr = (GLdepth *) pixels + j * width;
          gl_write_color_span( ctx, width, x, y, zptr,
@@ -404,7 +404,7 @@ static void draw_depth_pixels( GLcontext* ctx, GLsizei width, GLsizei height,
    else if (type==GL_UNSIGNED_INT && sizeof(GLdepth)==sizeof(GLuint)
        && !bias_or_scale && !zoom && ctx->Visual->RGBAflag) {
       /* Special case: directly write 32-bit depth values */
-      GLuint i, j;
+      GLint i, j;
       /* Compute shift value to scale 32-bit uints down to depth values. */
       GLuint shift = 0;
       GLuint max = MAX_DEPTH;
@@ -424,7 +424,7 @@ static void draw_depth_pixels( GLcontext* ctx, GLsizei width, GLsizei height,
    }
    else {
       /* General case (slower) */
-      GLuint i, j;
+      GLint i, j;
 
       /* process image row by row */
       for (i=0;i<height;i++,y++) {
@@ -535,7 +535,7 @@ static void draw_color_pixels( GLcontext* ctx,
                                GLsizei width, GLsizei height, GLenum format,
 			       GLenum type, const GLvoid *pixels )
 {
-   GLuint i, j;
+   GLint i, j;
    GLint x, y, desty;
    GLdepth zspan[MAX_WIDTH];
    GLboolean scale_or_bias, quick_draw;
@@ -767,7 +767,10 @@ static void draw_color_pixels( GLcontext* ctx,
 			gf[j] = g_flag ? UINT_TO_FLOAT(*src++) : 0.0;
 			bf[j] = b_flag ? UINT_TO_FLOAT(*src++) : 0.0;
 		     }
-		     af[j] = a_flag ? af[j] = UINT_TO_FLOAT(*src++) : 1.0;
+		     if (a_flag)
+		       af[j] = UINT_TO_FLOAT(*src++);
+		     else
+		       af[j] = 1.0;
 		  }
 	       }
 	       break;

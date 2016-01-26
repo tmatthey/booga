@@ -219,16 +219,14 @@ Vector3D Transform3D::transformAsPoint(const Vector3D& vec) const
 {
   if (myTrans == NULL)
     return vec;
-  else
-    return ::transformAsPoint(vec, *myTrans);
+  return ::transformAsPoint(vec, const_cast<const TransMatrix3D&>(*myTrans));
 }
 
 Vector3D Transform3D::transformAsVector(const Vector3D& vec) const
 {
   if (myTrans == NULL)
     return vec;
-  else
-    return ::transformAsVector(vec, *myTrans);
+  return ::transformAsVector(vec, *myTrans);
 }
 
 Vector3D Transform3D::transformAsNormal(const Vector3D& vec) const

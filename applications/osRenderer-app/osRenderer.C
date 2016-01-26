@@ -77,10 +77,10 @@ bool myGLRenderer::preprocessing()
 {
 
   // Create an RGBA-mode context */
-  myContext = OSMesaCreateContext( GL_RGBA, NULL );
+  myContext = ::OSMesaCreateContext( GL_RGBA, NULL );
 
   if (!myContext) {
-    cerr << "invalid context: NULL\n";
+    std::cerr << "invalid context: NULL\n";
     exit(1);
   }
   // get resolution of image and create a frame buffer
@@ -133,7 +133,6 @@ int main(int argc, char* argv[])
   int counter      = 0;  // startvalue of counter of the frames for the filename
   bool ppm   = false;
   bool jpeg  = true;
-  bool print = false;
   bool pal_small   = false;
   bool pal_large   = false;
   bool raytrace = false;
@@ -175,14 +174,14 @@ int main(int argc, char* argv[])
     listAnimation.append(animCollector.getObject());
  
   Real frame = startframe;
-  cerr << "Animationparameters :" << endl;
-  cerr << " startframe       : " << startframe << endl;
-  cerr << " number of frames : " << number << endl;
-  cerr << " framestep        : " << frameStep << endl;
-  cerr << " counter          : " << counter << endl;
-  for (long i = counter; i < number + counter; i++) {
-    cerr << "Current frame : " << frame << " (" << i << ")." << endl;
-    for (long j=0; j<listAnimation.count(); j++)
+  std::cerr << "Animationparameters :" << std::endl;
+  std::cerr << " startframe       : " << startframe << std::endl;
+  std::cerr << " number of frames : " << number << std::endl;
+  std::cerr << " framestep        : " << frameStep << std::endl;
+  std::cerr << " counter          : " << counter << std::endl;
+  for (int i = counter; i < number + counter; i++) {
+    std::cerr << "Current frame : " << frame << " (" << i << ")." << std::endl;
+    for (int j=0; j<listAnimation.count(); j++)
       listAnimation.item(j)->frame(frame);
     
     world3D->getObjects()->computeBounds();
@@ -225,7 +224,7 @@ int main(int argc, char* argv[])
   
       // make a copy of this camera and modify it
   
-      Camera3D *myCamera = dynamic_cast(Camera3D, myPath.getLastObject());
+      Camera3D *myCamera = dynamic_cast<Camera3D*>(myPath.getLastObject());
       Camera3D *copyCam = (Camera3D *) myCamera->copy();
  
       copyCam->getViewing()->setEye(myCamera->getViewing()->getEye()*myTransform.getTransMatrix());
@@ -260,24 +259,19 @@ int main(int argc, char* argv[])
   
   filename = out;
     if (number > 1 && !out.isEmpty()) {
-       if (i < 10) 
-         filename += form(".000%d", i);
-       else if (i < 100) 
-         filename += form(".00%d", i);
-       else if (i < 1000) 
-         filename += form(".0%d", i);
-       else 
-         filename += form(".0%d", i);
+      char postFix[20];
+      sprintf(postFix,".%05d",i);
+      filename += postFix;
     }
 
     if (ppm) {
       if (!out.isEmpty())
-        filename += form(".ppm");
+        filename += ".ppm";
       PPMWriter writer(filename);
       setExecTime(writer.execute(world2D), "osRenderer: 3: Writing output");
     } else if (jpeg) {
       if (!out.isEmpty())
-        filename += form(".jpg");
+        filename += ".jpg";
       JPEGWriter writer(filename);
       setExecTime(writer.execute(world2D), "osRenderer: 3: Writing output");
     } else {
@@ -396,21 +390,21 @@ void parseCmdLine(int argc, char* argv[],
 
 void usage(const RCString& name)
 {
-    cerr << "Usage: " << name << " [--oversampling rate] [--print] [in-file [out-file]]\n";
-    cerr << " where:\n";
-    cerr << "  --oversampling      : (optional) oversampling rate for antialiasing\n";
-    cerr << "                              (default: no antialiasing performed)\n";
-    cerr << "  --pal_large         : (optional) render scene with PAL resolution (704x576)\n";
-    cerr << "  --pal_small         : (optional) render scene with 1/4 PAL resolution (352x288)\n";
-    cerr << "  --ppm               : (optional) output as PPM\n";    
-    cerr << "  --jpeg              : (optional) output as JPEG\n";
-    cerr << "  --quality quality   : (optional) render scene with quality [boundingbox|wireframe|gouraud|raytracing]\n";
-    cerr << "                        (default: gouraud)\n";
-    cerr << "  --startframe number : (optional) start frame of the animation\n";
-    cerr << "  --number number     : (optional) number of frames\n";
-    cerr << "  --framestep number  : (optional) framestep of the animation\n";
-    cerr << "  --counter number    : (optional) startnumber of the counter for the outputfiles\n";
-    cerr << "  in-file             : (optional) filename of input\n";
-    cerr << "  out-file            : (optional) filename of output\n";
+    std::cerr << "Usage: " << name << " [--oversampling rate] [in-file [out-file]]\n";
+    std::cerr << " where:\n";
+    std::cerr << "  --oversampling      : (optional) oversampling rate for antialiasing\n";
+    std::cerr << "                              (default: no antialiasing performed)\n";
+    std::cerr << "  --pal_large         : (optional) render scene with PAL resolution (704x576)\n";
+    std::cerr << "  --pal_small         : (optional) render scene with 1/4 PAL resolution (352x288)\n";
+    std::cerr << "  --ppm               : (optional) output as PPM\n";    
+    std::cerr << "  --jpeg              : (optional) output as JPEG\n";
+    std::cerr << "  --quality quality   : (optional) render scene with quality [boundingbox|wireframe|gouraud|raytracing]\n";
+    std::cerr << "                        (default: gouraud)\n";
+    std::cerr << "  --startframe number : (optional) start frame of the animation\n";
+    std::cerr << "  --number number     : (optional) number of frames\n";
+    std::cerr << "  --framestep number  : (optional) framestep of the animation\n";
+    std::cerr << "  --counter number    : (optional) startnumber of the counter for the outputfiles\n";
+    std::cerr << "  in-file             : (optional) filename of input\n";
+    std::cerr << "  out-file            : (optional) filename of output\n";
 }
 

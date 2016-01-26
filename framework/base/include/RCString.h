@@ -51,7 +51,7 @@ private:
   RCString(char** r); // Coplien, Advanced C++, p. 64
 
 public:
-  // virtual ~RCString();  // Use default version.
+  virtual ~RCString(){}
 
 public:
   RCString& operator=(char c);

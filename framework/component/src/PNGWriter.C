@@ -100,15 +100,15 @@ bool PNGWriter::save(FILE* outfile, const Pixmap2D* pixi) const
  
   png_textp text_ptr = (png_textp) png_malloc(png_ptr, (png_uint_32)sizeof(png_text) * 2);
  
-  text_ptr[0].key = "Description";
-  text_ptr[0].text = "ProtoMol PNG Writer";
+  text_ptr[0].key = (char*)"Description";
+  text_ptr[0].text = (char*)"BOOGA PNG Writer";
   text_ptr[0].compression = PNG_TEXT_COMPRESSION_NONE;
 #ifdef PNG_iTXt_SUPPORTED
   text_ptr[0].lang = NULL;
 #endif
  
-  text_ptr[1].key = "Software";
-  text_ptr[1].text = "ProtoMol";
+  text_ptr[1].key = (char*)"Software";
+  text_ptr[1].text = (char*)"BOOGA";
   text_ptr[1].compression = PNG_TEXT_COMPRESSION_NONE;
 #ifdef PNG_iTXt_SUPPORTED
   text_ptr[1].lang = NULL;
@@ -116,7 +116,7 @@ bool PNGWriter::save(FILE* outfile, const Pixmap2D* pixi) const
  
   png_bytep* row_pointers = (png_bytep *) png_malloc(png_ptr, resY*sizeof(png_bytep));
 
-  for (unsigned int y=0; y<resY; y++) {
+  for (unsigned int y=0; y<static_cast<unsigned int>(resY); y++) {
     row_pointers[y] = &ppmPicture[y * resX * 3];
   }
  

@@ -27,6 +27,7 @@
 
 #include "booga/glwrapper/GLRenderer.h"
 #include "booga/glwrapper/GLBBTraversal3D.h"
+#include <string.h>
 
 //______________________________________________________________ GLBBTraversal3D
 

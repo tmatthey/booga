@@ -1,0 +1,25 @@
+
+using 3D;
+
+camera {
+  on;
+  background [1, 1, 1];
+  perspective {
+    eye [65, 20, 40];
+    lookat [0, 0, 0];
+    up [0, 0, 1];
+    eyesep 1;
+    resolution (600, 600);
+    fov 30;
+  };
+};
+pointLight (1.5, [1, 1, 1]) {
+  on;
+  position [50, 50, 50];
+};
+define polyCol polygonmapper( "sunniva.ppm",0.05,0.05,45,[0.1,1]);
+polygon ([-15, -15, 0], [15, -15, 0], [15, 15, 0], [-15, 15, 0]) {
+  polyCol;
+  hole ([-8, -5, 0], [5, 10, 0], [10, -5, 0]);
+  hole ([-10, -10, 0], [-9, -10, 0], [-9, -9, 0], [-10, -9, 0]);
+};

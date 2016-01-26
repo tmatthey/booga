@@ -305,7 +305,7 @@ struct triangulateio {
 };
 
 #ifdef ANSI_DECLARATORS
-void triangulate(char *triswitches, struct triangulateio *in, struct triangulateio *out, struct triangulateio *vorout);   
+void triangulate(const char *triswitches, struct triangulateio *in, struct triangulateio *out, struct triangulateio *vorout);   
 #else /* not ANSI_DECLARATORS */
 void triangulate();
 #endif /* not ANSI_DECLARATORS */

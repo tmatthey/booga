@@ -221,13 +221,13 @@ Object3D* Nurbs3D::createDecomposition (void) const
     if (myType == Nurbs3DTypes::Curve)
     {
       register int x;
-      int        n, uc;
+      int        uc;
       Real       u, uMin, uMax, uInt;
       Vector3D   p1, p2;
       Nurbs3D    *newNurbs = new Nurbs3D (*this);
 
       newNurbs->getRangeU (uMin, uMax);	// Get knot vector ranges
-      n = newNurbs->myPoints->getCountU ();
+      //n = newNurbs->myPoints->getCountU ();
 
       uc = (int) rint (100 * precision) + 1;
       uInt = (uMax - uMin) / (100 * precision);
@@ -857,7 +857,7 @@ bool Nurbs3D::isDataCorrect (void) const
 //                                                        //
 /**********************************************************/
 
-char* Nurbs3D::whatAmI (void)
+const char* Nurbs3D::whatAmI (void)
 {
   if (myType == Nurbs3DTypes::Curve)
     return "curve";

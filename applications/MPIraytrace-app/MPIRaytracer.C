@@ -21,9 +21,9 @@
  */
 
 #ifdef HAVE_MPI
-extern "C" {
+//extern "C" {
 #include <mpi.h>
-}
+//}
 #endif
 
 #include <time.h>
@@ -366,16 +366,18 @@ void ourIdleFunc()
   static float *myRowData = NULL;
   MPI_Status stat;
   static bool new_pic = true;
-  timespec_t wait;
-  wait.tv_sec = 0;
-  wait.tv_nsec = 5e+8;
-  timespec_t *tmp = NULL;
   // GO !!!
   if (new_pic){
     new_pic = false;
 #ifdef sgi
     if (row == NULL)
+    {
       nanosleep(&wait,tmp);
+      timespec_t wait;
+      wait.tv_sec = 0;
+      wait.tv_nsec = 5e+8;
+      timespec_t *tmp = NULL;
+    }
 #endif
     MPI_Barrier(MPI_COMM_WORLD);
   }

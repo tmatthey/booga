@@ -58,7 +58,7 @@
  * BIT 31 	30 	23 	22 	0
  *     sign	exponent	mantissa
  */
-static short sqrttab[0x100];    /* declare table of square roots */
+//static short sqrttab[0x100];    /* declare table of square roots */
 
 static void init_sqrt(void)
 {

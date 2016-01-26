@@ -35,6 +35,7 @@ implementRTTI(TumblePath3D, ActionInfoAttr);
 TumblePath3D::TumblePath3D(Exemplar)
 {
   myNurbs = NULL;
+  myCurve = NULL;
 }
 
 TumblePath3D::TumblePath3D(const TumblePath3D& tumblePath)

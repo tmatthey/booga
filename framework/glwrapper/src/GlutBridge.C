@@ -32,6 +32,7 @@
 #endif
 #endif
 # include <GL/glut.h>   // glutSwapBuffers
+# include <GL/glx.h>
 #endif
 
 #include "booga/glwrapper/GlutBridge.h"
@@ -42,17 +43,11 @@ bool GlutBridge::isEventPending()
 {
 #ifdef HAVE_X11
 #ifdef HAVE_OPENGL
-  //
-  // NOTE: This hack is "very, very DIRTY!!!"
-  //
-  // The name of the display variable may change, 
-  // when a new release of GLUT is available.
-  //
-   extern Display* __glutDisplay;
-
-   if (XPending(__glutDisplay))
-     return true;
-   else
+  Display* display = glXGetCurrentDisplay();
+  //XFlush(display);
+  if (XPending(display))
+    return true;
+  else
 #endif // HAVE_OPENGL
 #endif
     return false;
@@ -60,7 +55,6 @@ bool GlutBridge::isEventPending()
 
 void GlutBridge::swapBuffers()
 {
-
   glutSwapBuffers();
 }
 

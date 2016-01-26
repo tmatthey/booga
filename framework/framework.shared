@@ -121,7 +121,7 @@
 		 "SubProjDir" [ "framework/glwrapper" ]
 	 >
 	 < "SubProjSchema"
-		 "SubProjName" [ "glosmeas.shared" ]
+		 "SubProjName" [ "glosmesa.shared" ]
 		 "SubProjDir" [ "framework/glosmesa" ]
 	 >
 	 < "SubProjSchema"

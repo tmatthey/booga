@@ -139,7 +139,7 @@ INLINE bool MPrimitive<TObject, TPrimitive, TPath, TRay, TPrimitiveAttr>
   TObject* decomposition = createDecomposition();
       
   if (decomposition != NULL) {
-    if (hit = decomposition->intersect(ray))
+    if ((hit = decomposition->intersect(ray)))
       ray.setBestHitObject((TPrimitive*)this);  // need instantiated type!
     delete decomposition;
   }  

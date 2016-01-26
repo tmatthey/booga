@@ -760,7 +760,7 @@ void Nurbs3DManipulator::refineCurve (Nurbs3DKnots *refineKnots)
   }
 
   register int i, j, k, l;
-  int  n, m, p, r, a, b, ind;
+  int  n, p, r, a, b, ind;
   int  pos, mult, omult, rem;
   Real alfa, knot;
 
@@ -792,7 +792,7 @@ void Nurbs3DManipulator::refineCurve (Nurbs3DKnots *refineKnots)
 
   n = myNurbs->myPoints->getCountU ();          // Number of control points
   r = refineKnots->getCount ();        // Recalculate number of new knots
-  m = n + p + 1;
+  //m = n + p + 1;
 
   myNurbs->myKnotsU->findSpan (refineKnots->getFirstKnot(), a);     // Get interval boundaries
   myNurbs->myKnotsU->findSpan (refineKnots->getLastKnot(), b);
@@ -989,7 +989,7 @@ int Nurbs3DManipulator::removeKnotCurve (Real u, int num, Real tol, bool force)
   }
 
   int  i, j, ii, jj, forceCounter = 0;
-  int  n, m, p, s, ord, t = 0;
+  int  n, p, s, t = 0;
   int  fout, first, last, off;
   bool remFlag;
   Real alfi, alfj;
@@ -1003,8 +1003,8 @@ int Nurbs3DManipulator::removeKnotCurve (Real u, int num, Real tol, bool force)
   n = myNurbs->myPoints->getCountU ();
   p = myNurbs->myKnotsU->getDegree ();
   s = myNurbs->myKnotsU->getMultiplicityByMap (r);
-  m = n + p + 1;
-  ord = p + 1;
+  //m = n + p + 1;
+  //ord = p + 1;
 
   if (num > s)                         // Knot can be removed at most "s"-times
     num = s;

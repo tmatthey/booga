@@ -33,8 +33,8 @@ implementInitStatics(Configuration);
 
 const int MAX_CONFIGURATION_ENTRIES = 100;
 
-SymTable<Name, Option*>* Configuration::ourOptions;
-List<ConfigurationHandler*>* Configuration::ourHandlers;
+SymTable<Name, Option*>* Configuration::ourOptions = NULL;
+List<ConfigurationHandler*>* Configuration::ourHandlers = NULL;
 
 void Configuration::addHandler(ConfigurationHandler* handler)
 {
@@ -60,6 +60,8 @@ int Configuration::setOption(const Name& name, const Name& option)
 const Option* Configuration::getOption(const Name& name)
 {
   Option* option;
+  if (ourOptions == NULL)
+    Configuration::initClass();
   if (!ourOptions->lookup(name, option)) {
     return NULL;
   }
@@ -74,6 +76,9 @@ const Option* Configuration::getOption(const RCString& name)
 
 void Configuration::initClass()
 {
-  ourOptions = new SymTable<Name, Option*>(MAX_CONFIGURATION_ENTRIES);
-  ourHandlers = new List<ConfigurationHandler*>;
+  if (ourOptions == NULL)
+  {
+    ourOptions = new SymTable<Name, Option*>(MAX_CONFIGURATION_ENTRIES);
+    ourHandlers = new List<ConfigurationHandler*>;
+  }
 }

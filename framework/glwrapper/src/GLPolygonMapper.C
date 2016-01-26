@@ -31,8 +31,9 @@
 
 #include "booga/glwrapper/GLPolygonMapper.h"
 
-#include <GL/gl.h>
-#include <GL/glu.h>
+#ifdef HAVE_OPENGL
+ #include <GL/glu.h>
+#endif
 
 //______________________________________________________________________ GLPolygonMapper
 
@@ -55,8 +56,10 @@ GLPolygonMapper::GLPolygonMapper(const GLPolygonMapper& polyMapper) : PolygonMap
 
 GLPolygonMapper::~GLPolygonMapper()
 {
+#ifdef HAVE_OPENGL
   if(myGLList)
     glDeleteLists(myGLList,1);
+#endif
 }
 
 Texture3D* GLPolygonMapper::copy() const
@@ -126,8 +129,8 @@ void GLPolygonMapper::doTexturing(Texture3DContext& context) const
     t = getNormal()*s;
   }
 
-  GLfloat sMapping[4] = { s[0], s[1], s[2], 0 };   
-  GLfloat tMapping[4] = { t[0], t[1], t[2], 0 };   
+  GLfloat sMapping[4] = { static_cast<GLfloat>(s[0]), static_cast<GLfloat>(s[1]), static_cast<GLfloat>(s[2]), static_cast<GLfloat>(0) };   
+  GLfloat tMapping[4] = { static_cast<GLfloat>(t[0]), static_cast<GLfloat>(t[1]), static_cast<GLfloat>(t[2]), static_cast<GLfloat>(0) };   
 
   glTexGeni(GL_S, GL_TEXTURE_GEN_MODE, GL_OBJECT_LINEAR);
   glTexGenfv(GL_S, GL_OBJECT_PLANE, sMapping);
@@ -147,7 +150,7 @@ Makeable* GLPolygonMapper::make(RCString& errMsg, const List<Value*>* parameters
 //  Configuration::setOption(Name("Pixmap.Type"),Name("RGBchar"));
   
   if (parameters  == NULL || parameters->count() < 1)
-      return new PolygonMapper(*this);
+      return new GLPolygonMapper(*this);
 
   if ((parameters->count() < 1) || (parameters->count() > 6))
     errMsg = "Wrong number of parameters: pixmap name, [x-ratio [, y-ratio [, beta [, dispacement [, normal]]]]]";   
@@ -217,14 +220,15 @@ Makeable* GLPolygonMapper::make(RCString& errMsg, const List<Value*>* parameters
     newPolygonMapper->setDisplacement(displacement);    
     newPolygonMapper->setNormal(normal);    
   }
-  
   return newPolygonMapper;
 }
 
 void GLPolygonMapper::adoptPixmap(AbstractPixmap* pixmap)
 {
+#ifdef HAVE_OPENGL
   if(myGLList)
     glDeleteLists(myGLList,1);
+#endif
   myGLList = 0;
 
   PolygonMapper::adoptPixmap(pixmap);

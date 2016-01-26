@@ -24,6 +24,8 @@
 #include <stdio.h>
 #include <string.h>
 
+#include "booga/base/ReportConfigurationHandler.h"
+
 #include "booga/base/RCString.h"
 #include "booga/base/Timer.h"
 #include "booga/base/Configuration.h"

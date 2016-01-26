@@ -127,6 +127,7 @@ INLINE POId PRef<T>::getPOId() {
   return myPOId; 
 }
 
+/*
 template <class T>
 INLINE Marshal& operator<<(Marshal& m, const PRef<T>& ref) {
   m << ref.myPOId;
@@ -138,6 +139,7 @@ INLINE Marshal& operator>>(Marshal& m, PRef<T>& ref) {
   m >> ref.myPOId;
   return m;
 }
+*/
  
 #undef INLINE  
 #endif // defined( TEMPLATE_IS_INCLUDE_FROM_H) || !defined(TEMPLATE_IN_HEADER)

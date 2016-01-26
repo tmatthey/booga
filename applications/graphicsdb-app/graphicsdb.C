@@ -85,7 +85,7 @@ int main(int argc, char* argv[]) {
 
   TransientBase theTransientBase;
 //  FileBase aDB("/home/collison/tmp/testDB/");
-  FileBase aDB("/home/fcg/Scenes/GraphicsBase/");
+  FileBase aDB((char*)"/home/fcg/Scenes/GraphicsBase/");
 
 //  PRCString aprcs(aDB);
 //  aprcs = "i wonder! is this really gonna work?\n";
@@ -139,12 +139,12 @@ int main(int argc, char* argv[]) {
     Transaction t;
     t.begin();
 
-    if (aDB.lookupObject("GraphicsBase") != POID_NULL) {
+    if (aDB.lookupObject((char*)"GraphicsBase") != POID_NULL) {
       Report::error("GraphicsBase allready exists");
       return 1;
     }
     GraphicsDataBase* theGDB = new GraphicsDataBase(aDB);
-    aDB.setObjectName("GraphicsBase",theGDB->getPOId());
+    aDB.setObjectName((char*)"GraphicsBase",theGDB->getPOId());
     GDBDataType *gdbAnyData = new GDBDataType(aDB, "AnyData");
     GDBDataType *gdbTexture3D = new GDBDataType(aDB, "Texture3D");
     GDBDataType *gdbObject3D = new GDBDataType(aDB, "Object3D");
@@ -216,7 +216,7 @@ int main(int argc, char* argv[]) {
     Transaction t;
     t.begin();
     POId poid(1,oid);
-    PRef<GraphicsDataBase> gdb(aDB.lookupObject("GraphicsBase"));
+    PRef<GraphicsDataBase> gdb(aDB.lookupObject((char*)"GraphicsBase"));
     
     GDBOperation* op = gdb->getOperation("Exporter");
     GDBExport *exporter = dynamic_cast<GDBExport*>(op);
@@ -241,7 +241,7 @@ int main(int argc, char* argv[]) {
   if (mode == 'c') {
     Transaction t;
     t.begin();
-    PRef<GraphicsDataBase> gdb(aDB.lookupObject("GraphicsBase"));
+    PRef<GraphicsDataBase> gdb(aDB.lookupObject((char*)"GraphicsBase"));
     GDBDataType* gdbObject3D = gdb->getDataType("Object3D");
  
     GDBOperation* op = gdb->getOperation("CanonicalViews");
@@ -279,7 +279,7 @@ int main(int argc, char* argv[]) {
   if (mode == 'i') {
     Transaction t;
     t.begin();
-    PRef<GraphicsDataBase> gdb(aDB.lookupObject("GraphicsBase"));
+    PRef<GraphicsDataBase> gdb(aDB.lookupObject((char*)"GraphicsBase"));
     gdb->getOperation("Icon Builder")->execute(POId(1,oid), POID_NULL);
     t.commit();
   }
@@ -320,7 +320,7 @@ int main(int argc, char* argv[]) {
   if (mode == 'd') {
     Transaction t;
     t.begin();
-    PRef<GraphicsDataBase> gdb(aDB.lookupObject("GraphicsBase"));
+    PRef<GraphicsDataBase> gdb(aDB.lookupObject((char*)"GraphicsBase"));
     GDBRepType* gdbBsdl3 = gdb->getRepType("BSDL3");
     std::stringstream os;
     for (int i=0; i<gdbBsdl3->getExtent().count(); i++) {
@@ -344,7 +344,7 @@ int main(int argc, char* argv[]) {
     SingleFileStore(filename);
     Transaction t;
     t.begin();
-    PRef<GraphicsDataBase> gdb(aDB.lookupObject("GraphicsBase"));
+    PRef<GraphicsDataBase> gdb(aDB.lookupObject((char*)"GraphicsBase"));
     gdb->markChanged(); // just to be sure to have the GDBDataBase loaded
     BSDLWriter writer(gdbStore);
     writer.execute(world3D);

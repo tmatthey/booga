@@ -21,13 +21,6 @@
  */
 
 
-// MPIch: mpirun -p4pg pg4 MPIraytrace
-
-#ifdef HAVE_MPI
-extern "C" {
-#include <mpi.h>
-}
-
 #include <string.h>  // strcmp()
 #include <stdlib.h>  // atoi()
 
@@ -48,6 +41,13 @@ extern "C" {
 #include "booga/component/Collector3DFor.h"
  
 #include "booga/animation/Animation3D.h"
+
+// MPIch: mpirun -p4pg pg4 MPIraytrace
+
+#ifdef HAVE_MPI
+//extern "C" {
+#include <mpi.h>
+//}
 
 #include "MPIRaytracer.h"
 
@@ -191,7 +191,7 @@ int main(int argc, char* argv[])
       filename = out;
       if (number > 1 && !out.isEmpty()){
 	char tmp[256];
-	sprintf(tmp,".%04d", static<int>(i));
+	sprintf(tmp,".%04d", static_cast<int>(i));
 	filename += tmp;
       }
       if (ppm) {

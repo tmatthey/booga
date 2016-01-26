@@ -1,0 +1,3113 @@
+Compiling and Linking in STATIC mode.
+
+Entering directory ./framework
+Copying base/GNUmakefile
+Copying persistence/GNUmakefile
+Copying pixmapOp/GNUmakefile
+Copying object/GNUmakefile
+Copying nurbs/GNUmakefile
+Copying animation/GNUmakefile
+Copying building/GNUmakefile
+Copying texture/GNUmakefile
+Copying component/GNUmakefile
+Copying graphicsdb/GNUmakefile
+Copying glwrapper/GNUmakefile
+Copying glosmesa/GNUmakefile
+
+Entering directory framework/base
+Copying src/GNUmakefile
+Copying include/GNUmakefile
+
+Generating framework/base/src/ColorConfigurationHandler.C
+gawk: ../../framework/confHandler2C++.sh:43: warning: `getline' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:44: warning: `close' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:82: warning: `gsub' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:86: warning: `tolower' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:197: warning: `function' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:444: warning: `return' is not supported in old awk
+
+Generating framework/base/include/ColorConfigurationHandler.h
+gawk: ../../framework/confHandler2C++.sh:43: warning: `getline' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:44: warning: `close' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:82: warning: `gsub' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:86: warning: `tolower' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:197: warning: `function' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:444: warning: `return' is not supported in old awk
+
+Generating framework/base/src/PixmapConfigurationHandler.C
+gawk: ../../framework/confHandler2C++.sh:43: warning: `getline' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:44: warning: `close' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:82: warning: `gsub' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:86: warning: `tolower' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:197: warning: `function' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:444: warning: `return' is not supported in old awk
+
+Generating framework/base/include/PixmapConfigurationHandler.h
+gawk: ../../framework/confHandler2C++.sh:43: warning: `getline' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:44: warning: `close' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:82: warning: `gsub' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:86: warning: `tolower' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:197: warning: `function' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:444: warning: `return' is not supported in old awk
+
+Generating framework/base/src/ReportConfigurationHandler.C
+gawk: ../../framework/confHandler2C++.sh:43: warning: `getline' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:44: warning: `close' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:82: warning: `gsub' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:86: warning: `tolower' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:197: warning: `function' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:444: warning: `return' is not supported in old awk
+
+Generating framework/base/include/ReportConfigurationHandler.h
+gawk: ../../framework/confHandler2C++.sh:43: warning: `getline' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:44: warning: `close' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:82: warning: `gsub' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:86: warning: `tolower' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:197: warning: `function' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:444: warning: `return' is not supported in old awk
+
+Generating framework/base/src/StatisticConfigurationHandler.C
+gawk: ../../framework/confHandler2C++.sh:43: warning: `getline' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:44: warning: `close' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:82: warning: `gsub' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:86: warning: `tolower' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:197: warning: `function' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:444: warning: `return' is not supported in old awk
+
+Generating framework/base/include/StatisticConfigurationHandler.h
+gawk: ../../framework/confHandler2C++.sh:43: warning: `getline' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:44: warning: `close' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:82: warning: `gsub' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:86: warning: `tolower' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:197: warning: `function' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:444: warning: `return' is not supported in old awk
+
+Entering directory framework/base/src
+
+Compiling framework/base/src/AbstractPixmap.C
+
+Compiling framework/base/src/Arcball.C
+
+Compiling framework/base/src/BoundingBox.C
+
+Compiling framework/base/src/BoundingRect.C
+
+Compiling framework/base/src/Color.C
+
+Compiling framework/base/src/ColorOption.C
+
+Compiling framework/base/src/ColorTypes.C
+
+Compiling framework/base/src/Configuration.C
+
+Compiling framework/base/src/ConfigurationHandler.C
+
+Compiling framework/base/src/ConicRasterizer.C
+
+Compiling framework/base/src/Geometry2D.C
+
+Compiling framework/base/src/Geometry3D.C
+
+Compiling framework/base/src/LineRasterizer.C
+
+Compiling framework/base/src/List.C
+
+Compiling framework/base/src/MIterator.C
+
+Compiling framework/base/src/MPixmapExemplar.C
+
+Compiling framework/base/src/Name.C
+
+Compiling framework/base/src/Option.C
+
+Compiling framework/base/src/ParserUtilities.C
+
+Compiling framework/base/src/PixmapOf.C
+
+Compiling framework/base/src/PixmapOption.C
+
+Compiling framework/base/src/PixmapUtilities.C
+
+Compiling framework/base/src/Quaternion.C
+
+Compiling framework/base/src/RCString.C
+
+Compiling framework/base/src/ReferenceCounting.C
+
+Compiling framework/base/src/Report.C
+
+Compiling framework/base/src/ScopedName.C
+
+Compiling framework/base/src/Stack.C
+
+Compiling framework/base/src/StaticInit.C
+
+Compiling framework/base/src/Statistic.C
+
+Compiling framework/base/src/StreamOption.C
+
+Compiling framework/base/src/StringUtilities.C
+
+Compiling framework/base/src/Strip.C
+
+Compiling framework/base/src/SymTable.C
+
+Compiling framework/base/src/Timer.C
+
+Compiling framework/base/src/TransMatrix2D.C
+
+Compiling framework/base/src/TransMatrix3D.C
+
+Compiling framework/base/src/Value.C
+
+Compiling framework/base/src/ValueOption.C
+
+Compiling framework/base/src/Vector2D.C
+
+Compiling framework/base/src/Vector3D.C
+
+Compiling framework/base/src/Vector4D.C
+
+Compiling framework/base/src/mathutilities.C
+
+Compiling framework/base/src/tess-construct.C
+
+Compiling framework/base/src/tess-misc.C
+
+Compiling framework/base/src/tess-monotone.C
+
+Compiling framework/base/src/tess-tri.C
+
+Compiling framework/base/src/tess-triangle.C
+
+Compiling framework/base/src/ColorConfigurationHandler.C
+
+Compiling framework/base/src/PixmapConfigurationHandler.C
+
+Compiling framework/base/src/ReportConfigurationHandler.C
+
+Compiling framework/base/src/StatisticConfigurationHandler.C
+
+Building STATIC Library libbase.a
+----------------------
+
+Entering directory framework/base/include
+
+Entering directory framework/persistence
+Copying src/GNUmakefile
+Copying include/GNUmakefile
+
+Entering directory framework/persistence/src
+
+Compiling framework/persistence/src/AsciiMarshal.C
+
+Compiling framework/persistence/src/DataBase.C
+
+Compiling framework/persistence/src/FileBase.C
+
+Compiling framework/persistence/src/Marshal.C
+
+Compiling framework/persistence/src/PBinary.C
+
+Compiling framework/persistence/src/PExtra.C
+
+Compiling framework/persistence/src/PExtraTemplates.C
+
+Compiling framework/persistence/src/POId.C
+
+Compiling framework/persistence/src/PRCString.C
+
+Compiling framework/persistence/src/PRef.C
+
+Compiling framework/persistence/src/PersistenceFor.C
+
+Compiling framework/persistence/src/Persistent.C
+
+Compiling framework/persistence/src/PersistentManager.C
+
+Compiling framework/persistence/src/Set.C
+
+Compiling framework/persistence/src/SimpleIndex.C
+
+Compiling framework/persistence/src/Transaction.C
+
+Compiling framework/persistence/src/TransientBase.C
+
+Building STATIC Library libpersistence.a
+----------------------
+
+Entering directory framework/persistence/include
+
+Entering directory framework/pixmapOp
+Copying src/GNUmakefile
+Copying include/GNUmakefile
+
+Entering directory framework/pixmapOp/src
+
+Compiling framework/pixmapOp/src/ColorTransformation.C
+
+Compiling framework/pixmapOp/src/ComputeBoundary.C
+
+Compiling framework/pixmapOp/src/ExtractChannel.C
+
+Compiling framework/pixmapOp/src/GIFReader.C
+
+Compiling framework/pixmapOp/src/GammaCorrection.C
+
+Compiling framework/pixmapOp/src/ImageReader.C
+
+Compiling framework/pixmapOp/src/JPEGReader.C
+
+Compiling framework/pixmapOp/src/LabelConnectedComponents.C
+
+Compiling framework/pixmapOp/src/NeuroQuantize.C
+
+Compiling framework/pixmapOp/src/PPMReader.C
+
+Compiling framework/pixmapOp/src/PixiDiff.C
+
+Compiling framework/pixmapOp/src/PixiReader.C
+
+Compiling framework/pixmapOp/src/PixmapGenerator.C
+
+Compiling framework/pixmapOp/src/PixmapTransformer.C
+
+Compiling framework/pixmapOp/src/Thin.C
+
+Compiling framework/pixmapOp/src/neuroQuant.C
+
+Building STATIC Library libpixmapOp.a
+----------------------
+
+Entering directory framework/pixmapOp/include
+
+Entering directory framework/object
+Copying src/GNUmakefile
+Copying include/GNUmakefile
+
+Generating framework/object/src/Camera2DAttr.C
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/object/include/Camera2DAttr.h
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/object/src/Camera3DAttr.C
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/object/include/Camera3DAttr.h
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/object/src/Cone3DAttr.C
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/object/include/Cone3DAttr.h
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/object/src/Cylinder3DAttr.C
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/object/include/Cylinder3DAttr.h
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/object/src/LightSourceAttr.C
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/object/include/LightSourceAttr.h
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/object/src/MakeableAttr.C
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/object/include/MakeableAttr.h
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/object/src/PointLightAttr.C
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/object/include/PointLightAttr.h
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/object/src/Primitive2DAttr.C
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/object/include/Primitive2DAttr.h
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/object/src/Primitive3DAttr.C
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/object/include/Primitive3DAttr.h
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/object/src/Text2DAttr.C
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/object/include/Text2DAttr.h
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/object/src/Text3DAttr.C
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/object/include/Text3DAttr.h
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/object/src/Transform2DAttr.C
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/object/include/Transform2DAttr.h
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/object/src/Transform3DAttr.C
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/object/include/Transform3DAttr.h
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/object/src/Viewing3DAttr.C
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/object/include/Viewing3DAttr.h
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Entering directory framework/object/src
+
+Compiling framework/object/src/Aggregate2D.C
+
+Compiling framework/object/src/Aggregate3D.C
+
+Compiling framework/object/src/AmbientLight.C
+
+Compiling framework/object/src/BOOGAObject.C
+
+Compiling framework/object/src/BezierCurve3D.C
+
+Compiling framework/object/src/BezierPatch3D.C
+
+Compiling framework/object/src/BistableObject2D.C
+
+Compiling framework/object/src/BistableObject2DAttr.C
+
+Compiling framework/object/src/BistableObject3D.C
+
+Compiling framework/object/src/BistableObject3DAttr.C
+
+Compiling framework/object/src/BoundsUtilities.C
+
+Compiling framework/object/src/Box3D.C
+
+Compiling framework/object/src/Camera2D.C
+
+Compiling framework/object/src/Camera3D.C
+
+Compiling framework/object/src/Checker.C
+
+Compiling framework/object/src/CheckerAttr.C
+
+Compiling framework/object/src/Circle2D.C
+
+Compiling framework/object/src/Cone3D.C
+
+Compiling framework/object/src/ConstantTexture2D.C
+
+Compiling framework/object/src/ConstantTexture3D.C
+
+Compiling framework/object/src/Cylinder3D.C
+
+Compiling framework/object/src/DirectedLight.C
+
+Compiling framework/object/src/Disc3D.C
+
+Compiling framework/object/src/DummyMakeable.C
+
+Compiling framework/object/src/Function.C
+
+Compiling framework/object/src/GeneralLight.C
+
+Compiling framework/object/src/Grid3D.C
+
+Compiling framework/object/src/InteractionObject2D.C
+
+Compiling framework/object/src/InteractionObject3D.C
+
+Compiling framework/object/src/InterpolationCurve3D.C
+
+Compiling framework/object/src/InterpolatorTexture2D.C
+
+Compiling framework/object/src/LevelOfDetail3D.C
+
+Compiling framework/object/src/LightSource.C
+
+Compiling framework/object/src/LightTexture.C
+
+Compiling framework/object/src/Line2D.C
+
+Compiling framework/object/src/Line3D.C
+
+Compiling framework/object/src/List2D.C
+
+Compiling framework/object/src/List3D.C
+
+Compiling framework/object/src/MAggregate.C
+
+Compiling framework/object/src/MBistableObject.C
+
+Compiling framework/object/src/MInteractionObject.C
+
+Compiling framework/object/src/MPrimitive.C
+
+Compiling framework/object/src/MProxy.C
+
+Compiling framework/object/src/MShared.C
+
+Compiling framework/object/src/Makeable.C
+
+Compiling framework/object/src/MakeableHandler.C
+
+Compiling framework/object/src/MonoRomanFont.C
+
+Compiling framework/object/src/MultiObject3D.C
+
+Compiling framework/object/src/NullObject3D.C
+
+Compiling framework/object/src/Object2D.C
+
+Compiling framework/object/src/Object2DAttr.C
+
+Compiling framework/object/src/Object3D.C
+
+Compiling framework/object/src/Object3DAttr.C
+
+Compiling framework/object/src/ObjectAttr.C
+
+Compiling framework/object/src/ObjectSpecifier.C
+
+Compiling framework/object/src/ObjectSpecifierAttr.C
+
+Compiling framework/object/src/OrthographicViewing3D.C
+
+Compiling framework/object/src/PathOf.C
+
+Compiling framework/object/src/PatternTexture2D.C
+
+Compiling framework/object/src/PatternTexture2DAttr.C
+
+Compiling framework/object/src/PerspectiveViewing3D.C
+
+Compiling framework/object/src/Pixmap2D.C
+
+Compiling framework/object/src/PixmapTexture2D.C
+
+Compiling framework/object/src/Point2D.C
+
+Compiling framework/object/src/Point3D.C
+
+Compiling framework/object/src/PointLight.C
+
+Compiling framework/object/src/Polygon2D.C
+
+Compiling framework/object/src/Polygon3D.C
+
+Compiling framework/object/src/Polygon3DAttr.C
+
+Compiling framework/object/src/PolygonExtrude.C
+
+Compiling framework/object/src/PolygonExtrudeAttr.C
+
+Compiling framework/object/src/Primitive2D.C
+
+Compiling framework/object/src/Primitive3D.C
+
+Compiling framework/object/src/Proxy2D.C
+
+Compiling framework/object/src/Proxy3D.C
+
+Compiling framework/object/src/Ray2D.C
+
+Compiling framework/object/src/Ray3D.C
+
+Compiling framework/object/src/Ray3DFactory.C
+
+Compiling framework/object/src/Ray3DUtilities.C
+
+Compiling framework/object/src/RomanFont.C
+
+Compiling framework/object/src/Shared2D.C
+
+Compiling framework/object/src/Shared3D.C
+
+Compiling framework/object/src/Sphere3D.C
+
+Compiling framework/object/src/StrokeFont.C
+
+Compiling framework/object/src/Text2D.C
+
+Compiling framework/object/src/Text3D.C
+
+Compiling framework/object/src/Texture2D.C
+
+Compiling framework/object/src/Texture2DAttr.C
+
+Compiling framework/object/src/Texture2DContext.C
+
+Compiling framework/object/src/Texture2DList.C
+
+Compiling framework/object/src/Texture3D.C
+
+Compiling framework/object/src/Texture3DAttr.C
+
+Compiling framework/object/src/Texture3DContext.C
+
+Compiling framework/object/src/Texture3DList.C
+
+Compiling framework/object/src/Torus3D.C
+
+Compiling framework/object/src/Transform2D.C
+
+Compiling framework/object/src/Transform3D.C
+
+Compiling framework/object/src/Triangle3D.C
+
+Compiling framework/object/src/TriangleList3D.C
+
+Compiling framework/object/src/ValueMakeable.C
+
+Compiling framework/object/src/Viewing2D.C
+
+Compiling framework/object/src/Viewing3D.C
+
+Compiling framework/object/src/World.C
+
+Compiling framework/object/src/World2D.C
+
+Compiling framework/object/src/World3D.C
+
+Compiling framework/object/src/Camera2DAttr.C
+
+Compiling framework/object/src/Camera3DAttr.C
+
+Compiling framework/object/src/Cone3DAttr.C
+
+Compiling framework/object/src/Cylinder3DAttr.C
+
+Compiling framework/object/src/LightSourceAttr.C
+
+Compiling framework/object/src/MakeableAttr.C
+
+Compiling framework/object/src/PointLightAttr.C
+
+Compiling framework/object/src/Primitive2DAttr.C
+
+Compiling framework/object/src/Primitive3DAttr.C
+
+Compiling framework/object/src/Text2DAttr.C
+
+Compiling framework/object/src/Text3DAttr.C
+
+Compiling framework/object/src/Transform2DAttr.C
+
+Compiling framework/object/src/Transform3DAttr.C
+
+Compiling framework/object/src/Viewing3DAttr.C
+
+Building STATIC Library libobject.a
+----------------------
+
+Entering directory framework/object/include
+
+Entering directory framework/nurbs
+Copying src/GNUmakefile
+Copying include/GNUmakefile
+
+Entering directory framework/nurbs/src
+
+Compiling framework/nurbs/src/BinomialCoeffs.C
+
+Compiling framework/nurbs/src/Nurbs3D.C
+
+Compiling framework/nurbs/src/Nurbs3DAttr.C
+
+Compiling framework/nurbs/src/Nurbs3DBasisFuns.C
+
+Compiling framework/nurbs/src/Nurbs3DCreator.C
+
+Compiling framework/nurbs/src/Nurbs3DEvaluator.C
+
+Compiling framework/nurbs/src/Nurbs3DHandler.C
+
+Compiling framework/nurbs/src/Nurbs3DKnots.C
+
+Compiling framework/nurbs/src/Nurbs3DManipulator.C
+
+Compiling framework/nurbs/src/Nurbs3DParameters.C
+
+Compiling framework/nurbs/src/Nurbs3DPoints.C
+
+Compiling framework/nurbs/src/Nurbs3DWeights.C
+
+Compiling framework/nurbs/src/NurbsCircle3D.C
+
+Compiling framework/nurbs/src/NurbsCompound3D.C
+
+Compiling framework/nurbs/src/NurbsData3D.C
+
+Compiling framework/nurbs/src/NurbsInterpolation3D.C
+
+Compiling framework/nurbs/src/NurbsLine3D.C
+
+Compiling framework/nurbs/src/NurbsPolyLine3D.C
+
+Compiling framework/nurbs/src/NurbsRevolution3D.C
+
+Compiling framework/nurbs/src/NurbsSphere3D.C
+
+Compiling framework/nurbs/src/NurbsSquare3D.C
+
+Compiling framework/nurbs/src/NurbsSweeping3D.C
+
+Compiling framework/nurbs/src/NurbsSwinging3D.C
+
+Compiling framework/nurbs/src/NurbsTorus3D.C
+
+Building STATIC Library libnurbs.a
+----------------------
+
+Entering directory framework/nurbs/include
+
+Entering directory framework/animation
+Copying src/GNUmakefile
+Copying include/GNUmakefile
+
+Generating framework/animation/src/ActionInfoAttr.C
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/animation/include/ActionInfoAttr.h
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/animation/src/Animation3DAttr.C
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/animation/include/Animation3DAttr.h
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Entering directory framework/animation/src
+
+Compiling framework/animation/src/ActionInfo.C
+
+Compiling framework/animation/src/Animation3D.C
+
+Compiling framework/animation/src/AnimationFunction.C
+
+Compiling framework/animation/src/Cycle3D.C
+
+Compiling framework/animation/src/Grow3D.C
+
+Compiling framework/animation/src/Morph3D.C
+
+Compiling framework/animation/src/Move3D.C
+
+Compiling framework/animation/src/Shear3D.C
+
+Compiling framework/animation/src/Tumble3D.C
+
+Compiling framework/animation/src/TumbleCenter3D.C
+
+Compiling framework/animation/src/TumbleDirection3D.C
+
+Compiling framework/animation/src/TumblePath3D.C
+
+Compiling framework/animation/src/Turn3D.C
+
+Compiling framework/animation/src/ActionInfoAttr.C
+
+Compiling framework/animation/src/Animation3DAttr.C
+
+Building STATIC Library libanimation.a
+----------------------
+
+Entering directory framework/animation/include
+
+Entering directory framework/building
+Copying src/GNUmakefile
+Copying include/GNUmakefile
+
+Generating framework/building/src/BottomAttr.C
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/building/include/BottomAttr.h
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/building/src/BuildingObjectAttr.C
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/building/include/BuildingObjectAttr.h
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/building/src/FaceArbourAttr.C
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/building/include/FaceArbourAttr.h
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/building/src/FaceAttr.C
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/building/include/FaceAttr.h
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/building/src/FaceTunnelAttr.C
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/building/include/FaceTunnelAttr.h
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/building/src/FrontAttr.C
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/building/include/FrontAttr.h
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/building/src/RoofAttr.C
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/building/include/RoofAttr.h
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Entering directory framework/building/src
+
+Compiling framework/building/src/Bottom.C
+
+Compiling framework/building/src/BottomBorder.C
+
+Compiling framework/building/src/BottomBorderAttr.C
+
+Compiling framework/building/src/BottomFlat.C
+
+Compiling framework/building/src/BottomUser.C
+
+Compiling framework/building/src/Building.C
+
+Compiling framework/building/src/BuildingAttr.C
+
+Compiling framework/building/src/BuildingObject.C
+
+Compiling framework/building/src/Face.C
+
+Compiling framework/building/src/FaceArbour.C
+
+Compiling framework/building/src/FaceDummy.C
+
+Compiling framework/building/src/FaceItem.C
+
+Compiling framework/building/src/FaceItemAttr.C
+
+Compiling framework/building/src/FaceTunnel.C
+
+Compiling framework/building/src/FaceWall.C
+
+Compiling framework/building/src/Front.C
+
+Compiling framework/building/src/FrontRect.C
+
+Compiling framework/building/src/FrontSimple.C
+
+Compiling framework/building/src/FrontTriangle.C
+
+Compiling framework/building/src/Roof.C
+
+Compiling framework/building/src/RoofBorder.C
+
+Compiling framework/building/src/RoofFlat.C
+
+Compiling framework/building/src/RoofLayer.C
+
+Compiling framework/building/src/RoofPlane.C
+
+Compiling framework/building/src/RoofPoint.C
+
+Compiling framework/building/src/RoofUser.C
+
+Compiling framework/building/src/Snatch.C
+
+Compiling framework/building/src/SnatchRoof.C
+
+Compiling framework/building/src/BottomAttr.C
+
+Compiling framework/building/src/BuildingObjectAttr.C
+
+Compiling framework/building/src/FaceArbourAttr.C
+
+Compiling framework/building/src/FaceAttr.C
+
+Compiling framework/building/src/FaceTunnelAttr.C
+
+Compiling framework/building/src/FrontAttr.C
+
+Compiling framework/building/src/RoofAttr.C
+
+Building STATIC Library libbuilding.a
+----------------------
+
+Entering directory framework/building/include
+
+Entering directory framework/texture
+Copying src/GNUmakefile
+Copying include/GNUmakefile
+
+Generating framework/texture/src/MatteAttr.C
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/texture/include/MatteAttr.h
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/texture/src/PhongAttr.C
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/texture/include/PhongAttr.h
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/texture/src/PolygonMapperAttr.C
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/texture/include/PolygonMapperAttr.h
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/texture/src/WhittedAttr.C
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Generating framework/texture/include/WhittedAttr.h
+gawk: ../../framework/specifierAttr2C++.sh:54: warning: `delete' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:149: warning: `gsub' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:264: warning: `function' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:341: warning: `tolower' is not supported in old awk
+gawk: ../../framework/specifierAttr2C++.sh:563: warning: `return' is not supported in old awk
+
+Entering directory framework/texture/src
+
+Generating framework/texture/src/ShaderYacc.{h,C}
+conflicts:  2 shift/reduce
+
+Generating framework/texture/src/ShaderLex.{h,C}
+
+Compiling framework/texture/src/Matte.C
+
+Compiling framework/texture/src/Phong.C
+
+Compiling framework/texture/src/PolygonMapper.C
+
+Compiling framework/texture/src/Shader.C
+
+Compiling framework/texture/src/ShaderArithExpNode.C
+
+Compiling framework/texture/src/ShaderAssExpNode.C
+
+Compiling framework/texture/src/ShaderCmpStmtNode.C
+
+Compiling framework/texture/src/ShaderCompExpNode.C
+
+Compiling framework/texture/src/ShaderDeclNode.C
+
+Compiling framework/texture/src/ShaderExpNode.C
+
+Compiling framework/texture/src/ShaderForNode.C
+
+Compiling framework/texture/src/ShaderFuncNode.C
+
+Compiling framework/texture/src/ShaderFunction.C
+
+Compiling framework/texture/src/ShaderHeadNode.C
+
+Compiling framework/texture/src/ShaderIdExpNode.C
+
+Compiling framework/texture/src/ShaderIfNode.C
+
+Compiling framework/texture/src/ShaderIfThenElseNode.C
+
+Compiling framework/texture/src/ShaderLogicExpNode.C
+
+Compiling framework/texture/src/ShaderNode.C
+
+Compiling framework/texture/src/ShaderParExpNode.C
+
+Compiling framework/texture/src/ShaderParser.C
+
+Compiling framework/texture/src/ShaderProgNode.C
+
+Compiling framework/texture/src/ShaderRealValueNode.C
+
+Compiling framework/texture/src/ShaderShaderNode.C
+
+Compiling framework/texture/src/ShaderStmtNode.C
+
+Compiling framework/texture/src/ShaderStringValueNode.C
+
+Compiling framework/texture/src/ShaderValidTypeNode.C
+
+Compiling framework/texture/src/ShaderVecValueNode.C
+
+Compiling framework/texture/src/ShaderWhileNode.C
+
+Compiling framework/texture/src/TextureUtilities.C
+
+Compiling framework/texture/src/Whitted.C
+
+Compiling framework/texture/src/ShaderYacc.C
+
+Compiling framework/texture/src/ShaderLex.C
+/home/tma/tools/lib/flexskel.cc: In member function ‘int ShaderLex::scan(yy_ShaderYacc_stype&)’:
+/home/tma/tools/lib/flexskel.cc:444:42: warning: array subscript has type ‘char’ [-Wchar-subscripts]
+  YY_DO_BEFORE_ACTION;
+                                          ^
+/home/tma/tools/lib/flexskel.cc:454:26: warning: array subscript has type ‘char’ [-Wchar-subscripts]
+ #else
+                          ^
+/home/tma/tools/lib/flexskel.cc: In member function ‘long int ShaderLex::yy_get_previous_state_()’:
+/home/tma/tools/lib/flexskel.cc:721:48: warning: array subscript has type ‘char’ [-Wchar-subscripts]
+  }
+                                                ^
+/home/tma/tools/lib/flexskel.cc:731:22: warning: array subscript has type ‘char’ [-Wchar-subscripts]
+ /* yy_try_NUL_trans - try to make a transition on the NUL character
+                      ^
+/home/tma/tools/lib/flexskel.cc: In member function ‘long int ShaderLex::yy_try_NUL_trans_(long int)’:
+/home/tma/tools/lib/flexskel.cc:767:25: warning: array subscript has type ‘char’ [-Wchar-subscripts]
+ static void yyunput( c, yy_bp )
+                         ^
+
+Compiling framework/texture/src/MatteAttr.C
+
+Compiling framework/texture/src/PhongAttr.C
+
+Compiling framework/texture/src/PolygonMapperAttr.C
+
+Compiling framework/texture/src/WhittedAttr.C
+
+Building STATIC Library libtexture.a
+----------------------
+
+Entering directory framework/texture/include
+
+Entering directory framework/component
+Copying src/GNUmakefile
+Copying include/GNUmakefile
+
+Generating framework/component/src/RaytracerConfigurationHandler.C
+gawk: ../../framework/confHandler2C++.sh:43: warning: `getline' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:44: warning: `close' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:82: warning: `gsub' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:86: warning: `tolower' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:197: warning: `function' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:444: warning: `return' is not supported in old awk
+
+Generating framework/component/include/RaytracerConfigurationHandler.h
+gawk: ../../framework/confHandler2C++.sh:43: warning: `getline' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:44: warning: `close' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:82: warning: `gsub' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:86: warning: `tolower' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:197: warning: `function' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:444: warning: `return' is not supported in old awk
+
+Generating framework/component/src/ZBufferConfigurationHandler.C
+gawk: ../../framework/confHandler2C++.sh:43: warning: `getline' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:44: warning: `close' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:82: warning: `gsub' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:86: warning: `tolower' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:197: warning: `function' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:444: warning: `return' is not supported in old awk
+
+Generating framework/component/include/ZBufferConfigurationHandler.h
+gawk: ../../framework/confHandler2C++.sh:43: warning: `getline' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:44: warning: `close' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:82: warning: `gsub' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:86: warning: `tolower' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:197: warning: `function' is not supported in old awk
+gawk: ../../framework/confHandler2C++.sh:444: warning: `return' is not supported in old awk
+
+Entering directory framework/component/src
+
+Generating framework/component/src/BSDLYacc.{h,C}
+
+Generating framework/component/src/VRMLYacc.{h,C}
+
+Generating framework/component/src/BSDLLex.{h,C}
+
+Generating framework/component/src/VRMLLex.{h,C}
+
+Compiling framework/component/src/AbstractPixmapOperation.C
+
+Compiling framework/component/src/AbstractTraversal2D.C
+
+Compiling framework/component/src/AbstractTraversal3D.C
+
+Compiling framework/component/src/Antialiaser.C
+
+Compiling framework/component/src/BSDL2DParser.C
+
+Compiling framework/component/src/BSDL2DWriter.C
+
+Compiling framework/component/src/BSDL3DParser.C
+
+Compiling framework/component/src/BSDL3DWriter.C
+
+Compiling framework/component/src/BSDLParser.C
+
+Compiling framework/component/src/BSDLParserInit.C
+
+Compiling framework/component/src/BSDLWriter.C
+
+Compiling framework/component/src/Boundary2D.C
+
+Compiling framework/component/src/CollectShared2D.C
+
+Compiling framework/component/src/CollectShared3D.C
+
+Compiling framework/component/src/CollectTexture3D.C
+
+Compiling framework/component/src/CollectorFor.C
+
+Compiling framework/component/src/Component.C
+
+Compiling framework/component/src/ConvexHull2D.C
+
+Compiling framework/component/src/Copy2D.C
+
+Compiling framework/component/src/Copy3D.C
+
+Compiling framework/component/src/DocumentStore.C
+
+Compiling framework/component/src/File2D.C
+
+Compiling framework/component/src/File3D.C
+
+Compiling framework/component/src/FlatTriangleInterpolator.C
+
+Compiling framework/component/src/GouraudTriangleInterpolator.C
+
+Compiling framework/component/src/JPEGWriter.C
+
+Compiling framework/component/src/MFile.C
+
+Compiling framework/component/src/MTraversal.C
+
+Compiling framework/component/src/MURL.C
+
+Compiling framework/component/src/MultiFileStore.C
+
+Compiling framework/component/src/Operation2D.C
+
+Compiling framework/component/src/Operation2DTo3D.C
+
+Compiling framework/component/src/Operation3D.C
+
+Compiling framework/component/src/Operation3DTo2D.C
+
+Compiling framework/component/src/OversamplingAntialiaser.C
+
+Compiling framework/component/src/PPMWriter.C
+
+Compiling framework/component/src/PNGWriter.C
+
+Compiling framework/component/src/PSWriter2D.C
+
+Compiling framework/component/src/PSWriter3D.C
+
+Compiling framework/component/src/Parser3D.C
+
+Compiling framework/component/src/PhongTriangleInterpolator.C
+
+Compiling framework/component/src/Picker2D.C
+
+Compiling framework/component/src/Picker3D.C
+
+Compiling framework/component/src/PixiWriter.C
+
+Compiling framework/component/src/Pixmap2DWriter.C
+
+Compiling framework/component/src/PixmapGeneratorWrapper.C
+
+Compiling framework/component/src/PixmapRenderer.C
+
+Compiling framework/component/src/PixmapTransformerWrapper.C
+
+Compiling framework/component/src/PreorderTraversal2D.C
+
+Compiling framework/component/src/PreorderTraversal3D.C
+
+Compiling framework/component/src/PrintWorld2D.C
+
+Compiling framework/component/src/PrintWorld3D.C
+
+Compiling framework/component/src/Rasterizer.C
+
+Compiling framework/component/src/RayshadeWriter.C
+
+Compiling framework/component/src/Raytracer.C
+
+Compiling framework/component/src/ReadImage.C
+
+Compiling framework/component/src/Renderer.C
+
+Compiling framework/component/src/SetStandardView3D.C
+
+Compiling framework/component/src/ShowNormals.C
+
+Compiling framework/component/src/SingleFileStore.C
+
+Compiling framework/component/src/SirdsRenderer.C
+
+Compiling framework/component/src/Traversal.C
+
+Compiling framework/component/src/TriangleInterpolator.C
+
+Compiling framework/component/src/TriangleInterpolatorOption.C
+
+Compiling framework/component/src/Triangulator.C
+
+Compiling framework/component/src/URL2D.C
+
+Compiling framework/component/src/URL3D.C
+
+Compiling framework/component/src/URLContext.C
+
+Compiling framework/component/src/VRMLObject.C
+
+Compiling framework/component/src/VRMLParser.C
+
+Compiling framework/component/src/VRMLState.C
+
+Compiling framework/component/src/VRMLYaccImpl.C
+
+Compiling framework/component/src/Visitor.C
+
+Compiling framework/component/src/Wireframe.C
+
+Compiling framework/component/src/ZBuffer.C
+
+Compiling framework/component/src/BSDLYacc.C
+
+Compiling framework/component/src/VRMLYacc.C
+
+Compiling framework/component/src/BSDLLex.C
+/home/tma/tools/lib/flexskel.cc: In member function ‘int BSDLLex::scan(yy_BSDLYacc_stype&)’:
+/home/tma/tools/lib/flexskel.cc:446:42: warning: array subscript has type ‘char’ [-Wchar-subscripts]
+ 
+                                          ^
+/home/tma/tools/lib/flexskel.cc:456:26: warning: array subscript has type ‘char’ [-Wchar-subscripts]
+ #endif
+                          ^
+/home/tma/tools/lib/flexskel.cc: In member function ‘long int BSDLLex::yy_get_previous_state_()’:
+/home/tma/tools/lib/flexskel.cc:721:48: warning: array subscript has type ‘char’ [-Wchar-subscripts]
+  }
+                                                ^
+/home/tma/tools/lib/flexskel.cc:731:22: warning: array subscript has type ‘char’ [-Wchar-subscripts]
+ /* yy_try_NUL_trans - try to make a transition on the NUL character
+                      ^
+/home/tma/tools/lib/flexskel.cc: In member function ‘long int BSDLLex::yy_try_NUL_trans_(long int)’:
+/home/tma/tools/lib/flexskel.cc:767:25: warning: array subscript has type ‘char’ [-Wchar-subscripts]
+ static void yyunput( c, yy_bp )
+                         ^
+
+Compiling framework/component/src/VRMLLex.C
+/home/tma/tools/lib/flexskel.cc: In member function ‘int VRMLLex::scan(yy_VRMLYacc_stype&)’:
+/home/tma/tools/lib/flexskel.cc:444:42: warning: array subscript has type ‘char’ [-Wchar-subscripts]
+  YY_DO_BEFORE_ACTION;
+                                          ^
+/home/tma/tools/lib/flexskel.cc:454:26: warning: array subscript has type ‘char’ [-Wchar-subscripts]
+ #else
+                          ^
+/home/tma/tools/lib/flexskel.cc: In member function ‘long int VRMLLex::yy_get_previous_state_()’:
+/home/tma/tools/lib/flexskel.cc:721:48: warning: array subscript has type ‘char’ [-Wchar-subscripts]
+  }
+                                                ^
+/home/tma/tools/lib/flexskel.cc:731:22: warning: array subscript has type ‘char’ [-Wchar-subscripts]
+ /* yy_try_NUL_trans - try to make a transition on the NUL character
+                      ^
+/home/tma/tools/lib/flexskel.cc: In member function ‘long int VRMLLex::yy_try_NUL_trans_(long int)’:
+/home/tma/tools/lib/flexskel.cc:767:25: warning: array subscript has type ‘char’ [-Wchar-subscripts]
+ static void yyunput( c, yy_bp )
+                         ^
+
+Compiling framework/component/src/RaytracerConfigurationHandler.C
+
+Compiling framework/component/src/ZBufferConfigurationHandler.C
+
+Building STATIC Library libcomponent.a
+----------------------
+
+Entering directory framework/component/include
+
+Entering directory framework/graphicsdb
+Copying src/GNUmakefile
+Copying include/GNUmakefile
+
+Entering directory framework/graphicsdb/src
+
+Compiling framework/graphicsdb/src/GDB3CanonicalViews.C
+
+Compiling framework/graphicsdb/src/GDBConfiguration.C
+
+Compiling framework/graphicsdb/src/GDBData.C
+
+Compiling framework/graphicsdb/src/GDBDataType.C
+
+Compiling framework/graphicsdb/src/GDBExport.C
+
+Compiling framework/graphicsdb/src/GDBIconBuilderBSDL3.C
+
+Compiling framework/graphicsdb/src/GDBOperation.C
+
+Compiling framework/graphicsdb/src/GDBRepType.C
+
+Compiling framework/graphicsdb/src/GDBStore.C
+
+Compiling framework/graphicsdb/src/GDBTraversal.C
+
+Compiling framework/graphicsdb/src/GraphicsDataBase.C
+
+Compiling framework/graphicsdb/src/ImportBSDL3.C
+
+Building STATIC Library libgraphicsdb.a
+----------------------
+
+Entering directory framework/graphicsdb/include
+
+Entering directory framework/glwrapper
+Copying src/GNUmakefile
+Copying include/GNUmakefile
+
+Entering directory framework/glwrapper/src
+
+Compiling framework/glwrapper/src/GLAbstractBridge.C
+
+Compiling framework/glwrapper/src/GLAbstractTraversal2D.C
+
+Compiling framework/glwrapper/src/GLAbstractTraversal3D.C
+
+Compiling framework/glwrapper/src/GLBBTraversal2D.C
+
+Compiling framework/glwrapper/src/GLBBTraversal3D.C
+
+Compiling framework/glwrapper/src/GLBSDLParserInit.C
+
+Compiling framework/glwrapper/src/GLConstantTexture2D.C
+
+Compiling framework/glwrapper/src/GLDisplayListOption.C
+
+Compiling framework/glwrapper/src/GLInterpolatorTexture2D.C
+
+Compiling framework/glwrapper/src/GLLightTexture3D.C
+
+Compiling framework/glwrapper/src/GLMatte.C
+
+Compiling framework/glwrapper/src/GLPhong.C
+
+Compiling framework/glwrapper/src/GLPolygonMapper.C
+
+Compiling framework/glwrapper/src/GLRasterizer.C
+
+Compiling framework/glwrapper/src/GLRenderer.C
+
+Compiling framework/glwrapper/src/GLTexture.C
+
+Compiling framework/glwrapper/src/GLTraversal.C
+
+Compiling framework/glwrapper/src/GLTraversal2D.C
+
+Compiling framework/glwrapper/src/GLTraversal3D.C
+
+Compiling framework/glwrapper/src/GLUtilities.C
+
+Compiling framework/glwrapper/src/GLViewer2D.C
+
+Compiling framework/glwrapper/src/GLViewer3D.C
+
+Compiling framework/glwrapper/src/GLWhitted.C
+
+Compiling framework/glwrapper/src/GlutBridge.C
+
+Building STATIC Library libglwrapper.a
+----------------------
+
+Entering directory framework/glwrapper/include
+
+Entering directory framework/glosmesa
+Copying src/GNUmakefile
+Copying include/GNUmakefile
+
+Entering directory framework/glosmesa/src
+
+Compiling framework/glosmesa/src/osmesa.C
+
+Compiling framework/glosmesa/src/context.C
+context.C: In function ‘GLvisual* gl_create_visual(GLboolean, GLboolean, GLboolean, GLint, GLint, GLint, GLint, GLfloat, GLfloat, GLfloat, GLfloat, GLint, GLint, GLint, GLint)’:
+context.C:1007:19: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if (depth_bits > 8*sizeof(GLdepth)) {
+                   ^
+context.C:1011:21: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if (stencil_bits > 8*sizeof(GLstencil)) {
+                     ^
+context.C:1015:19: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if (accum_bits > 8*sizeof(GLaccum)) {
+                   ^
+context.C: In function ‘void gl_ResizeBuffersMESA(GLcontext*)’:
+context.C:1608:32: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    newsize = ctx->Buffer->Width!=buf_width || ctx->Buffer->Height!=buf_height;
+                                ^
+context.C:1608:66: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    newsize = ctx->Buffer->Width!=buf_width || ctx->Buffer->Height!=buf_height;
+                                                                  ^
+
+Compiling framework/glosmesa/src/matrix.C
+
+Compiling framework/glosmesa/src/hash.C
+
+Compiling framework/glosmesa/src/texobj.C
+texobj.C: In function ‘void gl_GenTextures(GLcontext*, GLsizei, GLuint*)’:
+texobj.C:374:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    for (i=0;i<n;i++) {
+              ^
+texobj.C:379:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    for (i=0;i<n;i++) {
+              ^
+texobj.C:382:33: warning: unused variable ‘newTexObj’ [-Wunused-variable]
+       struct gl_texture_object *newTexObj = gl_alloc_texture_object(ctx->Shared, name, dims);
+                                 ^
+texobj.C: In function ‘void gl_DeleteTextures(GLcontext*, GLsizei, const GLuint*)’:
+texobj.C:400:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    for (i=0;i<n;i++) {
+              ^
+texobj.C: In function ‘void gl_PrioritizeTextures(GLcontext*, GLsizei, const GLuint*, const GLclampf*)’:
+texobj.C:575:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    for (i=0;i<n;i++) {
+              ^
+texobj.C: In function ‘GLboolean gl_AreTexturesResident(GLcontext*, GLsizei, const GLuint*, GLboolean*)’:
+texobj.C:608:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    for (i=0;i<n;i++) {
+              ^
+
+Compiling framework/glosmesa/src/dlist.C
+In file included from dlist.C:144:0:
+dlist.C: In function ‘Node* alloc_instruction(GLcontext*, OpCode, GLint)’:
+dlist.C:394:18: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    assert( count == argcount+1 );
+                  ^
+dlist.C: In function ‘void gl_save_CallLists(GLcontext*, GLsizei, GLenum, const GLvoid*)’:
+dlist.C:843:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    for (i=0;i<n;i++) {
+              ^
+dlist.C: In function ‘GLuint gl_GenLists(GLcontext*, GLsizei)’:
+dlist.C:3165:18: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       for (i=0; i<range; i++) {
+                  ^
+dlist.C: In function ‘void gl_EndList(GLcontext*)’:
+dlist.C:3221:10: warning: variable ‘n’ set but not used [-Wunused-but-set-variable]
+    Node *n;
+          ^
+dlist.C: In function ‘void gl_CallLists(GLcontext*, GLsizei, GLenum, const GLvoid*)’:
+dlist.C:3274:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    for (i=0;i<n;i++) {
+              ^
+dlist.C: In function ‘char* enum_string(GLenum)’:
+dlist.C:3309:31: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+       case GL_POINTS:  return "GL_POINTS";
+                               ^
+dlist.C:3310:30: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+       case GL_LINES:  return "GL_LINES";
+                              ^
+dlist.C:3311:34: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+       case GL_LINE_STRIP: return "GL_LINE_STRIP";
+                                  ^
+dlist.C:3312:33: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+       case GL_LINE_LOOP: return "GL_LINE_LOOP";
+                                 ^
+dlist.C:3313:33: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+       case GL_TRIANGLES: return "GL_TRIANGLES";
+                                 ^
+dlist.C:3314:38: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+       case GL_TRIANGLE_STRIP: return "GL_TRIANGLE_STRIP";
+                                      ^
+dlist.C:3315:36: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+       case GL_TRIANGLE_FAN: return "GL_TRIANGLE_FAN";
+                                    ^
+dlist.C:3316:30: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+       case GL_QUADS:  return "GL_QUADS";
+                              ^
+dlist.C:3317:34: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+       case GL_QUAD_STRIP: return "GL_QUAD_STRIP";
+                                  ^
+dlist.C:3318:32: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+       case GL_POLYGON:  return "GL_POLYGON";
+                                ^
+dlist.C:3319:30: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+       case GL_FRONT:  return "GL_FRONT";
+                              ^
+dlist.C:3320:29: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+       case GL_BACK:  return "GL_BACK";
+                             ^
+dlist.C:3321:38: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+       case GL_FRONT_AND_BACK: return "GL_FRONT_AND_BACK";
+                                      ^
+dlist.C:3322:32: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+       case GL_AMBIENT:  return "GL_AMBIENT";
+                                ^
+dlist.C:3323:32: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+       case GL_DIFFUSE:  return "GL_DIFFUSE";
+                                ^
+dlist.C:3324:33: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+       case GL_SPECULAR:  return "GL_SPECULAR";
+                                 ^
+dlist.C:3325:33: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+       case GL_SHININESS: return "GL_SHININESS";
+                                 ^
+
+Compiling framework/glosmesa/src/light.C
+light.C: In function ‘void gl_compute_material_shine_table(gl_material*)’:
+light.C:744:11: warning: unused variable ‘exponent’ [-Wunused-variable]
+    double exponent = m->Shininess;
+           ^
+
+Compiling framework/glosmesa/src/teximage.C
+teximage.C: In function ‘void gl_TexSubImage1D(GLcontext*, GLenum, GLint, GLint, GLsizei, GLenum, GLenum, gl_image*)’:
+teximage.C:1460:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if (xoffset + width > destTex->Width + destTex->Border) {
+                        ^
+teximage.C: In function ‘void gl_TexSubImage2D(GLcontext*, GLenum, GLint, GLint, GLint, GLsizei, GLsizei, GLenum, GLenum, gl_image*)’:
+teximage.C:1573:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if (xoffset + width > destTex->Width + destTex->Border) {
+                        ^
+teximage.C:1577:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if (yoffset + height > destTex->Height + destTex->Border) {
+                         ^
+teximage.C: In function ‘void gl_TexSubImage3DEXT(GLcontext*, GLenum, GLint, GLint, GLint, GLint, GLsizei, GLsizei, GLsizei, GLenum, GLenum, gl_image*)’:
+teximage.C:1708:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if (xoffset + width > destTex->Width+destTex->Border) {
+                        ^
+teximage.C:1712:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if (yoffset + height > destTex->Height+destTex->Border) {
+                         ^
+teximage.C:1716:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if (zoffset + depth  > destTex->Depth+destTex->Border) {
+                         ^
+teximage.C: In function ‘void gl_CopyTexSubImage1D(GLcontext*, GLenum, GLint, GLint, GLint, GLint, GLsizei)’:
+teximage.C:2151:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       if (xoffset+width > teximage->Width+teximage->Border) {
+                         ^
+teximage.C: In function ‘void gl_CopyTexSubImage2D(GLcontext*, GLenum, GLint, GLint, GLint, GLint, GLint, GLsizei, GLsizei)’:
+teximage.C:2207:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       if (xoffset+width > teximage->Width+teximage->Border) {
+                         ^
+teximage.C:2212:26: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       if (yoffset+height > teximage->Height+teximage->Border) {
+                          ^
+teximage.C: In function ‘void gl_CopyTexSubImage3DEXT(GLcontext*, GLenum, GLint, GLint, GLint, GLint, GLint, GLint, GLsizei, GLsizei)’:
+teximage.C:2273:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       if (xoffset+width > teximage->Width+teximage->Border) {
+                         ^
+teximage.C:2278:26: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       if (yoffset+height > teximage->Height+teximage->Border) {
+                          ^
+teximage.C:2283:19: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       if (zoffset > teximage->Depth+teximage->Border) {
+                   ^
+
+Compiling framework/glosmesa/src/mmath.C
+
+Compiling framework/glosmesa/src/eval.C
+eval.C: In function ‘GLfloat* gl_copy_map_points1f(GLenum, GLint, GLint, const GLfloat*)’:
+eval.C:601:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       for(i=0, p=buffer; i<uorder; i++, points+=ustride)
+                           ^
+eval.C: In function ‘GLfloat* gl_copy_map_points1d(GLenum, GLint, GLint, const GLdouble*)’:
+eval.C:627:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       for(i=0, p=buffer; i<uorder; i++, points+=ustride)
+                           ^
+eval.C: In function ‘GLfloat* gl_copy_map_points2f(GLenum, GLint, GLint, GLint, GLint, const GLfloat*)’:
+eval.C:676:28: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       for (i=0, p=buffer; i<uorder; i++, points += uinc)
+                            ^
+eval.C:677:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for (j=0; j<vorder; j++, points += vstride)
+              ^
+eval.C: In function ‘GLfloat* gl_copy_map_points2d(GLenum, GLint, GLint, GLint, GLint, const GLdouble*)’:
+eval.C:719:28: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       for (i=0, p=buffer; i<uorder; i++, points += uinc)
+                            ^
+eval.C:720:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for (j=0; j<vorder; j++, points += vstride)
+              ^
+eval.C: In function ‘void gl_Map1f(GLcontext*, GLenum, GLfloat, GLfloat, GLint, GLint, const GLfloat*, GLboolean)’:
+eval.C:870:15: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if (stride < k) {
+               ^
+eval.C: In function ‘void gl_Map2f(GLcontext*, GLenum, GLfloat, GLfloat, GLint, GLint, GLfloat, GLfloat, GLint, GLint, const GLfloat*, GLboolean)’:
+eval.C:1025:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if (ustride < k) {
+                ^
+eval.C:1029:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if (vstride < k) {
+                ^
+eval.C: In function ‘void gl_EvalPoint1(GLcontext*, GLint)’:
+eval.C:2283:12: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  else if (i==ctx->Eval.MapGrid1un) {
+            ^
+eval.C: In function ‘void gl_EvalPoint2(GLcontext*, GLint, GLint)’:
+eval.C:2304:12: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  else if (i==ctx->Eval.MapGrid2un) {
+            ^
+eval.C:2316:12: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  else if (j==ctx->Eval.MapGrid2vn) {
+            ^
+eval.C: In function ‘void gl_EvalMesh1(GLcontext*, GLenum, GLint, GLint)’:
+eval.C:2361:13: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   else if (i==ctx->Eval.MapGrid1un) {
+             ^
+eval.C: In function ‘void gl_EvalMesh2(GLcontext*, GLenum, GLint, GLint, GLint, GLint)’:
+eval.C:2404:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  else if ((J)==ctx->Eval.MapGrid2vn) { \
+              ^
+eval.C:2415:4: note: in expansion of macro ‘J_TO_V’
+    J_TO_V( j, v );
+    ^
+eval.C:2393:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  else if ((I)==ctx->Eval.MapGrid2un) { \
+              ^
+eval.C:2417:5: note: in expansion of macro ‘I_TO_U’
+     I_TO_U( i, u );
+     ^
+eval.C:2404:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  else if ((J)==ctx->Eval.MapGrid2vn) { \
+              ^
+eval.C:2425:4: note: in expansion of macro ‘J_TO_V’
+    J_TO_V( j, v );
+    ^
+eval.C:2393:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  else if ((I)==ctx->Eval.MapGrid2un) { \
+              ^
+eval.C:2428:5: note: in expansion of macro ‘I_TO_U’
+     I_TO_U( i, u );
+     ^
+eval.C:2393:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  else if ((I)==ctx->Eval.MapGrid2un) { \
+              ^
+eval.C:2434:4: note: in expansion of macro ‘I_TO_U’
+    I_TO_U( i, u );
+    ^
+eval.C:2404:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  else if ((J)==ctx->Eval.MapGrid2vn) { \
+              ^
+eval.C:2437:5: note: in expansion of macro ‘J_TO_V’
+     J_TO_V( j, v );
+     ^
+eval.C:2404:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  else if ((J)==ctx->Eval.MapGrid2vn) { \
+              ^
+eval.C:2448:4: note: in expansion of macro ‘J_TO_V’
+    J_TO_V( j, v1 );
+    ^
+eval.C:2404:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  else if ((J)==ctx->Eval.MapGrid2vn) { \
+              ^
+eval.C:2449:4: note: in expansion of macro ‘J_TO_V’
+    J_TO_V( j+1, v2 );
+    ^
+eval.C:2393:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  else if ((I)==ctx->Eval.MapGrid2un) { \
+              ^
+eval.C:2451:5: note: in expansion of macro ‘I_TO_U’
+     I_TO_U( i, u );
+     ^
+
+Compiling framework/glosmesa/src/vb.C
+
+Compiling framework/glosmesa/src/pb.C
+
+Compiling framework/glosmesa/src/pointers.C
+
+Compiling framework/glosmesa/src/stencil.C
+stencil.C: In function ‘void apply_stencil_op_to_span(GLcontext*, GLuint, GLint, GLint, GLenum, GLubyte*)’:
+stencil.C:227:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (i=0;i<n;i++) {
+                ^
+stencil.C:234:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (i=0;i<n;i++) {
+                ^
+stencil.C:243:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (i=0;i<n;i++) {
+                ^
+stencil.C:250:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (i=0;i<n;i++) {
+                ^
+stencil.C:260:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (i=0;i<n;i++) {
+                ^
+stencil.C:270:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (i=0;i<n;i++) {
+                ^
+stencil.C:283:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (i=0;i<n;i++) {
+                ^
+stencil.C:293:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (i=0;i<n;i++) {
+                ^
+stencil.C:306:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (i=0;i<n;i++) {
+                ^
+stencil.C:314:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (i=0;i<n;i++) {
+                ^
+stencil.C: In function ‘void apply_stencil_op_to_pixels(GLcontext*, GLuint, const GLint*, const GLint*, GLenum, GLubyte*)’:
+stencil.C:590:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (i=0;i<n;i++) {
+                ^
+stencil.C:598:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (i=0;i<n;i++) {
+                ^
+stencil.C:608:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (i=0;i<n;i++) {
+                ^
+stencil.C:616:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (i=0;i<n;i++) {
+                ^
+stencil.C:626:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (i=0;i<n;i++) {
+                ^
+stencil.C:636:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (i=0;i<n;i++) {
+                ^
+stencil.C:648:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (i=0;i<n;i++) {
+                ^
+stencil.C:658:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (i=0;i<n;i++) {
+                ^
+stencil.C:670:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (i=0;i<n;i++) {
+                ^
+stencil.C:678:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+      for (i=0;i<n;i++) {
+                ^
+
+Compiling framework/glosmesa/src/accum.C
+
+Compiling framework/glosmesa/src/alphabuf.C
+
+Compiling framework/glosmesa/src/vbfill.C
+
+Compiling framework/glosmesa/src/texstate.C
+
+Compiling framework/glosmesa/src/points.C
+
+Compiling framework/glosmesa/src/lines.C
+
+Compiling framework/glosmesa/src/triangle.C
+
+Compiling framework/glosmesa/src/quads.C
+
+Compiling framework/glosmesa/src/get.C
+
+Compiling framework/glosmesa/src/clip.C
+
+Compiling framework/glosmesa/src/depth.C
+
+Compiling framework/glosmesa/src/blend.C
+
+Compiling framework/glosmesa/src/image.C
+
+Compiling framework/glosmesa/src/alpha.C
+
+Compiling framework/glosmesa/src/bitmap.C
+
+Compiling framework/glosmesa/src/misc.C
+misc.C: In function ‘const GLubyte* gl_GetString(GLcontext*, GLenum)’:
+misc.C:315:26: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+    static char *vendor = "Brian Paul";
+                          ^
+misc.C:316:27: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+    static char *version = "1.1 Mesa 2.6";
+                           ^
+misc.C:320:30: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+    static char *extensions = "GL_EXT_blend_color GL_EXT_blend_minmax GL_EXT_blend_logic_op GL_EXT_blend_subtract GL_EXT_paletted_texture GL_EXT_point_parameters GL_EXT_polygon_offset GL_EXT_vertex_array GL_EXT_texture_object GL_EXT_texture3D GL_MESA_window_pos GL_MESA_resize_buffers GL_EXT_shared_texture_palette";
+                              ^
+
+Compiling framework/glosmesa/src/masking.C
+
+Compiling framework/glosmesa/src/colortab.C
+
+Compiling framework/glosmesa/src/copypix.C
+copypix.C: In function ‘void copy_ci_pixels(GLcontext*, GLint, GLint, GLint, GLint, GLint, GLint)’:
+copypix.C:267:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+             if (indx[i] < ctx->Pixel.MapItoIsize) {
+                         ^
+
+Compiling framework/glosmesa/src/pixel.C
+pixel.C: In function ‘void gl_PixelMapfv(GLcontext*, GLenum, GLint, const GLfloat*)’:
+pixel.C:554:20: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+          for (i=0;i<mapsize;i++) {
+                    ^
+pixel.C:560:20: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+          for (i=0;i<mapsize;i++) {
+                    ^
+pixel.C:566:20: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+          for (i=0;i<mapsize;i++) {
+                    ^
+pixel.C:572:20: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+          for (i=0;i<mapsize;i++) {
+                    ^
+pixel.C:578:20: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+          for (i=0;i<mapsize;i++) {
+                    ^
+pixel.C:584:20: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+          for (i=0;i<mapsize;i++) {
+                    ^
+pixel.C:590:20: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+          for (i=0;i<mapsize;i++) {
+                    ^
+pixel.C:596:20: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+          for (i=0;i<mapsize;i++) {
+                    ^
+pixel.C:602:20: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+          for (i=0;i<mapsize;i++) {
+                    ^
+pixel.C:608:20: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+          for (i=0;i<mapsize;i++) {
+                    ^
+pixel.C: In function ‘void gl_GetPixelMapfv(GLcontext*, GLenum, GLfloat*)’:
+pixel.C:631:20: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+          for (i=0;i<ctx->Pixel.MapItoIsize;i++) {
+                    ^
+pixel.C:636:20: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+          for (i=0;i<ctx->Pixel.MapStoSsize;i++) {
+                    ^
+pixel.C: In function ‘void gl_GetPixelMapuiv(GLcontext*, GLenum, GLuint*)’:
+pixel.C:686:13: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for (i=0;i<ctx->Pixel.MapItoRsize;i++) {
+             ^
+pixel.C:691:13: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for (i=0;i<ctx->Pixel.MapItoGsize;i++) {
+             ^
+pixel.C:696:13: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for (i=0;i<ctx->Pixel.MapItoBsize;i++) {
+             ^
+pixel.C:701:13: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for (i=0;i<ctx->Pixel.MapItoAsize;i++) {
+             ^
+pixel.C:706:13: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for (i=0;i<ctx->Pixel.MapRtoRsize;i++) {
+             ^
+pixel.C:711:13: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for (i=0;i<ctx->Pixel.MapGtoGsize;i++) {
+             ^
+pixel.C:716:13: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for (i=0;i<ctx->Pixel.MapBtoBsize;i++) {
+             ^
+pixel.C:721:13: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for (i=0;i<ctx->Pixel.MapAtoAsize;i++) {
+             ^
+pixel.C: In function ‘void gl_GetPixelMapusv(GLcontext*, GLenum, GLushort*)’:
+pixel.C:741:13: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for (i=0;i<ctx->Pixel.MapItoIsize;i++) {
+             ^
+pixel.C:746:13: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for (i=0;i<ctx->Pixel.MapStoSsize;i++) {
+             ^
+pixel.C:751:13: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for (i=0;i<ctx->Pixel.MapItoRsize;i++) {
+             ^
+pixel.C:756:13: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for (i=0;i<ctx->Pixel.MapItoGsize;i++) {
+             ^
+pixel.C:761:13: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for (i=0;i<ctx->Pixel.MapItoBsize;i++) {
+             ^
+pixel.C:766:13: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for (i=0;i<ctx->Pixel.MapItoAsize;i++) {
+             ^
+pixel.C:771:13: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for (i=0;i<ctx->Pixel.MapRtoRsize;i++) {
+             ^
+pixel.C:776:13: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for (i=0;i<ctx->Pixel.MapGtoGsize;i++) {
+             ^
+pixel.C:781:13: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for (i=0;i<ctx->Pixel.MapBtoBsize;i++) {
+             ^
+pixel.C:786:13: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for (i=0;i<ctx->Pixel.MapAtoAsize;i++) {
+             ^
+
+Compiling framework/glosmesa/src/span.C
+In file included from span.C:81:0:
+span.C: In function ‘void gl_write_monoindex_span(GLcontext*, GLuint, GLint, GLint, GLdepth*, GLuint, GLenum)’:
+../../../framework/include/booga/glosmesa/macros.h:232:39: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  memcpy( (void *) (DST), (void *) (SRC), (size_t) (BYTES) )
+                                       ^
+span.C:316:10: note: in expansion of macro ‘MEMCPY’
+          MEMCPY( index_save, index, n * sizeof(GLuint) );
+          ^
+span.C: In function ‘void gl_read_color_span(GLcontext*, GLuint, GLint, GLint, GLubyte*, GLubyte*, GLubyte*, GLubyte*)’:
+span.C:845:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       if (x>=0 && x+n<=ctx->Buffer->Width) {
+                      ^
+In file included from span.C:81:0:
+../../../framework/include/booga/glosmesa/macros.h:159:29: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+ #define MIN2( A, B )   ( (A)<(B) ? (A) : (B) )
+                             ^
+span.C:862:7: note: in expansion of macro ‘MIN2’
+   n = MIN2( n, ctx->Buffer->Width - x );
+       ^
+span.C: In function ‘void gl_read_index_span(GLcontext*, GLuint, GLint, GLint, GLuint*)’:
+span.C:890:22: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       if (x>=0 && x+n<=ctx->Buffer->Width) {
+                      ^
+In file included from span.C:81:0:
+../../../framework/include/booga/glosmesa/macros.h:159:29: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+ #define MIN2( A, B )   ( (A)<(B) ? (A) : (B) )
+                             ^
+span.C:904:7: note: in expansion of macro ‘MIN2’
+   n = MIN2( n, ctx->Buffer->Width - x );
+       ^
+
+Compiling framework/glosmesa/src/polygon.C
+
+Compiling framework/glosmesa/src/enable.C
+
+Compiling framework/glosmesa/src/drawpix.C
+
+Compiling framework/glosmesa/src/fog.C
+
+Compiling framework/glosmesa/src/feedback.C
+
+Compiling framework/glosmesa/src/logic.C
+
+Compiling framework/glosmesa/src/attrib.C
+
+Compiling framework/glosmesa/src/rastpos.C
+
+Compiling framework/glosmesa/src/shade.C
+shade.C: In function ‘void gl_color_shade_vertices(GLcontext*, GLuint, GLuint, GLfloat (*)[4], GLfloat (*)[3], GLubyte (*)[4])’:
+shade.C:126:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    for (j=0;j<n;j++) {
+              ^
+shade.C: In function ‘void gl_color_shade_vertices_fast(GLcontext*, GLuint, GLuint, GLfloat (*)[3], GLubyte (*)[4])’:
+shade.C:336:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    for (j=0;j<n;j++) {
+              ^
+shade.C: In function ‘void gl_index_shade_vertices(GLcontext*, GLuint, GLuint, GLfloat (*)[4], GLfloat (*)[3], GLuint*)’:
+shade.C:450:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    for (j=0;j<n;j++) {
+              ^
+
+Compiling framework/glosmesa/src/rect.C
+
+Compiling framework/glosmesa/src/scissor.C
+
+Compiling framework/glosmesa/src/winpos.C
+
+Compiling framework/glosmesa/src/xform.C
+
+Compiling framework/glosmesa/src/texture.C
+texture.C: In function ‘void get_3d_texel(const gl_texture_object*, const gl_texture_image*, GLint, GLint, GLint, GLubyte*, GLubyte*, GLubyte*, GLubyte*)’:
+texture.C:1334:10: warning: unused variable ‘depth’ [-Wunused-variable]
+    GLint depth = img->Depth;    /* includes border */
+          ^
+
+Compiling framework/glosmesa/src/varray.C
+
+Compiling framework/glosmesa/src/vbrender.C
+vbrender.C: In function ‘void unfilled_polygon(GLcontext*, GLuint, GLuint*, GLuint, GLuint)’:
+vbrender.C:285:17: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       for (i=0;i<n;i++) {
+                 ^
+vbrender.C: In function ‘GLfloat polygon_area(const vertex_buffer*, GLuint, const GLuint*)’:
+vbrender.C:342:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    for (i=0;i<n;i++) {
+              ^
+vbrender.C: In function ‘void render_polygon(GLcontext*, GLuint, GLuint*)’:
+vbrender.C:425:20: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+          for (i=2;i<n;i++) {
+                    ^
+vbrender.C: In function ‘void render_clipped_polygon(GLcontext*, GLuint, GLuint*)’:
+vbrender.C:585:20: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+          for (i=2;i<n;i++) {
+                    ^
+
+Compiling framework/glosmesa/src/readpix.C
+
+Compiling framework/glosmesa/src/vbxform.C
+
+Building STATIC Library libglosmesa.a
+----------------------
+
+Entering directory framework/glosmesa/include
+
+Entering directory ./applications
+Copying sirds-app/GNUmakefile
+Copying animationRemove-app/GNUmakefile
+Copying depth2grey-app/GNUmakefile
+Copying wxEdit-app/GNUmakefile
+Copying togrey-app/GNUmakefile
+Copying pixi2png-app/GNUmakefile
+Copying rasterdemo-app/GNUmakefile
+Copying flythrough-app/GNUmakefile
+Copying osRenderer-app/GNUmakefile
+Copying pixi2ppm-app/GNUmakefile
+Copying wxFlythrough-app/GNUmakefile
+Copying convex-app/GNUmakefile
+Copying wireframe-app/GNUmakefile
+Copying picker-app/GNUmakefile
+Copying buildingPlacer-app/GNUmakefile
+Copying sketch-app/GNUmakefile
+Copying terrainCreater-app/GNUmakefile
+Copying gamma-app/GNUmakefile
+Copying ppm2pixi-app/GNUmakefile
+Copying graphicsdb-app/GNUmakefile
+Copying bsdl2ray-app/GNUmakefile
+Copying zbuffer-app/GNUmakefile
+Copying viewer-app/GNUmakefile
+Copying raytrace-app/GNUmakefile
+Copying pixi2jpeg-app/GNUmakefile
+Copying pixiquant-app/GNUmakefile
+Copying city-app/GNUmakefile
+Copying MPIraytrace-app/GNUmakefile
+Copying thin-app/GNUmakefile
+Copying bsdlWriter-app/GNUmakefile
+Copying casetool-app/GNUmakefile
+Copying pixidiff-app/GNUmakefile
+Copying wxBrowser-app/GNUmakefile
+Copying triangleRemove-app/GNUmakefile
+Copying labelCC-app/GNUmakefile
+Copying rasterize-app/GNUmakefile
+Copying persistence-app/GNUmakefile
+Copying triangulate-app/GNUmakefile
+
+Entering directory applications/sirds-app
+
+Compiling applications/sirds-app/sirds.C
+
+Linking sirds
+----------------------
+
+Entering directory applications/animationRemove-app
+
+Compiling applications/animationRemove-app/animationRemove.C
+
+Linking animationRemove
+----------------------
+
+Entering directory applications/depth2grey-app
+
+Compiling applications/depth2grey-app/depth2grey.C
+
+Linking depth2grey
+----------------------
+
+Entering directory applications/wxEdit-app
+
+Compiling applications/wxEdit-app/AdaptiveTraceCommand.C
+AdaptiveTraceCommand.C:28:45: fatal error: booga/wxwrapper/wxWindowsBridge.h: No such file or directory
+ #include "booga/wxwrapper/wxWindowsBridge.h"
+                                             ^
+compilation terminated.
+../../config/general.mk:423: recipe for target 'AdaptiveTraceCommand.o' failed
+make[2]: *** [AdaptiveTraceCommand.o] Error 1
+
+Entering directory applications/togrey-app
+
+Compiling applications/togrey-app/togrey.C
+
+Linking togrey
+----------------------
+
+Entering directory applications/pixi2png-app
+
+Compiling applications/pixi2png-app/pixi2png.C
+
+Linking pixi2png
+----------------------
+
+Entering directory applications/rasterdemo-app
+
+Compiling applications/rasterdemo-app/rasterdemo.C
+
+Linking rasterdemo
+----------------------
+
+Entering directory applications/flythrough-app
+
+Compiling applications/flythrough-app/flythrough.C
+
+Linking flythrough
+----------------------
+
+Entering directory applications/osRenderer-app
+
+Compiling applications/osRenderer-app/osRenderer.C
+
+Linking osRenderer
+----------------------
+
+Entering directory applications/pixi2ppm-app
+
+Compiling applications/pixi2ppm-app/pixi2ppm.C
+
+Linking pixi2ppm
+----------------------
+
+Entering directory applications/wxFlythrough-app
+
+Compiling applications/wxFlythrough-app/wxFlythrough.C
+wxFlythrough.C:32:38: fatal error: booga/wxwrapper/wxView3D.h: No such file or directory
+ #include "booga/wxwrapper/wxView3D.h"
+                                      ^
+compilation terminated.
+../../config/general.mk:423: recipe for target 'wxFlythrough.o' failed
+make[2]: *** [wxFlythrough.o] Error 1
+
+Entering directory applications/convex-app
+
+Compiling applications/convex-app/convex.C
+
+Linking convex
+----------------------
+
+Entering directory applications/wireframe-app
+
+Compiling applications/wireframe-app/wireframe.C
+
+Linking wireframe
+----------------------
+
+Entering directory applications/picker-app
+
+Compiling applications/picker-app/picker.C
+
+Linking picker
+----------------------
+
+Entering directory applications/buildingPlacer-app
+
+Compiling applications/buildingPlacer-app/CollectBuilding.C
+
+Compiling applications/buildingPlacer-app/buildingPlacer.C
+
+Linking buildingPlacer
+----------------------
+
+Entering directory applications/sketch-app
+
+Compiling applications/sketch-app/sketch.C
+
+Linking sketch
+----------------------
+
+Entering directory applications/terrainCreater-app
+
+Compiling applications/terrainCreater-app/terrainCreater.C
+
+Linking terrainCreater
+----------------------
+
+Entering directory applications/gamma-app
+
+Compiling applications/gamma-app/gamma.C
+
+Linking gamma
+----------------------
+
+Entering directory applications/ppm2pixi-app
+
+Compiling applications/ppm2pixi-app/ppm2pixi.C
+
+Linking ppm2pixi
+----------------------
+
+Entering directory applications/graphicsdb-app
+
+Compiling applications/graphicsdb-app/graphicsdb.C
+
+Linking graphicsdb
+----------------------
+
+Entering directory applications/bsdl2ray-app
+
+Compiling applications/bsdl2ray-app/bsdl2ray.C
+
+Linking bsdl2ray
+----------------------
+
+Entering directory applications/zbuffer-app
+
+Compiling applications/zbuffer-app/zbuffer.C
+
+Linking zbuffer
+----------------------
+
+Entering directory applications/viewer-app
+
+Compiling applications/viewer-app/viewer.C
+
+Linking viewer
+----------------------
+
+Entering directory applications/raytrace-app
+
+Compiling applications/raytrace-app/raytrace.C
+
+Linking raytrace
+----------------------
+
+Entering directory applications/pixi2jpeg-app
+
+Compiling applications/pixi2jpeg-app/pixi2jpeg.C
+
+Linking pixi2jpeg
+----------------------
+
+Entering directory applications/pixiquant-app
+
+Compiling applications/pixiquant-app/pixiquant.C
+
+Linking pixiquant
+----------------------
+
+Entering directory applications/city-app
+
+Compiling applications/city-app/city.C
+
+Linking city
+----------------------
+
+Entering directory applications/MPIraytrace-app
+
+Compiling applications/MPIraytrace-app/MPIRaytracer.C
+
+Compiling applications/MPIraytrace-app/MPIraytrace.C
+
+Linking MPIraytrace
+----------------------
+
+Entering directory applications/thin-app
+
+Compiling applications/thin-app/thin.C
+
+Linking thin
+----------------------
+
+Entering directory applications/bsdlWriter-app
+
+Compiling applications/bsdlWriter-app/bsdlWriter.C
+
+Linking bsdlWriter
+----------------------
+
+Entering directory applications/casetool-app
+
+Generating applications/casetool-app/CTYacc.{h,C}
+conflicts:  24 shift/reduce, 9 reduce/reduce
+
+Generating applications/casetool-app/CTLex.{h,C}
+
+Compiling applications/casetool-app/CTAttributeDescription.C
+
+Compiling applications/casetool-app/CTBaseclassDescription.C
+
+Compiling applications/casetool-app/CTCPPRenderer2D.C
+
+Compiling applications/casetool-app/CTClassDescription2D.C
+
+Compiling applications/casetool-app/CTClassDescription2DAttributes.C
+
+Compiling applications/casetool-app/CTOperationDescription.C
+
+Compiling applications/casetool-app/CTOperationDescriptionAttr.C
+
+Compiling applications/casetool-app/CTParser.C
+
+Compiling applications/casetool-app/CTParserInit.C
+
+Compiling applications/casetool-app/CTUMRenderer2D.C
+
+Compiling applications/casetool-app/CTVariableDescription.C
+
+Compiling applications/casetool-app/TextBox2D.C
+
+Compiling applications/casetool-app/TextBox2DAttr.C
+
+Compiling applications/casetool-app/casetool.C
+
+Compiling applications/casetool-app/CTYacc.C
+CTYacc.y:531:74: warning: trigraph ??= ignored, use -trigraphs to enable [-Wtrigraphs]
+                             os << "[CTYacc] " << aKlasse.LongName << " ==??== " << aProgramm.KlassenListe.item(i).LongName;
+ ^
+CTYacc.y:562:74: warning: trigraph ??= ignored, use -trigraphs to enable [-Wtrigraphs]
+                             os << "[CTYacc] " << aKlasse.LongName << " ==??== " << aProgramm.KlassenListe.item(i).LongName;
+ ^
+
+Compiling applications/casetool-app/CTLex.C
+/home/tma/tools/lib/flexskel.cc: In member function ‘int CTLex::scan(yy_CTYacc_stype&)’:
+/home/tma/tools/lib/flexskel.cc:446:42: warning: array subscript has type ‘char’ [-Wchar-subscripts]
+ 
+                                          ^
+/home/tma/tools/lib/flexskel.cc:456:26: warning: array subscript has type ‘char’ [-Wchar-subscripts]
+ #endif
+                          ^
+/home/tma/tools/lib/flexskel.cc: In member function ‘long int CTLex::yy_get_previous_state_()’:
+/home/tma/tools/lib/flexskel.cc:721:48: warning: array subscript has type ‘char’ [-Wchar-subscripts]
+  }
+                                                ^
+/home/tma/tools/lib/flexskel.cc:731:22: warning: array subscript has type ‘char’ [-Wchar-subscripts]
+ /* yy_try_NUL_trans - try to make a transition on the NUL character
+                      ^
+/home/tma/tools/lib/flexskel.cc: In member function ‘long int CTLex::yy_try_NUL_trans_(long int)’:
+/home/tma/tools/lib/flexskel.cc:767:25: warning: array subscript has type ‘char’ [-Wchar-subscripts]
+ static void yyunput( c, yy_bp )
+                         ^
+
+Linking casetool
+----------------------
+
+Entering directory applications/pixidiff-app
+
+Compiling applications/pixidiff-app/pixidiff.C
+
+Linking pixidiff
+----------------------
+
+Entering directory applications/wxBrowser-app
+
+Compiling applications/wxBrowser-app/GSBConetreeLayouter.C
+In file included from GSBPolygon.h:26:0,
+                 from GSBConetreeNode.h:28,
+                 from GSBConetreeLayouter.C:27:
+GSBPolyline.h:58:8: error: ‘ostream’ does not name a type
+ extern ostream& operator<<(ostream& os, GSBPolyline aPolyline);
+        ^
+GSBConetreeLayouter.C: In member function ‘virtual bool GSBConetreeLayouter::doExecute()’:
+GSBConetreeLayouter.C:55:43: error: expected ‘<’ before ‘(’ token
+   GSBConetreeNode* headNode = dynamic_cast(GSBConetreeNode,  
+                                           ^
+GSBConetreeLayouter.C:55:43: error: expected type-specifier before ‘(’ token
+GSBConetreeLayouter.C:55:43: error: expected ‘>’ before ‘(’ token
+GSBConetreeLayouter.C:55:59: error: expected primary-expression before ‘,’ token
+   GSBConetreeNode* headNode = dynamic_cast(GSBConetreeNode,  
+                                                           ^
+GSBConetreeLayouter.C: In member function ‘void GSBConetreeLayouter::visitLeafNode(Object3D*)’:
+GSBConetreeLayouter.C:83:39: error: expected ‘<’ before ‘(’ token
+   GSBConetreeNode *node = dynamic_cast(GSBConetreeNode, 
+                                       ^
+GSBConetreeLayouter.C:83:39: error: expected type-specifier before ‘(’ token
+GSBConetreeLayouter.C:83:39: error: expected ‘>’ before ‘(’ token
+GSBConetreeLayouter.C:83:55: error: expected primary-expression before ‘,’ token
+   GSBConetreeNode *node = dynamic_cast(GSBConetreeNode, 
+                                                       ^
+GSBConetreeLayouter.C: In member function ‘void GSBConetreeLayouter::visitAggregateNode(Object3D*)’:
+GSBConetreeLayouter.C:95:39: error: expected ‘<’ before ‘(’ token
+   GSBConetreeNode* node = dynamic_cast(GSBConetreeNode, 
+                                       ^
+GSBConetreeLayouter.C:95:39: error: expected type-specifier before ‘(’ token
+GSBConetreeLayouter.C:95:39: error: expected ‘>’ before ‘(’ token
+GSBConetreeLayouter.C:95:55: error: expected primary-expression before ‘,’ token
+   GSBConetreeNode* node = dynamic_cast(GSBConetreeNode, 
+                                                       ^
+GSBConetreeLayouter.C:109:42: error: expected ‘<’ before ‘(’ token
+     GSBConetreeNode* child = dynamic_cast(GSBConetreeNode, 
+                                          ^
+GSBConetreeLayouter.C:109:42: error: expected type-specifier before ‘(’ token
+GSBConetreeLayouter.C:109:42: error: expected ‘>’ before ‘(’ token
+GSBConetreeLayouter.C:109:58: error: expected primary-expression before ‘,’ token
+     GSBConetreeNode* child = dynamic_cast(GSBConetreeNode, 
+                                                          ^
+../../config/general.mk:423: recipe for target 'GSBConetreeLayouter.o' failed
+make[2]: *** [GSBConetreeLayouter.o] Error 1
+
+Entering directory applications/triangleRemove-app
+
+Compiling applications/triangleRemove-app/TriangleRemover.C
+
+Compiling applications/triangleRemove-app/triangleRemove.C
+
+Linking triangleRemove
+----------------------
+
+Entering directory applications/labelCC-app
+
+Compiling applications/labelCC-app/labelCC.C
+
+Linking labelCC
+----------------------
+
+Entering directory applications/rasterize-app
+
+Compiling applications/rasterize-app/rasterize.C
+
+Linking rasterize
+----------------------
+
+Entering directory applications/persistence-app
+
+Compiling applications/persistence-app/AsciiMarshal.C
+
+Compiling applications/persistence-app/DataBase.C
+In file included from DataBase.h:29:0,
+                 from DataBase.C:24:
+PRef.h:66:60: warning: friend declaration ‘Marshal& operator<<(Marshal&, const PRef<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const PRef<T>& ref);
+                                                            ^
+PRef.h:66:60: note: (if this is not what you intended, make sure the function template has already been declared and add <> after the function name here) 
+PRef.h:68:54: warning: friend declaration ‘Marshal& operator>>(Marshal&, PRef<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, PRef<T>& ref);
+                                                      ^
+
+Compiling applications/persistence-app/FileBase.C
+In file included from DataBase.h:29:0,
+                 from FileBase.h:27,
+                 from FileBase.C:27:
+PRef.h:66:60: warning: friend declaration ‘Marshal& operator<<(Marshal&, const PRef<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const PRef<T>& ref);
+                                                            ^
+PRef.h:66:60: note: (if this is not what you intended, make sure the function template has already been declared and add <> after the function name here) 
+PRef.h:68:54: warning: friend declaration ‘Marshal& operator>>(Marshal&, PRef<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, PRef<T>& ref);
+                                                      ^
+In file included from Transaction.h:31:0,
+                 from FileBase.C:29:
+Set.h:65:60: warning: friend declaration ‘Marshal& operator<<(Marshal&, const Set<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const Set<T>& aSet);
+                                                            ^
+Set.h:66:54: warning: friend declaration ‘Marshal& operator>>(Marshal&, Set<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, Set<T>& aSet);
+                                                      ^
+
+Compiling applications/persistence-app/GDBData.C
+In file included from GDBData.h:27:0,
+                 from GDBData.C:24:
+PRef.h:66:60: warning: friend declaration ‘Marshal& operator<<(Marshal&, const PRef<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const PRef<T>& ref);
+                                                            ^
+PRef.h:66:60: note: (if this is not what you intended, make sure the function template has already been declared and add <> after the function name here) 
+PRef.h:68:54: warning: friend declaration ‘Marshal& operator>>(Marshal&, PRef<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, PRef<T>& ref);
+                                                      ^
+In file included from GDBData.h:29:0,
+                 from GDBData.C:24:
+Set.h:65:60: warning: friend declaration ‘Marshal& operator<<(Marshal&, const Set<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const Set<T>& aSet);
+                                                            ^
+Set.h:66:54: warning: friend declaration ‘Marshal& operator>>(Marshal&, Set<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, Set<T>& aSet);
+                                                      ^
+In file included from GDBDataType.h:29:0,
+                 from GDBData.C:25:
+SimpleIndex.h:40:82: warning: friend declaration ‘Marshal& operator<<(Marshal&, const SimpleIndexEntry<TKey, TData>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const SimpleIndexEntry<TKey,TData>& aSIE);
+                                                                                  ^
+SimpleIndex.h:41:76: warning: friend declaration ‘Marshal& operator>>(Marshal&, SimpleIndexEntry<TKey, TData>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, SimpleIndexEntry<TKey,TData>& aSIE);
+                                                                            ^
+SimpleIndex.h:76:76: warning: friend declaration ‘Marshal& operator<<(Marshal&, const SimpleIndex<TKey, TData>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const SimpleIndex<TKey,TData>& aSI);
+                                                                            ^
+SimpleIndex.h:77:70: warning: friend declaration ‘Marshal& operator>>(Marshal&, SimpleIndex<TKey, TData>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, SimpleIndex<TKey,TData>& aSI);
+                                                                      ^
+
+Compiling applications/persistence-app/GDBDataType.C
+In file included from GDBData.h:27:0,
+                 from GDBDataType.C:23:
+PRef.h:66:60: warning: friend declaration ‘Marshal& operator<<(Marshal&, const PRef<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const PRef<T>& ref);
+                                                            ^
+PRef.h:66:60: note: (if this is not what you intended, make sure the function template has already been declared and add <> after the function name here) 
+PRef.h:68:54: warning: friend declaration ‘Marshal& operator>>(Marshal&, PRef<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, PRef<T>& ref);
+                                                      ^
+In file included from GDBData.h:29:0,
+                 from GDBDataType.C:23:
+Set.h:65:60: warning: friend declaration ‘Marshal& operator<<(Marshal&, const Set<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const Set<T>& aSet);
+                                                            ^
+Set.h:66:54: warning: friend declaration ‘Marshal& operator>>(Marshal&, Set<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, Set<T>& aSet);
+                                                      ^
+In file included from GDBDataType.h:29:0,
+                 from GDBDataType.C:24:
+SimpleIndex.h:40:82: warning: friend declaration ‘Marshal& operator<<(Marshal&, const SimpleIndexEntry<TKey, TData>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const SimpleIndexEntry<TKey,TData>& aSIE);
+                                                                                  ^
+SimpleIndex.h:41:76: warning: friend declaration ‘Marshal& operator>>(Marshal&, SimpleIndexEntry<TKey, TData>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, SimpleIndexEntry<TKey,TData>& aSIE);
+                                                                            ^
+SimpleIndex.h:76:76: warning: friend declaration ‘Marshal& operator<<(Marshal&, const SimpleIndex<TKey, TData>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const SimpleIndex<TKey,TData>& aSI);
+                                                                            ^
+SimpleIndex.h:77:70: warning: friend declaration ‘Marshal& operator>>(Marshal&, SimpleIndex<TKey, TData>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, SimpleIndex<TKey,TData>& aSI);
+                                                                      ^
+
+Compiling applications/persistence-app/GDBExport.C
+In file included from GDBOperation.h:30:0,
+                 from GDBExport.h:28,
+                 from GDBExport.C:23:
+PRef.h:66:60: warning: friend declaration ‘Marshal& operator<<(Marshal&, const PRef<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const PRef<T>& ref);
+                                                            ^
+PRef.h:66:60: note: (if this is not what you intended, make sure the function template has already been declared and add <> after the function name here) 
+PRef.h:68:54: warning: friend declaration ‘Marshal& operator>>(Marshal&, PRef<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, PRef<T>& ref);
+                                                      ^
+In file included from GDBData.h:29:0,
+                 from GDBExport.h:29,
+                 from GDBExport.C:23:
+Set.h:65:60: warning: friend declaration ‘Marshal& operator<<(Marshal&, const Set<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const Set<T>& aSet);
+                                                            ^
+Set.h:66:54: warning: friend declaration ‘Marshal& operator>>(Marshal&, Set<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, Set<T>& aSet);
+                                                      ^
+In file included from GDBDataType.h:29:0,
+                 from GDBExport.C:24:
+SimpleIndex.h:40:82: warning: friend declaration ‘Marshal& operator<<(Marshal&, const SimpleIndexEntry<TKey, TData>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const SimpleIndexEntry<TKey,TData>& aSIE);
+                                                                                  ^
+SimpleIndex.h:41:76: warning: friend declaration ‘Marshal& operator>>(Marshal&, SimpleIndexEntry<TKey, TData>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, SimpleIndexEntry<TKey,TData>& aSIE);
+                                                                            ^
+SimpleIndex.h:76:76: warning: friend declaration ‘Marshal& operator<<(Marshal&, const SimpleIndex<TKey, TData>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const SimpleIndex<TKey,TData>& aSI);
+                                                                            ^
+SimpleIndex.h:77:70: warning: friend declaration ‘Marshal& operator>>(Marshal&, SimpleIndex<TKey, TData>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, SimpleIndex<TKey,TData>& aSI);
+                                                                      ^
+
+Compiling applications/persistence-app/GDBOperation.C
+In file included from GDBOperation.C:26:0:
+PRef.h:66:60: warning: friend declaration ‘Marshal& operator<<(Marshal&, const PRef<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const PRef<T>& ref);
+                                                            ^
+PRef.h:66:60: note: (if this is not what you intended, make sure the function template has already been declared and add <> after the function name here) 
+PRef.h:68:54: warning: friend declaration ‘Marshal& operator>>(Marshal&, PRef<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, PRef<T>& ref);
+                                                      ^
+In file included from GDBData.h:29:0,
+                 from GDBOperation.C:27:
+Set.h:65:60: warning: friend declaration ‘Marshal& operator<<(Marshal&, const Set<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const Set<T>& aSet);
+                                                            ^
+Set.h:66:54: warning: friend declaration ‘Marshal& operator>>(Marshal&, Set<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, Set<T>& aSet);
+                                                      ^
+In file included from GDBDataType.h:29:0,
+                 from GDBOperation.C:30:
+SimpleIndex.h:40:82: warning: friend declaration ‘Marshal& operator<<(Marshal&, const SimpleIndexEntry<TKey, TData>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const SimpleIndexEntry<TKey,TData>& aSIE);
+                                                                                  ^
+SimpleIndex.h:41:76: warning: friend declaration ‘Marshal& operator>>(Marshal&, SimpleIndexEntry<TKey, TData>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, SimpleIndexEntry<TKey,TData>& aSIE);
+                                                                            ^
+SimpleIndex.h:76:76: warning: friend declaration ‘Marshal& operator<<(Marshal&, const SimpleIndex<TKey, TData>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const SimpleIndex<TKey,TData>& aSI);
+                                                                            ^
+SimpleIndex.h:77:70: warning: friend declaration ‘Marshal& operator>>(Marshal&, SimpleIndex<TKey, TData>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, SimpleIndex<TKey,TData>& aSI);
+                                                                      ^
+
+Compiling applications/persistence-app/GDBRepType.C
+In file included from GDBData.h:27:0,
+                 from GDBRepType.C:23:
+PRef.h:66:60: warning: friend declaration ‘Marshal& operator<<(Marshal&, const PRef<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const PRef<T>& ref);
+                                                            ^
+PRef.h:66:60: note: (if this is not what you intended, make sure the function template has already been declared and add <> after the function name here) 
+PRef.h:68:54: warning: friend declaration ‘Marshal& operator>>(Marshal&, PRef<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, PRef<T>& ref);
+                                                      ^
+In file included from GDBData.h:29:0,
+                 from GDBRepType.C:23:
+Set.h:65:60: warning: friend declaration ‘Marshal& operator<<(Marshal&, const Set<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const Set<T>& aSet);
+                                                            ^
+Set.h:66:54: warning: friend declaration ‘Marshal& operator>>(Marshal&, Set<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, Set<T>& aSet);
+                                                      ^
+In file included from GDBRepType.h:29:0,
+                 from GDBRepType.C:24:
+SimpleIndex.h:40:82: warning: friend declaration ‘Marshal& operator<<(Marshal&, const SimpleIndexEntry<TKey, TData>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const SimpleIndexEntry<TKey,TData>& aSIE);
+                                                                                  ^
+SimpleIndex.h:41:76: warning: friend declaration ‘Marshal& operator>>(Marshal&, SimpleIndexEntry<TKey, TData>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, SimpleIndexEntry<TKey,TData>& aSIE);
+                                                                            ^
+SimpleIndex.h:76:76: warning: friend declaration ‘Marshal& operator<<(Marshal&, const SimpleIndex<TKey, TData>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const SimpleIndex<TKey,TData>& aSI);
+                                                                            ^
+SimpleIndex.h:77:70: warning: friend declaration ‘Marshal& operator>>(Marshal&, SimpleIndex<TKey, TData>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, SimpleIndex<TKey,TData>& aSI);
+                                                                      ^
+
+Compiling applications/persistence-app/GDBStore.C
+In file included from GDBStore.h:30:0,
+                 from GDBStore.C:28:
+Set.h:65:60: warning: friend declaration ‘Marshal& operator<<(Marshal&, const Set<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const Set<T>& aSet);
+                                                            ^
+Set.h:65:60: note: (if this is not what you intended, make sure the function template has already been declared and add <> after the function name here) 
+Set.h:66:54: warning: friend declaration ‘Marshal& operator>>(Marshal&, Set<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, Set<T>& aSet);
+                                                      ^
+In file included from GDBData.h:27:0,
+                 from GDBStore.h:31,
+                 from GDBStore.C:28:
+PRef.h:66:60: warning: friend declaration ‘Marshal& operator<<(Marshal&, const PRef<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const PRef<T>& ref);
+                                                            ^
+PRef.h:68:54: warning: friend declaration ‘Marshal& operator>>(Marshal&, PRef<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, PRef<T>& ref);
+                                                      ^
+
+Compiling applications/persistence-app/GDBTraversal.C
+In file included from GDBData.h:27:0,
+                 from GDBTraversal.C:25:
+PRef.h:66:60: warning: friend declaration ‘Marshal& operator<<(Marshal&, const PRef<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const PRef<T>& ref);
+                                                            ^
+PRef.h:66:60: note: (if this is not what you intended, make sure the function template has already been declared and add <> after the function name here) 
+PRef.h:68:54: warning: friend declaration ‘Marshal& operator>>(Marshal&, PRef<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, PRef<T>& ref);
+                                                      ^
+In file included from GDBData.h:29:0,
+                 from GDBTraversal.C:25:
+Set.h:65:60: warning: friend declaration ‘Marshal& operator<<(Marshal&, const Set<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const Set<T>& aSet);
+                                                            ^
+Set.h:66:54: warning: friend declaration ‘Marshal& operator>>(Marshal&, Set<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, Set<T>& aSet);
+                                                      ^
+
+Compiling applications/persistence-app/GraphicsDataBase.C
+In file included from GraphicsDataBase.h:27:0,
+                 from GraphicsDataBase.C:24:
+PRef.h:66:60: warning: friend declaration ‘Marshal& operator<<(Marshal&, const PRef<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const PRef<T>& ref);
+                                                            ^
+PRef.h:66:60: note: (if this is not what you intended, make sure the function template has already been declared and add <> after the function name here) 
+PRef.h:68:54: warning: friend declaration ‘Marshal& operator>>(Marshal&, PRef<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, PRef<T>& ref);
+                                                      ^
+In file included from GDBDataType.h:29:0,
+                 from GraphicsDataBase.h:29,
+                 from GraphicsDataBase.C:24:
+SimpleIndex.h:40:82: warning: friend declaration ‘Marshal& operator<<(Marshal&, const SimpleIndexEntry<TKey, TData>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const SimpleIndexEntry<TKey,TData>& aSIE);
+                                                                                  ^
+SimpleIndex.h:41:76: warning: friend declaration ‘Marshal& operator>>(Marshal&, SimpleIndexEntry<TKey, TData>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, SimpleIndexEntry<TKey,TData>& aSIE);
+                                                                            ^
+SimpleIndex.h:76:76: warning: friend declaration ‘Marshal& operator<<(Marshal&, const SimpleIndex<TKey, TData>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const SimpleIndex<TKey,TData>& aSI);
+                                                                            ^
+SimpleIndex.h:77:70: warning: friend declaration ‘Marshal& operator>>(Marshal&, SimpleIndex<TKey, TData>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, SimpleIndex<TKey,TData>& aSI);
+                                                                      ^
+In file included from GDBData.h:29:0,
+                 from GDBDataType.h:30,
+                 from GraphicsDataBase.h:29,
+                 from GraphicsDataBase.C:24:
+Set.h:65:60: warning: friend declaration ‘Marshal& operator<<(Marshal&, const Set<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const Set<T>& aSet);
+                                                            ^
+Set.h:66:54: warning: friend declaration ‘Marshal& operator>>(Marshal&, Set<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, Set<T>& aSet);
+                                                      ^
+
+Compiling applications/persistence-app/ImportBSDL3.C
+In file included from GDBOperation.h:30:0,
+                 from ImportBSDL3.h:28,
+                 from ImportBSDL3.C:24:
+PRef.h:66:60: warning: friend declaration ‘Marshal& operator<<(Marshal&, const PRef<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const PRef<T>& ref);
+                                                            ^
+PRef.h:66:60: note: (if this is not what you intended, make sure the function template has already been declared and add <> after the function name here) 
+PRef.h:68:54: warning: friend declaration ‘Marshal& operator>>(Marshal&, PRef<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, PRef<T>& ref);
+                                                      ^
+In file included from GDBData.h:29:0,
+                 from ImportBSDL3.h:29,
+                 from ImportBSDL3.C:24:
+Set.h:65:60: warning: friend declaration ‘Marshal& operator<<(Marshal&, const Set<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const Set<T>& aSet);
+                                                            ^
+Set.h:66:54: warning: friend declaration ‘Marshal& operator>>(Marshal&, Set<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, Set<T>& aSet);
+                                                      ^
+
+Compiling applications/persistence-app/Marshal.C
+
+Compiling applications/persistence-app/PBinary.C
+In file included from DataBase.h:29:0,
+                 from PBinary.C:26:
+PRef.h:66:60: warning: friend declaration ‘Marshal& operator<<(Marshal&, const PRef<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const PRef<T>& ref);
+                                                            ^
+PRef.h:66:60: note: (if this is not what you intended, make sure the function template has already been declared and add <> after the function name here) 
+PRef.h:68:54: warning: friend declaration ‘Marshal& operator>>(Marshal&, PRef<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, PRef<T>& ref);
+                                                      ^
+
+Compiling applications/persistence-app/PExtra.C
+In file included from DataBase.h:29:0,
+                 from PExtra.h:34,
+                 from PExtra.C:24:
+PRef.h:66:60: warning: friend declaration ‘Marshal& operator<<(Marshal&, const PRef<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const PRef<T>& ref);
+                                                            ^
+PRef.h:66:60: note: (if this is not what you intended, make sure the function template has already been declared and add <> after the function name here) 
+PRef.h:68:54: warning: friend declaration ‘Marshal& operator>>(Marshal&, PRef<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, PRef<T>& ref);
+                                                      ^
+
+Compiling applications/persistence-app/PExtraTemplates.C
+
+Compiling applications/persistence-app/POId.C
+In file included from DataBase.h:29:0,
+                 from POId.C:25:
+PRef.h:66:60: warning: friend declaration ‘Marshal& operator<<(Marshal&, const PRef<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const PRef<T>& ref);
+                                                            ^
+PRef.h:66:60: note: (if this is not what you intended, make sure the function template has already been declared and add <> after the function name here) 
+PRef.h:68:54: warning: friend declaration ‘Marshal& operator>>(Marshal&, PRef<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, PRef<T>& ref);
+                                                      ^
+
+Compiling applications/persistence-app/PRCString.C
+In file included from DataBase.h:29:0,
+                 from PExtra.h:34,
+                 from PRCString.h:27,
+                 from PRCString.C:24:
+PRef.h:66:60: warning: friend declaration ‘Marshal& operator<<(Marshal&, const PRef<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const PRef<T>& ref);
+                                                            ^
+PRef.h:66:60: note: (if this is not what you intended, make sure the function template has already been declared and add <> after the function name here) 
+PRef.h:68:54: warning: friend declaration ‘Marshal& operator>>(Marshal&, PRef<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, PRef<T>& ref);
+                                                      ^
+In file included from PRCString.h:28:0,
+                 from PRCString.C:24:
+PersistenceFor.h:59:72: warning: friend declaration ‘Marshal& operator<<(Marshal&, const PersistenceFor<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& aDB, const PersistenceFor<T>& aPF);
+                                                                        ^
+PersistenceFor.h:60:66: warning: friend declaration ‘Marshal& operator>>(Marshal&, PersistenceFor<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& aDB, PersistenceFor<T>& aPF);
+                                                                  ^
+
+Compiling applications/persistence-app/PRef.C
+
+Compiling applications/persistence-app/PersistenceFor.C
+
+Compiling applications/persistence-app/Persistent.C
+In file included from DataBase.h:29:0,
+                 from Persistent.C:25:
+PRef.h:66:60: warning: friend declaration ‘Marshal& operator<<(Marshal&, const PRef<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const PRef<T>& ref);
+                                                            ^
+PRef.h:66:60: note: (if this is not what you intended, make sure the function template has already been declared and add <> after the function name here) 
+PRef.h:68:54: warning: friend declaration ‘Marshal& operator>>(Marshal&, PRef<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, PRef<T>& ref);
+                                                      ^
+In file included from Transaction.h:31:0,
+                 from Persistent.C:27:
+Set.h:65:60: warning: friend declaration ‘Marshal& operator<<(Marshal&, const Set<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const Set<T>& aSet);
+                                                            ^
+Set.h:66:54: warning: friend declaration ‘Marshal& operator>>(Marshal&, Set<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, Set<T>& aSet);
+                                                      ^
+
+Compiling applications/persistence-app/PersistentManager.C
+In file included from DataBase.h:29:0,
+                 from PersistentManager.C:30:
+PRef.h:66:60: warning: friend declaration ‘Marshal& operator<<(Marshal&, const PRef<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const PRef<T>& ref);
+                                                            ^
+PRef.h:66:60: note: (if this is not what you intended, make sure the function template has already been declared and add <> after the function name here) 
+PRef.h:68:54: warning: friend declaration ‘Marshal& operator>>(Marshal&, PRef<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, PRef<T>& ref);
+                                                      ^
+In file included from Transaction.h:31:0,
+                 from PersistentManager.C:31:
+Set.h:65:60: warning: friend declaration ‘Marshal& operator<<(Marshal&, const Set<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const Set<T>& aSet);
+                                                            ^
+Set.h:66:54: warning: friend declaration ‘Marshal& operator>>(Marshal&, Set<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, Set<T>& aSet);
+                                                      ^
+
+Compiling applications/persistence-app/Set.C
+
+Compiling applications/persistence-app/SetStandardView3D.C
+
+Compiling applications/persistence-app/SimpleIndex.C
+
+Compiling applications/persistence-app/Transaction.C
+In file included from DataBase.h:29:0,
+                 from Transaction.C:24:
+PRef.h:66:60: warning: friend declaration ‘Marshal& operator<<(Marshal&, const PRef<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const PRef<T>& ref);
+                                                            ^
+PRef.h:66:60: note: (if this is not what you intended, make sure the function template has already been declared and add <> after the function name here) 
+PRef.h:68:54: warning: friend declaration ‘Marshal& operator>>(Marshal&, PRef<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, PRef<T>& ref);
+                                                      ^
+In file included from Transaction.h:31:0,
+                 from Transaction.C:25:
+Set.h:65:60: warning: friend declaration ‘Marshal& operator<<(Marshal&, const Set<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const Set<T>& aSet);
+                                                            ^
+Set.h:66:54: warning: friend declaration ‘Marshal& operator>>(Marshal&, Set<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, Set<T>& aSet);
+                                                      ^
+
+Compiling applications/persistence-app/TransientBase.C
+In file included from DataBase.h:29:0,
+                 from TransientBase.h:27,
+                 from TransientBase.C:26:
+PRef.h:66:60: warning: friend declaration ‘Marshal& operator<<(Marshal&, const PRef<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const PRef<T>& ref);
+                                                            ^
+PRef.h:66:60: note: (if this is not what you intended, make sure the function template has already been declared and add <> after the function name here) 
+PRef.h:68:54: warning: friend declaration ‘Marshal& operator>>(Marshal&, PRef<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, PRef<T>& ref);
+                                                      ^
+
+Compiling applications/persistence-app/persistence.C
+In file included from persistence.C:39:0:
+PRef.h:66:60: warning: friend declaration ‘Marshal& operator<<(Marshal&, const PRef<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const PRef<T>& ref);
+                                                            ^
+PRef.h:66:60: note: (if this is not what you intended, make sure the function template has already been declared and add <> after the function name here) 
+PRef.h:68:54: warning: friend declaration ‘Marshal& operator>>(Marshal&, PRef<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, PRef<T>& ref);
+                                                      ^
+In file included from Transaction.h:31:0,
+                 from persistence.C:41:
+Set.h:65:60: warning: friend declaration ‘Marshal& operator<<(Marshal&, const Set<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const Set<T>& aSet);
+                                                            ^
+Set.h:66:54: warning: friend declaration ‘Marshal& operator>>(Marshal&, Set<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, Set<T>& aSet);
+                                                      ^
+In file included from GDBDataType.h:29:0,
+                 from GraphicsDataBase.h:29,
+                 from persistence.C:47:
+SimpleIndex.h:40:82: warning: friend declaration ‘Marshal& operator<<(Marshal&, const SimpleIndexEntry<TKey, TData>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const SimpleIndexEntry<TKey,TData>& aSIE);
+                                                                                  ^
+SimpleIndex.h:41:76: warning: friend declaration ‘Marshal& operator>>(Marshal&, SimpleIndexEntry<TKey, TData>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, SimpleIndexEntry<TKey,TData>& aSIE);
+                                                                            ^
+SimpleIndex.h:76:76: warning: friend declaration ‘Marshal& operator<<(Marshal&, const SimpleIndex<TKey, TData>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& m, const SimpleIndex<TKey,TData>& aSI);
+                                                                            ^
+SimpleIndex.h:77:70: warning: friend declaration ‘Marshal& operator>>(Marshal&, SimpleIndex<TKey, TData>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& m, SimpleIndex<TKey,TData>& aSI);
+                                                                      ^
+In file included from PRCString.h:28:0,
+                 from persistence.C:52:
+PersistenceFor.h:59:72: warning: friend declaration ‘Marshal& operator<<(Marshal&, const PersistenceFor<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator<<(Marshal& aDB, const PersistenceFor<T>& aPF);
+                                                                        ^
+PersistenceFor.h:60:66: warning: friend declaration ‘Marshal& operator>>(Marshal&, PersistenceFor<T>&)’ declares a non-template function [-Wnon-template-friend]
+   friend Marshal& operator>>(Marshal& aDB, PersistenceFor<T>& aPF);
+                                                                  ^
+persistence.C: In function ‘int main(int, char**)’:
+persistence.C:82:44: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+   FileBase aDB("/home/collison/tmp/testDB/");
+                                            ^
+ls: cannot access persistence: No such file or directory
+
+Linking persistence
+GDBData.o: In function `operator<<(Marshal&, GDBData&)':
+/home/tma/booga/applications/persistence-app/GDBData.C:302: undefined reference to `operator<<(Marshal&, PRef<GDBDataType> const&)'
+/home/tma/booga/applications/persistence-app/GDBData.C:303: undefined reference to `operator<<(Marshal&, PRef<GDBRepType> const&)'
+/home/tma/booga/applications/persistence-app/GDBData.C:305: undefined reference to `operator<<(Marshal&, PRef<GDBData> const&)'
+/home/tma/booga/applications/persistence-app/GDBData.C:306: undefined reference to `operator<<(Marshal&, Set<PRef<GDBData> > const&)'
+/home/tma/booga/applications/persistence-app/GDBData.C:307: undefined reference to `operator<<(Marshal&, Set<PRef<GDBData> > const&)'
+/home/tma/booga/applications/persistence-app/GDBData.C:308: undefined reference to `operator<<(Marshal&, PRef<GDBData> const&)'
+/home/tma/booga/applications/persistence-app/GDBData.C:309: undefined reference to `operator<<(Marshal&, Set<PRef<GDBData> > const&)'
+/home/tma/booga/applications/persistence-app/GDBData.C:310: undefined reference to `operator<<(Marshal&, PRef<GDBData> const&)'
+/home/tma/booga/applications/persistence-app/GDBData.C:311: undefined reference to `operator<<(Marshal&, Set<PRef<GDBData> > const&)'
+/home/tma/booga/applications/persistence-app/GDBData.C:313: undefined reference to `operator<<(Marshal&, PRef<PBinary> const&)'
+GDBData.o: In function `operator>>(Marshal&, GDBData&)':
+/home/tma/booga/applications/persistence-app/GDBData.C:323: undefined reference to `operator>>(Marshal&, PRef<GDBDataType>&)'
+/home/tma/booga/applications/persistence-app/GDBData.C:324: undefined reference to `operator>>(Marshal&, PRef<GDBRepType>&)'
+/home/tma/booga/applications/persistence-app/GDBData.C:326: undefined reference to `operator>>(Marshal&, PRef<GDBData>&)'
+/home/tma/booga/applications/persistence-app/GDBData.C:327: undefined reference to `operator>>(Marshal&, Set<PRef<GDBData> >&)'
+/home/tma/booga/applications/persistence-app/GDBData.C:328: undefined reference to `operator>>(Marshal&, Set<PRef<GDBData> >&)'
+/home/tma/booga/applications/persistence-app/GDBData.C:329: undefined reference to `operator>>(Marshal&, PRef<GDBData>&)'
+/home/tma/booga/applications/persistence-app/GDBData.C:330: undefined reference to `operator>>(Marshal&, Set<PRef<GDBData> >&)'
+/home/tma/booga/applications/persistence-app/GDBData.C:331: undefined reference to `operator>>(Marshal&, PRef<GDBData>&)'
+/home/tma/booga/applications/persistence-app/GDBData.C:332: undefined reference to `operator>>(Marshal&, Set<PRef<GDBData> >&)'
+/home/tma/booga/applications/persistence-app/GDBData.C:334: undefined reference to `operator>>(Marshal&, PRef<PBinary>&)'
+GDBDataType.o: In function `operator<<(Marshal&, GDBDataType&)':
+/home/tma/booga/applications/persistence-app/GDBDataType.C:96: undefined reference to `operator<<(Marshal&, PRef<GDBDataType> const&)'
+/home/tma/booga/applications/persistence-app/GDBDataType.C:97: undefined reference to `operator<<(Marshal&, SimpleIndex<RCString, PRef<GDBData> > const&)'
+GDBDataType.o: In function `operator>>(Marshal&, GDBDataType&)':
+/home/tma/booga/applications/persistence-app/GDBDataType.C:103: undefined reference to `operator>>(Marshal&, PRef<GDBDataType>&)'
+/home/tma/booga/applications/persistence-app/GDBDataType.C:104: undefined reference to `operator>>(Marshal&, SimpleIndex<RCString, PRef<GDBData> >&)'
+GDBOperation.o: In function `operator<<(Marshal&, GDBOperation&)':
+/home/tma/booga/applications/persistence-app/GDBOperation.C:209: undefined reference to `operator<<(Marshal&, PRef<GDBDataType> const&)'
+/home/tma/booga/applications/persistence-app/GDBOperation.C:210: undefined reference to `operator<<(Marshal&, PRef<GDBRepType> const&)'
+/home/tma/booga/applications/persistence-app/GDBOperation.C:211: undefined reference to `operator<<(Marshal&, PRef<GDBDataType> const&)'
+/home/tma/booga/applications/persistence-app/GDBOperation.C:212: undefined reference to `operator<<(Marshal&, PRef<GDBRepType> const&)'
+GDBOperation.o: In function `operator>>(Marshal&, GDBOperation&)':
+/home/tma/booga/applications/persistence-app/GDBOperation.C:218: undefined reference to `operator>>(Marshal&, PRef<GDBDataType>&)'
+/home/tma/booga/applications/persistence-app/GDBOperation.C:219: undefined reference to `operator>>(Marshal&, PRef<GDBRepType>&)'
+/home/tma/booga/applications/persistence-app/GDBOperation.C:220: undefined reference to `operator>>(Marshal&, PRef<GDBDataType>&)'
+/home/tma/booga/applications/persistence-app/GDBOperation.C:221: undefined reference to `operator>>(Marshal&, PRef<GDBRepType>&)'
+GDBRepType.o: In function `operator<<(Marshal&, GDBRepType&)':
+/home/tma/booga/applications/persistence-app/GDBRepType.C:110: undefined reference to `operator<<(Marshal&, PRef<GDBRepType> const&)'
+/home/tma/booga/applications/persistence-app/GDBRepType.C:111: undefined reference to `operator<<(Marshal&, SimpleIndex<RCString, PRef<GDBData> > const&)'
+GDBRepType.o: In function `operator>>(Marshal&, GDBRepType&)':
+/home/tma/booga/applications/persistence-app/GDBRepType.C:117: undefined reference to `operator>>(Marshal&, PRef<GDBRepType>&)'
+/home/tma/booga/applications/persistence-app/GDBRepType.C:118: undefined reference to `operator>>(Marshal&, SimpleIndex<RCString, PRef<GDBData> >&)'
+GraphicsDataBase.o: In function `operator<<(Marshal&, GraphicsDataBase&)':
+/home/tma/booga/applications/persistence-app/GraphicsDataBase.C:129: undefined reference to `operator<<(Marshal&, Set<PRef<GDBDataType> > const&)'
+/home/tma/booga/applications/persistence-app/GraphicsDataBase.C:130: undefined reference to `operator<<(Marshal&, Set<PRef<GDBRepType> > const&)'
+/home/tma/booga/applications/persistence-app/GraphicsDataBase.C:131: undefined reference to `operator<<(Marshal&, Set<PRef<GDBOperation> > const&)'
+GraphicsDataBase.o: In function `operator>>(Marshal&, GraphicsDataBase&)':
+/home/tma/booga/applications/persistence-app/GraphicsDataBase.C:137: undefined reference to `operator>>(Marshal&, Set<PRef<GDBDataType> >&)'
+/home/tma/booga/applications/persistence-app/GraphicsDataBase.C:138: undefined reference to `operator>>(Marshal&, Set<PRef<GDBRepType> >&)'
+/home/tma/booga/applications/persistence-app/GraphicsDataBase.C:139: undefined reference to `operator>>(Marshal&, Set<PRef<GDBOperation> >&)'
+PRCString.o: In function `PersistenceFor<RCString>::marshal(Marshal*)':
+/home/tma/booga/applications/persistence-app/PersistenceFor.C:68: undefined reference to `operator<<(Marshal&, PersistenceFor<RCString> const&)'
+PRCString.o: In function `PersistenceFor<RCString>::unmarshal(Marshal*)':
+/home/tma/booga/applications/persistence-app/PersistenceFor.C:73: undefined reference to `operator>>(Marshal&, PersistenceFor<RCString>&)'
+collect2: error: ld returned 1 exit status
+../../config/general.mk:404: recipe for target 'persistence' failed
+make[2]: *** [persistence] Error 1
+
+Entering directory applications/triangulate-app
+
+Compiling applications/triangulate-app/triangulate.C
+
+Linking triangulate
+----------------------
+
+Entering directory ./config
+
+Entering directory ./examples
+make[1]: *** No rule to make target 'all'.  Stop.
+
+Entering directory ./HOWTO
+make[1]: *** No rule to make target 'all'.  Stop.
+config/general.mk:207: recipe for target 'all' failed
+make: *** [all] Error 2

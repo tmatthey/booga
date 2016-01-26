@@ -6,6 +6,7 @@
 #include <fstream>
 #include <unistd.h>
 #include <stdio.h>
+#include <errno.h>
 #include "booga/base/RCString.h"
 
 struct AbstractFile {
@@ -39,14 +40,18 @@ public:
     }
     else {
       file = fopen(af.filename.chars(),attr);
-      cl = (file != NULL);
+      cl = true;
     }
   }
   bool bad() const{return file == NULL;}
   operator FILE*()const{return file;}
   ~FileFD(){
     if(cl && file != NULL)
-      fclose(file);
+    {
+      if (fseek(file, 0, SEEK_CUR) != -1 && errno != EBADF)
+	fclose(file);
+    }
+    file = NULL;
   }
 };
 

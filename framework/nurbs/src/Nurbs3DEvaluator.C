@@ -427,9 +427,9 @@ void Nurbs3DEvaluator::tangents (Real u, Real v, Vector3D &pt, Vector3D &tu, Vec
 void Nurbs3DEvaluator::derivativePoints (int d, int r1, int r2, Vec4DArr2D *PK) const
 {
   register int i;
-  int r = r2 - r1, uc, p;
+  int r = r2 - r1, p;
 
-  uc = myNurbs->myKnotsU->getCount ();
+  //uc = myNurbs->myKnotsU->getCount ();
   p = myNurbs->myKnotsU->getDegree ();
 
   KnotArray  *U = new KnotArray (r+p);
@@ -455,10 +455,10 @@ void Nurbs3DEvaluator::derivativePoints (int d, int r1, int r2, Vec4DArr2D *PK) 
 void Nurbs3DEvaluator::derivativePoints (int d, int r1, int r2, int s1, int s2, Vec4DArr4D *PKL) const
 {
   register int i, j, k, l;
-  int p, q, uc, vc, du, dv, dd, r = r2 - r1, s = s2 - s1;
+  int p, q, du, dv, dd, r = r2 - r1, s = s2 - s1;
 
-  uc = myNurbs->myKnotsU->getCount ();
-  vc = myNurbs->myKnotsV->getCount ();
+  //uc = myNurbs->myKnotsU->getCount ();
+  //vc = myNurbs->myKnotsV->getCount ();
   p = myNurbs->myKnotsU->getDegree ();
   q = myNurbs->myKnotsV->getDegree ();
   du = min (d, p);
@@ -554,12 +554,12 @@ Vector3D Nurbs3DEvaluator::evaluateBasisFuns (Real u) const
 
 Vector3D Nurbs3DEvaluator::evaluateBasisFuns (Real u, Real v) const
 {
-  int p, q, n, m, uspan, vspan;
+  int p, q, uspan, vspan;
 
   p = myNurbs->myKnotsU->getDegree ();           // Get u- and v-degrees
   q = myNurbs->myKnotsV->getDegree ();
-  n = myNurbs->myPoints->getCountU ();           // Get control point counts
-  m = myNurbs->myPoints->getCountV ();
+  //n = myNurbs->myPoints->getCountU ();           // Get control point counts
+  //m = myNurbs->myPoints->getCountV ();
 
   if (myNurbs->myKnotsU->findSpan(u, uspan) == false)
   {

@@ -44,14 +44,14 @@ X11_LIB   = -lXext -lXmu -lX11 -lXi
 # OpenGL includes and library
 # HAVE_OPENGL  = 
 HAVE_OPENGL  = -DHAVE_OPENGL
-OPENGL_INC   = -I$(HOME)/include
-OPENGL_LPATH = -L$(HOME)/lib
+OPENGL_INC   =
+OPENGL_LPATH =
 OPENGL_LIB   = -lglut -lGLU -lGL 
 
 # JPEG include files and library
 # HAVE_JPEG  = 
 HAVE_JPEG  = -DHAVE_JPEG
-JPEG_INC   = 
+JPEG_INC   =
 JPEG_LPATH = 
 JPEG_LIB   = -ljpeg
 
@@ -70,9 +70,9 @@ HAVE_MPEGE  =
 #MPEGE_LIB   = -lmpege 
 
 # wxWin includes and library
-HAVE_WXWIN  =
+#HAVE_WXWIN  =
 #HAVE_WXWIN  = -DHAVE_WXWIN
-#WXWIN_INC   = -I/usr/wxwin/unix/include/x -I/usr/wxwin/unix/include/base
+#WXWIN_INC   = -I/usr/include/wx-3.0 -I/usr/include/wx-3.0/wx
 #WXWIN_LPATH = -L/usr/wxwin/unix/lib
 #WXWIN_LIB   = -lwx_ol
 #CPPFLAGS   += -Dwx_xview
@@ -84,11 +84,11 @@ HAVE_WWW  =
 #WWW_LPATH = -L$(HOME)/lib 
 #WWW_LIB   =  -lnsl
 
-HAVE_MPI  =
-#HAVE_MPI  = -DHAVE_MPI
-#MPI_INC   = 
-#MPI_LPATH = 
-#MPI_LIB   = $(MPI_LDLIBS)
+#HAVE_MPI  =
+HAVE_MPI  = -DHAVE_MPI
+MPI_INC   = -I/usr/include/mpich
+MPI_LPATH = 
+MPI_LIB   = -lmpichcxx -lmpich
 
 #HAVE_PNG  =
 HAVE_PNG  = -DHAVE_PNG
@@ -125,7 +125,7 @@ STATIC_LIB_EXT = a
 # -------------------------------------------------------
 BISON++  = bison++
 B++FLAGS = -vd
-FLEX++   = $(HOME)/bin/flex++
+FLEX++   = /home/tma/tools/bin/flex++
 F++FLAGS = -d
 
 # GNU awk program
@@ -136,7 +136,7 @@ GAWK   = gawk
 # -------------------------------------------------------
 WC        = wc
 RM_INTACT = rm -i
-CUT	   = /bin/cut
+CUT	   = /usr/bin/cut
 
 # Where and how do you want BOOGA to be installed?
 # -------------------------------------------------------

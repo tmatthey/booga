@@ -34,7 +34,7 @@
 class ShaderParserImpl : public ShaderYacc {
 public:
   ShaderParserImpl() {};
-  // ~ShaderParserImpl();   // Use default version
+  virtual ~ShaderParserImpl(){};   // Use default version
   
   int parse(RCString inputFile);
   void setParseFile(FILE* parseFile);

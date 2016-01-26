@@ -39,6 +39,7 @@ class Name {
 public:
   Name(const char* name = "");
   Name(const RCString& name);
+  Name(const std::stringstream& os);
 
   Name& operator=(const char* name);
   Name& operator=(const RCString& name);

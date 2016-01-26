@@ -38,7 +38,7 @@ public:
   // Option(const Option& option);    // Use default version.
   
 public:
-  // virtual ~Option();               // Use default version.
+  virtual ~Option(){}                 // Use virtual version.
 
 public:
   Option& operator=(const Option&);   // No assignments.

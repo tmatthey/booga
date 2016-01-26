@@ -64,7 +64,7 @@ text (20, "line") {
 //
 // pixmap
 //
-pixmap "allee.pixi" {
+pixmap "sunniva.ppm" {
   translate [300, 50];
 }
 text (20, "pixmap") { 

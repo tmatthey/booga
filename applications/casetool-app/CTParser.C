@@ -39,7 +39,7 @@
 class CTParserImpl : public CTYacc {
 public:
   CTParserImpl() {};
-  // ~CTParserImpl();   // Use default version.
+  virtual ~CTParserImpl(){};   // Use default version.
 
   bool parse(World2D* world, FILE* input = stdin, 
                              const RCString& cppParameters = RCString());

@@ -195,7 +195,7 @@ bool GLViewer3D::doExecute()
   // Setup window.
   //
   int argc = 0;
-  char* argv0 = "dummy argument";
+  char* argv0 = const_cast<char*>("dummy argument");
   
   glutInit(&argc, &argv0);
   glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);

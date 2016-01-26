@@ -163,6 +163,15 @@ private:
 
 declareInitStatics(TransMatrix3D);
 
+std::ostream& operator<<(std::ostream& os, const TransMatrix3D& tm);
+
+Vector3D operator*(const Vector3D& point, const TransMatrix3D& tm);
+Vector3D transformAsPoint(const Vector3D& point, const TransMatrix3D& tm);
+Vector3D transformAsVector(const Vector3D& vec, const TransMatrix3D& tm);
+Vector3D transformAsNormal(const Vector3D& normal, const TransMatrix3D& tm);
+void convert(const TransMatrix3D& from, float to[16]);
+void convert(const TransMatrix3D& from, double to[16]);
+
 //______________________________________________________________________ INLINES
 
 inline const TransMatrix3D& TransMatrix3D::getIdentity()

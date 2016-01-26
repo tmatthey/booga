@@ -368,19 +368,19 @@ void parseCmdLine(int argc, char* argv[])
       if ((flagString.length() == 2) &&
           ((argv[i][1] == 'O') || (argv[i][1] == 'S') || (argv[i][1] == 'I'))) {
         if ((i+1) < argc) {
-          flags[argv[i][1]] = true;
+          flags[static_cast<unsigned int>(argv[i][1])] = true;
           if (argv[i][1] == 'I') {
             std::stringstream os;
-            os << options[argv[i][1]];
-            if (options[argv[i][1]].length() > 0) {
+            os << options[static_cast<unsigned int>(argv[i][1])];
+            if (options[static_cast<unsigned int>(argv[i][1])].length() > 0) {
               os << " ";
               };
             os << argv[i+1];
             RCString tmp(os);
-            options[argv[i][1]] = tmp.chars();
+            options[static_cast<unsigned int>(argv[i][1])] = tmp.chars();
             }
           else {
-            options[argv[i][1]] = argv[i+1];
+            options[static_cast<unsigned int>(argv[i][1])] = argv[i+1];
             };
           i++;  // skip flag
           i++;  // skip option

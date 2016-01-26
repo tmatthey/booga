@@ -23,20 +23,24 @@
  */
 
 #include "booga/base/Name.h"
+#include <cstring>
 
 //_________________________________________________________________________ Name
 
 implementInitStatics(Name);
 
-List<RCString>* Name::ourGlobalNameSpace;
-SymTable<RCString, long>* Name::ourIndexTable;
+List<RCString>* Name::ourGlobalNameSpace = NULL;
+SymTable<RCString, long>* Name::ourIndexTable = NULL;
 long Name::ourNextIndex;
 
 void Name::initClass()
 {
-  Name::ourGlobalNameSpace = new List<RCString>(1000);
-  Name::ourIndexTable = new SymTable<RCString, long>(503);
-  Name::ourNextIndex = 0;
+  if (Name::ourGlobalNameSpace == NULL)
+  {
+    Name::ourGlobalNameSpace = new List<RCString>(1000);
+    Name::ourIndexTable = new SymTable<RCString, long>(503);
+    Name::ourNextIndex = 0;
+  }
 }
 
 Name::Name(const char* name)
@@ -47,6 +51,11 @@ Name::Name(const char* name)
 Name::Name(const RCString& name)
 {
   myIndex = addName(name.chars());
+}
+
+Name::Name(const std::stringstream& os)
+{
+  myIndex = addName(RCString(const_cast<const char*>(os.str().c_str())));
 }
 
 Name& Name::operator=(const char* name)
@@ -75,6 +84,9 @@ long Name::addName(const RCString& newName)
   // just return the index of the stored string. Otherwise add 'newName' to
   // our name space and associate it with the current value of ourNextIndex.
   //
+  if (ourIndexTable ==  NULL)
+    Name::initClass();
+    
   if (!ourIndexTable->lookup(newName, index)) {
     index = ourNextIndex++;
     ourGlobalNameSpace->append(newName);

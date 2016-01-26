@@ -309,8 +309,9 @@ Specifier : Identifier OptValueList
                            $2);
                    }
                              
-                   if ($$ == NULL)
+		   if ($$ == NULL){
 		    generateError("specifier", $1);
+		   }
                  }
 	      }
 	      

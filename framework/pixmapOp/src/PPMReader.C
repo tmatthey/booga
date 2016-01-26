@@ -41,8 +41,8 @@ AbstractPixmap* PPMReader::read(const AbstractFile& ifs)
 {
   FileSTDIn fs(ifs);
   if (fs.bad()) {
-    Report::warning("PPMReader:can't open file\n");
-    return false;
+    Report::warning("PPMReader:can't open file");
+    return NULL;
   }
   return read(fs);
 }

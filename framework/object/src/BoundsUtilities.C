@@ -87,11 +87,12 @@ bool BoundsUtilities::slabTest(Real dir, Real pos,
   // a bounding box plane, and the rays origin is lower than
   // the lower bound or higher than the upper bound.
   if (equal(dir, 0)) 
+  {
     if (pos < boundsLow || pos > boundsHigh)
       return false;
     else
       return true;
-      
+  }    
   Real t1, t2, invDir = 1/dir;
   if (dir > 0) {
     t1 = (boundsHigh - pos) * invDir;

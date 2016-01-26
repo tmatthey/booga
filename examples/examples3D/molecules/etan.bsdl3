@@ -1,0 +1,48 @@
+#ifndef _etan_bsdl3
+#define _etan_bsdl3
+
+using 3D;
+
+// lenght
+const rCC 1.5351; 
+const rCH 1.094; 
+const rHH 0.92510; 
+
+// angle
+//const aCCH 180-120;
+//const aCCH 180-121.3;
+const aCCH 180-111.7;
+//const aCCH 180-180;
+
+#include "base.inc"
+
+camera {
+  perspective {
+    eye [2,2,7];                // Eye position
+    lookat [0,0,0];             // Looking to this point
+    up [0,0,1];                 // What direction is up? (y)
+    resolution (300, 300);      // Screen resolution
+    eyesep 1;                   // For stereo images ...
+    fov 60;                     // Field of view: horizontal, vertical
+  }
+  background [1.0,1.0,1.0];      // Color of Background
+  on;
+}
+
+atom_c  {translate [-rCC      ,0,0];}
+atom_c  {translate [ rCC      ,0,0];}
+bond_cc {translate [-rCC      ,0,0];}
+atom_h  {translate [-2*rCH,0,0]; rotateZ(aCCH);translate [-rCC,0,0];rotateX(  0);}
+bond_ch {translate [-2*rCH,0,0]; rotateZ(aCCH);translate [-rCC,0,0];rotateX(  0);}
+atom_h  {translate [-2*rCH,0,0]; rotateZ(aCCH);translate [-rCC,0,0];rotateX(120);}
+bond_ch {translate [-2*rCH,0,0]; rotateZ(aCCH);translate [-rCC,0,0];rotateX(120);}
+atom_h  {translate [-2*rCH,0,0]; rotateZ(aCCH);translate [-rCC,0,0];rotateX(240);}
+bond_ch {translate [-2*rCH,0,0]; rotateZ(aCCH);translate [-rCC,0,0];rotateX(240);}
+atom_h  {translate [ 2*rCH,0,0]; rotateZ(aCCH);translate [ rCC,0,0];rotateX(  0);}
+bond_hc {translate [     0,0,0]; rotateZ(aCCH);translate [ rCC,0,0];rotateX(  0);}
+atom_h  {translate [ 2*rCH,0,0]; rotateZ(aCCH);translate [ rCC,0,0];rotateX(120);}
+bond_hc {translate [     0,0,0]; rotateZ(aCCH);translate [ rCC,0,0];rotateX(120);}
+atom_h  {translate [ 2*rCH,0,0]; rotateZ(aCCH);translate [ rCC,0,0];rotateX(240);}
+bond_hc {translate [     0,0,0]; rotateZ(aCCH);translate [ rCC,0,0];rotateX(240);}
+ 
+#endif //  _etan_bsdl3

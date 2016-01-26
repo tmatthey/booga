@@ -121,7 +121,7 @@ INLINE MShared<TObject, TShared, TPath, TRay>
 ::MShared(TObject* adoptObject)
 : RCEnvelope(new SharedImpl<TObject>(adoptObject))
 {
-  setName(generateUniqueName());
+  this->setName(generateUniqueName());
 }
 
 template <class TObject, class TShared, class TPath, class TRay>

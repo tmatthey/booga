@@ -51,7 +51,7 @@ private:
   VRMLParser(const VRMLParser&);            // No copies.
 
 public:
-  ~VRMLParser();
+  virtual ~VRMLParser();
   
 private:
   VRMLParser& operator=(const VRMLParser&); // No assignments.

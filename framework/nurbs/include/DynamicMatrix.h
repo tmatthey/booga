@@ -133,8 +133,8 @@ inline void SquareMatrix<T>::inverse (void)
       for (i = 0; i < uct; i++) // Swap rows il and j in N and I
       {
 	temp = this->get (il, i);
-	set (il, i, this->get(j, i));
-	set (j, i, temp);
+	this->set (il, i, this->get(j, i));
+	this->set (j, i, temp);
 	temp = I[il*uct+i];
 	I[il*uct+i] = I[j*uct+i];
 	I[j*uct+i] = temp;
@@ -167,7 +167,7 @@ inline void SquareMatrix<T>::inverse (void)
 
   for (i = 0; i < uct; i++)	// Set matrix to inverse
     for (j = 0; j < uct; j++)
-      set (i, j, I[i*uct+j]);
+      this->set (i, j, I[i*uct+j]);
       
   delete [] I;
 }

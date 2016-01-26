@@ -26,6 +26,7 @@
 %header{
 
 #include <iostream>
+#include <cstring>
 
 #include "booga/base/List.h"
 #include "booga/base/SymTable.h"
@@ -480,47 +481,47 @@ binary
        
         | binary AND binary
                 {
-                  $$ = new ShaderLogicExpNode("&&", $1, $3)
+                  $$ = new ShaderLogicExpNode((char*)"&&", $1, $3)
                 }
        
         | binary OR binary
                 {
-                  $$ = new ShaderLogicExpNode("||", $1, $3)
+                  $$ = new ShaderLogicExpNode((char*)"||", $1, $3)
                 }
        
         | NOT binary
                 {
-                  $$ = new ShaderLogicExpNode("!", $2)
+                  $$ = new ShaderLogicExpNode((char*)"!", $2)
                 }
        
         | binary '>' binary
                 {
-                  $$ = new ShaderCompExpNode(">", $1, $3)
+                  $$ = new ShaderCompExpNode((char*)">", $1, $3)
                 }
         
         | binary '<' binary
                 {
-                  $$ = new ShaderCompExpNode("<", $1, $3)
+                  $$ = new ShaderCompExpNode((char*)"<", $1, $3)
                 }
         
         | binary GE binary
                 {
-                  $$ = new ShaderCompExpNode(">=", $1, $3)
+                  $$ = new ShaderCompExpNode((char*)">=", $1, $3)
                 }
         
         | binary LE binary
                 {
-                  $$ = new ShaderCompExpNode("<=", $1, $3)
+                  $$ = new ShaderCompExpNode((char*)"<=", $1, $3)
                 }
         
         | binary EQ binary
                 {
-                  $$ = new ShaderCompExpNode("==", $1, $3)
+                  $$ = new ShaderCompExpNode((char*)"==", $1, $3)
                 }
         
         | binary NE binary
                 {
-                  $$ = new ShaderCompExpNode("!=", $1, $3)
+                  $$ = new ShaderCompExpNode((char*)"!=", $1, $3)
                 }
                 
         | Identifier '=' binary

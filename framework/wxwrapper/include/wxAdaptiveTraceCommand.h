@@ -27,7 +27,7 @@
 #include "booga/wxwrapper/wxViewCommand.h"
 #include "booga/wxwrapper/wxAdaptiveTracer.h"
 
-#include "wx_timer.h"
+#include "wx/timer.h"
 
 
 class wxAdaptiveTraceCommand; // forward declaration

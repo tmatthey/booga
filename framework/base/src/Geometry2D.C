@@ -113,10 +113,10 @@ List<Vector2D> Geometry2D::intersectSegmentSegment(const Vector2D& p0,const Vect
         cmpIndex = 1;                      
       
       if ((p2[cmpIndex] < p3[cmpIndex] && p2[cmpIndex] < p0[cmpIndex] && p0[cmpIndex] < p3[cmpIndex]) ||
-           p2[cmpIndex] > p3[cmpIndex] && p2[cmpIndex] > p0[cmpIndex] && p0[cmpIndex] > p3[cmpIndex])
+          (p2[cmpIndex] > p3[cmpIndex] && p2[cmpIndex] > p0[cmpIndex] && p0[cmpIndex] > p3[cmpIndex]))
         result.append(p0);
       if ((p2[cmpIndex] < p3[cmpIndex] && p2[cmpIndex] < p1[cmpIndex] && p1[cmpIndex] < p3[cmpIndex]) ||
-           p2[cmpIndex] > p3[cmpIndex] && p2[cmpIndex] > p1[cmpIndex] && p1[cmpIndex] > p3[cmpIndex])
+	  (p2[cmpIndex] > p3[cmpIndex] && p2[cmpIndex] > p1[cmpIndex] && p1[cmpIndex] > p3[cmpIndex]))
         result.append(p1);
         
       if (fabs((p0-p1).x()) <= fabs((p0-p1).y()))
@@ -125,10 +125,10 @@ List<Vector2D> Geometry2D::intersectSegmentSegment(const Vector2D& p0,const Vect
         cmpIndex = 0;                                      
 
       if ((p0[cmpIndex] < p1[cmpIndex] && p0[cmpIndex] < p2[cmpIndex] && p2[cmpIndex] < p1[cmpIndex]) ||
-           p0[cmpIndex] > p1[cmpIndex] && p0[cmpIndex] > p2[cmpIndex] && p2[cmpIndex] > p1[cmpIndex])
+	  (p0[cmpIndex] > p1[cmpIndex] && p0[cmpIndex] > p2[cmpIndex] && p2[cmpIndex] > p1[cmpIndex]))
         result.append(p2);
       if ((p0[cmpIndex] < p1[cmpIndex] && p0[cmpIndex] < p3[cmpIndex] && p3[cmpIndex] < p1[cmpIndex]) ||
-           p0[cmpIndex] > p1[cmpIndex] && p0[cmpIndex] > p3[cmpIndex] && p3[cmpIndex] > p1[cmpIndex])
+	  (p0[cmpIndex] > p1[cmpIndex] && p0[cmpIndex] > p3[cmpIndex] && p3[cmpIndex] > p1[cmpIndex]))
         result.append(p3);
     }
     

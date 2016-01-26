@@ -1,0 +1,58 @@
+#ifndef _benzen_bsdl3
+#define _benzen_bsdl3
+
+using 3D;
+
+// lenght
+const rCC 1.399; 
+const rCH 1.101; 
+const rHH 0.92510; 
+
+// angle
+const aCCH 180-120;
+//const aCCH 180-121.3;
+//const aCCH 180-111.7;
+//const aCCH 180-180;
+
+#include "base.inc"
+
+camera {
+  perspective {
+    eye [3,3,10];                // Eye position
+    lookat [0,0,0];             // Looking to this point
+    up [0,0,1];                 // What direction is up? (y)
+    resolution (300, 300);      // Screen resolution
+    eyesep 1;                   // For stereo images ...
+    fov 60;                     // Field of view: horizontal, vertical
+  }
+  background [1.0,1.0,1.0];      // Color of Background
+  on;
+}
+
+atom_c  {translate [ 2*rCC,0,0];}
+bond_cc15 {rotateZ(180-aCCH);translate [ 2*rCC,0,0];rotateZ(aCCH);}
+bond_hc {translate [ 2*rCC,0,0];rotateZ(aCCH);}
+atom_h  {translate [ 2*rCC+2*rCH,0,0];rotateZ(aCCH);}
+atom_c  {translate [-2*rCC,0,0];}
+bond_cc15 {rotateZ(180-aCCH);translate [ 2*rCC,0,0];rotateZ(2*aCCH);}
+bond_hc {translate [ 2*rCC,0,0];rotateZ(2*aCCH);}
+atom_h  {translate [ 2*rCC+2*rCH,0,0];rotateZ(2*aCCH);}
+atom_c  {translate [ 2*rCC,0,0];rotateZ(-aCCH);}
+bond_cc15 {rotateZ(180-aCCH);translate [ 2*rCC,0,0];rotateZ(3*aCCH);}
+bond_hc {translate [ 2*rCC,0,0];rotateZ(3*aCCH);}
+atom_h  {translate [ 2*rCC+2*rCH,0,0];rotateZ(3*aCCH);}
+atom_c  {translate [-2*rCC,0,0];rotateZ(aCCH);}
+bond_cc15 {rotateZ(180-aCCH);translate [ 2*rCC,0,0];rotateZ(4*aCCH);}
+bond_hc {translate [ 2*rCC,0,0];rotateZ(4*aCCH);}
+atom_h  {translate [ 2*rCC+2*rCH,0,0];rotateZ(4*aCCH);}
+atom_c  {translate [ 2*rCC,0,0];rotateZ(2*aCCH);}
+bond_cc15 {rotateZ(180-aCCH);translate [ 2*rCC,0,0];rotateZ(5*aCCH);}
+bond_hc {translate [ 2*rCC,0,0];rotateZ(5*aCCH);}
+atom_h  {translate [ 2*rCC+2*rCH,0,0];rotateZ(5*aCCH);}
+atom_c  {translate [-2*rCC,0,0];rotateZ(-2*aCCH);}
+bond_cc15 {rotateZ(180-aCCH);translate [ 2*rCC,0,0];rotateZ(6*aCCH);}
+bond_hc {translate [ 2*rCC,0,0];rotateZ(6*aCCH);}
+atom_h  {translate [ 2*rCC+2*rCH,0,0];rotateZ(6*aCCH);}
+
+
+#endif //  _benzen_bsdl3

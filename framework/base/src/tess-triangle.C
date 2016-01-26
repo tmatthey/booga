@@ -2699,7 +2699,7 @@ void internalerror()
 
 void parsecommandline(
 int argc,
-char **argv)
+const char **argv)
 {
 #ifdef TRILIBRARY
 #define STARTINDEX 0
@@ -9348,7 +9348,7 @@ int newmark)
   struct triedge crosstri;
   struct edge crossedge;
   point leftpoint, rightpoint;
-  point endpoint1;
+  //point endpoint1;
   enum finddirectionresult collinear;
   shelle sptr;                      /* Temporary variable used by tspivot(). */
 
@@ -9385,7 +9385,7 @@ int newmark)
     if (crossedge.sh == dummysh) {
       return 0;
     } else {
-      org(*searchtri, endpoint1);
+      //org(*searchtri, endpoint1);
       /* Insert a point at the intersection. */
       segmentintersection(&crosstri, &crossedge, endpoint2);
       triedgecopy(crosstri, *searchtri);
@@ -12869,7 +12869,7 @@ void statistics()
 
 #ifdef TRILIBRARY
 
-void triangulate(char *triswitches,struct triangulateio *in,struct triangulateio *out,struct triangulateio *vorout)
+void triangulate(const char *triswitches,struct triangulateio *in,struct triangulateio *out,struct triangulateio *vorout)
 
 #else /* not TRILIBRARY */
 

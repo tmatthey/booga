@@ -133,18 +133,6 @@ static GLfloat Identity[16] = {
 
 
 
-
-static void print_matrix( const GLfloat m[16] )
-{
-   int i;
-
-   for (i=0;i<4;i++) {
-      printf("%f %f %f %f\n", m[i], m[4+i], m[8+i], m[12+i] );
-   }
-}
-
-
-
 /*
  * Perform a 4x4 matrix multiplication  (product = a x b).
  * Input:  a, b - matrices to multiply

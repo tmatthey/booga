@@ -113,9 +113,9 @@ protected:
 
   // ----------------------- algorithm dependent general
 protected:
-  char myLeftEdge, myRightEdge;      // Which edges are currently in use?
-  char myStartVertex[3]; 
-  char myEndVertex[3];               // Start/End Vertices of each edge.   
+  unsigned char myLeftEdge, myRightEdge;      // Which edges are currently in use?
+  unsigned char myStartVertex[3]; 
+  unsigned char myEndVertex[3];               // Start/End Vertices of each edge.   
   
 private:
   int myChangeDelta;  // Y position of middle point (change the deltas there!)

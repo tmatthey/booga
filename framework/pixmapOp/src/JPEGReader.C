@@ -107,8 +107,8 @@ static void JPEGErrorExit(j_common_ptr cinfo)
 AbstractPixmap* JPEGReader::read(const AbstractFile& ifs){
   FileFD fs(ifs,"rb");
   if (fs.bad()) {
-    Report::warning("JPEGReader:can't open file\n");
-    return false;
+    Report::warning("JPEGReader:can't open file");
+    return NULL;
   }
   return read(fs);
 }

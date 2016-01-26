@@ -646,7 +646,7 @@ static void clear( GLcontext *ctx,
       }
       else {
          /* Clear part of CI buffer */
-         GLuint i, j;
+         GLint i, j;
          for (i=0;i<height;i++) {
             GLubyte *ptr1 = PIXELADDR1( x, (y+i) );
             for (j=0;j<width;j++) {
@@ -676,7 +676,7 @@ static void clear( GLcontext *ctx,
       }
       else {
          /* Clear part of RGB buffer */
-         GLuint i, j;
+         GLint i, j;
          for (i=0;i<height;i++) {
             GLubyte *ptr3 = PIXELADDR3( x, (y+i) );
             for (j=0;j<width;j++) {
@@ -700,7 +700,7 @@ static void clear( GLcontext *ctx,
       }
       else {
          /* Clear part of RGBA buffer */
-         GLuint i, j;
+         GLint i, j;
          for (i=0;i<height;i++) {
             GLuint *ptr4 = PIXELADDR4( x, (y+i) );
             for (j=0;j<width;j++) {

@@ -37,7 +37,7 @@
 class BSDLParserImpl : public BSDLYacc {
 public:
   BSDLParserImpl() {};
-  // ~BSDLParserImpl();   // Use default version.
+  virtual ~BSDLParserImpl(){};   // Use default version.
 
   int parse(World* world, FILE* input = stdin, 
                           const RCString& cppParameters = RCString());

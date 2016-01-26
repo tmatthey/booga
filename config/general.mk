@@ -33,7 +33,7 @@
 # Libraries, that are part of the booga project
 # Order of libraries is order in which they are compiled.
 # -----------------------------------------------------------------------------
-BOOGALIBS    = base persistence pixmapOp object nurbs animation building texture component graphicsdb glwrapper # wxwrapper
+BOOGALIBS    = base persistence pixmapOp object nurbs animation building texture component graphicsdb glwrapper glosmesa # wxwrapper
 
 # Some variables to change behaviour of make
 # -----------------------------------------------------------------------------
@@ -429,7 +429,7 @@ $(EXEC_TARGET): SymbolicLinksToTarget $(OFILES) $(DEP_LIBS:-l%=lib%.$(LIB_EXT))
 %.C %.h: %.y
 	@echo
 	@echo Generating $(SNIFF_PROJECT_DIR)/$(notdir $*".{h,C}")
-	$(debug)$(BISON++) $(B++FLAGS) -o $(notdir $*).C -h $(notdir $*).h $<
+	$(debug)$(BISON++) $(B++FLAGS) -o $(notdir $*).C --header-file $(notdir $*).h $<
 	$(separator)
 
 %.C %.h: %.l

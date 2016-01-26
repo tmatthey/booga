@@ -136,6 +136,11 @@ private:
   static const TransMatrix2D* ourIdentity;
 };
 
+std::ostream& operator<<(std::ostream& os, const TransMatrix2D& tm);
+Vector2D operator*(const Vector2D& point, const TransMatrix2D& tm);
+Vector2D transformAsPoint(const Vector2D& point, const TransMatrix2D& tm);
+Vector2D transformAsVector(const Vector2D& vec, const TransMatrix2D& tm);
+
 declareInitStatics(TransMatrix2D);
 
 //______________________________________________________________________ INLINES

@@ -27,6 +27,7 @@
 
 #include "booga/glwrapper/GLRasterizer.h"
 #include "booga/glwrapper/GLBBTraversal2D.h"
+#include <string.h>
 
 //______________________________________________________________ GLBBTraversal2D
 

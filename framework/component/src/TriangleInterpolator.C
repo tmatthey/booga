@@ -206,7 +206,7 @@ void TriangleInterpolator::init(Triangle3D* triangle)
   // Compute deltas
   //
   Real denom, dy, invDenom, fraction;
-  char startV, endV;
+  unsigned char startV, endV;
   for (i=0; i<3; i++) {
     startV = myStartVertex[i];
     endV   = myEndVertex[i];
@@ -422,10 +422,10 @@ void TriangleInterpolator::computeScanLine()
   const Real startFactor = equal(myAy2[myLeftEdge],0)  ? 0 : myAy1[myLeftEdge]/myAy2[myLeftEdge];
   const Real endFactor   = equal(myAy2[myRightEdge],0) ? 0 : myAy1[myRightEdge]/myAy2[myRightEdge];
   
-  const char sLV = myStartVertex[myLeftEdge];  // start vertex of left edge
-  const char eLV = myEndVertex[myLeftEdge];    // end vertex of left edge 
-  const char sRV = myStartVertex[myRightEdge]; // start vertex of right edge
-  const char eRV = myEndVertex[myRightEdge];   // end vertex of right edge
+  const unsigned char sLV = myStartVertex[myLeftEdge];  // start vertex of left edge
+  const unsigned char eLV = myEndVertex[myLeftEdge];    // end vertex of left edge 
+  const unsigned char sRV = myStartVertex[myRightEdge]; // start vertex of right edge
+  const unsigned char eRV = myEndVertex[myRightEdge];   // end vertex of right edge
   
   myStartZ = mylerp(myViewPoints[sLV].z(), myViewPoints[eLV].z(), startFactor);
   myEndZ   = mylerp(myViewPoints[sRV].z(), myViewPoints[eRV].z(), endFactor);

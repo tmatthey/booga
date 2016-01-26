@@ -61,7 +61,7 @@ public:
   void setYRatio(Real yratio);
   Real getYRatio() const;
   
-  void adoptPixmap(AbstractPixmap* pixmap);
+  virtual void adoptPixmap(AbstractPixmap* pixmap);
   const AbstractPixmap* getPixmap() const;
   void setPixmapName(const RCString& name);
   const RCString& getPixmapName() const;

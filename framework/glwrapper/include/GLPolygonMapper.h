@@ -23,7 +23,11 @@
 #ifndef _GLPolygonMapper_H
 #define _GLPolygonMapper_H
 
-#include <GL/gl.h>
+#ifdef HAVE_OPENGL
+ #include <GL/gl.h>
+#else
+ #define GLuint int
+#endif
 
 #include "booga/base/PrimitiveTypes.h"
 #include "booga/base/Color.h"
@@ -55,7 +59,7 @@ private:
 // From class PolygonMapper
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 public:
-  void adoptPixmap(AbstractPixmap* pixmap);
+  virtual void adoptPixmap(AbstractPixmap* pixmap);
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // From class Texture3D

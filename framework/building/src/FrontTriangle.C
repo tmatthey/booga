@@ -233,7 +233,7 @@ void FrontTriangle::addVertex(const Vector2D& vertex)
     if ((myVertices.item(i).x() > vertex.x() && 
         ((myVertices.item(i).y() > 0.5 && vertex.y() > 0.5) ||
          (myVertices.item(i).y() < 0.5 && vertex.y() < 0.5))) ||
-        myVertices.item(i).y() > 0.5 && vertex.y() < 0.5)
+        (myVertices.item(i).y() > 0.5 && vertex.y() < 0.5))
       break;
 
   if (i > 0 && vertex.equal(myVertices.item(i-1))){

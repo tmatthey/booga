@@ -23,6 +23,7 @@
 
 #include <stdlib.h> // drand48(), srand48(), atoi()
 #include <time.h>   // time()
+#include <cstring>
 
 #include <booga/base/RCString.h>
 

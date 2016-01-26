@@ -118,7 +118,7 @@ public:
   virtual void setDiameter(Real diameter);
   
   virtual bool isDataCorrect() const;    // Test data for correctness
-  virtual char *whatAmI();          // Return type of object(curve / surface) in string
+  virtual const char *whatAmI();          // Return type of object(curve / surface) in string
 
   virtual void testDegeneration();
   virtual bool isDegenerated() const;

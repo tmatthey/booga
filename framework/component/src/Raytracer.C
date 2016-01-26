@@ -67,7 +67,7 @@ bool Raytracer::doExecute()
   context.setDirectedLightSources(getDirectedLightSources());
   
   // Some variables for use in the loop.
-  Color defaultColor = Color(1,0,0); // Default is red.
+  //Color defaultColor = Color(1,0,0); // Default is red.
   long position = 0;
   int x, y;
   int resX = getCamera()->getViewing()->getResolutionX();

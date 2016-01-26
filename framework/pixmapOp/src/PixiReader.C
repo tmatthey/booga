@@ -35,8 +35,8 @@ PixiReader::PixiReader(Exemplar anExemplar)
 AbstractPixmap* PixiReader::read(const AbstractFile& ifs){
   FileSTDIn fs(ifs);
   if (fs.bad()) {
-    Report::warning("PixiReader:can't open file\n");
-    return false;
+    Report::warning("PixiReader:can't open file");
+    return NULL;
   }
   return read(fs);
 }

@@ -23,4 +23,4 @@
 
 LDFLAGS    = $(JPEG_LPATH)
 DEP_LIBS   = -lcomponent -lanimation -lbuilding -lnurbs -ltexture -lobject -lpixmapOp -lbase
-OTHER_LIBS = $(JPEG_LIB) -larg -lm
+OTHER_LIBS = $(JPEG_LIB) -lm

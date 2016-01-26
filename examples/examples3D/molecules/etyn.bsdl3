@@ -1,0 +1,39 @@
+#ifndef _etyn_bsdl3
+#define _etyn_bsdl3
+
+using 3D;
+
+// lenght
+const rCC 1.203; 
+const rCH 1.060; 
+const rHH 0.92510; 
+
+// angle
+//const aCCH 180-120;
+const aCCH 180-121.3;
+//const aCCH 180-111.7;
+//const aCCH 180-180;
+
+#include "base.inc"
+
+camera {
+  perspective {
+    eye [2,2,6];                // Eye position
+    lookat [0,0,0];             // Looking to this point
+    up [0,0,1];                 // What direction is up? (y)
+    resolution (300, 300);      // Screen resolution
+    eyesep 1;                   // For stereo images ...
+    fov 60;                     // Field of view: horizontal, vertical
+  }
+  background [1.0,1.0,1.0];      // Color of Background
+  on;
+}
+
+atom_h  {translate [-rCC-2*rCH,0,0];}
+atom_c  {translate [-rCC      ,0,0];}
+atom_c  {translate [ rCC      ,0,0];}
+atom_h  {translate [ rCC+2*rCH,0,0];}
+bond_cc3 {translate [-rCC      ,0,0];}  
+bond_hc {translate [ rCC      ,0,0];}  
+bond_ch {translate [-rCC-2*rCH,0,0];}  
+#endif //  _etyn_bsdl3
