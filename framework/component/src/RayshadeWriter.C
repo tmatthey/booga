@@ -153,14 +153,15 @@ void RayshadeWriter::printTextureName(const Texture3D* texture)
     }
   }
 }
-void RayshadeWriter::printTextureDefinition(const Texture3D* texture)
+void RayshadeWriter::printTextureDefinition(const Texture3D* texture_)
 {
+  Texture3D* texture = const_cast<Texture3D*>(texture_);
   //
   // If the texture object is of type Texture3DList, then we recursively 
   // visit all its members.
   //
-  if (dynamic_cast(Texture3DList, texture) != NULL) {
-    Texture3DList* textlist = dynamic_cast(Texture3DList, texture);
+  if (dynamic_cast<Texture3DList*>(texture) != NULL) {
+    Texture3DList* textlist = dynamic_cast<Texture3DList*>(texture);
 
     for (textlist->first(); !textlist->isDone(); textlist->next())
       printTextureDefinition(textlist->getTexture());
@@ -168,8 +169,8 @@ void RayshadeWriter::printTextureDefinition(const Texture3D* texture)
   //
   // If a checker texture is present, just apply the even texture.
   //
-  else if (dynamic_cast(Checker, texture) != NULL) {
-    Checker* checker = dynamic_cast(Checker, texture);
+  else if (dynamic_cast<Checker*>(texture) != NULL) {
+    Checker* checker = dynamic_cast<Checker*>(texture);
     myOs << "checker {";
     incIndent();
     if (checker->getEven() != NULL) {
@@ -199,8 +200,8 @@ void RayshadeWriter::printTextureDefinition(const Texture3D* texture)
   //
   // Whitted textures 
   //
-  else if (dynamic_cast(Whitted, texture) != NULL) {
-    Whitted* whitted = dynamic_cast(Whitted, texture);
+  else if (dynamic_cast<Whitted*>(texture) != NULL) {
+    Whitted* whitted = dynamic_cast<Whitted*>(texture);
 
     myOs << "surface " << texture->getName();
     incIndent();
@@ -226,8 +227,8 @@ void RayshadeWriter::printTextureDefinition(const Texture3D* texture)
   //
   // Phong textures
   //
-  else if (dynamic_cast(Phong, texture) != NULL) {
-    Phong* phong = dynamic_cast(Phong, texture);
+  else if (dynamic_cast<Phong*>(texture) != NULL) {
+    Phong* phong = dynamic_cast<Phong*>(texture);
 
     myOs << "surface " << texture->getName();
     incIndent();
@@ -247,8 +248,8 @@ void RayshadeWriter::printTextureDefinition(const Texture3D* texture)
   //
   // Matte textures
   //
-  else if (dynamic_cast(Matte, texture) != NULL) {
-    Matte* matte = dynamic_cast(Matte, texture);
+  else if (dynamic_cast<Matte*>(texture) != NULL) {
+    Matte* matte = dynamic_cast<Matte*>(texture);
 
     myOs << "surface " << texture->getName();
     incIndent();
@@ -262,8 +263,8 @@ void RayshadeWriter::printTextureDefinition(const Texture3D* texture)
   //
   // Constant textures
   //
-  else if (dynamic_cast(ConstantTexture3D, texture) != NULL) {
-    ConstantTexture3D* consttext = dynamic_cast(ConstantTexture3D, texture);
+  else if (dynamic_cast<ConstantTexture3D*>(texture) != NULL) {
+    ConstantTexture3D* consttext = dynamic_cast<ConstantTexture3D*>(texture);
 
     myOs << "constant { ";
     incIndent();
@@ -289,7 +290,7 @@ void RayshadeWriter::decIndent() {
 }
 
 void RayshadeWriter::newLineIndent() {
-  myOs << endl;
+  myOs << std::endl;
   int i;
   for(i=0; i<myIndent*2; i++) {
     myOs << " ";
@@ -302,7 +303,7 @@ bool RayshadeWriter::doExecute()
   // If myFilename is empty, we try to open stdout for writing
   //
   if (myFilename.isEmpty()) {
-    myOs.rdbuf()->attach(STDOUT_FILENO);
+    myOs.tie(&std::cout);
     if (myOs.bad()) {
       Report::recoverable("[RayshadeWriter::doExecute] could not attach to stdout");
       return false;

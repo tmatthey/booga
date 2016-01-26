@@ -32,7 +32,7 @@ class Aggregate2D;
 //______________________________________________________________________ World2D
 
 class World2D : public World {
-declareRTTI(World2D);
+  declareRTTI(World2D);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

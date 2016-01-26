@@ -21,7 +21,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <iostream.h>
+#include <iostream>
 #include <ctype.h>      // isspace(char)
 #include <math.h>
 
@@ -147,7 +147,7 @@ Color Color::getDefault()
     return Color(1,0,0);  // Red is default
 }
 
-ostream& operator<<(ostream& os, const Color& col)
+std::ostream& operator<<(std::ostream& os, const Color& col)
 {
   return os << "[" << col.myRGB[0] << ", " << col.myRGB[1] 
 	   << ", " << col.myRGB[2] << "]";
@@ -156,7 +156,7 @@ ostream& operator<<(ostream& os, const Color& col)
 /*
  * From GGems IV, Jean-Francois Doue.
  */
-istream& operator>>(istream& is, Color& col)
+std::istream& operator>>(std::istream& is, Color& col)
 {
   Color tmp;
   char c;
@@ -171,7 +171,7 @@ istream& operator>>(istream& is, Color& col)
   while (is >> c && isspace(c)) ;
   
   if (c != ']')
-    is.clear(ios::badbit|is.rdstate());
+    is.clear(std::ios::badbit|is.rdstate());
 
   if (is)
     col = tmp;

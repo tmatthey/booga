@@ -55,7 +55,7 @@ bool Tumble3D::doFrame(Real frame)
         Vector3D x(item->getTumbleDirection(0).normalized());
         Vector3D y(item->getTumbleDirection(u).normalized());
         if ((equal(x.length(),0)) || (equal(y.length(),0))) {
-          ostrstream os;
+          std::stringstream os;
           os << "[Tumble3D::doTicks]  no rotation (u = " << u << "), tumbledirection is zero";
           Report::recoverable(os);             
         }
@@ -67,7 +67,7 @@ bool Tumble3D::doFrame(Real frame)
               w = Vector3D(1,0,0);     // no rotation
             }
             else {
-              ostrstream os;
+              std::stringstream os;
               os << "[Tumble3D::doTicks] rotation at u = " << u << " maybe not correct";
               Report::recoverable(os);
               u -= 2 * EPSILON;          // !!! dirty - but it works !!!
@@ -89,7 +89,7 @@ bool Tumble3D::doFrame(Real frame)
       transform.translate(item->getTumbleMove(u));
     }
     else {
-      ostrstream os;
+      std::stringstream os;
       os << "[Tumble3D::doTicks] action ("
          <<  item->getStartFrame() << ","
          <<  item->getEndFrame() << ") not of type Tumble3D. Skip";

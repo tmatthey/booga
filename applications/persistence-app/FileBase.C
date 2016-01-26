@@ -36,7 +36,7 @@ FileBase::FileBase(char *dirPath)
 myFilename("")
 {
   myMarshal = new AsciiMarshal();
-  ostrstream filename;
+  std::stringstream filename;
   filename << myDirPath 
            << ".dbinfo";
   myInfoFilename = RCString(filename);
@@ -54,16 +54,16 @@ FileBase::~FileBase() {
 }
 
 void FileBase::readDBInfo() {
-  myInfoFile.open(myInfoFilename.chars(),ios::in);
+  myInfoFile.open(myInfoFilename.chars(),std::ios::in);
   myInfoFile >> myPDBId;
   myInfoFile >> myOIdCount;
   myInfoFile.close();
 }
 
 void FileBase::writeDBInfo() {
-  myInfoFile.open(myInfoFilename.chars(),ios::out);  
-  myInfoFile << myPDBId << endl;
-  myInfoFile << myOIdCount << endl;
+  myInfoFile.open(myInfoFilename.chars(),std::ios::out);  
+  myInfoFile << myPDBId << std::endl;
+  myInfoFile << myOIdCount << std::endl;
   myInfoFile.close();
 }
 
@@ -82,14 +82,14 @@ int FileBase::write(Persistent* p) {
   }
   myCurrPOId = p->getPOId();
 
-  ostrstream filename;
+  std::stringstream filename;
   filename << myDirPath 
            << myCurrPOId.getPObjectId();
   myFilename = RCString(filename);
-  myFile.open(myFilename.chars(),ios::out);
+  myFile.open(myFilename.chars(),std::ios::out);
 
-  myFile << myCurrPOId.getPObjectId() << endl;
-  myFile << typeid(p).name() << endl;
+  myFile << myCurrPOId.getPObjectId() << std::endl;
+  myFile << typeid(p).name() << std::endl;
   myMarshal->marshal(p, myFile);
   myFile.close();
   return 1;
@@ -97,15 +97,15 @@ int FileBase::write(Persistent* p) {
 
 Persistent* FileBase::load(const POId& id) {
   if (Transaction::getTransactionLevel() <= 0) {
-    ostrstream os;
+    std::stringstream os;
     os << "[FileBase::load] no active Transaction while loading " << id;
     Report::error(os);
   }
-  ostrstream filename;
+  std::stringstream filename;
   filename << myDirPath 
            << id.getPObjectId();
   myFilename = RCString(filename);
-  myFile.open(myFilename.chars(),ios::in);
+  myFile.open(myFilename.chars(),std::ios::in);
   
   PObjectId oid;
   myFile >> oid;
@@ -115,7 +115,7 @@ Persistent* FileBase::load(const POId& id) {
   Persistent *obj = PersistentManager::getThePersistentManager()->newInstance(typeName);
   if (obj == NULL) {
     myFile.close();
-    ostrstream os;
+    std::stringstream os;
     os << "[FileBase::load] object type " << typeName 
        << " not registered. " << id << " not loaded";
     Report::recoverable(os);
@@ -124,7 +124,7 @@ Persistent* FileBase::load(const POId& id) {
   else {
     obj->setDataBase(*this);
     obj->setPOId(id);
-    // myFile.open(myFilename.chars(),ios::in);
+    // myFile.open(myFilename.chars(),std::ios::in);
     myMarshal->unmarshal(obj, myFile);
     myFile.close();
   }

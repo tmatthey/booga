@@ -97,7 +97,7 @@ public:
 
   Value operator[](const Value& v) const;
 
-  friend ostream& operator<<(ostream& os, const Value& v);
+  friend std::ostream& operator<<(std::ostream& os, const Value& v);
 
 protected:
   int myType;

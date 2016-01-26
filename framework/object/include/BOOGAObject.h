@@ -35,8 +35,8 @@ class Option;
 
 template <class TObject, class TTransform, class TVector, class TBounds, class TRay>
 class BOOGAObject : public Makeable {
-// declareRTTI(BOOGAObject);
-// enable RTTI support
+  //declareRTTI(BOOGAObject);
+  // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Constructors, destructors, assignment

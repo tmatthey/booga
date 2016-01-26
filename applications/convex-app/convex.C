@@ -67,10 +67,10 @@ static World2D* createRandomWorld(int numPoints)
 
 static void usage(const RCString& name)
 {
-    cerr << "Usage: " << name << " [-h] [numPoints]\n";
-    cerr << " where:\n";
-    cerr << "   -h        : (optional) This message.\n";
-    cerr << "   numPoints : (optional) number of random points to be generated\n";
+    std::cerr << "Usage: " << name << " [-h] [numPoints]\n";
+    std::cerr << " where:\n";
+    std::cerr << "   -h        : (optional) This message.\n";
+    std::cerr << "   numPoints : (optional) number of random points to be generated\n";
 }
 
 int main(int argc, char* argv[])

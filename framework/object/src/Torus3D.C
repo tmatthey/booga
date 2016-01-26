@@ -112,8 +112,9 @@ Object3D* Torus3D::createDecomposition() const
   //
   // Check, if decomposition for a similar torus has already been done.
   //
-  extern char* form(const char * ...);
-  Name key = form("Torus3D#%d#%d#%g#%g", steps, tubeSteps, mySweptRadius, myTubeRadius);
+  char tmp[256];
+  sprintf(tmp,"Torus3D#%d#%d#%g#%g", steps, tubeSteps, mySweptRadius, myTubeRadius);
+  Name key(tmp);
   Object3D* retval = (Object3D*)Primitive3D::getDecomposition(key);
 
   if (retval == NULL) {

@@ -20,9 +20,7 @@
  *  $Id: BSDLParser.C,v 1.6 1997/09/19 07:13:52 buhlmann Exp $
  * -----------------------------------------------------------------------------
  */
-#ifdef SVR4
-#include <stream.h>
-#endif
+
 #include "booga/base/Report.h"
 #include "booga/base/ParserUtilities.h"
 #include "booga/component/BSDLParser.h"
@@ -115,11 +113,12 @@ RCString BSDLParserImpl::createErrorMsg(const RCString& errorMsg)
   if (myScanner.getCurrentFilename() != "\"\"")
     file = ", file " + myScanner.getCurrentFilename();
 
-  return  RCString("[Error ") + form("%d", ++myErrorCount) 
-		   + file
-		   + ", line " + form("%d", myScanner.getCurrentLine())
- 		   + ", near \"" + myScanner.getCurrentToken() + "\"] "
-                     + errorMsg;
+  std::stringstream str;
+  str <<"[Error " << (++myErrorCount) << file
+      << ", line " <<myScanner.getCurrentLine()
+      << ", near \""  << myScanner.getCurrentToken() << "\"] "
+      << errorMsg;
+    return  RCString(str.str().c_str());
 }
 
 /*___________________________________________________________________ BSDLParser

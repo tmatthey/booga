@@ -27,7 +27,7 @@
 #elif SVR4
 #include <unistd.h>
 #endif
-#include <strstream.h>
+#include <sstream>
 
 #ifdef HAVE_JPEG
 
@@ -104,12 +104,20 @@ static void JPEGErrorExit(j_common_ptr cinfo)
 
 #endif // HAVE_JPEG
 
+AbstractPixmap* JPEGReader::read(const AbstractFile& ifs){
+  FileFD fs(ifs,"rb");
+  if (fs.bad()) {
+    Report::warning("JPEGReader:can't open file\n");
+    return false;
+  }
+  return read(fs);
+}
 
-AbstractPixmap* JPEGReader::read(ifstream& ifs)
+AbstractPixmap* JPEGReader::read(FILE* infile)
 {
 #ifdef HAVE_JPEG
 
-  FILE* infile;		// source file
+  //  FILE* infile;		// source file
   AbstractPixmap* pm = NULL;
 
   //
@@ -118,17 +126,16 @@ AbstractPixmap* JPEGReader::read(ifstream& ifs)
   // VERY IMPORTANT: use "b" option to fopen() if you are on a machine that
   // requires it in order to read binary files.
   //
-  if ((infile = fdopen(dup(ifs.rdbuf()->fd()), "rb")) == NULL) {
-    return NULL;
-  }
-
-  fseek(infile, 0, 0); // Ajust position to the beginning of the file.
+  //  if ((infile = fdopen(dup(ifs.fd()), "rb")) == NULL) {
+  //    return NULL;
+  //  }
+  //  fseek(infile, 0, 0); // Ajust position to the beginning of the file.
 
   //
   // Step 1: allocate and initialize JPEG decompression object */
   // -------
   //
-  
+
   // This struct contains the JPEG decompression parameters and pointers to
   // working space (which is allocated as needed by the JPEG library).
   //
@@ -152,7 +159,7 @@ AbstractPixmap* JPEGReader::read(ifstream& ifs)
     jpeg_destroy_decompress(&cinfo);
     if (pm != NULL)
       delete pm;
-    fclose(infile);
+    //fclose(infile);
 
     return NULL;
   }
@@ -202,7 +209,7 @@ AbstractPixmap* JPEGReader::read(ifstream& ifs)
       cinfo.jpeg_color_space != JCS_YCbCr) {
     Report::recoverable("[JPEGReader::read] color space model of jpeg image not supported");
     jpeg_destroy_decompress(&cinfo);
-    fclose(infile);
+    //fclose(infile);
 
     return NULL;
   }
@@ -280,14 +287,14 @@ AbstractPixmap* JPEGReader::read(ifstream& ifs)
   // so as to simplify the setjmp error logic above.  (Actually, I don't
   // think that jpeg_destroy can do an error exit, but why assume anything...)
   //
-  fclose(infile);
+  //fclose(infile);
 
   //
   // At this point you may want to check to see whether any corrupt-data
   // warnings occurred (test whether jerr.pub.num_warnings is nonzero).
   //
   if (jerr.pub.num_warnings > 0) {
-    ostrstream os;
+    std::stringstream os;
     os << "[JPEGReader::read] " 
        << jerr.pub.num_warnings
        << " corrupt-data warnings occurred while reading a jpeg image";

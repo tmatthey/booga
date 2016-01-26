@@ -75,7 +75,7 @@ bool GLTraversal2D::doTraverse(Object2D* obj)
   }
 
   int retval;
-  Primitive2D* primitive = dynamic_cast(Primitive2D, obj);
+  Primitive2D* primitive = dynamic_cast<Primitive2D*>(obj);
 
   if (primitive != NULL && state != Traversal::CONTINUE) {
     Object2D* decomposition = primitive->createDecomposition();

@@ -65,7 +65,7 @@ BuildingObject::BuildingObject(const BuildingObject& buildingobject)
 int BuildingObject::setSpecifier(RCString& errMsg, Makeable* specifier)
 {
   // Check for Building attributes
-  BuildingObjectAttr* attr = dynamic_cast(BuildingObjectAttr, specifier);
+  BuildingObjectAttr* attr = dynamic_cast<BuildingObjectAttr*>(specifier);
   if (attr != NULL) {
     // The BuildingObject object knows best which method has to be called.
     // So let the object do the job.
@@ -106,7 +106,7 @@ Object3D* BuildingObject::getSubobject(long index)
   Object3D* retval = getSubject();
   
   if (!retval || index != 0) {
-    ostrstream os;
+    std::stringstream os;
     os << "[BuildingObject::getSubobject] index out of range ";
     os << "(was " << index << ")";
     Report::error(os);

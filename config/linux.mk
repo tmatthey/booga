@@ -44,9 +44,16 @@ X11_LIB   = -lXext -lXmu -lX11 -lXi
 # OpenGL includes and library
 # HAVE_OPENGL  = 
 HAVE_OPENGL  = -DHAVE_OPENGL
-OPENGL_INC   = -I/usr/local/include
-OPENGL_LPATH = -L/usr/local/lib
+OPENGL_INC   = -I$(HOME)/include
+OPENGL_LPATH = -L$(HOME)/lib
 OPENGL_LIB   = -lglut -lGLU -lGL 
+
+# JPEG include files and library
+# HAVE_JPEG  = 
+HAVE_JPEG  = -DHAVE_JPEG
+JPEG_INC   = 
+JPEG_LPATH = 
+JPEG_LIB   = -ljpeg
 
 # SRGP includes and library
 HAVE_SRGP  =
@@ -63,23 +70,37 @@ HAVE_MPEGE  =
 #MPEGE_LIB   = -lmpege 
 
 # wxWin includes and library
-# HAVE_WXWIN  =
-HAVE_WXWIN  = -DHAVE_WXWIN
-WXWIN_INC   = -I/usr/wxwin/unix/include/x -I/usr/wxwin/unix/include/base
-WXWIN_LPATH = -L/usr/wxwin/unix/lib
-WXWIN_LIB   = -lwx_ol
-CPPFLAGS   += -Dwx_xview
+HAVE_WXWIN  =
+#HAVE_WXWIN  = -DHAVE_WXWIN
+#WXWIN_INC   = -I/usr/wxwin/unix/include/x -I/usr/wxwin/unix/include/base
+#WXWIN_LPATH = -L/usr/wxwin/unix/lib
+#WXWIN_LIB   = -lwx_ol
+#CPPFLAGS   += -Dwx_xview
 
 # libwww includes and library
 HAVE_WWW  =
 #HAVE_WWW  = -DHAVE_WWW
-#WWW_INC   = -I/home/fcg/include
-#WWW_LPATH = -L/home/fcg/lib 
-#WWW_LIB   = -lwww -lsocket -lnsl
+#WWW_INC   = -I$(HOME)/include
+#WWW_LPATH = -L$(HOME)/lib 
+#WWW_LIB   =  -lnsl
+
+HAVE_MPI  =
+#HAVE_MPI  = -DHAVE_MPI
+#MPI_INC   = 
+#MPI_LPATH = 
+#MPI_LIB   = $(MPI_LDLIBS)
+
+#HAVE_PNG  =
+HAVE_PNG  = -DHAVE_PNG
+PNG_INC   = 
+PNG_LPATH = 
+PNG_LIB   = -lpng
+
+
 
 # Conclusion:
-CPPFLAGS += $(HAVE_X11) $(HAVE_OPENGL) $(HAVE_SRGP) $(HAVE_WXWIN)
-CPPFLAGS += $(X11_INC) $(OPENGL_INC) $(SRGP_INC) $(WXWIN_INC)
+CPPFLAGS += $(HAVE_X11) $(HAVE_OPENGL) $(HAVE_SRGP) $(HAVE_WXWIN) $(HAVE_MPEGE) $(HAVE_JPEG) $(HAVE_WWW) $(HAVE_MPI) $(HAVE_PNG)
+CPPFLAGS += $(X11_INC) $(OPENGL_INC) $(SRGP_INC) $(WXWIN_INC) $(MPEGE_INC) $(JPEG_INC) $(WWW_INC) $(MPI_INC) $(PNG_INC)
 
 FW_OTHER_LIBS = $(WWW_LPATH) $(WWW_LIB)
 
@@ -104,8 +125,8 @@ STATIC_LIB_EXT = a
 # -------------------------------------------------------
 BISON++  = bison++
 B++FLAGS = -vd
-FLEX++   = flex++
-F++FLAGS = 
+FLEX++   = $(HOME)/bin/flex++
+F++FLAGS = -d
 
 # GNU awk program
 # -------------------------------------------------------

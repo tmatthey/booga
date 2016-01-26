@@ -89,6 +89,10 @@
 		 "SubProjDir" [ "applications/pixi2ppm-app" ]
 	 >
 	 < "SubProjSchema"
+		 "SubProjName" [ "pixi2png-app.shared" ]
+		 "SubProjDir" [ "applications/pixi2png-app" ]
+	 >
+	 < "SubProjSchema"
 		 "SubProjName" [ "ppm2pixi-app.shared" ]
 		 "SubProjDir" [ "applications/ppm2pixi-app" ]
 	 >
@@ -157,10 +161,6 @@
 		 "SubProjDir" [ "applications/bsdl2ray-app" ]
 	 >
 	 < "SubProjSchema"
-		 "SubProjName" [ "wxFlythrough-app.shared" ]
-		 "SubProjDir" [ "applications/wxFlythrough-app" ]
-	 >
-	 < "SubProjSchema"
 		 "SubProjName" [ "bsdlWriter-app.shared" ]
 		 "SubProjDir" [ "applications/bsdlWriter-app" ]
 	 >
@@ -171,18 +171,6 @@
 	 < "SubProjSchema"
 		 "SubProjName" [ "pixiquant-app.shared" ]
 		 "SubProjDir" [ "applications/pixiquant-app" ]
-	 >
-	 < "SubProjSchema"
-		 "SubProjName" [ "wxBrowser-app.shared" ]
-		 "SubProjDir" [ "applications/wxBrowser-app" ]
-	 >
-	 < "SubProjSchema"
-		 "SubProjName" [ "wxEdit-app.shared" ]
-		 "SubProjDir" [ "applications/wxEdit-app" ]
-	 >
-	 < "SubProjSchema"
-		 "SubProjName" [ "persistence-app.shared" ]
-		 "SubProjDir" [ "applications/persistence-app" ]
 	 >
 	 < "SubProjSchema"
 		 "SubProjName" [ "pixidiff-app.shared" ]
@@ -199,10 +187,6 @@
 	 < "SubProjSchema"
 		 "SubProjName" [ "sirds-app.shared" ]
 		 "SubProjDir" [ "applications/sirds-app" ]
-	 >
-	 < "SubProjSchema"
-		 "SubProjName" [ "graphicsdb-app.shared" ]
-		 "SubProjDir" [ "applications/graphicsdb-app" ]
 	 >
 	 < "SubProjSchema"
 		 "SubProjName" [ "terrainCreater-app.shared" ]
@@ -412,7 +396,7 @@
 		 "Image" [
 		 < "File_Types_Info"
 			 "Name" [ "Image" ]
-			 "Signatures" [ "*.ppm:*.ppm.gz:*.pixi:*.pixi.gz" ]
+			 "Signatures" [ "*.ppm:*.png:*.ppm.gz:*.pixi:*.pixi.gz" ]
 			 "Type" [ "Image" ]
 			 "Tools" [ "ls -la %f" ]
 			 "Tool Names" [ "ls -la %f" ]

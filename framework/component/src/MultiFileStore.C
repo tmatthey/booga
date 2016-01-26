@@ -22,12 +22,12 @@
 #ifdef SVR4
 #include <unistd.h>  // STDOUT_FILENO
 #endif
-#include <fstream.h>
+#include <fstream>
 #include "booga/component/MultiFileStore.h"
 
 //_____________________________________________________________________ MultiFileStore
 
-// implementRTTI(MultiFileStore, DocumentStore);
+//implementRTTI(MultiFileStore, DocumentStore);
 
 MultiFileStore::MultiFileStore(const RCString& filename) 
 : DocumentStore(),
@@ -74,7 +74,7 @@ MultiFileStore::beginDocument(const RCString& documentName,
   myDocumentName = documentName;
   
   if (myCurrFilename.isEmpty()) {
-    myOs.rdbuf()->attach(STDOUT_FILENO);
+    myOs.tie(&std::cout);
     if (myOs.bad()) {
       Report::warning("[MultiFileStore::beginDocument] could not attach to stdout");
     }
@@ -86,11 +86,11 @@ MultiFileStore::beginDocument(const RCString& documentName,
         myCurrFilename);
     }
   }
-  myOs << "#ifndef " << documentName << "_" << extension << endl;
-  myOs << "#define " << documentName << "_" << extension << endl << endl;  
+  myOs << "#ifndef " << documentName << "_" << extension << std::endl;
+  myOs << "#define " << documentName << "_" << extension << std::endl << std::endl;  
   myIncludeFiles = new SymTable<RCString, int>(128);
-  myInclude = new ostrstream();
-  myBody = new ostrstream();
+  myInclude = new std::stringstream();
+  myBody = new std::stringstream();
 }
 
 RCString MultiFileStore::endDocument() 
@@ -99,14 +99,14 @@ RCString MultiFileStore::endDocument()
   // write preprocessor include statements to current file
   //
   if (myInclude != NULL) {
-    // strstreams may not directly be written to an ostream.
+    // strstreams may not directly be written to an std::ostream.
     // The only way to copy the content of a stream to another
     // is by accessing the buffer.
     // Accessing the buffer of a strstream freezes the strstream
     // and resets it. The responsability for the buffer is with
     // the caller of str().
     *myInclude << '\0'; // null terminate the strstream buffer!
-    char* tmpStr = myInclude->str();
+    const char* tmpStr = myInclude->str().c_str();
     myOs << tmpStr;
     myOs.flush();
     delete tmpStr;
@@ -124,7 +124,7 @@ RCString MultiFileStore::endDocument()
   if (myBody != NULL) {
     // see above.
     *myBody << '\0'; // null terminate the strstream buffer!
-    char* tmpStr = myBody->str();
+    const char* tmpStr = myBody->str().c_str();
     myOs << tmpStr;
     myOs.flush();
     delete tmpStr;
@@ -133,7 +133,7 @@ RCString MultiFileStore::endDocument()
     myBody = NULL;
   }
   
-  myOs << endl << "#endif" << endl;
+  myOs << std::endl << "#endif" << std::endl;
   if (!myCurrFilename.isEmpty()) {
     myOs.close();
   }
@@ -153,12 +153,12 @@ void MultiFileStore::includeDocument(const RCString& documentName,
       // generate include statement
       //
       myIncludeFiles->insert(fullName,dummy);
-      *myInclude << "#include \"" << fullName << "\"" << endl;
+      *myInclude << "#include \"" << fullName << "\"" << std::endl;
     }
   }
 }
   
-ostream& MultiFileStore::os() {
+std::ostream& MultiFileStore::os() {
   if (myBody != NULL) {
     return *myBody;
   }

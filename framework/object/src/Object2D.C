@@ -30,7 +30,7 @@
 
 //_____________________________________________________________________ Object2D
 
-// implementRTTI(Object2D, BOOGAObject);
+//implementRTTI(Object2D,'BOOGAObject<Object2D, Transform2D, Vector2D, BoundingRect, Ray2D>');
 // !!! weil GNU nicht template + static data kann
 
 implementRTTI(Object2D, Makeable);
@@ -93,7 +93,7 @@ void Object2D::appendTexture(Texture2D* adoptTexture)
     //
     //  Check if we already have a Texture2DList.
     //
-    Texture2DList* textureList = dynamic_cast(Texture2DList, myTexture);
+    Texture2DList* textureList = dynamic_cast<Texture2DList*>(myTexture);
 
     // Yes -> add 'texture' to the list.
     if (textureList != NULL) 
@@ -122,7 +122,7 @@ int Object2D::setSpecifier(RCString& errMsg, Makeable* specifier)
   // There are not so many different valid specifier types:
   // First lets try, if it is a Texture2D ...
   //
-  Texture2D* texture = dynamic_cast(Texture2D, specifier);
+  Texture2D* texture = dynamic_cast<Texture2D*>(specifier);
   if (texture != NULL) {
     appendTexture(texture);
     return 1;
@@ -131,7 +131,7 @@ int Object2D::setSpecifier(RCString& errMsg, Makeable* specifier)
   // Now let's try to if we have a Transform2D object ...
   //
   else {
-    Transform2D* transform = dynamic_cast(Transform2D, specifier);
+    Transform2D* transform = dynamic_cast<Transform2D*>(specifier);
     if (transform != NULL) {
       addTransform(*transform);
       delete transform;

@@ -100,7 +100,7 @@ bool PSWriter2D::preprocessing()
   // If myFilename is empty, we try to open stdout for writing
   //
   if (myFilename.isEmpty()) {
-    myOfs.rdbuf()->attach(STDOUT_FILENO);
+    myOfs.tie(&std::cout);//->attach(STDOUT_FILENO);
     if (myOfs.bad()) {
       Report::recoverable("[PSWriter2D::preprocessing] could not attach to stdout");
       return false;
@@ -159,7 +159,7 @@ Traversal::Result PSWriter2D::visit(Pixmap2D* pixi)
            "false 3 colorimage\n"
            ; // end of myOfs << ....
 
-  myOfs << hex; // Set to hex output
+  myOfs << std::hex; // Set to hex output
 
   int j=0;
   for (int i=0; i<3*resX*resY; i++,j++) {
@@ -178,7 +178,7 @@ Traversal::Result PSWriter2D::visit(Pixmap2D* pixi)
     myOfs << (int)ppmPicture[i] << " ";      
   }
   
-  myOfs << dec; // Set to dec output
+  myOfs << std::dec; // Set to dec output
 
   myOfs << "\n"
            "\n"
@@ -204,8 +204,8 @@ Traversal::Result PSWriter2D::visit(Line2D* line)
   from = myCamera->getViewing()->transformWorld2Screen(from);
   to   = myCamera->getViewing()->transformWorld2Screen(to);
 
-  myOfs << from.x() << " " << from.y() << " m" << endl;
-  myOfs << to.x()   << " " << to.y()   << " e" << endl;
+  myOfs << from.x() << " " << from.y() << " m" << std::endl;
+  myOfs << to.x()   << " " << to.y()   << " e" << std::endl;
 
   return Traversal::CONTINUE;
 }

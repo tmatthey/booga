@@ -28,7 +28,7 @@
 #include "booga/base/Value.h"
 
 class ValueOption : public Option {
-declareRTTI(ValueOption);
+  declareRTTI(ValueOption);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

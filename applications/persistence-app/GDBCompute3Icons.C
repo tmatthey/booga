@@ -95,9 +95,9 @@ bool GDBCompute3Icons::doExecute() {
         return false;
       }
     }
-    Object3D *obj = dynamic_cast(Object3D, makeable);
+    Object3D *obj = dynamic_cast<Object3D*>(makeable);
     if (obj == NULL) {
-      Texture3D *texture = dynamic_cast(Texture3D, makeable);
+      Texture3D *texture = dynamic_cast<Texture3D*>(makeable);
       if (texture == NULL) {
         ostrstream msg;
         msg << "[GDBCompute3Icons::doExecute] cannot handle object type " 

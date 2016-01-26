@@ -29,7 +29,7 @@
 //_____________________________________________________________________ wxInspectSelectionCommand
 
 class wxInspectSelectionCommand : public wxViewCommand {
-declareRTTI(wxInspectSelectionCommand);
+  declareRTTI(wxInspectSelectionCommand);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

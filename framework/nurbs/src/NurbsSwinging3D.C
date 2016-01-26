@@ -122,7 +122,7 @@ Makeable* NurbsSwinging3D::make (RCString &, const List<Value*> *) const
 
 int NurbsSwinging3D::setSpecifier (RCString &errMsg, Makeable *specifier)
 {
-  Nurbs3DPathAttr *attr = dynamic_cast (Nurbs3DPathAttr, specifier);
+  Nurbs3DPathAttr *attr = dynamic_cast<Nurbs3DPathAttr*>(specifier);
   if (attr)
   {
     attr->setAttribute (this);         // The Nurbs3DPathAttr object knows how to handle this

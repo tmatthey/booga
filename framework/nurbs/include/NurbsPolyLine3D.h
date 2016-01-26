@@ -28,7 +28,7 @@
 //______________________________________________________________ NurbsPolyLine3D
 
 class NurbsPolyLine3D : public Nurbs3D {
-  declareRTTI(NurbsPolyLine3D);
+    declareRTTI(NurbsPolyLine3D);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

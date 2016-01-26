@@ -28,7 +28,7 @@
 //_____________________________________________________________________ wxClipboardCommands
 
 class wxCutCommand : public wxViewCommand {
-declareRTTI(wxCutCommand);
+  declareRTTI(wxCutCommand);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

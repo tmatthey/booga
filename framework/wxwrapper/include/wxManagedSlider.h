@@ -30,7 +30,7 @@
 //_____________________________________________________________________ wxManagedSlider
 
 class wxManagedSlider : public wxSlider {
-// declareRTTI(wxManagedSlider);
+declareRTTI(wxManagedSlider);
 // enable RTTI support
 friend void wxManagedSliderCallback(wxObject*, wxCommandEvent&);
 

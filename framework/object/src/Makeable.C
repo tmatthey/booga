@@ -47,7 +47,7 @@ Makeable::~Makeable() {}
 
 int Makeable::setSpecifier(RCString& errMsg, Makeable* adoptSpecifier)
 {
-  MakeableAttr* attr = dynamic_cast(MakeableAttr, adoptSpecifier);
+  MakeableAttr* attr = dynamic_cast<MakeableAttr*>(adoptSpecifier);
   if (attr != NULL) {
     // The MakeableAttr object knows best which method has to be called.
     // So let the object do the job.
@@ -200,11 +200,11 @@ void Makeable::printRegistered()
 
   while (namespaceItr.more()) {
     SymTableIterator<Name,Makeable*> itr(*namespaceItr.curValue());
-    cout << "\n------------------- Namespace " << namespaceItr.curKey() << "::\n" << flush;
+    std::cout << "\n------------------- Namespace " << namespaceItr.curKey() << "::\n" << std::flush;
     while (itr.more()) {
-      cout << itr.curKey() << "\n\t"
+      std::cout << itr.curKey() << "\n\t"
 	   << itr.curValue()->myName << " "
-	   << typeid(itr.curValue()).name() << endl << flush;
+	   << typeid(itr.curValue()).name() << std::endl << std::flush;
       itr.next();
     }
     namespaceItr.next();

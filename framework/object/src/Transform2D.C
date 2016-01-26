@@ -114,7 +114,7 @@ int Transform2D::setSpecifier(RCString& errMsg, Makeable* specifier)
 {
   // First check if specifier is of type Transform2D (nestet or named 
   // transformations)
-  Transform2D* anotherTrans = dynamic_cast(Transform2D, specifier);
+  Transform2D* anotherTrans = dynamic_cast<Transform2D*>(specifier);
   if (anotherTrans != NULL)
     addTransMatrix(*(anotherTrans->myTrans));
   else {

@@ -24,8 +24,8 @@
 #endif
 #include <stdio.h>          // fdopen(), ...
 #include <string.h>  // strfind()
-#include <strstream.h>
-#include <fstream.h>
+#include <sstream>
+#include <fstream>
 #include "booga/component/BSDL3DParser.h"
 #include "booga/persistence/POId.h"
 #include "booga/graphicsdb/GDBStore.h"
@@ -35,7 +35,7 @@
 #include "booga/graphicsdb/GraphicsDataBase.h"
 //_____________________________________________________________________ GDBStore
 
-// implementRTTI(GDBStore, DocumentStore);
+//implementRTTI(GDBStore, DocumentStore);
 
 GDBStore::GDBStore(DataBase& aDB) :
 DocumentStore(),
@@ -107,7 +107,7 @@ GDBStore::beginDocument(const RCString& documentName,
   myExtension = extension;
  
   myNewParts = new Set<PRef<GDBData> >;
-  myNewData = new ostrstream();
+  myNewData = new std::stringstream();
 }
 
 RCString GDBStore::endDocument() {
@@ -121,7 +121,7 @@ RCString GDBStore::endDocument() {
     // we have to create a new GDBObject
     myGDBData = new GDBData(*myDataBase, myDocumentName);
 
-    ostrstream os;
+    std::stringstream os;
     os <<  myDocumentName 
        << "." << (unsigned long) myGDBData->getPOId().getPDBId()
        << "." << (unsigned long) myGDBData->getPOId().getPObjectId();
@@ -155,7 +155,7 @@ RCString GDBStore::endDocument() {
   // did the object data change?
   // 
   *myNewData << '\0'; // null terminate the strstream buffer!
-  char* data = myNewData->str(); // freeze the strstream. now caller is responsible for the buf.
+  const char* data = myNewData->str().c_str(); // freeze the strstream. now caller is responsible for the buf.
   RCString newData(data);
   delete data;
 
@@ -164,7 +164,7 @@ RCString GDBStore::endDocument() {
     //
     // no -> do nothing
     //
-    ostrstream ss;
+    std::stringstream ss;
     ss << "[GDBStore::endDocument()] unchanged gdbData: " 
        << myDocumentName;
     Report::hint(ss);
@@ -191,7 +191,7 @@ RCString GDBStore::endDocument() {
     myGDBData->markChanged();
 
     // inform user about writing
-    ostrstream ss;
+    std::stringstream ss;
     ss << "[GDBStore::endDocument()] processed gdbData: " 
        << myDocumentName;
     Report::hint(ss);
@@ -214,7 +214,7 @@ void GDBStore::includeDocument(const RCString& documentName,
     //
     GDBData* part = getGDBDataObj(documentName);
     if (part == NULL) {
-        ostrstream os;
+        std::stringstream os;
         os << "[GBDStore::includeDocument] document " << documentName
            << " not found";
         Report::recoverable(os);
@@ -226,7 +226,7 @@ void GDBStore::includeDocument(const RCString& documentName,
   }
 }
 
-ostream& GDBStore::os() { 
+std::ostream& GDBStore::os() { 
   if (myNewData != NULL) {
     return *myNewData;
   }

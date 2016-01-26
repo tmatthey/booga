@@ -45,16 +45,16 @@ void ShaderShaderNode::print(bool indent)
 {
   if (indent)
     printSpaces(2 * myBlockDepth);
-  cout << "shader(";
+  std::cout << "shader(";
   if(myArguments) {
     for(register long i = 0; i < myArguments->count() - 1; i++) {
       myArguments->item(i)->print(0);
-      cout << ", ";
+      std::cout << ", ";
     }
     if (myArguments->count() > 0) 
       myArguments->item(myArguments->count() - 1)->print(0);
   } 
-   cout << ")";
+   std::cout << ")";
 }  
 
 void ShaderShaderNode::execute(Texture3DContext& context)

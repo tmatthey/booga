@@ -20,7 +20,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <iostream.h>
+#include <iostream>
 #include <string.h>
 #include "booga/texture/ShaderCompExpNode.h"
      
@@ -45,7 +45,7 @@ void ShaderCompExpNode::print(bool indent)
   if (indent)
     printSpaces(2 *myBlockDepth);
   myOp1->print(false);
-  cout << " " << myOperator << " ";
+  std::cout << " " << myOperator << " ";
   myOp2->print(false);
 }
 

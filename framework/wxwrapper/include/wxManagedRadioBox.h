@@ -30,7 +30,7 @@
 //_____________________________________________________________________ wxManagedRadioBox
 
 class wxManagedRadioBox : public wxRadioBox {
-// declareRTTI(wxManagedRadioBox);
+declareRTTI(wxManagedRadioBox);
 // enable RTTI support
 friend void wxManagedRadioBoxCallback(wxObject*, wxCommandEvent&);
 

@@ -26,7 +26,7 @@
 
 //_____________________________________________________________________ wxManagedButton
 
-//implementRTTI(wxManagedButton, wxButton);
+implementRTTI(wxManagedButton, wxButton);
 
 
 wxManagedButton::wxManagedButton(wxDialogDirector* director, wxPanel* parent, char* label, 

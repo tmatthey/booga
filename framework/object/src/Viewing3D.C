@@ -20,10 +20,7 @@
  *  $Id: Viewing3D.C,v 1.8 1997/09/19 07:15:15 buhlmann Exp $
  * -----------------------------------------------------------------------------
  */
-#ifdef SVR4
-#include <stream.h>
-#endif
-#include <strstream.h>  // ostrstream
+#include <sstream>  // std::stringstream
 
 #include "booga/base/mathutilities.h"
 #include "booga/base/Report.h"
@@ -241,12 +238,13 @@ bool Viewing3D::buildView() const
   v = myUp - (n^myUp)*n;
 
   if (equal(v.normalize(), 0)) {
+    char tmp[4096];
+    sprintf(tmp," eye(%g, %g, %g)\n lookat(%g, %g, %g)\n up(%g, %g, %g)",
+	    myEye.x(),    myEye.y(),    myEye.z(),
+	    myLookat.x(), myLookat.y(), myLookat.z(),
+	    myUp.x(),     myUp.y(),     myUp.z());
     Report::warning(RCString("[Viewing3D::buildView] ")
-		    + "view and up directions identical?\n" + 
-		    form(" eye(%g, %g, %g)\n lookat(%g, %g, %g)\n up(%g, %g, %g)",
-			 myEye.x(),    myEye.y(),    myEye.z(),
-			 myLookat.x(), myLookat.y(), myLookat.z(),
-			 myUp.x(),     myUp.y(),     myUp.z()));
+		    + "view and up directions identical?\n" + tmp);
     return false;
   }
 
@@ -287,7 +285,7 @@ bool Viewing3D::buildView() const
 int Viewing3D::setSpecifier(RCString& errMsg, Makeable* specifier)
 {
   // Check for Viewing3D attributes
-  Viewing3DAttr* attr = dynamic_cast(Viewing3DAttr, specifier);
+  Viewing3DAttr* attr = dynamic_cast<Viewing3DAttr*>(specifier);
   if (attr != NULL) {
     // The Viewing3DAttr object knows best which method has to be called.
     // So let the object do the job.
@@ -323,14 +321,14 @@ void Viewing3D::iterateAttributes(MakeableHandler* handler) {
   handler->handle(&resolution);
 }
 
-ostream& operator<<(ostream& os, const Viewing3D& view)
+std::ostream& operator<<(std::ostream& os, const Viewing3D& view)
 {
-  os << "Eye    : " << view.myEye    << endl
-     << "Lookat : " << view.myLookat << endl
-     << "Up     : " << view.myUp     << endl
-     << "HFov   : " << view.myHFov   << endl
-     << "VFov   : " << view.myVFov   << endl
-     << "Res    : " << view.myResolutionX << " " << view.myResolutionY << endl;
+  os << "Eye    : " << view.myEye    << std::endl
+     << "Lookat : " << view.myLookat << std::endl
+     << "Up     : " << view.myUp     << std::endl
+     << "HFov   : " << view.myHFov   << std::endl
+     << "VFov   : " << view.myVFov   << std::endl
+     << "Res    : " << view.myResolutionX << " " << view.myResolutionY << std::endl;
 
   return os;
 }

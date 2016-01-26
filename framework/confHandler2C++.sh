@@ -57,18 +57,18 @@ BEGIN {
   curValue      = "";
 
   countConf     = 0;
-  countOption   = "";
-  countValue    = "";
+  countOption[-1]   ;
+  countValue[-1]    ;
 
-  nameConf      = "";
-  nameOption    = "";
-  nameValue     = "";
+  nameConf[-1]     ;
+  nameOption[-1]    ;
+  nameValue[-1]     ;
 
-  descConf      = "";
-  descOption    = "";
-  descValue     = "";
+  descConf[-1]      ;
+  descOption[-1]    ;
+  descValue[-1]     ;
 
-  code          = "";
+  code[-1]          ;
 
   errorOccured  = 0;
 }

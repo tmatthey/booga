@@ -91,10 +91,10 @@ void parseCmdLine(int argc, char* argv[],
 
 void usage(const RCString& name)
 {
-    cerr << "Usage: " << name << " [-h] in-file [in-file [out-file]]\n";
-    cerr << " where:\n";
-    cerr << "  -h       : print this message\n";
-    cerr << "  in-file  : (mandatory) filename of input 1\n";
-    cerr << "  in-file  : (optional)  filename of input 2\n";
-    cerr << "  out-file : (optional)  filename of output\n";
+    std::cerr << "Usage: " << name << " [-h] in-file [in-file [out-file]]\n";
+    std::cerr << " where:\n";
+    std::cerr << "  -h       : print this message\n";
+    std::cerr << "  in-file  : (mandatory) filename of input 1\n";
+    std::cerr << "  in-file  : (optional)  filename of input 2\n";
+    std::cerr << "  out-file : (optional)  filename of output\n";
 }

@@ -23,7 +23,7 @@
 #ifndef _GDBExport_H
 #define _GDBExport_H
 
-#include <fstream.h>
+#include <fstream>
 #include "booga/base/SymTable.h"
 #include "GDBOperation.h"
 #include "GDBData.h"
@@ -78,7 +78,7 @@ public:
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 private:
   List<RCString> myFilenames;
-  fstream myFile;
+  std::fstream myFile;
 };
 
 //______________________________________________________________________ INLINES

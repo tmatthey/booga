@@ -30,7 +30,7 @@
 //_____________________________________________________________________ wxManagedCheckBox
 
 class wxManagedCheckBox : public wxCheckBox {
-// declareRTTI(wxManagedCheckBox);
+declareRTTI(wxManagedCheckBox);
 // enable RTTI support
 friend void wxManagedCheckBoxCallback(wxObject*, wxCommandEvent&);
 

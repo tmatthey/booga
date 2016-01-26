@@ -21,7 +21,7 @@
  * -----------------------------------------------------------------------------
  */
  
-#include <strstream.h>  // ostrstream
+#include <sstream>  // std::stringstream
 
 #include "booga/object/OrthographicViewing3D.h"
 
@@ -72,7 +72,7 @@ void OrthographicViewing3D::computeRayThrough(int x, int y, Ray3D& ray) const
 
   if (x < 0 || x >= myResolutionX  || 
       y < 0 || y >= myResolutionY) {
-    ostrstream os;
+    std::stringstream os;
     os << "[OrthographicViewing3D::computeRayThrough] illegal screen coordinates (" 
        << x << " " << y << ") ignored."
        << " Range is x: [0, " << myResolutionX 

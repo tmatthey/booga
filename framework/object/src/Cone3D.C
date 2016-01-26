@@ -21,8 +21,6 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <strstream.h>
-
 #include "booga/base/Report.h"
 #include "booga/base/Value.h"
 #include "booga/object/List3D.h"
@@ -58,7 +56,7 @@ Cone3D::Cone3D(Real radiusStart, const Vector3D& start,
   myEnd(end)
 {
   if (equal(radiusStart, radiusEnd)) {
-    ostrstream os;
+    std::stringstream os;
     os << "[Cone3D::Cone3D] start and end radius are equal: " << radiusStart;
     Report::warning(os);
   }
@@ -123,8 +121,9 @@ Object3D* Cone3D::createDecomposition() const
   //
   // Check, if decomposition for a similar cylinder has already been done.
   //
-  extern char* form(const char * ...);
-  Name key = form("Cone3D#%d#%g%d", steps, myDistance, isClosed());
+  char tmp[256];
+  sprintf(tmp,"Cone3D#%d#%g%d", static_cast<int>(steps), myDistance, isClosed());
+  Name key(tmp);
   Object3D* retval = (Object3D*)Primitive3D::getDecomposition(key);
 
   if (retval == NULL) {
@@ -366,7 +365,7 @@ void Cone3D::doComputeBounds()
   
 int Cone3D::setSpecifier(RCString& errMsg, Makeable* specifier)
 {
-  Cone3DAttr* attr = dynamic_cast(Cone3DAttr, specifier);
+  Cone3DAttr* attr = dynamic_cast<Cone3DAttr*>(specifier);
   if (attr) {
     // The Cone3DAttr object knows best which method has to be called.
     // So let the object do the job.
@@ -403,7 +402,7 @@ Makeable* Cone3D::make(RCString& errMsg, const List<Value*>* parameters) const
     return newCone;
   } 
   else {
-    ostrstream os;
+    std::stringstream os;
     os << "[Cone3D::make] start and end radius are equal: " 
        << radiusStart << "! Creating cylinder";
     Report::warning(os);

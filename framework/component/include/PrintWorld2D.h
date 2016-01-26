@@ -24,7 +24,7 @@
 #ifndef _PrintWorld2D_H
 #define _PrintWorld2D_H
 
-#include <iostream.h>
+#include <iostream>
 #include "booga/component/Operation2D.h"
 
 class Object2D;
@@ -40,7 +40,7 @@ declareRTTI(PrintWorld2D);
 // Constructors, destructors, assignment
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 public:
-  PrintWorld2D(ostream& os = cout);
+  PrintWorld2D(std::ostream& os = std::cout);
 private:
   PrintWorld2D(const PrintWorld2D&);            // No copies.
 
@@ -77,7 +77,7 @@ public:
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 private:
   int myLevel;
-  ostream& myStream;
+  std::ostream& myStream;
 };
 
 #endif // _PrintWorld2D_H

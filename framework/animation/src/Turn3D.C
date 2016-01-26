@@ -60,7 +60,7 @@ bool Turn3D::doFrame(Real frame)
 
     }
     else {
-      ostrstream os;
+      std::stringstream os;
       os << "[Turn3D::doTicks] action ("
          <<  item->getStartFrame() << ","
          <<  item->getEndFrame() << ") not of type Turn3D. Skip";

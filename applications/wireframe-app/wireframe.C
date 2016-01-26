@@ -72,7 +72,7 @@ int main(int argc, char* argv[])
   // Print scene
   //
   if (print){
-    PrintWorld3D printer(cerr);
+    PrintWorld3D printer(std::cerr);
     printer.execute(world3D);
   }
 
@@ -156,13 +156,13 @@ void parseCmdLine(int argc, char* argv[], bool& bsdl, bool& print, bool& sort, b
 
 void usage(const RCString& name)
 {
-    cerr << "Usage: " << name << " --bsdl [in-file [out-file]]\n";
-    cerr << " where:\n";
-    cerr << "  --bsdl         : (optional) BSDL output\n";
-    cerr << "  --print        : (optional) print scene for debugging purpose\n";
-    cerr << "  --sort         : (optional) sort the output\n";
-    cerr << "  --optimize     : (optional) sort and optimize the output\n";
-    cerr << "  in-file        : (optional) filename of input\n";
-    cerr << "  out-file       : (optional) filename of output\n";
+    std::cerr << "Usage: " << name << " --bsdl [in-file [out-file]]\n";
+    std::cerr << " where:\n";
+    std::cerr << "  --bsdl         : (optional) BSDL output\n";
+    std::cerr << "  --print        : (optional) print scene for debugging purpose\n";
+    std::cerr << "  --sort         : (optional) sort the output\n";
+    std::cerr << "  --optimize     : (optional) sort and optimize the output\n";
+    std::cerr << "  in-file        : (optional) filename of input\n";
+    std::cerr << "  out-file       : (optional) filename of output\n";
 }
  

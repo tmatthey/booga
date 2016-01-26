@@ -20,7 +20,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <iostream.h>
+#include <iostream>
 #include "booga/base/Value.h"
 #include "booga/texture/ShaderForNode.h"
 
@@ -48,13 +48,13 @@ void ShaderForNode::print(bool indent)
 {
   if (indent)
     printSpaces(2 * myBlockDepth);
-  cout << "for (";
+  std::cout << "for (";
   myBaseExp->print(false);
-  cout << "; ";
+  std::cout << "; ";
   myIterExp->print(false);
-  cout << "; ";
+  std::cout << "; ";
   myCancelExp->print(false);
-  cout << ")" << endl;
+  std::cout << ")" << std::endl;
   myStmt->print();
 }
 

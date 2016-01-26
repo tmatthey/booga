@@ -31,7 +31,7 @@
 
 implementRTTI(Triangulator, Operation3D);
 
-Triangulator::Triangulator(ostream& os)
+Triangulator::Triangulator(std::ostream& os)
 : myStream(os) 
 {}
 
@@ -50,19 +50,19 @@ Traversal::Result Triangulator::visit(Triangle3D* obj)
       normal.equal(obj->getNormal(1)) && 
       normal.equal(obj->getNormal(2))){
     myStream << "triangle (" 
-             << v[0] << "," << endl
+             << v[0] << "," << std::endl
              << "          " 
-             << v[1] << "," << endl
+             << v[1] << "," << std::endl
              << "          " 
-             << v[2] << ");" << endl << endl;
+             << v[2] << ");" << std::endl << std::endl;
   }
   else {
     myStream << "triangle (" 
-             << v[0] << ", " << obj->getNormal(0) << "," << endl
+             << v[0] << ", " << obj->getNormal(0) << "," << std::endl
              << "          " 
-             << v[1] << ", " << obj->getNormal(1) << "," << endl
+             << v[1] << ", " << obj->getNormal(1) << "," << std::endl
              << "          " 
-             << v[2] << ", " << obj->getNormal(2) << ");" << endl << endl;
+             << v[2] << ", " << obj->getNormal(2) << ");" << std::endl << std::endl;
   }
   return Traversal::CONTINUE;
 }

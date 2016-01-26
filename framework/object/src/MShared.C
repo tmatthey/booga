@@ -28,7 +28,7 @@
 // Only compile this file if either not GNU compiler running,
 // or, in case of GNU compiler, files is included from header.
 
-#include <strstream.h>
+#include <sstream>
 #include "booga/base/Report.h"
 #include "booga/object/MakeableHandler.h"
 
@@ -138,7 +138,7 @@ INLINE Name MShared<TObject, TShared, TPath, TRay>
 {
   static long ourCurrentNameNumber;   // implicit initialisation to 0
 
-  ostrstream os;
+  std::stringstream os;
   os << "_MShared" << ourCurrentNameNumber;
   ourCurrentNameNumber++;
   return Name(os); 

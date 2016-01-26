@@ -30,7 +30,7 @@ class List3D;
 //_____________________________________________________________________ TriangleList3D
 
 class TriangleList3D : public Grid3D {
-declareRTTI(TriangleList3D);
+  declareRTTI(TriangleList3D);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

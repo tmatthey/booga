@@ -28,7 +28,7 @@
 //______________________________________________________________ NurbsSweeping3D
 
 class NurbsSweeping3D : public NurbsCompound3D {
-  declareRTTI(NurbsSweeping3D);
+    declareRTTI(NurbsSweeping3D);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

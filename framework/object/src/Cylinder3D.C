@@ -21,7 +21,6 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <strstream.h>
 
 #include "booga/base/Value.h"
 #include "booga/object/List3D.h"
@@ -56,13 +55,13 @@ Cylinder3D::Cylinder3D(Real radius, const Vector3D& start, const Vector3D& end)
   // Check for correct settings.
   //
   if (myStart.equal(myEnd)) {
-    ostrstream os;
+    std::stringstream os;
     os << "[Cylinder3D::Cylinder3D] degenerate cylinder: " 
        << "start " << myStart << ", end " << myEnd;
     Report::warning(os);
   }
   if (myRadius < EPSILON) {
-    ostrstream os;
+    std::stringstream os;
     os << "[Cylinder3D::Cylinder3D] degenerate cylinder, " 
        << "radius: " << myRadius;
     Report::warning(os);
@@ -74,7 +73,7 @@ Cylinder3D::Cylinder3D(Real radius, const Vector3D& start, const Vector3D& end)
 void Cylinder3D::setStart(const Vector3D& start)
 {
   if (start.equal(myEnd)) {
-    ostrstream os;
+    std::stringstream os;
     os << "[Cylinder3D::setStart] start == end: " << start;
     Report::warning(os);
   }
@@ -86,7 +85,7 @@ void Cylinder3D::setStart(const Vector3D& start)
 void Cylinder3D::setEnd(const Vector3D& end)
 {
   if (end.equal(myStart)) {
-    ostrstream os;
+    std::stringstream os;
     os << "[Cylinder3D::setEndt] start == end: " << end;
     Report::warning(os);
   }
@@ -98,7 +97,7 @@ void Cylinder3D::setEnd(const Vector3D& end)
 void Cylinder3D::setRadius(Real radius)
 {
   if (radius < EPSILON) {
-    ostrstream os;
+    std::stringstream os;
     os << "[Cylinder3D::setRadius] illegal value for radius: " << radius;
     Report::recoverable(os);
     return;
@@ -140,8 +139,9 @@ Object3D* Cylinder3D::createDecomposition() const
   //
   // Check, if decomposition for a similar cylinder has already been done.
   //
-  extern char* form(const char * ...);
-  Name key = form("Cylinder3D#%d#%d", steps, isClosed());
+  char tmp[256];
+  sprintf(tmp,"Cylinder3D#%d#%d", static_cast<int>(steps), isClosed());
+  Name key(tmp);
   Object3D* retval = (Object3D*)Primitive3D::getDecomposition(key);
 
   if (retval == NULL) {
@@ -339,7 +339,7 @@ void Cylinder3D::doComputeBounds()
   
 int Cylinder3D::setSpecifier(RCString& errMsg, Makeable* specifier)
 {
-  Cylinder3DAttr* attr = dynamic_cast(Cylinder3DAttr, specifier);
+  Cylinder3DAttr* attr = dynamic_cast<Cylinder3DAttr*>(specifier);
   if (attr) {
     // The Cylinder3DAttr object knows best which method has to be called.
     // So let the object do the job.

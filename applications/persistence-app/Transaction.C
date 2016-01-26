@@ -59,7 +59,7 @@ void Transaction::begin() {
     buildBuffer();
   }
 
-  ostrstream os;
+  std::stringstream os;
   os << "[Transaction::begin] Transaction level " << myLevel << " started";
   Report::hint(os);
   ourTransactionStack.push(this);
@@ -85,7 +85,7 @@ void Transaction::commit() {
     for (i=0; i<myChanged.count(); i++) {
       Persistent *p = myChanged.getElement(i);
       p->getDataBase().write(p); // write persistent to its database
-      ostrstream ss;
+      std::stringstream ss;
       ss << "[Transaction::commit] wrote " << p->getPOId();
       Report::hint(ss);
     }
@@ -104,7 +104,7 @@ void Transaction::commit() {
     //
     removeBuffer();
   }
-  ostrstream os;
+  std::stringstream os;
   os << "[Transaction::commit] Transaction level " << myLevel << " commited";
   Report::hint(os);
 }
@@ -134,7 +134,7 @@ void Transaction::abort() {
   myActive = false;
   ourTransactionStack.pop();
   
-  ostrstream os;
+  std::stringstream os;
   os << "[Transaction::abort] Transaction level " << myLevel << " aborted";
   Report::hint(os);
 }
@@ -152,7 +152,7 @@ void Transaction::checkpoint() {
 
 void Transaction::unload() {
   for (int i=0; i<myLoaded.count(); i++) {
-    ostrstream os;
+    std::stringstream os;
     os << "[Transaction::unload] unloading " << myLoaded.getElement(i)->getPOId();
     Report::hint(os);
     delete myLoaded.getElement(i);
@@ -164,7 +164,7 @@ void Transaction::buildBuffer() {
   Transaction* outer = ourTransactionStack.top();
   for (int i=0; i < outer->myChanged.count(); i++) {
     Persistent* p = outer->myChanged.getElement(i);
-    strstream* ss = new strstream();
+    std::stringstream* ss = new std::stringstream();
     ourMarshal.marshal(p, *ss);   // flatten persistent obj
     myBuffers.insert(p, ss);      // buffer the flat representation
     myBuffered.insertElement(p);  // remember which obj's have been buffered
@@ -174,7 +174,7 @@ void Transaction::buildBuffer() {
 void Transaction::removeBuffer() {
   for (int i=0; i<myBuffered.count(); i++) {
     Persistent *p = myBuffered.getElement(i);
-    strstream *ss = NULL;
+    std::stringstream *ss = NULL;
     myBuffers.findAndRemove(p, ss);
     delete ss;
   }
@@ -183,7 +183,7 @@ void Transaction::removeBuffer() {
 void Transaction::reset() {
   for (int i=0; i<myChanged.count(); i++) {
     Persistent *p = myChanged.getElement(i);
-    strstream *ss = NULL;
+    std::stringstream *ss = NULL;
     bool done = false;
     Stack<Transaction*> tempStack;
     do {
@@ -192,7 +192,7 @@ void Transaction::reset() {
         if (tempStack.top()->myBuffers.lookup(p, ss)) {
           ourMarshal.unmarshal(p, *ss); // Warning ss needs a reset or so! or copy from ss
           done = true;
-          ostrstream os;
+          std::stringstream os;
           os << "[Transaction::reset] restored " << p->getPOId();
           Report::hint(os);
         }
@@ -222,7 +222,7 @@ void Transaction::changed(Persistent* p) {
 
 void Transaction::loaded(Persistent* p) {
   ourTransactionStack.top()->myLoaded.insertElement(p);
-  ostrstream os;
+  std::stringstream os;
   os << "[Transaction::loaded] loaded " << p->getPOId();
   Report::hint(os);
 }

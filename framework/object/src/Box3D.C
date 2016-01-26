@@ -21,7 +21,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <strstream.h>
+#include <sstream>
 #include "booga/base/Value.h"
 #include "booga/object/BoundsUtilities.h"  // slapTest
 #include "booga/object/List3D.h"
@@ -144,7 +144,7 @@ Vector3D Box3D::normal(const Vector3D& point) const
   }
 
   if (minDist >= MAXREAL) {
-    ostrstream os;
+    std::stringstream os;
     os << "[Box3D::normal] point (" << point << ") not on surface. "
        << "Box has dimensions (" << myFrom << ", " << myTo << ")";
     Report::recoverable(os);

@@ -92,7 +92,7 @@ FaceTunnel::FaceTunnel(const FaceTunnel& face) : Face(face)
   myWallFlag         = face.myWallFlag;
   
   if (face.myOtherFace)
-    myOtherFace = dynamic_cast(FaceDummy,face.myOtherFace->copy());
+    myOtherFace = dynamic_cast<FaceDummy*>(face.myOtherFace->copy());
   else
     myOtherFace = NULL;
 }    
@@ -258,7 +258,7 @@ Makeable* FaceTunnel::make(RCString& errMsg, const List<Value*>* parameters) con
 int FaceTunnel::setSpecifier(RCString& errMsg, Makeable* specifier)
 {
   // Check for FaceTunnel attributes
-  FaceTunnelAttr* attr = dynamic_cast(FaceTunnelAttr, specifier);
+  FaceTunnelAttr* attr = dynamic_cast<FaceTunnelAttr*>(specifier);
   if (attr != NULL) {
     // The FaceTunnel object knows best which method has to be called.
     // So let the object do the job.

@@ -185,7 +185,7 @@ Object3D* FaceItem::doCreateSubject(Building* building) const
 int FaceItem::setSpecifier(RCString& errMsg, Makeable* specifier)
 {
   // Check for FaceItem attributes
-  FaceItemAttr* attr = dynamic_cast(FaceItemAttr, specifier);
+  FaceItemAttr* attr = dynamic_cast<FaceItemAttr*>(specifier);
   if (attr != NULL) {
     // The FaceItem object knows best which method has to be called.
     // So let the object do the job.
@@ -195,7 +195,7 @@ int FaceItem::setSpecifier(RCString& errMsg, Makeable* specifier)
     return 1;  
   }
 
-  Object3D* object = dynamic_cast(Object3D, specifier);
+  Object3D* object = dynamic_cast<Object3D*>(specifier);
   if (object != NULL) {
     if (myObject != NULL)
       delete myObject;
@@ -228,7 +228,7 @@ void FaceItem::addVertex(const Vector3D& vertex)
   //
   if (count > 0) {
     if (myVertices.item(count-1) == vertex) {
-      ostrstream os;
+      std::stringstream os;
       os << "[FaceItem::addVertex] two consecutive vertices ("
          << vertex << ") must not have the same value";
       Report::recoverable(os);

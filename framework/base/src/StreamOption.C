@@ -21,7 +21,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <iostream.h>   
+#include <iostream>   
 #include "booga/base/StreamOption.h"
 
 implementRTTI(StreamOption, Option);

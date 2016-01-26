@@ -43,13 +43,6 @@ public:
 
 private:
   // Geometry3D& operator=(const Geometry3D&);  // No assignments.
-#if _MSC_VER == 1100
-private:
-  typedef List<Vector3D< ListVector3D;
-  typedef List<List<Vector3D> > ListListVector3D;
-
-#endif
-
   
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Methods of class Geometry3D
@@ -100,15 +93,9 @@ public:
   };
   
   // computes the triangulation of a polygon and returns a set of triangles
-#if _MSC_VER == 1100
-  static Triangulation* createPolygonTriangulation(const List<Vector3D>& vertices,
-                                              const List<List<Vector3D> > &holes = ListListVector3D(0),
-                                              const List<Vector3D>& meshpoints = ListVector3D(0));
-#else
   static Triangulation* createPolygonTriangulation(const List<Vector3D>& vertices,
                                               const List<List<Vector3D> > &holes = List<List<Vector3D> >(0),
                                               const List<Vector3D>& meshpoints = List<Vector3D>(0));
-#endif
   // computes the layer with delta of the polygon 
   static List<Vector3D> computeLayer(Real delta,const List<Vector3D>& vertices);  
   // computes the layer with delta of the polygon

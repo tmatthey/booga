@@ -51,7 +51,7 @@ SNIFF_Header_FILES	= AbstractPixmapOperation.h AbstractTraversal2D.h AbstractTra
 	MFile.h MTraversal.h MURL.h  \
 	MultiFileStore.h Operation2D.h Operation2DTo3D.h  \
 	Operation3D.h Operation3DTo2D.h OversamplingAntialiaser.h  \
-	PPMWriter.h PSWriter2D.h PSWriter3D.h  \
+	PPMWriter.h PNGWriter.h PSWriter2D.h PSWriter3D.h  \
 	Parser3D.h PhongTriangleInterpolator.h Picker2D.h  \
 	Picker3D.h PixiWriter.h Pixmap2DWriter.h  \
 	PixmapGeneratorWrapper.h PixmapRenderer.h PixmapTransformerWrapper.h  \

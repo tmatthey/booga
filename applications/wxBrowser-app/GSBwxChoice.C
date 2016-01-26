@@ -25,7 +25,7 @@
 
 //_____________________________________________________________________ GSBwxChoice
 
-//implementRTTI(GSBwxChoice, wxChoice);
+implementRTTI(GSBwxChoice, wxChoice);
 GSBwxChoice::GSBwxChoice(GSBwxDialogDirector* director, wxPanel* parent, char* label,
   int x, int y, int width, int height, int n, char* choices[], long style, char* name)
 : wxChoice(parent, (wxFunction) GSBwxChoiceCallback, label, x, y, width, height,

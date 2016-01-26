@@ -85,32 +85,32 @@ void GLRenderer::setRenderingQuality(RenderingQuality quality)
 
 Real GLRenderer::getMaxTimeInBackbuffer() const
 {
-  return dynamic_cast(GLAbstractTraversal3D, getTraversal())->getMaxTimeInBackbuffer();
+  return dynamic_cast<GLAbstractTraversal3D*>(getTraversal())->getMaxTimeInBackbuffer();
 }
 
 void GLRenderer::setMaxTimeInBackbuffer(Real maxTimeInBackbuffer)
 {
-  dynamic_cast(GLAbstractTraversal3D, getTraversal())->setMaxTimeInBackbuffer(maxTimeInBackbuffer);
+  dynamic_cast<GLAbstractTraversal3D*>(getTraversal())->setMaxTimeInBackbuffer(maxTimeInBackbuffer);
 }
 
 bool GLRenderer::doCheckPendingEvents() const
 {
-  return dynamic_cast(GLAbstractTraversal3D, getTraversal())->doCheckPendingEvents();
+  return dynamic_cast<GLAbstractTraversal3*>(getTraversal())->doCheckPendingEvents();
 }
 
 void GLRenderer::setCheckPendingEvents(bool check)
 {
-  dynamic_cast(GLAbstractTraversal3D, getTraversal())->setCheckPendingEvents(check);
+  dynamic_cast<GLAbstractTraversal3D*>(getTraversal())->setCheckPendingEvents(check);
 }
 
 int GLRenderer::getFrameRate() const
 {
-  return dynamic_cast(GLAbstractTraversal3D, getTraversal())->getFrameRate();
+  return dynamic_cast<GLAbstractTraversal3D*>(getTraversal())->getFrameRate();
 }
 
 void GLRenderer::setFrameRate(int frameRate)
 {
-  dynamic_cast(GLAbstractTraversal3D, getTraversal())->setFrameRate(frameRate);
+  dynamic_cast<GLAbstractTraversal3D*>(getTraversal())->setFrameRate(frameRate);
 }
 
 void GLRenderer::displayStatistics() const
@@ -173,7 +173,7 @@ void GLRenderer::installLightSources()
     GLfloat diffuse[4];
   
     for (register long i=0; i<directedLights->count(); i++) {
-      pointLight = dynamic_cast(PointLight, directedLights->item(i));
+      pointLight = dynamic_cast<PointLight*>(directedLights->item(i));
 
       if (pointLight != NULL && pointLight->isOn()) {
         pos = pointLight->getTransform().transformAsPoint(pointLight->getPosition());

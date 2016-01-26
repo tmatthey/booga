@@ -29,7 +29,7 @@
 //_____________________________________________________________________ GSBwxSlider
 
 class GSBwxSlider : public wxSlider {
-// declareRTTI(GSBwxSlider);
+declareRTTI(GSBwxSlider);
 // enable RTTI support
 friend void GSBwxSliderCallback(wxObject*, wxCommandEvent&);
 

@@ -20,7 +20,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <iostream.h>
+#include <iostream>
 #include "booga/texture/ShaderFuncNode.h"
 #include "booga/texture/ShaderFunction.h"
 #include "booga/base/AbstractPixmap.h"
@@ -39,7 +39,7 @@ ShaderFuncNode::ShaderFuncNode(RCString& errMsg, RCString* theName, List<ShaderE
        rpn = myFunction->getRequiredParameterNumber();
     if (((theArgs != NULL) && (rpn != theArgs->count())) ||
         ((theArgs == NULL) && rpn != 0)) {
-      ostrstream temp;
+      std::stringstream temp;
       temp << "Function " << *theName << "() requires "
            << rpn << " argument";
       if (rpn > 1)
@@ -70,15 +70,15 @@ void ShaderFuncNode::print(bool indent)
 {
   if (indent)
     printSpaces(2 * myBlockDepth);
-  cout << *myName  << "(";
+  std::cout << *myName  << "(";
   if (myArgList != NULL) {
     for (register long i = 0; i < myArgList->count() - 1; i++) {
       myArgList->item(i)->print(0);
-      cout << ", ";
+      std::cout << ", ";
     }
     myArgList->item(myArgList->count() - 1)->print(0);
   }
-  cout << ")";
+  std::cout << ")";
 }
 
 void ShaderFuncNode::execute(Texture3DContext& context)

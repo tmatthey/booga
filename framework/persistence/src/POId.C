@@ -21,7 +21,7 @@
  */
  
 
-#include <iostream.h>
+#include <iostream>
 #include "booga/persistence/DataBase.h"
 #include "booga/persistence/POId.h"
 #include "booga/persistence/Marshal.h"
@@ -88,7 +88,7 @@ Marshal& operator>>(Marshal& m, POId& id) {
   return m;
 }
  
-ostream& operator<<(ostream& out, const POId& anId) {
+std::ostream& operator<<(std::ostream& out, const POId& anId) {
   out << anId.myPDBId  << "." << anId.myPObjectId; 
   return out;
 }

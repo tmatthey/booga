@@ -296,7 +296,7 @@ Makeable* PolygonMapper::make(RCString& errMsg, const List<Value*>* parameters) 
 
 int PolygonMapper::setSpecifier(RCString& errMsg, Makeable* specifier)
 {
-  PolygonMapperAttr* attr = dynamic_cast(PolygonMapperAttr, specifier);
+  PolygonMapperAttr* attr = dynamic_cast<PolygonMapperAttr*>(specifier);
   if (attr != NULL) {
     // The MatteAttr knows best which method has to be called.
     // So let the object do the job.

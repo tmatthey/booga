@@ -28,7 +28,7 @@
 //_________________________________________________________ NurbsInterpolation3D
 
 class NurbsInterpolation3D : public NurbsData3D {
-  declareRTTI(NurbsInterpolation3D);
+    declareRTTI(NurbsInterpolation3D);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -23,7 +23,7 @@
 #ifndef _GDBData_H
 #define _GDBData_H
 
-#include <iostream.h>
+#include <iostream>
 #include "booga/base/List.h"
 #include "booga/persistence/Set.h"
 #include "booga/persistence/PRef.h"

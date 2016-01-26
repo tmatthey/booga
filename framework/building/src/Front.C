@@ -81,7 +81,7 @@ Front::Front(const Front& front) : BuildingObject(front)
 int Front::setSpecifier(RCString& errMsg, Makeable* specifier)
 {
   // Check for Front attributes
-  FrontAttr* attr = dynamic_cast(FrontAttr, specifier);
+  FrontAttr* attr = dynamic_cast<FrontAttr*>(specifier);
   if (attr != NULL) {
     // The Front object knows best which method has to be called.
     // So let the object do the job.
@@ -92,7 +92,7 @@ int Front::setSpecifier(RCString& errMsg, Makeable* specifier)
   }
 
   // Check for objects
-  Object3D* object = dynamic_cast(Object3D, specifier);
+  Object3D* object = dynamic_cast<Object3D*>(specifier);
   if (object != NULL){
     adoptObject(object);
     return 1;    
@@ -109,7 +109,7 @@ Object3D* Front::createSubject(Building* building) const
 {
   
   if (!building->testIndex(getFrontIndex(),getPolygonIndex())){
-    ostrstream os;
+    std::stringstream os;
     os << "[Front::createSubject] front ("
        <<  getFrontIndex() << ","
        <<  getPolygonIndex() << ") is out of bounds";
@@ -143,7 +143,7 @@ void Front::adoptObject(Object3D* object)
     return;
   }
   
-  Face* face = dynamic_cast(Face,object);
+  Face* face = dynamic_cast<Face*>(object);
 
   if (face) {
     face->setFrontIndex(myFrontIndex);
@@ -196,7 +196,7 @@ Object3D* Front::getSubobject(long index)
     retval = myObjectList.item(index-1);
     
   if (!retval) {
-    ostrstream os;
+    std::stringstream os;
     os << "[Front::getSubobject] index out of range ";
     os << "(was " << index << ")";
     Report::error(os);
@@ -216,7 +216,7 @@ void Front::subjectChanged() const
   BuildingObject::subjectChanged();
     
   for(long i=0; i<myObjectList.count();i++){
-    BuildingObject* object = dynamic_cast(BuildingObject,myObjectList.item(i));
+    BuildingObject* object = dynamic_cast<BuildingObject*>(myObjectList.item(i));
     if (object)
       object->subjectChanged();
   }
@@ -232,7 +232,7 @@ long Front::numberOfFaces() const
 {
   long l=0;
   for(long i=0; i<myObjectList.count();i++)
-   if (dynamic_cast(Face,myObjectList.item(i)))
+   if (dynamic_cast<Face*>(myObjectList.item(i)))
      l++;
 
   return l;
@@ -253,7 +253,7 @@ void Front::getIndirectFaceObjects(long frontindex, long polygonindex, List<Face
   Face* face = NULL;
   
   for(long i=0; i < myObjectList.count();i++){
-    face = dynamic_cast(Face,myObjectList.item(i));
+    face = dynamic_cast<Face*>(myObjectList.item(i));
     if (face) 
       face->getIndirectFaceObjects(frontindex, polygonindex, facelist);          
   }
@@ -263,7 +263,7 @@ void Front::setFrontIndex(long frontindex)
 {
   myFrontIndex = frontindex;
   for(long i=0; i<myObjectList.count();i++){
-    Face* face = dynamic_cast(Face,myObjectList.item(i));
+    Face* face = dynamic_cast<Face*>(myObjectList.item(i));
     if(face)
       face->setFrontIndex(frontindex);
   }
@@ -274,7 +274,7 @@ void Front::setPolygonIndex(long polygonindex)
 {
   myPolygonIndex = polygonindex;
   for(long i=0; i<myObjectList.count();i++){
-    Face* face = dynamic_cast(Face,myObjectList.item(i));
+    Face* face = dynamic_cast<Face*>(myObjectList.item(i));
     if(face)
       face->setPolygonIndex(polygonindex);
   }

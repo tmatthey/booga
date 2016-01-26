@@ -28,7 +28,7 @@
 #include "booga/base/Vector3D.h"
 
 class TransMatrix3D;
-class ostream;
+#include  <iostream>
 
 //__________________________________________________________________ BoundingBox
 
@@ -73,7 +73,7 @@ public:
 
   bool isEmpty() const;
 
-  friend ostream& operator<<(ostream& os, const BoundingBox& b);
+  friend std::ostream& operator<<(std::ostream& os, const BoundingBox& b);
 
   friend class BoundsUtilities;
   

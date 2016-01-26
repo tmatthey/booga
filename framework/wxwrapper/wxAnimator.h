@@ -48,7 +48,7 @@ class wxAnimationTimer : public wxTimer
 };
 
 class wxAnimator : public wxBOOGAView, public wxFrame, public wxDialogDirector {
-//declareRTTI(wxAnimator);
+declareRTTI(wxAnimator);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

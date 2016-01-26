@@ -34,7 +34,7 @@
 
 //_____________________________________________________________________ GDBConfiguration
 
-// implementRTTI(GDBConfiguration, Persistent);
+//implementRTTI(GDBConfiguration, Persistent);
 
 GDBConfiguration::GDBConfiguration() :
 myConfigValues()

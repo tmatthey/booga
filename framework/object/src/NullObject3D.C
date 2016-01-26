@@ -20,7 +20,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <strstream.h>
+#include <sstream>
 
 #include "booga/object/NullObject3D.h"
 

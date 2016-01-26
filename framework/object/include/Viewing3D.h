@@ -44,7 +44,7 @@
  */
 
 class Viewing3D : public Makeable {
-declareRTTI(Viewing3D); 
+  declareRTTI(Viewing3D); 
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -120,7 +120,7 @@ public:
 
   virtual Viewing3D* copy() const = 0;
   
-  friend ostream& operator<<(ostream& os, const Viewing3D& view);
+  friend std::ostream& operator<<(std::ostream& os, const Viewing3D& view);
 
 public:
   Vector3D getScreenDeltaU() const;  // size of screen pixel (x direction, WC)

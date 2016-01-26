@@ -23,14 +23,14 @@
 #ifndef _DocumentStore_H
 #define _DocumentStore_H
 
-#include <iostream.h>
-
+#include <iostream>
+#include "booga/base/RTTI.h"
 class RCString;
 
 //_____________________________________________________________________ DocumentStore
 
 class DocumentStore {
-// declareRTTIBase(DocumentStore);
+  declareRTTI(DocumentStore);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -60,7 +60,7 @@ public:
   virtual RCString endDocument()=0;
   virtual void includeDocument(const RCString& documentName,
                                const RCString& extension)=0;
-  virtual ostream& os()=0;  // output stream to document
+  virtual std::ostream& os()=0;  // output stream to document
   //
   // Warning: only to be used between benginDocument() 
   // and endDocument() calls

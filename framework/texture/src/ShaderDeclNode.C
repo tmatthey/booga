@@ -60,22 +60,22 @@ void ShaderDeclNode::print(bool)
 {
   if (myDeclList->count() > 0) {
     printSpaces(2 * myBlockDepth);
-    cout << *myValidType;
-    cout << " ";
+    std::cout << *myValidType;
+    std::cout << " ";
     for (register long i = 0; i < myDeclList->count() - 1; i++) {
-      cout << *myDeclList->item(i)->name;
+      std::cout << *myDeclList->item(i)->name;
       if (myDeclList->item(i)->expr) {
-        cout << " = "; 
+        std::cout << " = "; 
         myDeclList->item(i)->expr->print(0);
       }
-      cout << ", ";
+      std::cout << ", ";
     }
-     cout << *myDeclList->item(myDeclList->count() - 1)->name;
+     std::cout << *myDeclList->item(myDeclList->count() - 1)->name;
     if (myDeclList->item(myDeclList->count() - 1)->expr) {
-      cout << " = ";
+      std::cout << " = ";
       myDeclList->item(myDeclList->count() - 1)->expr->print(0);
     }
-    cout << ";" << endl;
+    std::cout << ";" << std::endl;
   }
 }
 
@@ -124,11 +124,11 @@ void ShaderDeclNode::printParamDecls()
   // if a parameter was declared twice (mistake!), it was removed
   // from the list. So let's check if the list really contains something
   if (myDeclList->count() > 0) {
-    cout << *myValidType;
-    cout << " ";
-    cout << *myDeclList->item(0)->name;
+    std::cout << *myValidType;
+    std::cout << " ";
+    std::cout << *myDeclList->item(0)->name;
     if (myDeclList->item(0)->expr) {
-      cout << " = "; 
+      std::cout << " = "; 
       myDeclList->item(0)->expr->print(0);
     }
   }
@@ -187,7 +187,7 @@ void ShaderDeclNode::printValues()
   for (register long i = 0; i < myDeclList->count(); i++) {
     Value* temp = new Value();
     if (getCurrentScope()->lookup(*myDeclList->item(i)->name, *temp))
-      cout << *myDeclList->item(i)->name << " = " << *temp << endl;
+      std::cout << *myDeclList->item(i)->name << " = " << *temp << std::endl;
     delete temp;
   }
 }

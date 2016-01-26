@@ -39,7 +39,7 @@ bool GLBBTraversal3D::traverse(Object3D* obj)
   // 
   // Check if the traversal has been called with a GLRenderer object.
   //
-  if ((myRenderer = dynamic_cast(GLRenderer, getVisitor())) == NULL) {
+  if ((myRenderer = dynamic_cast<GLRenderer*>(getVisitor())) == NULL) {
     Report::recoverable("[GLBBTraversal3D::traverse] need GLRenderer object to work with");
     return false;
   }

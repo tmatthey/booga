@@ -150,7 +150,7 @@ Makeable* NurbsInterpolation3D::make (RCString&, const List<Value*> *) const
 
 int NurbsInterpolation3D::setSpecifier (RCString &errMsg, Makeable *specifier)
 {
-  Nurbs3DDataAttr *attr = dynamic_cast (Nurbs3DDataAttr, specifier);
+  Nurbs3DDataAttr *attr = dynamic_cast<Nurbs3DDataAttr*>(specifier);
   if (attr)
   {
     attr->setAttribute (this);         // The Nurbs3DDataAttr object knows how to handle this

@@ -173,7 +173,7 @@ void FaceArbour::setBezierParameter2(Real bezierparameter2)
 int FaceArbour::setSpecifier(RCString& errMsg, Makeable* specifier)
 {
   // Check for FaceArbour attributes
-  FaceArbourAttr* attr = dynamic_cast(FaceArbourAttr, specifier);
+  FaceArbourAttr* attr = dynamic_cast<FaceArbourAttr*>(specifier);
   if (attr != NULL) {
     // The FaceArbour object knows best which method has to be called.
     // So let the object do the job.

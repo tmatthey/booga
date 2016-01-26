@@ -25,10 +25,13 @@
 #endif
 #include <string.h>    // memcpy
 #include <math.h>      // fabs
-#include <strstream.h> // ostrstream
+#include <sstream> // std::stringstream
+#include <iostream>
+#include <fstream>
 
 #include "booga/base/Report.h"
 #include "booga/base/AbstractPixmap.h"
+
 
 //_______________________________________________________________ AbstractPixmap
 
@@ -70,7 +73,7 @@ AbstractPixmap::~AbstractPixmap()
 void AbstractPixmap::setResolution(int resX, int resY)
 {
   if (resX<=0 || resY<=0) {
-    ostrstream os;
+    std::stringstream os;
     os << "[AbstractPixmap::setResolution] illegal resolution ("
        << resX << ", " << resY << ") ignored";
     Report::recoverable(os);
@@ -91,7 +94,7 @@ void AbstractPixmap::setResolution(int resX, int resY)
 void AbstractPixmap::setRange(float min, float max)
 {
   if ((max < min) || fabs(max-min) < EPSILON) {
-    ostrstream os;
+    std::stringstream os;
     os << "[AbstractPixmap::setRange] illegal range settings ("
        << min << ", " << max << ") ignored";
     Report::warning(os);
@@ -141,11 +144,11 @@ void AbstractPixmap::setPosition(int x, int y) const
   //
   // This method alters the *internal* state of the object only ->
   // logical const-ness of 'this' is casted away.
-  //
-  AbstractPixmap* This = (AbstractPixmap*) this;
+  // 
+  AbstractPixmap* This = const_cast<AbstractPixmap*>(this);
 
   if (0>x || x>=This->myResX || 0>y || y>=This->myResY) {
-    ostrstream os;
+    std::stringstream os;
     os << "[AbstractPixmap::setPosition(int, int)] illegal pixmap position ("
        << x << ", " << y << ") ignored." 
        << " Range is x: [0, " << This->myResX 
@@ -163,10 +166,10 @@ void AbstractPixmap::setPosition(long pos) const
   // This method alters the *internal* state of the object only ->
   // logical const-ness of 'this' is casted away.
   //
-  AbstractPixmap* This = (AbstractPixmap*) this;
+  AbstractPixmap* This = const_cast<AbstractPixmap*>(this);
 
   if (0>pos || pos>=This->mySize) {
-    ostrstream os;
+    std::stringstream os;
     os << "[AbstractPixmap::setPosition(long)] illegal pixmap position " 
        << pos << " ignored." 
        << " Range is [0, " << This->mySize << "]"; 
@@ -209,7 +212,7 @@ bool AbstractPixmap::getUnusedUserChannel(int& channel) const
 bool AbstractPixmap::haveUserChannel(int channel) const
 {
   if (channel<0 || channel >= MAX_USERCHANNELS) {
-    ostrstream os;
+    std::stringstream os;
     os << "[AbstractPixmap::haveUserChannel] channel number "
        << channel << " is out of range." 
        << " Valid numbers are 0 to " << MAX_USERCHANNELS; 
@@ -223,7 +226,7 @@ bool AbstractPixmap::haveUserChannel(int channel) const
 void AbstractPixmap::clearUserChannel(int channel, float value)
 {
   if (channel<0 || channel >= MAX_USERCHANNELS) {
-    ostrstream os;
+    std::stringstream os;
     os << "[AbstractPixmap::clearUserChannel] channel number "
        << channel << " is out of range." 
        << " Valid numbers are 0 to " << MAX_USERCHANNELS; 
@@ -237,7 +240,7 @@ void AbstractPixmap::clearUserChannel(int channel, float value)
 void AbstractPixmap::setUserChannel(int channel, float value)
 {
   if (channel<0 || channel >= MAX_USERCHANNELS) {
-    ostrstream os;
+    std::stringstream os;
     os << "[AbstractPixmap::setUserChannel] channel number "
        << channel << " is out of range." 
        << " Valid numbers are 0 to " << MAX_USERCHANNELS; 
@@ -251,7 +254,7 @@ void AbstractPixmap::setUserChannel(int channel, float value)
 void AbstractPixmap::getUserChannel(int channel, float& value) const
 {
   if (channel<0 || channel >= MAX_USERCHANNELS) {
-    ostrstream os;
+    std::stringstream os;
     os << "[AbstractPixmap::getUserChannel] channel number "
        << channel << " is out of range." 
        << " Valid numbers are 0 to " << MAX_USERCHANNELS; 
@@ -280,12 +283,14 @@ void AbstractPixmap::getUserChannel(int channel, float& value) const
  */
 bool AbstractPixmap::save(const RCString& fileName, const RCString& comment) const
 {
-  ofstream ofs;
+  if (fileName.isEmpty()){
+    std::ostream ofs(std::cout.rdbuf());
+    return save(ofs, comment);
+  }
 
-  if (fileName.isEmpty())
-    ofs.rdbuf()->attach(STDOUT_FILENO);
-  else
-    ofs.open(fileName.chars());
+  
+  std::ofstream ofs;
+  ofs.open(fileName.chars());
 
   if (ofs.bad()) {
     Report::warning("[AbstractPixmap::save] could not open file named \"" + fileName + "\"");
@@ -295,21 +300,21 @@ bool AbstractPixmap::save(const RCString& fileName, const RCString& comment) con
   return save(ofs, comment);
 }
 
-bool AbstractPixmap::save(ofstream& ofs, const RCString& comment) const
+bool AbstractPixmap::save(std::ostream& ofs, const RCString& comment) const
 { 
   //
   // Write header information.
   //
-  ofs << AbstractPixmap::MAGIC_NUMBER << endl;         // Magic number
+  ofs << AbstractPixmap::MAGIC_NUMBER << std::endl;         // Magic number
   ofs << "# This file contains an image in the BOOGA Format\n";
   if (!comment.isEmpty()) 
-    ofs << comment << endl;	                     // Comment
-  ofs << myResX << " " << myResY << endl;	            // Resolution of image
-  ofs << myRangeMin << " " << myRangeMax << endl;        // Range of color values
+    ofs << comment << std::endl;	                     // Comment
+  ofs << myResX << " " << myResY << std::endl;	            // Resolution of image
+  ofs << myRangeMin << " " << myRangeMax << std::endl;        // Range of color values
   for (int i=0; i<MAX_CHANNELS; i++)     // User channels ?
     if (myChannels[i] != NULL)
       ofs << i << " ";
-  ofs << endl;
+  ofs << std::endl;
   
   float* color = new float[3*mySize];
   long p;
@@ -354,13 +359,14 @@ bool AbstractPixmap::save(ofstream& ofs, const RCString& comment) const
 
 bool AbstractPixmap::load(const RCString& fileName)
 {
-  ifstream ifs;
-#ifndef WIN32 // STDIN not supported on WIN32 platforms
-  if (fileName.isEmpty())
-    ifs.rdbuf()->attach(STDIN_FILENO);
-  else
-#endif
-    ifs.open(fileName.chars());
+  if (fileName.isEmpty()){
+    std::istream ifs(std::cin.rdbuf());
+    return load(ifs);
+    //    return load(*std::cin.rdbuf());//ifs.rdbuf();//->attach(STDIN_FILENO); FIX
+  }
+
+  std::ifstream ifs;
+  ifs.open(fileName.chars());
 
   if (ifs.bad()) {
     Report::warning("[AbstractPixmap::load] could not open file named \"" + fileName + "\"");
@@ -370,7 +376,7 @@ bool AbstractPixmap::load(const RCString& fileName)
   return load(ifs);
 }
 
-bool AbstractPixmap::load(ifstream& ifs)
+bool AbstractPixmap::load(std::istream& ifs)
 {
   const int MAX_LINE_LENGTH = 5 * MAX_CHANNELS;
   char line[MAX_LINE_LENGTH];
@@ -528,7 +534,7 @@ void AbstractPixmap::getChannel(int channel, float& value) const
     // This method alters the *internal* state of the object only ->
     // logical const-ness of 'this' is casted away.
     //
-    AbstractPixmap* This = (AbstractPixmap*) this;
+    AbstractPixmap* This = const_cast<AbstractPixmap*>(this);
 
     This->myChannels[channel] = new float[This->mySize];
     This->clearChannel(channel);

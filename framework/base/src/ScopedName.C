@@ -21,7 +21,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <iostream.h>
+#include <iostream>
 #include "booga/base/ScopedName.h"
 
 //___________________________________________________________________ ScopedName
@@ -54,7 +54,7 @@ void ScopedName::initClass()
   ourGlobalNS = new Name("GLOBAL_NS");
 }
 
-ostream& operator<<(ostream& os, const ScopedName& scopedName)
+std::ostream& operator<<(std::ostream& os, const ScopedName& scopedName)
 {
   return os << scopedName.getScopedName();
 }

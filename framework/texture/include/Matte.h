@@ -31,7 +31,7 @@
 //_______________________________________________________________________ Matte
 
 class Matte : public Texture3D {
-declareRTTI(Matte);
+  declareRTTI(Matte);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

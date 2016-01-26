@@ -30,7 +30,7 @@
 // _____________________________________________________________________ Torus3D
 
 class Torus3D : public Primitive3D {
-declareRTTI(Torus3D);
+  declareRTTI(Torus3D);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

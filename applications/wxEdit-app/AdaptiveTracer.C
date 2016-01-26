@@ -20,7 +20,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <strstream.h>  // ostrstream
+#include <sstream>  // ostrstream
 #include <GL/gl.h>
 #include <GL/glu.h>
 

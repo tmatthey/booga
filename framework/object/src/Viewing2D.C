@@ -80,11 +80,11 @@ void Viewing2D::computeConversionFactor()
   myConversionFactor.y() = myResolutionY/myWindowSize.y();
 }
 
-ostream& operator<<(ostream& os, const Viewing2D& view)
+std::ostream& operator<<(std::ostream& os, const Viewing2D& view)
 {
   os << "Resolution : " << view.myResolutionX << " " 
-                        << view.myResolutionY << endl
-     << "Window     : " << view.myWindowSize << endl;
+                        << view.myResolutionY << std::endl
+     << "Window     : " << view.myWindowSize << std::endl;
 
   return os;
 }

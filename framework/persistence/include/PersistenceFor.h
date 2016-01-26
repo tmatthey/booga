@@ -57,8 +57,8 @@ public:
   virtual void marshal(Marshal* aMarshal);
   virtual void unmarshal(Marshal* aMarshal);
 
-  friend Marshal& operator<<(Marshal& aDB, const PersistenceFor<T>& aPF);
-  friend Marshal& operator>>(Marshal& aDB, PersistenceFor<T>& aPF);
+  friend Marshal& operator<<(Marshal& aDB, const PersistenceFor& aPF);
+  friend Marshal& operator>>(Marshal& aDB, PersistenceFor& aPF);
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // My data members

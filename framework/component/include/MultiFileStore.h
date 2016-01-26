@@ -23,7 +23,7 @@
 #ifndef _MultiFileStore_H
 #define _MultiFileStore_H
 
-#include <fstream.h>
+#include <fstream>
 #include "booga/base/SymTable.h"
 #include "booga/base/RCString.h"
 #include "booga/component/DocumentStore.h"
@@ -31,7 +31,7 @@
 //_____________________________________________________________________ MultiFileStore
 
 class MultiFileStore : public DocumentStore {
-// declareRTTI(MultiFileStore);
+  //declareRTTI(MultiFileStore);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -65,7 +65,7 @@ public:
   virtual void includeDocument(const RCString& documentName, 
                                const RCString& extension);
 
-  virtual ostream& os();
+  virtual std::ostream& os();
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // My data members
@@ -74,9 +74,9 @@ private:
   RCString myFilename;        // filename of 'root' file
   RCString myCurrFilename;    // filename of current output file
   RCString myDocumentName; 
-  ofstream myOs;              // current output file
-  ostrstream *myInclude;      // temporary stream for include statements
-  ostrstream *myBody;         // temporary stream for document body
+  std::ofstream myOs;              // current output file
+  std::stringstream *myInclude;      // temporary stream for include statements
+  std::stringstream *myBody;         // temporary stream for document body
   SymTable<RCString,int> *myIncludeFiles; // remember included files
 };
 

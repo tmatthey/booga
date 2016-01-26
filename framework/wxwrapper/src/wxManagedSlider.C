@@ -26,7 +26,7 @@
 
 //_____________________________________________________________________ wxManagedSlider
 
-//implementRTTI(wxManagedSlider, wxSlider);
+implementRTTI(wxManagedSlider, wxSlider);
 
 
 wxManagedSlider::wxManagedSlider(wxDialogDirector* director, wxPanel* parent, char* label, 

@@ -24,7 +24,7 @@
 
 #include "CTClassDescription2D.h"
 #include "CTClassDescription2DAttributes.h"
-#include "booga/object/Visitor2D.h"
+//#include "booga/object/Visitor2D.h"
 
 
 //_________________________________________________________ CTClassDescription2D
@@ -67,8 +67,8 @@ CTClassDescription2D::CTClassDescription2D(const CTClassDescription2D& desc)
   myIsTemplate = desc.myIsTemplate;
   myTemplateParameters = desc.myTemplateParameters;
   myIsAbstract = desc.myIsAbstract;
-  myBody = dynamic_cast(List2D, desc.myBody->copy());
-  myConnectors = dynamic_cast(List2D, desc.myConnectors->copy());
+  myBody = dynamic_cast<List2D*>(desc.myBody->copy());
+  myConnectors = dynamic_cast<List2D*>(desc.myConnectors->copy());
 };
 
 CTClassDescription2D::~CTClassDescription2D() {
@@ -393,14 +393,14 @@ List<Vector2D>* CTClassDescription2D::getDockingPoints()
 int CTClassDescription2D::setSpecifier(RCString& errMsg, Makeable* specifier)
 {
   // Special treatment of CTOperationDescriptions...
-  CTOperationDescription* opDesc = dynamic_cast(CTOperationDescription, specifier);
+  CTOperationDescription* opDesc = dynamic_cast<CTOperationDescription*>(specifier);
   if (opDesc != NULL) {
     addOperation(*opDesc);
     delete opDesc;
     return 1;  
   }
 
-  CTClassDescription2DAttr* attr = dynamic_cast(CTClassDescription2DAttr, specifier);
+  CTClassDescription2DAttr* attr = dynamic_cast<CTClassDescription2DAttr*>(specifier);
   if (attr != NULL) {
     // The CTClassDescription2DAttr object knows best which method has to be called.
     // So let the object do the job.

@@ -20,7 +20,7 @@
  * -----------------------------------------------------------------------------
 */
 
-#include <iostream.h>
+#include <iostream>
 #include <string.h>
 #include "booga/texture/ShaderLogicExpNode.h"
      
@@ -55,9 +55,9 @@ void ShaderLogicExpNode::print(bool indent)
     printSpaces(2 * myBlockDepth);
   if (myOp1) {
     myOp1->print(false);
-    cout << " ";
+    std::cout << " ";
   }
-  cout << myOperator << " ";
+  std::cout << myOperator << " ";
   myOp2->print(false);
 }
 

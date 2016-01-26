@@ -29,7 +29,7 @@
 //_____________________________________________________________________ wxManagedText
 
 class wxManagedText : public wxText {
-// declareRTTI(wxManagedText);
+declareRTTI(wxManagedText);
 // enable RTTI support
 friend void wxManagedTextCallback(wxObject*, wxCommandEvent&);
 

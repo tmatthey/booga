@@ -72,7 +72,7 @@ List<Vector3D> Roof::computeLedge(const List<Vector3D>& vertices) const
 int Roof::setSpecifier(RCString& errMsg, Makeable* specifier)
 {
   // Check for Roof attributes
-  RoofAttr* attr = dynamic_cast(RoofAttr, specifier);
+  RoofAttr* attr = dynamic_cast<RoofAttr*>(specifier);
   if (attr != NULL) {
     // The Roof object knows best which method has to be called.
     // So let the object do the job.

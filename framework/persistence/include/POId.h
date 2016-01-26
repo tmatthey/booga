@@ -29,7 +29,7 @@ typedef unsigned long PObjectId ;
 #define PDBID_NULL 0
 #define POBJECTID_NULL 0
 
-class ostream;
+#include <ostream>
 class Marshal;
 //_____________________________________________________________________ POId
 
@@ -60,7 +60,7 @@ public:
   friend Marshal& operator<<(Marshal& m, const POId& id);
   friend Marshal& operator>>(Marshal& m, POId& id);
 
-  friend ostream& operator<<(ostream& out, const POId& anId);
+  friend std::ostream& operator<<(std::ostream& out, const POId& anId);
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // My data members
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

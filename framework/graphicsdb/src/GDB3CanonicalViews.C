@@ -82,7 +82,7 @@ bool GDB3CanonicalViews::doExecute() {
 
   Value value;
   if (getConfigValue(RCString("Resolution"), value)) {
-    strstream ss;
+    std::stringstream ss;
     ss << value;
     Vector2D resol;
     ss >> resol;
@@ -90,12 +90,12 @@ bool GDB3CanonicalViews::doExecute() {
     myIconSizeY = (int) resol.y();
   }
   if (getConfigValue(RCString("MaxBoundaryPoints"), value)) {
-    strstream ss;
+    std::stringstream ss;
     ss << value;
     ss >> myMaxBoundaryPoints;
   }
   if (getConfigValue(RCString("BoundaryPrecision"), value)) {
-    strstream ss;
+    std::stringstream ss;
     ss << value;
     ss >> myBoundaryPrecision;
   }
@@ -104,7 +104,7 @@ bool GDB3CanonicalViews::doExecute() {
   // Read scene from database into tmp file
   //
   GDBOperation* op = GraphicsDataBase::getTheGraphicsDataBase()->getOperation("Exporter");
-  GDBExport *exporter = dynamic_cast(GDBExport, op);
+  GDBExport *exporter = dynamic_cast<GDBExport*>(op);
   if (exporter == NULL) {
     Report::recoverable("[IconBuilderForBSDL3::doExecute()] GDBOperation 'Exporter' not found");
     failed();
@@ -123,7 +123,7 @@ bool GDB3CanonicalViews::doExecute() {
   // If there is no instance of an object create one and insert it into the world3D
   // 
   if (world3D->getObjects()->countSubobject() == 0) {
-    ostrstream os;
+    std::stringstream os;
     os << mySource->getName() << "." << mySource->getPOId().getPDBId() 
                               << "." << mySource->getPOId().getPObjectId();
     RCString objectName(os);
@@ -136,7 +136,7 @@ bool GDB3CanonicalViews::doExecute() {
                  ScopedName(Name(RCString("3D")), Name(mySource->getName())), 
                  new List<Value*>()); // try without oid
       if (makeable == NULL) {
-        ostrstream msg;
+        std::stringstream msg;
         msg << "[GDB3CanonicalViews::doExecute] object " 
             << objectName << " not found after parsing";
         Report::recoverable(msg);
@@ -144,11 +144,11 @@ bool GDB3CanonicalViews::doExecute() {
         return false;
       }
     }
-    Object3D *obj = dynamic_cast(Object3D, makeable);
+    Object3D *obj = dynamic_cast<Object3D*>(makeable);
     if (obj == NULL) {
-      Texture3D *texture = dynamic_cast(Texture3D, makeable);
+      Texture3D *texture = dynamic_cast<Texture3D*>(makeable);
       if (texture == NULL) {
-        ostrstream msg;
+        std::stringstream msg;
         msg << "[GDB3CanonicalViews::doExecute] cannot handle object type " 
             << typeid(makeable).name();
         Report::recoverable(msg);

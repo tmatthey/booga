@@ -16,7 +16,7 @@
  * for any purpose.  It is provided solely "as is".
  *
  */
-#include <strstream.h>
+#include <sstream>
 
 #include "booga/base/Value.h"
 #include "booga/object/Shared3D.h"
@@ -73,7 +73,7 @@ void BezierPatch3D::setVertex(int i, const Vector3D& vertex)
     myVertices[i] = vertex;
   }
   else {
-    ostrstream os;
+    std::stringstream os;
     os << "[BezierPatch3D::setVertex]: you must specify an index < 16, your index was " << i;
     Report::warning(os);
   }

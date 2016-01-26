@@ -40,7 +40,7 @@
 #ifndef _Timer_H
 #define  _Timer_H
 
-class ostream;
+#include <ostream>
 
 //_____________________________________________________________________ TimerRep
 
@@ -61,7 +61,7 @@ public:
   TimeRep operator+(const TimeRep& time) const;
   TimeRep operator-(const TimeRep& time) const;
 
-  friend ostream& operator<<(ostream& os, const TimeRep& time);
+  friend std::ostream& operator<<(std::ostream& os, const TimeRep& time);
 
 private:
   double myRealTime;

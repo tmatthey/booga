@@ -45,7 +45,7 @@ Makeable* BuildingAttrHole::make(RCString& errMsg,
       getParameter(i, Vector3D, vertex);
       if (i > 1) {
         if (vertices.item(i-2) == vertex) {
-          ostrstream os;
+          std::stringstream os;
           os << "[BuildingAttrHole::make] two consecutive vertices ("
              << vertex << ") must not have the same value";
           Report::recoverable(os);

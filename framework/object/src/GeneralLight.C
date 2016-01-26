@@ -42,12 +42,12 @@ GeneralLight::GeneralLight(Real luminance, const Color& color)
 
 void GeneralLight::adoptObject(Object3D* newObject)
 {
-  dynamic_cast(List3D, myLightRep)->adoptObject(newObject);
+  dynamic_cast<List3D*>(myLightRep)->adoptObject(newObject);
 }
 
 void GeneralLight::orphanObject(const Object3D* object)
 {
-  dynamic_cast(List3D, myLightRep)->orphanObject(object);
+  dynamic_cast<List3D*>(myLightRep)->orphanObject(object);
 }
 
 void GeneralLight::getDirection(Texture3DContext&) const
@@ -71,7 +71,7 @@ int GeneralLight::setSpecifier(RCString& errMsg, Makeable* specifier)
   // There might be an object passed, so lets try to cast
   // specifier to Object3D* :
   //
-  Object3D* object = dynamic_cast(Object3D, specifier);
+  Object3D* object = dynamic_cast<Object3D*>(specifier);
   if (object != NULL) {
     adoptObject(object);
     return 1;

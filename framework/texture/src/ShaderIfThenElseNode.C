@@ -20,7 +20,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <iostream.h>
+#include <iostream>
 #include "booga/texture/ShaderIfThenElseNode.h"
 
 ShaderIfThenElseNode::ShaderIfThenElseNode(ShaderExpNode* theExp,
@@ -44,14 +44,14 @@ void ShaderIfThenElseNode::print(bool indent)
 {
   if (indent)
     printSpaces(2 * myBlockDepth);
-  cout << "if (";
+  std::cout << "if (";
   myExp->print(false);
-  cout << ") " << endl;
+  std::cout << ") " << std::endl;
   myThenStmt->print();
-  cout << ";" << endl;
+  std::cout << ";" << std::endl;
   if (indent)
     printSpaces(2 * myBlockDepth);
-  cout << "else" << endl;
+  std::cout << "else" << std::endl;
   myElseStmt->print();
 }
 

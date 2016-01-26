@@ -20,7 +20,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <iostream.h>
+#include <iostream>
 #include "booga/texture/ShaderProgNode.h"
 #include "booga/texture/ShaderHeadNode.h"
 
@@ -51,7 +51,7 @@ void ShaderProgNode::print(bool)
 {
   myHead->print(false);
   myCmpStmt->print(false);
-  cout << endl;
+  std::cout << std::endl;
 }  
  
 void ShaderProgNode::overwriteDefaults(const List<Value*>* theParameters,

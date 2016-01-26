@@ -37,7 +37,7 @@
 # define INLINE
 #endif  // TEMPLATE_IN_HEADER
 
-// implementRTTI(BOOGAObject, Makeable);
+//implementRTTI(BOOGAObject, Makeable);
 
 //________________________________________________________________ BOOGAObject<>
 

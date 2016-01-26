@@ -113,7 +113,7 @@ void GLPolygonMapper::doTexturing(Texture3DContext& context) const
   glPushMatrix();
   glTranslatef(getDisplacement()[0], getDisplacement()[1], 0); // apply translation
   glScalef(getXRatio(), getYRatio(), 1);
-  glRotatef (rtod(getBeta()), 0,0,1); // apply rotation
+  glRotatef (rtod(getBeta())-90, 0,0,1); // apply rotation
   glMatrixMode(GL_MODELVIEW);
   
   Vector3D s = Vector3D (1,0,0);

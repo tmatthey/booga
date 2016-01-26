@@ -20,7 +20,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <strstream.h>
+#include <sstream>
 #include "booga/base/Report.h"
 #include "booga/base/mathutilities.h"
 #include "booga/base/Value.h"
@@ -208,7 +208,7 @@ int Animation3D::setSpecifier(RCString& errMsg, Makeable* specifier)
   // There might be an object passed, so lets try to cast
   // specifier to Object3D* :
   //
-  Object3D* object = dynamic_cast(Object3D, specifier);
+  Object3D* object = dynamic_cast<Object3D*>(specifier);
   if (object != NULL) {
     if (myAnimatedObjects != NULL)
       delete myAnimatedObjects;
@@ -218,7 +218,7 @@ int Animation3D::setSpecifier(RCString& errMsg, Makeable* specifier)
   }
 
   // Check for Animation3D attributes
-  Animation3DAttr* attr = dynamic_cast(Animation3DAttr, specifier);
+  Animation3DAttr* attr = dynamic_cast<Animation3DAttr*>(specifier);
   if (attr != NULL) {
     // The Animation3DAttr object knows best which method has to be called.
     // So let the object do the job.
@@ -229,7 +229,7 @@ int Animation3D::setSpecifier(RCString& errMsg, Makeable* specifier)
   }
 
   // Check for ActionInfo attributes
-  ActionInfo* action = dynamic_cast(ActionInfo, specifier);
+  ActionInfo* action = dynamic_cast<ActionInfo*>(specifier);
   if (action != NULL) {
     adoptAction(action);
     return 1;  

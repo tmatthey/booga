@@ -21,7 +21,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <strstream.h>
+#include <sstream>
 #include <math.h>
 
 #include "booga/base/Value.h"
@@ -379,7 +379,7 @@ Makeable* Grid3D::make(RCString& errMsg, const List<Value*>* parameters) const
   getParameter(1, Vector3D, dimension);
   
   if (dimension.x() < 1 || dimension.y() < 1 || dimension.z() < 1) {
-    ostrstream os;
+    std::stringstream os;
     os << "Illegal dimension settings " << dimension 
        << ", no component less than 1";
     errMsg = os;  
@@ -493,7 +493,7 @@ Grid3D::Mailbox::~Mailbox()
 void Grid3D::Mailbox::setSize(long size)
 {
   if (size <= 0) {
-    ostrstream os;
+    std::stringstream os;
     os << "[Grid3D::Mailbox::setSize] Illegal size (was ";
     os << size << ")";
  

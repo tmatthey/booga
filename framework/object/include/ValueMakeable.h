@@ -27,7 +27,7 @@
 #include "booga/object/Makeable.h"
 
 class ValueMakeable : public Makeable {
-declareRTTI(ValueMakeable);
+  declareRTTI(ValueMakeable);
 // enable RTTI support
 
 public:

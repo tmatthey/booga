@@ -50,18 +50,18 @@ PointLight::PointLight(Real luminance, const Color& color)
 
 void PointLight::setRadius(Real radius)
 {
-  dynamic_cast(Sphere3D, myLightRep)->setRadius(radius);
+  dynamic_cast<Sphere3D*>(myLightRep)->setRadius(radius);
 }
 
 void PointLight::setPosition(const Vector3D& position)
 {
-  dynamic_cast(Sphere3D, myLightRep)->setCenter(position);
+  dynamic_cast<Sphere3D*>(myLightRep)->setCenter(position);
 }
 
 void PointLight::getDirection(Texture3DContext& context) const
 {
   // !!!!!!!!! Transformation der Lichtquelle beruecksichtigen
-  Vector3D toLight = dynamic_cast(Sphere3D, myLightRep)->getCenter() -
+  Vector3D toLight = dynamic_cast<Sphere3D*>(myLightRep)->getCenter() -
                      context.getPositionWCS();
   Real dist = toLight.normalize();
   context.setLightDirection(toLight);
@@ -71,8 +71,8 @@ void PointLight::getDirection(Texture3DContext& context) const
 bool PointLight::isVisible(Texture3DContext& context) const
 {
   // !!!!!!!!! Transformation der Lichtquelle beruecksichtigen
-  Vector3D origin(dynamic_cast(Sphere3D, myLightRep)->getCenter());
-  Real radius = dynamic_cast(Sphere3D, myLightRep)->getRadius();
+  Vector3D origin(dynamic_cast<Sphere3D*>(myLightRep)->getCenter());
+  Real radius = dynamic_cast<Sphere3D*>(myLightRep)->getRadius();
 
   //
   // Inside light source? Really?
@@ -160,7 +160,7 @@ Object3D* PointLight::copy() const
 
 int PointLight::setSpecifier(RCString& errMsg, Makeable* specifier)
 {
-  PointLightAttr* attr = dynamic_cast(PointLightAttr, specifier);
+  PointLightAttr* attr = dynamic_cast<PointLightAttr*>(specifier);
   if (attr != NULL) {
     // The PointLightAttr object knows best which method has to be called.
     // So let the object do the job.

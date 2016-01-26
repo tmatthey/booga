@@ -22,12 +22,12 @@
 #ifdef SVR4
 #include <unistd.h>  // STDOUT_FILENO
 #endif
-#include <fstream.h>
+#include <fstream>
 #include "booga/component/SingleFileStore.h"
 
 //_____________________________________________________________________ SingleFileStore
 
-// implementRTTI(SingleFileStore, DocumentStore);
+//implementRTTI(SingleFileStore, DocumentStore);
 
 SingleFileStore::SingleFileStore(const RCString& filename) :
 DocumentStore(),
@@ -38,7 +38,7 @@ myDocumentName("")
   // If myFilename is empty, we try to open stdout for writing
   //
   if (myFilename.isEmpty()) {
-    myOs.rdbuf()->attach(STDOUT_FILENO);
+    myOs.tie(&std::cout);//->attach(STDOUT_FILENO);
     if (myOs.bad()) {
       Report::warning("[SingleFileStore::SingleFileStore] could not attach to stdout");
       // failed();

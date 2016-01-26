@@ -31,7 +31,7 @@
 //__________________________________________________________________ Transform2D
 
 class Transform2D : public ObjectSpecifier {
-declareRTTI(Transform2D);
+  declareRTTI(Transform2D);
 // enable RTTI support
 
 public:

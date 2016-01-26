@@ -43,7 +43,7 @@ class wxInspectTimer : public wxTimer
 //_____________________________________________________________________ wxInspectCommand
 
 class wxInspectCommand : public wxViewCommand {
-  declareRTTI(wxInspectCommand);
+  //  declareRTTI(wxInspectCommand);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

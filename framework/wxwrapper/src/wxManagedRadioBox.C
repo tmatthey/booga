@@ -26,7 +26,7 @@
 
 //_____________________________________________________________________ wxManagedRadioBox
 
-//implementRTTI(wxManagedRadioBox, wxRadioBox);
+implementRTTI(wxManagedRadioBox, wxRadioBox);
 
 wxManagedRadioBox::wxManagedRadioBox(wxDialogDirector* director, wxPanel* parent, char* label,
   int x, int y, int width, int height, int n, char* choices[], int majorDim, 

@@ -15,7 +15,7 @@
  * for any purpose.  It is provided solely "as is".
  *
  */
-#include <strstream.h>
+#include <sstream>
 
 #include "booga/base/Value.h"
 #include "booga/object/Polygon3DAttr.h"
@@ -51,7 +51,7 @@ Makeable* Polygon3DAttrHole::make(RCString& errMsg,
       getParameter(i, Vector3D, vertex);
       if (i > 1) {
         if (vertices.item(i-2) == vertex) {
-          ostrstream os;
+          std::stringstream os;
           os << "[Polygon3DAttrHole::make] two consecutive vertices ("
              << vertex << ") must not have the same value";
           Report::recoverable(os);

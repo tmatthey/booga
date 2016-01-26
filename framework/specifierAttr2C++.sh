@@ -40,7 +40,7 @@ BEGIN {
 
 	ARGV[1] = ARGV[2] = ARGV[3] = ARGV[4] = "";
 	
-	includeFile   = "";
+	includeFile   ;
 	headerPrinted = 0;
 
          libname       = "object"; # Name of the library we are working in.
@@ -48,11 +48,12 @@ BEGIN {
 	attributeName = ""; # Name of s single attribute (concated with specifierName)
 	modeFlag      = ""; # "not set", "argument", "optional"
 	memberNumber  = 0;  # array and counter for attribute members
-	members       = "";
+	members[-1];
 	argNumber     = 0;  # array and counter for arguments in make method
-	arguments     = "";
+	arguments[-1];
+	delete arguments;
 	optNumber     = 0;  # array and counter for optional arguments in make method
-	optionals     = "";
+	optionals[-1];
 	buildArgument = "";
 	makeArgument  = "";
 	methodName    = ""; # method name to be called for the setAttribute protocoll
@@ -443,10 +444,10 @@ function printAttributeSource()
   if (optNumber > 0) {
     print  "  long provided_ = (!parameters ? 0 : parameters->count());";
     print  "  if (provided_ < " argNumber " || provided_ > " argNumber+optNumber ") {";
-    print  "    extern char* form(const char * ...);";
+    print  "    std::stringstream str; str \<\< provided_;";
     printf "    errMsg = RCString(\"between " argNumber " and " argNumber+optNumber;
     print  " parameter(s) required, \")"
-    print  "             + form(\"%ld\", provided_) + \" provided\";";
+    print  "             + str.str().c_str();";
     print  "    return NULL;";
     print  "  }\n";
   }

@@ -19,9 +19,6 @@
  *  $Id: ShaderParser.C,v 1.7 1997/09/19 07:14:48 buhlmann Exp $
  * -----------------------------------------------------------------------------
  */
-#ifdef SVR4
-#include <stream.h>
-#endif
 #include "ShaderLex.h"
 #include "ShaderYacc.h"
 #include "booga/base/Report.h"
@@ -108,11 +105,12 @@ RCString ShaderParserImpl::createErrorMsg(const RCString& errorMsg)
   if (myFileName != "\"\"")
     file = ", file " + myFileName;
 
-  return  RCString("[Error ") + form("%d", myErrorCount) 
-		   + file
-		   + ", line " + form("%d", myScanner.getLineNo())
- 		   + ", near \"" + myScanner.getToken() + "\"] "
-                     + errorMsg;
+  std::stringstream str;
+  str << "[Error " << myErrorCount << file 
+      << ", line " << myScanner.getLineNo() <<", near \"" 
+      << myScanner.getToken() << "\"] " << errorMsg;
+
+  return  RCString(str.str().c_str());
 }
 
 void ShaderParserImpl::warning(const RCString& warnMsg)
@@ -125,10 +123,10 @@ RCString ShaderParserImpl::createWarnMsg(const RCString& warnMsg)
   RCString file; 
   if (myFileName != "\"\"")
     file = ", file " + myFileName;
-
-  return  RCString(file + ", line " + form("%d", myScanner.getLineNo())
- 		   + ", near \"" + myScanner.getToken() + "\"] "
-                   + warnMsg);
+  std::stringstream str;
+  str << file << ", line " << myScanner.getLineNo() 
+      << ", near \"" << myScanner.getToken() << "\"] "<< warnMsg;
+  return  RCString(str.str().c_str());
 }
 
 

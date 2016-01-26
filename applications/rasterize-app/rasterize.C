@@ -285,17 +285,18 @@ void readWorld()
 
 void saveFramebufferToFile()
 {
-  extern char* form(const char * ...);
   static int currentFrame = 1;
 
   AbstractPixmap* pixi = GLUtilities::createPixmapFromFramebuffer();
   if (out == "")
     out = "Noname";
   RCString filename = out;
-  filename += form(".%d.pixi", currentFrame++);
+  char tmp[256];
+  sprintf(tmp,".%d.pixi", currentFrame++);
+  filename += tmp;
 
   if (pixi->save(filename))
-    cerr << "Pixi " << filename << " created." << flush << endl;
+    std::cerr << "Pixi " << filename << " created." << std::flush << std::endl;
   
   delete pixi;  
 }
@@ -356,12 +357,12 @@ void pickObject(int x, int y)
 
 
     //
-    // Print the whole path to cerr.
+    // Print the whole path to std::cerr.
     //
-    cerr << "World";
+    std::cerr << "World";
     for (picker.getPath()->first(); !picker.getPath()->isDone(); picker.getPath()->next()) 
-      cerr << "->" << typeid(picker.getPath()->getObject()).name();
-    cerr << endl;
+      std::cerr << "->" << typeid(picker.getPath()->getObject()).name();
+    std::cerr << std::endl;
   }
 }  
 
@@ -532,11 +533,11 @@ void parseCmdLine(int argc, char* argv[], RCString& in, RCString& out, Output& o
 
 void usage(const RCString& name)
 {
-  cerr << "Usage: " << name << " [-t type] [in-file [out-file]]\n";
-  cerr << " where:\n";
-  cerr << "  type     : (optional) ( pixi | ps | gl )\n";
-  cerr << "  in-file  : (optional) filename of input\n";
-  cerr << "  out-file : (optional) filename of output\n";
+  std::cerr << "Usage: " << name << " [-t type] [in-file [out-file]]\n";
+  std::cerr << " where:\n";
+  std::cerr << "  type     : (optional) ( pixi | ps | gl )\n";
+  std::cerr << "  in-file  : (optional) filename of input\n";
+  std::cerr << "  out-file : (optional) filename of output\n";
 }
 
 //__________________________________________________________ Animation utilities
@@ -612,12 +613,12 @@ void keyboardCallback(unsigned char key, int, int)
 
     case 'h':
     case '?':
-      cerr << "Summary of keyboard commands:" << endl
-           << "  q, ESC :  Quit." << endl
-           << "  r      :  Reread the scene description file." << endl
-           << "  SPACE  :  Reset view." << endl
-           << "  s      :  Save contents of the file buffer." << endl
-           << "  h, ?   :  This message." << endl;
+      std::cerr << "Summary of keyboard commands:" << std::endl
+           << "  q, ESC :  Quit." << std::endl
+           << "  r      :  Reread the scene description file." << std::endl
+           << "  SPACE  :  Reset view." << std::endl
+           << "  s      :  Save contents of the file buffer." << std::endl
+           << "  h, ?   :  This message." << std::endl;
       break;
   }
 }
@@ -792,11 +793,11 @@ void timeInBackbufferCallback(int value)
 
 #else // HAVE_OPENGL -----------------------------------------------------------
 
-#include <stream.h>
+#include <iostream>
 
 int main ()
 {
-  cerr << "\nThis application needs the OpenGL graphics package.\n" 
+  std::cerr << "\nThis application needs the OpenGL graphics package.\n" 
        << "When compiling this application your site was \n"
        << "configured not to use OpenGL.\n\n";
 }

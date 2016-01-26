@@ -103,13 +103,13 @@ RCString GDBData::getName() const {
 }
 
 RCString GDBData::getNameId() const {
-  ostrstream os;
+  std::stringstream os;
   os << myName << "." << getPOId();
   return RCString(os);
 }
 
 RCString GDBData::getNameIdFormat() const {
-  ostrstream os;
+  std::stringstream os;
   os << myName << "." << getPOId() << ".";
   if (myFormat.getPtr() != NULL) {
     os << myFormat->getExtension();
@@ -170,7 +170,7 @@ long GDBData::getStatus() const {
 
 void GDBData::setIcon(GDBData* icon) {
   if (myIcon.getPOId() != POID_NULL && myIcon.getPOId() != icon->getPOId()) {
-    ostrstream os;
+    std::stringstream os;
     os << "[GDBData::setIcon] set new icon failed (icon allready exists)";
     Report::recoverable(os);
   } 
@@ -283,7 +283,7 @@ void GDBData::addTarget(GDBData* target) {
 void GDBData::setData(const RCString& newData) {
   if (myData != newData) {  // has the data really changed?
     if (myStatus & FROZEN) {
-      ostrstream os;
+      std::stringstream os;
       os << "[GDBData::setData] set failed (data is frozen)";
       Report::recoverable(os);
       return;
@@ -305,7 +305,7 @@ RCString GDBData::getData() const {
 
 void GDBData::setBinaryData(PBinary* pbinary) {
   if (myBinaryData.getPOId() != POID_NULL && myBinaryData.getPOId() != pbinary->getPOId()) {
-    ostrstream os;
+    std::stringstream os;
     os << "[GDBData::setBinaryData] set new BinaryData failed (BinaryData allready exists)";
     Report::recoverable(os);
   } 

@@ -21,7 +21,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <strstream.h>
+
 #include "booga/base/Report.h"
 #include "booga/base/Value.h"
 #include "booga/object/Triangle3D.h"
@@ -44,7 +44,7 @@ Sphere3D::Sphere3D(Real radius, const Vector3D& center)
 : myRadius(radius), myCenter(center)
 {
   if (myRadius < EPSILON) {
-    ostrstream os;
+    std::stringstream os;
     os << "[Sphere3D::Sphere3D] degenerate sphere (radius = " << myRadius << ")";
     Report::recoverable(os);
   }
@@ -58,7 +58,7 @@ void Sphere3D::setCenter(const Vector3D& center)
 void Sphere3D::setRadius(Real radius)
 {
   if (radius < EPSILON) {
-    ostrstream os;
+    std::stringstream os;
     os << "[Sphere3D::setRadius] illegal radius = " << radius << " ignored";
     Report::warning(os);
     return;
@@ -130,8 +130,9 @@ Object3D* Sphere3D::createDecomposition() const
   //
   // Check, if decomposition for a similar torus has already been done.
   //
-  extern char* form(const char * ...);
-  Name key = form("Sphere3D#%d#", steps);
+  char tmp[256];
+  sprintf(tmp,"Sphere3D#%d#", static_cast<int>(steps));
+  Name key(tmp);
   Object3D* retval = (Object3D*)Primitive3D::getDecomposition(key);
 
   if (retval == NULL) {

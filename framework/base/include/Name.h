@@ -27,7 +27,7 @@
 #ifndef _Name_H
 # define _Name_H
 
-#include <iostream.h>
+#include <iostream>
 #include "booga/base/StaticInit.h"
 #include "booga/base/RCString.h"
 #include "booga/base/SymTable.h"
@@ -50,7 +50,7 @@ public:
   long getIndex() const;
   operator RCString() const;
 
-  friend ostream& operator<<(ostream& os, const Name& name);
+  friend std::ostream& operator<<(std::ostream& os, const Name& name);
 
 public:
   static long addName(const RCString& newName);
@@ -61,7 +61,7 @@ public:
   static long count();
   // Return the number of names stored in the global name space.
 
-  static void printNames(ostream& os = cout);
+  static void printNames(std::ostream& os = std::cout);
   // Print the names in the global name space to 'os'
 
 protected:

@@ -20,9 +20,11 @@
  * -----------------------------------------------------------------------------
  */
 
+#ifdef HAVE_MPI
 extern "C" {
 #include <mpi.h>
 }
+#endif
 
 #include <time.h>
 
@@ -30,7 +32,7 @@ extern "C" {
 #include <GL/glut.h>
 #endif
 
-#include <strstream.h>  // ostrstream
+#include <sstream>  // ostrstream
 #include "booga/base/Statistic.h"
 #include "booga/object/Camera3D.h"
 #include "booga/object/Primitive3D.h"
@@ -91,7 +93,7 @@ bool MPIRaytracer::doExecute()
   }
 
   if (myTaskid == 0){
-    ostrstream os;
+    std::stringstream os;
     os << "Using " << (myShow ? myNumtask -2 : myNumtask -1);
     os << " process to raytrace";
     Report::hint(os);
@@ -109,6 +111,7 @@ bool MPIRaytracer::doExecute()
 
 void MPIRaytracer::compute_pixels ()
 {
+#ifdef HAVE_MPI
   // Some variables for use in the loop.
   MPI_Status stat;
   Color bg = getCamera()->getBackground();
@@ -195,17 +198,18 @@ void MPIRaytracer::compute_pixels ()
       MPI_Send (myRowData, myRowDataEntrySize * resX, MPI_FLOAT, 1, 1, MPI_COMM_WORLD);
 
   }
-
-  ostrstream os;
+  std::stringstream os;
   os << "Slave " << myTaskid -  (myShow ? 2 : 1) << " was " << t << " (" << t_max << ") seconds idle";
   Report::hint(os);
 
   delete ray;
   delete myRowData;
+#endif
 }
 
 void MPIRaytracer::collect_pixels()
 {
+#ifdef HAVE_MPI
   MPI_Status stat;
   long position = 0;
   int numproc = myShow ? myNumtask -2 : myNumtask -1;
@@ -260,7 +264,7 @@ void MPIRaytracer::collect_pixels()
     }
     myLinesLeft--;
     if (!(myLinesLeft % 10)) {
-      ostrstream os;
+      std::stringstream os;
       os << "Finished line " << getCamera()->getViewing()->getResolutionY() - myLinesLeft;
       Report::debug(os);
     }
@@ -271,7 +275,7 @@ void MPIRaytracer::collect_pixels()
   for(i = 0; i <numproc; i++)
     MPI_Send(&y,1,MPI_INT, i + offset, 2,MPI_COMM_WORLD);
 
-  ostrstream os;
+  std::stringstream os;
   os << "Distribution: ";
   for(i = 0; i < numproc-1; i++)
     os << statistic[i] <<", ";
@@ -284,7 +288,7 @@ void MPIRaytracer::collect_pixels()
 
   postprocessing(); // afterGenerate(); // !!!!!!!!!!!!!!!!!!
   return;
-
+#endif
 }
 
 void MPIRaytracer::display_pixels() 
@@ -356,7 +360,7 @@ void MPIRaytracer::display_pixels()
 
 void ourIdleFunc()
 {
-
+#ifdef HAVE_MPI
 #ifdef HAVE_OPENGL    
   static float *row = NULL;
   static float *myRowData = NULL;
@@ -427,6 +431,7 @@ void ourIdleFunc()
     }
   }
 #endif
+#endif
 }
 
 void ourDisplayFunc()
@@ -456,6 +461,8 @@ void keyboardCallback(unsigned char , int, int)
 // quit function when using glut
 void quit()
 {
+#ifdef HAVE_MPI
   MPI_Finalize();
+#endif
   exit(0);
 }

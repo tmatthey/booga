@@ -1,0 +1,2 @@
+OFILES = pixi2png.o 
+

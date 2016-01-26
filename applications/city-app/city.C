@@ -71,13 +71,13 @@ int main(int argc, char* argv[])
   World3D* world2 = new World3D;
   Parser3D parser;
   parser.setFilename(in0);
-  cerr << "Reading curves. " << endl;
+  std::cerr << "Reading curves. " << std::endl;
   parser.execute(world0);
   parser.setFilename(in1);
-  cerr << "Reading holes. " << endl;
+  std::cerr << "Reading holes. " << std::endl;
   parser.execute(world1);
   parser.setFilename(in2);
-  cerr << "Reading buildings. " << endl;
+  std::cerr << "Reading buildings. " << std::endl;
   parser.execute(world2);
 
   BoundingBox bounds;  
@@ -105,7 +105,7 @@ int main(int argc, char* argv[])
   while(agg->countSubobject()){
     obj = agg->getSubobject(0);
     agg->orphanObject(obj);
-    polygon = dynamic_cast(Polygon3D,obj);
+    polygon = dynamic_cast<Polygon3D*>(obj);
     if (polygon){
       if (col1 == NULL && polygon->getTexture())
         col1 = polygon->getTexture()->copy(); 
@@ -133,7 +133,7 @@ int main(int argc, char* argv[])
   }
   delete world0;
   delete agg;
-  cerr << "Number of curves: " << count << endl;
+  std::cerr << "Number of curves: " << count << std::endl;
 
   // get the holes
   agg = world1->orphanObjects();
@@ -141,7 +141,7 @@ int main(int argc, char* argv[])
   while(agg->countSubobject()){
     obj = agg->getSubobject(0);
     agg->orphanObject(obj);
-    polygon = dynamic_cast(Polygon3D,obj);
+    polygon = dynamic_cast<Polygon3D*>(obj);
     if (polygon){ 
       tmp = polygon->getVertices();
       // remove near points
@@ -186,7 +186,7 @@ int main(int argc, char* argv[])
     delete obj;
     i++;
   }
-  cerr << "Number of holes: " << holes.count() << endl;
+  std::cerr << "Number of holes: " << holes.count() << std::endl;
   delete world1;
   delete agg;
   
@@ -228,7 +228,7 @@ int main(int argc, char* argv[])
   a = Vector3D(0,0,10+bounds.getMax().z());
   for(i=0;i<agg->countSubobject();i++){
     obj = agg->getSubobject(i);
-    building = dynamic_cast(Building,obj);
+    building = dynamic_cast<Building*>(obj);
     if (building){ 
       tmp = building->getVertices();
       for(j=0;j<tmp.count();j++){
@@ -242,7 +242,7 @@ int main(int argc, char* argv[])
       count++;
     }    
   }
-  cerr << "Number of buildings: " << count << endl;
+  std::cerr << "Number of buildings: " << count << std::endl;
 
   
   world2->getObjects()->adoptObject(terrain);
@@ -282,11 +282,11 @@ void parseCmdLine(int argc, char* argv[], RCString& in0, RCString& in1, RCString
 
 void usage(const RCString& name)
 {
-    cerr << "Usage: " << name << " in-file1 in-file2 in-file3 [out-file]]\n";
-    cerr << " where:\n";
-    cerr << "  in-file 1      : filename of input 3D-Model\n";
-    cerr << "  in-file 2      : filename of input holes\n";
-    cerr << "  in-file 3      : filename of input building\n";
-    cerr << "  out-file       : (optional) filename of output\n";
+    std::cerr << "Usage: " << name << " in-file1 in-file2 in-file3 [out-file]]\n";
+    std::cerr << " where:\n";
+    std::cerr << "  in-file 1      : filename of input 3D-Model\n";
+    std::cerr << "  in-file 2      : filename of input holes\n";
+    std::cerr << "  in-file 3      : filename of input building\n";
+    std::cerr << "  out-file       : (optional) filename of output\n";
 }
 

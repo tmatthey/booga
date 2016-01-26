@@ -20,10 +20,7 @@
  *  $Id: Triangle3D.C,v 1.24 1997/09/19 07:15:04 buhlmann Exp $
  * -----------------------------------------------------------------------------
  */
-#ifdef SVR4
-#include <stream.h>
-#endif
-#include <strstream.h>
+#include <sstream>
 
 #include "booga/base/Value.h"
 #include "booga/base/Geometry3D.h"
@@ -290,7 +287,7 @@ Makeable* Triangle3D::make(RCString& errMsg,
 
     return new Triangle3D(v1, n1, v2, n2, v3, n3);
   } else {
-    ostrstream os;
+    std::stringstream os;
     os << " 3 or 6 parameters required, " << provided << " provided";
     errMsg = os;             
     return NULL;				                  

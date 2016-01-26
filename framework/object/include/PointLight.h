@@ -83,12 +83,12 @@ public:
 
 inline Real PointLight::getRadius() const
 {
-  return dynamic_cast(Sphere3D, myLightRep)->getRadius();
+  return dynamic_cast<Sphere3D*>(myLightRep)->getRadius();
 }
   
 inline const Vector3D& PointLight::getPosition() const
 {
-  return dynamic_cast(Sphere3D, myLightRep)->getCenter();
+  return dynamic_cast<Sphere3D*>(myLightRep)->getCenter();
 }
 
 #endif // _PointLight_H

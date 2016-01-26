@@ -215,7 +215,7 @@ FILENAME         \"([^\n\"])*\"
                          ausdruck += ")";
                          if (RundeKlammern == 0) {
                            Report::debug("[CTLex] EXPRESSION will be closed by next )");;
-                           ostrstream os;
+                           std::stringstream os;
                            os << "[CTLex] EXPRESSION: " << ausdruck;
                            Report::debug(os);
                            yylval.string = new RCString(ausdruck);  
@@ -228,7 +228,7 @@ FILENAME         \"([^\n\"])*\"
                                  and will end the expression if there 
                                  were no opening paranthesis left        */
                               if (RundeKlammern == 0) {
-                                ostrstream os;
+                                std::stringstream os;
                                 os << "[CTLex] EXPRESSION: " << ausdruck;
                                 Report::debug(os);
                                 yylval.string = new RCString(ausdruck);  
@@ -239,7 +239,7 @@ FILENAME         \"([^\n\"])*\"
 <sEXPRESSION>[^,)(]/[,]     { ausdruck += yytext;
                               /* The next token is a ',' and will end
                                  the expression in any case            */
-                              ostrstream os;
+                              std::stringstream os;
                               os << "[CTLex] EXPRESSION: " << ausdruck;
                               Report::debug(os);
                               yylval.string = new RCString(ausdruck);  
@@ -274,7 +274,7 @@ FILENAME         \"([^\n\"])*\"
                                  and will end the expression if 
                                  there were no opening [ left      */
                               if (EckigeKlammern == 0) {
-                                ostrstream os;
+                                std::stringstream os;
                                 os << "[CTLex] CONSTEXPR: " << ausdruck;
                                 Report::debug(os);
                                 yylval.string = new RCString (ausdruck);  
@@ -451,7 +451,7 @@ FILENAME         \"([^\n\"])*\"
 
 
 <sCLASS>{identifier}  { yylval.string = new RCString (yytext);
-                        ostrstream os;
+                        std::stringstream os;
                         os << "[CTLex] BEZEICHNER: " << yytext;
                         Report::debug(os);
                         return CTYacc::tIDENTIFIER; }
@@ -468,17 +468,17 @@ FILENAME         \"([^\n\"])*\"
 <sCLASS>":"           { Report::debug("[CTLex] SPECIAL CHAR: Doppelpunkt");
                         yylval.string = new RCString (":");
                         return CTYacc::tDOPPELPUNKT; }
-<sCLASS>{special}     { ostrstream os;
+<sCLASS>{special}     { std::stringstream os;
                         os << "[CTLex] SPECIAL CHAR: " << yytext;
                         Report::debug(os);
                         return yytext[0];  }
-<sCLASS>{word}        { ostrstream os;
+<sCLASS>{word}        { std::stringstream os;
                         os << "[CTLex] ANYTHING ELSE: " << yytext;
                         Report::debug(os);
                         return CTYacc::tANYTHINGELSE; }
 
 
-<sENUMERATION>{identifier}  { ostrstream os;
+<sENUMERATION>{identifier}  { std::stringstream os;
                               os << "[CTLex] ENUM: BEZEICHNER: " << yytext;
                               Report::debug(os);
                               yylval.string = new RCString (yytext);
@@ -487,7 +487,7 @@ FILENAME         \"([^\n\"])*\"
 <sENUMERATION>"{"           { BEGIN sENUMCODE;
                               Report::debug("[CTLex] left ENUMERATION to ENUMCODE");
                               return yytext[0]; }
-<sENUMERATION>{word}        { ostrstream os;
+<sENUMERATION>{word}        { std::stringstream os;
                               os << "[CTLex] ENUM: ANYTHINGELSE: " << yytext;
                               Report::debug(os);
                               return CTYacc::tANYTHINGELSE; }
@@ -503,7 +503,7 @@ FILENAME         \"([^\n\"])*\"
 
 <EAT_END_OF_LINE>\n       { // myCurrentLine++;
 			    // BEGIN(0);
-			    ostrstream os;
+			    std::stringstream os;
 			    os << "[CTLex] left EAT_END_OF_LINE to " << lastState;
                             Report::debug(os);
                             BEGIN(lastState);
@@ -512,49 +512,49 @@ FILENAME         \"([^\n\"])*\"
 
 <sEATCODE>^#            { // Handle output from C preprocessor.
                           lastState = sEATCODE;
-                          ostrstream os;
+                          std::stringstream os;
                           os << "[CTLex] left " << lastState << " to CPP_OUTPUT";
                           Report::debug(os);
 			  BEGIN(CPP_OUTPUT);
 			}
 <sCLASS>^#              { // Handle output from C preprocessor.
                           lastState = sCLASS ;
-                          ostrstream os;
+                          std::stringstream os;
                           os << "[CTLex] left " << lastState << " to CPP_OUTPUT";
                           Report::debug(os);
 			  BEGIN(CPP_OUTPUT);
 			}
 <sCLASSCODE>^#          { // Handle output from C preprocessor.
                           lastState = sCLASSCODE ;
-                          ostrstream os;
+                          std::stringstream os;
                           os << "[CTLex] left " << lastState << " to CPP_OUTPUT";
                           Report::debug(os);
 			  BEGIN(CPP_OUTPUT);
 			}
 <sENUMERATION>^#        { // Handle output from C preprocessor.
                           lastState = sENUMERATION ;
-                          ostrstream os;
+                          std::stringstream os;
                           os << "[CTLex] left " << lastState << " to CPP_OUTPUT";
                           Report::debug(os);
 			  BEGIN(CPP_OUTPUT);
 			}
 <sENUMCODE>^#           { // Handle output from C preprocessor.
                           lastState = sENUMCODE ;
-                          ostrstream os;
+                          std::stringstream os;
                           os << "[CTLex] left " << lastState << " to CPP_OUTPUT";
                           Report::debug(os);
 			  BEGIN(CPP_OUTPUT);
 			}
 <sEXPRESSION>^#         { // Handle output from C preprocessor.
                           lastState = sEXPRESSION ;
-                          ostrstream os;
+                          std::stringstream os;
                           os << "[CTLex] left " << lastState << " to CPP_OUTPUT";
                           Report::debug(os);
 			  BEGIN(CPP_OUTPUT);
 			}
 <sCONSTEXPR>^#          { // Handle output from C preprocessor.
                           lastState = sCONSTEXPR ;
-                          ostrstream os;
+                          std::stringstream os;
                           os << "[CTLex] left " << lastState << " to CPP_OUTPUT";
                           Report::debug(os);
 			  BEGIN(CPP_OUTPUT);
@@ -567,7 +567,7 @@ FILENAME         \"([^\n\"])*\"
 <CPP_OUTPUT>.           ;
 <CPP_OUTPUT>\n          { // go back to the last state before CPP crap
                           // BEGIN 0;
-                          ostrstream os;
+                          std::stringstream os;
                           os << "[CTLex] left CPP_OUTPUT to " << lastState;
                           Report::debug(os);
                           BEGIN(lastState);
@@ -575,7 +575,7 @@ FILENAME         \"([^\n\"])*\"
  
 "//"                    { // Allow C++ comments.
                           lastState = yy_current_state;
-                          ostrstream os;
+                          std::stringstream os;
                           os << "[CTLex] left " << lastState << " to EAT_END_OF_LINE";
                           Report::debug(os);
 			  BEGIN(EAT_END_OF_LINE); // Skip rest of the current line.

@@ -56,7 +56,7 @@ long ListImpl_best_new_count(long count, long size)
 // Only compile this file if either not GNU compiler running,
 // or, in case of GNU compiler, files is included from header.
 
-#include <strstream.h>
+#include <sstream>
 #include "booga/base/Report.h"
 
 #ifdef TEMPLATE_IN_HEADER
@@ -123,7 +123,7 @@ INLINE T& List<T>::item(long index) const
   // index out of range?
   //
   if (index < 0 || index >= myCount) {
-    ostrstream os;
+    std::stringstream os;
     os << "[List<T>::item] index " << index << " out of range";
     Report::error(os);
   }

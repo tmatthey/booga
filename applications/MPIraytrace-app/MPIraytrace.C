@@ -23,6 +23,7 @@
 
 // MPIch: mpirun -p4pg pg4 MPIraytrace
 
+#ifdef HAVE_MPI
 extern "C" {
 #include <mpi.h>
 }
@@ -62,7 +63,6 @@ int taskid;
 
 int main(int argc, char* argv[])
 {
-  extern char* form(const char * ...);
   bool ppm   = false;
   bool jpeg  = false;
   bool show  = false;
@@ -120,18 +120,18 @@ int main(int argc, char* argv[])
  
   if (taskid == 0){
     t = MPI_Wtime();
-    cerr << "Animationparameters :" << endl;
-    cerr << " startframe       : " << startframe << endl;
-    cerr << " number of frames : " << number << endl;
-    cerr << " framestep        : " << frameStep << endl;
-    cerr << " counter          : " << counter << endl;
+    std::cerr << "Animationparameters :" << std::endl;
+    std::cerr << " startframe       : " << startframe << std::endl;
+    std::cerr << " number of frames : " << number << std::endl;
+    std::cerr << " framestep        : " << frameStep << std::endl;
+    std::cerr << " counter          : " << counter << std::endl;
   }
     
   //
   // Print scene
   //
   if (print && taskid == 0) {
-    PrintWorld3D printer(cerr);
+    PrintWorld3D printer(std::cerr);
     printer.execute(world3D);
   }
   
@@ -162,7 +162,7 @@ int main(int argc, char* argv[])
   
   for (long i = counter; i < number + counter; i++) {
     if (taskid == 0)
-      cerr << "Current frame : " << frame << " (" << i << ")." << endl;
+      std::cerr << "Current frame : " << frame << " (" << i << ")." << std::endl;
  
     for (long j=0; j<listAnimation->count(); j++){
       if(listAnimation->item(j)->frame(frame))
@@ -189,24 +189,26 @@ int main(int argc, char* argv[])
       //
       
       filename = out;
-      if (number > 1 && !out.isEmpty())
-	filename += form(".%04d", i);
-
+      if (number > 1 && !out.isEmpty()){
+	char tmp[256];
+	sprintf(tmp,".%04d", static<int>(i));
+	filename += tmp;
+      }
       if (ppm) {
 	if (!filename.isEmpty())
-	  filename += form(".ppm");
+	  filename += ".ppm";
 	PPMWriter writer(filename);
 	setExecTime(writer.execute(world2D), "MPIraytrace: 3: Writing output");
       } 
       else if (jpeg) {
 	if (!filename.isEmpty())
-	  filename += form(".jpg");
+	  filename += ".jpg";
 	JPEGWriter writer(filename);
 	setExecTime(writer.execute(world2D), "MPIraytrace: 3: Writing output");
       } 
       else {
 	if (!filename.isEmpty())
-	  filename += form(".pixi");
+	  filename += ".pixi";
 	PixiWriter writer(filename);
 	setExecTime(writer.execute(world2D), "MPIraytrace: 3: Writing output");
       }
@@ -223,7 +225,7 @@ int main(int argc, char* argv[])
     if (taskid == 0) {
       Statistic::print();
       t2 =  MPI_Wtime();
-      cerr << "Wall clock: " << t2 - t << " seconds.\n";
+      std::cerr << "Wall clock: " << t2 - t << " seconds.\n";
       t = t2;
     }
     
@@ -320,20 +322,31 @@ void parseCmdLine(int argc, char* argv[], RCString& in, RCString& out,
 
 void usage(const RCString& name)
 {
-    cerr << "Usage: " << name << " [--oversampling rate] [--print]  [in-file [out-file]]\n";
-    cerr << " where:\n";
-    cerr << "  --oversampling : (optional) oversampling rate for antialiasing\n";
-    cerr << "                              (default: no antialiasing performed)\n";
-    cerr << "  --ppm          : (optional) output as PPM\n";    
-    cerr << "  --jpeg         : (optional) output as JPEG\n";
-    cerr << "  --print        : (optional) print scene for debugging purpose\n";
-    cerr << "  --show         : (optional) display output\n";
-    cerr << "  --start startframe    : (optional) start frame of the animation\n";
-    cerr << "  --number number       : (optional) number of frames\n";
-    cerr << "  --framestep framestep : (optional) framestep of the animation\n";
-    cerr << "  --counter startnumber : (optional) startnumber of the counter for the output";
-    cerr << "  --pipe number  : (optional)  size of the pipe\n";
-    cerr << "  in-file        : (optional) filename of input\n";
-    cerr << "  out-file       : (optional) filename of output\n";
+    std::cerr << "Usage: " << name << " [--oversampling rate] [--print]  [in-file [out-file]]\n";
+    std::cerr << " where:\n";
+    std::cerr << "  --oversampling : (optional) oversampling rate for antialiasing\n";
+    std::cerr << "                              (default: no antialiasing performed)\n";
+    std::cerr << "  --ppm          : (optional) output as PPM\n";    
+    std::cerr << "  --jpeg         : (optional) output as JPEG\n";
+    std::cerr << "  --print        : (optional) print scene for debugging purpose\n";
+    std::cerr << "  --show         : (optional) display output\n";
+    std::cerr << "  --start startframe    : (optional) start frame of the animation\n";
+    std::cerr << "  --number number       : (optional) number of frames\n";
+    std::cerr << "  --framestep framestep : (optional) framestep of the animation\n";
+    std::cerr << "  --counter startnumber : (optional) startnumber of the counter for the output";
+    std::cerr << "  --pipe number  : (optional)  size of the pipe\n";
+    std::cerr << "  in-file        : (optional) filename of input\n";
+    std::cerr << "  out-file       : (optional) filename of output\n";
 }
 
+#else
+#include <iostream>
+
+int main ()
+{
+  std::cerr << "\nThis application needs the MPI library.\n" 
+	    << "When compiling this application your site was \n"
+	    << "configured not to use MPI.\n\n";
+}
+
+#endif

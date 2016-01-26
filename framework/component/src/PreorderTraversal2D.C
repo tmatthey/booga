@@ -67,7 +67,7 @@ bool PreorderTraversal2D::doTraverse(Object2D* obj)
    }
 
   bool retval;
-  Primitive2D* primitive = dynamic_cast(Primitive2D, obj);
+  Primitive2D* primitive = dynamic_cast<Primitive2D*>(obj);
 
   if (primitive != NULL && state != Traversal::CONTINUE) {
     Object2D* decomposition = primitive->createDecomposition();

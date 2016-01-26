@@ -91,9 +91,9 @@ bool IconBuilderForBSDL3::doExecute() {
         return false;
       }
     }
-    Object3D *obj = dynamic_cast(Object3D, makeable);
+    Object3D *obj = dynamic_cast<Object3D*>(makeable);
     if (obj == NULL) {
-      Texture3D *texture = dynamic_cast(Texture3D, makeable);
+      Texture3D *texture = dynamic_cast<Texture3D*>(makeable);
       if (texture == NULL) {
         ostrstream msg;
         msg << "[IconBuilderForBSDL3::doExecute] cannot handle object type " 
@@ -122,7 +122,7 @@ bool IconBuilderForBSDL3::doExecute() {
   Camera3D *camera = NULL;
   long i;
   for(i=0; i<root->countSubobject(); i++) {
-    camera = dynamic_cast(Camera3D,root->getSubobject(i));
+    camera = dynamic_cast<Camera3D*>(root->getSubobject(i));
     if (camera != NULL) break;
   }
   if (camera == NULL) {

@@ -28,7 +28,7 @@
 #include "booga/base/List.h"
 #include "booga/base/Value.h"
 
-class ostream;
+#include <ostream>
 
 //____________________________________________________________________ Statistic
 
@@ -54,7 +54,7 @@ private:
 
 private:
   static SymTable<RCString, Value> ourEntries;
-  static ostream* ourOutputStream;
+  static std::ostream* ourOutputStream;
 
 private:
   Statistic();  // Make constructor private -> no instance may be created.

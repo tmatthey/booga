@@ -20,7 +20,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <strstream.h>
+#include <sstream>
 #include "booga/base/Report.h"
 #include "booga/object/DummyMakeable.h"
 #include "booga/object/MakeableHandler.h"
@@ -201,7 +201,7 @@ void ActionInfo::setParameters(Real startFrame, Real endFrame, long times, Real 
     myEndFrame   = endFrame;
   }
   else {
-    ostrstream os;
+    std::stringstream os;
     os << "[ActionInfo::ActionInfo] startframe >= endframe. Default startframe = 0 and endframe = 1.";
     Report::recoverable(os);
     myStartFrame = 0;
@@ -209,7 +209,7 @@ void ActionInfo::setParameters(Real startFrame, Real endFrame, long times, Real 
   }
   
   if (wait < 0) {
-    ostrstream os;
+    std::stringstream os;
     os << "[ActionInfo::ActionInfo] wait for an action is negativ. Default wait = 0.";
     Report::recoverable(os);
     myWait = 0;
@@ -218,7 +218,7 @@ void ActionInfo::setParameters(Real startFrame, Real endFrame, long times, Real 
     myWait = wait;
   
   if (times < 0) {
-    ostrstream os;
+    std::stringstream os;
     os << "[ActionInfo::ActionInfo] times for an action is negativ. Default times = 1.";
     Report::recoverable(os);
     myTimes = 1;
@@ -265,7 +265,7 @@ Makeable* ActionInfo::make(RCString& errMsg, const List<Value*>* parameters) con
 int ActionInfo::setSpecifier(RCString& errMsg, Makeable* specifier)
 {
   // Check for ActionInfo attributes
-  ActionInfoAttr* attr = dynamic_cast(ActionInfoAttr, specifier);
+  ActionInfoAttr* attr = dynamic_cast<ActionInfoAttr*>(specifier);
   if (attr != NULL) {
     // The ActionInfoAttr object knows best which method has to be called.
     // So let the object do the job.
@@ -341,7 +341,7 @@ AnimationFunction* ActionInfo::createFunction(const RCString& function, Real sta
   else if (function == "sqrt")
     return new AFSqrt(start, end, step);
   else {
-    ostrstream os;
+    std::stringstream os;
     os << "[ActionInfo::createFunction] function '" << function << "' not implemented. Using id";
     Report::recoverable(os);
     return new AFId(start, end, step);

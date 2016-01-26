@@ -149,7 +149,7 @@ int Transform3D::setSpecifier(RCString& errMsg, Makeable* specifier)
 {
   // First check if specifier is of type Transform3D (nestet or named 
   // transformations)
-  Transform3D* anotherTrans = dynamic_cast(Transform3D, specifier);
+  Transform3D* anotherTrans = dynamic_cast<Transform3D*>(specifier);
   if (anotherTrans != NULL)
     addTransMatrix(*(anotherTrans->myTrans));
   else {

@@ -31,7 +31,7 @@
 
 //_____________________________________________________________________ AdaptiveTraceCommand
 
-//implementRTTI(AdaptiveTraceCommand, wxCommand);
+implementRTTI(AdaptiveTraceCommand, wxCommand);
 
 AdaptiveTraceCommand::AdaptiveTraceCommand (wxView3D *v) : wxViewCommand(v)
 {

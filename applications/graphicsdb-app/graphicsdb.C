@@ -19,7 +19,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <iostream.h>
+#include <iostream>
 #include <string.h>  // strcmp()
 #include <stdlib.h>  // atoi()
 
@@ -101,10 +101,10 @@ int main(int argc, char* argv[]) {
 //  t2.begin();
 //  GDBData* bla2 = new GDBData(aDB, "bla2");
 //  bla->setName("bla t2");
-//  cout << bla->getName() << endl;
+//  cout << bla->getName() << std::endl;
 //  bla->markChanged();
 //  t2.abort();
-//  cout << bla->getName() << endl;
+//  cout << bla->getName() << std::endl;
 //  t1.commit();
 
 //  Transaction t3;
@@ -219,7 +219,7 @@ int main(int argc, char* argv[]) {
     PRef<GraphicsDataBase> gdb(aDB.lookupObject("GraphicsBase"));
     
     GDBOperation* op = gdb->getOperation("Exporter");
-    GDBExport *exporter = dynamic_cast(GDBExport, op);
+    GDBExport *exporter = dynamic_cast<GDBExport*>(op);
     if (exporter == NULL) {
        Report::error("[main] GDBOperation 'Exporter' not found");
        exit(1);
@@ -251,9 +251,9 @@ int main(int argc, char* argv[]) {
     }    
 
     for (int i=0; i<gdbObject3D->getExtent().count(); i++) {
-      ostrstream os;
+      std::stringstream os;
       os << gdbObject3D->getExtent().getKey(i) << " "
-         << gdbObject3D->getExtent().getData(i).getPOId() << endl;
+         << gdbObject3D->getExtent().getData(i).getPOId() << std::endl;
       POId poid(gdbObject3D->getExtent().getData(i).getPOId());
       Report::hint(os);
       op->execute(poid, POID_NULL);
@@ -322,10 +322,10 @@ int main(int argc, char* argv[]) {
     t.begin();
     PRef<GraphicsDataBase> gdb(aDB.lookupObject("GraphicsBase"));
     GDBRepType* gdbBsdl3 = gdb->getRepType("BSDL3");
-    ostrstream os;
+    std::stringstream os;
     for (int i=0; i<gdbBsdl3->getExtent().count(); i++) {
       os << gdbBsdl3->getExtent().getKey(i) << " "
-         << gdbBsdl3->getExtent().getData(i).getPOId() << endl;
+         << gdbBsdl3->getExtent().getData(i).getPOId() << std::endl;
     }
     t.commit();
     Report::hint(os);
@@ -422,16 +422,16 @@ void parseCmdLine(int argc, char* argv[], char& mode, unsigned long& oid, RCStri
 
 void usage(const RCString& name)
 {
-    cerr << "Usage: " << name << " [-g oid] [file]]\n";
-    cerr << "Without option: " << endl;
-    cerr << "  Writes file <file> to database. " << endl;
-    cerr << "Options: " << endl;
-    cerr << "  -g (get) option the object <oid> is retrieved from the data base " << endl;
-    cerr << "     and stored in the file <file>. " << endl;
-    cerr << "  -c compute the contour of object in image <oid> " << endl;
-    cerr << "  -i compute an icon for the object <oid> " << endl;
-    cerr << "  -r raytrace the scene <oid> and store the image in the database " << endl;
-    cerr << "  -w wireframe render the scene <oid>, store image in database " << endl;
-    cerr << "  -I initialize data base (only to be used once!)" << endl;
+    std::cerr << "Usage: " << name << " [-g oid] [file]]\n";
+    std::cerr << "Without option: " << std::endl;
+    std::cerr << "  Writes file <file> to database. " << std::endl;
+    std::cerr << "Options: " << std::endl;
+    std::cerr << "  -g (get) option the object <oid> is retrieved from the data base " << std::endl;
+    std::cerr << "     and stored in the file <file>. " << std::endl;
+    std::cerr << "  -c compute the contour of object in image <oid> " << std::endl;
+    std::cerr << "  -i compute an icon for the object <oid> " << std::endl;
+    std::cerr << "  -r raytrace the scene <oid> and store the image in the database " << std::endl;
+    std::cerr << "  -w wireframe render the scene <oid>, store image in database " << std::endl;
+    std::cerr << "  -I initialize data base (only to be used once!)" << std::endl;
 }
 

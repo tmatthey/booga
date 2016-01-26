@@ -19,13 +19,21 @@
  *  $Id: ShaderLex.l,v 1.4 1996/06/06 11:49:46 streit Exp $
  * -----------------------------------------------------------------------------
  */
-
 %name ShaderLex
 
 %header{
 #include "ShaderYacc.h"
 #include "booga/texture/ShaderNode.h"
 %}
+
+%define DEBUG 0
+%define DEBUG_FLAG myScannerDebugFlag
+%define DEBUG_INIT 0
+
+%define CONSTRUCTOR_PARAM void
+%define CONSTRUCTOR_INIT : myLineNo(1)
+%define CONSTRUCTOR_CODE 
+
 
 %define MEMBERS                                                  \
   public:                                                        \
@@ -37,7 +45,6 @@
 
 %define LEX scan
 %define LEX_PARAM YY_ShaderYacc_STYPE& yylval
-%define CONSTRUCTOR_INIT : myLineNo(1)
 
 LETTER			[a-zA-Z_]
 DIGIT			[0-9]

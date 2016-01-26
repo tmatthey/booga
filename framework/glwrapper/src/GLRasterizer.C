@@ -103,22 +103,22 @@ void GLRasterizer::setRenderingQuality(RenderingQuality quality)
 
 Real GLRasterizer::getMaxTimeInBackbuffer() const
 {
-  return dynamic_cast(GLAbstractTraversal2D, getTraversal())->getMaxTimeInBackbuffer();
+  return dynamic_cast<GLAbstractTraversal2D*>(getTraversal())->getMaxTimeInBackbuffer();
 }
 
 void GLRasterizer::setMaxTimeInBackbuffer(Real maxTimeInBackbuffer)
 {
-  dynamic_cast(GLAbstractTraversal2D, getTraversal())->setMaxTimeInBackbuffer(maxTimeInBackbuffer);
+  dynamic_cast<GLAbstractTraversal2D*>(getTraversal())->setMaxTimeInBackbuffer(maxTimeInBackbuffer);
 }
 
 int GLRasterizer::getFrameRate() const
 {
-  return dynamic_cast(GLAbstractTraversal2D, getTraversal())->getFrameRate();
+  return dynamic_cast<GLAbstractTraversal2D*>(getTraversal())->getFrameRate();
 }
 
 void GLRasterizer::setFrameRate(int frameRate)
 {
-  dynamic_cast(GLAbstractTraversal2D, getTraversal())->setFrameRate(frameRate);
+  dynamic_cast<GLAbstractTraversal2D*>(getTraversal())->setFrameRate(frameRate);
 }
 
 bool GLRasterizer::preprocessing()

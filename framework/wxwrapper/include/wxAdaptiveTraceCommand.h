@@ -44,7 +44,7 @@ class wxAdaptiveTraceTimer : public wxTimer
 //_____________________________________________________________________ wxAdaptiveTraceCommand
 
 class wxAdaptiveTraceCommand : public wxViewCommand {
-//declareRTTI(wxAdaptiveTraceCommand);
+declareRTTI(wxAdaptiveTraceCommand);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

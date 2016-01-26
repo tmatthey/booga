@@ -23,7 +23,7 @@
  */
 
 #include <stdio.h>
-#include <strstream.h>
+#include <sstream>
 
 #ifdef HAVE_OPENGL
 #include <GL/gl.h>
@@ -90,32 +90,32 @@ void GLRenderer::setRenderingQuality(RenderingQuality quality)
 
 Real GLRenderer::getMaxTimeInBackbuffer() const
 {
-  return dynamic_cast(GLAbstractTraversal3D, getTraversal())->getMaxTimeInBackbuffer();
+  return dynamic_cast<GLAbstractTraversal3D*>(getTraversal())->getMaxTimeInBackbuffer();
 }
 
 void GLRenderer::setMaxTimeInBackbuffer(Real maxTimeInBackbuffer)
 {
-  dynamic_cast(GLAbstractTraversal3D, getTraversal())->setMaxTimeInBackbuffer(maxTimeInBackbuffer);
+  dynamic_cast<GLAbstractTraversal3D*>(getTraversal())->setMaxTimeInBackbuffer(maxTimeInBackbuffer);
 }
 
 bool GLRenderer::doCheckPendingEvents() const
 {
-  return dynamic_cast(GLAbstractTraversal3D, getTraversal())->doCheckPendingEvents();
+  return dynamic_cast<GLAbstractTraversal3D*>(getTraversal())->doCheckPendingEvents();
 }
 
 void GLRenderer::setCheckPendingEvents(bool check)
 {
-  dynamic_cast(GLAbstractTraversal3D, getTraversal())->setCheckPendingEvents(check);
+  dynamic_cast<GLAbstractTraversal3D*>(getTraversal())->setCheckPendingEvents(check);
 }
 
 int GLRenderer::getFrameRate() const
 {
-  return dynamic_cast(GLAbstractTraversal3D, getTraversal())->getFrameRate();
+  return dynamic_cast<GLAbstractTraversal3D*>(getTraversal())->getFrameRate();
 }
 
 void GLRenderer::setFrameRate(int frameRate)
 {
-  dynamic_cast(GLAbstractTraversal3D, getTraversal())->setFrameRate(frameRate);
+  dynamic_cast<GLAbstractTraversal3D*>(getTraversal())->setFrameRate(frameRate);
 }
 
 void GLRenderer::displayStatistics() const
@@ -152,7 +152,7 @@ void GLRenderer::displayStatistics() const
   glRasterPos2f(0, 3);
 #endif // HAVE_OPENGL
   
-  ostrstream os;
+  std::stringstream os;
   os << myTriangleCount << " triangles";
   GLUtilities::drawText(os);
 
@@ -183,7 +183,7 @@ void GLRenderer::installLightSources()
     GLfloat diffuse[4];
   
     for (register long i=0; i<directedLights->count(); i++) {
-      pointLight = dynamic_cast(PointLight, directedLights->item(i));
+      pointLight = dynamic_cast<PointLight*>(directedLights->item(i));
 
       if (pointLight != NULL && pointLight->isOn()) {
         pos = pointLight->getTransform().transformAsPoint(pointLight->getPosition());
@@ -427,12 +427,12 @@ Traversal::Result GLRenderer::visit(TriangleList3D* list)
   }
   else {
     
-    GLDisplayListOption *o = dynamic_cast(GLDisplayListOption,(Option*)list->getUserData());
+    GLDisplayListOption *o = dynamic_cast<GLDisplayListOption*>((Option*)list->getUserData());
     if (o) {
       o->callList();
     } else {
       GLuint l = glGenLists(1);
-      //ostrstream os;
+      //std::stringstream os;
       //os << "creating new display list #: " << l << "\n";
       //wReport::hint(os);
       //	    GLuint *l1 = (GLuint *) &myGLList;
@@ -832,7 +832,7 @@ Traversal::Result GLRenderer::visit(LevelOfDetail3D* lod)
 
 // get center of boundingbox and convert it to world coordinates:
   Vector3D c = lod->getBounds().getMin() + .5*(lod->getBounds().getMax() - lod->getBounds().getMin());
-  ostrstream os;
+  std::stringstream os;
 
   // we multiply the center of the boundingbox with the current
   // MODEL_VIEW matrix of the OpenGL matrix stack.

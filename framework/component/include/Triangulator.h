@@ -24,7 +24,7 @@
 #ifndef _Triangulator_H
 #define _Triangulator_H
 
-#include <iostream.h>
+#include <iostream>
 #include "booga/component/Operation3D.h"
 
 class Triangle3D;
@@ -39,7 +39,7 @@ declareRTTI(Triangulator);
 // Constructors, destructors, assignment
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 public:
-  Triangulator(ostream& os = cout);
+  Triangulator(std::ostream& os = std::cout);
 private:
   Triangulator(const Triangulator&);	    // No copies.
 
@@ -65,7 +65,7 @@ public:
 // My data members
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 private:
-  ostream& myStream;
+  std::ostream& myStream;
 };
 
 #endif // _Triangulator_H

@@ -91,10 +91,10 @@ void parseCmdLine(int argc, char* argv[], float& gamma, RCString& in, RCString& 
 
 void usage(const RCString& name)
 {
-    cerr << "Usage: " << name << " [-h] gamma [in-file [out-file]]\n";
-    cerr << " where:\n";
-    cerr << "  -h       : print this message\n";
-    cerr << "  gamma    : float value > 0\n";
-    cerr << "  in-file  : (optional) filename of input\n";
-    cerr << "  out-file : (optional) filename of output\n";
+    std::cerr << "Usage: " << name << " [-h] gamma [in-file [out-file]]\n";
+    std::cerr << " where:\n";
+    std::cerr << "  -h       : print this message\n";
+    std::cerr << "  gamma    : float value > 0\n";
+    std::cerr << "  in-file  : (optional) filename of input\n";
+    std::cerr << "  out-file : (optional) filename of output\n";
 }

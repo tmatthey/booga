@@ -126,7 +126,7 @@ Object3D* FrontTriangle::doCreateSubject(Building* building)  const
 
     building->getIndirectFaceObjects(getFrontIndex(),getPolygonIndex(),facelist);
     for(i=0;i<countSubobject()-1;i++){
-      Face* face = dynamic_cast(Face,getObject(i));
+      Face* face = dynamic_cast<Face*>(getObject(i));
       if (face)
         facelist->append(face);
     }
@@ -209,7 +209,7 @@ List<Vector2D> FrontTriangle::getPointsBottom() const
 void FrontTriangle::addVertex(const Vector2D& vertex)
 {
   if (vertex.x() <= -EPSILON || vertex.x() >= 1+EPSILON || (vertex.y() <= 1-EPSILON && vertex.y() >= EPSILON)) {
-    ostrstream os;
+    std::stringstream os;
     os << "[FrontTriangle::addVertex] the ("
        << vertex << ") is out of bounds";
     Report::recoverable(os);
@@ -220,7 +220,7 @@ void FrontTriangle::addVertex(const Vector2D& vertex)
       vertex.equal(Vector2D(1,0)) || 
       vertex.equal(Vector2D(1,1)) || 
       vertex.equal(Vector2D(0,1))) {
-    ostrstream os;
+    std::stringstream os;
     os << "[FrontTriangle::addVertex] the vertex ("
        << vertex << ") is a corner of the front";
     Report::recoverable(os);
@@ -237,7 +237,7 @@ void FrontTriangle::addVertex(const Vector2D& vertex)
       break;
 
   if (i > 0 && vertex.equal(myVertices.item(i-1))){
-    ostrstream os;
+    std::stringstream os;
     os << "[FrontTriangle::addVertex] two consecutive vertices ("
        << vertex << ")";
     Report::recoverable(os);

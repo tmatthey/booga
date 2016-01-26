@@ -24,7 +24,7 @@
 #ifndef _wxDialogDirector_H
 #define _wxDialogDirector_H
 
-#include "booga/base/RTTI.h"
+//#include "booga/base/RTTI.h"
 
 #include "wx.h"
 

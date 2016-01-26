@@ -60,7 +60,7 @@ bool Grow3D::doFrame(Real frame)
 
     }
     else {
-      ostrstream os;
+      std::stringstream os;
       os << "[Grow3D::doTicks] action ("
          <<  item->getStartFrame() << ","
          <<  item->getEndFrame() << ") not of type Grow3D. Skip";

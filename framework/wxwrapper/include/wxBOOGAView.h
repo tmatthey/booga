@@ -30,7 +30,7 @@
 //_____________________________________________________________________ wxBOOGAView
 
 class wxBOOGAView {
-  declareRTTI(wxBOOGAView);
+  //  declareRTTI(wxBOOGAView);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

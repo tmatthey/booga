@@ -35,7 +35,7 @@
 #include "booga/base/mathutilities.h"
 #include "booga/base/TransMatrix3D.h"
 
-class ostream;
+#include <ostream>
 
 //___________________________________________________________________ Quaternion
 
@@ -86,7 +86,7 @@ public: // ------------ Friends
   // To combine rotations, use the product qSecond * qFirst,
   // which gives the effect of rotating by qFirst then qSecond. 
 
-  friend ostream& operator<<(ostream& os, const Quaternion& q);
+  friend std::ostream& operator<<(std::ostream& os, const Quaternion& q);
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // My data members

@@ -25,7 +25,7 @@
 
 //_____________________________________________________________________ GSBwxButton
 
-//implementRTTI(GSBwxButton, wxButton);
+implementRTTI(GSBwxButton, wxButton);
 
 
 GSBwxButton::GSBwxButton(GSBwxDialogDirector* director, wxPanel* parent, char* label, 

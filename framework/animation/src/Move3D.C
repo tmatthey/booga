@@ -20,7 +20,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <strstream.h>
+#include <sstream>
 #include "booga/base/mathutilities.h"
 #include "booga/base/Report.h"
 #include "booga/base/Value.h"
@@ -51,7 +51,7 @@ bool Move3D::doFrame(Real frame)
 
     }
     else {
-      ostrstream os;
+      std::stringstream os;
       os << "[Move3D::doTicks] action ("
          <<  item->getStartFrame() << ","
          <<  item->getEndFrame() << ") not of type Move3D. Skip";

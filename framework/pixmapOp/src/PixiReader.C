@@ -32,7 +32,15 @@ PixiReader::PixiReader(Exemplar anExemplar)
 : ImageReader(anExemplar) 
 {}
 
-AbstractPixmap* PixiReader::read(ifstream& ifs)
+AbstractPixmap* PixiReader::read(const AbstractFile& ifs){
+  FileSTDIn fs(ifs);
+  if (fs.bad()) {
+    Report::warning("PixiReader:can't open file\n");
+    return false;
+  }
+  return read(fs);
+}
+AbstractPixmap* PixiReader::read(std::istream& ifs)
 {
   AbstractPixmap* pm = MPixmapExemplar::createPixmap(1, 1);
 

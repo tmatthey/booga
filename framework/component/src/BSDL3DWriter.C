@@ -23,7 +23,7 @@
 //_____________________________________________________________________ BSDL3DWriter
 
 
-#include <strstream.h>  // STDOUT_FILENO
+#include <sstream>  // STDOUT_FILENO
 
 #include "booga/component/BSDL3DWriter.h"
 

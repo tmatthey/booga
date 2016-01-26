@@ -75,7 +75,7 @@ Face::Face(const Face& face)
 int Face::setSpecifier(RCString& errMsg, Makeable* specifier)
 {
   // Check for Face attributes
-  FaceAttr* attr = dynamic_cast(FaceAttr, specifier);
+  FaceAttr* attr = dynamic_cast<FaceAttr*>(specifier);
   if (attr != NULL) {
     // The Face object knows best which method has to be called.
     // So let the object do the job.
@@ -96,7 +96,7 @@ Object3D* Face::createSubject(Building* building) const
   
   // test if the index is allowed
   if (!building->testIndex(getFrontIndex(),getPolygonIndex())){
-    ostrstream os;
+    std::stringstream os;
     os << "[Face::createSubject] face of front ("
        <<  getFrontIndex() << ","
        <<  getPolygonIndex() << ") is out of bounds";
@@ -108,7 +108,7 @@ Object3D* Face::createSubject(Building* building) const
     return new NullObject3D();
 
   // add the translation in z-direction
-  List<Vector3D> vertices = building->getPolygon(getPolygonIndex());
+  /*List<Vector3D> vertices =*/ building->getPolygon(getPolygonIndex());
   Face* This = (Face*)this;
   This->setTransform(TransMatrix3D::makeTranslate(0,0,-getDepth()));
   return doCreateSubject(building);

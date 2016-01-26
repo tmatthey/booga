@@ -20,7 +20,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <strstream.h>
+#include <sstream>
 
 #include "booga/base/Value.h"
 #include "booga/base/Geometry3D.h"
@@ -83,7 +83,7 @@ void PolygonExtrude::addVertex(const Vector3D& vertex)
   //
   if (count > 0) {
     if (myVertices.item(count-1) == vertex) {
-      ostrstream os;
+      std::stringstream os;
       os << "[PolygonExtrude::addVertex] two consecutive vertices ("
          << vertex << ") must not have the same value";
       Report::recoverable(os);
@@ -248,7 +248,7 @@ Makeable* PolygonExtrude::make(RCString& errMsg, const List<Value*>* parameters)
 int PolygonExtrude::setSpecifier(RCString& errMsg, Makeable* specifier)
 {
   // Check for PolygonExtrude attributes
-  PolygonExtrudeAttr* attr = dynamic_cast(PolygonExtrudeAttr, specifier);
+  PolygonExtrudeAttr* attr = dynamic_cast<PolygonExtrudeAttr*>(specifier);
   if (attr != NULL) {
     // The PolygonExtrude object knows best which method has to be called.
     // So let the object do the job.
@@ -270,7 +270,7 @@ void PolygonExtrude::addHole(const List<Vector3D>& hole)
   if (hole.count()>2)
     myHoles.append(hole);
   else {
-    ostrstream os;
+    std::stringstream os;
     os << "[PolygonExtrude::addHole] hole has less then 3 vertices ";
     Report::recoverable(os);
     return;

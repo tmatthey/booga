@@ -79,7 +79,7 @@ bool GLTraversal3D::doTraverse(Object3D* obj)
   }
 
   int retval;
-  Primitive3D* primitive = dynamic_cast(Primitive3D, obj);
+  Primitive3D* primitive = dynamic_cast<Primitive3D*>(obj);
 
   if (primitive != NULL && state != Traversal::CONTINUE) {
     Object3D* decomposition = primitive->createDecomposition();
@@ -153,7 +153,7 @@ void GLTraversal3D::afterVisitObject(Object3D* object)
   // -> not very clever, I know... but maybe we find a better
   // solution later on.
   
-  if (dynamic_cast(GLPolygonMapper, const_cast(Texture3D, object->getTexture()))) {
+  if (dynamic_cast<GLPolygonMapper*>(const_cast<Texture3D*>(object->getTexture()))) {
     glMatrixMode(GL_TEXTURE);
     glPopMatrix();
     glMatrixMode(GL_MODELVIEW);

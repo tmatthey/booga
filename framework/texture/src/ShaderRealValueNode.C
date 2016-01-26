@@ -20,7 +20,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <iostream.h>
+#include <iostream>
 #include "booga/texture/ShaderRealValueNode.h"
      
 ShaderRealValueNode::ShaderRealValueNode(Real theValue)
@@ -33,7 +33,7 @@ void ShaderRealValueNode::print(bool indent)
 {
   if (indent)
     printSpaces(2 * myBlockDepth);
-  cout << myValue;
+  std::cout << myValue;
 }
 
 void ShaderRealValueNode::execute(Texture3DContext&)

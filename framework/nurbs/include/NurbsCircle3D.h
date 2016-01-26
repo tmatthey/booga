@@ -28,7 +28,7 @@
 //________________________________________________________________ NurbsCircle3D
 
 class NurbsCircle3D : public Nurbs3D {
-  declareRTTI(NurbsCircle3D);
+    declareRTTI(NurbsCircle3D);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

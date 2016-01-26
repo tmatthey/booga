@@ -45,6 +45,7 @@ public:
 
 private:
   JPEGReader& operator=(const JPEGReader& );  // No assignments.
+  AbstractPixmap* read(FILE* fs);
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // New methods of class JPEGReader
@@ -54,7 +55,7 @@ private:
 // From class ImageReader  
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 private:
-  virtual AbstractPixmap* read(ifstream& ifs);
+  virtual AbstractPixmap* read(const AbstractFile& ifs);
 };
 
 declareInitExemplar(JPEGReader);

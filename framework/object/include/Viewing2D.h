@@ -24,7 +24,7 @@
 #ifndef _Viewing2D_H
 #define _Viewing2D_H
 
-#include <iostream.h>
+#include <iostream>
 
 #include "booga/base/Vector2D.h"
 #include "booga/base/TransMatrix2D.h"
@@ -75,7 +75,7 @@ public:
 
   void computeRayThrough(int x, int y, Ray2D& ray) const;
 
-  friend ostream& operator<<(ostream& os, const Viewing2D& view);
+  friend std::ostream& operator<<(std::ostream& os, const Viewing2D& view);
 
 private:
   void computeConversionFactor();

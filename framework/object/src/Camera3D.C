@@ -123,7 +123,7 @@ bool Camera3D::doIntersect(Ray3D&)
 int Camera3D::setSpecifier(RCString& errMsg, Makeable* specifier)
 {
   // Check for Camera3D attributes
-  Camera3DAttr* attr = dynamic_cast(Camera3DAttr, specifier);
+  Camera3DAttr* attr = dynamic_cast<Camera3DAttr*>(specifier);
   if (attr != NULL) {
     // The Camera3DAttr object knows best which method has to be called.
     // So let the object do the job.
@@ -134,7 +134,7 @@ int Camera3D::setSpecifier(RCString& errMsg, Makeable* specifier)
   }
 
   // Check for Viewing3D
-  Viewing3D* viewing = dynamic_cast(Viewing3D, specifier);
+  Viewing3D* viewing = dynamic_cast<Viewing3D*>(specifier);
   if (viewing != NULL) {
     if (myViewing != NULL)
       delete myViewing;

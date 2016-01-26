@@ -44,7 +44,7 @@ Texture2DList::~Texture2DList()
   
 int Texture2DList::setSpecifier(RCString& errMsg, Makeable* specifier)
 {
-  Texture2D* texture = dynamic_cast(Texture2D, specifier);
+  Texture2D* texture = dynamic_cast<Texture2D*>(specifier);
   if (texture != NULL) {
     appendTexture(texture);
     return 1;

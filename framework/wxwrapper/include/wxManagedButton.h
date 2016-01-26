@@ -30,7 +30,7 @@
 //_____________________________________________________________________ wxManagedButton
 
 class wxManagedButton : public wxButton {
-// declareRTTI(wxManagedButton);
+declareRTTI(wxManagedButton);
 // enable RTTI support
 friend void wxManagedButtonCallback(wxObject*, wxCommandEvent&);
 

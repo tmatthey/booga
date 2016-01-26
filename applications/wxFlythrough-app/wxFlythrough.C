@@ -20,7 +20,7 @@
  * -----------------------------------------------------------------------------
  */
  
-#include <stdiostream.h>
+#include <iostream>
 
 #include "booga/base/ReportConfigurationHandler.h"
 #include "booga/object/Camera3D.h"

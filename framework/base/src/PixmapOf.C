@@ -30,7 +30,7 @@
 
 #include <string.h>  // memcpy
 #include <math.h>
-#include <fstream.h>
+#include <fstream>
 
 #ifdef TEMPLATE_IN_HEADER
 # define INLINE inline
@@ -57,7 +57,7 @@ INLINE PixmapOf<TColor>::PixmapOf(const RCString& fileName)
 }
 
 template <class TColor>
-INLINE PixmapOf<TColor>::PixmapOf(ifstream& ifs)
+INLINE PixmapOf<TColor>::PixmapOf(std::ifstream& ifs)
 : AbstractPixmap(0,0)
 {
   myColors = NULL;

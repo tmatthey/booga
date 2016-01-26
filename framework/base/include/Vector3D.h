@@ -29,8 +29,8 @@
 #include "booga/base/mathutilities.h"
 #include "booga/base/Report.h"
 
-class ostream;
-class istream;
+#include <ostream>
+#include <istream>
 
 //_________________________________________________________________ Vector3D
 
@@ -83,8 +83,8 @@ public:
   friend Vector3D operator*(const Vector3D& vec, Real scale); 
   // scalar multiply
 
-  friend ostream& operator<<(ostream& os, const Vector3D& vec);
-  friend istream& operator>>(istream& is, Vector3D& vec);
+  friend std::ostream& operator<<(std::ostream& os, const Vector3D& vec);
+  friend std::istream& operator>>(std::istream& is, Vector3D& vec);
 
 private:
   Real myVec[3];

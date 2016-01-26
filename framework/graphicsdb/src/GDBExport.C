@@ -63,7 +63,7 @@ bool GDBExport::doExecute() {
   RCString formatName = mySource->getFormat()->getName();
   if ((formatName == "BSDL3") || (formatName == "BSDL2")) {
     myFilenames.insert(0, mySource->getNameIdFormat());
-    myFile.open(myFilenames.item(0).chars(),ios::out);
+    myFile.open(myFilenames.item(0).chars(),std::ios::out);
     myTraversal->traverse(mySource);
     myFile.close();
   }
@@ -76,7 +76,7 @@ bool GDBExport::doExecute() {
 GDBTraversal::Result GDBExport::announceVisit(GDBData *gdbData) {
   RCString formatName = gdbData->getFormat()->getName();
   if (formatName != RCString("BSDL3") && formatName != RCString("BSDL2")) {
-      ostrstream ss;
+      std::stringstream ss;
       ss << "[GDBExport::export] non BSDL object encountered " 
          << gdbData->getPOId() << " " << gdbData->getName() << " . Ignoring";
       Report::hint(ss);
@@ -89,7 +89,7 @@ GDBTraversal::Result GDBExport::visit(GDBData* gdbData) {
   RCString formatName = gdbData->getFormat()->getName();
   if (formatName == RCString("BSDL3") || formatName == RCString("BSDL2")) {
     myFile << gdbData->getData();
-    ostrstream ss;
+    std::stringstream ss;
     ss << "[GDBExport::export] exporting BSDL Object " 
        << gdbData->getPOId() << " " << gdbData->getName();
     Report::hint(ss);
@@ -97,13 +97,13 @@ GDBTraversal::Result GDBExport::visit(GDBData* gdbData) {
   } 
   else {
     myFilenames.append(gdbData->getNameIdFormat());
-    fstream file;
+    std::fstream file;
     if (gdbData->getBinaryData() != NULL && gdbData->getBinaryData()->getBuffer() != NULL) {
-      file.open(myFilenames.item(myFilenames.count()-1).chars(),ios::out);
+      file.open(myFilenames.item(myFilenames.count()-1).chars(),std::ios::out);
       file.write(gdbData->getBinaryData()->getBuffer(),
                  gdbData->getBinaryData()->getSize());
       file.close();
-      ostrstream ss;
+      std::stringstream ss;
       ss << "[GDBExport::export] exporting object " 
          << gdbData->getPOId() << " " << gdbData->getName();
       Report::hint(ss);

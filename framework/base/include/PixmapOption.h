@@ -31,7 +31,7 @@ class AbstractPixmap;
 //_________________________________________________________________ PixmapOption
 
 class PixmapOption : public Option {
-declareRTTI(PixmapOption);
+  declareRTTI(PixmapOption);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

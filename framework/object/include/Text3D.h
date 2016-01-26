@@ -31,7 +31,7 @@
 //_______________________________________________________________________ Text3D
 
 class Text3D : public Primitive3D {
-declareRTTI(Text3D);
+  declareRTTI(Text3D);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

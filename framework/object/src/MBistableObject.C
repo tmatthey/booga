@@ -181,7 +181,7 @@ template <class TInteractionObject, class TBistableObject, class TObject, class 
 INLINE int MBistableObject<TInteractionObject, TBistableObject, TObject, TObjectAttr, TShared, TWorld, TPath>
 ::setSpecifier(RCString& errMsg, Makeable* specifier)
 {
-  TObjectAttr* attr = dynamic_cast(TObjectAttr, specifier);
+  TObjectAttr* attr = dynamic_cast<TObjectAttr*>(specifier);
   if (attr != NULL) {
     // The Object3DAttr object knows best which method has to be called.
     // So let the object do the job.

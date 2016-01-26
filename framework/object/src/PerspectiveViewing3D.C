@@ -21,7 +21,7 @@
  * -----------------------------------------------------------------------------
  */
  
-#include <strstream.h>  // ostrstream
+#include <sstream>  // std::stringstream
 
 #include "booga/object/PerspectiveViewing3D.h"
 #include "booga/object/DummyMakeable.h"
@@ -86,7 +86,7 @@ void PerspectiveViewing3D::computeRayThrough(int x, int y, Ray3D& ray) const
 
   if (x < 0 || x >= myResolutionX  || 
       y < 0 || y >= myResolutionY) {
-    ostrstream os;
+    std::stringstream os;
     os << "[PerspectiveViewing3D::computeRayThrough] illegal screen coordinates (" 
        << x << " " << y << ") ignored."
        << " Range is x: [0, " << myResolutionX 

@@ -6,11 +6,11 @@
  *
  * All rights reserved.
  *
- * This software may be freely copied, modified and redistributed
- * provided that this copyright note be preserved on all copies.
- * 
- * You may not distribute this software, in whole or in part, as part
- * of any commercial product without the express consent of the author.
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
  *
  * There is no warranty or other guarantee of fitness of this software
  * for any purpose. It is provided solely "as is".
@@ -25,7 +25,7 @@
 
 %header{
 
-#include <iostream.h>
+#include <iostream>
 
 #include "booga/base/List.h"
 #include "booga/base/SymTable.h"
@@ -70,18 +70,22 @@
 	}
 
 %define DEBUG 1
-%define DEBUG_FLAG myDebugFlag
+%define DEBUG_FLAG myParserDebugFlag
+%define ERROR_VERBOSE
 
-%define PARSE parse
+%define ERROR_BODY =0
+%define ERROR fatalError
+%define NERRS myErrorCount
 
 %define LEX_BODY =0
 %define LEX scan
-%define ERROR_VERBOSE
-%define ERROR_BODY =0
-%define ERROR fatalError
 %define LVAL myTokenValue
-%define NERRS myErrorCount
-%define CONSTRUCTOR_CODE {myDebugFlag = 0;}
+
+%define PARSE parse
+%define PARSE_PARAM
+%define CONSTRUCTOR_PARAM 
+%define CONSTRUCTOR_INIT : myParserDebugFlag(0)
+%define CONSTRUCTOR_CODE
 
 %define MEMBERS                                \
 public:                                        \

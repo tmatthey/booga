@@ -20,7 +20,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <strstream.h>
+#include <sstream>
 #include "booga/base/mathutilities.h"
 #include "booga/base/Report.h"
 #include "booga/base/Value.h"
@@ -115,13 +115,13 @@ Object3D* Morph3D::doInterpolate(Real ticks, Object3D* from, Object3D* to)
 
   if (to == NULL || from == NULL){
     if(from != NULL){
-      obj = dynamic_cast (Object3D,from->make(err, fromList));
+      obj = dynamic_cast<Object3D*>(from->make(err, fromList));
       if(from->getTexture() != NULL)
 	obj->appendTexture(from->getTexture()->copy());
       obj->setTransform(from->getTransform());
     }
     else if(to != NULL){
-      obj = dynamic_cast (Object3D,to->make(err, toList));
+      obj = dynamic_cast<Object3D*>(to->make(err, toList));
       if(to->getTexture() != NULL)
 	obj->appendTexture(to->getTexture()->copy());
       obj->setTransform(to->getTransform());
@@ -133,13 +133,13 @@ Object3D* Morph3D::doInterpolate(Real ticks, Object3D* from, Object3D* to)
   // The interpolation
   else{
     if(equal(ticks,0)){
-      obj = dynamic_cast (Object3D,from->make(err, fromList));
+      obj = dynamic_cast<Object3D*>(from->make(err, fromList));
       if(from->getTexture() != NULL)
 	obj->appendTexture(from->getTexture()->copy());
       obj->setTransform(from->getTransform());
     }
     else if(equal(ticks,1)){
-      obj = dynamic_cast (Object3D,to->make(err, toList));
+      obj = dynamic_cast<Object3D*>(to->make(err, toList));
       if(to->getTexture() != NULL)
 	obj->appendTexture(to->getTexture()->copy());
       obj->setTransform(to->getTransform());
@@ -149,12 +149,12 @@ Object3D* Morph3D::doInterpolate(Real ticks, Object3D* from, Object3D* to)
 
       if(toList->count() != fromList->count()){
 	if(ticks < 0.5){
-	  obj = dynamic_cast (Object3D,from->make(err, fromList));
+	  obj = dynamic_cast<Object3D*>(from->make(err, fromList));
 	  if(from->getTexture() != NULL)
 	    obj->appendTexture(from->getTexture()->copy());
 	}
 	else{
-	  obj = dynamic_cast (Object3D,to->make(err, toList));
+	  obj = dynamic_cast<Object3D*>(to->make(err, toList));
 	  if(to->getTexture() != NULL)
 	    obj->appendTexture(to->getTexture()->copy());
 	}
@@ -196,9 +196,9 @@ Object3D* Morph3D::doInterpolate(Real ticks, Object3D* from, Object3D* to)
 
 	// Make an object with the interpolated parameters
 	if (ticks < 0.5)
-	  obj = dynamic_cast (Object3D,from->make(err, valueList));
+	  obj = dynamic_cast<Object3D*>(from->make(err, valueList));
 	else
-	  obj = dynamic_cast (Object3D,to->make(err, valueList));
+	  obj = dynamic_cast<Object3D*>(to->make(err, valueList));
 
 	if(obj == NULL)
 	  obj = new NullObject3D();
@@ -238,9 +238,9 @@ Object3D* Morph3D::doInterpolate(Real ticks, Object3D* from, Object3D* to)
 	  if(fromTexture != NULL && toTexture != NULL){
 	    if(fromTexture->getKeyword() == toTexture->getKeyword()){
 	      // Matte
-	      if((fromMatte = dynamic_cast(Matte,fromTexture)) != NULL){
-		toMatte = dynamic_cast(Matte,toTexture);
-		Matte* newMatte = dynamic_cast(Matte,toMatte->make(err, tmpList));
+	      if((fromMatte = dynamic_cast<Matte*>(fromTexture)) != NULL){
+		toMatte = dynamic_cast<Matte*>(toTexture);
+		Matte* newMatte = dynamic_cast<Matte*>(toMatte->make(err, tmpList));
 		v = ticksInv*(Vector3D)(fromMatte->getAmbient())+ticks*(Vector3D)(toMatte->getAmbient());
 		newMatte->setAmbient(v);
 		v = ticksInv*(Vector3D)(fromMatte->getDiffuse())+ticks*(Vector3D)(toMatte->getDiffuse());
@@ -248,9 +248,9 @@ Object3D* Morph3D::doInterpolate(Real ticks, Object3D* from, Object3D* to)
 		newTexture = newMatte;
 	      }
 	      // Phong
-	      else if((fromPhong = dynamic_cast(Phong,fromTexture)) != NULL){
-		toPhong = dynamic_cast(Phong,toTexture);
-		Phong* newPhong = dynamic_cast(Phong,toPhong->make(err, tmpList));
+	      else if((fromPhong = dynamic_cast<Phong*>(fromTexture)) != NULL){
+		toPhong = dynamic_cast<Phong*>(toTexture);
+		Phong* newPhong = dynamic_cast<Phong*>(toPhong->make(err, tmpList));
 		v = ticksInv*(Vector3D)(fromPhong->getAmbient())+ticks*(Vector3D)(toPhong->getAmbient());
 		newPhong->setAmbient(v);
 		v = ticksInv*(Vector3D)(fromPhong->getDiffuse())+ticks*(Vector3D)(toPhong->getDiffuse());
@@ -261,9 +261,9 @@ Object3D* Morph3D::doInterpolate(Real ticks, Object3D* from, Object3D* to)
 		newTexture = newPhong;
 	      }
 	      // Whitted
-	      else if((fromWhitted = dynamic_cast(Whitted,fromTexture)) != NULL){
-		toWhitted = dynamic_cast(Whitted,toTexture);
-		Whitted* newWhitted = dynamic_cast(Whitted,toWhitted->make(err, tmpList));
+	      else if((fromWhitted = dynamic_cast<Whitted*>(fromTexture)) != NULL){
+		toWhitted = dynamic_cast<Whitted*>(toTexture);
+		Whitted* newWhitted = dynamic_cast<Whitted*>(toWhitted->make(err, tmpList));
 		v = ticksInv*(Vector3D)(fromWhitted->getAmbient())+ticks*(Vector3D)(toWhitted->getAmbient());
 		newWhitted->setAmbient(v);
 		v = ticksInv*(Vector3D)(fromWhitted->getDiffuse())+ticks*(Vector3D)(toWhitted->getDiffuse());
@@ -312,7 +312,7 @@ bool Morph3D::doFrame(Real frame)
       ticks += item->computeTicks(frame)*item->getAlpha();
     }
     else {
-      ostrstream os;
+      std::stringstream os;
       os << "[Morph3D::doFrame] action ("
          <<  item->getStartFrame() << ","
          <<  item->getEndFrame() << ") not of type Morph3D. Skip";
@@ -334,14 +334,14 @@ bool Morph3D::doFrame(Real frame)
 
   Object3D* obj;
 
-  if (dynamic_cast(Primitive3D,myFrom) != NULL){
+  if (dynamic_cast<Primitive3D*>(myFrom) != NULL){
     obj = doInterpolate(ticks, myFrom, myTo);
   }
   else {
 
-    Aggregate3D* agg = dynamic_cast(Aggregate3D,doInterpolate(ticks, myFrom, myTo));
-    Aggregate3D* from = dynamic_cast(Aggregate3D,myFrom);
-    Aggregate3D* to = dynamic_cast(Aggregate3D,myTo);
+    Aggregate3D* agg = dynamic_cast<Aggregate3D*>(doInterpolate(ticks, myFrom, myTo));
+    Aggregate3D* from = dynamic_cast<Aggregate3D*>(myFrom);
+    Aggregate3D* to = dynamic_cast<Aggregate3D*>(myTo);
       
     for(int i=0;(i < from->countSubobject() || i < to->countSubobject());i++){
       if(i >= from->countSubobject())
@@ -403,7 +403,7 @@ int Morph3D::setSpecifier(RCString& errMsg, Makeable* specifier)
   //
   // Take two Primitive3D of the same class or an aggregate.
   //
-  Aggregate3D* agg = dynamic_cast(Aggregate3D, specifier);
+  Aggregate3D* agg = dynamic_cast<Aggregate3D*>(specifier);
   if (agg != NULL) {
     if (myFrom == NULL){
       myFrom = agg;
@@ -414,7 +414,7 @@ int Morph3D::setSpecifier(RCString& errMsg, Makeable* specifier)
       return 1;
     }
   }
-  Primitive3D* object = dynamic_cast(Primitive3D, specifier);
+  Primitive3D* object = dynamic_cast<Primitive3D*>(specifier);
   if (object != NULL) {
     if (myFrom == NULL){
       myFrom = object;

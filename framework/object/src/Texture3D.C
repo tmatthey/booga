@@ -39,7 +39,7 @@ Makeable* Texture3D::make(RCString& errMsg, const List<Value*>* parameters) cons
 
 int Texture3D::setSpecifier(RCString& errMsg, Makeable* specifier)
 {
-  Transform3D* transform = dynamic_cast(Transform3D, specifier);
+  Transform3D* transform = dynamic_cast<Transform3D*>(specifier);
   if (transform != NULL) {
     addTransform(*transform);
     delete transform;

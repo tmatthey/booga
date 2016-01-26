@@ -19,6 +19,7 @@
  *  $Id: sirds.C,v 1.1 1996/08/16 13:10:57 streit Exp $
  * -----------------------------------------------------------------------------
  */
+#error
  
 #include <string.h>  // strcmp()
 #include <stdlib.h>  // atoi()

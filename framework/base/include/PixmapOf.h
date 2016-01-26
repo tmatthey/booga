@@ -34,7 +34,7 @@ class PixmapOf : public AbstractPixmap {
 public:
   PixmapOf(int resX = 512, int resY = 512);
   PixmapOf(const RCString& fileName);
-  PixmapOf(ifstream& ifs);
+  PixmapOf(std::ifstream& ifs);
   PixmapOf(const PixmapOf<TColor>& pm);
   ~PixmapOf();
   

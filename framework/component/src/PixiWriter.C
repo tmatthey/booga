@@ -33,7 +33,12 @@ PixiWriter::PixiWriter(const RCString& filename, Type traversalType)
 : Pixmap2DWriter(filename, traversalType) 
 {}
 
-bool PixiWriter::save(ofstream& ofs, const Pixmap2D* pixi) const 
+bool PixiWriter::save(const AbstractFile& ofs, const Pixmap2D* pixi) const 
 {
-  return pixi->getPixmap()->save(ofs);
-}
+  FileSTDOut fs(ofs);
+  if (fs.bad()) {
+    Report::warning("PixiWriter:can't open file\n");
+    return false;
+  }
+  return pixi->getPixmap()->save(fs);
+}  

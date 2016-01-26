@@ -62,7 +62,9 @@ public:
   int operator!=(const PRef<T>& aRef) const{ return (myPOId != aRef.myPOId);}
   int operator<(const PRef<T>& aRef) const { return (myPOId <  aRef.myPOId);}
   
+  //template <T>
   friend Marshal& operator<<(Marshal& m, const PRef<T>& ref);
+  //template <T>
   friend Marshal& operator>>(Marshal& m, PRef<T>& ref);
    
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

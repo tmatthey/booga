@@ -56,7 +56,7 @@ Checker::~Checker()
 
 int Checker::setSpecifier(RCString& errMsg, Makeable* specifier)
 {
-  CheckerAttr* attr = dynamic_cast(CheckerAttr, specifier);
+  CheckerAttr* attr = dynamic_cast<CheckerAttr*>(specifier);
   if (attr != NULL) {
     // The CheckerAttr object knows best which method has to be called.
     // So let the object do the job.

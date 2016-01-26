@@ -143,10 +143,10 @@ void GLUtilities::setupViewingMatrix(Viewing3D* viewing)
   const GLdouble zNear = 0.1;
   const GLdouble zFar  = MAXFLOAT; // Has to be MAXFLOAT!
 
-  if (dynamic_cast(PerspectiveViewing3D, viewing)) {
+  if (dynamic_cast<PerspectiveViewing3D*>(viewing)) {
     gluPerspective(rtod(vFov), (GLdouble) width/height, zNear, zFar);
   }
-  else if (dynamic_cast(OrthographicViewing3D, viewing)){
+  else if (dynamic_cast<OrthographicViewing3D*>(viewing)){
     GLdouble horiz = viewing->getScreenDeltaU().length() * width  / 2;
     GLdouble vert  = viewing->getScreenDeltaV().length() * height / 2;
     glOrtho(-horiz, horiz, -vert, vert, zNear, zFar);
@@ -250,7 +250,7 @@ void GLUtilities::drawCone(Real radiusStart, Real radiusEnd, Real height,
     r1 = 0.0;
   }
   else if (r1 < 0){
-    ostrstream os;
+    std::stringstream os;
     os << "[GLUtilities::drawCone] radiusStart is " << radiusStart;
     Report::warning(os); 
     return;
@@ -260,7 +260,7 @@ void GLUtilities::drawCone(Real radiusStart, Real radiusEnd, Real height,
     r2 = 0.0;
   }
   else if (r2 < 0){
-    ostrstream os;
+    std::stringstream os;
     os << "[GLUtilities::drawCone] radiusEnd is " << radiusEnd;
     Report::warning(os); 
     return;

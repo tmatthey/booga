@@ -20,7 +20,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <iostream.h>
+#include <iostream>
 #include "booga/texture/ShaderIfNode.h"
 
 ShaderIfNode::ShaderIfNode(ShaderExpNode* theExp, ShaderNode* theStmt)
@@ -40,9 +40,9 @@ void ShaderIfNode::print(bool indent)
 {
   if (indent)
   printSpaces(2 * myBlockDepth);
-  cout << "if (";
+  std::cout << "if (";
   myExp->print(false);
-  cout << ") " << endl;
+  std::cout << ") " << std::endl;
   myStmt->print();
 }
 

@@ -20,7 +20,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <strstream.h>
+#include <sstream>
 #include "booga/base/Value.h"
 #include "booga/object/BoundsUtilities.h"  // slapTest
 #include "booga/object/List3D.h"
@@ -163,9 +163,9 @@ Vector3D InterpolationCurve3D::evaluate(Real u) const
   // Shared3D->Aggregate3D->BezierCurve
   //
 
-  List3D *l = dynamic_cast(List3D,myDecomposition->getSubobject(0));
+  List3D *l = dynamic_cast<List3D*>(myDecomposition->getSubobject(0));
   if (l) {
-    BezierCurve3D *b = dynamic_cast (BezierCurve3D,l->getSubobject(i));
+    BezierCurve3D *b = dynamic_cast<BezierCurve3D*>(l->getSubobject(i));
     return b->evaluate(u2);
   } else
     return myVectors.item(0);

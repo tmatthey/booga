@@ -29,7 +29,7 @@
 //_____________________________________________________________________ GSBwxRadioBox
 
 class GSBwxRadioBox : public wxRadioBox {
-// declareRTTI(GSBwxRadioBox);
+declareRTTI(GSBwxRadioBox);
 // enable RTTI support
 friend void GSBwxRadioBoxCallback(wxObject*, wxCommandEvent&);
 

@@ -20,9 +20,9 @@
  * ---------------------------------------------------------------------
  */
 #ifdef WIN32
-#include <iostream.h>
+#include <iostream>
 #elif SVR4
-#include <stream.h>
+#include <iostream>
 #endif
 
 #include <ctype.h>      // isspace(char)
@@ -249,7 +249,7 @@ Vector4D operator*(const Vector4D& vec, Real scale)
 		vec.myVec[3]*scale);
 }
 
-ostream& operator<<(ostream& os, const Vector4D& vec)
+std::ostream& operator<<(std::ostream& os, const Vector4D& vec)
 {
   return os << "["
 	    << vec.x() << ", " << vec.y() << ", " << vec.z() << ", " << vec.w()
@@ -259,7 +259,7 @@ ostream& operator<<(ostream& os, const Vector4D& vec)
 /*
  * From GGems IV, Jean-Francois Doue.
  */
-istream& operator>>(istream& is, Vector4D& vec)
+std::istream& operator>>(std::istream& is, Vector4D& vec)
 {
   Vector4D tmp;
   char c;
@@ -276,7 +276,7 @@ istream& operator>>(istream& is, Vector4D& vec)
   while (is >> c && isspace(c)) ;
   
   if (c != ']')
-    is.clear(ios::badbit|is.rdstate());
+    is.clear(std::ios::badbit|is.rdstate());
 
   if (is)
     vec = tmp;

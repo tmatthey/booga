@@ -29,11 +29,11 @@
 
 typedef  int SirdsResolution;
 typedef  Real ColourIndex; 
-typedef  struct ColourListElement { 
-                SirdsResolution left;
-                SirdsResolution right;
-                ColourIndex  colourIndex;
-         };
+struct ColourListElement { 
+  SirdsResolution left;
+  SirdsResolution right;
+  ColourIndex  colourIndex;
+};
         
 typedef ColourListElement *ColourList;
 

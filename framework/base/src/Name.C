@@ -92,13 +92,13 @@ long Name::count()
   return ourNextIndex;
 }
 
-void Name::printNames(ostream& os)
+void Name::printNames(std::ostream& os)
 {
   for (register long i=0; i<ourGlobalNameSpace->count(); i++)
     os << "[" << i << "]\t\"" << ourGlobalNameSpace->item(i) << "\"\n";
 }
 
-ostream& operator<<(ostream& os, const Name& name)
+std::ostream& operator<<(std::ostream& os, const Name& name)
 {
   return os << (RCString) name;
 }

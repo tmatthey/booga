@@ -23,7 +23,7 @@
 @author Stephan Amann
 @login amann
 
-@include <strstream.h>
+@include <sstream>
 @include "booga/base/ValueOption.h"
 
 @configure Raytracer
@@ -34,7 +34,7 @@
 @desc Option Ray.Depth defines how deep the ray tree may be.
 #________________________________________ 
 @value @string
-@code istrstream iss(@string.chars());
+@code std::stringstream iss(@string.chars());
 @code Real depth;
 @code iss >> depth;
 @code return new ValueOption(depth);
@@ -44,7 +44,7 @@
 @desc Option Ray.Cutoff the minimum contribution of a ray.
 #________________________________________ 
 @value @string
-@code istrstream iss(@string.chars());
+@code std::stringstream iss(@string.chars());
 @code Real cutoff;
 @code iss >> cutoff;
 @code return new ValueOption(cutoff);

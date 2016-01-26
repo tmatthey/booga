@@ -105,7 +105,7 @@ private:
 //____________________________________________________________________ wxAdaptiveTracer
 
 class wxAdaptiveTracer : public Renderer {
-declareRTTI(wxAdaptiveTracer);
+  declareRTTI(wxAdaptiveTracer);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

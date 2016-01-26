@@ -27,16 +27,16 @@
 // or, in case of GNU compiler, files is included from header.
 
 
+#include "booga/persistence/PersistentManager.h"
+#include "booga/persistence/Marshal.h"
  
 #ifdef TEMPLATE_IN_HEADER
-# define INLINE
+# define INLINE inline
 #else
 # include "booga/persistence/PRef.h"
 # define INLINE
 #endif  // TEMPLATE_IN_HEADER
 
-#include "booga/persistence/PersistentManager.h"
-#include "booga/persistence/Marshal.h"
 //_____________________________________________________________________ PRef
 
 template <class T>
@@ -111,7 +111,7 @@ INLINE T* PRef<T>::getPtr() const {
      // get the object
      Persistent *obj = PersistentManager::getThePersistentManager()->load(myPOId);
      if (obj == NULL) return NULL;
-     T* memObj = dynamic_cast(T, obj);
+     T* memObj = dynamic_cast<T*>(obj);
      return memObj;
   }
   return NULL;

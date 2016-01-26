@@ -28,7 +28,7 @@
 
 //_____________________________________________________________________ wxWalkThroughCommand
 
-//implementRTTI(wxWalkThroughCommand, wxCommand);
+implementRTTI(wxWalkThroughCommand, wxCommand);
 
 wxWalkThroughCommand::wxWalkThroughCommand (wxView3D *v) : wxViewCommand(v)
 {

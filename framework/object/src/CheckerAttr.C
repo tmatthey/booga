@@ -41,7 +41,7 @@ CheckerAttrTexture::CheckerAttrTexture(Exemplar)
 
 int CheckerAttrTexture::setSpecifier(RCString& errMsg, Makeable* specifier)
 {
-  myTexture = dynamic_cast(Texture3D, specifier);
+  myTexture = dynamic_cast<Texture3D*>(specifier);
 
   if (myTexture != NULL)
     return 1;

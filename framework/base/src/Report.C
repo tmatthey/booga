@@ -24,21 +24,20 @@
  */
 
 #include <stdlib.h>
-#ifdef WIN32
 #include <stdarg.h> // form
-#include <strstream.h>
-#endif
+#include <sstream>
 
-#include <iostream.h>
+#include <iostream>
 
 #include "booga/base/RCString.h"
 #include "booga/base/Report.h"
 #include "booga/base/Configuration.h"
 #include "booga/base/StreamOption.h"
 
+
 //___________________________________________________________________ Report
 
-ostream* Report::ourErrorStream = NULL;
+std::ostream* Report::ourErrorStream = NULL;
 int Report::ourVerboseFlag = 1;
 int Report::ourDebugFlag   = 1;
 
@@ -48,7 +47,7 @@ void Report::debug(const RCString& msg)
     setErrorStream();
 
   if (ourDebugFlag)
-    *ourErrorStream << "Debug message: " << msg << ".\n" << flush;
+    *ourErrorStream << "Debug message: " << msg << ".\n" << std::flush;
 }
 
 void Report::hint(const RCString& msg)
@@ -57,7 +56,7 @@ void Report::hint(const RCString& msg)
     setErrorStream();
 
   if (ourVerboseFlag) 
-    *ourErrorStream << "Hint: " << msg << ".\n" << flush;
+    *ourErrorStream << "Hint: " << msg << ".\n" << std::flush;
 }
 
 void Report::warning(const RCString& msg)
@@ -66,7 +65,7 @@ void Report::warning(const RCString& msg)
     setErrorStream();
 
   if (ourDebugFlag)  
-    *ourErrorStream << "Warning: " << msg << ".\n" << flush;
+    *ourErrorStream << "Warning: " << msg << ".\n" << std::flush;
 }
 
 void Report::recoverable(const RCString& msg)
@@ -74,7 +73,7 @@ void Report::recoverable(const RCString& msg)
   if (ourErrorStream == NULL)
     setErrorStream();
 
-  *ourErrorStream << "Recoverable Error: " << msg << "!\n" << flush;
+  *ourErrorStream << "Recoverable Error: " << msg << "!\n" << std::flush;
 }
 
 void Report::error(const RCString& msg)
@@ -82,7 +81,7 @@ void Report::error(const RCString& msg)
   if (ourErrorStream == NULL)
     setErrorStream();
 
-  *ourErrorStream << "Fatal Error: " << msg << "!\n" << flush;
+  *ourErrorStream << "Fatal Error: " << msg << "!\n" << std::flush;
   exit(1);
 }
 
@@ -101,30 +100,8 @@ void Report::setErrorStream()
   getConfigurationOption(StreamOption, strOption, "Report.ErrorStream");
 
   if (strOption != NULL)
-    ourErrorStream = (ostream *)strOption->getStream();
+    ourErrorStream = (std::ostream *)strOption->getStream();
 
   if (ourErrorStream == NULL)
-    ourErrorStream = &cerr;
+    ourErrorStream = &(std::cerr);
 }
-
-#ifdef WIN32
-#include <string.h>
-static int pos = 0;
-char* form(const char* format...)
-{
-  static const int count = 4096;
-  static char buffer[count];
-  
-  va_list ap;
-  va_start(ap, format);
-  _vsnprintf(&buffer[pos], 4096-pos, format, ap);
-
-//  vsprintf (&buffer[pos], format, ap);
-  char *retval = &buffer[pos];
-  pos += strlen(&buffer[pos]) + 1;
-  if (pos > 4000)
-  pos = 0;
-  va_end(ap);
-  return retval;
-}
-#endif

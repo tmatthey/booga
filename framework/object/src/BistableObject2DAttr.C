@@ -21,7 +21,7 @@
  * -----------------------------------------------------------------------------
  */
  
-#include <strstream.h>
+#include <sstream>
 
 #include "booga/object/BistableObject2DAttr.h"
 
@@ -42,10 +42,10 @@ Makeable* BistableObject2DAttrOn::make(RCString& errMsg,
 
 void BistableObject2DAttrOn::setAttribute(Object2D* object) const
 {
-  BistableObject2D* bistable = dynamic_cast(BistableObject2D, object);
+  BistableObject2D* bistable = dynamic_cast<BistableObject2D*>(object);
   
   if (bistable == NULL) {
-    ostrstream os;
+    std::stringstream os;
     os << "[BistableObject2DAttrOn::setAttribute] "
        << "Method applied to inapropriate type "
        << typeid(object).name();
@@ -73,10 +73,10 @@ Makeable* BistableObject2DAttrOff::make(RCString& errMsg,
 
 void BistableObject2DAttrOff::setAttribute(Object2D* object) const
 {
-  BistableObject2D* bistable = dynamic_cast(BistableObject2D, object);
+  BistableObject2D* bistable = dynamic_cast<BistableObject2D*>(object);
   
   if (bistable == NULL) {
-    ostrstream os;
+    std::stringstream os;
     os << "[BistableObject2DAttrOff::setAttribute] "
        << "Method applied to inapropriate type "
        << typeid(object).name();

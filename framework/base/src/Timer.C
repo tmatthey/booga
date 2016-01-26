@@ -34,11 +34,9 @@
 #include <sys/time.h>
 #include <sys/resource.h>
 #endif
-#ifdef WIN32
-#include <iostream.h>
-#elif SVR4
-#include <stream.h>
-#endif
+
+#include <iostream>
+#include <iomanip>
 
 #include "booga/base/Timer.h"
 #include "booga/base/Report.h"
@@ -67,11 +65,11 @@ TimeRep TimeRep::operator-(const TimeRep& time) const
                  mySysTime  - time.mySysTime);
 }
 
-ostream& operator<<(ostream& os, const TimeRep& time)
+std::ostream& operator<<(std::ostream& os, const TimeRep& time)
 {
-  os << form("%.2f", time.myRealTime) << " real, "
-     << form("%.2f", time.myUserTime) << " user, " 
-     << form("%.2f", time.mySysTime)  << " sys"; 
+  os << std::setprecision(2) << time.myRealTime << " real, "
+     << std::setprecision(2) << time.myUserTime << " user, " 
+     << std::setprecision(2) << time.mySysTime  << " sys"; 
 
   return os;
 }

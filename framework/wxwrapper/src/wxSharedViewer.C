@@ -175,7 +175,7 @@ void wxSharedViewer::createNewWorld (Shared3D *obj)
   //  Shared3D *myCopy = (Shared3D *) obj->copy();
 //    myCopy->computeBounds();
 
-  ostrstream os;
+  std::stringstream os;
   os << "[wxSharedViewer::createNewWorld]: countSubobject() = " << obj->countSubobject();
   Report::warning(os);
     
@@ -185,11 +185,11 @@ void wxSharedViewer::createNewWorld (Shared3D *obj)
       myObjectList.adoptObject (a->getSubobject(i));
       newWorld->getObjects()->adoptObject(a->getSubobject(i));
     }
-    ostrstream os;
+    std::stringstream os;
     os << "[wxSharedViewer::createNewWorld]: a->countSubobject() = " << a->countSubobject();
     Report::warning(os);
   } else {
-    ostrstream os;
+    std::stringstream os;
     os << "[wxSharedViewer::createNewWorld]: only one subobject!";
     if (obj->countSubobject() == 1) {
       myObjectList.adoptObject (obj->getSubobject(0));

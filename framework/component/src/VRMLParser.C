@@ -23,9 +23,7 @@
  *  $Id: VRMLParser.C,v 1.3 1997/09/19 07:15:19 buhlmann Exp $
  * -----------------------------------------------------------------------------
  */
-#ifdef SVR4
-#include <stream.h>
-#endif
+#include <sstream>
 #include "booga/base/Report.h"
 #include "booga/component/VRMLParser.h"
 #include "VRMLLex.h"
@@ -111,11 +109,12 @@ RCString VRMLParserImpl::createErrorMsg(const RCString& errorMsg)
   if (myScanner.getCurrentFilename() != "\"\"")
     file = ", file " + myScanner.getCurrentFilename();
 
-  return  RCString("[Error ") + form("%d", ++myErrorCount) 
-		   + file
-		   + ", line " + form("%d", myScanner.getCurrentLine())
- 		   + ", near \"" + myScanner.getCurrentToken() + "\"] "
-                   + errorMsg;
+  std::stringstream str;
+  str <<"[Error " << (++myErrorCount) << file
+      << ", line " << myScanner.getCurrentLine()
+      << ", near \"" << myScanner.getCurrentToken() << "\"] "
+      << errorMsg;
+  return  RCString(str);
 }
 
 /*___________________________________________________________________ VRMLParser

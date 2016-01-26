@@ -20,7 +20,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <strstream.h>
+#include <sstream>
 
 #include "booga/object/TriangleList3D.h"
 #include "booga/object/Shared3D.h"
@@ -109,7 +109,7 @@ int TriangleList3D::setSpecifier(RCString& errMsg, Makeable* specifier)
   // There might be an object passed, so lets try to cast
   // specifier to Object3D* :
   //
-  Triangle3D* object = dynamic_cast(Triangle3D, specifier);
+  Triangle3D* object = dynamic_cast<Triangle3D*>(specifier);
   if (object != NULL){
     myElements.append(object);
     return 1;
@@ -123,7 +123,7 @@ int TriangleList3D::setSpecifier(RCString& errMsg, Makeable* specifier)
 
 Triangle3D* TriangleList3D::getTriangle(long i) const
 {
-  return (dynamic_cast(Triangle3D, myElements.item(i)));
+  return (dynamic_cast<Triangle3D*>(myElements.item(i)));
 }
 
 Makeable* TriangleList3D::make(RCString& errMsg, const List<Value*>* parameters) const
@@ -133,7 +133,7 @@ Makeable* TriangleList3D::make(RCString& errMsg, const List<Value*>* parameters)
     getParameter(1, Vector3D, dimension);
     
     if (dimension.x() < 1 || dimension.y() < 1 || dimension.z() < 1) {
-      ostrstream os;
+      std::stringstream os;
       os << "Illegal dimension settings " << dimension 
         << ", no component less than 1";
       errMsg = os;  
@@ -154,7 +154,7 @@ RCString TriangleList3D::getKeyword() const {
 
 void TriangleList3D::adoptObject(Object3D* object)
 {
-  if (dynamic_cast(Triangle3D,object)) {
+  if (dynamic_cast<Triangle3D*>(object)) {
     myElements.append(object);
     myBounds.expand(object->getBounds());
   } else {

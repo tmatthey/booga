@@ -94,7 +94,7 @@ bool ImportBSDL3::doExecute() {
   //
   if (myTarget == NULL) {
     // this case is not implemented yet
-    ostrstream os;
+    std::stringstream os;
     os << "[ExportBSDL::doExecute] has no target (sorry can't handle this case yet)";
     Report::recoverable(os);
     return false;

@@ -23,7 +23,7 @@
 #ifndef _Marshal_H
 #define _Marshal_H
 
-#include <iostream.h>
+#include <iostream>
 
 class Persistent;
 
@@ -48,11 +48,11 @@ private:
 // New methods of class Marshal
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 public:
-  void marshal(Persistent* p, ostream& os);
-  void unmarshal(Persistent* p, istream& is);
+  void marshal(Persistent* p, std::ostream& os);
+  void unmarshal(Persistent* p, std::istream& is);
 
-  void useInputStream(istream& is);
-  void useOutputStream(ostream& os);
+  void useInputStream(std::istream& is);
+  void useOutputStream(std::ostream& os);
   
   virtual Marshal& operator<<(char c)=0;
   virtual Marshal& operator<<(unsigned char uc)=0;
@@ -96,8 +96,8 @@ public:
 // My data members
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 protected:
-  ostream* myOs;
-  istream* myIs;
+  std::ostream* myOs;
+  std::istream* myIs;
 };
 
 //______________________________________________________________________ INLINES

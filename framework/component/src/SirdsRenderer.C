@@ -20,7 +20,7 @@
  * -----------------------------------------------------------------------------
  */
  
-#include <strstream.h>  // ostrstream
+#include <sstream>  // std::stringstream
 #include "booga/base/Statistic.h"
 #include "booga/base/PixmapOf.h"
 #include "booga/object/Camera3D.h"
@@ -619,7 +619,7 @@ bool SirdsRenderer::doExecute()
 
   // Ausgabe von Kontrollwerten
   if(verbose) {
-     ostrstream tos;
+     std::stringstream tos;
      tos << "\n\n\nParameter des Sirds-Algorithmus:";
      tos << "\nxResolution: " << xResolution << ",   yResolution: " << yResolution;
      tos << "\nmu: " << mu << ",   dpi: " << dpi << ",   eyeSeparation: " << eyeSeparation;
@@ -863,18 +863,18 @@ bool SirdsRenderer::doExecute()
 
       if (verbose && !artefacts) {
         if ( (y % 10) == 0 ){
-           ostrstream os;
+           std::stringstream os;
            os << "Zeile " << y;
            Report::debug(os);
         }
       }
       if (artefacts && verbose) {
-        ostrstream os;
+        std::stringstream os;
         os << "Zeile " << y << " enthaelt "  <<  artefactCount(colourList, true, y) <<"  Artefakte";
         Report::debug(os);        
       }
       if (artefacts && !verbose) {
-         ostrstream os;
+         std::stringstream os;
          artefactCount(colourList, true, y);
          Report::debug(os);
       }

@@ -53,7 +53,7 @@ SNIFF_Implementation_FILES	= AbstractPixmapOperation.C AbstractTraversal2D.C Abs
 	JPEGWriter.C MFile.C MTraversal.C  \
 	MURL.C MultiFileStore.C Operation2D.C  \
 	Operation2DTo3D.C Operation3D.C Operation3DTo2D.C  \
-	OversamplingAntialiaser.C PPMWriter.C PSWriter2D.C  \
+	OversamplingAntialiaser.C PPMWriter.C PNGWriter.C PSWriter2D.C  \
 	PSWriter3D.C Parser3D.C PhongTriangleInterpolator.C  \
 	Picker2D.C Picker3D.C PixiWriter.C  \
 	Pixmap2DWriter.C PixmapGeneratorWrapper.C PixmapRenderer.C  \

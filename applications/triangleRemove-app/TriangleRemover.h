@@ -32,7 +32,7 @@ class Triangle3D;
 //_________________________________________________________________ TriangleRemover
 
 class TriangleRemover : public Operation3D {
-declareRTTI(TriangleRemover);
+  declareRTTI(TriangleRemover);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

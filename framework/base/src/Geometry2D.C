@@ -22,7 +22,7 @@
  * -----------------------------------------------------------------------------
  */
  
-#include <strstream.h>
+#include <sstream>
 #include "tess-triangle.h"
 #include "booga/base/Geometry2D.h"
 #include "booga/base/List.h"
@@ -266,7 +266,7 @@ Geometry2D::createPolygonTriangulation(const List<Vector2D>& vertices)
   triangulateio in,out;
   
   if (numVertices < 3) {
-    ostrstream os;
+    std::stringstream os;
     os << "[Geometry2D::createPolygonTriangulation] only " << numVertices << " provided"
        << " , >= 3 required";
     Report::recoverable(os); 
@@ -347,7 +347,7 @@ Geometry2D::createPolygonTriangulation(const List<Vector2D>& vertices)
   }
       
   if (numDegenerate > 0){    
-    ostrstream os;
+    std::stringstream os;
     os << "[Geometry2D::createPolygonTriangulation] polygon (" << vertices.item(0)
        << ") have lost " << numDegenerate << " strange triangles";
     Report::warning(os); 
@@ -372,7 +372,7 @@ Geometry2D::createPolygonTriangulation(const List<Vector2D>& points, const List<
   triangulateio in,out;
   
   if (points.count() < 3) {
-    ostrstream os;
+    std::stringstream os;
     os << "[Geometry2D::createPolygonTriangulation] only " << points.count() << " provided"
        << " , >= 3 required";
     Report::recoverable(os); 
@@ -459,14 +459,14 @@ Geometry2D::createPolygonTriangulation(const List<Vector2D>& points, const List<
   }
       
   if (numDegenerate > 0){    
-    ostrstream os;
+    std::stringstream os;
     os << "[Geometry2D::createPolygonTriangulation] polygon (" << points.item(0)
        << ") have lost " << numDegenerate << " strange triangles";
     Report::warning(os); 
   }
   
   if (in.numberofpoints != out.numberofpoints){    
-    ostrstream os;
+    std::stringstream os;
     os << "[Geometry2D::createPolygonTriangulation] polygon (" << points.item(0)
        << ") has more mesh points than input points";
     Report::warning(os); 

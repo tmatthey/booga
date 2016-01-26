@@ -61,7 +61,7 @@ Object3D* Bottom::createSubject(Building* building) const
 int Bottom::setSpecifier(RCString& errMsg, Makeable* specifier)
 {
   // Check for Bottom attributes
-  BottomAttr* attr = dynamic_cast(BottomAttr, specifier);
+  BottomAttr* attr = dynamic_cast<BottomAttr*>(specifier);
   if (attr != NULL) {
     // The Bottom object knows best which method has to be called.
     // So let the object do the job.

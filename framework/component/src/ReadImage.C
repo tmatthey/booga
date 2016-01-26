@@ -23,7 +23,7 @@
 #ifdef SVR4
 #include <unistd.h>
 #endif
-#include <fstream.h>
+#include <fstream>
 
 #include "booga/base/Report.h"
 #include "booga/pixmapOp/ImageReaders.h"

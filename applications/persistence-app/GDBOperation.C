@@ -91,7 +91,7 @@ POId GDBOperation::execute(const POId& source, const POId& target) {
   else {
     mySource = PRef<GDBData>(source).getPtr();
     if (mySource == NULL) {
-      ostrstream os;
+      std::stringstream os;
       os << "[GDBOperation::execute] ";
       os << "source object " << source << " is of wrong class";
       Report::recoverable(os);
@@ -104,7 +104,7 @@ POId GDBOperation::execute(const POId& source, const POId& target) {
         srcDataType = srcDataType->getBaseType();
       }
       if (srcDataType == NULL) {
-        ostrstream os;
+        std::stringstream os;
         os << "[GDBOperation::execute] ";
         os << "wrong source type of " << source << ", " << mySourceType->getName() << " expected";
         Report::recoverable(os);
@@ -118,7 +118,7 @@ POId GDBOperation::execute(const POId& source, const POId& target) {
         srcRepType = srcRepType->getSuperRepType();
       }
       if (srcRepType == NULL) {
-        ostrstream os;
+        std::stringstream os;
         os << "[GDBOperation::execute] ";
         os << "wrong source format of " << source << ", " << mySourceFormat->getName() << " expected";
         Report::recoverable(os);
@@ -133,7 +133,7 @@ POId GDBOperation::execute(const POId& source, const POId& target) {
   else {
     myTarget = PRef<GDBData>(target).getPtr();
     if (myTarget == NULL) {
-      ostrstream os;
+      std::stringstream os;
       os << "[GDBOperation::execute] ";
       os << "target object " << target << " is of wrong class";
       Report::recoverable(os);
@@ -145,7 +145,7 @@ POId GDBOperation::execute(const POId& source, const POId& target) {
         targetDataType = targetDataType->getBaseType();
       }
       if (targetDataType == NULL) {
-        ostrstream os;
+        std::stringstream os;
         os << "[GDBOperation::execute] ";
         os << "wrong target type of " << target << ", " << myTargetType->getName() << " expected";
         Report::recoverable(os);
@@ -157,7 +157,7 @@ POId GDBOperation::execute(const POId& source, const POId& target) {
   }
  
   if (doExecute() == false) {
-    ostrstream os;
+    std::stringstream os;
     os << "[GDBOperation::doExecute] " << myName << " failed";
     Report::recoverable(os);
     transaction.abort();
@@ -168,21 +168,21 @@ POId GDBOperation::execute(const POId& source, const POId& target) {
 }
 
 bool GDBOperation::doExecute() {
-  ostrstream os;
+  std::stringstream os;
   os << "[GDBOperation::doExecute] dummy operation, nothing really happend!";
   Report::recoverable(os);
   return false;
 }
 
 GDBTraversal::Result GDBOperation::announceVisit(GDBData*) {
-  ostrstream os;
+  std::stringstream os;
   os << "[GDBOperation::announceVisit] dummy announceVisit called!";
   Report::recoverable(os);
   return GDBTraversal::EXIT;
 }
 
 GDBTraversal::Result GDBOperation::visit(GDBData*) {
-  ostrstream os;
+  std::stringstream os;
   os << "[GDBOperation::visit] dummy visit called!";
   Report::recoverable(os);
   return GDBTraversal::EXIT;

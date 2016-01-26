@@ -82,7 +82,7 @@ Object3D* RoofUser::orphanObject()
 
 int RoofUser::setSpecifier(RCString& errMsg, Makeable* specifier)
 {
-  Object3D* object = dynamic_cast(Object3D, specifier);
+  Object3D* object = dynamic_cast<Object3D*>(specifier);
   if (object != NULL) {
     if (myObject != NULL)
       delete myObject;

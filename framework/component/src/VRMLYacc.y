@@ -34,7 +34,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <iostream.h>
+#include <iostream>
 
 #define YYMAXDEPTH 100000
 %}

@@ -20,7 +20,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <iostream.h>
+#include <iostream>
 #include "booga/texture/ShaderIdExpNode.h"
 #include "booga/object/Ray3D.h"
 
@@ -92,7 +92,7 @@ void ShaderIdExpNode::print(bool indent)
 {
   if (indent)
     printSpaces(2 * myBlockDepth);
-  cout << *myId;
+  std::cout << *myId;
 }
 
 void ShaderIdExpNode::execute(Texture3DContext&)

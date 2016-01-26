@@ -20,7 +20,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <strstream.h>
+#include <sstream>
 #include "booga/base/mathutilities.h"
 #include "booga/base/Report.h"
 #include "booga/base/Value.h"
@@ -61,7 +61,7 @@ bool Cycle3D::doFrame(Real frame)
       ticks += item->computeTicks(frame);
     }
     else {
-      ostrstream os;
+      std::stringstream os;
       os << "[Cycle3D::doTicks] action ("
          <<  item->getStartFrame() << ","
          <<  item->getEndFrame() << ") not of type Cycle3D. Skip";
@@ -121,9 +121,9 @@ int Cycle3D::setSpecifier(RCString& errMsg, Makeable* specifier)
   //
   // Take all Object3D and make a list of it
   //
-  Object3D* object = dynamic_cast(Object3D, specifier);
+  Object3D* object = dynamic_cast<Object3D*>(specifier);
   if (object != NULL) {
-    List3D* list = dynamic_cast(List3D, myAnimatedObjects);
+    List3D* list = dynamic_cast<List3D*>(myAnimatedObjects);
     if (list == NULL){
       delete myAnimatedObjects;
       list = new List3D;

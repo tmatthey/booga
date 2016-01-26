@@ -29,7 +29,7 @@
 #include "booga/base/mathutilities.h"
 #include "booga/base/Vector2D.h"
 
-class ostream;
+#include <ostream>
 
 /*________________________________________________________________ TransMatrix2D
  *
@@ -117,7 +117,7 @@ public:
 // Friends of class TransMatrix3D
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 public:
-  friend ostream& operator<<(ostream& os, const TransMatrix2D& tm);
+  friend std::ostream& operator<<(std::ostream& os, const TransMatrix2D& tm);
 
   friend Vector2D operator*(const Vector2D& point, const TransMatrix2D& tm);
   friend Vector2D transformAsPoint(const Vector2D& point, const TransMatrix2D& tm);

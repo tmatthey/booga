@@ -24,7 +24,7 @@
 #ifndef _PSWriter2D_H
 #define _PSWriter2D_H
 
-#include <fstream.h>
+#include <fstream>
 
 #include "booga/base/RCString.h"
 #include "booga/base/PrimitiveTypes.h"
@@ -94,7 +94,7 @@ private:
   Camera2D*  myCamera;
   bool       myHasAdoptedCamera;
   RCString   myFilename;
-  ofstream   myOfs;    
+  std::fstream   myOfs;    
 };
 
 //______________________________________________________________________ INLINES

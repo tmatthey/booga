@@ -4,12 +4,12 @@ OFILES = AbstractPixmapOperation.o AbstractTraversal2D.o AbstractTraversal3D.o \
 		BSDLParserInit.o BSDLWriter.o Boundary2D.o \
 		CollectShared2D.o CollectShared3D.o CollectTexture3D.o \
 		CollectorFor.o Component.o ConvexHull2D.o \
-		Copy2D.o Copy3D.o File2D.o \
+		Copy2D.o Copy3D.o DocumentStore.o File2D.o \
 		File3D.o FlatTriangleInterpolator.o GouraudTriangleInterpolator.o \
 		JPEGWriter.o MFile.o MTraversal.o \
 		MURL.o MultiFileStore.o Operation2D.o \
 		Operation2DTo3D.o Operation3D.o Operation3DTo2D.o \
-		OversamplingAntialiaser.o PPMWriter.o PSWriter2D.o \
+		OversamplingAntialiaser.o PPMWriter.o PNGWriter.o PSWriter2D.o \
 		PSWriter3D.o Parser3D.o PhongTriangleInterpolator.o \
 		Picker2D.o Picker3D.o PixiWriter.o \
 		Pixmap2DWriter.o PixmapGeneratorWrapper.o PixmapRenderer.o \

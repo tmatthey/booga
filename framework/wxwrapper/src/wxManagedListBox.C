@@ -24,7 +24,7 @@
 
 //_____________________________________________________________________ NewClass
 
-//implementRTTI(NewClass, BaseClass);
+implementRTTI(NewClass, BaseClass);
 
 wxManagedListBox::wxManagedListBox(wxDialogDirector* director, wxPanel *panel, char *Title,
   Bool Multiple, int x, int y, int width, int height, int N, char **Choices, long style,

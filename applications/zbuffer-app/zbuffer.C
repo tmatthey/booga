@@ -68,7 +68,7 @@ int main(int argc, char* argv[])
   //
   // Print scene
   //
-  PrintWorld3D printer(cerr);
+  PrintWorld3D printer(std::cerr);
   printer.execute(world3D);
 
   //
@@ -117,10 +117,10 @@ void parseCmdLine(int argc, char* argv[],
 
 void usage(const RCString& name)
 {
-    cerr << "Usage: " << name << " [-s shading] [in-file [out-file]]\n";
-    cerr << " where:\n";
-    cerr << "  shading  : (optional) ( Flat | Gouraud | Phong )\n";
-    cerr << "  in-file  : (optional) filename of input\n";
-    cerr << "  out-file : (optional) filename of output\n";
+    std::cerr << "Usage: " << name << " [-s shading] [in-file [out-file]]\n";
+    std::cerr << " where:\n";
+    std::cerr << "  shading  : (optional) ( Flat | Gouraud | Phong )\n";
+    std::cerr << "  in-file  : (optional) filename of input\n";
+    std::cerr << "  out-file : (optional) filename of output\n";
 }
 

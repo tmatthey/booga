@@ -29,7 +29,7 @@
 //________________________________________________________________________ World
 
 class World : public Makeable {
-declareRTTI(World);
+  declareRTTI(World);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

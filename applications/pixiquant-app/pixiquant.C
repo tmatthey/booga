@@ -25,7 +25,6 @@
  
 #include <stdlib.h>     // atoi()
 #include <string.h>     // strcmp()
-#include <strstream.h>  // class ostrstream
 
 #include "booga/base/RCString.h"
 #include "booga/base/Configuration.h"
@@ -99,11 +98,11 @@ void parseCmdLine(int argc, char* argv[], RCString& in, RCString& out,
 
 void usage(const RCString& name)
 {
-    cerr << "Usage: " << name << " [-h] [-n colors] [-s factor] [in-file [out-file]]\n";
-    cerr << " where:\n";
-    cerr << "  -h         : print this message\n";
-    cerr << "  -n color   : (optional) 256 <= color > 0\n";
-    cerr << "  -s factor  : (optional) 30 <= sampling factor > 0\n";
-    cerr << "  in-file    : (optional) filename of input\n";
-    cerr << "  out-file   : (optional) filename of output\n";
+    std::cerr << "Usage: " << name << " [-h] [-n colors] [-s factor] [in-file [out-file]]\n";
+    std::cerr << " where:\n";
+    std::cerr << "  -h         : print this message\n";
+    std::cerr << "  -n color   : (optional) 256 <= color > 0\n";
+    std::cerr << "  -s factor  : (optional) 30 <= sampling factor > 0\n";
+    std::cerr << "  in-file    : (optional) filename of input\n";
+    std::cerr << "  out-file   : (optional) filename of output\n";
 }

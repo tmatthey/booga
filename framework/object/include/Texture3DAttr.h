@@ -28,7 +28,7 @@
 //_______________________________________________________________ Texture3DAttr
 
 class Texture3DAttr : public ObjectSpecifierAttr {
-declareRTTI(Texture3DAttr);
+  declareRTTI(Texture3DAttr);
 // enable RTTI support
 };
 

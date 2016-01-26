@@ -20,7 +20,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <iostream.h>
+#include <iostream>
 #include "booga/texture/ShaderFunction.h"
 #include "booga/texture/ShaderNode.h"
 
@@ -43,7 +43,7 @@ void ShaderNode::printValues()
 void ShaderNode::printSpaces(int times)
 {
   for (int i = 0; i < times - 2; i++)
-    cout << " ";
+    std::cout << " ";
 }
 
 void ShaderNode::initClass()

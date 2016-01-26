@@ -66,7 +66,7 @@ void wxInspectSelectionCommand::interpolateCamera (Camera3D *newc)
   
   Vector3D neweye = newc->getViewing()->getEye();
   Vector3D newlookat = newc->getViewing()->getLookat();
-  ostrstream os;
+  std::stringstream os;
   os << "[wxInspectSelectionCommand::interpolateCamera]:oldeye= " << oldeye;
   os << " oldlookp = " << oldlookat << " neweye= " << neweye << " newlookat = " << newlookat;
   Report::warning (os);

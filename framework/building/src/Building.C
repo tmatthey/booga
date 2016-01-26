@@ -89,7 +89,7 @@ Building::~Building()
 
 void Building::adoptObject(Object3D* object)
 {
-  BuildingObject* buildingobject = dynamic_cast(BuildingObject,object);
+  BuildingObject* buildingobject = dynamic_cast<BuildingObject*>(object);
   if (buildingobject){
     // do NOT compute the bounds here, because you could miss attributes
     buildingobject->setParentBuilding(this);    // the parent building
@@ -121,14 +121,14 @@ void Building::addVertex(const Vector3D& vertex)
   //
   if (count > 0) {
     if (myVertices.item(count-1) == vertex) {
-      ostrstream os;
+      std::stringstream os;
       os << "[Building::addVertex] two consecutive vertices ("
          << vertex << ") must not have the same value";
       Report::recoverable(os);
       return;
     }
     if (fabs(myVertices.item(0).z()-vertex.z()) > EPSILON) {
-      ostrstream os;
+      std::stringstream os;
       os << "[Building::addVertex] the ("
          << vertex << ") has not the same z-value";
       Report::recoverable(os);
@@ -149,7 +149,7 @@ void Building::addHole(const List<Vector3D>& hole)
   if (hole.count()>2){
     for(long i=1; i<hole.count();i++)
       if (!equal(hole.item(0).z() - hole.item(i).z(),0)){
-        ostrstream os;
+        std::stringstream os;
         os << "[Building::addHole] the hole "
            << i << ") has not the same z-value";
         Report::recoverable(os);
@@ -167,7 +167,7 @@ void Building::addHole(const List<Vector3D>& hole)
     myHoles.append(hole);
   }
   else {
-    ostrstream os;
+    std::stringstream os;
     os << "[Building::addHole] hole has less then 3 vertices ";
     Report::recoverable(os);
     return;
@@ -202,7 +202,7 @@ List<Vector3D> Building::getPolygonTop(long index) const
     // search first for a FrontTriangle and then for a FrontRect
     front = NULL;
     for(j=0; j < myObjectList.count();j++){
-      front = dynamic_cast(FrontTriangle,myObjectList.item(j));
+      front = dynamic_cast<FrontTriangle*>(myObjectList.item(j));
       if (front && front->getPolygonIndex() == index && front->getFrontIndex() == i) 
         break;
       else
@@ -210,7 +210,7 @@ List<Vector3D> Building::getPolygonTop(long index) const
     }
 
     for(j=0; j < myObjectList.count() && front == NULL;j++){
-      front = dynamic_cast(FrontRect,myObjectList.item(j));
+      front = dynamic_cast<FrontRect*>(myObjectList.item(j));
       if (front && front->getPolygonIndex() == index && front->getFrontIndex() == i) 
         break;
       else
@@ -247,7 +247,7 @@ List<Vector3D> Building::getPolygonBottom(long index) const
     // search first for a FrontTriangle and then for a FrontRect
     front = NULL;
     for(j=0; j < myObjectList.count();j++){
-      front = dynamic_cast(FrontTriangle,myObjectList.item(j));
+      front = dynamic_cast<FrontTriangle*>(myObjectList.item(j));
       if (front && front->getPolygonIndex() == index && front->getFrontIndex() == i) 
         break;
       else
@@ -255,7 +255,7 @@ List<Vector3D> Building::getPolygonBottom(long index) const
     }
 
     for(j=0; j < myObjectList.count() && front == NULL;j++){
-      front = dynamic_cast(FrontRect,myObjectList.item(j));
+      front = dynamic_cast<FrontRect*>(myObjectList.item(j));
       if (front && front->getPolygonIndex() == index && front->getFrontIndex() == i) 
         break;
       else
@@ -294,7 +294,7 @@ List<Vector3D> Building::getFrontPolygon(long polygonindex, long frontindex) con
 
   // search first for a FrontTriangle and then for a FrontRect
   for(j=0; j < myObjectList.count();j++){
-    front = dynamic_cast(FrontTriangle,myObjectList.item(j));
+    front = dynamic_cast<FrontTriangle*>(myObjectList.item(j));
     if (front != NULL && front->getPolygonIndex() == polygonindex && front->getFrontIndex() == frontindex) 
       break;
     else
@@ -302,7 +302,7 @@ List<Vector3D> Building::getFrontPolygon(long polygonindex, long frontindex) con
   }
 
   for(j=0; j < myObjectList.count() && front == NULL;j++){
-    front = dynamic_cast(FrontRect,myObjectList.item(j));
+    front = dynamic_cast<FrontRect*>(myObjectList.item(j));
     if (front != NULL && front->getPolygonIndex() == polygonindex && front->getFrontIndex() == frontindex) 
       break;
     else
@@ -331,7 +331,7 @@ Object3D* Building::getSubobject(long index)
 {
   Object3D* retval = NULL;
   if (index < 0 || index > myObjectList.count() || (!isOn() && index > 0)) {
-    ostrstream os;
+    std::stringstream os;
     os << "[Building::getSubobject] index out of range ";
     os << "(was " << index << ")";
     Report::error(os);
@@ -372,7 +372,7 @@ Object3D* Building::createSubject() const
   checkBuilding();
   
   for(long i=0; i<myObjectList.count(); i++){
-    front = dynamic_cast(Front,myObjectList.item(i));
+    front = dynamic_cast<Front*>(myObjectList.item(i));
     if (front && front->numberOfFaces() > 0)
       return new NullObject3D();
   }
@@ -443,7 +443,7 @@ Makeable* Building::make(RCString& errMsg, const List<Value*>* parameters) const
 int Building::setSpecifier(RCString& errMsg, Makeable* specifier)
 {
   // Check for Building attributes
-  BuildingAttr* attr = dynamic_cast(BuildingAttr, specifier);
+  BuildingAttr* attr = dynamic_cast<BuildingAttr*>(specifier);
   if (attr != NULL) {
     // The Building object knows best which method has to be called.
     // So let the object do the job.
@@ -456,7 +456,7 @@ int Building::setSpecifier(RCString& errMsg, Makeable* specifier)
 
   // Adopt an Object to the building
    
-  Object3D* object = dynamic_cast(Object3D, specifier);
+  Object3D* object = dynamic_cast<Object3D*>(specifier);
   if (object != NULL) {
     adoptObject(object);
     return 1;
@@ -533,9 +533,9 @@ void Building::checkBuilding() const
   }
 
   for(i=0; i<myObjectList.count(); i++){
-    if (dynamic_cast(BuildingObject,myObjectList.item(i)) == NULL)
+    if (dynamic_cast<BuildingObject*>(myObjectList.item(i)) == NULL)
       Report::hint("[Building::checkBuilding] building has a non-BuildingObject");
-    if (dynamic_cast(Face,myObjectList.item(i)))
+    if (dynamic_cast<Face*>(myObjectList.item(i)))
       Report::warning("[Building::checkBuilding] building has a face which is not collected by a front");
   }
 
@@ -569,7 +569,7 @@ void Building::subjectChanged() const
   } 
   
   for(long i=0; i<myObjectList.count();i++){
-    BuildingObject* object = dynamic_cast(BuildingObject,myObjectList.item(i));
+    BuildingObject* object = dynamic_cast<BuildingObject*>(myObjectList.item(i));
     if (object)
       object->subjectChanged();
   }
@@ -580,7 +580,7 @@ void Building::getIndirectFaceObjects(long frontindex, long polygonindex, List<F
   Front* front = NULL;
   
   for(long i=0; i < myObjectList.count();i++){
-    front = dynamic_cast(Front,myObjectList.item(i));
+    front = dynamic_cast<Front*>(myObjectList.item(i));
     if (front) 
       front->getIndirectFaceObjects(frontindex, polygonindex, facelist);          
   }
@@ -592,7 +592,7 @@ Vector3D Building::getVertex(long frontindex, long polygonindex) const
   List<Vector3D> vertices = getPolygon(polygonindex);
 
   if (vertices.count() <= frontindex || frontindex < 0){
-    ostrstream os;
+    std::stringstream os;
     os << "[Building::getVertex] index ("
        <<  frontindex << ","
        <<  polygonindex << ") is out of bounds";
@@ -612,13 +612,13 @@ List<Front*> Building::getFrontObjects(long frontindex, long polygonindex) const
   long i;
   
   for(i=0; i<myObjectList.count();i++){
-    front = dynamic_cast(Front,myObjectList.item(i));
+    front = dynamic_cast<Front*>(myObjectList.item(i));
     if ( front && 
         (frontindex < 0 || front->getFrontIndex() == frontindex) &&
         (polygonindex < 0 || front->getPolygonIndex() == polygonindex)){
-      if (dynamic_cast(FrontTriangle,front))
+      if (dynamic_cast<FrontTriangle*>(front))
         fronttri.append(front);
-      else if (dynamic_cast(FrontRect,front))
+      else if (dynamic_cast<FrontRect*>(front))
         frontrect.append(front);
       else
         other.append(front);
@@ -651,7 +651,7 @@ List<Roof*> Building::getRoofObjects() const
   List<Roof*> roofs;
   Roof* roof;
   for(long i=0;i<myObjectList.count();i++){
-    roof = dynamic_cast(Roof,myObjectList.item(i)); 
+    roof = dynamic_cast<Roof*>(myObjectList.item(i)); 
     if (roof)
       roofs.append(roof);
   }
@@ -688,7 +688,7 @@ void Building::deleteVertex(long frontindex, long polygonindex)
       myHoles.item(polygonindex-1).remove(frontindex);
 
     for(i=myObjectList.count()-1;i>=0;i--){
-      Front* front = dynamic_cast(Front,myObjectList.item(i));
+      Front* front = dynamic_cast<Front*>(myObjectList.item(i));
       if (front){
         myObjectList.remove(i);
         delete front; 

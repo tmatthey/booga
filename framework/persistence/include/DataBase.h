@@ -34,7 +34,7 @@ class Marshal;
 //_____________________________________________________________________ DataBase
 
 class DataBase {
-declareRTTI(DataBase);
+  declareRTTI(DataBase);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

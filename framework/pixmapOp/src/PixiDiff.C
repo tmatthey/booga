@@ -21,7 +21,7 @@
  * -----------------------------------------------------------------------------
  */
  
-#include <strstream.h>
+#include <sstream>
 #include <math.h>
 
 #include "booga/base/Report.h"
@@ -55,7 +55,7 @@ AbstractPixmap* PixiDiff::generate(const AbstractPixmap* pm)
 {
   if (pm->getResolutionX() != myReference->getResolutionX() ||
       pm->getResolutionY() != myReference->getResolutionY()) {
-    ostrstream os;
+    std::stringstream os;
     os << "[PixiDiff::generate] resolution of pixmaps differ: cannot compare [";
     os << pm->getResolutionX() << ", " << pm->getResolutionY() << "] with [";
     os << myReference->getResolutionX() << ", " << myReference->getResolutionY() << "]";

@@ -1,5 +1,0 @@
-OFILES = ActionInfo.o Animation3D.o AnimationFunction.o \
-		Cycle3D.o Grow3D.o Move3D.o \
-		Shear3D.o Tumble3D.o TumbleCenter3D.o \
-		TumbleDirection3D.o TumblePath3D.o Turn3D.o 
-

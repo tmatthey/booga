@@ -39,7 +39,7 @@ bool GLBBTraversal2D::traverse(Object2D* obj)
   // 
   // Check if the traversal has been called with a GLRasterizer object.
   //
-  if ((myRasterizer = dynamic_cast(GLRasterizer, getVisitor())) == NULL) {
+  if ((myRasterizer = dynamic_cast<GLRasterizer*>(getVisitor())) == NULL) {
     Report::recoverable("[GLBBTraversal2D::traverse] need GLRasterizer object to work with");
     return false;
   }

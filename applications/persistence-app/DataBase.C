@@ -33,7 +33,7 @@ DataBase::DataBase() :
 myMarshal(NULL)
 {  
   if (PersistentManager::getThePersistentManager() == NULL) {
-    ostrstream os;
+    std::stringstream os;
     os << "[DataBase::DataBase] Create the PersistentManager before creating a DataBase instance";
     Report::error(os);
     exit(0);

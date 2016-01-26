@@ -171,7 +171,7 @@ INLINE int MAggregate<TObject, TAggregate, TPath>
   // There might be an object passed, so lets try to cast
   // specifier to Object3D* :
   //
-  TObject* object = dynamic_cast(TObject, specifier);
+  TObject* object = dynamic_cast<TObject*>(specifier);
   if (object != NULL) {
     adoptObject(object);
     return 1;

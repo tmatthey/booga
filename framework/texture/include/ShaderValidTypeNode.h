@@ -29,7 +29,7 @@
 class ShaderValidTypeNode : public ShaderNode {
 public:
   ShaderValidTypeNode(Name* theType);
-  virtual void print();
+  virtual void print(bool indent = true);
   virtual void execute(Texture3DContext& context);
 
 private:

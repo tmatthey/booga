@@ -156,10 +156,14 @@ bool BoundingBox::inside(Real x, Real y, Real z) const
 	 myBBMin.z() <= z && z <= myBBMax.z());
 }
 
-ostream& operator<<(ostream& os, const BoundingBox& b)
+std::ostream& operator<<(std::ostream& os, const BoundingBox& b)
 {
   if (b.isEmpty())
     return os << "( empty )";
     
-  return os << "( min:" << b.myBBMin << ", max:" << b.myBBMax << " )";
+  return os << "( min:" 
+	    << b.myBBMin 
+	    << ", max:" 
+	    << b.myBBMax 
+	    << " )";
 }

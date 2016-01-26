@@ -30,7 +30,7 @@
 //_____________________________________________________________________ wxManagedCanvas
 
 class wxManagedCanvas : public wxGLCanvas {
-//declareRTTI(wxManagedCanvas);
+declareRTTI(wxManagedCanvas);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

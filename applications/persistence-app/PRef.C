@@ -27,16 +27,16 @@
 // or, in case of GNU compiler, files is included from header.
 
 
+#include "PersistentManager.h"
+#include "Marshal.h"
  
 #ifdef TEMPLATE_IN_HEADER
-# define INLINE
+# define INLINE inline
 #else
 # include "PRef.h"
 # define INLINE
 #endif  // TEMPLATE_IN_HEADER
 
-#include "PersistentManager.h"
-#include "Marshal.h"
 //_____________________________________________________________________ PRef
 
 template <class T>
@@ -111,7 +111,7 @@ INLINE T* PRef<T>::getPtr() const {
      // get the object
      Persistent *obj = PersistentManager::getThePersistentManager()->load(myPOId);
      if (obj == NULL) return NULL;
-     T* memObj = dynamic_cast(T, obj);
+     T* memObj = dynamic_cast<T*>(obj);
      return memObj;
   }
   return NULL;

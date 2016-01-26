@@ -20,7 +20,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <iostream.h>
+#include <iostream>
 #include "booga/texture/ShaderArithExpNode.h"
      
 ShaderArithExpNode::ShaderArithExpNode(char theOperator,
@@ -46,7 +46,7 @@ void ShaderArithExpNode::print(bool indent)
   if (indent)
     printSpaces(2 *myBlockDepth);
   myOp1->print(false);
-  cout << " " << myOperator << " ";
+  std::cout << " " << myOperator << " ";
   myOp2->print(false);
 }
 

@@ -101,6 +101,7 @@
 		 "ConvexHull2D.C"
 		 "Copy2D.C"
 		 "Copy3D.C"
+		 "DocumentStore.C"
 		 "File2D.C"
 		 "File3D.C"
 		 "FlatTriangleInterpolator.C"

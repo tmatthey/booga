@@ -20,7 +20,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <iostream.h>
+#include <iostream>
 #include "booga/texture/ShaderVecValueNode.h"
      
 ShaderVecValueNode::ShaderVecValueNode(ShaderExpNode* v1,
@@ -44,13 +44,13 @@ void ShaderVecValueNode::print(bool indent)
 {
   if (indent)
     printSpaces(2 * myBlockDepth);
-  cout << "[";
+  std::cout << "[";
   myV1->print(false);
-  cout << ", ";
+  std::cout << ", ";
   myV2->print(false);
-  cout << ", ";
+  std::cout << ", ";
   myV3->print(false);
-  cout << "]";
+  std::cout << "]";
 }
 
 void ShaderVecValueNode::execute(Texture3DContext&)

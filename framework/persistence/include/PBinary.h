@@ -31,7 +31,7 @@ class Marshal;
 //_____________________________________________________________________ PBinary
 
 class PBinary : public Persistent {
-declareRTTI(PBinary);
+  declareRTTI(PBinary);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

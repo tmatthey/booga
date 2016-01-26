@@ -31,7 +31,7 @@
 //______________________________________________________________________ Whitted
 
 class Whitted : public Texture3D {
-declareRTTI(Whitted);
+  declareRTTI(Whitted);
 // enable RTTI support
 
 public:

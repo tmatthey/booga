@@ -27,7 +27,7 @@
 
 #include <math.h>
 #include <string.h>      // memset
-#include <strstream.h>   // ostrstream
+#include <sstream>   // std::stringstream
 #include "booga/base/Report.h"
 #include "tess-triangulate.h"
 
@@ -205,10 +205,10 @@ static int init_query_structure(int segnum)
 
   tr[t1].hi = tr[t2].hi = tr[t4].lo = qs[i1].yval;
   tr[t1].lo = tr[t2].lo = tr[t3].hi = qs[i3].yval;
-  tr[t4].hi.y = (double) (INFINITY);
-  tr[t4].hi.x = (double) (INFINITY);
-  tr[t3].lo.y = (double) -1* (INFINITY);
-  tr[t3].lo.x = (double) -1* (INFINITY);
+  tr[t4].hi.y = (double) (INFINITY_TT);
+  tr[t4].hi.x = (double) (INFINITY_TT);
+  tr[t3].lo.y = (double) -1* (INFINITY_TT);
+  tr[t3].lo.x = (double) -1* (INFINITY_TT);
   tr[t1].rseg = tr[t2].lseg = segnum;
   tr[t1].u0 = tr[t2].u0 = t4;
   tr[t1].d0 = tr[t2].d0 = t3;
@@ -616,7 +616,7 @@ static int add_segment(int segnum)
 
       if ((tr[t].d0 <= 0) && (tr[t].d1 <= 0)) /* case cannot arise */
 	{
-           ostrstream os;
+           std::stringstream os;
            os << "add_segment: error " << tr[t].d0 << " " << tr[t].d1;
            Report::error(os);
 	  break;

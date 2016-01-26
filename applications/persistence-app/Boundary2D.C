@@ -85,7 +85,7 @@ bool Boundary2D::doExecute()
     path->last();
     path->prev();
     Aggregate2D* agg = NULL;
-    agg = dynamic_cast(Aggregate2D, path->getObject());
+    agg = dynamic_cast<Aggregate2D*>(path->getObject());
     if (agg != NULL) {
       boundary->setTransform(pixmapCollector.getObject()->getTransform());
       agg->adoptObject(boundary);

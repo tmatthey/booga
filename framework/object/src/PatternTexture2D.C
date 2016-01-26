@@ -77,7 +77,7 @@ Makeable* PatternTexture2D::make(RCString& errMsg,
 
 int PatternTexture2D::setSpecifier(RCString& errMsg, Makeable* specifier)
 {
-  PatternTexture2DAttr* attr = dynamic_cast(PatternTexture2DAttr, specifier);
+  PatternTexture2DAttr* attr = dynamic_cast<PatternTexture2DAttr*>(specifier);
   if (attr != NULL) {
     // The PatternTexture2DAttr object knows best which method has to be called.
     // So let the object do the job.
@@ -103,11 +103,11 @@ void PatternTexture2D::doTexturing(Texture2DContext& context) const
   float distance = 0;
   Line2D* line;
   
-  if ((line = dynamic_cast(Line2D, const_cast(Object2D, context.getObject()))) != NULL) {
+  if ((line = dynamic_cast<Line2D*>(const_cast<Object2D*>(context.getObject()))) != NULL) {
     Vector2D from = context.getOCS2WCS().transformAsPoint(line->getFrom());
     distance = from.distance(context.getPositionWCS());
   }
-  else if ((dynamic_cast(Circle2D, const_cast(Object2D, context.getObject()))) != NULL) {
+  else if ((dynamic_cast<Circle2D*>(const_cast<Object2D*>(context.getObject()))) != NULL) {
     // !!!!! to do: distance on the curve in WCS !!!!!
   }  
 

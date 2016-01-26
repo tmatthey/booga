@@ -335,7 +335,7 @@ Makeable* Nurbs3DAttrSection::make (RCString&, const List<Value*>*) const
 
 int Nurbs3DAttrSection::setSpecifier (RCString &errMsg, Makeable *specifier)
 {
-  Nurbs3D *attr = dynamic_cast (Nurbs3D, specifier);
+  Nurbs3D *attr = dynamic_cast<Nurbs3D*>(specifier);
   if (attr)
   {
     attr->setAttribute (this);         // The Nurbs3D object knows how to handle this
@@ -371,7 +371,7 @@ Makeable* Nurbs3DAttrPath::make (RCString&, const List<Value*>*) const
 
 int Nurbs3DAttrPath::setSpecifier (RCString &errMsg, Makeable *specifier)
 {
-  Nurbs3D *attr = dynamic_cast (Nurbs3D, specifier);
+  Nurbs3D *attr = dynamic_cast<Nurbs3D*>(specifier);
   if (attr)
   {
     attr->setAttribute (this);         // The Nurbs3D object knows how to handle this

@@ -23,7 +23,7 @@
 #ifndef _Transaction_H
 #define _Transaction_H
 
-#include <strstream.h>
+#include <sstream>
 #include "booga/base/PrimitiveTypes.h"
 #include "booga/base/Stack.h"
 #include "booga/base/SymTable.h"
@@ -83,7 +83,7 @@ private:
   Set<Persistent*> myLoaded; // loaded during current Transaction
   Set<Persistent*> myChanged; // changed during current Transaction
   Set<Persistent*> myBuffered; // objects beeing buffered for abort();
-  SymTable<Persistent*,strstream*> myBuffers;
+  SymTable<Persistent*,std::stringstream*> myBuffers;
 };
 
 //______________________________________________________________________ INLINES

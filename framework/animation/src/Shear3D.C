@@ -76,7 +76,7 @@ bool Shear3D::doFrame(Real frame)
 
     }
     else {
-      ostrstream os;
+      std::stringstream os;
       os << "[Shear3D::doTicks] action ("
          <<  item->getStartFrame() << ","
          <<  item->getEndFrame() << ") not of type Shear3D. Skip";

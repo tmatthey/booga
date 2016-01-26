@@ -256,8 +256,8 @@ void LabelConnectedComponents::apply(AbstractPixmap* pm)
   }
   
   if (myVerbose) {
-    cout << myNumber << " objects found.\n";
+    std::cout << myNumber << " objects found.\n";
     for (i=1; i<=myNumber; i++)
-      cout << myObjects[i] << endl;
+      std::cout << myObjects[i] << std::endl;
   }
 }

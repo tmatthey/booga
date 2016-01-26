@@ -20,7 +20,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <iostream.h>
+#include <iostream>
 #include "booga/texture/ShaderHeadNode.h"
 #include "booga/texture/ShaderDeclNode.h"
 
@@ -49,19 +49,19 @@ ShaderHeadNode::~ShaderHeadNode()
 
 void ShaderHeadNode::print(bool)
 {
-  cout << *myShaderType << " " << *myName << "(";
+  std::cout << *myShaderType << " " << *myName << "(";
   if(myParamDecls) {
     int PDC = myParamDecls->count();
     for(register long i = 0; i < PDC - 1; i++) {
       ((ShaderDeclNode*)myParamDecls->item(i))->printParamDecls();
-      cout << ", ";
+      std::cout << ", ";
       if ((i%3 == 0) && (i != 0))
-        cout << endl << "\t\t";
+        std::cout << std::endl << "\t\t";
     }
     if (PDC > 0) 
       ((ShaderDeclNode*)myParamDecls->item(PDC - 1))->printParamDecls(); 
   } 
-   cout << ")" << endl;
+   std::cout << ")" << std::endl;
 }  
  
 void ShaderHeadNode::execute(Texture3DContext& context)
@@ -92,7 +92,7 @@ void ShaderHeadNode::overwriteDefaults(const List<Value*>* theArguments)
         ((ShaderDeclNode*)myParamDecls->item(i-1))->overwriteDefaults(*theIthItem);
       } 
     else {
-      ostrstream temp;
+      std::stringstream temp;
       temp << "[ShaderHeadNode::execute()] ";
       temp << "Too many arguments in call to shader \"" << myFileName
            << "\"! Ignoring last";
@@ -115,16 +115,16 @@ void ShaderHeadNode::overwriteDefaults(const List<Value*>* theArguments)
 }
 void ShaderHeadNode::printValues()
 {
-  cout << endl << "Shader Instance Variables:" << endl;
+  std::cout << std::endl << "Shader Instance Variables:" << std::endl;
   if (myParamDecls)
     for (register long i = 0; i < myParamDecls->count(); i++)
       myParamDecls->item(i)->printValues();
-  cout << endl;
+  std::cout << std::endl;
 }
 
 List<Value*>* ShaderHeadNode::createParameters() {
   List<Value*>* parameters = new List<Value*>;
-  RCString temp =  '\"' + RCString(*myFileName) + '\"';
+  RCString temp =  RCString('\"',1) + RCString(*myFileName) + RCString('\"',1);
   parameters->append(new Value(temp));
   if(myParamDecls) {
     for(register long i = 0; i < myParamDecls->count(); i++) {

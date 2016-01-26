@@ -70,9 +70,9 @@ declareInitStatics(Configuration);
 #define getConfigurationOption(type,varName,option)                 \
   type* varName = NULL;                                             \
   {                                                                 \
-    Option* _option = const_cast(Option, Configuration::getOption(Name(option))); \
+    Option* _option = const_cast<Option*>(Configuration::getOption(Name(option))); \
     if (_option != NULL)                                            \
-      varName = dynamic_cast(type, _option);                        \
+      varName = dynamic_cast<type*>(_option);                        \
   }
 
 #endif // _Configuration_H

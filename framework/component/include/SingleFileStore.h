@@ -25,14 +25,14 @@
 #ifdef SVR4
 #include <unistd.h>  // STDOUT_FILENO
 #endif
-#include <fstream.h>
+#include <fstream>
 #include "booga/base/RCString.h"
 #include "booga/component/DocumentStore.h"
 
 //_____________________________________________________________________ SingleFileStore
 
 class SingleFileStore : public DocumentStore {
-// declareRTTI(SingleFileStore);
+  //declareRTTI(SingleFileStore);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -65,7 +65,7 @@ public:
   virtual RCString endDocument();
   virtual void includeDocument(const RCString& documentName, 
                                const RCString& extension);
-  virtual ostream& os() { return myOs; }
+  virtual std::ostream& os() { return myOs; }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // My data members
@@ -73,7 +73,7 @@ public:
 private:
   RCString myFilename;
   RCString myDocumentName;
-  ofstream myOs;
+  std::ofstream myOs;
 };
 
 //______________________________________________________________________ INLINES

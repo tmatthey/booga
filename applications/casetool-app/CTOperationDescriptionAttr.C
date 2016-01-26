@@ -90,8 +90,9 @@ Makeable* CTOperationDescriptionAttrParameter::make(RCString& errMsg,
       break;
     }      
     default:
-      extern char* form(const char * ...);
-      errMsg = RCString("1, 2 or 3 Parameters required, ") + form("%ld", nOfPara) + " provided";
+      std::stringstream str;
+      str << "1, 2 or 3 Parameters required, "<<nOfPara<<" provided";
+      errMsg = RCString(str);
   }
 
   return NULL;

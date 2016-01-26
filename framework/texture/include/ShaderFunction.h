@@ -529,7 +529,7 @@ public:
 //____________________________________________________________________TextureMap
 
 class SFTextureMap : public ShaderFunction {
-//declareRTTI(SFTextureMap);
+  //declareRTTI(SFTextureMap);
 // enable RTTI support
 public:
   SFTextureMap();

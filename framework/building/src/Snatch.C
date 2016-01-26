@@ -91,7 +91,7 @@ Object3D* Snatch::createSubject(Building* building) const
     Vector3D normal(0,0,0);
     Primitive3D* primitive = NULL;
     for (ray->getPath()->first(); !ray->getPath()->isDone(); ray->getPath()->next()){
-      primitive = dynamic_cast(Primitive3D,ray->getPath()->getObject());
+      primitive = dynamic_cast<Primitive3D*>(ray->getPath()->getObject());
       if (primitive){
         normal = primitive->normal(hitpoint);
         if (normal.length() > EPSILON)
@@ -112,7 +112,7 @@ Object3D* Snatch::createSubject(Building* building) const
   // clean up
   delete ray;
 
-  Aggregate3D* aggregate = dynamic_cast(Aggregate3D,snatch);
+  Aggregate3D* aggregate = dynamic_cast<Aggregate3D*>(snatch);
   if (aggregate){
     while(aggregate->countSubobject()){
       Object3D* obj = aggregate->getSubobject(0);

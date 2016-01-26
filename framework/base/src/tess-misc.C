@@ -35,10 +35,12 @@
 static int choose_idx;
 static int permute[SEGSIZE];
 
+#ifdef WIN32
 inline double log2(double x)
 {
   return log(x)/M_LN2;
 }
+#endif
 
 /* Generate a random permutation of the segments 1..n */
 int generate_random_ordering(int n)

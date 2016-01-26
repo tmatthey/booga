@@ -25,7 +25,7 @@
 
 //_____________________________________________________________________ GSBwxRadioBox
 
-//implementRTTI(GSBwxRadioBox, wxRadioBox);
+implementRTTI(GSBwxRadioBox, wxRadioBox);
 
 GSBwxRadioBox::GSBwxRadioBox(GSBwxDialogDirector* director, wxPanel* parent, char* label,
   int x, int y, int width, int height, int n, char* choices[], int majorDim, 

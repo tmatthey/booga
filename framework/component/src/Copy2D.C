@@ -31,7 +31,7 @@ implementRTTI(Copy2D, Operation2D);
 
 bool Copy2D::doExecute()
 {
-  adoptResult(dynamic_cast(World2D, getWorld()->copy()));
+  adoptResult(dynamic_cast<World2D*>(getWorld()->copy()));
   
   return true;
 }

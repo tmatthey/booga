@@ -27,7 +27,7 @@
 # define _Report_H
 
 class RCString;
-class ostream;
+#include <ostream>
 
 //___________________________________________________________________ Report
 
@@ -43,7 +43,7 @@ public:
   static void setDebug   (int debugFlag = 1);
 
 private:
-  static ostream* ourErrorStream;
+  static std::ostream* ourErrorStream;
   static int ourVerboseFlag;
   static int ourDebugFlag;
 
@@ -56,7 +56,5 @@ private:
 
 // This include has to stay here !
 #include "booga/base/RCString.h"
-#ifdef WIN32
-char* form(const char* format, ...);
-#endif
+
 #endif // _Report_H

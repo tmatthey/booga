@@ -21,7 +21,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <iostream.h>
+#include <iostream>
 #include "booga/base/Report.h"
 #include "booga/base/TransMatrix2D.h"
 
@@ -335,7 +335,7 @@ TransMatrix2D TransMatrix2D::makeScale(const Vector2D& scaleFactor)
 		     0,  scaleFactor.y());
 }
 
-ostream& operator<<(ostream &os, const TransMatrix2D& tm)
+std::ostream& operator<<(std::ostream &os, const TransMatrix2D& tm)
 {
   os << "[[" << tm.m00 << ", " << tm.m01 << "], ";
   os <<  "[" << tm.m10 << ", " << tm.m11 << "], ";

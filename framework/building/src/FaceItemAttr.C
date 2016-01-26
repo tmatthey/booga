@@ -198,7 +198,7 @@ Makeable* FaceItemAttrHole::make(RCString& errMsg,
       vertex = Vector3D(vertex2D.x(),vertex2D.y(),0);
       if (i > 1) {
         if (vertices.item(i-2) == vertex) {
-          ostrstream os;
+          std::stringstream os;
           os << "[FaceItemAttrHole::make] two consecutive vertices ("
              << vertex << ") must not have the same value";
           Report::recoverable(os);

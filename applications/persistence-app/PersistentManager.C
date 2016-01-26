@@ -22,7 +22,7 @@
  */
  
 
-#include <iostream.h>
+#include <iostream>
 #include "booga/base/RCString.h"
 #include "booga/base/Report.h"
 #include "POId.h"
@@ -41,7 +41,7 @@ myDataBaseTable(NULL),
 myPrototypeTable(NULL)
 {
   if (thePersistentManager != NULL) {
-    ostrstream os;
+    std::stringstream os;
     os << "[PersistentManager::Persistentmanager] ";
     os << "Only one instance of class PersistantManager allowed!";
     Report::error(os);
@@ -86,7 +86,7 @@ void PersistentManager::addPersistent(Persistent *p) {
     myMemTable->insert(p->getPOId(),p);
   }
   else {
-    ostrstream os;
+    std::stringstream os;
     os << "[PersistentManager::addPersistent] no active transaction "
        << p->getPOId();
     Report::error(os);
@@ -103,7 +103,7 @@ Persistent* PersistentManager::load(const POId& id) {
   Persistent* obj=NULL;
   if (!myMemTable->lookup(id, obj)){  // no, try to load object
     if (id == POID_NULL) {            // check for NULL ObjectId
-      ostrstream os;
+      std::stringstream os;
       os << "[PersistentManager::load()] ridiculous try "
          << "to load a POID_NULL object";
       Report::recoverable(os);
@@ -112,7 +112,7 @@ Persistent* PersistentManager::load(const POId& id) {
     // get database on which the object is stored
     DataBase *db;
     if (!myDataBaseTable->lookup(id.getPDBId(), db)) {
-      ostrstream os;
+      std::stringstream os;
       os << "[PersistentManager::load()] can't find database on which ";
       os << id << "is supposed to live";
       Report::recoverable(os);

@@ -423,13 +423,13 @@ RCString RoofPlane::getKeyword() const {
 void RoofPlane::setAngle(Real angle)
 {
   if (angle < dtor(5)){
-    ostrstream os;
+    std::stringstream os;
     os << "[RoofPlane::setAngle] angle less then 5 deg. ";
     Report::warning(os);
     myAngle = dtor(5);
   }
   else if (angle > dtor(85)){
-    ostrstream os;
+    std::stringstream os;
     os << "[RoofPlane::setAngle] angle greater then 85 deg. ";
     Report::warning(os);
     myAngle = dtor(85);

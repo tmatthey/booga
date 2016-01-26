@@ -33,7 +33,7 @@
 
 implementRTTI(PrintWorld3D, Operation3D);
 
-PrintWorld3D::PrintWorld3D(ostream& os)
+PrintWorld3D::PrintWorld3D(std::ostream& os)
 : myStream(os)
 {}
 
@@ -59,7 +59,7 @@ bool PrintWorld3D::doExecute()
   myStream << "\n-------  Shared Objects -----------------------------------\n";
 
   for (collector.first(); !collector.isDone(); collector.next()) {
-    myStream << endl 
+    myStream << std::endl 
 	    << collector.getCurrent()->getName()
 	    << "  (refs: " << collector.getCurrent()->rcCountReferences() 
 	    << " addr: " << (void*)collector.getCurrent() << ")\n";
@@ -74,11 +74,11 @@ bool PrintWorld3D::doExecute()
 
 Traversal::Result PrintWorld3D::visit(Object3D* obj)
 {
-  myStream << RCString(' ', myLevel*4) << typeid(obj).name() << endl;
+  myStream << RCString(' ', myLevel*4) << typeid(obj).name() << std::endl;
 
   if (obj->getTransform().getTransMatrix() != TransMatrix3D::getIdentity())
     myStream << RCString(' ', myLevel*4+2) 
-	    << obj->getTransform().getTransMatrix() << endl;
+	    << obj->getTransform().getTransMatrix() << std::endl;
 
    return Traversal::CONTINUE;
 }
@@ -87,11 +87,11 @@ Traversal::Result PrintWorld3D::visit(Shared3D* obj)
 {
   myStream << RCString(' ', myLevel*4) << obj->getName()
 	  << " (Shared3D refs: " << obj->rcCountReferences() << ")"
-	  << endl;
+	  << std::endl;
   
   if (obj->getTransform().getTransMatrix() != TransMatrix3D::getIdentity())
     myStream << RCString(' ', myLevel*4+2) 
-	    << obj->getTransform().getTransMatrix() << endl;
+	    << obj->getTransform().getTransMatrix() << std::endl;
 
   return Traversal::PRUNE;
 }

@@ -101,7 +101,7 @@ void dialCanvas::OnPaint()
 
 //_____________________________________________________________________ wxAnimator
 
-//implementRTTI(wxAnimator, wxBOOGAView);
+implementRTTI(wxAnimator, wxBOOGAView);
 
 wxAnimator::wxAnimator()
 {

@@ -30,7 +30,7 @@
 //_____________________________________________________________________ wxManagedChoice
 
 class wxManagedChoice : public wxChoice {
-// declareRTTI(wxManagedChoice);
+declareRTTI(wxManagedChoice);
 // enable RTTI support
 friend void wxManagedChoiceCallback(wxObject*, wxCommandEvent&);
 

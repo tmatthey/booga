@@ -20,7 +20,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <strstream.h>  // ostrstream
+#include <sstream>  // std::stringstream
 #include <GL/gl.h>
 #include <GL/glu.h>
 
@@ -193,7 +193,7 @@ void wxAdaptiveTracer::subdivideSquare(SSquare *sq)
   Real xsize = sq->getXsize();
   Real ysize = sq->getYsize();
 
-  ostrstream os;
+  std::stringstream os;
   os << "[wxAdaptiveTracer::subdivideSquare]: sq=" << *sq;
 
   newxsize = (int) xsize / 2;

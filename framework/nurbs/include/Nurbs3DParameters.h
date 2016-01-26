@@ -29,7 +29,7 @@
 //____________________________________________________________ Nurbs3DParameters
 
 class Nurbs3DParameters {
-  declareRTTI(Nurbs3DParameters);
+    declareRTTI(Nurbs3DParameters);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

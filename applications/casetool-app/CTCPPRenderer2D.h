@@ -24,7 +24,7 @@
 #ifndef _CTCPPRenderer2D_H
 #define _CTCPPRenderer2D_H
 
-#include <iostream.h>
+#include <iostream>
 #include "booga/component/Operation2D.h"
 #include "CTClassDescription2D.h"
 
@@ -68,8 +68,8 @@ public:
 private:
   RCString myCurrentIdent;
   RCString myIdent;
-  ostream *myOutput;
-  ofstream *myFileOutput;
+  std::ostream *myOutput;
+  std::ofstream *myFileOutput;
 };
 
 #endif // _CTCPPRenderer2D_H

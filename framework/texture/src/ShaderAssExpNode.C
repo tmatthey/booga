@@ -20,7 +20,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <iostream.h>
+#include <iostream>
 #include "booga/texture/ShaderAssExpNode.h"
 #include "booga/object/Ray3D.h"
      
@@ -45,7 +45,7 @@ void ShaderAssExpNode::print(bool indent)
   if (indent)
     printSpaces(2 * myBlockDepth);
   myOp1->print(false);
-  cout << " = ";
+  std::cout << " = ";
   myOp2->print(false);
 }
 

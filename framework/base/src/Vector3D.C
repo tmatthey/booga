@@ -21,7 +21,7 @@
  * ---------------------------------------------------------------------
  */
 
-#include <iostream.h>
+#include <iostream>
 #include <ctype.h>      // isspace(char)
 #include "booga/base/Vector3D.h"
 
@@ -249,7 +249,7 @@ Vector3D operator*(const Vector3D& vec, Real scale)
 		vec.myVec[2]*scale);
 }
 
-ostream& operator<<(ostream& os, const Vector3D& vec)
+std::ostream& operator<<(std::ostream& os, const Vector3D& vec)
 {
   return os << "[" 
             << vec.x() << ", " << vec.y() << ", " << vec.z()
@@ -259,7 +259,7 @@ ostream& operator<<(ostream& os, const Vector3D& vec)
 /*
  * From GGems IV, Jean-Francois Doue.
  */
-istream& operator>>(istream& is, Vector3D& vec) 
+std::istream& operator>>(std::istream& is, Vector3D& vec) 
 {
   Vector3D tmp;
   char c;
@@ -274,7 +274,7 @@ istream& operator>>(istream& is, Vector3D& vec)
   while (is >> c && isspace(c)) ;
   
   if (c != ']')
-    is.clear(ios::badbit|is.rdstate());
+    is.clear(std::ios::badbit|is.rdstate());
 
   if (is)
     vec = tmp;

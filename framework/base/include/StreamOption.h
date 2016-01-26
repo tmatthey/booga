@@ -26,19 +26,19 @@
 
 #include "booga/base/Option.h"
 
-class ostream;
+#include <ostream>
 
 //_________________________________________________________________ StreamOption
 
 class StreamOption : public Option {
-declareRTTI(StreamOption);
+  declareRTTI(StreamOption);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Constructors, destructors, assignment
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 public:
-  StreamOption(ostream* stream);
+  StreamOption(std::ostream* stream);
   // StreamOption(const StreamOption& option);    // Use default version.	   
 
 public:
@@ -51,7 +51,7 @@ private:
 // New methods of class StreamOption
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 public:
-  const ostream* getStream() const;
+  const std::ostream* getStream() const;
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // From class Option
@@ -63,15 +63,15 @@ public:
 // My data members
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 private:
-  ostream* myStream;
+  std::ostream* myStream;
 };
 
-inline StreamOption::StreamOption(ostream* stream)
+inline StreamOption::StreamOption(std::ostream* stream)
 {
   myStream = stream; 
 }
 
-inline const ostream* StreamOption::getStream() const
+inline const std::ostream* StreamOption::getStream() const
 {
   return myStream; 
 }

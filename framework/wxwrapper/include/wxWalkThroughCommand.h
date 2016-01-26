@@ -42,7 +42,7 @@ class WalkThroughTimer : public wxTimer
 //_____________________________________________________________________ wxWalkThroughCommand
 
 class wxWalkThroughCommand : public wxViewCommand {
-//declareRTTI(wxWalkThroughCommand);
+declareRTTI(wxWalkThroughCommand);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

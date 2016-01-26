@@ -38,7 +38,7 @@ URLContext::URLContext(RCString file)
   HT_FREE(temp);
   
   if ((output = fopen(file.chars(),"w")) == NULL) {
-    ostrstream os;
+    std::stringstream os;
     os << "[URLContext::URLContext] couldn't open file ";
     os << "'" << file << "'";
     Report::recoverable(os);
@@ -117,7 +117,7 @@ int URLContext::timeout_handler (HTRequest* request)
  */
 int URLContext::header_handler (HTRequest*, CONST char* token)
 {
-  ostrstream os;
+  std::stringstream os;
   os << "[header_handler] Parsing unknown header ";
   os << token;
   Report::warning(os);

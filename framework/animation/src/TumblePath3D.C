@@ -83,7 +83,7 @@ void TumblePath3D::setAttribute(ActionInfo* actionInfo) const
 				myFunctionName, myStart, myEnd, myStep);
   }
   else {
-    ostrstream os;
+    std::stringstream os;
     os << "[TumblePath3D::setAttribute] curve not specified";
     Report::recoverable(os);       
   }      
@@ -102,9 +102,10 @@ Makeable* TumblePath3D::make(RCString& errMsg, const List<Value*>* parameters) c
 
   long provided_ = (!parameters ? 0 : parameters->count());
   if (provided_ < 0 || provided_ > 4) {
-    extern char* form(const char * ...);
-    errMsg = RCString("between 0 and 4 parameter(s) required, ")
-             + form("%ld", provided_) + " provided";
+    std::stringstream str;
+    str << "between 0 and 4 parameter(s) required, "
+	<< provided_ << " provided";
+    errMsg = RCString(str);
     return NULL;
   }
 
@@ -133,7 +134,7 @@ Makeable* TumblePath3D::make(RCString& errMsg, const List<Value*>* parameters) c
 
 int TumblePath3D::setSpecifier (RCString &errMsg, Makeable *specifier)
 {
-  Nurbs3D* nurbs = dynamic_cast(Nurbs3D, specifier);
+  Nurbs3D* nurbs = dynamic_cast<Nurbs3D*>(specifier);
 
   if (nurbs != NULL) {
     if (!strcmp(nurbs->whatAmI(),"curve")) {
@@ -147,7 +148,7 @@ int TumblePath3D::setSpecifier (RCString &errMsg, Makeable *specifier)
     }
   }
 
-  InterpolationCurve3D* curve = dynamic_cast(InterpolationCurve3D, specifier);
+  InterpolationCurve3D* curve = dynamic_cast<InterpolationCurve3D*>(specifier);
   if (curve != NULL) { 
     myCurve = curve;
     return 1;
@@ -160,7 +161,7 @@ int TumblePath3D::setSpecifier (RCString &errMsg, Makeable *specifier)
   // 
   // Let papa do the rest ...
   //
-  return ActionInfoAttr::setSpecifier(errMsg, specifier);
+  //return ActionInfoAttr::setSpecifier(errMsg, specifier);
 }
 
 static const RCString tumblepathKeyword("tumblepath");

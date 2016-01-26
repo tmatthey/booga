@@ -1,4 +1,4 @@
-/*
+/* -*- c++ -*- 
  * RTTI.h 
  *
  * C++ will allow dynamic cast (save down casts) as proposed in the
@@ -25,20 +25,12 @@
  * -----------------------------------------------------------------------------
  */
 
+
+
 #ifndef _RTTI_H
 # define _RTTI_H
 
-#ifdef WIN32
-#include <typeinfo.h>
-#define dynamic_cast(a,b) dynamic_cast<a*>(b)
-#define const_cast(a,b) const_cast<a*>(b)
-#define const_cast_nt(a,b) const_cast<a*>(b)
-#define declareRTTI(ClassName)
-#define implementRTTIBase(ClassName)	             
-#define implementRTTI(ClassName,BaseClass)           
-
-#else
-
+#ifndef HAVE_RTTI
 
 #include "booga/base/Name.h"
 
@@ -63,7 +55,9 @@
   }                                                  \
   const type_info& ClassName::getTypeId_() const     \
   { return ClassName::ourTypeId_; }                  
- 
+
+
+/* 
 //
 // Simulates T* dynamic_cast<T*>(object) construct
 //
@@ -78,11 +72,13 @@
   (((obj) == NULL) ? (Type*)NULL : \
    ((obj)->isA_(Type::ourTypeId_)) ? (Type*)(obj) : (Type*)NULL) 
 
+*/
+
 //
 // Simulates operator int typeid(T)
 //
-#define typeid(obj) \
-  (obj)->getTypeId_()
+
+#define typeid(obj) (obj)->getTypeId_()
 
 
 //
@@ -126,6 +122,13 @@ inline const char* type_info::name() const
 {
   return ((RCString)myName).chars();
 }
+#else // HAVE_RTTI
 
-#endif // WIN32
+#define declareRTTI(ClassName)
+#define implementRTTIBase(ClassName)
+#define implementRTTI(ClassName,BaseClass)
+
+#endif // HAVE_RTTI
+
 #endif // _RTTI_H
+

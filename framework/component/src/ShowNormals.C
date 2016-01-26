@@ -64,7 +64,7 @@ bool ShowNormals::doExecute()
 
   traverse(getWorld());
   
-  ostrstream os;
+  std::stringstream os;
   os << "[ShowNormals::doExecute] created " << myNormalContainer->countSubobject();
   os << " normals";
   Report::debug(os);

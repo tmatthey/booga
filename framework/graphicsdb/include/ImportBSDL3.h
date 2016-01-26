@@ -23,7 +23,7 @@
 #ifndef _ImportBSDL3_H
 #define _ImportBSDL3_H
 
-#include <fstream.h>
+#include <fstream>
 #include "booga/base/SymTable.h"
 #include "booga/graphicsdb/GDBOperation.h"
 #include "booga/graphicsdb/GDBData.h"

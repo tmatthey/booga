@@ -73,7 +73,7 @@ void Matte::doTexturing(Texture3DContext& context) const
 
 int Matte::setSpecifier(RCString& errMsg, Makeable* specifier)
 {
-  MatteAttr* attr = dynamic_cast(MatteAttr, specifier);
+  MatteAttr* attr = dynamic_cast<MatteAttr*>(specifier);
   if (attr != NULL) {
     // The MatteAttr knows best which method has to be called.
     // So let the object do the job.

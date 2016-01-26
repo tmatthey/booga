@@ -68,7 +68,7 @@ Object3D* BottomBorder::copy() const
 
 int BottomBorder::setSpecifier(RCString& errMsg, Makeable* specifier)
 {
-  BottomBorderAttr* attr = dynamic_cast(BottomBorderAttr, specifier);
+  BottomBorderAttr* attr = dynamic_cast<BottomBorderAttr*>(specifier);
   if (attr) {
     // The Cylinder3DAttr object knows best which method has to be called.
     // So let the object do the job.

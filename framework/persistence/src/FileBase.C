@@ -22,7 +22,8 @@
 
 #include <sys/types.h>
 #include <sys/stat.h>
-
+#include <typeinfo>
+#include <streambuf>
 #include "booga/base/Report.h"
 #include "booga/persistence/POId.h"
 #include "booga/persistence/Persistent.h"
@@ -32,8 +33,7 @@
 #include "booga/persistence/AsciiMarshal.h"
 #include "booga/persistence/Transaction.h"
 
-const int FILEBASE_OPENPROT = 0664;
-
+//const int FILEBASE_OPENPROT = 0664;
 //_____________________________________________________________________ FileBase
 
 implementRTTI(FileBase, DataBase);
@@ -42,11 +42,11 @@ FileBase::FileBase(char *dirPath)
 myFilename("")
 {
   myMarshal = new AsciiMarshal();
-  ostrstream filename;
+  std::stringstream filename;
   filename << myDirPath 
            << ".dbCounter";
   myOIdCounterFilename = RCString(filename);
-  ostrstream filename2;
+  std::stringstream filename2;
   filename2 << myDirPath 
            << ".dbObjectNames";
   myObjectNamesFilename = RCString(filename2);
@@ -64,36 +64,36 @@ FileBase::~FileBase() {
 }
 
 void FileBase::readOIdCounter() {
-  myCounterFile.open(myOIdCounterFilename.chars(),ios::in);
+  myCounterFile.open(myOIdCounterFilename.chars(),std::ios::in);
   myCounterFile >> myPDBId;
   myCounterFile >> myOIdCount;
   myCounterFile.close();
 }
 
 void FileBase::writeOIdCounter() {
-  myCounterFile.open(myOIdCounterFilename.chars(),ios::out,FILEBASE_OPENPROT);
-  fchmod(myCounterFile.rdbuf()->fd(), FILEBASE_OPENPROT);
-  myCounterFile << myPDBId << endl;
-  myCounterFile << myOIdCount << endl;
+  myCounterFile.open(myOIdCounterFilename.chars(),std::ios::out);//,FILEBASE_OPENPROT);
+  //  fchmod(myCounterFile.rdbuf()->fd(),FILEBASE_OPENPROT);
+  myCounterFile << myPDBId << std::endl;
+  myCounterFile << myOIdCount << std::endl;
   myCounterFile.close();
 }
 
 void FileBase::readObjectNames() {
-  fstream fin;
-  fin.open(myObjectNamesFilename.chars(),ios::in);
+  std::fstream fin;
+  fin.open(myObjectNamesFilename.chars(),std::ios::in);
   myMarshal->useInputStream(fin);
   *myMarshal >> myObjectNames;
-  myMarshal->useInputStream(cin);
+  myMarshal->useInputStream(std::cin);
   fin.close();
 }
 
 void FileBase::writeObjectNames() {
-  fstream fout;
-  fout.open(myObjectNamesFilename.chars(),ios::out,FILEBASE_OPENPROT);
-  fchmod(fout.rdbuf()->fd(), FILEBASE_OPENPROT);
+  std::fstream fout;
+  fout.open(myObjectNamesFilename.chars(),std::ios::out);//,FILEBASE_OPENPROT);
+  //  fchmod(fout.rdbuf()->fd());//,FILEBASE_OPENPROT);
   myMarshal->useOutputStream(fout);
   *myMarshal << myObjectNames;
-  myMarshal->useOutputStream(cout);
+  myMarshal->useOutputStream(std::cout);
   fout.close();
 }
 
@@ -111,7 +111,7 @@ int FileBase::setObjectName(char* name, const POId& oid) {
   RCString key(name);
   POId dummy;
   if (myObjectNames.lookup(key,dummy)) {
-    ostrstream os;
+    std::stringstream os;
     os << "[FileBase::setObjectName] name allready used " 
        << key << " " << oid;
     Report::warning(os);
@@ -136,15 +136,15 @@ int FileBase::write(Persistent* p) {
   }
   myCurrPOId = p->getPOId();
 
-  ostrstream filename;
+  std::stringstream filename;
   filename << myDirPath 
            << myCurrPOId.getPObjectId();
   myFilename = RCString(filename);
-  myFile.open(myFilename.chars(),ios::out,FILEBASE_OPENPROT);
-  fchmod(myFile.rdbuf()->fd(), FILEBASE_OPENPROT);
+  myFile.open(myFilename.chars(),std::ios::out);//,FILEBASE_OPENPROT);
+  //  fchmod(myFile.rdbuf()->fd());//,FILEBASE_OPENPROT);
 
-  myFile << myCurrPOId.getPObjectId() << endl;
-  myFile << typeid(p).name() << endl;
+  myFile << myCurrPOId.getPObjectId() << std::endl;
+  myFile << typeid(p).name() << std::endl;
   myMarshal->marshal(p, myFile);
   myFile.close();
   return 1;
@@ -152,15 +152,15 @@ int FileBase::write(Persistent* p) {
 
 Persistent* FileBase::load(const POId& id) {
   if (Transaction::getTransactionLevel() <= 0) {
-    ostrstream os;
+    std::stringstream os;
     os << "[FileBase::load] no active Transaction while loading " << id;
     Report::error(os);
   }
-  ostrstream filename;
+  std::stringstream filename;
   filename << myDirPath 
            << id.getPObjectId();
   myFilename = RCString(filename);
-  myFile.open(myFilename.chars(),ios::in);
+  myFile.open(myFilename.chars(),std::ios::in);
   
   PObjectId oid;
   myFile >> oid;
@@ -170,7 +170,7 @@ Persistent* FileBase::load(const POId& id) {
   Persistent *obj = PersistentManager::getThePersistentManager()->newInstance(typeName);
   if (obj == NULL) {
     myFile.close();
-    ostrstream os;
+    std::stringstream os;
     os << "[FileBase::load] object type " << typeName 
        << " not registered. " << id << " not loaded";
     Report::recoverable(os);
@@ -179,7 +179,7 @@ Persistent* FileBase::load(const POId& id) {
   else {
     obj->setDataBase(*this);
     obj->setPOId(id);
-    // myFile.open(myFilename.chars(),ios::in);
+    // myFile.open(myFilename.chars(),std::ios::in);
     myMarshal->unmarshal(obj, myFile);
     myFile.close();
   }

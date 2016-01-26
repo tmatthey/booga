@@ -21,7 +21,7 @@
  * -----------------------------------------------------------------------------
  */
    
-#include <fstream.h>
+#include <fstream>
 
 #include "booga/base/Report.h"
 #include "booga/base/AbstractPixmap.h"
@@ -44,7 +44,16 @@ JPEGWriter::JPEGWriter(const RCString& filename, Type traversalType)
   myQuality = 75;
 }
 
-bool JPEGWriter::save(ofstream& ofs, const Pixmap2D* pixi) const 
+bool JPEGWriter::save(const AbstractFile& ofs, const Pixmap2D* pixi) const 
+{
+  FileFD fs(ofs,"wb");
+  if (fs.bad()) {
+    Report::warning("JPEGWriter:can't open file\n");
+    return false;
+  }
+  return save(fs,pixi);
+}
+bool JPEGWriter::save(FILE* outfile, const Pixmap2D* pixi) const 
 {
 #ifdef HAVE_JPEG
   const AbstractPixmap* pm = pixi->getPixmap();
@@ -55,7 +64,7 @@ bool JPEGWriter::save(ofstream& ofs, const Pixmap2D* pixi) const
 
   struct jpeg_compress_struct cinfo;
   struct jpeg_error_mgr jerr;
-  FILE * outfile;		/* target file */
+  //  FILE * outfile;		/* target file */
   JSAMPROW row_pointer[1];	/* pointer to JSAMPLE row[s] */
   int row_stride;		/* physical row width in image buffer */
 
@@ -63,16 +72,17 @@ bool JPEGWriter::save(ofstream& ofs, const Pixmap2D* pixi) const
   /* Now we can initialize the JPEG compression object. */
   jpeg_create_compress(&cinfo);
   
-  ofs.close(); // We close ofs since we have to open the file
-               // ourselves.
+  //ofs.close(); // We close ofs since we have to open the file
+  //             // ourselves.
   
   // we have to open the file ourselves
   // maybe I should convert ofs to FILE
   
-  if ((outfile = fopen(myFilename.chars(), "wb")) == NULL) {
-    Report::warning("JPEGWriter:can't open file\n");
-    return false;
-    }
+//   if ((outfile = fopen(myFilename.chars(), "wb")) == NULL) {
+//     Report::warning("JPEGWriter:can't open file\n");
+//     return false;
+//     }
+//  outfile = ofs.FILE();
     
   jpeg_stdio_dest(&cinfo, outfile);
 

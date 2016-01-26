@@ -57,14 +57,14 @@ POId TransientBase::getUniquePOId() {
 }
 
 Persistent* TransientBase::load(const POId& id) {
-  ostrstream os;
+  std::stringstream os;
   os << "[TransientBase::load] can't load " << id << " from a TransientBase";
   Report::recoverable(os);
   return NULL;
 }
 
 int TransientBase::write(Persistent* p) {
-  ostrstream os;
+  std::stringstream os;
   os << "[TransientBase::write] can't write to a TransientBase " << p->getPOId();
   Report::recoverable(os);
   return 0;

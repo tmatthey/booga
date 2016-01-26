@@ -32,7 +32,7 @@
 //______________________________________________________________________ Shader
 
 class Shader : public Texture3D {
-declareRTTI(Shader);
+  declareRTTI(Shader);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

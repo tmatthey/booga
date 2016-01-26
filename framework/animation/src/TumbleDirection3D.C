@@ -81,7 +81,7 @@ void TumbleDirection3D::setAttribute(ActionInfo* actionInfo) const
     actionInfo->adoptTumbleDirection(new InterpolationCurve3D(*myCurve));
   }
   else {
-    ostrstream os;
+    std::stringstream os;
     os << "[TumbleDirection3D::setAttribute] curve not specified";
     Report::recoverable(os);       
   }
@@ -100,7 +100,7 @@ Makeable* TumbleDirection3D::make(RCString&, const List<Value*>*) const
 
 int TumbleDirection3D::setSpecifier (RCString &errMsg, Makeable *specifier)
 {
-  Nurbs3D* nurbs = dynamic_cast(Nurbs3D, specifier);
+  Nurbs3D* nurbs = dynamic_cast<Nurbs3D*>(specifier);
 
   if (nurbs != NULL) {
     if (!strcmp(nurbs->whatAmI(),"curve")) {
@@ -114,7 +114,7 @@ int TumbleDirection3D::setSpecifier (RCString &errMsg, Makeable *specifier)
     }
   }
 
-  InterpolationCurve3D* Curve = dynamic_cast(InterpolationCurve3D, specifier);
+  InterpolationCurve3D* Curve = dynamic_cast<InterpolationCurve3D*>(specifier);
 
   if (Curve != NULL) {
       myCurve = Curve;
@@ -128,7 +128,7 @@ int TumbleDirection3D::setSpecifier (RCString &errMsg, Makeable *specifier)
   // 
   // Let papa do the rest ...
   //
-  return ActionInfoAttr::setSpecifier(errMsg, specifier);
+  //return ActionInfoAttr::setSpecifier(errMsg, specifier);
 }
 
 static const RCString tumbledirectionKeyword("tumbledirection");

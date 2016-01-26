@@ -29,7 +29,7 @@
 //_____________________________________________________________________ wxManagedListBox
 
 class wxManagedListBox : public wxListBox {
-//declareRTTI(wxManagedListBox);
+declareRTTI(wxManagedListBox);
 // enable RTTI support
 friend void wxManagedListBoxCallback(wxObject*, wxCommandEvent&);
 

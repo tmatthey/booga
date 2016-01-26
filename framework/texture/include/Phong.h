@@ -30,7 +30,7 @@
 //________________________________________________________________________ Phong
 
 class Phong : public Texture3D {
-declareRTTI(Phong);
+  declareRTTI(Phong);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

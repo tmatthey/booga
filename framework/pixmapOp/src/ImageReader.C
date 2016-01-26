@@ -24,9 +24,8 @@
 #ifdef SVR4
 #include <unistd.h>
 #endif
-#include <fstream.h>
-#include <strstream.h>  // ostrstream
-
+#include <fstream>
+#include <sstream>  // std::stringstream
 #include "booga/base/Report.h"
 #include "booga/pixmapOp/ImageReader.h"
    
@@ -46,38 +45,30 @@ ImageReader::ImageReader(Exemplar)
 
 AbstractPixmap* ImageReader::createPixmap(const RCString& filename)
 {
-  ifstream ifs;
-#ifdef SVR4
+  AbstractFile ifs;
   // 
   // Open file if file name is set, else
   // attach stream to stdin.
   //
   if (filename.isEmpty())
-    ifs.rdbuf()->attach(STDIN_FILENO);
+    ifs.attach(STDIN_FILENO);
   else
-#endif
-
-#ifdef WIN32
-  ifs.open(filename.chars(),ios::binary);
-#else
-  ifs.open(filename.chars());
-#endif
-
+    ifs.attach(filename);
+  
   AbstractPixmap* pixi = NULL;
-  if (ourReaders != NULL) 
+  if (ourReaders != NULL) {
     for (long i=0; i<ourReaders->count(); i++) {
       if ((pixi = ourReaders->item(i)->read(ifs)) != NULL) 
 	break;
-      if (ifs.rdbuf()->seekpos(0) != 0) {
+      if (ifs.tellg() != 0) {
 	Report::warning("[ImageReader::createPixmap] couldn't reset istream");
 	break;
       }
     }
-
-  ifs.close();
+  }
 
   if (pixi == NULL) {
-    ostrstream os;
+    std::stringstream os;
     os << "[ImageReader::createPixmap] couldn't read file ";
     
     if (filename.isEmpty())

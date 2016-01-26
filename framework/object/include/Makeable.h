@@ -146,28 +146,29 @@ inline const Name& Makeable::getName() const
  */
 
 #define castSpecifier(Type, variableName, expectedType)             \
-  Type* variableName = dynamic_cast(Type, specifier);               \
-  if (variableName == NULL) {			              \
+  Type* variableName = dynamic_cast<Type*>(specifier);              \
+  if (variableName == NULL) {			                    \
     errMsg = "expecting " expectedType ", type was " +              \
              RCString(typeid(specifier).name());                    \
-    return 0;					              \
+    return 0;					                    \
   }
 
-#define checkParameterNumber(requiredNum) 	                       \
-  extern char* form(const char * ...);                              \
-  long provided_ = (!parameters ? 0 : parameters->count());         \
-  if (provided_ != requiredNum) {		                       \
-    errMsg = RCString(#requiredNum) + " parameter(s) required, "    \
-             + form("%ld", provided_) + " provided";                \
-    return NULL;				                       \
+#define checkParameterNumber(requiredNum) 	                   \
+  long provided_ = (!parameters ? 0 : parameters->count());        \
+  if (provided_ != requiredNum) {		                   \
+    std::stringstream str;                                         \
+    str << #requiredNum << " parameter(s) required, "              \
+        << provided_ << " provided";                               \
+    errMsg = RCString(str);                                        \
+    return NULL;				                   \
   }
 
 #define getParameter(nthParameter, Type, variableName)              \
-  Type variableName;				              \
+  Type variableName;				                    \
   if (!parameters->item(nthParameter-1)->to##Type(variableName)) {  \
     errMsg = RCString("expecting ") + #Type                         \
              " value as " #nthParameter ". parameter";              \
-    return NULL;				                       \
+    return NULL;				                    \
   }
 
 #endif // _Makeable_H

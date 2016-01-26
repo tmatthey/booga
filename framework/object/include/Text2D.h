@@ -31,7 +31,7 @@
 //_______________________________________________________________________ Text2D
 
 class Text2D : public Primitive2D {
-declareRTTI(Text2D);
+  declareRTTI(Text2D);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

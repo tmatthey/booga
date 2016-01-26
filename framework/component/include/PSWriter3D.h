@@ -29,7 +29,7 @@
 #ifndef _PSWriter3D_H
 #define _PSWriter3D_H
 
-#include <fstream.h>
+#include <fstream>
 
 #include "booga/base/RCString.h"
 #include "booga/base/PrimitiveTypes.h"
@@ -78,7 +78,7 @@ private:
   Camera3D*  myCamera;
   bool       myHasAdoptedCamera;
   RCString   myFilename;
-  ofstream   myOfs;    
+  std::ofstream   myOfs;    
 };
 
 //______________________________________________________________________ INLINES

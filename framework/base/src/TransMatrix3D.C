@@ -21,7 +21,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <iostream.h>
+#include <iostream>
 #include "booga/base/Report.h"
 #include "booga/base/TransMatrix3D.h"
 
@@ -607,7 +607,7 @@ TransMatrix3D TransMatrix3D::makeScale(const Vector3D& scaleFactor)
 
 //______________________________________________________________________ friends
 
-ostream& operator<<(ostream &os, const TransMatrix3D& tm)
+std::ostream& operator<<(std::ostream &os, const TransMatrix3D& tm)
 {
   os << "[[" << tm.m00 << ", " << tm.m01 << ", " <<tm.m02 << "], ";
   os <<  "[" << tm.m10 << ", " << tm.m11 << ", " <<tm.m12 << "], ";

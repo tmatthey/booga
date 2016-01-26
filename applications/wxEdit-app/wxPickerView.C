@@ -41,7 +41,7 @@
 
 //_____________________________________________________________________ wxPickerView
 
-//implementRTTI(wxPickerView, wxView3D);
+implementRTTI(wxPickerView, wxView3D);
 
 wxPickerView::wxPickerView (wxWindow *frame, int x, int y, int w, int h) : wxView3D (frame, x, y, w, h)
 {

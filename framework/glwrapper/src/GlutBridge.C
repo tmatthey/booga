@@ -23,7 +23,13 @@
  
 #ifdef HAVE_OPENGL
 #ifdef HAVE_X11
+#ifdef  __UNIXOS2__
 # include <X11/Xlib.h>  // XPending
+#else
+#define __UNIXOS2__
+# include <X11/Xlib.h>  // XPending
+#undef __UNIXOS2__
+#endif
 #endif
 # include <GL/glut.h>   // glutSwapBuffers
 #endif
@@ -42,11 +48,11 @@ bool GlutBridge::isEventPending()
   // The name of the display variable may change, 
   // when a new release of GLUT is available.
   //
-  extern Display* __glutDisplay;
+   extern Display* __glutDisplay;
 
-  if (XPending(__glutDisplay))
-    return true;
-  else
+   if (XPending(__glutDisplay))
+     return true;
+   else
 #endif // HAVE_OPENGL
 #endif
     return false;

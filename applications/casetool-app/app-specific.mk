@@ -22,7 +22,5 @@
 #
 
 LDFLAGS    = $(OPENGL_LPATH) $(X11_LPATH) $(MPEGE_LPATH) $(JPEG_LPATH)
-#DEP_LIBS   = -lglwrapper -lcomponent -lanimation -lbuilding -lnurbs -lobject -ltexture -lpixmapOp -lbase
-#OTHER_LIBS = $(OPENGL_LIB) $(X11_LIB) $(MPEGE_LIB) $(JPEG_LIB) -lm
-DEP_LIBS   = -lglwrapper -lcomponent -lanimation -lbuilding -lnurbs -lobject -ltexture -lpixmapOp -lbase
+DEP_LIBS   = -lglwrapper -lcomponent -lanimation -lbuilding -lnurbs -lobject -ltexture -lpixmapOp -lbase -lglwrapper -lcomponent -lanimation -lbuilding -lnurbs -lobject -ltexture -lpixmapOp -lbase
 OTHER_LIBS = $(OPENGL_LIB) $(X11_LIB) $(JPEG_LIB) -lm

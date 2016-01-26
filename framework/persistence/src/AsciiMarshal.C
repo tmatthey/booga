@@ -43,61 +43,61 @@ Marshal& AsciiMarshal::operator<<(unsigned char uc) {
 }
 
 Marshal& AsciiMarshal::operator<<(short s) {
-  *myOs << s << endl;
+  *myOs << s << std::endl;
   return *this;
 }
 
 Marshal& AsciiMarshal::operator<<(unsigned short us) {
-  *myOs << us << endl;
+  *myOs << us << std::endl;
   return *this;
 }
 
 Marshal& AsciiMarshal::operator<<(long l) {
-  *myOs << l << endl;
+  *myOs << l << std::endl;
   return *this;
 }
 
 Marshal& AsciiMarshal::operator<<(unsigned long ul) {
-  *myOs << ul << endl;
+  *myOs << ul << std::endl;
   return *this;
 }
 
 Marshal& AsciiMarshal::operator<<(int i) {
-  *myOs << i << endl;
+  *myOs << i << std::endl;
   return *this;
 }
 
 Marshal& AsciiMarshal::operator<<(unsigned int ui) {
-  *myOs << ui << endl;
+  *myOs << ui << std::endl;
   return *this;
 }
 Marshal& AsciiMarshal::operator<<(float f) {
-  *myOs << f << endl;
+  *myOs << f << std::endl;
   return *this;
 }
 
 Marshal& AsciiMarshal::operator<<(double d) {
-  *myOs << d << endl;
+  *myOs << d << std::endl;
   return *this;
 }
 
 Marshal& AsciiMarshal::operator<<(const char* buf) {
   *myOs << strlen(buf) << " ";
-  *myOs << buf << endl;
+  *myOs << buf << std::endl;
   return *this;
 }
 
 Marshal& AsciiMarshal::write(const char *buf, long len) {
   *myOs << len << " ";
   myOs->write(buf,len);
-  *myOs << endl;
+  *myOs << std::endl;
   return *this;
 }
 
 Marshal& AsciiMarshal::write(const unsigned char* buf, long len) {
   *myOs << len << " ";
-  myOs->write(buf, len);
-  *myOs << endl;
+  myOs->write(reinterpret_cast<char*>(const_cast<unsigned char*>(buf)), len);
+  *myOs << std::endl;
   return *this;
 }
 
@@ -191,14 +191,14 @@ Marshal& AsciiMarshal::read(unsigned char*& buf, long& len) {
     buf = new unsigned char[readlen];
     len = readlen;
   }
-  myIs->read(buf,1);     // dummy read delimiter
+  myIs->read(reinterpret_cast<char*>(buf),1);     // dummy read delimiter
   if (readlen <= len) {
-    myIs->read(buf,len);   // read the data
+    myIs->read(reinterpret_cast<char*>(buf),len);   // read the data
   }
   else {
-    myIs->read(buf,len);  // read as much data as possible
+    myIs->read(reinterpret_cast<char*>(buf),len);  // read as much data as possible
     unsigned char *dummybuf = new unsigned char[readlen-len];
-    myIs->read(dummybuf,readlen - len); // skip the rest
+    myIs->read(reinterpret_cast<char*>(dummybuf),readlen - len); // skip the rest
     delete dummybuf;
   }
   return *this;

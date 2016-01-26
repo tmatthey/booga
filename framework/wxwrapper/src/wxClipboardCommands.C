@@ -36,7 +36,7 @@ wxCutCommand::wxCutCommand (wxView3D *v) : wxViewCommand(v)
 
 void wxCutCommand::execute()
 {
-  ostrstream os;
+  std::stringstream os;
   os << "[wxCutCommand::execute]:";
   Report::warning(os);
   
@@ -66,7 +66,7 @@ wxCopyCommand::wxCopyCommand (wxView3D *v) : wxViewCommand(v)
 
 void wxCopyCommand::execute()
 {
-  ostrstream os;
+  std::stringstream os;
   os << "[wxCopyCommand::execute]:";
   Report::warning(os);
   
@@ -92,7 +92,7 @@ wxPasteCommand::wxPasteCommand (wxView3D *v) : wxViewCommand(v)
 
 void wxPasteCommand::execute()
 {
-  ostrstream os;
+  std::stringstream os;
   os << "[wxPasteCommand::execute]:";
   Report::warning(os);
   
@@ -132,7 +132,7 @@ wxGroupCommand::wxGroupCommand (wxView3D *v) : wxViewCommand(v)
 
 void wxGroupCommand::execute()
 {
-  ostrstream os;
+  std::stringstream os;
   os << "[wxGroupCommand::execute]:";
   Report::warning(os);
   
@@ -179,7 +179,7 @@ wxUnGroupCommand::wxUnGroupCommand (wxView3D *v) : wxViewCommand(v)
 
 void wxUnGroupCommand::execute()
 {
-  ostrstream os;
+  std::stringstream os;
   os << "[wxUnGroupCommand::execute]:";
   Report::warning(os);
   
@@ -222,7 +222,7 @@ wxCreateSharedCommand::wxCreateSharedCommand (wxView3D *v) : wxViewCommand(v)
 
 void wxCreateSharedCommand::execute()
 {
-  ostrstream os;
+  std::stringstream os;
   os << "[wxCreateSharedCommand::execute]:";
   Report::warning(os);
   

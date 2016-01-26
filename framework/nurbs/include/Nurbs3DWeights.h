@@ -38,7 +38,7 @@
 ***********************************************************/
 
 class Nurbs3DWeights : public Nurbs3DParameters {
-  declareRTTI(Nurbs3DWeights);
+    declareRTTI(Nurbs3DWeights);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

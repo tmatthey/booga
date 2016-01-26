@@ -33,7 +33,7 @@
 //__________________________________________________________________ Transform3D
 
 class Transform3D : public ObjectSpecifier {
-declareRTTI(Transform3D);
+  declareRTTI(Transform3D);
 // enable RTTI support
 
 public:

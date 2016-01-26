@@ -32,7 +32,7 @@ class Aggregate3D;
 //______________________________________________________________________ World3D
 
 class World3D : public World {
-declareRTTI(World3D);
+  declareRTTI(World3D);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

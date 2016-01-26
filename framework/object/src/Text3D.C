@@ -21,7 +21,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <strstream.h>
+#include <sstream>
 
 #include "booga/base/Value.h"
 #include "booga/base/Report.h"
@@ -78,7 +78,7 @@ Text3D::~Text3D()
 void Text3D::setHeight(Real height)
 {
   if (height < EPSILON) {
-    ostrstream os;
+    std::stringstream os;
     os << "[Text3D::setHeight] illegal value for height: " << height;
     Report::warning(os);
     return;
@@ -90,7 +90,7 @@ void Text3D::setHeight(Real height)
 void Text3D::setRadius(Real radius)
 {
   if (radius < EPSILON) {
-    ostrstream os;
+    std::stringstream os;
     os << "[Text3D::setRadius] illegal value for radius: " << radius;
     Report::warning(os);
     return;
@@ -108,7 +108,7 @@ void Text3D::setFont(const RCString& fontName)
 {
   const StrokeFont* font = StrokeFont::searchFont(fontName);
   if (font == NULL) {
-    ostrstream os;
+    std::stringstream os;
     os << "[Text3D::setFont] unknown font \"" << fontName << "\"";;
     Report::warning(os);
     return;
@@ -233,7 +233,7 @@ bool Text3D::doIntersect(Ray3D& ray)
 
 int Text3D::setSpecifier(RCString& errMsg, Makeable* specifier)
 {
-  Text3DAttr* attr = dynamic_cast(Text3DAttr, specifier);
+  Text3DAttr* attr = dynamic_cast<Text3DAttr*>(specifier);
   if (attr != NULL) {
     // The Text3DAttr object knows best which method has to be called.
     // So let the object do the job.

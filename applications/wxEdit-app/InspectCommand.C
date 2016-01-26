@@ -30,7 +30,7 @@
 
 //_____________________________________________________________________ InspectCommand
 
-//implementRTTI(InspectCommand, wxCommand);
+implementRTTI(InspectCommand, wxCommand);
 
 InspectCommand::InspectCommand (wxView3D *v) : wxViewCommand(v)
 {

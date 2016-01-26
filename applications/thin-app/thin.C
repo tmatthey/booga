@@ -59,7 +59,7 @@ int main(int argc, char* argv[])
 
   AbstractPixmap* pm = new PixmapOf<Grey>(in);
   t.lap();
-  cerr << "read  -> " << t.getLapTime() << endl;
+  std::cerr << "read  -> " << t.getLapTime() << std::endl;
   
   LabelConnectedComponents label(writeOption, verbose);
 
@@ -69,7 +69,7 @@ int main(int argc, char* argv[])
     
     label.apply(pm);
     t.lap();
-    cerr << "label -> " << t.getLapTime() << endl;
+    std::cerr << "label -> " << t.getLapTime() << std::endl;
   }
   
   Thin thin(verbose);
@@ -82,7 +82,7 @@ int main(int argc, char* argv[])
   
   thin.apply(pm);
   t.lap();
-  cerr << "thin  -> " << t.getLapTime() << endl;
+  std::cerr << "thin  -> " << t.getLapTime() << std::endl;
   
   if (label.getTargetChannel() >= 0) {
     ExtractChannel extract;
@@ -93,12 +93,12 @@ int main(int argc, char* argv[])
   else
     pm->save(out);
   t.lap();
-  cerr << "save  -> " << t.getLapTime() << endl;
+  std::cerr << "save  -> " << t.getLapTime() << std::endl;
 
   delete pm;
   
-  cerr << "----------------------------" << endl;
-  cerr << "all   -> " << t.getTime() << endl;
+  std::cerr << "----------------------------" << std::endl;
+  std::cerr << "all   -> " << t.getTime() << std::endl;
   return(0);
 }
 
@@ -159,16 +159,16 @@ void parseCmdLine(int argc, char* argv[], int& verbose, bool& labelOption, float
 
 void usage(RCString name)
 {
-    cerr << "\nUsage:\t" << name << " [-h] [-b background_color] [-w write_option] [-v]\n";
-    cerr << "\t[in-file [out-file]]\n";
-    cerr << "where:\n";
-    cerr << "  -h                  : print this\n";
-    cerr << "  -v                  : (optional) verbose (default: no information)\n";
-    cerr << "  -b background_color : (optional) set background_color (float) for labeling\n";
-    cerr << "                           => 0==black (default) <= value <= 1==white\n";
-    cerr << "  -w write_option     : (optional) labeling before thinning (default: no)\n";
-    cerr << "                           write_option for result: 0 => IMAGE, 1 => CHANNEL\n";
-    cerr << "  in-file             : (optional) filename of input\n";
-    cerr << "  out-file            : (optional) filename of output\n\n";
+    std::cerr << "\nUsage:\t" << name << " [-h] [-b background_color] [-w write_option] [-v]\n";
+    std::cerr << "\t[in-file [out-file]]\n";
+    std::cerr << "where:\n";
+    std::cerr << "  -h                  : print this\n";
+    std::cerr << "  -v                  : (optional) verbose (default: no information)\n";
+    std::cerr << "  -b background_color : (optional) set background_color (float) for labeling\n";
+    std::cerr << "                           => 0==black (default) <= value <= 1==white\n";
+    std::cerr << "  -w write_option     : (optional) labeling before thinning (default: no)\n";
+    std::cerr << "                           write_option for result: 0 => IMAGE, 1 => CHANNEL\n";
+    std::cerr << "  in-file             : (optional) filename of input\n";
+    std::cerr << "  out-file            : (optional) filename of output\n\n";
 }
   

@@ -31,7 +31,7 @@
 //________________________________________________________________ PolygonMapper
 
 class PolygonMapper : public Texture3D {
-declareRTTI(PolygonMapper);
+  declareRTTI(PolygonMapper);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

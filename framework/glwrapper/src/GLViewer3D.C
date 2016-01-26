@@ -147,7 +147,7 @@ void GLViewer3D::motionCallback(int x, int y)
     break;
  
   default:
-    ostrstream os;
+    std::stringstream os;
     os << "[GLViewer3D::motionCallback] unknown moving mode " << (int)ourMovingMode;
     Report::recoverable(os);
   }

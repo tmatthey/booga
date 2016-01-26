@@ -40,7 +40,7 @@ template <class TSearchObject, // Object class we are looking for
 class CollectorFor : public TOperation, 
 		     public MIterator<TPathOf*,List<TPathOf*> > {
 #ifndef __GNUC__
-// declareRTTI(CollectorFor);
+  //declareRTTI(CollectorFor);
 // enable RTTI support
 #endif // __GNUC__
 

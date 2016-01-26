@@ -23,7 +23,7 @@
 #ifndef _BSDL2DWriter_H
 #define _BSDL2DWriter_H
 
-#include <fstream.h>
+#include <fstream>
 #include "booga/base/Value.h"
 #include "booga/base/RCString.h"
 #include "booga/component/DocumentStore.h"

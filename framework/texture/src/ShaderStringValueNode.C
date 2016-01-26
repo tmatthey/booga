@@ -20,7 +20,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <iostream.h>
+#include <iostream>
 #include "booga/texture/ShaderStringValueNode.h"
      
 ShaderStringValueNode::ShaderStringValueNode(RCString* theString)
@@ -35,7 +35,7 @@ void ShaderStringValueNode::print(bool indent)
 {
   if (indent)
     printSpaces(2 * myBlockDepth);
-  cout << myValue;
+  std::cout << myValue;
 }
 
 void ShaderStringValueNode::execute(Texture3DContext&)

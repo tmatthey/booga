@@ -32,13 +32,13 @@ Marshal::Marshal() {
 Marshal::~Marshal() {
 }
 
-void Marshal::marshal(Persistent* p, ostream& os) {
+void Marshal::marshal(Persistent* p, std::ostream& os) {
   myOs = &os;
   p->marshal(this);
   myOs = NULL; // rather have core dumps than writing to wrong objects;
 }
 
-void Marshal::unmarshal(Persistent* p, istream& is) {
+void Marshal::unmarshal(Persistent* p, std::istream& is) {
   myIs = &is;
   p->unmarshal(this);
   myIs = NULL; // rather have core dumps than reading from wrong objects;

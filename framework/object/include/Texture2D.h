@@ -34,7 +34,7 @@ class Path2D;
 //____________________________________________________________________ Texture2D
 
 class Texture2D : public ObjectSpecifier {
-declareRTTI(Texture2D);
+  declareRTTI(Texture2D);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

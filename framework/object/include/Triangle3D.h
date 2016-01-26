@@ -30,7 +30,7 @@
 //___________________________________________________________________ Triangle3D
 
 class Triangle3D : public Primitive3D {
-declareRTTI(Triangle3D);
+  declareRTTI(Triangle3D);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -21,7 +21,7 @@
  * -----------------------------------------------------------------------------
  */
    
-#include <fstream.h>
+#include <fstream>
 
 #include "booga/base/Report.h"
 #include "booga/base/AbstractPixmap.h"
@@ -37,7 +37,17 @@ PPMWriter::PPMWriter(const RCString& filename, Type traversalType)
 : Pixmap2DWriter(filename, traversalType) 
 {}
 
-bool PPMWriter::save(ofstream& ofs, const Pixmap2D* pixi) const 
+bool PPMWriter::save(const AbstractFile& ofs, const Pixmap2D* pixi) const 
+{
+  FileSTDOut fs(ofs);
+  if (fs.bad()) {
+    Report::warning("PPMWriter:can't open file\n");
+    return false;
+  }
+  return save(fs,pixi);
+}
+
+bool PPMWriter::save(std::ostream& ofs, const Pixmap2D* pixi) const 
 {
   const AbstractPixmap* pm = pixi->getPixmap();
   int resX = pm->getResolutionX();
@@ -46,18 +56,18 @@ bool PPMWriter::save(ofstream& ofs, const Pixmap2D* pixi) const
   // 
   // Write out header information for ppm file
   //
-  ofs << "P6" << endl;
-  ofs << resX << " " << resY << endl;
-  ofs << "255" << endl;
+  ofs << "P6" << std::endl;
+  ofs << resX << " " << resY << std::endl;
+  ofs << "255" << std::endl;
 
   bool didCut;
   unsigned char* ppmPicture = PixmapUtilities::createPPMPicture(didCut, pm);
 
-  #ifdef WIN32
-  ofs.setmode( filebuf::binary ); // set to binary, else 10 will become 13-10
-  #endif  
+#ifdef WIN32
+  ofs.rdbuf().setmode( filebuf::binary ); // set to binary, else 10 will become 13-10
+#endif  
 
-  ofs.write(ppmPicture, 3*resX*resY*sizeof(unsigned char));
+  ofs.write(reinterpret_cast<char*>(ppmPicture), 3*resX*resY*sizeof(unsigned char));
   delete[] ppmPicture;
   
   if (didCut)

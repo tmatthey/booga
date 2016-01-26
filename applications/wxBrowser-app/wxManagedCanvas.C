@@ -25,7 +25,7 @@
 
 //_____________________________________________________________________ wxManagedCanvas
 
-//implementRTTI(wxManagedCanvas, wxGLCanvas);
+implementRTTI(wxManagedCanvas, wxGLCanvas);
 
 void wxManagedCanvas::OnPaint()
 {

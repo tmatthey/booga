@@ -24,8 +24,8 @@
 
 
 #include <string.h>
-#include <iostream.h>
-#include <strstream.h>
+#include <iostream>
+#include <sstream>
 #include "booga/base/RCString.h"
 #include "booga/base/Report.h"
 
@@ -141,13 +141,13 @@ RCString::RCString(const char* s)
 : RCEnvelope(new RCStringRep(s))
 {}
 
-RCString::RCString(ostrstream& stream) 
+RCString::RCString(std::stringstream& stream) 
 : RCEnvelope(*ourEmptyString)
 {
   rcDeref();                          // Remove empty string.
 
-  stream << ends ;                    // Terminate the string
-  char* buf = stream.str();
+  stream << std::ends;                    // Terminate the string
+  char* buf = (char *)stream.str().c_str();
   myLetter = new RCStringRep(&buf);   // Call the private constructor.
 }
 
@@ -163,7 +163,7 @@ RCString::RCString(char** r)
 char& RCString::operator[](int i)
 {
   if (i<0 || i>=getLetter()->myLen) {
-    ostrstream os;
+    std::stringstream os;
     os << "[RCString::operator[] ] index (" << i << ") out of range. "
        << "Valid range is [0, " << getLetter()->myLen << "]";
     Report::recoverable(os);
@@ -179,7 +179,7 @@ char& RCString::operator[](int i)
 char RCString::operator[](int i) const
 {
   if (i<0 || i>=getLetter()->myLen) {
-    ostrstream os;
+    std::stringstream os;
     os << "[RCString::operator[] const] index (" << i << ") out of range. "
        << "Valid range is [0, " << getLetter()->myLen << "]";
     Report::recoverable(os);
@@ -199,7 +199,7 @@ RCString RCString::operator()(int fromIndex, int toIndex) const
   if (toIndex   <  fromIndex || 
       fromIndex < 0 || fromIndex >= getLetter()->myLen   || 
       toIndex   < 0 || toIndex   >= getLetter()->myLen) {
-    ostrstream os;
+    std::stringstream os;
     os << "[RCString::operator(unsigned, unsigned)] index (" 
        << fromIndex << " or " << toIndex << " ) out of range";
     Report::recoverable(os);
@@ -438,7 +438,7 @@ RCString operator+(const RCString& x, const RCString& y)
  * ----------------------------
  */
 
-ostream& operator<<(ostream& os, const RCString& s)
+std::ostream& operator<<(std::ostream& os, const RCString& s)
 { 
   return os << s.chars();
 }

@@ -34,8 +34,7 @@
 
 //_____________________________________________________________________ RCString
 
-class ostream;
-class ostrstream;
+#include <ostream>
 class RCStringRep;
 
 class RCString : public RCEnvelope {
@@ -45,9 +44,9 @@ class RCString : public RCEnvelope {
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 public:
   RCString();
-  RCString(char c, int num = 1);
+  RCString(char c, int num);
   RCString(const char* s);
-  RCString(ostrstream& stream);
+  RCString(std::stringstream& stream);
 private:
   RCString(char** r); // Coplien, Advanced C++, p. 64
 
@@ -116,7 +115,7 @@ public:
   friend RCString operator+(const RCString& x, const RCString& y);
   // Concatenation
 
-  friend ostream& operator<<(ostream& os, const RCString& s);
+  friend std::ostream& operator<<(std::ostream& os, const RCString& s);
 
 public:
   static void initClass();

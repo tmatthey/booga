@@ -198,11 +198,11 @@ Definition : tDefine Identifier Specifier
 	       if ($3) {
 		 Makeable* newMakeable = $3;
 
-		 Object3D* object3D = dynamic_cast(Object3D, $3);
+		 Object3D* object3D = dynamic_cast<Object3D*>($3);
 		 if (object3D != NULL) 
 		   newMakeable = new Shared3D(object3D, (RCString)$2->getIdentifier()); // !!! bisher *$2
 		 else {
-		   Object2D* object2D = dynamic_cast(Object2D, $3);
+		   Object2D* object2D = dynamic_cast<Object2D*>($3);
 		   if (object2D != NULL)
 		     newMakeable = new Shared2D(object2D, (RCString)$2->getIdentifier());
 		 }
@@ -409,7 +409,7 @@ Value : RealValue
 	  if (theValue == NULL)
 	    generateError("constant", $1);
 	  else {
-	    ValueMakeable* constValue = dynamic_cast(ValueMakeable, theValue);
+	    ValueMakeable* constValue = dynamic_cast<ValueMakeable*>(theValue);
 	    if (constValue == NULL)
 	      recoverableError(RCString((RCString)$1->getIdentifier()) + 
 			       " not a value");
@@ -578,7 +578,7 @@ Expression  : '(' Value ')'
                 if (func == NULL) 
                   generateError("function", $1);
                 else {
-                  ValueMakeable* funcValue = dynamic_cast(ValueMakeable, func);
+                  ValueMakeable* funcValue = dynamic_cast<ValueMakeable*>(func);
                   if (funcValue == NULL) 
                     recoverableError(RCString($1->getIdentifier())
                 		     + " not a function name");

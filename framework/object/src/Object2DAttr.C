@@ -43,7 +43,7 @@ Object2DAttrObject::Object2DAttrObject(Exemplar)
 
 int Object2DAttrObject::setSpecifier(RCString& errMsg, Makeable* specifier)
 {
-  myObject = dynamic_cast(Object2D, specifier);
+  myObject = dynamic_cast<Object2D*>(specifier);
 
   if (myObject != NULL)
     return 1;

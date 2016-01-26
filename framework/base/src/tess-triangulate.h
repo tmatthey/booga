@@ -114,7 +114,7 @@ typedef struct {
 #define LASTPT  2
 
 
-#define INFINITY 1<<30
+#define INFINITY_TT 1<<30
 #define C_EPS 1.0e-7		/* tolerance value: Used for making */
 				/* all decisions about collinearity or */
 				/* left/right of segment. Decrease */

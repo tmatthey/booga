@@ -221,7 +221,7 @@ void wxPickCommand::rotateObject ()
   
   getView()->getMouseEvent().Position(&x,&y);
   
-//  ostrstream os;
+//  std::stringstream os;
 //  os << "[wxPickCommand::rotateObject]: myOldx = " << myOldx;
 //  Report::warning(os);
   

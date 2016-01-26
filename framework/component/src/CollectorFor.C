@@ -46,7 +46,7 @@ template <class TSearchObject, // Object class to test for.
 class TestFor : public TOperation {
 
 #ifdef __GNUC__
-// declareRTTI(TestFor);
+  //declareRTTI(TestFor);
 // enable RTTI support
 #endif // __GNUC__
 
@@ -98,7 +98,7 @@ private:
 //____________________________________________________________________ TestFor<>
 
 #ifndef __GNUC__
-// implementRTTI(TestFor, Transformer??);
+//implementRTTI(TestFor, Transformer??);
 #endif // __GNUC__
 
 template <class TSearchObject, class TOperation, class TWorld, class TShared>
@@ -161,7 +161,7 @@ TestFor<TSearchObject,TOperation,TWorld,TShared>::dispatch(Makeable* obj)
 //_______________________________________________________________ CollectorFor<>
 
 #ifdef __GNUC__
-// implementRTTI(CollectorFor, TOperation);
+//implementRTTI(CollectorFor, TOperation);
 #endif // __GNUC__
 
 template <class TSearchObject, class TObjectBase,

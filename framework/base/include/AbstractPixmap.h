@@ -24,7 +24,8 @@
 #ifndef _AbstractPixmap_H
 #define _AbstractPixmap_H
 
-#include <fstream.h>
+#include <fstream>
+#include <iostream>
 #include <stdlib.h>   // NULL
 
 #include "booga/base/RCString.h"
@@ -106,12 +107,12 @@ public:
 
   // -------------------------------------------------------------- I/O
   bool load(const RCString& fileName);
-  bool load(ifstream& ifs);
+  bool load(std::istream& ifs);
   // Load Pixmap from file. 
   // Returns:  true on success, false on failure
 
   bool save(const RCString& fileName, const RCString& comment = "") const;
-  bool save(ofstream& ofs, const RCString& comment = "") const;
+  bool save(std::ostream& ofs, const RCString& comment = "") const;
   // Save Pixmap to file.
   // Returns:  true on success, false on failure 
 

@@ -28,7 +28,7 @@
 //_____________________________________________________________________ wxViewCommand
 
 class wxViewCommand {
-  declareRTTI(wxViewCommand);
+  //  declareRTTI(wxViewCommand);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

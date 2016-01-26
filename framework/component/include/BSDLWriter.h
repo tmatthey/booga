@@ -23,7 +23,7 @@
 #ifndef _BSDLWriter_H
 #define _BSDLWriter_H
 
-#include <fstream.h>
+#include <fstream>
 #include "booga/base/Value.h"
 #include "booga/base/RCString.h"
 #include "booga/base/List.h"

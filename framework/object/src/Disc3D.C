@@ -21,7 +21,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <strstream.h>
+#include <sstream>
 
 #include "booga/base/Report.h"
 #include "booga/base/Value.h"
@@ -45,13 +45,13 @@ Disc3D::Disc3D(Real radius, const Vector3D& center, const Vector3D& normal)
 : myRadius(radius), myCenter(center), myNormal(normal)
 {
   if (myRadius < EPSILON) {
-    ostrstream os;
+    std::stringstream os;
     os << "[Disc3D::Disc3D] degenerate disc (radius = " << myRadius << ")";
     Report::recoverable(os);
   }
   
   if (equal(myNormal.normalize(), 0)) {
-    ostrstream os;
+    std::stringstream os;
     os << "[Disc3D::Disc3D] degenerate disc normal " << normal;
     Report::recoverable(os);
   }
@@ -60,7 +60,7 @@ Disc3D::Disc3D(Real radius, const Vector3D& center, const Vector3D& normal)
 void Disc3D::setRadius(Real radius)
 {
   if (radius < EPSILON) {
-    ostrstream os;
+    std::stringstream os;
     os << "[Disc3D::setRadius] illegal radius = " << radius << " ignored";
     Report::warning(os);
     return;
@@ -77,7 +77,7 @@ void Disc3D::setCenter(const Vector3D& center)
 void Disc3D::setNormal(const Vector3D& normal)
 {
   if (equal(normal.sqr(), 0)) {
-    ostrstream os;
+    std::stringstream os;
     os << "[Disc3D::setNormal] degenerate disc normal " << normal << " ignored";
     Report::warning(os);
     return;

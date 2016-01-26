@@ -26,8 +26,9 @@
 
 #include "booga/base/RCString.h"
 #include "booga/component/AbstractPixmapOperation.h"
+#include "booga/base/fdstream.h"
 
-class ofstream;
+#include <iostream>
 
 //______________________________________________________________ Pixmap2DWriter
 
@@ -53,8 +54,8 @@ private:
 // New methods of class Pixmap2DWriter
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 protected:
-  virtual bool save(ofstream& ofs, const Pixmap2D* pixi) const = 0;
-  // Save pixi on ofs. Returns 1 on success, 0 on failure
+  virtual bool save(const AbstractFile& os, const Pixmap2D* pixi) const = 0;
+  // Save pixi on os. Returns 1 on success, 0 on failure
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // From class AbstractPixmapOperation

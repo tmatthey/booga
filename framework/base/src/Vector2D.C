@@ -21,7 +21,7 @@
  * ---------------------------------------------------------------------
  */
 
-#include <iostream.h>
+#include <iostream>
 #include <ctype.h>      // isspace(char)
 #include "booga/base/Vector2D.h"
 
@@ -206,7 +206,7 @@ Vector2D operator*(const Vector2D& vec, Real scale)
 		  vec.myVec[1]*scale);
 }
 
-ostream& operator<<(ostream& os, const Vector2D& vec)
+std::ostream& operator<<(std::ostream& os, const Vector2D& vec)
 {
   return os << "[" 
             << vec.x() << ", " << vec.y() 
@@ -216,7 +216,7 @@ ostream& operator<<(ostream& os, const Vector2D& vec)
 /*
  * From GGems IV, Jean-Francois Doue.
  */
-istream& operator>>(istream& is, Vector2D& vec) 
+std::istream& operator>>(std::istream& is, Vector2D& vec) 
 {
   Vector2D tmp;
   char c;
@@ -229,7 +229,7 @@ istream& operator>>(istream& is, Vector2D& vec)
   while (is >> c && isspace(c)) ;
   
   if (c != ']')
-    is.clear(ios::badbit|is.rdstate());
+    is.clear(std::ios::badbit|is.rdstate());
 
   if (is)
     vec = tmp;

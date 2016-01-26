@@ -31,7 +31,7 @@
 
 //_____________________________________________________________________ Object3D
 
-// implementRTTI(Object3D, BOOGAObject);
+//implementRTTI(Object3D, BOOGAObject);
 // weil GNU nicht template + static data kann
 
 implementRTTI(Object3D, Makeable);
@@ -99,7 +99,7 @@ void Object3D::appendTexture(Texture3D* adoptTexture)
     //
     //  Check if we already have a Texture3DList.
     //
-    Texture3DList* textureList = dynamic_cast(Texture3DList, myTexture);
+    Texture3DList* textureList = dynamic_cast<Texture3DList*>(myTexture);
 
     // Yes -> add 'texture' to the list.
     if (textureList != NULL) 
@@ -128,7 +128,7 @@ int Object3D::setSpecifier(RCString& errMsg, Makeable* specifier)
   // There are not so many different valid specifier types:
   // First lets try, if it is a Texture3D ...
   //
-  Texture3D* texture = dynamic_cast(Texture3D, specifier);
+  Texture3D* texture = dynamic_cast<Texture3D*>(specifier);
   if (texture != NULL) {
     appendTexture(texture);
     return 1;
@@ -137,7 +137,7 @@ int Object3D::setSpecifier(RCString& errMsg, Makeable* specifier)
   // Now let's try to if we have a Transform3D object ...
   //
   else {
-    Transform3D* transform = dynamic_cast(Transform3D, specifier);
+    Transform3D* transform = dynamic_cast<Transform3D*>(specifier);
     if (transform != NULL) {
       addTransform(*transform);
       delete transform;

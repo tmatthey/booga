@@ -80,11 +80,11 @@ void InterpolatorTexture2D::doTexturing(Texture2DContext& context) const
   Line2D* line;
   Circle2D* circle;
   
-  if ((line = dynamic_cast(Line2D, const_cast(Object2D,context.getObject()))) != NULL) {
+  if ((line = dynamic_cast<Line2D*>(const_cast<Object2D*>(context.getObject()))) != NULL) {
     lerpFactor = (context.getPositionOCS()-line->getFrom()).sqr()/
 	        (line->getTo()-line->getFrom()).sqr();
   }
-  else if ((circle = dynamic_cast(Circle2D, const_cast(Object2D, context.getObject()))) != NULL) {
+  else if ((circle = dynamic_cast<Circle2D*>(const_cast<Object2D*>(context.getObject()))) != NULL) {
     lerpFactor = context.getPositionOCS().x()-circle->getCenter().x()+circle->getRadius();
     lerpFactor /= 2*circle->getRadius();
   }  

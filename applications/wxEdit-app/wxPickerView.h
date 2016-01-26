@@ -29,7 +29,7 @@
 //_____________________________________________________________________ wxPickerView
 
 class wxPickerView : public wxView3D {
-//declareRTTI(wxPickerView);
+declareRTTI(wxPickerView);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

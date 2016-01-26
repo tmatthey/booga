@@ -20,8 +20,8 @@
  * -----------------------------------------------------------------------------
  */
  
-#include <fstream.h>
-#include <strstream.h>
+#include <fstream>
+#include <sstream>
 #include "PBinary.h"
 #include "DataBase.h"
 #include "PExtra.h"
@@ -99,23 +99,23 @@ char* PBinary::getBuffer() {
 }
 
 int PBinary::loadFile(const RCString& filename) {
-  fstream file;
-  ostrstream os;
-  file.open(filename.chars(),ios::in);  
+  std::fstream file;
+  std::stringstream os;
+  file.open(filename.chars(),std::ios::in);  
   // file.tie(0);
   // os.tie(0);
   file >> os.rdbuf(); // see ios(3C++) for rdbuf
   //  file.read(bla);
   file.close();
-  mySize = os.pcount();
-  myBuffer = os.str();
+  mySize = os.str().size();
+  myBuffer = const_cast<char*>(os.str().c_str());
   myFilename = filename;
   return 1;
 }
 
 int PBinary::saveFile() {
-  fstream file;
-  file.open(myFilename.chars(),ios::out);  
+  std::fstream file;
+  file.open(myFilename.chars(),std::ios::out);  
   file.write(myBuffer, mySize);
   file.close();
   return 1;

@@ -114,7 +114,7 @@ void dialCanvas::OnPaint()
 
 //_____________________________________________________________________ wxAnimator
 
-//implementRTTI(wxAnimator, wxBOOGAView);
+implementRTTI(wxAnimator, wxBOOGAView);
 
 wxAnimator::wxAnimator()
 {
@@ -255,7 +255,7 @@ void wxAnimator::nextFrame ()
   
     // make a copy of this camera and modify it
   
-    Camera3D *myCamera = dynamic_cast(Camera3D, myPath.getLastObject());
+    Camera3D *myCamera = dynamic_cast<Camera3D*>(myPath.getLastObject());
     Camera3D *copyCam = (Camera3D *) myCamera->copy();
     if (copyCam) {
   

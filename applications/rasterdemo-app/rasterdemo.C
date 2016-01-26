@@ -107,13 +107,13 @@ int main()
 
 #else // HAVE_SRGP
 
-#include <stream.h>
+#include <iostream>
 
 int main ()
 {
-  cerr << "This application needs the Simple Raster Graphics Package\n" 
-       << "(SRGP). When compiling this application your site was \n"
-       << "configured not to use SRGP.\n\n";
+  std::cerr << "This application needs the Simple Raster Graphics Package\n" 
+	    << "(SRGP). When compiling this application your site was \n"
+	    << "configured not to use SRGP.\n\n";
 }
 
 #endif // HAVE_SRGP

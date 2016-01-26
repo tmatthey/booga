@@ -23,7 +23,7 @@
 @author Stephan Amann
 @login  amann
 
-@include <fstream.h>
+@include <fstream>
 @include "booga/base/StreamOption.h"
 @include "booga/base/ValueOption.h"
 
@@ -37,11 +37,11 @@
 #________________________________________ cerr
 @value cerr
 @desc Send reports to cerr (standard error stream)
-@code return new StreamOption(&cerr);
+@code return new StreamOption(&std::cerr);
 #________________________________________ cout
 @value cout
 @desc Send reports to cout (standard output stream)
-@code return new StreamOption(&cout);
+@code return new StreamOption(&std::cout);
 #________________________________________ file
 @value file
 @desc Send reports to file. Set Filename using option 'OutputStream.Filename'.
@@ -57,7 +57,7 @@
 @code //
 @code RCString filename;
 @code if (valueOption->getValue().toRCString(filename))
-@code   return new StreamOption(new ofstream(filename.chars()));
+@code   return new StreamOption(new std::ofstream(filename.chars()));
 @code else
 @code   return NULL;
 

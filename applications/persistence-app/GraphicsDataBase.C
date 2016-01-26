@@ -37,7 +37,7 @@ GraphicsDataBase::GraphicsDataBase(DataBase& aDB) :
 Persistent(aDB)
 {
   if (theGraphicsDataBase != NULL) {
-    ostrstream os;
+    std::stringstream os;
     os << "[GraphicsDatabase::GraphicsDataBase(DataBase&)] ";
     os << "Only one instance of class GraphicsDataBase allowed!";
     Report::warning(os);
@@ -50,7 +50,7 @@ GraphicsDataBase::GraphicsDataBase(Prototype aPrototype) :
 Persistent(aPrototype)
 {
   if (theGraphicsDataBase != NULL) {
-    ostrstream os;
+    std::stringstream os;
     os << "[GraphicsDatabase::GraphicsDataBase(Prototype)] ";
     os << "Only one instance of class GraphicsDataBase allowed!";
     Report::warning(os);

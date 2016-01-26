@@ -1,7 +1,7 @@
 #ifndef __WX_IOSB_H__
 #define __WX_IOSB_H__
 
-#include <iostream.h>
+#include <iostream>
 #include <wx.h>
 
 ////////////////////////////////////////////////////////

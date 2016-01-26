@@ -133,7 +133,7 @@ Object3D* FrontRect::doCreateSubject(Building* building)  const
 
     building->getIndirectFaceObjects(getFrontIndex(),getPolygonIndex(),facelist);
     for(i=0;i<countSubobject()-1;i++){
-      Face* face = dynamic_cast(Face,getObject(i));
+      Face* face = dynamic_cast<Face*>(getObject(i));
       if (face)
         facelist->append(face);
     }

@@ -39,7 +39,7 @@
 // Only compile this file if either not GNU compiler running,
 // or, in case of GNU compiler, files is included from header.
 
-#include <strstream.h>
+#include <sstream>
 #include "booga/base/Report.h" 
 #include "URLContext.h" 
 
@@ -128,7 +128,7 @@ INLINE TObject* MURL<TObject, TProxy, TURL, TAggregate, TWorld, TParser>
 #ifdef HAVE_WWW
   // Read file into temporary file
   if (!readURL()) { 
-    ostrstream os;
+    std::stringstream os;
     os << "[MURL::createSubject] Failed to read URL ";
     os << "'" << myURL << "'";
     Report::warning(os);
@@ -240,7 +240,7 @@ INLINE bool MURL<TObject, TProxy, TURL, TAggregate, TWorld, TParser>
   int status = HTLoadAnchor((HTAnchor *) context->anchor, context->request);
 
   if (status != YES) {
-    ostrstream os;
+    std::stringstream os;
     os << "[URL3D::readURL] Can't access resource '" << myURL << "'";
     Report::warning(os);
     success = false;

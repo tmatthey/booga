@@ -23,7 +23,7 @@
 #ifndef _GDBStore_H
 #define _GDBStore_H
 
-#include <fstream.h>
+#include <fstream>
 #include "booga/base/SymTable.h"
 #include "booga/base/RCString.h"
 #include "booga/component/DocumentStore.h"
@@ -38,7 +38,7 @@ class DataBase;
 //_____________________________________________________________________ GDBStore
 
 class GDBStore : public DocumentStore {
-// declareRTTI(GDBStore);
+  //declareRTTI(GDBStore);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -73,7 +73,7 @@ public:
   virtual void includeDocument(const RCString& documentName, 
                                const RCString& extension);
 
-  virtual ostream& os();
+  virtual std::ostream& os();
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // My data members
@@ -85,7 +85,7 @@ private:
   RCString myDocumentName;
   RCString myExtension;
   GDBData* myGDBData;
-  ostrstream *myNewData;      // temporary stream for document body
+  std::stringstream *myNewData;      // temporary stream for document body
   Set<PRef<GDBData> > *myNewParts;
   SymTable<RCString, PRef<GDBData> > myPartNames;
 };

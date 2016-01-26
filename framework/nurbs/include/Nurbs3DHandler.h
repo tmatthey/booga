@@ -30,7 +30,7 @@ class Nurbs3D;     // Forward declaration
 //_______________________________________________________________ Nurbs3DHandler
 
 class Nurbs3DHandler {
-  declareRTTI(Nurbs3DHandler);
+    declareRTTI(Nurbs3DHandler);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

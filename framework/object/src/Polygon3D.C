@@ -22,7 +22,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <strstream.h>
+#include <sstream>
 
 #include "booga/base/Value.h"
 #include "booga/base/Geometry3D.h"
@@ -87,7 +87,7 @@ void Polygon3D::addVertex(const Vector3D& vertex)
   //
   if (count > 0) {
     if (myVertices.item(count-1) == vertex) {
-      ostrstream os;
+      std::stringstream os;
       os << "[Polygon3D::addVertex] two consecutive vertices ("
          << vertex << ") must not have the same value";
       Report::recoverable(os);
@@ -167,7 +167,7 @@ void Polygon3D::addHole(const List<Vector3D>& hole)
   if (hole.count()>2)
     myHoles.append(hole);
   else {
-    ostrstream os;
+    std::stringstream os;
     os << "[Polygon3D::addHole] hole has less then 3 vertices ";
     Report::recoverable(os);
     return;
@@ -367,7 +367,7 @@ Makeable* Polygon3D::make(RCString& errMsg, const List<Value*>* parameters) cons
 int Polygon3D::setSpecifier(RCString& errMsg, Makeable* specifier)
 {
   // Check for Polygon3D attributes
-  Polygon3DAttr* attr = dynamic_cast(Polygon3DAttr, specifier);
+  Polygon3DAttr* attr = dynamic_cast<Polygon3DAttr*>(specifier);
   if (attr != NULL) {
     // The Polygon3D object knows best which method has to be called.
     // So let the object do the job.

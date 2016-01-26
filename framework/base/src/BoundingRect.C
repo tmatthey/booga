@@ -133,7 +133,7 @@ bool BoundingRect::inside(Real x, Real y) const
 	 myBRMin.y() <= y && y <= myBRMax.y());
 }
 
-ostream& operator<<(ostream& os, const BoundingRect& b)
+std::ostream& operator<<(std::ostream& os, const BoundingRect& b)
 {
   if (b.isEmpty())
     return os << "( empty )";

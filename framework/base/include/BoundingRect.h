@@ -28,7 +28,7 @@
 #include "booga/base/Vector2D.h"
 
 class TransMatrix2D;
-class ostream;
+#include <ostream>
 
 //_________________________________________________________________ BoundingRect
 
@@ -76,7 +76,7 @@ public:
 
   bool isEmpty() const;
 
-  friend ostream& operator<<(ostream& os, const BoundingRect& b);
+  friend std::ostream& operator<<(std::ostream& os, const BoundingRect& b);
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // My data members

@@ -64,7 +64,7 @@ bool wxWindowsBridge::isEventPending()
 //    else
 //      return true;
 #endif
-//    ostrstream os;
+//    std::stringstream os;
 //    os << "[wxWindowsBridge::isEventPending]: PeekEvent is " << event.type; 
 //    Report::warning (os);
   }

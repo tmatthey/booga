@@ -28,7 +28,7 @@
 // or, in case of GNU compiler, files is included from header.
 
 #include <stdlib.h> 
-#include <iostream.h> 
+#include <iostream> 
 #include "booga/persistence/PExtraTemplates.h"
 #include "booga/persistence/Marshal.h"
 

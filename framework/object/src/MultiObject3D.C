@@ -19,7 +19,7 @@
  *  $Id: MultiObject3D.C,v 1.4 1997/09/19 07:14:23 buhlmann Exp $
  * -----------------------------------------------------------------------------
  */
-#include <strstream.h>
+#include <sstream>
 
 #include "booga/object/MultiObject3D.h"
 #include "booga/object/NullObject3D.h"
@@ -126,7 +126,7 @@ int MultiObject3D::setSpecifier(RCString& errMsg, Makeable* specifier)
   // There might be an object passed, so lets try to cast
   // specifier to Object3D* :
   //
-  Object3D* object = dynamic_cast(Object3D, specifier);
+  Object3D* object = dynamic_cast<Object3D*>(specifier);
   if (object != NULL){
     adoptObject(object);
     return 1;
@@ -176,7 +176,7 @@ void MultiObject3D::addDimension(long number, Vector3D direction)
     myDirectionList.append(direction);
   }
   else {
-    ostrstream os;
+    std::stringstream os;
     os << "[MultiObject3D::addDimension] parameters "
        <<  number << ", "
        <<  direction << " are not accepted";
@@ -247,7 +247,7 @@ Object3D* MultiObject3D::createSubject() const
   if (myMultiObject){
 
     Object3D* last = myMultiObject->copy();
-    if (!dynamic_cast(Shared3D,last))
+    if (!dynamic_cast<Shared3D*>(last))
       last = new Shared3D(last);
     
     Object3D* obj;

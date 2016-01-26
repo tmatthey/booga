@@ -24,7 +24,7 @@
 
 
 #include "booga/base/Value.h"
-#include "booga/object/Visitor2D.h"
+//#include "booga/object/Visitor2D.h"
 #include "booga/object/List2D.h"
 #include "booga/object/Line2D.h"
 #include "booga/object/Text2D.h"
@@ -279,7 +279,7 @@ Makeable* TextBox2D::make(RCString& errMsg, const List<Value*>* parameters) cons
 
 int TextBox2D::setSpecifier(RCString& errMsg, Makeable* specifier)
 {
-  TextBox2DAttr* attr = dynamic_cast(TextBox2DAttr, specifier);
+  TextBox2DAttr* attr = dynamic_cast<TextBox2DAttr*>(specifier);
   if (attr != NULL) {
     // The CTClassDescription2DAttr object knows best which method has to be called.
     // So let the object do the job.

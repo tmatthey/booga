@@ -34,7 +34,7 @@ class Path3D;
 //____________________________________________________________________ Texture3D
 
 class Texture3D : public ObjectSpecifier {
-declareRTTI(Texture3D);
+  declareRTTI(Texture3D);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -21,7 +21,7 @@
  * -----------------------------------------------------------------------------
  */
  
-#include <strstream.h>
+#include <sstream>
 #include "booga/object/Camera3D.h"
 #include "booga/object/Viewing3D.h"
 #include "booga/component/Renderer.h"
@@ -39,7 +39,7 @@ OversamplingAntialiaser::OversamplingAntialiaser()
 void OversamplingAntialiaser::setSamplingRate(int samplingRate)
 {
   if (samplingRate <= 0) {
-    ostrstream os;
+    std::stringstream os;
     os << "[OversamplingAntialiaser::setSamplingRate] illegal sampling rate: " << samplingRate;
     Report::warning(os);
     return;

@@ -366,7 +366,7 @@ Traversal::Result Wireframe::visit(Disc3D* obj)
   //
   //     resolution = 20 * precison 
   //
-  int resolution = (int)rint(20*obj->getPrecision());
+  const int resolution = (int)rint(20*obj->getPrecision());
   
   TransMatrix3D rot(TransMatrix3D::makeRotate(obj->getNormal(), 2*M_PI/resolution));
 
@@ -384,9 +384,9 @@ Traversal::Result Wireframe::visit(Disc3D* obj)
 
   pointA = (obj->getNormal() * pointA).normalized()*obj->getRadius();
 
-  Vector3D v3D[resolution];
-  Vector2D v2D[resolution] ;
-  Color    vColor[resolution];
+  Vector3D* v3D = new Vector3D[resolution];
+  Vector2D* v2D = new Vector2D[resolution] ;
+  Color*    vColor = new Color[resolution];
 
   const Path3D* path = getTraversal()->getPath();
 
@@ -405,7 +405,9 @@ Traversal::Result Wireframe::visit(Disc3D* obj)
     // Clip triangles behind the eye.
     //
     if (v3D[i].z() < EPSILON){
-      
+      delete [] v3D;
+      delete [] v2D;
+      delete [] vColor;
       return Traversal::CONTINUE;
     }
 
@@ -422,9 +424,12 @@ Traversal::Result Wireframe::visit(Disc3D* obj)
     pointA = pointA * rot;
   }
     
-  for (i=0; i<resolution; i++)
+  for (int i=0; i<resolution; i++)
     addLine(v2D[i], v2D[(i+1)%resolution],vColor[i], vColor[(i+1)%resolution]);
 
+  delete [] v3D;
+  delete [] v2D;
+  delete [] vColor;
   return Traversal::CONTINUE;
 }
 
@@ -449,7 +454,7 @@ bool Wireframe::postprocessing()
   // add the sorted list to the world
   if (mySortList){
     if (myOptimizeList) {
-      ostrstream os;
+      std::stringstream os;
       long m = myRemovedLines;
       long n = myLines.count() + myRemovedLines;
       os << "Removed " << m << " ("<< (m*100)/n << "%) lines of " << n;

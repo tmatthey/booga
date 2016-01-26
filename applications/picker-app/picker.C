@@ -177,9 +177,9 @@ void parseCmdLine(int argc, char* argv[])
 
 void usage(const RCString& name)
 {
-  cerr << "Usage: " << name << " [in-file]\n";
-  cerr << " where:\n";
-  cerr << "  in-file  : (optional) filename of input\n";
+  std::cerr << "Usage: " << name << " [in-file]\n";
+  std::cerr << " where:\n";
+  std::cerr << "  in-file  : (optional) filename of input\n";
 }
 
 //____________________________________________________________________ Callbacks
@@ -276,14 +276,14 @@ void mouseCallback(int button, int state, int x, int y)
       renderer->setRenderingQuality(currentQuality);
 
       //
-      // Print the whole path to cerr.
+      // Print the whole path to std::cerr.
       //
-      cerr << "World";
+      std::cerr << "World";
       for (picker.getPath()->first(); !picker.getPath()->isDone(); picker.getPath()->next()) 
-        cerr << "->" << typeid(picker.getPath()->getObject()).name();
-      cerr << endl;
+        std::cerr << "->" << typeid(picker.getPath()->getObject()).name();
+      std::cerr << std::endl;
 
-      SingleFileStore docuStore = SingleFileStore();
+      SingleFileStore docuStore;//= SingleFileStore();
 
       World3D* world3D = new World3D();
 
@@ -306,11 +306,11 @@ void mouseCallback(int button, int state, int x, int y)
 
 #else // HAVE_OPENGL -----------------------------------------------------------
 
-#include <stream.h>
+#include <iostream>
 
 int main ()
 {
-  cerr << "\nThis application needs the OpenGL graphics package.\n" 
+  std::cerr << "\nThis application needs the OpenGL graphics package.\n" 
        << "When compiling this application your site was \n"
        << "configured not to use OpenGL.\n\n";
 }

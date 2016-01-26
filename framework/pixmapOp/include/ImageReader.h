@@ -28,8 +28,7 @@
 #include "booga/base/List.h"
 #include "booga/base/RCString.h"
 #include "booga/base/MPixmapExemplar.h"
-
-class ifstream;
+#include "booga/base/fdstream.h"
 
 //__________________________________________________________________ ImageReader
 
@@ -64,7 +63,7 @@ private:
   void registerMe();
   // Registers concrete ImageReader in the list of known readers.
 
-  virtual AbstractPixmap* read(ifstream& ifs) = 0;
+  virtual AbstractPixmap* read(const AbstractFile& ifs) = 0;
   // Tries to read the file. This method depends on the image type
   // and must thus be implemented by each concrete ImageReader.
 

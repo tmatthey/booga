@@ -167,7 +167,7 @@ Makeable* CTOperationDescription::make(RCString& errMsg, const List<Value*>* par
 
 int CTOperationDescription::setSpecifier(RCString& errMsg, Makeable* specifier)
 {
-  CTOperationDescriptionAttr* attr = dynamic_cast(CTOperationDescriptionAttr, specifier);
+  CTOperationDescriptionAttr* attr = dynamic_cast<CTOperationDescriptionAttr*>(specifier);
   if (attr != NULL) {
     // The CTClassDescription2DAttr object knows best which method has to be called.
     // So let the object do the job.

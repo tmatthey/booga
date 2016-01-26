@@ -20,7 +20,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <iostream.h>
+#include <iostream>
 #include "booga/texture/ShaderValidTypeNode.h"
 
 ShaderValidTypeNode::ShaderValidTypeNode(Name* theType)
@@ -28,9 +28,9 @@ ShaderValidTypeNode::ShaderValidTypeNode(Name* theType)
   myType = theType;
 }
 
-void ShaderValidTypeNode::print()
+void ShaderValidTypeNode::print(bool)
 {
-  cout << *myType;
+  std::cout << *myType;
 }
 
 void ShaderValidTypeNode::execute(Texture3DContext&)

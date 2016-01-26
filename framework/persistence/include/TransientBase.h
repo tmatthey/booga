@@ -23,7 +23,7 @@
 #ifndef _TransientBase_H
 #define _TransientBase_H
 
-#include <fstream.h>
+#include <fstream>
 #include "booga/persistence/DataBase.h"
 #include "booga/persistence/POId.h"
 #include "booga/base/RCString.h"
@@ -32,7 +32,7 @@ class Persistent;
 //_____________________________________________________________________ TransientBase
 
 class TransientBase : public DataBase {
-declareRTTI(TransientBase);
+  declareRTTI(TransientBase);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -22,14 +22,9 @@
  * -----------------------------------------------------------------------------
  */
 
-#ifdef SVR4
-#include <stream.h>
-#endif
-#include <strstream.h>
-#ifdef WIN32
 #include <stdlib.h> //strtod
 #include <stdio.h> // sscanf
-#endif
+
 #include "booga/base/Report.h"
 #include "booga/base/Value.h"
 #include "ValueMacros.h" 
@@ -323,28 +318,30 @@ Value::operator Real() const
 
 Value::operator RCString() const
 {
+  char tmp[256];
   switch (myType) {
     case REAL:
-      return form("%g", realVal);
+      sprintf(tmp,"%g", realVal);
+      return RCString(tmp);
     case STRING:
       return *stringVal;
     case VECTOR3D: {
-      ostrstream os;
+      std::stringstream os;
       os << *vector3DVal;
       return RCString(os);
     } 
     case VECTOR2D: {
-      ostrstream os;
+      std::stringstream os;
       os << *vector2DVal;
       return RCString(os);
     } 
     case MATRIX3D: {
-      ostrstream os;
+      std::stringstream os;
       os << *matrix3DVal;
       return RCString(os);
     } 
     case MATRIX2D: {
-      ostrstream os;
+      std::stringstream os;
       os << *matrix2DVal;
       return RCString(os);
     } 
@@ -641,7 +638,7 @@ Value Value::operator[](const Value& theIndex) const
       Report::error("[Value::operator[] ] no index operation for Reals");
       break;
     case STRING:
-      return Value(RCString((*stringVal)[(int)Real(theIndex)]));
+      return Value(RCString((*stringVal)[(int)Real(theIndex)],1));
     case VECTOR3D:
       return Value((*vector3DVal)[(int)Real(theIndex)]);
     case VECTOR2D:
@@ -768,7 +765,7 @@ void Value::error(const RCString& op, const Value& arg1, const Value& arg2)
 
 //______________________________________________________________________ Friends
 
-ostream& operator<<(ostream& os, const Value& v)
+std::ostream& operator<<(std::ostream& os, const Value& v)
 {
   switch(v.myType) {
     case REAL:

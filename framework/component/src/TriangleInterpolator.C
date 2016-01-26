@@ -30,11 +30,11 @@
 
 enum blabla { lerpX, lerpY } test = lerpY;
 
-#include <strstream.h>
+#include <sstream>
 Real mylerp(Real a, Real b, Real k)
 { 
   if (k<0 || k>1) {
-    ostrstream os;
+    std::stringstream os;
     os << "[lerp] : k out of range: " << k;
     if (test == lerpX)
       os << " in X";
@@ -49,7 +49,7 @@ Real mylerp(Real a, Real b, Real k)
 Vector3D mylerp(Vector3D a, Vector3D b, Real k)
 { 
   if (k<0 || k>1) {
-    ostrstream os;
+    std::stringstream os;
     os << "[lerp] : k out of range: " << k;
     if (test == lerpX)
       os << " in X";

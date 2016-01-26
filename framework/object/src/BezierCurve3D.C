@@ -21,7 +21,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <strstream.h>
+#include <sstream>
 #include "booga/base/Value.h"
 #include "booga/object/BoundsUtilities.h"  // slapTest
 #include "booga/object/List3D.h"

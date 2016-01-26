@@ -32,7 +32,7 @@
 
 class Texture2DList : public Texture2D, 
 		      public MIterator<Texture2D*,List<Texture2D*> > {
-declareRTTI(Texture2DList);
+  declareRTTI(Texture2DList);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

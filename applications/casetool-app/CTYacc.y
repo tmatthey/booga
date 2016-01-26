@@ -201,7 +201,7 @@ Main:   {
                   else {
                     myCheck = myCheckScopes + "::" + tmpMember->type;
                     };
-                  // cout << myCheck << " == " << aProgramm.KlassenListe.item(k).LongName << "?\n";
+                  // std::cout << myCheck << " == " << aProgramm.KlassenListe.item(k).LongName << "?\n";
                   if (aProgramm.KlassenListe.item(k).LongName == myCheck) {
                     aProgramm.KlassenListe.item(i).KlassenMemberListe.item(j).hasa = k;
                     myCheckScopes = "";
@@ -210,7 +210,7 @@ Main:   {
                   }; // end for
 
                 // cut the classname in the scope away at the tail        
-                // cout << ">>> " << myCheckScopes << " <<<\n\n";
+                // std::cout << ">>> " << myCheckScopes << " <<<\n\n";
                 int myScopeEnd = 0;
                 for (int k = myCheckScopes.length() - 1; k >= 1; k--) {
                   if (myCheckScopes(k-1,k) == "::") {
@@ -224,7 +224,7 @@ Main:   {
                 else {
                   myCheckScopes = myCheckScopes(0,myScopeEnd);
                   };
-                // cout << "Resulting Scope: [_" << myCheckScopes << "_]\n";
+                // std::cout << "Resulting Scope: [_" << myCheckScopes << "_]\n";
                   
                 }; // end while
               }; // for j (has-a)
@@ -256,61 +256,61 @@ Main:   {
           
           // display the results Results (only in verbose mode)
           if (myParserVerboseFlag) {
-            cout << "\n";
+            std::cout << "\n";
             for(int i = 0; i < aProgramm.KlassenListe.count(); i++) {
-              cout << i << ": " << aProgramm.KlassenListe.item(i).ShortName;
-              cout << " - " << aProgramm.KlassenListe.item(i).LongName;
-              cout << " - " << aProgramm.KlassenListe.item(i).KlassenMemberListe.count() << " members";
-              cout << " - Template: " << aProgramm.KlassenListe.item(i).isTemplate << " " << aProgramm.KlassenListe.item(i).TemplateParameters;
-              cout << " - Virtual: " << aProgramm.KlassenListe.item(i).isAbstract;
-              cout << "\n";
+              std::cout << i << ": " << aProgramm.KlassenListe.item(i).ShortName;
+              std::cout << " - " << aProgramm.KlassenListe.item(i).LongName;
+              std::cout << " - " << aProgramm.KlassenListe.item(i).KlassenMemberListe.count() << " members";
+              std::cout << " - Template: " << aProgramm.KlassenListe.item(i).isTemplate << " " << aProgramm.KlassenListe.item(i).TemplateParameters;
+              std::cout << " - Virtual: " << aProgramm.KlassenListe.item(i).isAbstract;
+              std::cout << "\n";
 
               tBasisKlasse * tmpBasis;
-              cout << "   Basisklassen:\n";
+              std::cout << "   Basisklassen:\n";
               for(int j = 0; j < aProgramm.KlassenListe.item(i).BasisKlassenListe.count(); j++) {
                 tmpBasis = &aProgramm.KlassenListe.item(i).BasisKlassenListe.item(j);
-                cout << "     Name: " << tmpBasis->name;
-                cout << "   View: " << tmpBasis->view;
-                cout << "   Virtual: " << tmpBasis->isVirtual;
-                cout << "   Is-a: " << tmpBasis->isa;
-                cout << "\n";
+                std::cout << "     Name: " << tmpBasis->name;
+                std::cout << "   View: " << tmpBasis->view;
+                std::cout << "   Virtual: " << tmpBasis->isVirtual;
+                std::cout << "   Is-a: " << tmpBasis->isa;
+                std::cout << "\n";
                 }
 
               tKlassenMember * tmpMember;
-              cout << "   Klassenmember:\n"; 
+              std::cout << "   Klassenmember:\n"; 
               for(int j = 0; j < aProgramm.KlassenListe.item(i).KlassenMemberListe.count(); j++) {
                 tmpMember = &aProgramm.KlassenListe.item(i).KlassenMemberListe.item(j);
-                cout << "     Name: " << tmpMember->name;
-                cout << "   Type: " << tmpMember->type << tmpMember->ptr;
-                cout << "   View: " << tmpMember->view;
-                cout << "   Hasa: " << tmpMember->hasa;
-                // cout << "   Init: " << tmpMember->init;   // ANSI C++ forbids this
-                cout << "   Template: " << tmpMember->isTemplate;
-                cout << "\n\n";
+                std::cout << "     Name: " << tmpMember->name;
+                std::cout << "   Type: " << tmpMember->type << tmpMember->ptr;
+                std::cout << "   View: " << tmpMember->view;
+                std::cout << "   Hasa: " << tmpMember->hasa;
+                // std::cout << "   Init: " << tmpMember->init;   // ANSI C++ forbids this
+                std::cout << "   Template: " << tmpMember->isTemplate;
+                std::cout << "\n\n";
                 }
 
               tKlassenOperation tmpOp;
-              cout << "   Operationen:\n";
+              std::cout << "   Operationen:\n";
               for(int j = 0; j < aProgramm.KlassenListe.item(i).KlassenOperationenListe.count(); j++) {
                 tmpOp = aProgramm.KlassenListe.item(i).KlassenOperationenListe.item(j);
-                cout << "     Name: " << tmpOp.name;
-                cout << "   Type: " << tmpOp.type << tmpOp.ptr;
-                cout << "   View: " << tmpOp.view;
-                cout << "   Virtual: " << tmpOp.isAbstract;
-                cout << "\n";
-                cout << "       Parameter:\n";
+                std::cout << "     Name: " << tmpOp.name;
+                std::cout << "   Type: " << tmpOp.type << tmpOp.ptr;
+                std::cout << "   View: " << tmpOp.view;
+                std::cout << "   Virtual: " << tmpOp.isAbstract;
+                std::cout << "\n";
+                std::cout << "       Parameter:\n";
                 tOperationsParameter tmpParm;
                 for(int k = 0; k < tmpOp.OperationsParameterListe.count(); k++) {
                   tmpParm = tmpOp.OperationsParameterListe.item(k);
-                  cout << "       Name: " << tmpParm.name;
-                  cout << "   Type: " << tmpParm.type << tmpParm.ptr;
-                  cout << "   View: " << tmpParm.view;
-                  cout << "   Init: " << tmpParm.init;
-                  cout << "\n";
+                  std::cout << "       Name: " << tmpParm.name;
+                  std::cout << "   Type: " << tmpParm.type << tmpParm.ptr;
+                  std::cout << "   View: " << tmpParm.view;
+                  std::cout << "   Init: " << tmpParm.init;
+                  std::cout << "\n";
                   }
                 }
 
-              cout << "\n";      
+              std::cout << "\n";      
               }
             };
 
@@ -353,7 +353,7 @@ Main:   {
           tKlassenOperation * tmpOp;
           CTVariableDescription * aVariable;
           tOperationsParameter * tmpParm;
-          ostrstream *os;
+          std::stringstream *os;
 
           for(int i = 0; i < aProgramm.KlassenListe.count(); i++) {
             aClass = aProgramm.KlassenListe.item(i).hasBecomeThisClass;
@@ -465,7 +465,7 @@ Main:   {
               delete aOperation;
               }
 
-            os = new ostrstream;
+            os = new std::stringstream;
             *os << "[CTYacc] Postprocess - CLASS " << i;
             Report::debug(*os);
             delete os;
@@ -527,11 +527,11 @@ Klassenspezifizierer:   Klassenkopf '{' Elementliste '}'
                           bool myAlreadyDeclared = false;
                           int myAlreadyDeclaredClass = -1;                          
                           for(int i = 0; i < aProgramm.KlassenListe.count(); i++) {
-                            ostrstream os;
+                            std::stringstream os;
                             os << "[CTYacc] " << aKlasse.LongName << " ==??== " << aProgramm.KlassenListe.item(i).LongName;
                             Report::debug(os);
                             if (aKlasse.LongName == aProgramm.KlassenListe.item(i).LongName) {
-                              ostrstream os;
+                              std::stringstream os;
                               os << "[CTYacc] DOPPELTE KLASSE : " << aKlasse.LongName << " !!!";
                               Report::debug(os);
                               myAlreadyDeclared = true;
@@ -540,7 +540,7 @@ Klassenspezifizierer:   Klassenkopf '{' Elementliste '}'
                             };
                           if (myAlreadyDeclared == true) {
                             // The Foreward Declaration is will be replaced
-                            ostrstream os;
+                            std::stringstream os;
                             os << "[CTYacc] Die Klasse Nr. " << myAlreadyDeclaredClass << " wird ersetzt!";
                             Report::debug(os);
                             aProgramm.KlassenListe.remove(myAlreadyDeclaredClass);
@@ -549,7 +549,7 @@ Klassenspezifizierer:   Klassenkopf '{' Elementliste '}'
                           else {
                             // the new class will be appended
                             aProgramm.KlassenListe.append(aKlasse);
-                            ostrstream os;
+                            std::stringstream os;
                             os << "[CTYacc] Klasse zugefuegt: " << aKlasse.LongName;
                             Report::debug(os);
                             };
@@ -558,11 +558,11 @@ Klassenspezifizierer:   Klassenkopf '{' Elementliste '}'
                         { 
                           bool myAlreadyDeclared = false;
                           for(int i = 0; i < aProgramm.KlassenListe.count(); i++) {
-                            ostrstream os;
+                            std::stringstream os;
                             os << "[CTYacc] " << aKlasse.LongName << " ==??== " << aProgramm.KlassenListe.item(i).LongName;
                             Report::debug(os);
                             if (aKlasse.LongName == aProgramm.KlassenListe.item(i).LongName) {
-                              ostrstream os;
+                              std::stringstream os;
                               os << "[CTYacc] DOPPELTE KLASSE : " << aKlasse.LongName << " !!!";
                               Report::debug(os);
                               myAlreadyDeclared = true;
@@ -572,7 +572,7 @@ Klassenspezifizierer:   Klassenkopf '{' Elementliste '}'
                           // no class with the same name exisits
                           if (myAlreadyDeclared == false) {
                             aProgramm.KlassenListe.append(aKlasse);
-                            ostrstream os;
+                            std::stringstream os;
                             os << "[CTYacc] Klasse zugefuegt: " << aKlasse.LongName;
                             Report::debug(os);
                             }
@@ -716,7 +716,7 @@ ElementDeklarator:      Deklarator
                           aKlassenMember.view = myActualView;
                           aKlassenMember.isTemplate = myMemberIsTemplate;
                           aKlasse.KlassenMemberListe.append(aKlassenMember);
-                          ostrstream os;
+                          std::stringstream os;
                           os << "[CTYacc] MEMBER ADDED: " << aKlassenMember.name << " with type: " << aKlassenMember.type;
                           Report::debug(os);
                           delete $1;
@@ -872,7 +872,7 @@ Basisspezifizierer:     QualifizierterKlassenname
 DeklSpezifiziererliste:	  DeklSpezlisteStandard  
                           { 
                             $$ = $1; 
-                            ostrstream os;
+                            std::stringstream os;
                             os << "[CTYacc] STANDARD TYPE: " << *$$;
                             Report::debug(os);
                             myActualType = *$$;
@@ -888,7 +888,7 @@ DeklSpezifiziererliste:	  DeklSpezlisteStandard
                               delete $1;
                               delete $2;
                               };
-                            ostrstream os;
+                            std::stringstream os;
                             os << "[CTYacc] STANDARD TYPE: " << *$$;
                             Report::debug(os);
                             myActualType = *$$;
@@ -896,7 +896,7 @@ DeklSpezifiziererliste:	  DeklSpezlisteStandard
                       |   DeklSpezlisteCustom    
                           {
                             $$ = $1;    
-                            ostrstream os;
+                            std::stringstream os;
                             os << "[CTYacc] CUSTOM TYPE: " << *$$;
                             Report::debug(os);
                             myActualType = *$1;
@@ -912,7 +912,7 @@ DeklSpezifiziererliste:	  DeklSpezlisteStandard
                               delete $1;
                               delete $2;
                               };
-                            ostrstream os;
+                            std::stringstream os;
                             os << "[CTYacc] CUSTOM TYPE: " << *$$;
                             Report::debug(os);
                             myActualType = *$$;
@@ -1261,7 +1261,7 @@ Destruktor:    FktSpezifiziererOpt '~' Bezeichner
                    aKlasse.isAbstract = true;
                    };
                  myIsVirtual = false;
-                 ostrstream os;
+                 std::stringstream os;
                  os << "[CTYacc] DESTRUCTOR OPERATION ADDED: " << aKlassenOperation.name;
                  Report::debug(os);
                  aKlasse.KlassenOperationenListe.append(aKlassenOperation);
@@ -1305,7 +1305,7 @@ FktDeklarator:    FktDeklaratorName
                   }
                   '(' Argumentliste ')' CvQualifiziererliste
                   { 
-                    ostrstream os;
+                    std::stringstream os;
                     os << "[CTYacc] OPERATION ADDED: " << aKlassenOperation.name;
                     Report::debug(os);
                     aKlasse.KlassenOperationenListe.append(aKlassenOperation);

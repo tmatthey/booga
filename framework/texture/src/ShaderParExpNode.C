@@ -20,7 +20,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <iostream.h>
+#include <iostream>
 #include "booga/texture/ShaderParExpNode.h"
      
 ShaderParExpNode::ShaderParExpNode(ShaderExpNode* theExp )
@@ -38,9 +38,9 @@ void ShaderParExpNode::print(bool indent)
 {
   if (indent)
     printSpaces(2 * myBlockDepth);
-  cout << "(";
+  std::cout << "(";
   myExp->print(false);
-  cout << ")";
+  std::cout << ")";
 }
 
 void ShaderParExpNode::execute(Texture3DContext&)

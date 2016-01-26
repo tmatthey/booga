@@ -43,7 +43,7 @@ Object3DAttrObject::Object3DAttrObject(Exemplar)
 
 int Object3DAttrObject::setSpecifier(RCString& errMsg, Makeable* specifier)
 {
-  myObject = dynamic_cast(Object3D, specifier);
+  myObject = dynamic_cast<Object3D*>(specifier);
 
   if (myObject != NULL)
     return 1;

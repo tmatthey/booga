@@ -45,7 +45,7 @@ Texture3DList::~Texture3DList()
   
 int Texture3DList::setSpecifier(RCString& errMsg, Makeable* specifier)
 {
-  Texture3D* texture = dynamic_cast(Texture3D, specifier);
+  Texture3D* texture = dynamic_cast<Texture3D*>(specifier);
   if (texture != NULL) {
     appendTexture(texture);
     return 1;

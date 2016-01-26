@@ -24,7 +24,7 @@
 @login amann
 
 @include <stdlib.h>
-@include <strstream.h>
+@include <sstream>
 @include "booga/base/Color.h"
 @include "booga/base/ColorOption.h"
 
@@ -34,7 +34,7 @@
 @desc Default Color for Textures, Pixels, ...
 #____________________________________________
 @value @string
-@code istrstream iss(@string.chars());
+@code std::stringstream iss(@string.chars());
 @code Color col;
 @code iss >> col;
 @code return new ColorOption(col);

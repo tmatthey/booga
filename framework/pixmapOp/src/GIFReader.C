@@ -38,10 +38,9 @@
 #include <unistd.h>     // dup()
 #endif
 #include <string.h>         // strncmp
-#include <strstream.h>      // ostrstream
+#include <sstream>      // std::stringstream
 
 #include "booga/pixmapOp/GIFReader.h"
-   
 //_____________________________________________________________ Static functions
 
 #define MAXCOLORMAPSIZE 256
@@ -399,10 +398,20 @@ GIFReader::GIFReader(Exemplar anExemplar)
 : ImageReader(anExemplar) 
 {}
 
-AbstractPixmap* GIFReader::read(ifstream& ifs)
+AbstractPixmap* GIFReader::read(const AbstractFile& ifs){
+  FileFD fs(ifs,"rb");
+  if (fs.bad()) {
+    Report::warning("GIFReader:can't open file\n");
+    return false;
+  }
+  return read(fs);
+}
+
+
+AbstractPixmap* GIFReader::read(FILE* fd)
 {
   char buf[16];     // Buffer for read operations.
-  FILE* fd;         // Source file.
+  //  FILE* fd;         // Source file.
 
   //
   // In this application we want to open the input file before doing anything 
@@ -410,9 +419,9 @@ AbstractPixmap* GIFReader::read(ifstream& ifs)
   // VERY IMPORTANT: use "b" option to fopen() if you are on a machine that
   // requires it in order to read binary files.
   //
-  if ((fd = fdopen(dup(ifs.rdbuf()->fd()), "rb")) == NULL) {
-    return NULL;
-  }
+  //   if ((fd = fdopen(dup(ifs.fd()), "rb")) == NULL) {
+  //     return NULL;
+  //   }
 
   fseek(fd, 0, 0); // Ajust position to the beginning of the file.
 
@@ -504,7 +513,7 @@ AbstractPixmap* GIFReader::read(ifstream& ifs)
 
     if (c == ';') {		// GIF terminator 
       if (imageCount < imageNumber) {
-        ostrstream os;
+        std::stringstream os;
         os << "[GIFReader::read] only " << imageCount 
            << " image" << ((imageCount > 1) ? "s" : "") << " found in file";
         Report::recoverable(os);

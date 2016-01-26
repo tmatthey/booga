@@ -23,7 +23,7 @@
 #ifndef _TransientBase_H
 #define _TransientBase_H
 
-#include <fstream.h>
+#include <fstream>
 #include "DataBase.h"
 #include "POId.h"
 #include "booga/base/RCString.h"

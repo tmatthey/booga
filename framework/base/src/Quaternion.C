@@ -27,7 +27,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <iostream.h>
+#include <iostream>
 #include "booga/base/Quaternion.h"
 
 //___________________________________________________________________ Quaternion
@@ -74,7 +74,7 @@ Quaternion operator*(const Quaternion& qL, const Quaternion& qR)
                     qL.myW*qR.myW - qL.myX*qR.myX - qL.myY*qR.myY - qL.myZ*qR.myZ);
 }
 
-ostream& operator<<(ostream& os, const Quaternion& q)
+std::ostream& operator<<(std::ostream& os, const Quaternion& q)
 {
   return os << '[' << q.myX << ' ' << q.myY << ' ' << q.myZ << ' ' << q.myW << ']';
 }

@@ -25,7 +25,7 @@
 
 //_____________________________________________________________________ GSBwxSlider
 
-//implementRTTI(GSBwxSlider, wxSlider);
+implementRTTI(GSBwxSlider, wxSlider);
 
 
 GSBwxSlider::GSBwxSlider(GSBwxDialogDirector* director, wxPanel* parent, char* label, 

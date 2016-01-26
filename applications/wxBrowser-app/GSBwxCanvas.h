@@ -30,7 +30,7 @@
 //_____________________________________________________________________ GSBwxCanvas
 
 class GSBwxCanvas : public wxGLCanvas {
-//declareRTTI(GSBwxCanvas);
+declareRTTI(GSBwxCanvas);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

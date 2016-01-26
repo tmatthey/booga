@@ -73,7 +73,7 @@ Persistent* GDBIconBuilderBSDL3::newInstance() {
 bool GDBIconBuilderBSDL3::doExecute() {
   Value value;
   if (getConfigValue(RCString("IconResolution"), value)) {
-    strstream ss;
+    std::stringstream ss;
     ss << value;
     Vector2D resol;
     ss >> resol;
@@ -85,7 +85,7 @@ bool GDBIconBuilderBSDL3::doExecute() {
   // Read scene from database into tmp file
   //
   GDBOperation* op = GraphicsDataBase::getTheGraphicsDataBase()->getOperation("Exporter");
-  GDBExport *exporter = dynamic_cast(GDBExport, op);
+  GDBExport *exporter = dynamic_cast<GDBExport*>(op);
   if (exporter == NULL) {
     Report::recoverable("[GDBIconBuilderBSDL3::doExecute()] GDBOperation 'Exporter' not found");
     failed();
@@ -104,7 +104,7 @@ bool GDBIconBuilderBSDL3::doExecute() {
   // If there is no instance of an object create one and insert it into world3D
   // 
   if (world3D->getObjects()->countSubobject() == 0) {
-    ostrstream os;
+    std::stringstream os;
     os << mySource->getName() << "." << mySource->getPOId().getPDBId() 
                               << "." << mySource->getPOId().getPObjectId();
     RCString objectName(os);
@@ -117,7 +117,7 @@ bool GDBIconBuilderBSDL3::doExecute() {
                  ScopedName(Name(RCString("3D")), Name(mySource->getName())), 
                  new List<Value*>()); // try without oid
       if (makeable == NULL) {
-        ostrstream msg;
+        std::stringstream msg;
         msg << "[GDBIconBuilderBSDL3::doExecute] object " 
             << objectName << " not found after parsing";
         Report::recoverable(msg);
@@ -125,11 +125,11 @@ bool GDBIconBuilderBSDL3::doExecute() {
         return false;
       }
     }
-    Object3D *obj = dynamic_cast(Object3D, makeable);
+    Object3D *obj = dynamic_cast<Object3D*>(makeable);
     if (obj == NULL) {
-      Texture3D *texture = dynamic_cast(Texture3D, makeable);
+      Texture3D *texture = dynamic_cast<Texture3D*>(makeable);
       if (texture == NULL) {
-        ostrstream msg;
+        std::stringstream msg;
         msg << "[GDBIconBuilderBSDL3::doExecute] cannot handle object type " 
             << typeid(makeable).name();
         Report::recoverable(msg);
@@ -156,7 +156,7 @@ bool GDBIconBuilderBSDL3::doExecute() {
   Camera3D *camera = NULL;
   long i;
   for(i=0; i<root->countSubobject(); i++) {
-    camera = dynamic_cast(Camera3D,root->getSubobject(i));
+    camera = dynamic_cast<Camera3D*>(root->getSubobject(i));
     if (camera != NULL) break;
   }
   if (camera == NULL) {

@@ -23,7 +23,7 @@
 #ifndef _GDBData_H
 #define _GDBData_H
 
-#include <iostream.h>
+#include <iostream>
 #include "PRef.h"
 #include "Persistent.h"
 #include "Set.h"

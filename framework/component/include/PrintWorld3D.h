@@ -24,7 +24,7 @@
 #ifndef _PrintWorld3D_H
 #define _PrintWorld3D_H
 
-#include <iostream.h>
+#include <iostream>
 #include "booga/component/Operation3D.h"
 
 class Object3D;
@@ -40,7 +40,7 @@ declareRTTI(PrintWorld3D);
 // Constructors, destructors, assignment
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 public:
-  PrintWorld3D(ostream& os = cout);
+  PrintWorld3D(std::ostream& os = std::cout);
 private:
   PrintWorld3D(const PrintWorld3D&);            // No copies.
 
@@ -76,7 +76,7 @@ public:
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 private:
   int myLevel;
-  ostream& myStream;
+  std::ostream& myStream;
 };
 
 #endif // _PrintWorld3D_H

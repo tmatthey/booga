@@ -21,7 +21,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <strstream.h>  // class ostrstream
+#include <sstream>  // class std::stringstream
 
 #include "neuroQuant.h"
 
@@ -42,7 +42,7 @@ NeuroQuantize::NeuroQuantize()
 void NeuroQuantize::setMaxColors(int colors)
 {
   if (colors != 256) {
-    ostrstream os;
+    std::stringstream os;
     os << "[NeuroQuantize::setMaxColors] only 256 colors supported yet, "
        << colors << " requested";
     Report::warning(os);
@@ -52,7 +52,7 @@ void NeuroQuantize::setMaxColors(int colors)
 void NeuroQuantize::setSamplingFactor(int factor)
 {
   if (factor < 1 || factor > 30) {
-    ostrstream os;
+    std::stringstream os;
     os << "[NeuroQuantize::setSamplingFactor] sampling factor has to be in range [1..30], "
        << factor << " requested";
     Report::warning(os);

@@ -25,7 +25,7 @@
 
 //_____________________________________________________________________ wxManagedText
 
-//implementRTTI(NewClass, BaseClass);
+implementRTTI(NewClass, BaseClass);
 wxManagedText::wxManagedText(wxDialogDirector* director, wxPanel* parent, char* label,
     char *value, int x, int y, int width, int height, long style, char* name) : wxText (parent, 
     (wxFunction) wxManagedTextCallback, label, value, x, y, width, height, style, name)

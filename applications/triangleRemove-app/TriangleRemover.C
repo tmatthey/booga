@@ -131,23 +131,23 @@ Traversal::Result TriangleRemover::dispatch(Makeable* obj)
   //
   // do not do a decomosition of the primitives
   //
-  if (dynamic_cast(Primitive3D, obj))
+  if (dynamic_cast<Primitive3D*>(obj))
     return Traversal::PRUNE;
 
   //
   // test only the BuilingObjects wihch may have triangles
   // otherwise PRUNE
   //
-  if (dynamic_cast(BuildingObject, obj)){
-    if (dynamic_cast(BottomUser, obj))
+  if (dynamic_cast<BuildingObject*>(obj)){
+    if (dynamic_cast<BottomUser*>(obj))
       return Traversal::UNKNOWN;
-    if (dynamic_cast(RoofUser, obj))
+    if (dynamic_cast<RoofUser*>(obj))
       return Traversal::UNKNOWN;
-    if (dynamic_cast(Front, obj))
+    if (dynamic_cast<Front*>(obj))
       return Traversal::UNKNOWN;
-    if (dynamic_cast(Snatch, obj))
+    if (dynamic_cast<Snatch*>(obj))
       return Traversal::UNKNOWN;
-    if (dynamic_cast(FaceItem, obj))
+    if (dynamic_cast<FaceItem*>(obj))
 
     return Traversal::PRUNE;
   }
@@ -167,14 +167,14 @@ bool TriangleRemover::postprocessing()
   for (long i = 0; i < myDeletedTriangles.count(); i++)
     if(myDeletedTriangles.item(i)){
       myPath3D.item(i)->last();
-      if (dynamic_cast(Triangle3D,myPath3D.item(i)->getObject())){
+      if (dynamic_cast<Triangle3D*>(myPath3D.item(i)->getObject())){
 	myPath3D.item(i)->prev();
-	if ((agg = dynamic_cast(Aggregate3D,myPath3D.item(i)->getObject())) != NULL){
+	if ((agg = dynamic_cast<Aggregate3D*>(myPath3D.item(i)->getObject())) != NULL){
 	  myPath3D.item(i)->last();
 	  if (agg->orphanObject(myPath3D.item(i)->getObject()) == 1)
 	    count++;
         }
-	else if ((shared = dynamic_cast(Shared3D,myPath3D.item(i)->getObject())) != NULL){
+	else if ((shared = dynamic_cast<Shared3D*>(myPath3D.item(i)->getObject())) != NULL){
 	  myPath3D.item(i)->last();
 	  shared->adoptObject(new NullObject3D());
 	  count++;
@@ -182,7 +182,7 @@ bool TriangleRemover::postprocessing()
       }
     }
 
-  ostrstream os;
+  std::stringstream os;
   os << "Removed " << count << " ("<< (count*100)/myDeletedTriangles.count()
      << "%) triangles of " << myDeletedTriangles.count();
   Report::debug(os);

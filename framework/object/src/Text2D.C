@@ -21,7 +21,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <strstream.h>
+#include <sstream>
 
 #include "booga/base/Value.h"
 #include "booga/base/Report.h"
@@ -85,7 +85,7 @@ void Text2D::setFont(const RCString& fontName)
 {
   const StrokeFont* font = StrokeFont::searchFont(fontName);
   if (font == NULL) {
-    ostrstream os;
+    std::stringstream os;
     os << "[Text2D::setFont] unknown font \"" << fontName << "\"";;
     Report::warning(os);
     return;
@@ -206,7 +206,7 @@ bool Text2D::doIntersect(Ray2D& ray)
 
 int Text2D::setSpecifier(RCString& errMsg, Makeable* specifier)
 {
-  Text2DAttr* attr = dynamic_cast(Text2DAttr, specifier);
+  Text2DAttr* attr = dynamic_cast<Text2DAttr*>(specifier);
   if (attr != NULL) {
     // The Text2DAttr object knows best which method has to be called.
     // So let the object do the job.

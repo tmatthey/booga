@@ -26,7 +26,7 @@
 
 //_____________________________________________________________________ wxManagedChoice
 
-//implementRTTI(wxManagedChoice, wxChoice);
+implementRTTI(wxManagedChoice, wxChoice);
 wxManagedChoice::wxManagedChoice(wxDialogDirector* director, wxPanel* parent, char* label,
   int x, int y, int width, int height, int n, char* choices[], long style, char* name)
 : wxChoice(parent, (wxFunction) wxManagedChoiceCallback, label, x, y, width, height,

@@ -100,19 +100,19 @@ void parseCmdLine(int argc, char* argv[])
 
 void usage(const RCString& name)
 {
-  cerr << "Usage: " << name << " [in-file]\n";
-  cerr << " where:\n";
-  cerr << "  in-file  : (optional) filename of input\n";
+  std::cerr << "Usage: " << name << " [in-file]\n";
+  std::cerr << " where:\n";
+  std::cerr << "  in-file  : (optional) filename of input\n";
 }
 
 
 #else // HAVE_OPENGL -----------------------------------------------------------
 
-#include <stream.h>
+#include <iostream>
 
 int main ()
 {
-  cerr << "\nThis application needs the OpenGL graphics package.\n" 
+  std::cerr << "\nThis application needs the OpenGL graphics package.\n" 
        << "When compiling this application your site was \n"
        << "configured not to use OpenGL.\n\n";
 }

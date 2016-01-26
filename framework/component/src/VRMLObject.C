@@ -976,7 +976,7 @@ void VRMLMaterial::apply(VRMLState& state)
   
   for (int i = 0; i < maxCount; i++) {
     RCString errMsg;
-    Phong* phong = dynamic_cast(Phong, Makeable::make(errMsg, ScopedName("3D", "phong"), NULL));
+    Phong* phong = dynamic_cast<Phong*>(Makeable::make(errMsg, ScopedName("3D", "phong"), NULL));
 
     if (phong == NULL)
       phong = new Phong();

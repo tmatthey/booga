@@ -43,12 +43,13 @@ public:
   
 private:
   JPEGWriter& operator=(const JPEGWriter&);  // No assignments.  
+  bool save(FILE* fd, const Pixmap2D* pixi) const;
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // From class Pixmap2DWriter
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 protected:
-  bool save(ofstream& ofs, const Pixmap2D* pixi) const;
+  bool save(const AbstractFile& ofs, const Pixmap2D* pixi) const;
 
 private:
   int myQuality;

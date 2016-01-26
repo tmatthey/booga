@@ -67,7 +67,7 @@ bool PreorderTraversal3D::doTraverse(Object3D* obj)
    }
 
   bool retval;
-  Primitive3D* primitive = dynamic_cast(Primitive3D, obj);
+  Primitive3D* primitive = dynamic_cast<Primitive3D*>(obj);
 
   if (primitive != NULL && state != Traversal::CONTINUE) {
     Object3D* decomposition = primitive->createDecomposition();

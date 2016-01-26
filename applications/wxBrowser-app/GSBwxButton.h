@@ -29,7 +29,7 @@
 //_____________________________________________________________________ GSBwxButton
 
 class GSBwxButton : public wxButton {
-// declareRTTI(GSBwxButton);
+declareRTTI(GSBwxButton);
 // enable RTTI support
 friend void GSBwxButtonCallback(wxObject*, wxCommandEvent&);
 

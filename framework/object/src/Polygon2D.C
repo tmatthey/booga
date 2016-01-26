@@ -21,7 +21,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <strstream.h>
+#include <sstream>
 
 #include "booga/base/Value.h"
 #include "booga/object/Shared2D.h"
@@ -66,7 +66,7 @@ void Polygon2D::addVertex(const Vector2D& vertex)
   //
   if (count > 0) {
     if (myVertices.item(count-1) == vertex) {
-      ostrstream os;
+      std::stringstream os;
       os << "[Polygon2D::addVertex] two consecutive vertices ("
          << vertex << ") must not have the same value";
       Report::recoverable(os);

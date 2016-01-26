@@ -21,7 +21,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <strstream.h>  // ostrstream
+#include <sstream>  // std::stringstream
 #include "booga/base/Statistic.h"
 #include "booga/object/Camera3D.h"
 #include "booga/object/Primitive3D.h"
@@ -96,7 +96,8 @@ bool Raytracer::doExecute()
         context.setOCS2WCS(path->getLastTransform());
         context.setPositionWCS(ray->getHitPoint());
         context.setNormalOCS(ray->getBestHitObject()->normal(context.getPositionOCS()));
-        context.setColor(defaultColor);
+        //context.setColor(defaultColor);
+        context.setColor(bg);
 
         Texture3D::texturing(context, path);
         
@@ -113,7 +114,7 @@ bool Raytracer::doExecute()
       }
     }
     if ((y % 10 == 0) && y > 0) {
-      ostrstream os;
+      std::stringstream os;
       os << "Finished line " << y;
       Report::debug(os);
     }

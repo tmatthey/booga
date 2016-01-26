@@ -90,7 +90,7 @@ void Phong::doTexturing(Texture3DContext& context) const
 
 int Phong::setSpecifier(RCString& errMsg, Makeable* specifier)
 {
-  PhongAttr* attr = dynamic_cast(PhongAttr, specifier);
+  PhongAttr* attr = dynamic_cast<PhongAttr*>(specifier);
   if (attr != NULL) {
     // The MatteAttr knows best which method has to be called.
     // So let the object do the job.

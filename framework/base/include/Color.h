@@ -27,8 +27,9 @@
 #include "booga/base/Report.h"
 #include "booga/base/Vector3D.h"
 
-class ostream;
-class istream;
+#include <ostream>
+#include <istream>
+
 
 //________________________________________________________________________ Color
 
@@ -83,8 +84,8 @@ public:
   static Color getDefault();
 
 public:
-  friend ostream& operator<<(ostream& os, const Color& col);
-  friend istream& operator>>(istream& is, Color& col);
+  friend std::ostream& operator<<(std::ostream& os, const Color& col);
+  friend std::istream& operator>>(std::istream& is, Color& col);
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // My data members

@@ -77,7 +77,7 @@ int World3D::setSpecifier(RCString& errMsg, Makeable* specifier)
   // There are not so many different valid specifier types:
   // First lets try, if it is a Object3D ...
   //
-  Object3D* object = dynamic_cast(Object3D, specifier);
+  Object3D* object = dynamic_cast<Object3D*>(specifier);
   if (object != NULL) {
     myObjects->adoptObject(object);
     return 1;

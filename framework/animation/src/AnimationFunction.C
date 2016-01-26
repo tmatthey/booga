@@ -20,7 +20,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <strstream.h>
+#include <sstream>
 #include "booga/base/mathutilities.h"
 #include "booga/base/Report.h"
 #include "booga/animation/AnimationFunction.h"
@@ -38,7 +38,7 @@ void AnimationFunction::setParameters(Real start, Real end, Real step)
     myStep  = step;
   }
   else {
-    ostrstream os;
+    std::stringstream os;
     os << "[AnimationFunction::setParameters] 0 <= start, end, step <= 1 and start <= end. "
        << "Default start = 0, end = 1, step = 0.";
     Report::recoverable(os);

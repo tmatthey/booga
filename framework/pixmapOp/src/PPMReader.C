@@ -25,6 +25,7 @@
 #ifdef SVR4
 #include <unistd.h>
 #endif
+#include <stdio.h>          // FILE, fseek, ...
 
 #include "booga/pixmapOp/PPMReader.h"
    
@@ -36,18 +37,31 @@ PPMReader::PPMReader(Exemplar anExemplar)
 : ImageReader(anExemplar) 
 {}
 
-AbstractPixmap* PPMReader::read(ifstream& ifs)
+AbstractPixmap* PPMReader::read(const AbstractFile& ifs)
 {
-  unsigned char aChar;
+  FileSTDIn fs(ifs);
+  if (fs.bad()) {
+    Report::warning("PPMReader:can't open file\n");
+    return false;
+  }
+  return read(fs);
+}
+
+AbstractPixmap* PPMReader::read(std::istream& ifs)
+{
+
+  char aChar;
   char line[256];
-  
+  line[0] = '1';
+  line [1] = '\0';
+
   //
   // Check for correct PPM Header
   //
   ifs.getline(line,255);
-  if (strncmp(line, "P6", 2))
+  if (strncmp(line, "P6", 2)){
     return NULL;
-  
+  }  
   readComment(ifs);		// read over comment
 
   int resX, resY, maxVal;
@@ -70,7 +84,7 @@ AbstractPixmap* PPMReader::read(ifstream& ifs)
   float rangeMax = pm->getRangeMax();
   
   unsigned char* ppmPicture = new unsigned char[3*resX*resY];
-  ifs.read(ppmPicture, 3*resX*resY*sizeof(unsigned char));
+  ifs.read(reinterpret_cast<char*>(ppmPicture), 3*resX*resY*sizeof(unsigned char));
   
   long pos; 
   float factor;
@@ -94,7 +108,7 @@ AbstractPixmap* PPMReader::read(ifstream& ifs)
   return pm;
 } 
 
-void PPMReader::readComment(ifstream& ifs) const
+void PPMReader::readComment(std::istream& ifs) const
 {
   char aChar, line[256];
   ifs.get(aChar);		// read over comment

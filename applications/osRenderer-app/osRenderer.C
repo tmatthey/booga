@@ -120,7 +120,6 @@ Renderer* ourRenderer = NULL;
 
 int main(int argc, char* argv[])
 {
-  extern char* form(const char * ...);
   ourRenderer = &ourGLRenderer;
 
   Configuration::setOption(Name("Statistic.OutputStream"),Name("cerr"));

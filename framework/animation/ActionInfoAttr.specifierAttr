@@ -132,7 +132,7 @@ attr Morphing
     default 0
 
   buildArgument alpha, functionName, start, end, step
-  setMethod setAlpha(myAlpha, myFunctionName, myStart, myEnd, myStep)
+  setMethod setMorphing(myAlpha, myFunctionName, myStart, myEnd, myStep)
 
 attr ShearFactor
   member Vector2D ShearFactor

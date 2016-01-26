@@ -53,7 +53,6 @@ static void parseCmdLine(int argc, char* argv[],
  
 int main(int argc, char* argv[])
 {
-  extern char* form(const char * ...);
   // 
   //  Setup world.
   // -----------------------------------------------------------
@@ -87,14 +86,14 @@ int main(int argc, char* argv[])
   
   Real frame = startframe;
 
-  cerr << "Animationparameters :" << endl;
-  cerr << " startframe       : " << startframe << endl;
-  cerr << " number of frames : " << number << endl;
-  cerr << " framestep        : " << frameStep << endl;
-  cerr << " counter          : " << counter << endl;
+  std::cerr << "Animationparameters :" << std::endl;
+  std::cerr << " startframe       : " << startframe << std::endl;
+  std::cerr << " number of frames : " << number << std::endl;
+  std::cerr << " framestep        : " << frameStep << std::endl;
+  std::cerr << " counter          : " << counter << std::endl;
   
   for (long i = counter; i < number + counter; i++) {
-    cerr << "Current frame : " << frame << " (" << i << ")." << endl;
+    std::cerr << "Current frame : " << frame << " (" << i << ")." << std::endl;
  
 
     //
@@ -113,7 +112,7 @@ int main(int argc, char* argv[])
     // Print scene
     //
     if (print && counter == i) {
-	PrintWorld3D printer(cerr);
+	PrintWorld3D printer(std::cerr);
 	printer.execute(animation);
     }
     
@@ -157,11 +156,11 @@ int main(int argc, char* argv[])
 	
 	
 	//if(parent != NULL)
-	//    cerr << l << " : parent    = " << parent->getKeyword() << endl;
+	//    std::cerr << l << " : parent    = " << parent->getKeyword() << std::endl;
 	//if(animObj != NULL)
-	//    cerr << l << " : animation = " << animObj->getKeyword() << endl;
+	//    std::cerr << l << " : animation = " << animObj->getKeyword() << std::endl;
 	//if(agg != NULL)
-	//    cerr << l << " : aggregate = " << agg->getKeyword() << endl;
+	//    std::cerr << l << " : aggregate = " << agg->getKeyword() << std::endl;
 	
 	
 	if(agg != NULL)
@@ -192,9 +191,11 @@ int main(int argc, char* argv[])
     
     
     RCString filename = out;
-    if (number > 1 && !out.isEmpty())
-	filename += form(".%04d", i);
-    
+    if (number > 1 && !out.isEmpty()){
+      char tmp[256];
+      sprintf(tmp,".%04d", static_cast<int>(i));
+      filename += tmp;
+    }
     DocumentStore* docuStore = NULL;
     if (mode == 'm') {
 	docuStore = new MultiFileStore(filename);
@@ -206,7 +207,7 @@ int main(int argc, char* argv[])
     writer->execute(animation);
     delete writer;
     delete animation;
-    ostrstream os;
+    std::stringstream os;
     os << "Found "<< l<< " animation object(s) and removed " << k;
     Report::hint(os);
     
@@ -279,14 +280,14 @@ void parseCmdLine(int argc, char* argv[], RCString& in, RCString& out,
 
 void usage(const RCString& name)
 {
-    cerr << "Usage: " << name << " [--oversampling rate] [--print] [in-file [out-file]]\n";
-    cerr << " where:\n";
-    cerr << "  --print               : (optional) print scene for debugging purpose\n";
-    cerr << "  --start startframe    : (optional) start frame of the animation\n";
-    cerr << "  --number number       : (optional) number of frames\n";
-    cerr << "  --framestep framestep : (optional) framestep of the animation\n";
-    cerr << "  --counter startnumber : (optional) startnumber of the counter for the outputfiles\n";
-    cerr << "  in-file               : (optional) filename of input\n";
-    cerr << "  out-file              : (optional) filename of output\n";
+    std::cerr << "Usage: " << name << " [--oversampling rate] [--print] [in-file [out-file]]\n";
+    std::cerr << " where:\n";
+    std::cerr << "  --print               : (optional) print scene for debugging purpose\n";
+    std::cerr << "  --start startframe    : (optional) start frame of the animation\n";
+    std::cerr << "  --number number       : (optional) number of frames\n";
+    std::cerr << "  --framestep framestep : (optional) framestep of the animation\n";
+    std::cerr << "  --counter startnumber : (optional) startnumber of the counter for the outputfiles\n";
+    std::cerr << "  in-file               : (optional) filename of input\n";
+    std::cerr << "  out-file              : (optional) filename of output\n";
 }
 

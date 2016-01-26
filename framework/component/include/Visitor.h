@@ -76,10 +76,10 @@ public:
 
 //________________________________________________________________ Helper macros
 
-#ifdef WIN32
-#define tryConcrete(Type, obj)    \
-if (dynamic_cast(Type,obj))       \
-  return visit((Type*) obj)
+#ifdef HAVE_RTTI
+#define tryConcrete(Type, obj)             \
+if (typeid(Type*) == typeid(obj))       \
+  return visit(dynamic_cast<Type*>(obj))
 #else
 #define tryConcrete(Type, obj)             \
 if (Type::ourTypeId_ == typeid(obj))       \
@@ -87,8 +87,8 @@ if (Type::ourTypeId_ == typeid(obj))       \
 #endif
   
 #define tryAbstract(Type, obj)             \
-if (dynamic_cast(Type, obj))               \
-  return visit((Type*) obj)                
+if (dynamic_cast<Type*>(obj))               \
+  return visit(dynamic_cast<Type*>(obj))                
 
 
 #endif // _Visitor_H

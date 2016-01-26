@@ -23,7 +23,7 @@
 #ifndef _FileBase_H
 #define _FileBase_H
 
-#include <fstream.h>
+#include <fstream>
 #include "DataBase.h"
 #include "POId.h"
 #include "booga/base/RCString.h"
@@ -76,8 +76,8 @@ private:
   RCString myInfoFilename;
   PObjectId myOIdCount;
   POId myCurrPOId;
-  fstream myFile;
-  fstream myInfoFile;
+  std::fstream myFile;
+  std::fstream myInfoFile;
   // myNamedObjects(RCString,POId);
 };
 

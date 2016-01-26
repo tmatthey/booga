@@ -20,7 +20,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <iostream.h>
+#include <iostream>
 #include "booga/texture/ShaderWhileNode.h"
 
 ShaderWhileNode::ShaderWhileNode(ShaderExpNode* theExp, ShaderNode* theStmt)
@@ -40,9 +40,9 @@ void ShaderWhileNode::print(bool indent)
 {
   if (indent)
     printSpaces(2 * myBlockDepth);
-  cout << "while (";
+  std::cout << "while (";
   myExp->print(false);
-  cout << ")" << endl;
+  std::cout << ")" << std::endl;
   myStmt->print();
 }
 

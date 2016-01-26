@@ -407,7 +407,7 @@ Makeable* Nurbs3D::make (RCString &errMsg, const List<Value*> *parameters) const
 
 int Nurbs3D::setSpecifier (RCString &errMsg, Makeable *specifier)
 {
-  Nurbs3DAttr *attr = dynamic_cast (Nurbs3DAttr, specifier);
+  Nurbs3DAttr *attr = dynamic_cast<Nurbs3DAttr*>(specifier);
   if (attr)
   {
     attr->setAttribute (this);         // The Nurbs3DAttr object knows how to handle this

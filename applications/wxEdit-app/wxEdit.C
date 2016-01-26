@@ -22,7 +22,7 @@
  
 #include "DBBrowser.h"
  
-#include <stdiostream.h>
+#include <iostream>
 #include "booga/base/ConfigurationHandler.h"
 #include "booga/base/Timer.h"
 #include "booga/base/ListUtilities.h"
@@ -584,7 +584,6 @@ void wxEditFrame::OnMenuCommand(int id)
     break;
   
     case VIEW_SCREENSHOT: {
-      extern char* form(const char * ...);
       static int currentFrame = 1;
 
       AbstractPixmap* pixi = GLUtilities::createPixmapFromFramebuffer();

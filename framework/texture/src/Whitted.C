@@ -171,6 +171,8 @@ void Whitted::iterateAttributes(MakeableHandler *handler) {
   if (!equal(getTransparency(), 0.0)) {
     DummyMakeable transp("transparency", Value(getTransparency()));
     handler->handle(&transp);
+  }
+  if (!equal(getRefractionIndex(), 1.0)) {
     DummyMakeable index("refractionIndex", Value(getRefractionIndex()));
     handler->handle(&index);
   }

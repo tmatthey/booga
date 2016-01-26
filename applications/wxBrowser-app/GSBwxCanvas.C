@@ -25,7 +25,7 @@
 
 //_____________________________________________________________________ GSBwxCanvas
 
-//implementRTTI(GSBwxCanvas, wxGLCanvas);
+implementRTTI(GSBwxCanvas, wxGLCanvas);
 
 void GSBwxCanvas::OnPaint()
 {

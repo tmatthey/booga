@@ -109,7 +109,7 @@ template <class TObject, class TPrimitive, class TPath, class TRay, class TPrimi
 INLINE int MPrimitive<TObject, TPrimitive, TPath, TRay, TPrimitiveAttr>
 ::setSpecifier(RCString& errMsg, Makeable* specifier)
 {
-  TPrimitiveAttr* attr = dynamic_cast(TPrimitiveAttr, specifier);
+  TPrimitiveAttr* attr = dynamic_cast<TPrimitiveAttr*>(specifier);
   if (attr != NULL) {
     // The PrimitiveAttr object knows best which method has to be called.
     // So let the object do the job.

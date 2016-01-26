@@ -20,15 +20,15 @@
  *  $Id: CTCPPRenderer2D.C,v 1.19 1996/10/30 15:31:24 amann Exp $
  * -----------------------------------------------------------------------------
  */
-   
+#include <unistd.h> //getlogin
 #include "booga/base/RCString.h"
 #include "booga/base/List.h"
 #include "booga/base/Report.h"
 #include "booga/object/Object2D.h"
 #include "booga/object/Shared2D.h"
 #include "booga/component/CollectShared2D.h"
-#include <iostream.h>
-#include <fstream.h>
+#include <iostream>
+#include <fstream>
 #include <time.h>
 #include "CTCPPRenderer2D.h"
 #include "CTAttributeDescription.h"
@@ -45,12 +45,12 @@ CTCPPRenderer2D::CTCPPRenderer2D(const RCString filename)
   myIdent = "  ";
 
   // try to create file stream  
-  myFileOutput = new ofstream(filename.chars());
+  myFileOutput = new std::ofstream(filename.chars());
   
   // filename was indicating STDOUT
   if ( (filename == "cout") || (filename == "stdout") || (filename == "") ) {
     delete myFileOutput;
-    myOutput = &cout;
+    myOutput = &std::cout;
     }
   else {
     // filename was incorrect and creation of stream failed
@@ -92,7 +92,7 @@ CTCPPRenderer2D::CTCPPRenderer2D()
 {
   myCurrentIdent = "";
   myIdent = "  ";
-  myOutput = &cout;
+  myOutput = &std::cout;
 }
 
 Traversal::Result CTCPPRenderer2D::visit(CTClassDescription2D* obj)

@@ -33,10 +33,10 @@ surface booga(vector uP = [.06,.42,1], vector vP = [.325,.675,1])
   uP = [0.06,.42,1];
   vP = [0.325,.675,1];
   uv = getuv(TPos, uP, vP);
-
   ctest = texturemap("booga.ppm", uv);      // ctest will be black or white
   if (getx(ctest) > 0.4)                    // it is white
     Col = trace(WPos, RDir);                // -> transparent
   else
     Col = diffuse([1,.75, 0]) + .75 * specular([1,1,1], specPow);
+
 }

@@ -30,7 +30,7 @@
 //_____________________________________________________________________ PRCString
 
 class PRCString : public PersistenceFor<RCString> {
-declareRTTI(PRCString);
+  declareRTTI(PRCString);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -75,7 +75,7 @@ INLINE int MIterator<TObject, TContainer>::count() const
   // function (count) on the result.
   // Let's cast away the constness here.
   //
-  MIterator<TObject, TContainer>* This = (MIterator<TObject, TContainer>*)this;
+  MIterator<TObject, TContainer>* This = const_cast<MIterator<TObject, TContainer>* >(this);
   return This->getContainer()->count(); 
 }
 

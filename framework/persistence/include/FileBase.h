@@ -23,7 +23,7 @@
 #ifndef _FileBase_H
 #define _FileBase_H
 
-#include <fstream.h>
+#include <fstream>
 #include "booga/base/RCString.h"
 #include "booga/persistence/POId.h"
 #include "booga/persistence/DataBase.h"
@@ -33,7 +33,7 @@ class Persistent;
 //_____________________________________________________________________ FileBase
 
 class FileBase : public DataBase {
-declareRTTI(FileBase);
+  declareRTTI(FileBase);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -81,8 +81,8 @@ private:
   RCString myObjectNamesFilename;
   PObjectId myOIdCount;
   POId myCurrPOId;
-  fstream myFile;
-  fstream myCounterFile;
+  std::fstream myFile;
+  std::fstream myCounterFile;
   SimpleIndex<RCString,POId> myObjectNames;
 };
 

@@ -22,7 +22,7 @@
  */
 
 #include <math.h>       // pow
-#include <strstream.h>  // class ostrstream
+#include <sstream>  // class std::stringstream
 
 #include "booga/base/Report.h"
 #include "booga/base/AbstractPixmap.h"
@@ -38,7 +38,7 @@ GammaCorrection::GammaCorrection()
 void GammaCorrection::setGamma(Real gamma)
 {
   if (gamma <= 0.0) {
-    ostrstream os;
+    std::stringstream os;
     os << "[GammaCorrection::setGamma] : illegal gamma value " << gamma;
     Report::warning(os);
   } else

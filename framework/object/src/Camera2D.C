@@ -105,7 +105,7 @@ bool Camera2D::doIntersect(Ray2D&)
 
 int Camera2D::setSpecifier(RCString& errMsg, Makeable* specifier)
 {
-  Camera2DAttr* attr = dynamic_cast(Camera2DAttr, specifier);
+  Camera2DAttr* attr = dynamic_cast<Camera2DAttr*>(specifier);
   if (attr != NULL) {
     // The Camera2DAttr object knows best which method has to be called.
     // So let the object do the job.

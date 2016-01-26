@@ -77,7 +77,7 @@ int World2D::setSpecifier(RCString& errMsg, Makeable* specifier)
   // There are not so many different valid specifier types:
   // First lets try, if it is a Object2D ...
   //
-  Object2D* object = dynamic_cast(Object2D, specifier);
+  Object2D* object = dynamic_cast<Object2D*>(specifier);
   if (object != NULL) {
     myObjects->adoptObject(object);
     return 1;

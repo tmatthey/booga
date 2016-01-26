@@ -124,7 +124,7 @@ bool LightSource::doIntersect(Ray3D& ray)
 
 int LightSource::setSpecifier(RCString& errMsg, Makeable* specifier)
 {
-  LightSourceAttr* attr = dynamic_cast(LightSourceAttr, specifier);
+  LightSourceAttr* attr = dynamic_cast<LightSourceAttr*>(specifier);
   if (attr != NULL) {
     // The PointLightAttr object knows best which method has to be called.
     // So let the object do the job.

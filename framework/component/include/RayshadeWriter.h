@@ -26,7 +26,7 @@
 #ifndef _RayshadeWriter_H
 #define _RayshadeWriter_H
 
-#include <fstream.h>
+#include <fstream>
 #include "booga/base/Value.h"
 #include "booga/base/RCString.h"
 #include "booga/component/Operation3D.h"
@@ -153,7 +153,7 @@ private:
   int mySkipLevel;      // skip levels < mySkipLevel
   int myIndent;         // indent levels in text output
   RCString myFilename;
-  ofstream myOs;
+  std::ofstream myOs;
   Camera3D* myCamera; 
   bool myHasAdoptedCamera;
 };

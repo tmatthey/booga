@@ -27,7 +27,7 @@
 #include "booga/base/Name.h"
 #include "booga/base/StaticInit.h"
 
-class ostream;
+#include <ostream>
 
 //___________________________________________________________________ ScopedName
  
@@ -56,7 +56,7 @@ public:
 
   static const Name& getGlobalNS();
 
-  friend ostream& operator<<(ostream& os, const ScopedName& scopedName);
+  friend std::ostream& operator<<(std::ostream& os, const ScopedName& scopedName);
 
 public:
   static void initClass();

@@ -23,7 +23,7 @@
 //_____________________________________________________________________ BSDL2DWriter
 
 
-#include <strstream.h>  // STDOUT_FILENO
+#include <sstream>  // STDOUT_FILENO
 
 #include "booga/component/BSDL2DWriter.h"
 

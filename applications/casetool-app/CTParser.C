@@ -21,7 +21,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <stream.h>
+#include <iostream>
 #include "booga/base/Report.h"
 #include "booga/base/ParserUtilities.h"
 #include "booga/base/StringUtilities.h"
@@ -121,11 +121,12 @@ RCString CTParserImpl::createErrorMsg(const RCString& errorMsg)
   if (myScanner.getCurrentFilename() != "\"\"")
     file = ", file " + myScanner.getCurrentFilename();
 
-  return  RCString("[Error ") + form("%d", ++myErrorCount) 
-		   + file
-		   + ", line " + form("%d", myScanner.getCurrentLine())
- 		   + ", near \"" + myScanner.getCurrentToken() + "\"] "
-                     + errorMsg;
+  std::stringstream str;
+  str << "[Error "<<(++myErrorCount) << file
+      << ", line " << myScanner.getCurrentLine() 
+      << ", near \"" << myScanner.getCurrentToken() << "\"] "
+      << errorMsg;
+  return  RCString(str);
 }
 
 /*___________________________________________________________________ CTParser

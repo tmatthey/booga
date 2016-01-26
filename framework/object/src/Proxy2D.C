@@ -21,7 +21,7 @@
  * -----------------------------------------------------------------------------
  */
  
-#include <strstream.h>
+#include <sstream>
 
 #include "booga/base/Report.h" 
 #include "booga/object/Proxy2D.h" 

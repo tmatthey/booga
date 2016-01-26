@@ -29,7 +29,7 @@
 #include "booga/glwrapper/GLViewer2D.h"
 
 #include <stddef.h>
-#include <iostream.h>
+#include <iostream>
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
@@ -72,35 +72,35 @@ int main(int argc, char* argv[])
 {
   parseCmdLine(argc, argv);
 
-  cout << "Using the following parameters:\n";
-  cout << "    Filename: ";
+  std::cout << "Using the following parameters:\n";
+  std::cout << "    Filename: ";
   if (filename.length() <= 0) {
-    cout << "STDIN";
+    std::cout << "STDIN";
     }
   else {
-    cout << filename;
+    std::cout << filename;
     };
-  cout << "\n";
-  cout << "    Options:  ";
+  std::cout << "\n";
+  std::cout << "    Options:  ";
   bool notFirst = false;
   for (int i=0; i < 256; i++) {
     if ((options[i].length() > 0) && (flags[i])) {
       if (notFirst) {
-        cout << "              ";
+        std::cout << "              ";
         }
       else {
         notFirst = true;
         };
-      cout << char(i) << ": " << options[i] << "\n";
+      std::cout << char(i) << ": " << options[i] << "\n";
       };
     };
-  cout << "    Flags:    ";
+  std::cout << "    Flags:    ";
   for (int i=0; i < 256; i++) {
     if ((flags[i]) && (options[i].length() == 0)) {
-      cout << char(i) << " ";
+      std::cout << char(i) << " ";
       };
     };
-  cout << "\n\n";
+  std::cout << "\n\n";
 
   // set filename for output
   RCString outfile;
@@ -123,7 +123,7 @@ int main(int argc, char* argv[])
     // Parse the C++ Input  
     CTParser TestParser;
    
-    cout << "BEGIN PARSING ... ";  
+    std::cout << "BEGIN PARSING ... ";  
 
     // checks flags and set several parameters
     TestParser.setCppParameters("");  
@@ -155,26 +155,26 @@ int main(int argc, char* argv[])
     TestParser.setFilename(filename);
     TestParser.execute(&myWorld);
 
-    cout << "ENDED PARSING\n";  
+    std::cout << "ENDED PARSING\n";  
   }
   
   // Display the parsed stuff
  
-  cout << "BEGIN OF RENDERER(s) ... ";
+  std::cout << "BEGIN OF RENDERER(s) ... ";
  
   if (flags['U']) {
-    cout << "UM Renderer ... ";
+    std::cout << "UM Renderer ... ";
     CTUMRenderer2D myRenderer;
     myRenderer.execute(&myWorld);
     }
   else {
     if (flags['C']) {
-      cout << " C++ Renderer ... ";
+      std::cout << " C++ Renderer ... ";
       CTCPPRenderer2D myCppRenderer(outfile + ".cpp");
       myCppRenderer.execute(&myWorld);
       };
     };    
-  cout << "ENDED RENDERER(s)\n";
+  std::cout << "ENDED RENDERER(s)\n";
 
   Texture2D* BlackGLTexture = new GLConstantTexture2D(Color(0,0,0));
   Texture2D* BlackTexture = new ConstantTexture2D(Color(0,0,0));
@@ -214,7 +214,7 @@ int main(int argc, char* argv[])
     seconds = time(&seconds);
     tm* currentTime;
     currentTime = localtime(&seconds);
-    ostrstream os;
+    std::stringstream os;
     os << "CASETOOL, Filename: " << filename << ", Date: ";
     // the number for the month is 1 to small -> increment by one
     os << currentTime->tm_mday << "." << (currentTime->tm_mon + 1) << "." << currentTime->tm_year;
@@ -276,7 +276,7 @@ int main(int argc, char* argv[])
         size = atoi(options['S'].chars());
         };
    
-    cout << "Size: " << size << "\n";
+    std::cout << "Size: " << size << "\n";
     
       // display centered in a window of size * size pixels
       if (dx > dy) {
@@ -305,8 +305,8 @@ int main(int argc, char* argv[])
 
   // Bitmap
   if (flags['b']) {
-    cout << "STARTED PPM OUTPUT ... ";
-    cout.flush();
+    std::cout << "STARTED PPM OUTPUT ... ";
+    std::cout.flush();
     World2D* generatedPixmap = NULL;
     Rasterizer rasterizer;
     generatedPixmap = rasterizer.execute(&myWorld);
@@ -314,32 +314,32 @@ int main(int argc, char* argv[])
     PPMWriter myPPMWriter(outfile + ".ppm");
     myPPMWriter.execute(generatedPixmap);
     delete generatedPixmap;
-    cout << "ENDED PPM OUTPUT\n";
+    std::cout << "ENDED PPM OUTPUT\n";
     };
 
   // Postscript
   if (flags['p']) {
-    cout << "STARTED PS OUTPUT ... ";
-    cout.flush();
-    cout << "\n\nPS Viewing Details:\n";
-    cout << "  Resolution: " << myViewing->getResolutionX() << " x " << myViewing->getResolutionY() << "\n";
-    cout << "  Window Origin: " << myViewing->getWindowOrigin() << " Size: " << myViewing->getWindowSize() << "\n\n";
+    std::cout << "STARTED PS OUTPUT ... ";
+    std::cout.flush();
+    std::cout << "\n\nPS Viewing Details:\n";
+    std::cout << "  Resolution: " << myViewing->getResolutionX() << " x " << myViewing->getResolutionY() << "\n";
+    std::cout << "  Window Origin: " << myViewing->getWindowOrigin() << " Size: " << myViewing->getWindowSize() << "\n\n";
     PSWriter2D myPSWriter(outfile + ".ps");
     myPSWriter.execute(&myWorld);
-    cout << "ENDED PS OUTPUT\n";
+    std::cout << "ENDED PS OUTPUT\n";
     };
 
   //  Start GL displaying of scene
   // has to be at the end of the program !!!
   if (flags['g']) {
-    cout << "STARTED GL VIEWER ... \n\n";
-    cout.flush();
+    std::cout << "STARTED GL VIEWER ... \n\n";
+    std::cout.flush();
     GLViewer2D viewer;
     viewer.execute(&myWorld);
-    cout << "ENDED GL VIEWER\n";
+    std::cout << "ENDED GL VIEWER\n";
     };
   
-  cout << "\n\n";
+  std::cout << "\n\n";
 
   return 0;
 } // end of main
@@ -370,7 +370,7 @@ void parseCmdLine(int argc, char* argv[])
         if ((i+1) < argc) {
           flags[argv[i][1]] = true;
           if (argv[i][1] == 'I') {
-            ostrstream os;
+            std::stringstream os;
             os << options[argv[i][1]];
             if (options[argv[i][1]].length() > 0) {
               os << " ";
@@ -386,7 +386,7 @@ void parseCmdLine(int argc, char* argv[])
           i++;  // skip option
           }
         else {
-          ostrstream os;
+          std::stringstream os;
           os << "[casetool:parseCmdLine]: Parameter " << argv[i];
           os << " needs one additional parameter, but there's none\n";
           Report::error(os);
@@ -479,33 +479,33 @@ void parseCmdLine(int argc, char* argv[])
 
 void usage(const RCString& name)
 {
-  cerr << "Usage: " << name << " [-hdigpbwCUs] [-S number] [-I includepath] [-O out-file] [in-file]\n";
-  cerr << " where:\n";
-  cerr << "  in-file  : (optional) filename of input\n";
-  cerr << "  h        : (optional) shows this message\n";
-  cerr << "  d        : (optional) enable debug messages of the parser\n";
-  cerr << "  v        : (optional) enable the verbose messages\n";
-  cerr << "  i        : (optional) enable the standard includes\n";
-  cerr << "  g        : (default)  use the GL viewer\n";
-  cerr << "  p        : (optional) use PS File output\n";
-  cerr << "  b        : (optional) use PPM File output\n";
-  cerr << "  w        : (optional) Print the World\n";
-  cerr << "  C        : (optional) use the C++ Renderer\n";
-  cerr << "  U        : (default)  use the UM Renderer\n";
-  cerr << "  s        : (default)  scale to 777 * 777 pixel window\n";
-  cerr << "  S nbr    : (optional) scale to nbr * nbr pixel window\n";
-  cerr << "  I path   : (optional) use additional path for include files\n";
-  cerr << "  O file   : (optional) use file for output files\n";  
-  cerr << "\n";
+  std::cerr << "Usage: " << name << " [-hdigpbwCUs] [-S number] [-I includepath] [-O out-file] [in-file]\n";
+  std::cerr << " where:\n";
+  std::cerr << "  in-file  : (optional) filename of input\n";
+  std::cerr << "  h        : (optional) shows this message\n";
+  std::cerr << "  d        : (optional) enable debug messages of the parser\n";
+  std::cerr << "  v        : (optional) enable the verbose messages\n";
+  std::cerr << "  i        : (optional) enable the standard includes\n";
+  std::cerr << "  g        : (default)  use the GL viewer\n";
+  std::cerr << "  p        : (optional) use PS File output\n";
+  std::cerr << "  b        : (optional) use PPM File output\n";
+  std::cerr << "  w        : (optional) Print the World\n";
+  std::cerr << "  C        : (optional) use the C++ Renderer\n";
+  std::cerr << "  U        : (default)  use the UM Renderer\n";
+  std::cerr << "  s        : (default)  scale to 777 * 777 pixel window\n";
+  std::cerr << "  S nbr    : (optional) scale to nbr * nbr pixel window\n";
+  std::cerr << "  I path   : (optional) use additional path for include files\n";
+  std::cerr << "  O file   : (optional) use file for output files\n";  
+  std::cerr << "\n";
 }
 
 #else // HAVE_OPENGL -----------------------------------------------------------
 
-#include <stream.h>
+#include <iostream>
 
 int main ()
 {
-  cerr << "\nThis application needs the OpenGL graphics package.\n" 
+  std::cerr << "\nThis application needs the OpenGL graphics package.\n" 
        << "When compiling this application your site was \n"
        << "configured not to use OpenGL.\n\n";
 }

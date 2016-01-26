@@ -91,7 +91,7 @@ void wxInspectCommand::execute ()
     if ((myTimer.getTime().getRealTime() < .2) && ((myDx != 0.0) || (myDy != 0.0))) {
       // user wants to spin object...
       if (getView()->getRenderer()->getFrameRate() > 0.0) {
-//        ostrstream os;
+//        std::stringstream os;
 //        os << "[wxInspectCommand::execute]: Start (";
 //        os << (int)(1000.0/getView()->getRenderer()->getFrameRate());
 //        os << ")";

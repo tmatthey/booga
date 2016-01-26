@@ -35,7 +35,7 @@
 //_____________________________________________________________________ wxCameraEditor
 
 class wxCameraEditor : public wxBOOGAView, wxViewCommand, public wxDialogDirector, public wxPanel {
-declareRTTI(wxCamerEditor);
+  declareRTTI(wxCamerEditor);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

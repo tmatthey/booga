@@ -30,7 +30,7 @@
 //__________________________________________________________________ ColorOption
 
 class ColorOption : public Option {
-declareRTTI(ColorOption);
+  declareRTTI(ColorOption);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

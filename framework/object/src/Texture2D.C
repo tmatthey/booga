@@ -39,7 +39,7 @@ Makeable* Texture2D::make(RCString& errMsg, const List<Value*>* parameters) cons
 
 int Texture2D::setSpecifier(RCString& errMsg, Makeable* specifier)
 {
-  Transform2D* transform = dynamic_cast(Transform2D, specifier);
+  Transform2D* transform = dynamic_cast<Transform2D*>(specifier);
   if (transform != NULL) {
     addTransform(*transform);
     delete transform;

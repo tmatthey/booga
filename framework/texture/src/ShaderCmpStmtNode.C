@@ -20,7 +20,7 @@
  * -----------------------------------------------------------------------------
  */
  
-#include <iostream.h>
+#include <iostream>
 #include "booga/texture/ShaderCmpStmtNode.h"
 
 ShaderCmpStmtNode::ShaderCmpStmtNode(const ShaderCmpStmtNode& theCmpStmt)
@@ -62,7 +62,7 @@ void ShaderCmpStmtNode::print(bool indent)
 {
   if (indent)
     printSpaces(2 * myBlockDepth - 2);
-  cout << "{" << endl;
+  std::cout << "{" << std::endl;
   if (myDecls)
     for (register long i = 0; i < myDecls->count(); i++) {
       myDecls->item(i)->print();
@@ -70,11 +70,11 @@ void ShaderCmpStmtNode::print(bool indent)
   if (myStmts)
     for (register long i = 0; i < myStmts->count(); i++) {
       myStmts->item(i)->print();
-      cout << ";" << endl;
+      std::cout << ";" << std::endl;
     }
   if (indent)  
     printSpaces(2 * myBlockDepth - 2);
-  cout << "}";
+  std::cout << "}";
 }
 
 void ShaderCmpStmtNode::execute(Texture3DContext& context)
@@ -95,7 +95,7 @@ void ShaderCmpStmtNode::execute(Texture3DContext& context)
 void ShaderCmpStmtNode::printValues()
 {
   ourScopes->prepend(myLocalScope);
-  cout << "Variables in first Scope:" << endl;
+  std::cout << "Variables in first Scope:" << std::endl;
   if (myDecls)
     for (register long i = 0; i < myDecls->count(); i++)
       myDecls->item(i)->printValues();

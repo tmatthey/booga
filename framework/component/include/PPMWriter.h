@@ -44,12 +44,13 @@ public:
 
 private:
   PPMWriter& operator=(const PPMWriter&);  // No assignments.  
+  bool save(std::ostream& ofs, const Pixmap2D* pixi) const;
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // From class Pixmap2DWriter
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 protected:
-  bool save(ofstream& ofs, const Pixmap2D* pixi) const;
+  bool save(const AbstractFile& ofs, const Pixmap2D* pixi) const;
 };
 
 #endif // _PPMWriter_H

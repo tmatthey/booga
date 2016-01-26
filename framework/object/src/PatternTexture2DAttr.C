@@ -42,7 +42,7 @@ PatternTexture2DAttrTexture::PatternTexture2DAttrTexture(Exemplar)
 
 int PatternTexture2DAttrTexture::setSpecifier(RCString& errMsg, Makeable* specifier)
 {
-  myTexture = dynamic_cast(Texture2D, specifier);
+  myTexture = dynamic_cast<Texture2D*>(specifier);
 
   if (myTexture != NULL)
     return 1;

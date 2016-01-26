@@ -53,7 +53,7 @@ int main(int argc, char* argv[])
   //
   // Process scene
   //
-  Triangulator triang(cout);
+  Triangulator triang(std::cout);
   triang.execute(world3D);
   
   return 0;

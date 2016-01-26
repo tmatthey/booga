@@ -26,7 +26,7 @@
 
 //_____________________________________________________________________ wxManagedCheckBox
 
-//implementRTTI(wxManagedCheckBox, wxCheckBox);
+implementRTTI(wxManagedCheckBox, wxCheckBox);
 
 wxManagedCheckBox::wxManagedCheckBox(wxDialogDirector* director, wxPanel* parent, char* label,
   int x, int y, int width, int height, long style, char* name)

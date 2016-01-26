@@ -23,7 +23,7 @@
 #ifndef _BSDL3DWriter_H
 #define _BSDL3DWriter_H
 
-#include <fstream.h>
+#include <fstream>
 #include "booga/base/Value.h"
 #include "booga/base/RCString.h"
 #include "booga/component/DocumentStore.h"

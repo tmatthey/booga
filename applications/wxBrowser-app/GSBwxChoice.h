@@ -29,7 +29,7 @@
 //_____________________________________________________________________ GSBwxChoice
 
 class GSBwxChoice : public wxChoice {
-// declareRTTI(GSBwxChoice);
+declareRTTI(GSBwxChoice);
 // enable RTTI support
 friend void GSBwxChoiceCallback(wxObject*, wxCommandEvent&);
 

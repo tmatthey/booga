@@ -21,7 +21,7 @@
  */
 
 #include <math.h>
-#include <strstream.h>
+#include <sstream>
 
 #include "booga/base/RTTI.h"
 #include "booga/base/mathutilities.h"
@@ -72,7 +72,7 @@ Value* SFPrint::evaluate(List<ShaderExpNode*>* theArgList,
                          Texture3DContext& context)
 {
   Value* temp = theArgList->item(0)->evaluate(context);  
-  ostrstream os;
+  std::stringstream os;
   os << "[BSL Print] value is " << *temp;
   Report::hint(os);
   return temp; // pro forma
@@ -196,7 +196,7 @@ Value* SFSqrt::evaluate(List<ShaderExpNode*>* theArgList,
   Value* temp = theArgList->item(0)->evaluate(context);
   Real arg = (Real)*temp;
   if (arg <  0)
-    cout << "Fatal Error: Negative operand for sqrt()!" << endl;
+    std::cout << "Fatal Error: Negative operand for sqrt()!" << std::endl;
 
   delete temp;
   return new Value(sqrt(arg));
@@ -232,7 +232,7 @@ Value* SFLog::evaluate(List<ShaderExpNode*>* theArgList,
   Value* temp = theArgList->item(0)->evaluate(context);
   Real arg = (Real)*temp;
   if (arg < 0)
-    cout << "Fatal Error: Negative operand for log10()!" << endl;
+    std::cout << "Fatal Error: Negative operand for log10()!" << std::endl;
 
   delete temp;
   return new Value(log10(arg));
@@ -251,7 +251,7 @@ Value* SFLn::evaluate(List<ShaderExpNode*>* theArgList,
   Value* temp = theArgList->item(0)->evaluate(context);
   Real arg = (Real)*temp;
   if (arg <  0)
-    cout << "Fatal Error: Negative operand for Ln()!" << endl;
+    std::cout << "Fatal Error: Negative operand for Ln()!" << std::endl;
   
   delete temp;
   return new Value(log(arg));
@@ -799,7 +799,7 @@ Value* SFGetNormal::evaluate(List<ShaderExpNode*>* theArgList,
   Value* temp = theArgList->item(0)->evaluate(context);
   Vector3D point = (Vector3D)*temp;
 
-  Primitive3D* primitive = dynamic_cast(Primitive3D,const_cast(Object3D,context.getObject()));
+  Primitive3D* primitive = dynamic_cast<Primitive3D*>(const_cast<Object3D*>(context.getObject()));
   Vector3D normal(context.getNormalOCS());
   
   // The normal for an arbitrarily placed point may be computed 

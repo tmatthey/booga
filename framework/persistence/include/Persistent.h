@@ -33,7 +33,7 @@ class PersistentManager;
 //_____________________________________________________________________ Persistent
 
 class Persistent {
-declareRTTI(Persistent);
+  declareRTTI(Persistent);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

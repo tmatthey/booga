@@ -25,7 +25,7 @@
 
 #ifdef HAVE_OPENGL
 
-#include <strstream.h>
+#include <sstream>
 #include <stdio.h> // FILE
 #include <GL/glut.h>
 
@@ -65,7 +65,7 @@ RCString in, out = "Noname"; // Input and output filenames.
 GLRenderer* renderer = NULL;
 World3D*    world    = NULL;
 GLRenderer::RenderingQuality motionQuality    = GLRenderer::WIREFRAME;
-GLRenderer::RenderingQuality renderingQuality = GLRenderer::SOLID_FLAT;
+GLRenderer::RenderingQuality renderingQuality = GLRenderer::SOLID_GOURAUD;
 
 enum AppMode { WALKTHROUGH = 1, INSPECT = 2, PICK = 3, RAYPAINT = 4, VR = 5 };
 AppMode appMode = INSPECT;
@@ -444,15 +444,16 @@ void readWorld()
 
 void saveFramebufferToFile()
 {
-  extern char* form(const char * ...);
   static int currentFrame = 1;
 
   AbstractPixmap* pixi = GLUtilities::createPixmapFromFramebuffer();
   RCString filename = out;
-  filename += form(".%d.pixi", currentFrame++);
+  std::stringstream str;
+  str << "."<<(currentFrame++)<<".pixi";
+  filename += str;
 
   if (pixi->save(filename)) {
-    ostrstream os;
+    std::stringstream os;
     os << "Pixi " << filename << " created";
     Report::hint(os);
   }
@@ -514,10 +515,10 @@ void pickObject(int x, int y)
     //
     // Print the whole path to cerr.
     //
-    cerr << "World";
+    std::cerr << "World";
     for (picker.getPath()->first(); !picker.getPath()->isDone(); picker.getPath()->next()) 
-      cerr << "->" << typeid(picker.getPath()->getObject()).name();
-    cerr << endl;
+      std::cerr << "->" << typeid(picker.getPath()->getObject()).name();
+    std::cerr << std::endl;
   }
 }
 
@@ -536,7 +537,7 @@ void activateObject(int x, int y)
   InteractionObject3D* iObject;
   if (path != NULL) {
     for (path->last(); !path->isDone(); path->prev()) {
-      iObject = dynamic_cast(InteractionObject3D, path->getObject());
+      iObject = dynamic_cast<InteractionObject3D*>(path->getObject());
       if (iObject != NULL) {
         iObject->activate(world, (Path3D*)path, x, y); // !!!!!
         glutPostRedisplay();
@@ -734,17 +735,16 @@ void parseCmdLine(int argc, char* argv[], RCString& in, RCString& out)
 
 void usage(const RCString& name)
 {
-  cerr << "Usage: " << name << " [in-file [out-file]]\n";
-  cerr << " where:\n";
-  cerr << "  in-file        : (optional) filename of input\n";
-  cerr << "  out-file       : (optional) filename of output\n";
+  std::cerr << "Usage: " << name << " [in-file [out-file]]\n";
+  std::cerr << " where:\n";
+  std::cerr << "  in-file        : (optional) filename of input\n";
+  std::cerr << "  out-file       : (optional) filename of output\n";
 }
 
 #ifdef HAVE_MPEGE
 void saveFramebufferToMPEG()
 {
   MPEGe_options* options = NULL;
-  extern char* form(const char * ...);
   static int currentFrameMPEG = 0;
   static GLint width, height;  
   ImVfbPtr ptr;
@@ -753,7 +753,7 @@ void saveFramebufferToMPEG()
   int widthNow, heightNow;
    
   RCString filename = out;
-  filename += form(".mpeg");
+  filename += ".mpeg";
  
   //
   // MPEG init
@@ -781,12 +781,12 @@ void saveFramebufferToMPEG()
       options->buffer_size=327680 ;          // DEFAULT_BUFFER_SIZE
       
       if (!MPEGe_open(output, options)) {
-        ostrstream os;
+        std::stringstream os;
         os << "[saveFramebufferToMPEG] Can't open MPEG " << filename;
         Report::recoverable(os);
       }
       else {
-        ostrstream os;
+        std::stringstream os;
         os << "[saveFramebufferToMPEG] MPEG " << filename << " open";
         Report::recoverable(os);
         glGetIntegerv(GL_VIEWPORT, viewport);
@@ -799,7 +799,7 @@ void saveFramebufferToMPEG()
       }
     }
     else {
-      ostrstream os;
+      std::stringstream os;
       os << "[saveFramebufferToMPEG] Can't open file " << filename;
       Report::recoverable(os);
     }
@@ -808,12 +808,12 @@ void saveFramebufferToMPEG()
   if (!image) {
     image = MPEGe_ImVfbAlloc(width,height, IMVFBRGB, 1);
     if (!image) {
-      ostrstream os;
+      std::stringstream os;
       os << "[saveFramebufferToMPEG] Can't allocate memory for framebuffer";
       Report::recoverable(os);
     }
     else {
-      ostrstream os;
+      std::stringstream os;
       os << "[saveFramebufferToMPEG] Memory for framebuffer allocated";
       Report::recoverable(os);
     }
@@ -853,12 +853,12 @@ void saveFramebufferToMPEG()
     }
  
     if (!MPEGe_image(image)) {
-      ostrstream os;
+      std::stringstream os;
       os << "[saveFramebufferToMPEG] Can't save MPEGFrame nr." << currentFrameMPEG;
       Report::recoverable(os);
     }
     else {
-      ostrstream os;
+      std::stringstream os;
       os << "[saveFramebufferToMPEG] MPEGFrame nr." << currentFrameMPEG << " saved";
       Report::hint(os);
     }
@@ -1094,28 +1094,28 @@ void keyboardCallback(unsigned char key, int, int)
       break;
     
     case 'a':
-      cerr << "Animation:"<< endl
-           << " frame             : " << frame << endl
-           << " frameStep         : " << frameStep << endl
-           << " current MPEG-frame: " << currentFrameMPEG << endl;
+      std::cerr << "Animation:"<< std::endl
+           << " frame             : " << frame << std::endl
+           << " frameStep         : " << frameStep << std::endl
+           << " current MPEG-frame: " << currentFrameMPEG << std::endl;
       break;
       
     case 'h':
     case '?':
-      cerr << "Summary of keyboard commands:" << endl
-           << "  q, ESC :  Quit." << endl
-           << "  r      :  Reread the scene description file." << endl
-           << "  SPACE  :  Reset view." << endl
-           << "  w      :  Save contents of the file buffer." << endl
-           << "  s      :  Stop animation." << endl
-           << "  i      :  Run animation (as fast as possible)." << endl
-           << "  f      :  One step forward." << endl
-           << "  b      :  One step backward." << endl
-           << "  TAB    :  Change sign of frameStep." << endl
-           << "  c      :  Set actual frame = 0 and frameStep = 1." << endl
-           << "  a      :  Information about animation." << endl
-           << "  h, ?   :  This message." << endl
-           << endl;
+      std::cerr << "Summary of keyboard commands:" << std::endl
+           << "  q, ESC :  Quit." << std::endl
+           << "  r      :  Reread the scene description file." << std::endl
+           << "  SPACE  :  Reset view." << std::endl
+           << "  w      :  Save contents of the file buffer." << std::endl
+           << "  s      :  Stop animation." << std::endl
+           << "  i      :  Run animation (as fast as possible)." << std::endl
+           << "  f      :  One step forward." << std::endl
+           << "  b      :  One step backward." << std::endl
+           << "  TAB    :  Change sign of frameStep." << std::endl
+           << "  c      :  Set actual frame = 0 and frameStep = 1." << std::endl
+           << "  a      :  Information about animation." << std::endl
+           << "  h, ?   :  This message." << std::endl
+           << std::endl;
       break;
   }
 }
@@ -1214,7 +1214,7 @@ void motionCallback(int x, int y)
     break;
  
   default:
-    ostrstream os;
+    std::stringstream os;
     os << "[motionCallback] Unknown moving mode " << movingMode;
     Report::recoverable(os);
   }
@@ -1271,7 +1271,7 @@ void renderingQualityCallback(int value)
     break;
     
   default:
-    ostrstream os;
+    std::stringstream os;
     os << "[renderingQualityCallback] Unknown callback value " << value;
     Report::recoverable(os);
   }
@@ -1307,7 +1307,7 @@ void motionQualityCallback(int value)
     break;
     
   default:
-    ostrstream os;
+    std::stringstream os;
     os << "[motionQualityCallback] Unknown callback value " << value;
     Report::recoverable(os);
   }
@@ -1341,7 +1341,7 @@ void appModeCallback(int value)
     break;
     
   default:
-    ostrstream os;
+    std::stringstream os;
     os << "[appModeCallback] Unknown callback value " << value;
     Report::recoverable(os);
   }
@@ -1355,7 +1355,7 @@ void toolsCallback(int value)
     saveFramebufferToFile();
     break;
   default:
-    ostrstream os;
+    std::stringstream os;
     os << "[toolsCallback] Unknown callback value " << value;
     Report::recoverable(os);
   }
@@ -1388,7 +1388,7 @@ void optionsCallback(int value)
     break;
     
   default:
-    ostrstream os;
+    std::stringstream os;
     os << "[optionsCallback] Unknown callback value " << value;
     Report::recoverable(os);
   }
@@ -1524,13 +1524,13 @@ void resetTimer()
  
 #else // HAVE_OPENGL -----------------------------------------------------------
 
-#include <stream.h>
+#include <iostream>
 
 int main ()
 {
-  cerr << "\nThis application needs the OpenGL graphics package.\n" 
-       << "When compiling this application your site was \n"
-       << "configured not to use OpenGL.\n\n";
+  std::cerr << "\nThis application needs the OpenGL graphics package.\n" 
+	    << "When compiling this application your site was \n"
+	    << "configured not to use OpenGL.\n\n";
 }
 
 #endif // HAVE_OPENGL

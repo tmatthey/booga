@@ -21,7 +21,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <strstream.h>
+#include <sstream>
 #include "booga/base/Report.h"
 #include "booga/object/StrokeFont.h"
 #include "booga/object/RomanFont.h"
@@ -42,7 +42,7 @@ StrokeFont::StrokeFont(const RCString& name,
 const CharRec* StrokeFont::getChar(int index) const
 {
   if (index < 0 || index >= myNumChars) {
-    ostrstream os;
+    std::stringstream os;
     os << "[StrokeFont::getChar] illegal index: " << index;
     Report::warning(os);
     return NULL;
@@ -66,7 +66,7 @@ const StrokeFont* StrokeFont::searchFont(const RCString& fontName)
   ourAvailableFonts->lookup(fontName, font); 
   
   if (font == NULL) {
-    ostrstream os;
+    std::stringstream os;
     os << "[StrokeFont::searchFont] unknown font: " << fontName;
     Report::warning(os);
   }

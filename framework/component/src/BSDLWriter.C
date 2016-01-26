@@ -23,7 +23,7 @@
 //_____________________________________________________________________ BSDLWriter
 
 
-#include <strstream.h>  // STDOUT_FILENO
+#include <sstream>  // STDOUT_FILENO
 
 #include "booga/object/World3D.h"
 #include "booga/object/Shared3D.h"
@@ -75,7 +75,7 @@ void BSDLWriter::decIndent() {
 }
 
 void BSDLWriter::newLineIndent() {
-  myDS->os() << endl;
+  myDS->os() << std::endl;
   int i;
   for(i=0; i<myIndent*2; i++) {
     myDS->os() << " ";
@@ -126,27 +126,16 @@ void BSDLWriter::handle(Makeable* obj) {
   dispatch(obj);
 }
 
-#ifdef WIN32
 void BSDLWriter::dispatch(Makeable* obj) {
-  if (dynamic_cast(Shared3D,obj) != NULL) { visit((Shared3D*) obj); return; }
-  if (dynamic_cast(Shared2D,obj) != NULL) { visit((Shared2D*) obj); return; }
-  if (dynamic_cast(Texture3D, obj) != NULL) { visit((Texture3D*) obj); return; }
-  if (dynamic_cast(Texture2D, obj) != NULL) { visit((Texture2D*) obj); return; }
-  if (dynamic_cast(World3D,obj) != NULL) { visit((World3D*) obj); return; }
-  if (dynamic_cast(World2D,obj) != NULL) { visit((World2D*) obj); return; }
+  if (dynamic_cast<Shared3D*>(obj) != NULL) { visit(dynamic_cast<Shared3D*>(obj)); return; }
+  if (dynamic_cast<Shared2D*>(obj) != NULL) { visit(dynamic_cast<Shared2D*>(obj)); return; }
+  if (dynamic_cast<Texture3D*>(obj) != NULL) { visit(dynamic_cast<Texture3D*>(obj)); return; }
+  if (dynamic_cast<Texture2D*>(obj) != NULL) { visit(dynamic_cast<Texture2D*>(obj)); return; }
+  if (dynamic_cast<World3D*>(obj) != NULL) { visit(dynamic_cast<World3D*>(obj)); return; }
+  if (dynamic_cast<World2D*>(obj) != NULL) { visit(dynamic_cast<World2D*>(obj)); return; }
   visit(obj);
 }
-#else
-void BSDLWriter::dispatch(Makeable* obj) {
-  if (Shared3D::ourTypeId_ == typeid(obj)) { visit((Shared3D*) obj); return; }
-  if (Shared2D::ourTypeId_ == typeid(obj)) { visit((Shared2D*) obj); return; }
-  if (dynamic_cast(Texture3D, obj) != NULL) { visit((Texture3D*) obj); return; }
-  if (dynamic_cast(Texture2D, obj) != NULL) { visit((Texture2D*) obj); return; }
-  if (World3D::ourTypeId_ == typeid(obj)) { visit((World3D*) obj); return; }
-  if (World2D::ourTypeId_ == typeid(obj)) { visit((World2D*) obj); return; }
-  visit(obj);
-}
-#endif
+
 void BSDLWriter::visit(Makeable *obj) {
   if (myDoDefinitionsMode) {
     obj->iterateAttributes(this); // traverse to objects that need to be defined
@@ -234,7 +223,7 @@ void BSDLWriter::visit(Shared3D *obj) {
       }
       else {
         // something went wrong
-        ostrstream os;
+        std::stringstream os;
         os << "[BSDLWriter::visit] Shared3D " << aliasName
            << " not yet defined";
         Report::recoverable(os);
@@ -305,7 +294,7 @@ void BSDLWriter::visit(Shared2D *obj) {
       }
       else {
         // something went wrong
-        ostrstream os;
+        std::stringstream os;
         os << "[BSDLWriter::visit] Shared2D " << aliasName
            << " not yet defined";
         Report::recoverable(os);
@@ -369,7 +358,7 @@ void BSDLWriter::visit(Texture3D *obj) {
     RCString aliasName;
     if (!myDefinedNames.lookup(name, aliasName)) {
       // something went wrong
-      ostrstream os;
+      std::stringstream os;
       os << "[BSDLWriter::visit] Texture3D " << name
          << " not yet defined";
       Report::recoverable(os);
@@ -437,7 +426,7 @@ void BSDLWriter::visit(Texture2D *obj) {
     RCString aliasName;
     if (!myDefinedNames.lookup(name, aliasName)) {
       // something went wrong
-      ostrstream os;
+      std::stringstream os;
       os << "[BSDLWriter::visit] Texture2D " << name
          << " not yet defined";
       Report::recoverable(os);

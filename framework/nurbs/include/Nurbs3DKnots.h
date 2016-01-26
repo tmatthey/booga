@@ -37,7 +37,7 @@
 ***********************************************************/
 
 class Nurbs3DKnots : public Nurbs3DParameters {
-  declareRTTI(Nurbs3DPoints);
+    declareRTTI(Nurbs3DPoints);
 // enable RTTI support
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

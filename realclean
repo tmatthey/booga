@@ -1,0 +1,9 @@
+#!/bin/sh
+find . -name "*.o" -exec rm {} \;
+find . -name "lib*.a" -exec rm {} \;
+find . -name "*~" -exec rm {} \;
+find . -name core -exec rm {} \;
+find . -name ii_files -exec rm -rf {} \;
+find . -name *.il -exec rm -rf {} \;
+rm -f applications/animationRemove-app/animationRemove applications/bsdl2ray-app/bsdl2ray applications/bsdlWriter-app/bsdlWriter applications/buildingPlacer-app/buildingPlacer applications/casetool-app/casetool applications/city-app/city applications/convex-app/convex applications/depth2grey-app/depth2grey applications/flythrough-app/flythrough applications/gamma-app/gamma applications/graphicsdb-app/graphicsdb applications/labelCC-app/labelCC applications/MPIraytrace-app/MPIraytrace applications/osRenderer-app/osRenderer applications/persistence-app/persistence applications/picker-app/picker applications/pixi2jpeg-app/pixi2jpeg applications/pixi2png-app/pixi2png applications/pixi2ppm-app/pixi2ppm applications/pixidiff-app/pixidiff applications/pixiquant-app/pixiquant applications/ppm2pixi-app/ppm2pixi applications/rasterdemo-app/rasterdemo applications/rasterize-app/rasterize applications/raytrace-app/raytrace applications/sirds-app/sirds applications/sketch-app/sketch applications/terrainCreater-app/terrainCreater applications/thin-app/thin applications/togrey-app/togrey applications/triangleRemove-app/triangleRemove applications/triangulate-app/triangulate applications/viewer-app/viewer applications/wireframe-app/wireframe applications/wxBrowser-app/wxBrowser applications/wxEdit-app/wxEdit applications/wxFlythrough-app/wxFlythrough applications/zbuffer-app/zbuffer
+

@@ -20,7 +20,7 @@
  * -----------------------------------------------------------------------------
  */
 
-#include <iostream.h>
+#include <iostream>
 #include "booga/texture/ShaderStmtNode.h"
 
 ShaderStmtNode::ShaderStmtNode(ShaderExpNode* theExp)

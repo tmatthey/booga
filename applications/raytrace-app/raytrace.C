@@ -32,6 +32,7 @@
 #include "booga/component/BSDLParserInit.h"
 #include "booga/component/Raytracer.h"
 #include "booga/component/PixiWriter.h"
+#include "booga/component/PNGWriter.h"
 #include "booga/component/PPMWriter.h"
 #include "booga/component/JPEGWriter.h"
 #include "booga/component/PrintWorld3D.h"
@@ -47,12 +48,11 @@ static void parseCmdLine(int argc, char* argv[],
                          int& samplingRate, bool& print,
                          Real& startframe, int& number, 
                          Real& frameStep, int& counter, 
-                         bool& ppm, bool& jpeg);
+                         bool& ppm, bool& jpeg, bool& png);
  
  
 int main(int argc, char* argv[])
 {
-  extern char* form(const char * ...);
   // 
   //  Setup world.
   // -----------------------------------------------------------
@@ -72,12 +72,13 @@ int main(int argc, char* argv[])
   Real frameStep   = 1;  // framestep of the animation
   int counter      = 0;  // startvalue of counter of the frames for the filename
   bool ppm = false;
+  bool png = false;
   bool jpeg = false;
   
   List<Animation3D*>* listAnimation = NULL;
   List<Path3D*>* listAnimationPath = NULL;
   parseCmdLine(argc, argv, in, out, samplingRate, print, 
-               startframe, number, frameStep, counter, ppm, jpeg );
+               startframe, number, frameStep, counter, ppm, jpeg, png );
   //
   // Read scene
   //
@@ -92,7 +93,7 @@ int main(int argc, char* argv[])
   // Print scene
   //
   if (print) {
-    PrintWorld3D printer(cerr);
+    PrintWorld3D printer(std::cerr);
     printer.execute(world3D);
   }
   
@@ -122,14 +123,14 @@ int main(int argc, char* argv[])
   
   Real frame = startframe;
   
-  cerr << "Animationparameters :" << endl;
-  cerr << " startframe       : " << startframe << endl;
-  cerr << " number of frames : " << number << endl;
-  cerr << " framestep        : " << frameStep << endl;
-  cerr << " counter          : " << counter << endl;
+  std::cerr << "Animationparameters :" << std::endl;
+  std::cerr << " startframe       : " << startframe << std::endl;
+  std::cerr << " number of frames : " << number << std::endl;
+  std::cerr << " framestep        : " << frameStep << std::endl;
+  std::cerr << " counter          : " << counter << std::endl;
   
   for (long i = counter; i < number + counter; i++) {
-    cerr << "Current frame : " << frame << " (" << i << ")." << endl;
+    std::cerr << "Current frame : " << frame << " (" << i << ")." << std::endl;
  
     for (long j=0; j<listAnimation->count(); j++){
       if(listAnimation->item(j)->frame(frame))
@@ -155,24 +156,33 @@ int main(int argc, char* argv[])
     //
     
     filename = out;
-    if (number > 1 && !out.isEmpty())
-       filename += form(".%04d", i);
+    if (number > 1 && !out.isEmpty()){
+      char tmp[256];
+      sprintf(tmp,".%04d", static_cast<int>(i));
+      filename += tmp;
+    }
 
     if (ppm) {
       if (!out.isEmpty())
-        filename += form(".ppm");
+        filename += ".ppm";
       PPMWriter writer(filename);
+      setExecTime(writer.execute(world2D), "raytrace: 3: Writing output");
+    }
+    if (png) {
+      if (!out.isEmpty())
+        filename += ".png";
+      PNGWriter writer(filename);
       setExecTime(writer.execute(world2D), "raytrace: 3: Writing output");
     }
     else if (jpeg) {
       if (!out.isEmpty())
-        filename += form(".jpg");
+        filename += ".jpg";
       JPEGWriter writer(filename);
       setExecTime(writer.execute(world2D), "raytrace: 3: Writing output");
     }
     else {
       if (!out.isEmpty())
-        filename += form(".pixi");
+        filename += ".pixi";
       PixiWriter writer(filename);
       setExecTime(writer.execute(world2D), "raytrace: 3: Writing output");
     }
@@ -194,7 +204,7 @@ int main(int argc, char* argv[])
 
 void parseCmdLine(int argc, char* argv[], RCString& in, RCString& out, int& samplingRate,
                   bool& print, Real& startframe, int& number, Real& frameStep, int& counter,
-		  bool& ppm, bool& jpeg)
+		  bool& ppm, bool& jpeg, bool& png)
 {
   if ((argc == 2 && !strcmp(argv[1], "-h")) || argc>13) {
     usage(argv[0]);
@@ -219,6 +229,12 @@ void parseCmdLine(int argc, char* argv[], RCString& in, RCString& out, int& samp
 
     if (!strcmp(argv[cur],"--ppm")){
       ppm = true;
+      cur++;
+      continue;
+    }
+
+    if (!strcmp(argv[cur],"--png")){
+      png = true;
       cur++;
       continue;
     }
@@ -264,18 +280,19 @@ void parseCmdLine(int argc, char* argv[], RCString& in, RCString& out, int& samp
 
 void usage(const RCString& name)
 {
-    cerr << "Usage: " << name << " [--oversampling rate] [--print] [in-file [out-file]]\n";
-    cerr << " where:\n";
-    cerr << "  --oversampling        : (optional) oversampling rate for antialiasing\n";
-    cerr << "                          (default: no antialiasing performed)\n";
-    cerr << "  --print               : (optional) print scene for debugging purpose\n";
-    cerr << "  --start startframe    : (optional) start frame of the animation\n";
-    cerr << "  --number number       : (optional) number of frames\n";
-    cerr << "  --framestep framestep : (optional) framestep of the animation\n";
-    cerr << "  --counter startnumber : (optional) startnumber of the counter for the outputfiles\n";
-    cerr << "  --ppm                 : (optional) output as PPM\n";
-    cerr << "  --jpeg                : (optional) output as JPEG\n";
-    cerr << "  in-file               : (optional) filename of input\n";
-    cerr << "  out-file              : (optional) filename of output\n";
+    std::cerr << "Usage: " << name << " [--oversampling rate] [--print] [in-file [out-file]]\n";
+    std::cerr << " where:\n";
+    std::cerr << "  --oversampling        : (optional) oversampling rate for antialiasing\n";
+    std::cerr << "                          (default: no antialiasing performed)\n";
+    std::cerr << "  --print               : (optional) print scene for debugging purpose\n";
+    std::cerr << "  --start startframe    : (optional) start frame of the animation\n";
+    std::cerr << "  --number number       : (optional) number of frames\n";
+    std::cerr << "  --framestep framestep : (optional) framestep of the animation\n";
+    std::cerr << "  --counter startnumber : (optional) startnumber of the counter for the outputfiles\n";
+    std::cerr << "  --ppm                 : (optional) output as PPM\n";
+    std::cerr << "  --png                 : (optional) output as PNG\n";
+    std::cerr << "  --jpeg                : (optional) output as JPEG\n";
+    std::cerr << "  in-file               : (optional) filename of input\n";
+    std::cerr << "  out-file              : (optional) filename of output\n";
 }
 

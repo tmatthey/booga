@@ -63,7 +63,7 @@ bool GDBExport::doExecute() {
   myFilenames.removeAll();
   if (mySource->getFormat()->getName() == "BSDL3") {
     myFilenames.insert(0, mySource->getNameIdFormat());
-    myFile.open(myFilenames.item(0).chars(),ios::out);
+    myFile.open(myFilenames.item(0).chars(),std::ios::out);
     myTraversal->traverse(mySource);
     myFile.close();
   }
@@ -75,7 +75,7 @@ bool GDBExport::doExecute() {
 
 GDBTraversal::Result GDBExport::announceVisit(GDBData *gdbData) {
   if (gdbData->getFormat()->getName() != RCString("BSDL3")) {
-      ostrstream ss;
+      std::stringstream ss;
       ss << "[GDBExport::export] non BSDL3 object encountered " 
          << gdbData->getPOId() << " " << gdbData->getName() << " . Ignoring";
       Report::hint(ss);
@@ -87,7 +87,7 @@ GDBTraversal::Result GDBExport::announceVisit(GDBData *gdbData) {
 GDBTraversal::Result GDBExport::visit(GDBData* gdbData) {
   if (gdbData->getFormat()->getName() == RCString("BSDL3")) {
     myFile << gdbData->getData();
-    ostrstream ss;
+    std::stringstream ss;
     ss << "[GDBExport::export] exporting BSDL Object " 
        << gdbData->getPOId() << " " << gdbData->getName();
     Report::hint(ss);
@@ -95,13 +95,13 @@ GDBTraversal::Result GDBExport::visit(GDBData* gdbData) {
   } 
   else {
     myFilenames.append(gdbData->getNameIdFormat());
-    fstream file;
+    std::fstream file;
     if (gdbData->getBinaryData() != NULL && gdbData->getBinaryData()->getBuffer() != NULL) {
-      file.open(myFilenames.item(myFilenames.count()-1).chars(),ios::out);
+      file.open(myFilenames.item(myFilenames.count()-1).chars(),std::ios::out);
       file.write(gdbData->getBinaryData()->getBuffer(),
                  gdbData->getBinaryData()->getSize());
       file.close();
-      ostrstream ss;
+      std::stringstream ss;
       ss << "[GDBExport::export] exporting object " 
          << gdbData->getPOId() << " " << gdbData->getName();
       Report::hint(ss);

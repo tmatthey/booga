@@ -50,7 +50,8 @@ private:
 // From class ImageReader  
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 private:
-  virtual AbstractPixmap* read(ifstream& ifs);
+  virtual AbstractPixmap* read(const AbstractFile& ifs);
+  AbstractPixmap* read(std::istream& ifs);
 };
 
 declareInitExemplar(PixiReader);

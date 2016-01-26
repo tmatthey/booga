@@ -28,7 +28,7 @@
 // Only compile this file if either not GNU compiler running,
 // or, in case of GNU compiler, files is included from header.
 
-#include <strstream.h>
+#include <sstream>
 #include "booga/base/Report.h" 
 #include "booga/base/Exemplar.h" 
 
@@ -149,7 +149,7 @@ INLINE TObject* MProxy<TObject, TProxy, TPath, TRay>
   TObject* retval = getSubject();
   
   if (!retval || index != 0) {
-    ostrstream os;
+    std::stringstream os;
     os << "[MProxy::getSubobject] index out of range ";
     os << "(was " << index << ")";
     Report::error(os);

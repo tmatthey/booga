@@ -21,9 +21,8 @@
  * -----------------------------------------------------------------------------
  */
 
-#ifdef SVR4
-#include <stream.h>
-#endif
+#include <iostream>
+#include <iomanip>
 #include "booga/base/Report.h"
 #include "booga/base/Configuration.h"
 #include "booga/base/StreamOption.h"
@@ -32,7 +31,7 @@
 //____________________________________________________________________ Statistic
 
 SymTable<RCString, Value> Statistic::ourEntries(100);
-ostream* Statistic::ourOutputStream;
+std::ostream* Statistic::ourOutputStream(NULL);
 
 Value Statistic::getEntry(const RCString& entryName)
 {
@@ -115,7 +114,7 @@ void Statistic::print(const RCString& entryNames)
 
   for (long j=0; j<foundEntries.count(); j++) {
     ourEntries.lookup(foundEntries.item(j), value);
-    *ourOutputStream << form("%-30s: ", foundEntries.item(j).chars()) << value << endl;
+    *ourOutputStream << std::left << std::setw(30)  << foundEntries.item(j).chars()  << ": " << value << std::endl;
   }
 }
 
@@ -149,9 +148,11 @@ void Statistic::setOutputStream()
 {
   getConfigurationOption(StreamOption, strOption, "Statistic.OutputStream");
 
-  if (strOption != NULL)
-    ourOutputStream = (ostream *)strOption->getStream();
+  if (strOption != NULL && (std::ostream *)(strOption->getStream())){
+    ourOutputStream = (std::ostream *)(strOption->getStream());
+  }
 
-  if (ourOutputStream == NULL)
-    ourOutputStream = &cerr;
+  if (ourOutputStream == NULL){
+    ourOutputStream = &std::cerr;
+  }
 }
