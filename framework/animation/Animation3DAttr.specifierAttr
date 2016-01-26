@@ -1,0 +1,33 @@
+/*
+ * Animation3DAttr.specifierAttr
+ *
+ * Copyright (C) 1994-96, Christoph Streit <streit@iam.unibe.ch>
+ *                        Stephan Amann <amann@iam.unibe.ch>
+ *                        University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: Animation3DAttr.specifierAttr,v 1.1 1996/04/18 13:15:23 streit Exp $ Animation3DAttr.specifierAttr,v 1.4 1996/04/01 15:30:10 streit Exp $
+ * -----------------------------------------------------------------------------
+ */
+
+library animation
+include "booga/object/ObjectAttr.h"
+
+specifier Animation3D : public ObjectAttr
+
+attr On
+  setMethod turnOn
+
+attr Off
+  setMethod turnOff

@@ -1,0 +1,161 @@
+# 
+# solaris-2.6.mk
+#
+# SNiFF+ - Makefile configuration for Sun SPARC Solaris 2.4 
+#
+# Copyright (C) 1994-96, Stephan Amann <amann@iam.unibe.ch>
+#                        Christoph Streit <streit@iam.unibe.ch>
+#                        University of Berne, Switzerland
+#
+# All rights reserved.
+#
+# This software may be freely copied, modified, and redistributed
+# provided that this copyright notice is preserved on all copies.
+#
+# You may not distribute this software, in whole or in part, as part of
+# any commercial product without the express consent of the authors.
+#
+# There is no warranty or other guarantee of fitness of this software
+# for any purpose.  It is provided solely "as is".
+#
+# -----------------------------------------------------------------------------
+#  $Id: solaris-2.4.mk,v 1.19 1996/07/19 14:21:40 streit Exp $
+# -----------------------------------------------------------------------------
+#
+
+# Select STATIC or SHARED
+# -------------------------------------------------------
+system_buildType := STATIC
+# system_buildType := SHARED
+
+# System Flags
+# -------------------------------------------------------
+SYSTYPE = -DSVR4 -DSYSV -DCPP='"/usr/ccs/lib/cpp -B"' -DSHELL='"/bin/sh"'
+
+# Some special include and library paths
+# -------------------------------------------------------
+
+# X11 include files and library
+# HAVE_X11  = 
+HAVE_X11  = -DHAVE_X11
+X11_INC   = -I$(OPENWINHOME)/include
+X11_LPATH = -L$(OPENWINHOME)/lib
+X11_LIB   = -lXext -lXmu -lXi -lX11 
+
+# OpenGL includes and library
+# HAVE_OPENGL  = 
+HAVE_OPENGL  = -DHAVE_OPENGL
+OPENGL_INC   = -I/local/mesa/include
+OPENGL_LPATH = -L/local/mesa/lib -R/local/mesa/lib
+OPENGL_LIB   = -lglut -lGL -lGLU
+
+# OpenGL includes and library
+# HAVE_OPENGL  = 
+#HAVE_OPENGL  = -DHAVE_OPENGL
+#OPENGL_INC   = -I/Home/user2/matthey/include/opengl
+#OPENGL_LPATH = -L/Home/user2/matthey/lib -R/Home/user2/matthey/lib
+#OPENGL_LIB   = -lglut -lGL -lGLU #-lMesaGL -lMesaGLU
+
+# SRGP includes and library
+HAVE_SRGP  =
+# HAVE_SRGP  = -DHAVE_SRGP
+SRGP_INC   = -I/Home/user2/matthey/include/srgp
+SRGP_LPATH = -L/Home/user2/matthey/lib
+SRGP_LIB   = -lsrgp
+
+# MPEGE include files and library
+# HAVE_MPEGE  = 
+HAVE_MPEGE  = -DHAVE_MPEGE
+MPEGE_INC   = -I/Home/user2/matthey/include
+MPEGE_LPATH = -L/Home/user2/matthey/lib
+MPEGE_LIB   = -lmpege 
+
+# JPEG include files and library
+# HAVE_JPEG  = 
+HAVE_JPEG  = -DHAVE_JPEG
+JPEG_INC   = -I/usr/local/include
+JPEG_LPATH = -L/usr/local/lib
+JPEG_LIB   = -ljpeg
+
+# wxWin includes and library
+# HAVE_WXWIN  =
+HAVE_WXWIN  = -DHAVE_WXWIN
+WXWIN_INC   = -I/Home/user2/matthey/include/wxwin.1.63/x -I/Home/user2/matthey/include/wxwin.1.63/base -I/usr/dt/include
+WXWIN_LPATH = -L/Home/user2/matthey/lib -L/usr/dt/lib -R/usr/dt/lib
+WXWIN_LIB   =  -lwxwin_motif -lXm -lXt -lXGLW
+CPPFLAGS   += -Dwx_motif
+
+# libwww includes and library
+HAVE_WWW  =
+# HAVE_WWW  = -DHAVE_WWW
+WWW_INC   = -I/Home/user2/matthey/include
+WWW_LPATH = -L/Home/user2/matthey/lib 
+WWW_LIB   = -lwww -lsocket -lnsl
+
+# libmpi includes and library ScaMPI
+# (BGH) HAVE_MPI  =
+#HAVE_MPI  = -DHAVE_MPI
+#MPI_INC   = -I$(MPI_HOME)/include
+#MPI_LPATH = -L$(MPI_HOME)/lib/$(SYS_TYPE).$(COMP) #-L$(MPI_HOME)/lib/$(SYS_TYPE)
+#MPI_LIB   = $(MPI_LDLIBS)
+
+# libmpi includes and library MPIch
+# (BGH) HAVE_MPI  =
+HAVE_MPI  = -DHAVE_MPI
+MPI_INC   = -I/net/pl/mpich/include 
+MPI_LPATH = -L/net/pl/mpich/lib/solaris/ch_p4/ -R/net/pl/mpich/lib/solaris/ch_p4/
+MPI_LIB   = -lmpe -lmpi -lm -lsocket -lnsl
+
+# Conclusion:
+CPPFLAGS += $(HAVE_X11) $(HAVE_OPENGL) $(HAVE_SRGP) $(HAVE_WXWIN) $(HAVE_MPEGE) $(HAVE_JPEG) $(HAVE_WWW) $(HAVE_MPI)
+CPPFLAGS += $(X11_INC) $(OPENGL_INC) $(SRGP_INC) $(WXWIN_INC) $(MPEGE_INC) $(JPEG_INC) $(WWW_INC) $(MPI_INC)
+
+FW_OTHER_LIBS = $(WWW_LPATH) $(WWW_LIB)
+
+# Archive maintaining
+# -------------------------------------------------------
+AR      = ar
+ARFLAGS = r
+RANLIB  = true
+
+# How do we build shared libraries?
+# -------------------------------------------------------
+define build-shared-lib
+  $(debug)$(CXX) $(BUILD_SH_LIB) -o $(notdir $@) $^
+endef
+
+# Extension of Libraries 
+# -------------------------------------------------------
+SHARED_LIB_EXT = so
+STATIC_LIB_EXT = a
+
+# yacc compiler and lexical analysis program generator
+# -------------------------------------------------------
+BISON++  = bison++
+B++FLAGS = -vd
+FLEX++   = flex++
+F++FLAGS = 
+
+# GNU awk program
+# -------------------------------------------------------
+GAWK   = gawk
+
+# Utilities
+# -------------------------------------------------------
+WC        = wc
+RM_INTACT = rm -i
+CUT	   = /usr/bin/cut
+
+# Where and how do you want BOOGA to be installed?
+# -------------------------------------------------------
+prefix       = /Home/user2/matthey/booga
+exec_prefix  = $(prefix)
+bindir       = $(exec_prefix)/../bin
+libdir       = $(exec_prefix)/lib
+includedir   = $(prefix)/include
+mandir       = $(prefix)/man
+tmpdir	    = /tmp
+
+INSTALL_PROG = /usr/ucb/install -m 755 -c
+INSTALL_DATA = /usr/ucb/install -m 644 -c
+

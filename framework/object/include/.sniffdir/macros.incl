@@ -1,0 +1,107 @@
+SNIFF_TARGET		= all
+SNIFF_TARGETS		= all 
+SNIFF_INCLUDE		= 
+
+SNIFF_ShSWS		= 
+SNIFF_ShSWS_2		= ''
+SNIFF_ShOWS		= 
+SNIFF_PROJECT_DIR	= framework/object/include
+SNIFF_RELATIVE_ROOT_DIR	= ../../..
+SNIFF_GENERATE_DIR	= .sniffdir
+SNIFF_GENERATE_DIR_ROOT	= 
+
+SNIFF_PROJECT		= object_include.shared
+SNIFF_STATUSFILE	= .Sniff_LastUpdateOfProject_$(SNIFF_PROJECT)
+
+SNIFF_VCS		= RCS
+SNIFF_REPOSITORY_DIR	= $(REPOSITORY)/framework/object/include
+
+SNIFF_Lex_Source_DIR	= .
+SNIFF_Lex_Source_FILES	= 
+
+SNIFF_Yacc_Source_DIR	= .
+SNIFF_Yacc_Source_FILES	= 
+
+SNIFF_Shell_Script_DIR	= .
+SNIFF_Shell_Script_FILES	= 
+
+SNIFF_Emacs_Lisp_DIR	= .
+SNIFF_Emacs_Lisp_FILES	= 
+
+SNIFF_Python_DIR	= .
+SNIFF_Python_FILES	= 
+
+SNIFF_Make_DIR	= .
+SNIFF_Make_FILES	= 
+
+SNIFF_Header_Documentation_DIR	= docu
+SNIFF_Header_Documentation_FILES	= 
+
+SNIFF_Header_DIR	= .
+SNIFF_Header_FILES	= Aggregate2D.h Aggregate3D.h AmbientLight.h  \
+	BOOGAObject.h BezierCurve3D.h BezierPatch3D.h  \
+	BistableObject2D.h BistableObject2DAttr.h BistableObject3D.h  \
+	BistableObject3DAttr.h BoundsUtilities.h Box3D.h  \
+	Camera2D.h Camera3D.h Checker.h  \
+	CheckerAttr.h Circle2D.h Cone3D.h  \
+	ConstantTexture2D.h ConstantTexture3D.h Cylinder3D.h  \
+	DirectedLight.h Disc3D.h DummyMakeable.h  \
+	Function.h GeneralLight.h Grid3D.h  \
+	InteractionObject2D.h InteractionObject3D.h InterpolationCurve3D.h  \
+	InterpolatorTexture2D.h LevelOfDetail3D.h LightSource.h  \
+	LightTexture.h Line2D.h Line3D.h  \
+	List2D.h List3D.h MAggregate.h  \
+	MBistableObject.h MInteractionObject.h MPrimitive.h  \
+	MProxy.h MShared.h Makeable.h  \
+	MakeableHandler.h MonoRomanFont.h MultiObject3D.h  \
+	NullObject3D.h Object2D.h Object2DAttr.h  \
+	Object3D.h Object3DAttr.h ObjectAttr.h  \
+	ObjectSpecifier.h ObjectSpecifierAttr.h OrthographicViewing3D.h  \
+	Path2D.h Path3D.h PathOf.h  \
+	PatternTexture2D.h PatternTexture2DAttr.h PerspectiveViewing3D.h  \
+	Pixmap2D.h PixmapTexture2D.h Point2D.h  \
+	Point3D.h PointLight.h Polygon2D.h  \
+	Polygon3D.h Polygon3DAttr.h PolygonExtrude.h  \
+	PolygonExtrudeAttr.h Primitive2D.h Primitive3D.h  \
+	Proxy2D.h Proxy3D.h Ray2D.h  \
+	Ray3D.h Ray3DFactory.h Ray3DUtilities.h  \
+	RomanFont.h Shared2D.h Shared3D.h  \
+	Sphere3D.h StrokeFont.h Text2D.h  \
+	Text3D.h Texture2D.h Texture2DAttr.h  \
+	Texture2DContext.h Texture2DList.h Texture3D.h  \
+	Texture3DAttr.h Texture3DContext.h Texture3DList.h  \
+	Torus3D.h Transform2D.h Transform3D.h  \
+	Triangle3D.h TriangleList3D.h ValueMakeable.h  \
+	Viewing2D.h Viewing3D.h World.h  \
+	World2D.h World3D.h 
+
+SNIFF_Implementation_DIR	= .
+SNIFF_Implementation_FILES	= 
+
+SNIFF_Project_Description_DIR	= .
+SNIFF_Project_Description_FILES	= object_include.shared 
+
+SNIFF_Document_Template_DIR	= docu/tmpl
+SNIFF_Document_Template_FILES	= 
+
+SNIFF_Image_DIR	= images
+SNIFF_Image_FILES	= 
+
+SNIFF_Object_DIR	= .
+SNIFF_Object_FILES	= 
+
+SNIFF_Implementation_Documentation_DIR	= docu
+SNIFF_Implementation_Documentation_FILES	= 
+
+SNIFF_Generator_SpecifierAttribute_DIR	= .
+SNIFF_Generator_SpecifierAttribute_FILES	= 
+
+SNIFF_Generator_ConfigurationHandler_DIR	= .
+SNIFF_Generator_ConfigurationHandler_FILES	= 
+
+SNIFF_FILES	= $(SNIFF_Lex_Source_FILES) $(SNIFF_Yacc_Source_FILES) $(SNIFF_Shell_Script_FILES)  \
+	$(SNIFF_Emacs_Lisp_FILES) $(SNIFF_Python_FILES) $(SNIFF_Make_FILES)  \
+	$(SNIFF_Header_Documentation_FILES) $(SNIFF_Header_FILES) $(SNIFF_Implementation_FILES)  \
+	$(SNIFF_Project_Description_FILES) $(SNIFF_Document_Template_FILES) $(SNIFF_Image_FILES)  \
+	$(SNIFF_Object_FILES) $(SNIFF_Implementation_Documentation_FILES) $(SNIFF_Generator_SpecifierAttribute_FILES)  \
+	$(SNIFF_Generator_ConfigurationHandler_FILES) 

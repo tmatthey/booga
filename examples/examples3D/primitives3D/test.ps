@@ -1,0 +1,157 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%Title: 
+%%Creator: BOOGA : Berne's Object Oriented Graphics Architecture
+%%Orientation: Portrait
+%%BoundingBox: 0 0 600 600
+%%Pages: 1
+%%DocumentFonts:
+%%EndComments
+%%EndProlog
+%%Page: 1 1
+
+% remember original state
+/origstate save def
+
+% build a temporary dictionary
+20 dict begin
+
+% some settings
+.5 setlinewidth
+1 setlinejoin
+1 setlinecap
+
+%some definitions
+/m /moveto load def                           % moveto
+/d { lineto currentpoint stroke moveto } def  % draw line
+/e { lineto currentpoint stroke } def         % endpoint of line
+/c { /matr exch def            % store matrix
+     gsave matr concat         % set transformation
+     arc                       % draw circle
+     matr matrix invertmatrix  % create inverse matrix
+     concat stroke             % draw line in original context
+     grestore } def   % circle with transf
+
+% define clipping path
+newpath
+0 0 m
+0 600 lineto
+600 600 lineto
+600 0 lineto
+closepath clip
+newpath
+
+% Global Positioning
+0 0 translate
+1 1 scale
+
+% define space for color conversions
+/grays 72 string def  % space for gray scale line
+/npixls 0 def
+/rgbindx 0 def
+
+% define 'colorimage' if it isn't defined
+/colorimage where   % do we know about 'colorimage'?
+  { pop }           % yes: pop off the 'dict' returned
+  {                 % no:  define one
+    /colortogray {  % define an RGB->I function
+      /rgbdata exch store    % call input 'rgbdata'
+      rgbdata length 3 idiv
+      /npixls exch store
+      /rgbindx 0 store
+      0 1 npixls 1 sub {
+        grays exch
+        rgbdata rgbindx       get 20 mul    % Red
+        rgbdata rgbindx 1 add get 32 mul    % Green
+        rgbdata rgbindx 2 add get 12 mul    % Blue
+        add add 64 idiv      % I = .5G + .31R + .18B
+        put
+        /rgbindx rgbindx 3 add store
+      } for
+      grays 0 npixls getinterval
+    } bind def
+
+    % Utility procedure for colorimage operator.
+    % This procedure takes two procedures off the
+    % stack and merges them into a single procedure.
+
+    /mergeprocs { % def
+      dup length
+      3 -1 roll
+      dup
+      length
+      dup
+      5 1 roll
+      3 -1 roll
+      add
+      array cvx
+      dup
+      3 -1 roll
+      0 exch
+      putinterval
+      dup
+      4 2 roll
+      putinterval
+    } bind def
+
+    /colorimage { % def
+      pop pop     % remove 'false 3' operands
+      {colortogray} mergeprocs
+      image
+    } bind def
+  } ifelse          % end of 'false' case
+
+74013.7 26579.3 m
+440289 151231 e
+440289 151231 m
+60019.1 20297.4 e
+60019.1 20297.4 m
+74013.7 26579.3 e
+74013.7 26579.3 m
+60019.1 20297.4 e
+60019.1 20297.4 m
+82377.1 30152.6 e
+82377.1 30152.6 m
+74013.7 26579.3 e
+195138 62448.4 m
+164583 55609.2 e
+164583 55609.2 m
+60019.1 20297.4 e
+60019.1 20297.4 m
+195138 62448.4 e
+60019.1 20297.4 m
+164583 55609.2 e
+164583 55609.2 m
+82377.1 30152.6 e
+82377.1 30152.6 m
+60019.1 20297.4 e
+268.689 359.647 m
+425.334 239.346 e
+425.334 239.346 m
+179.836 236.178 e
+179.836 236.178 m
+268.689 359.647 e
+217.383 379.116 m
+212.911 373.744 e
+212.911 373.744 m
+224.741 372.07 e
+224.741 372.07 m
+229.116 377.474 e
+229.116 377.474 m
+217.383 379.116 e
+183.097 411.949 m
+1.59932 219.909 e
+1.59932 219.909 m
+477.126 130.38 e
+477.126 130.38 m
+540.018 364.421 e
+540.018 364.421 m
+183.097 411.949 e
+showpage
+% stop using temporary dictionary
+end
+
+% restore original state
+origstate restore
+
+%Trailer
+

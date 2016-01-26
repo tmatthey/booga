@@ -1,0 +1,586 @@
+/*
+ * $RCSfile: ActionInfo.C,v $
+ *
+ * Copyright (C) 1996, Thierry Matthey <matthey@iam.unibe.ch>
+ *                     University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: ActionInfo.C,v 1.4 1996/11/18 15:43:21 streit Exp $
+ * -----------------------------------------------------------------------------
+ */
+
+#include <strstream.h>
+#include "booga/base/Report.h"
+#include "booga/object/DummyMakeable.h"
+#include "booga/object/MakeableHandler.h"
+#include "booga/base/Value.h"
+#include "booga/animation/ActionInfo.h"
+#include "booga/animation/TumbleCenter3D.h"
+#include "booga/animation/TumblePath3D.h"
+#include "booga/animation/TumbleDirection3D.h"
+#include "booga/animation/ActionInfoAttr.h"
+#include "booga/nurbs/Nurbs3DEvaluator.h"
+#include "booga/nurbs/Nurbs3DHandler.h"
+
+// ____________________________________________________________________ ActionInfo
+
+implementRTTI(ActionInfo, Makeable);
+
+ActionInfo::ActionInfo(Exemplar)
+{
+  clearAll();
+}
+
+ActionInfo::ActionInfo()
+{
+  clearAll();
+}
+
+ActionInfo::ActionInfo(Real startFrame, Real endFrame)
+{
+  clearAll();
+  setParameters(startFrame, endFrame, 1, 0);
+}
+
+ActionInfo::ActionInfo(Real startFrame, Real endFrame, long times)
+{
+  clearAll();
+  setParameters(startFrame, endFrame, times, 0);
+}
+
+ActionInfo::ActionInfo(Real startFrame, Real endFrame, long times, Real wait)
+{
+  clearAll();
+  setParameters(startFrame, endFrame, times, wait);
+}
+
+ActionInfo::ActionInfo(const ActionInfo& action)
+{
+  myStartFrame          = action.myStartFrame;
+  myEndFrame            = action.myEndFrame;
+  myTimes               = action.myTimes;
+  myWait                = action.myWait;
+
+  if (action.myFunction != NULL)
+    myFunction = action.myFunction->copy();
+  else 
+    myFunction = NULL;
+  
+  myMorphingFlag        = action.myMorphingFlag;
+
+  myCyclingFlag         = action.myCyclingFlag;
+
+  myScaleFactorFlag     = action.myScaleFactorFlag;
+  myScaleFactor         = action.myScaleFactor;
+  
+  myCenterFlag          = action.myCenterFlag;
+  myCenter              = action.myCenter;
+  
+  myDirectionFlag       = action.myDirectionFlag;
+  myDirection           = action.myDirection;
+  
+  myAxisFlag            = action.myAxisFlag;
+  myAxis                = action.myAxis;
+  
+  myAlphaFlag           = action.myAlphaFlag;
+  myAlpha               = action.myAlpha;
+  
+  myShearFactorFlag     = action.myShearFactorFlag;
+  myShearFactor         = action.myShearFactor;
+
+  myNurbsPathFlag       = action.myNurbsPathFlag;
+  if (action.myNurbsPath != NULL)
+    myNurbsPath = new Nurbs3DEvaluator(action.myNurbsPath->copyNurbs());
+  else
+    myNurbsPath = NULL;
+
+  myNurbsCenterFlag     = action.myNurbsCenterFlag;
+  if (action.myNurbsCenter != NULL)
+    myNurbsCenter = new Nurbs3DEvaluator(action.myNurbsCenter->copyNurbs());
+  else
+    myNurbsCenter = NULL;
+
+  myNurbsDirectionFlag  = action.myNurbsDirectionFlag;
+  if (action.myNurbsDirection != NULL)
+    myNurbsDirection = new Nurbs3DEvaluator(action.myNurbsDirection->copyNurbs());
+  else
+    myNurbsDirection = NULL;
+
+  myCurvePathFlag       = action.myCurvePathFlag;
+  if (action.myCurvePath != NULL)
+    myCurvePath = (InterpolationCurve3D *)action.myCurvePath->copy();
+  else
+    myCurvePath = NULL;
+
+  myCurveCenterFlag     = action.myCurveCenterFlag;
+  if (action.myCurveCenter != NULL)
+    myCurveCenter = (InterpolationCurve3D *)action.myCurveCenter->copy();
+  else
+    myCurveCenter = NULL;
+
+  myCurveDirectionFlag  = action.myCurveDirectionFlag;
+  if (action.myCurveDirection != NULL)
+    myCurveDirection = (InterpolationCurve3D *)action.myCurveDirection->copy();
+  else
+    myCurveDirection = NULL;
+}
+
+ActionInfo::~ActionInfo()
+{
+  delete myFunction;
+  delete myNurbsPath;
+  delete myNurbsCenter;
+  delete myNurbsDirection;
+  delete myCurvePath;
+  delete myCurveCenter;
+  delete myCurveDirection;
+}
+  
+void ActionInfo::clearAll()
+{
+  myStartFrame          = 0;
+  myEndFrame            = 1;
+  myTimes               = 1;
+  myWait                = 0;
+  
+  myFunction            = NULL;
+  
+  myMorphingFlag        = false;
+  
+  myCyclingFlag         = false;
+  
+  myScaleFactorFlag     = false;
+  myScaleFactor         = Vector3D(1,1,1);
+  
+  myCenterFlag          = false;
+  myCenter              = Vector3D(0,0,0);
+  
+  myDirectionFlag       = false;
+  myDirection           = Vector3D(1,0,0);
+  
+  myAxisFlag            = false;
+  myAxis                = Vector3D(1,0,0);
+  
+  myAlphaFlag           = false;
+  myAlpha               = 0;
+  
+  myShearFactorFlag     = false;
+  myShearFactor         = Vector2D(1,1);
+
+  myNurbsPathFlag       = false;
+  myNurbsPath           = NULL;
+  myNurbsCenterFlag     = false;
+  myNurbsCenter         = NULL;
+  myNurbsDirectionFlag  = false;
+  myNurbsDirection      = NULL;
+
+  myCurvePathFlag       = false;
+  myCurvePath           = NULL;
+  myCurveCenterFlag     = false;
+  myCurveCenter         = NULL;
+  myCurveDirectionFlag  = false;
+  myCurveDirection      = NULL;
+}
+
+void ActionInfo::setParameters(Real startFrame, Real endFrame, long times, Real wait)
+{
+  if (startFrame < endFrame) {
+    myStartFrame = startFrame;
+    myEndFrame   = endFrame;
+  }
+  else {
+    ostrstream os;
+    os << "[ActionInfo::ActionInfo] startframe >= endframe. Default startframe = 0 and endframe = 1.";
+    Report::recoverable(os);
+    myStartFrame = 0;
+    myEndFrame   = 1;
+  }
+  
+  if (wait < 0) {
+    ostrstream os;
+    os << "[ActionInfo::ActionInfo] wait for an action is negativ. Default wait = 0.";
+    Report::recoverable(os);
+    myWait = 0;
+  }
+  else
+    myWait = wait;
+  
+  if (times < 0) {
+    ostrstream os;
+    os << "[ActionInfo::ActionInfo] times for an action is negativ. Default times = 1.";
+    Report::recoverable(os);
+    myTimes = 1;
+  }
+  else
+    myTimes = times;    
+} 
+
+Makeable* ActionInfo::make(RCString& errMsg, const List<Value*>* parameters) const
+{
+   ActionInfo* newActionInfo = NULL;
+   
+   if ((parameters == NULL) || (parameters->count() < 2) || (parameters->count() > 4)){
+     errMsg = "Wrong number of parameters: startframe, endframe [times, [wait]].";   
+   }
+   else if (parameters->count() == 2) {
+     getParameter(1, Real, startFrame);
+     getParameter(2, Real, endFrame);   
+     newActionInfo = new ActionInfo(*this);
+     newActionInfo->clearAll();
+     newActionInfo->setParameters(startFrame, endFrame, 1, 0);
+   }
+   else if (parameters->count() == 3) {
+     getParameter(1, Real, startFrame);
+     getParameter(2, Real, endFrame);   
+     getParameter(3, Real, times);   
+     newActionInfo = new ActionInfo(*this);
+     newActionInfo->clearAll();
+     newActionInfo->setParameters(startFrame, endFrame, (long)times, 0);
+   }
+   else if (parameters->count() == 4) {
+     getParameter(1, Real, startFrame);
+     getParameter(2, Real, endFrame);   
+     getParameter(3, Real, times);   
+     getParameter(4, Real, wait);   
+     newActionInfo = new ActionInfo(*this);
+     newActionInfo->clearAll();
+     newActionInfo->setParameters(startFrame, endFrame, (long)times, wait);
+   }
+   
+   return newActionInfo;
+}
+
+int ActionInfo::setSpecifier(RCString& errMsg, Makeable* specifier)
+{
+  // Check for ActionInfo attributes
+  ActionInfoAttr* attr = dynamic_cast(ActionInfoAttr, specifier);
+  if (attr != NULL) {
+    // The ActionInfoAttr object knows best which method has to be called.
+    // So let the object do the job.
+    attr->setAttribute(this);
+
+    delete attr;
+    return 1;  
+  }
+    
+  // 
+  // Let papa do the rest ...
+  //
+  return Makeable::setSpecifier(errMsg, specifier);
+}
+
+Real ActionInfo::computeTicks(Real frame)
+{
+  Real value;
+  Real a = (frame - myStartFrame)/(myEndFrame - myStartFrame + myWait);
+  Real b = myFunction->computeValue(myStartFrame, myEndFrame, myEndFrame) - 
+           myFunction->computeValue(myStartFrame, myEndFrame, myStartFrame);
+ 
+  
+  if (myTimes == 1) {
+    value = myFunction->computeValue(myStartFrame, myEndFrame, frame);
+  }  
+  else if (myTimes == 0) {
+    if (a >= 0)
+      value = b * floor(a) +
+              myFunction->computeValue(myStartFrame, myEndFrame, 
+              myStartFrame + (myEndFrame - myStartFrame + myWait)*(a - floor(a)));
+    else
+      value = - b * (floor(fabs(a)) + 1) + myFunction->computeValue(myStartFrame, myEndFrame, 
+                myStartFrame + (myEndFrame - myStartFrame + myWait)*(1 - (fabs(a) - floor(fabs(a)))));
+  }
+  else {
+    if (myTimes <= a)
+      value = b * (myTimes - 1) + myFunction->computeValue(myStartFrame, myEndFrame, myEndFrame);
+    else 
+      if (a <= 1)
+        value = myFunction->computeValue(myStartFrame, myEndFrame, frame);
+      else
+        value = b * floor(a) +
+                   myFunction->computeValue(myStartFrame, myEndFrame, 
+                   myStartFrame + (myEndFrame - myStartFrame + myWait)*(a - floor(a)));
+  }
+  
+  // cerr << value << ";" << myStartFrame << ", " << myEndFrame << ", " << frame << "; " << a << "; " << b << endl;
+  return value; 
+}
+
+AnimationFunction* ActionInfo::createFunction(const RCString& function, Real start, Real end, Real step)
+{
+ 
+  if (function == "id")
+    return new AFId(start, end, step);    
+  else if (function == "const")
+    return new AFConst(start, end, step);
+  else if (function == "sin")
+    return new AFSin(start, end, step);
+  else if (function == "saw")
+    return new AFSaw(start, end, step);
+  else if (function == "step")
+    return new AFStep(start, end, step);
+  else if (function == "pulse")
+    return new AFPulse(start, end, step);
+  else if (function == "smoothstep")
+    return new AFSmoothStep(start, end, step);
+  else if (function == "triangle")
+    return new AFTriangle(start, end, step);
+  else if (function == "quad")
+    return new AFQuad(start, end, step);
+  else if (function == "sqrt")
+    return new AFSqrt(start, end, step);
+  else {
+    ostrstream os;
+    os << "[ActionInfo::createFunction] function '" << function << "' not implemented. Using id";
+    Report::recoverable(os);
+    return new AFId(start, end, step);
+  }  
+}
+
+void ActionInfo::setScaleFactor(const Vector3D& scaleFactor, const RCString& function, Real start, Real end, Real step)
+{
+  myScaleFactor         = scaleFactor;
+  myFunction            = createFunction(function, start, end, step);
+  myScaleFactorFlag     = true;
+}
+
+void ActionInfo::setDirection(const Vector3D& direction, const RCString& function, Real start, Real end, Real step)
+{
+  myDirection     = direction;
+  myFunction      = createFunction(function, start, end, step);
+  myDirectionFlag = true;
+}
+
+void ActionInfo::setMorphing(Real alpha, const RCString& function, Real start, Real end, Real step)
+{
+  myAlpha        = alpha;
+  myFunction     = createFunction(function, start, end, step);
+  myMorphingFlag = true;
+}
+
+void ActionInfo::setCycling(const RCString& function, Real start, Real end, Real step)
+{
+  myFunction    = createFunction(function, start, end, step);
+  myCyclingFlag = true;
+}
+
+void ActionInfo::setAlpha(Real alpha, const RCString& function, Real start, Real end, Real step)
+{
+  myAlpha      = alpha;
+  myFunction   = createFunction(function, start, end, step);
+  myAlphaFlag  = true;
+}
+
+void ActionInfo::setCenter(const Vector3D& center)
+{
+  myCenter     = center;
+  myCenterFlag = true;
+}
+ 
+void ActionInfo::setBoundCenter()
+{
+  myCenter     = Vector3D(0,0,0);
+  myCenterFlag = false;
+}
+
+void ActionInfo::setAxis(const Vector3D& axis)
+{
+  myAxis     = axis;
+  myAxisFlag = true;
+}
+
+void ActionInfo::setShearFactor(const Vector2D& shearFactor, const RCString& function, Real start, Real end, Real step)
+{
+  myShearFactor         = shearFactor;
+  myFunction = createFunction(function, start, end, step);
+  myShearFactorFlag     = true;
+}
+
+void ActionInfo::setTumblePath(Nurbs3D* adoptNurbs, const RCString& function, Real start, Real end, Real step)
+{
+  myFunction      = createFunction(function, start, end, step);
+  myNurbsPath     = new Nurbs3DEvaluator(adoptNurbs);
+  myNurbsPathFlag = true; 
+  myCurvePath     = NULL;
+  myCurvePathFlag = false; 
+}
+
+void ActionInfo::setTumbleCenter(Nurbs3D* adoptNurbs)
+{
+  myNurbsCenter     = new Nurbs3DEvaluator(adoptNurbs);
+  myNurbsCenterFlag = true;   
+  myCurveCenter     = NULL;
+  myCurveCenterFlag = false;   
+}
+
+void ActionInfo::setTumbleDirection(Nurbs3D* adoptNurbs)
+{
+  myNurbsDirection     = new Nurbs3DEvaluator(adoptNurbs);
+  myNurbsDirectionFlag = true;   
+  myCurveDirection     = NULL;
+  myCurveDirectionFlag = false;   
+}
+
+void ActionInfo::adoptTumblePath(InterpolationCurve3D* adoptCurve, const RCString& function, Real start, Real end, Real step)
+{
+  myFunction      = createFunction(function, start, end, step);
+  myNurbsPath     = NULL;
+  myNurbsPathFlag = false; 
+  myCurvePath     = adoptCurve;
+  myCurvePathFlag = true; 
+}
+
+void ActionInfo::adoptTumbleCenter(InterpolationCurve3D* adoptCurve)
+{
+  myNurbsCenter     = NULL;
+  myNurbsCenterFlag = false;   
+  myCurveCenter     = adoptCurve;
+  myCurveCenterFlag = true;   
+}
+
+void ActionInfo::adoptTumbleDirection(InterpolationCurve3D* adoptCurve)
+{
+  myNurbsDirection     = NULL;
+  myNurbsDirectionFlag = false;   
+  myCurveDirection     = adoptCurve;
+  myCurveDirectionFlag = true;   
+}
+
+Vector3D ActionInfo::getTumbleMove(Real u)
+{
+  if (myNurbsPath)
+    return (myNurbsPath->evaluate(u) - myNurbsPath->evaluate(0));
+  else
+    return (myCurvePath->evaluate(u) - myCurvePath->evaluate(0));
+}
+
+Vector3D ActionInfo::getTumbleCenter(Real u)
+{
+ if (myNurbsCenter)
+    return myNurbsCenter->evaluate(u);
+  else
+    return myCurveCenter->evaluate(u);
+}
+
+Vector3D ActionInfo::getTumbleDirection(Real u)
+{
+  if (myNurbsDirection)
+    return (myNurbsDirection->evaluate(u) - myNurbsCenter->evaluate(u));
+  else
+    return (myCurveDirection->evaluate(u) - myCurveCenter->evaluate(u));
+}
+
+static const RCString actionKeyword("action");
+
+RCString ActionInfo::getKeyword() const {
+  return actionKeyword;
+}
+
+List<Value*>* ActionInfo::createParameters() {
+  List<Value*>* parameters = new List<Value*>;
+  parameters->append(new Value(myStartFrame));
+  parameters->append(new Value(myEndFrame));
+  parameters->append(new Value(myTimes)); 
+  parameters->append(new Value(myWait));
+  return parameters;
+}
+
+void ActionInfo::iterateAttributes(MakeableHandler *handler) {
+  if (isMove()) {
+    DummyMakeable m("direction");
+    m.addParameter(Value(myDirection));
+    m.addParameter(Value(RCString("\"") + myFunction->getKeyword() + RCString("\"")));
+    m.addParameter(Value(myFunction->getStart()));
+    m.addParameter(Value(myFunction->getEnd()));
+    m.addParameter(Value(myFunction->getStep()));
+    handler->handle(&m);
+  } 
+  else if (isGrow()) {
+    DummyMakeable m("scalefactor");
+    m.addParameter(Value(myScaleFactor));
+    m.addParameter(Value(RCString("\"") + myFunction->getKeyword() + RCString("\"")));
+    m.addParameter(Value(myFunction->getStart()));
+    m.addParameter(Value(myFunction->getEnd()));
+    m.addParameter(Value(myFunction->getStep()));
+    handler->handle(&m);
+    if (!isBound()){
+      DummyMakeable m2("center");
+      m2.addParameter(Value(myCenter));
+      handler->handle(&m2);    
+    }
+  } 
+  else if (isShear()) {
+    DummyMakeable m("shearfactor");
+    m.addParameter(Value(myShearFactor));
+    m.addParameter(Value(RCString("\"") + myFunction->getKeyword() + RCString("\"")));
+    m.addParameter(Value(myFunction->getStart()));
+    m.addParameter(Value(myFunction->getEnd()));
+    m.addParameter(Value(myFunction->getStep()));
+    handler->handle(&m);
+    DummyMakeable m2("axis");
+    m2.addParameter(Value(myAxis));
+    handler->handle(&m2);
+    if (!isBound()){
+      DummyMakeable m3("center");
+      m3.addParameter(Value(myCenter));
+      handler->handle(&m3);    
+    }
+  } 
+  else if (isTurn()) {
+    DummyMakeable m("alpha");
+    m.addParameter(Value(myAlpha));
+    m.addParameter(Value(RCString("\"") + myFunction->getKeyword() + RCString("\"")));
+    m.addParameter(Value(myFunction->getStart()));
+    m.addParameter(Value(myFunction->getEnd()));
+    m.addParameter(Value(myFunction->getStep()));
+    handler->handle(&m);
+    DummyMakeable m2("axis");
+    m2.addParameter(Value(myAxis));
+    handler->handle(&m2);
+    if (!isBound()){
+      DummyMakeable m3("center");
+      m3.addParameter(Value(myCenter));
+      handler->handle(&m3);    
+    }
+  } 
+  else if (isTumble()) {
+    TumblePath3D* tumblePath = new TumblePath3D(myFunction,myNurbsPath,myCurvePath);  
+    handler->handle(tumblePath);
+    delete tumblePath;
+    if (isTumbleRotate()){
+      TumbleCenter3D* tumbleCenter = new TumbleCenter3D(myNurbsCenter,myCurveCenter);
+      TumbleDirection3D* tumbleDirection = new TumbleDirection3D(myNurbsDirection,myCurveDirection);
+      handler->handle(tumbleCenter);
+      handler->handle(tumbleDirection);
+      delete tumbleCenter;
+      delete tumbleDirection;
+    }
+  }
+  else if (isCycle()) {
+    DummyMakeable m("cycling");
+    m.addParameter(Value(RCString("\"") + myFunction->getKeyword() + RCString("\"")));
+    m.addParameter(Value(myFunction->getStart()));
+    m.addParameter(Value(myFunction->getEnd()));
+    m.addParameter(Value(myFunction->getStep()));
+    handler->handle(&m);
+  }  
+  else if (isMorph()) {
+    DummyMakeable m("morphing");
+    m.addParameter(Value(myAlpha));
+    m.addParameter(Value(RCString("\"") + myFunction->getKeyword() + RCString("\"")));
+    m.addParameter(Value(myFunction->getStart()));
+    m.addParameter(Value(myFunction->getEnd()));
+    m.addParameter(Value(myFunction->getStep()));
+    handler->handle(&m);
+  }  
+}

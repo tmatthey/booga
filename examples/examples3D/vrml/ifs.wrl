@@ -1,0 +1,26 @@
+#VRML V1.0 ascii
+
+#
+# ifs.wrl
+#
+# Test of VRML index face set feature.
+#
+# Copyright (C) 1996, Beat Liechti <liechti@isbe.ch>
+#                     Ingenieurschule Bern, Switzerland
+#
+# -----------------------------------------------------------------------------
+# $Id: ifs.wrl,v 1.1 1996/02/28 10:16:45 streit Exp $
+# -----------------------------------------------------------------------------
+#
+
+Coordinate3 { point [ -2 0 -2, -2 0 2, 2 0 2, 2 0 -2,
+                      -2 4 -2, -2 4 2, 2 4 2, 2 4 -2 ] }
+Material { diffuseColor [ 1 0 0, 0 1 0, 0 0 1 ] }
+MaterialBinding { value PER_PART_INDEXED }
+IndexedFaceSet {
+  coordIndex    [ 0, 1, 2, 3, -1,
+                  0, 4, 5, 1, -1,
+                  0, 3, 7, 4, -1 ]
+  materialIndex [ 1, 2, 1 ]
+}
+

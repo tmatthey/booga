@@ -1,0 +1,75 @@
+/*
+ * iam.bsdl3 
+ *
+ * Copyright (C) 1997, Thierry Matthey <matthey@iam.unibe.ch>
+ *                     University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: iam.bsdl3,v 1.4 1997/05/26 13:45:17 matthey Exp $
+ * -----------------------------------------------------------------------------
+ */
+
+#ifndef _data_blokk_bsdl3
+#define _data_blokk_bsdl3
+
+#include "viewing.inc"
+#include "color.inc"
+#include "item.bsdl3"
+
+    
+define  data_blokk list {
+  building(hib_stock_h*8,
+           [120,  0,0],
+           [408,  0,0],
+           [480, 60,0],
+           [672, 60,0],
+           [672,100,0],
+           [552,216,0],
+           [264,216,0],
+           [192,156,0],
+           [  0,156,0],
+           [  0,116,0]
+           ){
+  blau_hib;
+  bottomborder(1,1,10,hib_stock_h/2){metall_hib;height(hib_stock_h*0);}
+  bottomborder(1,1,10,hib_stock_h/2){metall_hib;height(hib_stock_h*1);}
+  bottomborder(1,1,10,hib_stock_h/2){metall_hib;height(hib_stock_h*2);}
+  bottomborder(1,1,10,hib_stock_h/2){metall_hib;height(hib_stock_h*3);}
+  bottomborder(1,1,10,hib_stock_h/2){metall_hib;height(hib_stock_h*4);}
+  bottomborder(1,1,10,hib_stock_h/2){metall_hib;height(hib_stock_h*5);}
+  bottomborder(1,1,10,hib_stock_h/2){metall_hib;height(hib_stock_h*6);}
+  bottomborder(1,1,10,hib_stock_h/2){metall_hib;height(hib_stock_h*7);}
+  rooflayer([3,0,0],[3,hib_stock_h/2,0]){metall_hib;}
+  frontrect(0,0){faceitem([0,0],[1,1],6,8){window_hib;hole;displacement[0.5,0.75];}};
+  frontrect(1,0){faceitem([0,0],[1,1],2,8){window_hib;hole;displacement[0.5,0.75];}};
+  frontrect(2,0){faceitem([0,0],[1,1],4,8){window_hib;hole;displacement[0.5,0.75];}};
+  frontrect(3,0){faceitem([0,0],[1,1],1,8){window_hib;hole;displacement[0.5,0.75];}};
+  frontrect(4,0){faceitem([0,0],[1,1],4,8){window_hib;hole;displacement[0.5,0.75];}};
+  frontrect(5,0){faceitem([0,0],[1,1],6,8){window_hib;hole;displacement[0.5,0.75];}};
+  frontrect(6,0){faceitem([0,0],[1,1],2,8){window_hib;hole;displacement[0.5,0.75];}};
+  frontrect(7,0){faceitem([0,0],[1,1],4,8){window_hib;hole;displacement[0.5,0.75];}};
+  frontrect(8,0){faceitem([0,0],[1,1],1,8){window_hib;hole;displacement[0.5,0.75];}};
+  frontrect(9,0){faceitem([0,0],[1,1],4,8){window_hib;hole;displacement[0.5,0.75];}};
+  }
+}
+
+#ifndef _no_instance
+   data_blokk;
+#endif
+// _no_instance
+
+#endif
+// _data_blokk_bsdl3
+
+

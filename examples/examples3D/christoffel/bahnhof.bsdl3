@@ -1,0 +1,168 @@
+/*
+ * bahnhof.bsdl3 
+ *
+ * Copyright (C) 1994-96, Bernhard Buehlmann <buehlmann@iam.unibe.ch>
+ *                        University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: bahnhof.bsdl3,v 1.1 1996/02/21 09:50:09 streit Exp $
+ * -----------------------------------------------------------------------------
+ */
+
+const bh_e_b 1.5;
+const bh_e_h1 .8;
+const bh_e_h2 2.4;
+
+define gruenDunkel phong { ambient [.1,.3,.1]; diffuse [.3,.5,.3]; specular [.9,.9,.9]; specpow 20;}
+define gruenHell phong { ambient [.1,.7,.1]; diffuse [.3,.6,.1]; specular [.9,.9,.9]; specpow 20;}
+define gruenSpiegel whitted { ambient [.3,.3,.3]; diffuse [.6,.6,.3]; reflectivity .7;}
+//define gruenSpiegel whitted { ambient [.3,.3,.3]; diffuse [.6,.1,.1]; specular [.9,.9,.9]; specpow 20;reflectivity .7;}
+define beton phong { ambient [.3,.3,.3]; diffuse [.9,.95,.9]; specular [.9,.9,.9]; specpow 20;}
+define orange phong { ambient [.3,.3,.3]; diffuse [.9,.6,.1]; specular [.9,.9,.9]; specpow 20;}
+
+define bh_element1 list {
+
+//	polygon ([-bh_e_b, 0, 0], [bh_e_b, 0, 0], [bh_e_b, 0, bh_e_h1],
+//		   [-bh_e_b, 0, bh_e_h1]) {gruenDunkel;}
+	box ([-bh_e_b, 0, 0], [bh_e_b, -.01, bh_e_h1]) {gruenDunkel;}
+	box ([-bh_e_b, 0, 0], [-bh_e_b+.05, -.05, bh_e_h1]) {gruenHell;}
+	box ([bh_e_b, 0, 0], [bh_e_b-.05, -.05, bh_e_h1]) {gruenHell;}
+	box ([-bh_e_b, 0, bh_e_h1-.05], [bh_e_b-.05, -.05, bh_e_h1]) {gruenHell;}
+}
+
+define bh_element2 list {
+//	polygon ([-bh_e_b, 0, 0], [bh_e_b, 0, 0], 
+//		   [-bh_e_b, 0, bh_e_h2]) {gruenSpiegel;}
+	box ([-bh_e_b, 0, 0], [bh_e_b, -.01, bh_e_h2]){gruenSpiegel;}
+	box ([-bh_e_b, 0, 0], [-bh_e_b+.05, -.05, bh_e_h2]) {gruenHell;}
+	box ([bh_e_b, 0, 0], [bh_e_b-.05, -.05, bh_e_h2]) {gruenHell;}
+	box ([-bh_e_b, 0, bh_e_h2-.05], [bh_e_b-.05, -.05, bh_e_h2]) {gruenHell;}
+}
+
+define bh_dreier list {
+bh_element1;
+bh_element1 {translate [0,0,bh_e_h1];}
+bh_element1 {translate [0,0,2*bh_e_h1];}
+}
+
+
+define bh_element3 list {
+bh_element1;
+bh_dreier{translate [0,0,bh_e_h1];} 
+bh_element2 {translate [0,0,4*bh_e_h1];}
+
+bh_dreier{translate [0,0,4*bh_e_h1+bh_e_h2];}
+bh_element2 {translate [0,0,7*bh_e_h1+bh_e_h2];}
+
+bh_dreier{translate [0,0,7*bh_e_h1+2*bh_e_h2];}
+bh_element2 {translate [0,0,10*bh_e_h1+2*bh_e_h2];}
+
+bh_dreier{translate [0,0,10*bh_e_h1+3*bh_e_h2];}
+}
+
+
+define bh_fassade_sued list {
+
+bh_element3 {translate [bh_e_b, 0,0];}
+bh_element3 {translate [2*bh_e_b, 0,0];}
+bh_element3 {translate [4*bh_e_b, 0,0];}
+bh_element3 {translate [6*bh_e_b, 0,0];}
+bh_element3 {translate [8*bh_e_b, 0,0];}
+bh_element3 {translate [10*bh_e_b, 0,0];}
+bh_element3 {translate [12*bh_e_b, 0,0];}
+bh_element3 {translate [14*bh_e_b, 0,0];}
+bh_element3 {translate [16*bh_e_b, 0,0];}
+bh_element3 {translate [18*bh_e_b, 0,0];}
+
+
+bh_element3 {translate [-bh_e_b, 0,0];}
+bh_element3 {translate [-2*bh_e_b, 0,0];}
+bh_element3 {translate [-4*bh_e_b, 0,0];}
+bh_element3 {translate [-6*bh_e_b, 0,0];}
+bh_element3 {translate [-8*bh_e_b, 0,0];}
+bh_element3 {translate [-10*bh_e_b, 0,0];}
+bh_element3 {translate [-12*bh_e_b, 0,0];}
+bh_element3 {translate [-14*bh_e_b, 0,0];}
+bh_element3 {translate [-16*bh_e_b, 0,0];}
+bh_element3 {translate [-18*bh_e_b, 0,0];}
+}
+
+/*
+define bh_fassade_ost list {
+bh_element3;
+bh_element3 {translate [bh_e_b, 0,0];}
+bh_element3 {translate [2*bh_e_b, 0,0];}
+bh_element3 {translate [4*bh_e_b, 0,0];}
+bh_element3 {translate [6*bh_e_b, 0,0];}
+bh_element3 {translate [8*bh_e_b, 0,0];}
+bh_element3 {translate [10*bh_e_b, 0,0];}
+bh_element3 {translate [12*bh_e_b, 0,0];}
+bh_element3 {translate [14*bh_e_b, 0,0];}
+bh_element3 {translate [16*bh_e_b, 0,0];}
+bh_element3 {translate [18*bh_e_b, 0,0];}
+rotateZ(90); translate [19*bh_e_b,bh_e_b,0];
+}
+*/
+
+define bh_balkon list {
+box ([-20*bh_e_b, -5, 0], [20*bh_e_b, 30, .3]) {beton;}
+box ([-20*bh_e_b, -4.5, 0], [20*bh_e_b, -4.7, 1.6]) {beton;}
+box ([20*bh_e_b, -4.5, 0], [20*bh_e_b-.2, 25, 1.6]) {beton;}
+
+}
+
+define bh_stundenmarkierung list {
+box ([-.05,-.21, .55], [.05, 0, .75]) {asphalt;}
+}
+
+define bh_zeiger list {
+box ([-.08,-.21, -.02], [.08, 0, .65]) {asphalt;}	
+}
+
+
+define bh_uhr list {
+	box ([-.8, -.2, -.8],[.8, 0, .8]) {orange;}
+	bh_stundenmarkierung {rotateY(0);}
+	bh_stundenmarkierung {rotateY(30);}
+	bh_stundenmarkierung {rotateY(60);}
+	bh_stundenmarkierung {rotateY(90);}
+	bh_stundenmarkierung {rotateY(-30);}
+	bh_stundenmarkierung {rotateY(-60);}
+	bh_stundenmarkierung {rotateY(-90);}
+	bh_stundenmarkierung {rotateY(-120);}
+	bh_stundenmarkierung {rotateY(-150);}
+	bh_stundenmarkierung {rotateY(-180);}
+	bh_stundenmarkierung {rotateY(120);}
+	bh_stundenmarkierung {rotateY(150);}
+
+//zeiger
+	bh_zeiger {rotateY(33);}
+	bh_zeiger {scale [.7,1,.7]; rotateY(-40);}
+}
+
+define bahnhof list {
+
+// innen
+box ([-16*bh_e_b, 2, 0], [16*bh_e_b, 25, 7]) {beton;}
+
+
+bh_balkon {translate [0,0,4];}
+bh_fassade_sued {translate [0,0,4];}
+//bh_fassade_ost {translate [0,0,4];}
+
+bh_uhr {translate [-16*bh_e_b,0,20.5];}
+
+text (1,.5,"BAHNHOF STATION STAZIONE STATION") { font "ROMAN";rotateZ (270); translate [-15*bh_e_b,-.5,20.5];rot;}
+
+}

@@ -1,0 +1,36 @@
+OFILES = Aggregate2D.o Aggregate3D.o AmbientLight.o \
+		BOOGAObject.o BezierCurve3D.o BezierPatch3D.o \
+		BistableObject2D.o BistableObject2DAttr.o BistableObject3D.o \
+		BistableObject3DAttr.o BoundsUtilities.o Box3D.o \
+		Camera2D.o Camera3D.o Checker.o \
+		CheckerAttr.o Circle2D.o Cone3D.o \
+		ConstantTexture2D.o ConstantTexture3D.o Cylinder3D.o \
+		DirectedLight.o Disc3D.o DummyMakeable.o \
+		Function.o GeneralLight.o Grid3D.o \
+		InteractionObject2D.o InteractionObject3D.o InterpolationCurve3D.o \
+		InterpolatorTexture2D.o LevelOfDetail3D.o LightSource.o \
+		LightTexture.o Line2D.o Line3D.o \
+		List2D.o List3D.o MAggregate.o \
+		MBistableObject.o MInteractionObject.o MPrimitive.o \
+		MProxy.o MShared.o Makeable.o \
+		MakeableHandler.o MonoRomanFont.o MultiObject3D.o \
+		NullObject3D.o Object2D.o Object2DAttr.o \
+		Object3D.o Object3DAttr.o ObjectAttr.o \
+		ObjectSpecifier.o ObjectSpecifierAttr.o OrthographicViewing3D.o \
+		PathOf.o PatternTexture2D.o PatternTexture2DAttr.o \
+		PerspectiveViewing3D.o Pixmap2D.o PixmapTexture2D.o \
+		Point2D.o Point3D.o PointLight.o \
+		Polygon2D.o Polygon3D.o Polygon3DAttr.o \
+		PolygonExtrude.o PolygonExtrudeAttr.o Primitive2D.o \
+		Primitive3D.o Proxy2D.o Proxy3D.o \
+		Ray2D.o Ray3D.o Ray3DFactory.o \
+		Ray3DUtilities.o RomanFont.o Shared2D.o \
+		Shared3D.o Sphere3D.o StrokeFont.o \
+		Text2D.o Text3D.o Texture2D.o \
+		Texture2DAttr.o Texture2DContext.o Texture2DList.o \
+		Texture3D.o Texture3DAttr.o Texture3DContext.o \
+		Texture3DList.o Torus3D.o Transform2D.o \
+		Transform3D.o Triangle3D.o TriangleList3D.o \
+		ValueMakeable.o Viewing2D.o Viewing3D.o \
+		World.o World2D.o World3D.o 
+

@@ -1,0 +1,5156 @@
+This is TeX, Version 3.141 (C version d) (format=lplain 93.7.30)  11 MAR 1998 16:50
+**wxwrapper
+(wxwrapper.tex
+LaTeX Version 2.09 <25 March 1992>
+! Undefined control sequence.
+l.1 ^^I\documentclass
+                     [12pt]{article}
+? 
+LaTeX error.  See LaTeX manual for explanation.
+              Type  H <return>  for immediate help.
+! Missing \begin{document}.
+\@latexerr ...for immediate help.}\errmessage {#1}
+                                                  
+<to be read again> 
+                   [
+l.1 ^^I\documentclass[
+                      12pt]{article}
+? 
+! Undefined control sequence.
+l.2 ^^I^^I\usepackage
+                     {a4}
+? 
+! Undefined control sequence.
+l.3 ^^I^^I\usepackage
+                     {makeidx}
+? q
+OK, entering \batchmode...
+\@indexfile=\write3
+Writing index file wxwrapper.idx 
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+
+\document ... \hsize \begingroup \@floatplacement 
+                                                  \@dblfloatplacement \makea...
+l.9 ^^I^^I\begin{document}
+                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+
+\document ... \hsize \begingroup \@floatplacement 
+                                                  \@dblfloatplacement \makea...
+l.9 ^^I^^I\begin{document}
+                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+\document ... \hsize \begingroup \@floatplacement 
+                                                  \@dblfloatplacement \makea...
+l.9 ^^I^^I\begin{document}
+                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@dblfloatplacement ...dbltoproom \dbltopfraction 
+                                                  \@colht \@fpmin \dblfloatp...
+
+\document ...\@floatplacement \@dblfloatplacement 
+                                                  \makeatletter \let \@write...
+l.9 ^^I^^I\begin{document}
+                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@dblfloatplacement ...pmin \dblfloatpagefraction 
+                                                  \textheight \@fptop \@dblf...
+
+\document ...\@floatplacement \@dblfloatplacement 
+                                                  \makeatletter \let \@write...
+l.9 ^^I^^I\begin{document}
+                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+No file wxwrapper.aux.
+! Undefined control sequence.
+\document ...cmds \let \do \noexpand \@normalsize 
+                                                  \everypar {}\@noskipsecfalse 
+l.9 ^^I^^I\begin{document}
+                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.10 ^^I^^I\maketitle
+                     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.12 ^^I^^I\tableofcontents
+                           
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (72.25012pt too wide) in paragraph at lines 1--13
+[]\tenrm [12pt]article
+
+\hbox(7.5+2.5)x0.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm [
+.\tenrm 1
+.\tenrm 2
+.\tenrm p
+.etc.
+
+
+Overfull \hbox (10.00003pt too wide) in paragraph at lines 1--13
+\tenrm a4
+
+\hbox(6.44444+0.0)x0.0
+.\tenrm a
+.\tenrm 4
+.\glue(\rightskip) 0.0
+
+
+Overfull \hbox (36.38899pt too wide) in paragraph at lines 1--13
+\tenrm makeidx
+
+\hbox(6.94444+0.0)x0.0
+.\tenrm m
+.\tenrm a
+.\tenrm k
+.\kern-0.27779
+.\tenrm e
+.etc.
+
+
+Overfull \vbox (10.0pt too high) has occurred while \output is active
+\vbox(0.0+0.0)x0.0
+.\glue(\topskip) 2.5
+.\hbox(7.5+2.5)x0.0
+..\hbox(0.0+0.0)x20.0
+..\tenrm [
+..\tenrm 1
+..\tenrm 2
+..\tenrm p
+..etc.
+.\glue -2.5
+
+! Undefined control sequence.
+\normalsize ...\normalsize \rm \else \@normalsize 
+                                                  \fi 
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\newpage ->\par 
+                \vfil \penalty -\@M 
+l.13 ^^I^^I\newpage
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thehead ->\@oddhead 
+                      
+\@outputpage ...\let \glossary \@gobble \@thehead 
+                                                  }}\dp \@tempboxa \z@ \box ...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\newpage ->\par 
+                \vfil \penalty -\@M 
+l.13 ^^I^^I\newpage
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thefoot ->\@oddfoot 
+                      
+\@outputpage ...\let \glossary \@gobble \@thefoot 
+                                                  }}}\global \@colht \texthe...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\newpage ->\par 
+                \vfil \penalty -\@M 
+l.13 ^^I^^I\newpage
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+ [1]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par 
+                \vfil \penalty -\@M 
+l.13 ^^I^^I\newpage
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par 
+                \vfil \penalty -\@M 
+l.13 ^^I^^I\newpage
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par 
+                \vfil \penalty -\@M 
+l.13 ^^I^^I\newpage
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \vbox (10.0pt too high) has occurred while \output is active
+\vbox(0.0+0.0)x0.0
+.\glue(\topskip) 3.55556
+.\hbox(6.44444+0.0)x0.0
+..\tenrm a
+..\tenrm 4
+..\glue(\rightskip) 0.0
+.\glue 0.0
+
+! Undefined control sequence.
+\normalsize ...\normalsize \rm \else \@normalsize 
+                                                  \fi 
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\newpage ->\par 
+                \vfil \penalty -\@M 
+l.13 ^^I^^I\newpage
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thehead ->\@oddhead 
+                      
+\@outputpage ...\let \glossary \@gobble \@thehead 
+                                                  }}\dp \@tempboxa \z@ \box ...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\newpage ->\par 
+                \vfil \penalty -\@M 
+l.13 ^^I^^I\newpage
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thefoot ->\@oddfoot 
+                      
+\@outputpage ...\let \glossary \@gobble \@thefoot 
+                                                  }}}\global \@colht \texthe...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\newpage ->\par 
+                \vfil \penalty -\@M 
+l.13 ^^I^^I\newpage
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+ [2]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par 
+                \vfil \penalty -\@M 
+l.13 ^^I^^I\newpage
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par 
+                \vfil \penalty -\@M 
+l.13 ^^I^^I\newpage
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par 
+                \vfil \penalty -\@M 
+l.13 ^^I^^I\newpage
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \vbox (10.0pt too high) has occurred while \output is active
+\vbox(0.0+0.0)x0.0
+.\glue(\topskip) 3.05556
+.\hbox(6.94444+0.0)x0.0
+..\tenrm m
+..\tenrm a
+..\tenrm k
+..\kern-0.27779
+..\tenrm e
+..etc.
+.\glue 0.0
+
+! Undefined control sequence.
+\normalsize ...\normalsize \rm \else \@normalsize 
+                                                  \fi 
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\newpage ->\par 
+                \vfil \penalty -\@M 
+l.13 ^^I^^I\newpage
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thehead ->\@oddhead 
+                      
+\@outputpage ...\let \glossary \@gobble \@thehead 
+                                                  }}\dp \@tempboxa \z@ \box ...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\newpage ->\par 
+                \vfil \penalty -\@M 
+l.13 ^^I^^I\newpage
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thefoot ->\@oddfoot 
+                      
+\@outputpage ...\let \glossary \@gobble \@thefoot 
+                                                  }}}\global \@colht \texthe...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\newpage ->\par 
+                \vfil \penalty -\@M 
+l.13 ^^I^^I\newpage
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+ [3]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par 
+                \vfil \penalty -\@M 
+l.13 ^^I^^I\newpage
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par 
+                \vfil \penalty -\@M 
+l.13 ^^I^^I\newpage
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par 
+                \vfil \penalty -\@M 
+l.13 ^^I^^I\newpage
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \vbox (10.0pt too high) has occurred while \output is active
+\vbox(0.0+0.0)x0.0
+.\glue(\topskip) 10.0
+.\hbox(0.0+0.0)x0.0
+..\glue(\rightskip) 0.0
+.\glue 0.0
+
+! Undefined control sequence.
+\normalsize ...\normalsize \rm \else \@normalsize 
+                                                  \fi 
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+l.13 ^^I^^I\newpage
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thehead ->\@oddhead 
+                      
+\@outputpage ...\let \glossary \@gobble \@thehead 
+                                                  }}\dp \@tempboxa \z@ \box ...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+l.13 ^^I^^I\newpage
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thefoot ->\@oddfoot 
+                      
+\@outputpage ...\let \glossary \@gobble \@thefoot 
+                                                  }}}\global \@colht \texthe...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+l.13 ^^I^^I\newpage
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+ [4]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+l.13 ^^I^^I\newpage
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+l.13 ^^I^^I\newpage
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\newpage ->\par \vfil \penalty -\@M 
+                                    
+l.13 ^^I^^I\newpage
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.15 \section
+             [wxView3D]{\emph{wxView3D} class reference \small\sf (wxView3D.h)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.15 \section[wxView3D]{\emph
+                             {wxView3D} class reference \small\sf (wxView3D.h)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.15 ...3D]{\emph{wxView3D} class reference \small
+                                                  \sf (wxView3D.h)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+LaTeX error.  See LaTeX manual for explanation.
+              Type  H <return>  for immediate help.
+! Environment description undefined.
+\@latexerr ...for immediate help.}\errmessage {#1}
+                                                  
+l.19 \begin{description}
+                        
+Your command was ignored. 
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (119.72241pt too wide) in paragraph at lines 15--20
+[]\tenrm [wxView3D]wxView3D
+
+\hbox(7.5+2.5)x0.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm [
+.\tenrm w
+.\tenrm x
+.\tenrm V
+.etc.
+
+
+Overfull \hbox (20.11113pt too wide) in paragraph at lines 15--20
+\tenrm class
+
+\hbox(6.94444+0.0)x0.0
+.\tenrm c
+.\tenrm l
+.\tenrm a
+.\tenrm s
+.\tenrm s
+.etc.
+
+
+Overfull \hbox (14.75002pt too wide) in paragraph at lines 15--20
+\tenrm ref-
+
+\hbox(6.94444+0.0)x0.0
+.\tenrm r
+.\tenrm e
+.\tenrm f
+.\discretionary
+.\tenrm -
+.etc.
+
+
+Overfull \hbox (11.69444pt too wide) in paragraph at lines 15--20
+\tenrm er-
+
+\hbox(4.30554+0.0)x0.0
+.\tenrm e
+.\tenrm r
+.\discretionary
+.\tenrm -
+.\glue(\rightskip) 0.0
+
+
+Overfull \hbox (18.8889pt too wide) in paragraph at lines 15--20
+\tenrm ence
+
+\hbox(4.30554+0.0)x0.0
+.\tenrm e
+.\tenrm n
+.\tenrm c
+.\tenrm e
+.\glue(\rightskip) 0.0
+
+
+Overfull \hbox (59.7224pt too wide) in paragraph at lines 15--20
+\tensf (wxView3D.h)
+
+\hbox(7.5+2.5)x0.0
+.\tensf (
+.\tensf w
+.\tensf x
+.\tensf V
+.\tensf i
+.etc.
+
+
+Overfull \vbox (10.0pt too high) has occurred while \output is active
+\vbox(0.0+0.0)x0.0
+.\glue(\topskip) 2.5
+.\hbox(7.5+2.5)x0.0
+..\hbox(0.0+0.0)x20.0
+..\tenrm [
+..\tenrm w
+..\tenrm x
+..\tenrm V
+..etc.
+.\glue -2.5
+
+! Undefined control sequence.
+\normalsize ...\normalsize \rm \else \@normalsize 
+                                                  \fi 
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+<to be read again> 
+                   {
+l.20 \item{
+           Inherits:} wxGLCanvas
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thehead ->\@oddhead 
+                      
+\@outputpage ...\let \glossary \@gobble \@thehead 
+                                                  }}\dp \@tempboxa \z@ \box ...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+<to be read again> 
+                   {
+l.20 \item{
+           Inherits:} wxGLCanvas
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thefoot ->\@oddfoot 
+                      
+\@outputpage ...\let \glossary \@gobble \@thefoot 
+                                                  }}}\global \@colht \texthe...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+<to be read again> 
+                   {
+l.20 \item{
+           Inherits:} wxGLCanvas
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+ [5]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+<to be read again> 
+                   {
+l.20 \item{
+           Inherits:} wxGLCanvas
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+<to be read again> 
+                   {
+l.20 \item{
+           Inherits:} wxGLCanvas
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+<to be read again> 
+                   {
+l.20 \item{
+           Inherits:} wxGLCanvas
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \vbox (10.0pt too high) has occurred while \output is active
+\vbox(0.0+0.0)x0.0
+.\glue(\topskip) 3.05556
+.\hbox(6.94444+0.0)x0.0
+..\tenrm c
+..\tenrm l
+..\tenrm a
+..\tenrm s
+..\tenrm s
+..etc.
+.\glue 0.0
+
+! Undefined control sequence.
+\normalsize ...\normalsize \rm \else \@normalsize 
+                                                  \fi 
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+<to be read again> 
+                   {
+l.20 \item{
+           Inherits:} wxGLCanvas
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thehead ->\@oddhead 
+                      
+\@outputpage ...\let \glossary \@gobble \@thehead 
+                                                  }}\dp \@tempboxa \z@ \box ...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+<to be read again> 
+                   {
+l.20 \item{
+           Inherits:} wxGLCanvas
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thefoot ->\@oddfoot 
+                      
+\@outputpage ...\let \glossary \@gobble \@thefoot 
+                                                  }}}\global \@colht \texthe...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+<to be read again> 
+                   {
+l.20 \item{
+           Inherits:} wxGLCanvas
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+ [6]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+<to be read again> 
+                   {
+l.20 \item{
+           Inherits:} wxGLCanvas
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+<to be read again> 
+                   {
+l.20 \item{
+           Inherits:} wxGLCanvas
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+<to be read again> 
+                   {
+l.20 \item{
+           Inherits:} wxGLCanvas
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \vbox (10.0pt too high) has occurred while \output is active
+\vbox(0.0+0.0)x0.0
+.\glue(\topskip) 3.05556
+.\hbox(6.94444+0.0)x0.0
+..\tenrm r
+..\tenrm e
+..\tenrm f
+..\discretionary
+..\tenrm -
+..etc.
+.\glue 0.0
+
+! Undefined control sequence.
+\normalsize ...\normalsize \rm \else \@normalsize 
+                                                  \fi 
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+<to be read again> 
+                   {
+l.20 \item{
+           Inherits:} wxGLCanvas
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thehead ->\@oddhead 
+                      
+\@outputpage ...\let \glossary \@gobble \@thehead 
+                                                  }}\dp \@tempboxa \z@ \box ...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+<to be read again> 
+                   {
+l.20 \item{
+           Inherits:} wxGLCanvas
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thefoot ->\@oddfoot 
+                      
+\@outputpage ...\let \glossary \@gobble \@thefoot 
+                                                  }}}\global \@colht \texthe...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+<to be read again> 
+                   {
+l.20 \item{
+           Inherits:} wxGLCanvas
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+ [7]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+<to be read again> 
+                   {
+l.20 \item{
+           Inherits:} wxGLCanvas
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+<to be read again> 
+                   {
+l.20 \item{
+           Inherits:} wxGLCanvas
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+<to be read again> 
+                   {
+l.20 \item{
+           Inherits:} wxGLCanvas
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \vbox (10.0pt too high) has occurred while \output is active
+\vbox(0.0+0.0)x0.0
+.\glue(\topskip) 5.69446
+.\hbox(4.30554+0.0)x0.0
+..\tenrm e
+..\tenrm r
+..\discretionary
+..\tenrm -
+..\glue(\rightskip) 0.0
+.\glue 0.0
+
+! Undefined control sequence.
+\normalsize ...\normalsize \rm \else \@normalsize 
+                                                  \fi 
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+<to be read again> 
+                   {
+l.20 \item{
+           Inherits:} wxGLCanvas
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thehead ->\@oddhead 
+                      
+\@outputpage ...\let \glossary \@gobble \@thehead 
+                                                  }}\dp \@tempboxa \z@ \box ...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+<to be read again> 
+                   {
+l.20 \item{
+           Inherits:} wxGLCanvas
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thefoot ->\@oddfoot 
+                      
+\@outputpage ...\let \glossary \@gobble \@thefoot 
+                                                  }}}\global \@colht \texthe...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+<to be read again> 
+                   {
+l.20 \item{
+           Inherits:} wxGLCanvas
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+ [8]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+<to be read again> 
+                   {
+l.20 \item{
+           Inherits:} wxGLCanvas
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+<to be read again> 
+                   {
+l.20 \item{
+           Inherits:} wxGLCanvas
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+<to be read again> 
+                   {
+l.20 \item{
+           Inherits:} wxGLCanvas
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \vbox (10.0pt too high) has occurred while \output is active
+\vbox(0.0+0.0)x0.0
+.\glue(\topskip) 5.69446
+.\hbox(4.30554+0.0)x0.0
+..\tenrm e
+..\tenrm n
+..\tenrm c
+..\tenrm e
+..\glue(\rightskip) 0.0
+.\glue 0.0
+
+! Undefined control sequence.
+\normalsize ...\normalsize \rm \else \@normalsize 
+                                                  \fi 
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+<to be read again> 
+                   {
+l.20 \item{
+           Inherits:} wxGLCanvas
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thehead ->\@oddhead 
+                      
+\@outputpage ...\let \glossary \@gobble \@thehead 
+                                                  }}\dp \@tempboxa \z@ \box ...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+<to be read again> 
+                   {
+l.20 \item{
+           Inherits:} wxGLCanvas
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thefoot ->\@oddfoot 
+                      
+\@outputpage ...\let \glossary \@gobble \@thefoot 
+                                                  }}}\global \@colht \texthe...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+<to be read again> 
+                   {
+l.20 \item{
+           Inherits:} wxGLCanvas
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+ [9]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+<to be read again> 
+                   {
+l.20 \item{
+           Inherits:} wxGLCanvas
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+<to be read again> 
+                   {
+l.20 \item{
+           Inherits:} wxGLCanvas
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+<to be read again> 
+                   {
+l.20 \item{
+           Inherits:} wxGLCanvas
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \vbox (10.0pt too high) has occurred while \output is active
+\vbox(0.0+0.0)x0.0
+.\glue(\topskip) 2.5
+.\hbox(7.5+2.5)x0.0
+..\tensf (
+..\tensf w
+..\tensf x
+..\tensf V
+..\tensf i
+..etc.
+.\glue -2.5
+
+! Undefined control sequence.
+\normalsize ...\normalsize \rm \else \@normalsize 
+                                                  \fi 
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+<to be read again> 
+                   {
+l.20 \item{
+           Inherits:} wxGLCanvas
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thehead ->\@oddhead 
+                      
+\@outputpage ...\let \glossary \@gobble \@thehead 
+                                                  }}\dp \@tempboxa \z@ \box ...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+<to be read again> 
+                   {
+l.20 \item{
+           Inherits:} wxGLCanvas
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thefoot ->\@oddfoot 
+                      
+\@outputpage ...\let \glossary \@gobble \@thefoot 
+                                                  }}}\global \@colht \texthe...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+<to be read again> 
+                   {
+l.20 \item{
+           Inherits:} wxGLCanvas
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+ [10]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+<to be read again> 
+                   {
+l.20 \item{
+           Inherits:} wxGLCanvas
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+<to be read again> 
+                   {
+l.20 \item{
+           Inherits:} wxGLCanvas
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+<to be read again> 
+                   {
+l.20 \item{
+           Inherits:} wxGLCanvas
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \vbox (10.0pt too high) has occurred while \output is active
+\vbox(0.0+0.0)x0.0
+.\glue(\topskip) 9.6
+.\hbox(0.4+0.0)x0.0
+..\leaders 0.0 plus 1.0fill
+...\rule(0.4+0.0)x*
+..\kern 0.0
+..\write3{\indexentry{wxView3D}{\thepage }}
+..\penalty 10000
+..\glue(\parfillskip) 0.0 plus 1.0fil
+..etc.
+.\glue 0.0
+
+! Undefined control sequence.
+\normalsize ...\normalsize \rm \else \@normalsize 
+                                                  \fi 
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+<to be read again> 
+                   {
+l.20 \item{
+           Inherits:} wxGLCanvas
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thehead ->\@oddhead 
+                      
+\@outputpage ...\let \glossary \@gobble \@thehead 
+                                                  }}\dp \@tempboxa \z@ \box ...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+<to be read again> 
+                   {
+l.20 \item{
+           Inherits:} wxGLCanvas
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thefoot ->\@oddfoot 
+                      
+\@outputpage ...\let \glossary \@gobble \@thefoot 
+                                                  }}}\global \@colht \texthe...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+<to be read again> 
+                   {
+l.20 \item{
+           Inherits:} wxGLCanvas
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+ [11
+! Undefined control sequence.
+<write> \indexentry{wxView3D}{\thepage 
+                                       }
+<inserted text> 
+                }\endwrite 
+\@outputpage ...t \glossary \@gobble \@thefoot }}}
+                                                  \global \@colht \textheigh...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+...
+l.20 \item{
+           Inherits:} wxGLCanvas
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+<to be read again> 
+                   {
+l.20 \item{
+           Inherits:} wxGLCanvas
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+<to be read again> 
+                   {
+l.20 \item{
+           Inherits:} wxGLCanvas
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+<to be read again> 
+                   {
+l.20 \item{
+           Inherits:} wxGLCanvas
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+LaTeX error.  See LaTeX manual for explanation.
+              Type  H <return>  for immediate help.
+! Lonely \item--perhaps a missing list environment.
+\@latexerr ...for immediate help.}\errmessage {#1}
+                                                  
+\@item ...setbox \@tempboxa \hbox {\makelabel {#1}
+                                                  }\global \setbox \@labels ...
+<to be read again> 
+                   {
+l.20 \item{
+           Inherits:} wxGLCanvas
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+LaTeX error.  See LaTeX manual for explanation.
+              Type  H <return>  for immediate help.
+! \begin{document} ended by \end{description}.
+\@latexerr ...for immediate help.}\errmessage {#1}
+                                                  
+\@checkend ...empa \@currenvir \else \@badend {#1}
+                                                  \fi 
+\end #1->\csname end#1\endcsname \@checkend {#1}
+                                                \expandafter \endgroup \if@e...
+l.22 \end{description}
+                      
+Your command was ignored. 
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+LaTeX error.  See LaTeX manual for explanation.
+              Type  H <return>  for immediate help.
+! Environment description undefined.
+\@latexerr ...for immediate help.}\errmessage {#1}
+                                                  
+l.23 \begin{description}
+                        
+Your command was ignored. 
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 20--24
+[]
+
+\hbox(0.0+0.0)x0.0
+.\hbox(0.0+0.0)x20.0
+.\glue(\rightskip) 0.0
+
+
+Overfull \hbox (36.47229pt too wide) in paragraph at lines 20--24
+\tenrm Inherits:
+
+\hbox(6.94444+0.0)x0.0
+.\tenrm I
+.\tenrm n
+.\tenrm h
+.\tenrm e
+.\tenrm r
+.etc.
+
+
+Overfull \hbox (47.70842pt too wide) in paragraph at lines 20--24
+\tenrm wxGLCan-
+
+\hbox(6.83331+0.0)x0.0
+.\tenrm w
+.\tenrm x
+.\tenrm G
+.\tenrm L
+.\tenrm C
+.etc.
+
+
+Overfull \hbox (13.6667pt too wide) in paragraph at lines 20--24
+\tenrm vas
+
+\hbox(4.30554+0.0)x0.0
+.\tenrm v
+.\kern-0.55556
+.\tenrm a
+.\tenrm s
+.\glue(\rightskip) 0.0
+
+
+Overfull \hbox (15.83336pt too wide) in paragraph at lines 20--24
+\tenrm wx-
+
+\hbox(4.30554+0.0)x0.0
+.\tenrm w
+.\tenrm x
+.\discretionary
+.\tenrm -
+.\glue(\rightskip) 0.0
+
+
+Overfull \hbox (58.81955pt too wide) in paragraph at lines 20--24
+\tenrm BOOGAView 
+
+\hbox(6.83331+0.0)x0.0
+.\tenrm B
+.\tenrm O
+.\tenrm O
+.\tenrm G
+.\tenrm A
+.etc.
+
+
+Overfull \vbox (10.0pt too high) has occurred while \output is active
+\vbox(0.0+0.0)x0.0
+.\glue(\topskip) 10.0
+.\hbox(0.0+0.0)x0.0
+..\hbox(0.0+0.0)x20.0
+..\glue(\rightskip) 0.0
+.\glue 0.0
+
+! Undefined control sequence.
+\normalsize ...\normalsize \rm \else \@normalsize 
+                                                  \fi 
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+l.24 \item[Description:]
+                         The wxView3D class can be used to display a World3D...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thehead ->\@oddhead 
+                      
+\@outputpage ...\let \glossary \@gobble \@thehead 
+                                                  }}\dp \@tempboxa \z@ \box ...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+l.24 \item[Description:]
+                         The wxView3D class can be used to display a World3D...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thefoot ->\@oddfoot 
+                      
+\@outputpage ...\let \glossary \@gobble \@thefoot 
+                                                  }}}\global \@colht \texthe...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+l.24 \item[Description:]
+                         The wxView3D class can be used to display a World3D...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+ [12]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+l.24 \item[Description:]
+                         The wxView3D class can be used to display a World3D...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+l.24 \item[Description:]
+                         The wxView3D class can be used to display a World3D...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+l.24 \item[Description:]
+                         The wxView3D class can be used to display a World3D...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \vbox (10.0pt too high) has occurred while \output is active
+\vbox(0.0+0.0)x0.0
+.\glue(\topskip) 10.0
+.\hbox(0.0+0.0)x0.0
+..\hbox(0.0+0.0)x0.0
+...\glue 0.0
+...\glue 0.0
+...\glue 0.0
+...\hbox(0.0+0.0)x0.0
+...\glue 0.0
+..\penalty 0
+..\glue(\rightskip) 0.0
+.\glue 0.0
+
+! Undefined control sequence.
+\normalsize ...\normalsize \rm \else \@normalsize 
+                                                  \fi 
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+l.24 \item[Description:]
+                         The wxView3D class can be used to display a World3D...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thehead ->\@oddhead 
+                      
+\@outputpage ...\let \glossary \@gobble \@thehead 
+                                                  }}\dp \@tempboxa \z@ \box ...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+l.24 \item[Description:]
+                         The wxView3D class can be used to display a World3D...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thefoot ->\@oddfoot 
+                      
+\@outputpage ...\let \glossary \@gobble \@thefoot 
+                                                  }}}\global \@colht \texthe...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+l.24 \item[Description:]
+                         The wxView3D class can be used to display a World3D...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+ [13]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+l.24 \item[Description:]
+                         The wxView3D class can be used to display a World3D...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+l.24 \item[Description:]
+                         The wxView3D class can be used to display a World3D...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+l.24 \item[Description:]
+                         The wxView3D class can be used to display a World3D...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \vbox (10.0pt too high) has occurred while \output is active
+\vbox(0.0+0.0)x0.0
+.\glue(\topskip) 3.05556
+.\hbox(6.94444+0.0)x0.0
+..\tenrm I
+..\tenrm n
+..\tenrm h
+..\tenrm e
+..\tenrm r
+..etc.
+.\glue 0.0
+
+! Undefined control sequence.
+\normalsize ...\normalsize \rm \else \@normalsize 
+                                                  \fi 
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+l.24 \item[Description:]
+                         The wxView3D class can be used to display a World3D...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thehead ->\@oddhead 
+                      
+\@outputpage ...\let \glossary \@gobble \@thehead 
+                                                  }}\dp \@tempboxa \z@ \box ...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+l.24 \item[Description:]
+                         The wxView3D class can be used to display a World3D...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thefoot ->\@oddfoot 
+                      
+\@outputpage ...\let \glossary \@gobble \@thefoot 
+                                                  }}}\global \@colht \texthe...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+l.24 \item[Description:]
+                         The wxView3D class can be used to display a World3D...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+ [14]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+l.24 \item[Description:]
+                         The wxView3D class can be used to display a World3D...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+l.24 \item[Description:]
+                         The wxView3D class can be used to display a World3D...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+l.24 \item[Description:]
+                         The wxView3D class can be used to display a World3D...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \vbox (10.0pt too high) has occurred while \output is active
+\vbox(0.0+0.0)x0.0
+.\glue(\topskip) 3.16669
+.\hbox(6.83331+0.0)x0.0
+..\tenrm w
+..\tenrm x
+..\tenrm G
+..\tenrm L
+..\tenrm C
+..etc.
+.\glue 0.0
+
+! Undefined control sequence.
+\normalsize ...\normalsize \rm \else \@normalsize 
+                                                  \fi 
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+l.24 \item[Description:]
+                         The wxView3D class can be used to display a World3D...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thehead ->\@oddhead 
+                      
+\@outputpage ...\let \glossary \@gobble \@thehead 
+                                                  }}\dp \@tempboxa \z@ \box ...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+l.24 \item[Description:]
+                         The wxView3D class can be used to display a World3D...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thefoot ->\@oddfoot 
+                      
+\@outputpage ...\let \glossary \@gobble \@thefoot 
+                                                  }}}\global \@colht \texthe...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+l.24 \item[Description:]
+                         The wxView3D class can be used to display a World3D...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+ [15]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+l.24 \item[Description:]
+                         The wxView3D class can be used to display a World3D...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+l.24 \item[Description:]
+                         The wxView3D class can be used to display a World3D...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+l.24 \item[Description:]
+                         The wxView3D class can be used to display a World3D...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \vbox (10.0pt too high) has occurred while \output is active
+\vbox(0.0+0.0)x0.0
+.\glue(\topskip) 5.69446
+.\hbox(4.30554+0.0)x0.0
+..\tenrm v
+..\kern-0.55556
+..\tenrm a
+..\tenrm s
+..\glue(\rightskip) 0.0
+.\glue 0.0
+
+! Undefined control sequence.
+\normalsize ...\normalsize \rm \else \@normalsize 
+                                                  \fi 
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+l.24 \item[Description:]
+                         The wxView3D class can be used to display a World3D...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thehead ->\@oddhead 
+                      
+\@outputpage ...\let \glossary \@gobble \@thehead 
+                                                  }}\dp \@tempboxa \z@ \box ...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+l.24 \item[Description:]
+                         The wxView3D class can be used to display a World3D...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thefoot ->\@oddfoot 
+                      
+\@outputpage ...\let \glossary \@gobble \@thefoot 
+                                                  }}}\global \@colht \texthe...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+l.24 \item[Description:]
+                         The wxView3D class can be used to display a World3D...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+ [16]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+l.24 \item[Description:]
+                         The wxView3D class can be used to display a World3D...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+l.24 \item[Description:]
+                         The wxView3D class can be used to display a World3D...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+l.24 \item[Description:]
+                         The wxView3D class can be used to display a World3D...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \vbox (10.0pt too high) has occurred while \output is active
+\vbox(0.0+0.0)x0.0
+.\glue(\topskip) 5.69446
+.\hbox(4.30554+0.0)x0.0
+..\tenrm w
+..\tenrm x
+..\discretionary
+..\tenrm -
+..\glue(\rightskip) 0.0
+.\glue 0.0
+
+! Undefined control sequence.
+\normalsize ...\normalsize \rm \else \@normalsize 
+                                                  \fi 
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+l.24 \item[Description:]
+                         The wxView3D class can be used to display a World3D...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thehead ->\@oddhead 
+                      
+\@outputpage ...\let \glossary \@gobble \@thehead 
+                                                  }}\dp \@tempboxa \z@ \box ...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+l.24 \item[Description:]
+                         The wxView3D class can be used to display a World3D...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thefoot ->\@oddfoot 
+                      
+\@outputpage ...\let \glossary \@gobble \@thefoot 
+                                                  }}}\global \@colht \texthe...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+l.24 \item[Description:]
+                         The wxView3D class can be used to display a World3D...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+ [17]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+l.24 \item[Description:]
+                         The wxView3D class can be used to display a World3D...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+l.24 \item[Description:]
+                         The wxView3D class can be used to display a World3D...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+
+\@item ... \par \fi \ifhmode \unskip \unskip \par 
+                                                  \fi \if@newlist \if@nobrea...
+l.24 \item[Description:]
+                         The wxView3D class can be used to display a World3D...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \vbox (10.0pt too high) has occurred while \output is active
+\vbox(0.0+0.0)x0.0
+.\glue(\topskip) 3.16669
+.\hbox(6.83331+0.0)x0.0
+..\tenrm B
+..\tenrm O
+..\tenrm O
+..\tenrm G
+..\tenrm A
+..etc.
+.\glue 0.0
+
+! Undefined control sequence.
+\normalsize ...\normalsize \rm \else \@normalsize 
+                                                  \fi 
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+<argument> \@itempenalty 
+                         
+\addpenalty ...e \ifdim \lastskip =\z@ \penalty #1
+                                                  \relax \else \@tempskipb \...
+...
+l.24 \item[Description:]
+                         The wxView3D class can be used to display a World3D...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thehead ->\@oddhead 
+                      
+\@outputpage ...\let \glossary \@gobble \@thehead 
+                                                  }}\dp \@tempboxa \z@ \box ...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+<argument> \@itempenalty 
+                         
+\addpenalty ...e \ifdim \lastskip =\z@ \penalty #1
+                                                  \relax \else \@tempskipb \...
+...
+l.24 \item[Description:]
+                         The wxView3D class can be used to display a World3D...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thefoot ->\@oddfoot 
+                      
+\@outputpage ...\let \glossary \@gobble \@thefoot 
+                                                  }}}\global \@colht \texthe...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+<argument> \@itempenalty 
+                         
+\addpenalty ...e \ifdim \lastskip =\z@ \penalty #1
+                                                  \relax \else \@tempskipb \...
+...
+l.24 \item[Description:]
+                         The wxView3D class can be used to display a World3D...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+ [18]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+<argument> \@itempenalty 
+                         
+\addpenalty ...e \ifdim \lastskip =\z@ \penalty #1
+                                                  \relax \else \@tempskipb \...
+
+\@item ...ip }\fi \else \addpenalty \@itempenalty 
+                                                  \addvspace \itemsep \fi \g...
+l.24 \item[Description:]
+                         The wxView3D class can be used to display a World3D...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+<argument> \@itempenalty 
+                         
+\addpenalty ...e \ifdim \lastskip =\z@ \penalty #1
+                                                  \relax \else \@tempskipb \...
+
+\@item ...ip }\fi \else \addpenalty \@itempenalty 
+                                                  \addvspace \itemsep \fi \g...
+l.24 \item[Description:]
+                         The wxView3D class can be used to display a World3D...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+<argument> \@itempenalty 
+                         
+\addpenalty ...e \ifdim \lastskip =\z@ \penalty #1
+                                                  \relax \else \@tempskipb \...
+
+\@item ...ip }\fi \else \addpenalty \@itempenalty 
+                                                  \addvspace \itemsep \fi \g...
+l.24 \item[Description:]
+                         The wxView3D class can be used to display a World3D...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+LaTeX error.  See LaTeX manual for explanation.
+              Type  H <return>  for immediate help.
+! Lonely \item--perhaps a missing list environment.
+\@latexerr ...for immediate help.}\errmessage {#1}
+                                                  
+\@item ...setbox \@tempboxa \hbox {\makelabel {#1}
+                                                  }\global \setbox \@labels ...
+l.24 \item[Description:]
+                         The wxView3D class can be used to display a World3D...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+LaTeX error.  See LaTeX manual for explanation.
+              Type  H <return>  for immediate help.
+! \begin{document} ended by \end{description}.
+\@latexerr ...for immediate help.}\errmessage {#1}
+                                                  
+\@checkend ...empa \@currenvir \else \@badend {#1}
+                                                  \fi 
+\end #1->\csname end#1\endcsname \@checkend {#1}
+                                                \expandafter \endgroup \if@e...
+l.26 \end{description}
+                      
+Your command was ignored. 
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 24--30
+[]
+
+\hbox(0.0+0.0)x0.0
+.\hbox(0.0+0.0)x20.0
+.\glue(\rightskip) 0.0
+
+
+Overfull \hbox (17.22224pt too wide) in paragraph at lines 24--30
+\tenrm The
+
+\hbox(6.94444+0.0)x0.0
+.\tenrm T
+.\tenrm h
+.\tenrm e
+.\glue(\rightskip) 0.0
+
+
+Overfull \hbox (47.08342pt too wide) in paragraph at lines 24--30
+\tenrm wxView3D
+
+\hbox(6.83331+0.0)x0.0
+.\tenrm w
+.\tenrm x
+.\tenrm V
+.\tenrm i
+.\tenrm e
+.etc.
+
+
+Overfull \hbox (20.11113pt too wide) in paragraph at lines 24--30
+\tenrm class
+
+\hbox(6.94444+0.0)x0.0
+.\tenrm c
+.\tenrm l
+.\tenrm a
+.\tenrm s
+.\tenrm s
+.etc.
+
+
+Overfull \hbox (15.00003pt too wide) in paragraph at lines 24--30
+\tenrm can
+
+\hbox(4.30554+0.0)x0.0
+.\tenrm c
+.\tenrm a
+.\tenrm n
+.\glue(\rightskip) 0.0
+
+
+Overfull \hbox (10.2778pt too wide) in paragraph at lines 24--30
+\tenrm be
+
+\hbox(6.94444+0.0)x0.0
+.\tenrm b
+.\kern0.27779
+.\tenrm e
+.\glue(\rightskip) 0.0
+
+
+Overfull \hbox (19.50003pt too wide) in paragraph at lines 24--30
+\tenrm used
+
+\hbox(6.94444+0.0)x0.0
+.\tenrm u
+.\tenrm s
+.\tenrm e
+.\tenrm d
+.\glue(\rightskip) 0.0
+
+
+Overfull \hbox (8.88892pt too wide) in paragraph at lines 24--30
+\tenrm to
+
+\hbox(6.15079+0.0)x0.0
+.\tenrm t
+.\tenrm o
+.\glue(\rightskip) 0.0
+
+
+Overfull \hbox (15.61113pt too wide) in paragraph at lines 24--30
+\tenrm dis-
+
+\hbox(6.94444+0.0)x0.0
+.\tenrm d
+.\tenrm i
+.\tenrm s
+.\discretionary
+.\tenrm -
+.etc.
+
+
+Overfull \hbox (18.33339pt too wide) in paragraph at lines 24--30
+\tenrm play
+
+\hbox(6.94444+1.94444)x0.0
+.\tenrm p
+.\tenrm l
+.\tenrm a
+.\kern-0.27779
+.\tenrm y
+.etc.
+
+
+Overfull \hbox (5.00002pt too wide) in paragraph at lines 24--30
+\tenrm a
+
+\hbox(4.30554+0.0)x0.0
+.\tenrm a
+.\glue(\rightskip) 0.0
+
+
+Overfull \hbox (39.33342pt too wide) in paragraph at lines 24--30
+\tenrm World3D
+
+\hbox(6.94444+0.0)x0.0
+.\tenrm W
+.\kern-0.83334
+.\tenrm o
+.\tenrm r
+.\tenrm l
+.etc.
+
+
+Overfull \hbox (19.44449pt too wide) in paragraph at lines 24--30
+\tenrm with
+
+\hbox(6.94444+0.0)x0.0
+.\tenrm w
+.\tenrm i
+.\tenrm t
+.\tenrm h
+.\glue(\rightskip) 0.0
+
+
+Overfull \hbox (5.00002pt too wide) in paragraph at lines 24--30
+\tenrm a
+
+\hbox(4.30554+0.0)x0.0
+.\tenrm a
+.\glue(\rightskip) 0.0
+
+
+Overfull \hbox (34.7917pt too wide) in paragraph at lines 24--30
+\tenrm GLRen-
+
+\hbox(6.83331+0.0)x0.0
+.\tenrm G
+.\tenrm L
+.\tenrm R
+.\tenrm e
+.\tenrm n
+.etc.
+
+
+Overfull \hbox (22.2778pt too wide) in paragraph at lines 24--30
+\tenrm derer
+
+\hbox(6.94444+0.0)x0.0
+.\tenrm d
+.\tenrm e
+.\tenrm r
+.\tenrm e
+.\tenrm r
+.etc.
+
+
+Overfull \hbox (17.22224pt too wide) in paragraph at lines 24--30
+\tenrm The
+
+\hbox(6.94444+0.0)x0.0
+.\tenrm T
+.\tenrm h
+.\tenrm e
+.\glue(\rightskip) 0.0
+
+
+Overfull \hbox (47.08342pt too wide) in paragraph at lines 24--30
+\tenrm wxView3D
+
+\hbox(6.83331+0.0)x0.0
+.\tenrm w
+.\tenrm x
+.\tenrm V
+.\tenrm i
+.\tenrm e
+.etc.
+
+
+Overfull \hbox (20.11113pt too wide) in paragraph at lines 24--30
+\tenrm class
+
+\hbox(6.94444+0.0)x0.0
+.\tenrm c
+.\tenrm l
+.\tenrm a
+.\tenrm s
+.\tenrm s
+.etc.
+
+
+Overfull \hbox (15.00003pt too wide) in paragraph at lines 24--30
+\tenrm can
+
+\hbox(4.30554+0.0)x0.0
+.\tenrm c
+.\tenrm a
+.\tenrm n
+.\glue(\rightskip) 0.0
+
+
+Overfull \hbox (10.2778pt too wide) in paragraph at lines 24--30
+\tenrm be
+
+\hbox(6.94444+0.0)x0.0
+.\tenrm b
+.\kern0.27779
+.\tenrm e
+.\glue(\rightskip) 0.0
+
+
+Overfull \hbox (19.50003pt too wide) in paragraph at lines 24--30
+\tenrm used
+
+\hbox(6.94444+0.0)x0.0
+.\tenrm u
+.\tenrm s
+.\tenrm e
+.\tenrm d
+.\glue(\rightskip) 0.0
+
+
+Overfull \hbox (8.88892pt too wide) in paragraph at lines 24--30
+\tenrm to
+
+\hbox(6.15079+0.0)x0.0
+.\tenrm t
+.\tenrm o
+.\glue(\rightskip) 0.0
+
+
+Overfull \hbox (15.61113pt too wide) in paragraph at lines 24--30
+\tenrm dis-
+
+\hbox(6.94444+0.0)x0.0
+.\tenrm d
+.\tenrm i
+.\tenrm s
+.\discretionary
+.\tenrm -
+.etc.
+
+
+Overfull \hbox (18.33339pt too wide) in paragraph at lines 24--30
+\tenrm play
+
+\hbox(6.94444+1.94444)x0.0
+.\tenrm p
+.\tenrm l
+.\tenrm a
+.\kern-0.27779
+.\tenrm y
+.etc.
+
+
+Overfull \hbox (5.00002pt too wide) in paragraph at lines 24--30
+\tenrm a
+
+\hbox(4.30554+0.0)x0.0
+.\tenrm a
+.\glue(\rightskip) 0.0
+
+
+Overfull \hbox (39.33342pt too wide) in paragraph at lines 24--30
+\tenrm World3D
+
+\hbox(6.94444+0.0)x0.0
+.\tenrm W
+.\kern-0.83334
+.\tenrm o
+.\tenrm r
+.\tenrm l
+.etc.
+
+
+Overfull \hbox (19.44449pt too wide) in paragraph at lines 24--30
+\tenrm with
+
+\hbox(6.94444+0.0)x0.0
+.\tenrm w
+.\tenrm i
+.\tenrm t
+.\tenrm h
+.\glue(\rightskip) 0.0
+
+
+Overfull \hbox (5.00002pt too wide) in paragraph at lines 24--30
+\tenrm a
+
+\hbox(4.30554+0.0)x0.0
+.\tenrm a
+.\glue(\rightskip) 0.0
+
+
+Overfull \hbox (34.7917pt too wide) in paragraph at lines 24--30
+\tenrm GLRen-
+
+\hbox(6.83331+0.0)x0.0
+.\tenrm G
+.\tenrm L
+.\tenrm R
+.\tenrm e
+.\tenrm n
+.etc.
+
+
+Overfull \hbox (25.05559pt too wide) in paragraph at lines 24--30
+\tenrm derer.
+
+\hbox(6.94444+0.0)x0.0
+.\tenrm d
+.\tenrm e
+.\tenrm r
+.\tenrm e
+.\tenrm r
+.etc.
+
+
+Overfull \hbox (17.22224pt too wide) in paragraph at lines 24--30
+\tenrm The
+
+\hbox(6.94444+0.0)x0.0
+.\tenrm T
+.\tenrm h
+.\tenrm e
+.\glue(\rightskip) 0.0
+
+
+Overfull \hbox (34.4445pt too wide) in paragraph at lines 24--30
+\tenrm wxView
+
+\hbox(6.83331+0.0)x0.0
+.\tenrm w
+.\tenrm x
+.\tenrm V
+.\tenrm i
+.\tenrm e
+.etc.
+
+
+Overfull \hbox (17.83337pt too wide) in paragraph at lines 24--30
+\tenrm msu
+
+\hbox(4.30554+0.0)x0.0
+.\tenrm m
+.\tenrm s
+.\tenrm u
+.\glue(\rightskip) 0.0
+
+
+Overfull \hbox (10.2778pt too wide) in paragraph at lines 24--30
+\tenrm be
+
+\hbox(6.94444+0.0)x0.0
+.\tenrm b
+.\kern0.27779
+.\tenrm e
+.\glue(\rightskip) 0.0
+
+
+Overfull \hbox (12.22224pt too wide) in paragraph at lines 24--30
+\tenrm at-
+
+\hbox(6.15079+0.0)x0.0
+.\tenrm a
+.\tenrm t
+.\discretionary
+.\tenrm -
+.\glue(\rightskip) 0.0
+
+
+Overfull \hbox (28.61116pt too wide) in paragraph at lines 24--30
+\tenrm tached
+
+\hbox(6.94444+0.0)x0.0
+.\tenrm t
+.\tenrm a
+.\tenrm c
+.\kern-0.27779
+.\tenrm h
+.etc.
+
+
+Overfull \hbox (8.88892pt too wide) in paragraph at lines 24--30
+\tenrm to
+
+\hbox(6.15079+0.0)x0.0
+.\tenrm t
+.\tenrm o
+.\glue(\rightskip) 0.0
+
+
+Overfull \hbox (5.00002pt too wide) in paragraph at lines 24--30
+\tenrm a
+
+\hbox(4.30554+0.0)x0.0
+.\tenrm a
+.\glue(\rightskip) 0.0
+
+
+Overfull \hbox (25.2778pt too wide) in paragraph at lines 24--30
+\tenrm View-
+
+\hbox(6.83331+0.0)x0.0
+.\tenrm V
+.\tenrm i
+.\tenrm e
+.\tenrm w
+.\discretionary
+.etc.
+
+
+Overfull \hbox (23.0556pt too wide) in paragraph at lines 24--30
+\tenrm Man-
+
+\hbox(6.83331+0.0)x0.0
+.\tenrm M
+.\tenrm a
+.\tenrm n
+.\discretionary
+.\tenrm -
+.etc.
+
+
+Overfull \hbox (21.13893pt too wide) in paragraph at lines 24--30
+\tenrm ager.
+
+\hbox(4.30554+1.94444)x0.0
+.\tenrm a
+.\tenrm g
+.\tenrm e
+.\tenrm r
+.\tenrm .
+.etc.
+
+
+Overfull \hbox (37.77783pt too wide) in paragraph at lines 24--30
+\tenrm wxView-
+
+\hbox(6.83331+0.0)x0.0
+.\tenrm w
+.\tenrm x
+.\tenrm V
+.\tenrm i
+.\tenrm e
+.etc.
+
+
+Overfull \hbox (23.88893pt too wide) in paragraph at lines 24--30
+\tenrm Com-
+
+\hbox(6.83331+0.0)x0.0
+.\tenrm C
+.\tenrm o
+.\tenrm m
+.\discretionary
+.\tenrm -
+.etc.
+
+
+Overfull \hbox (28.38896pt too wide) in paragraph at lines 24--30
+\tenrm mands
+
+\hbox(6.94444+0.0)x0.0
+.\tenrm m
+.\tenrm a
+.\tenrm n
+.\tenrm d
+.\tenrm s
+.etc.
+
+
+Overfull \hbox (15.00003pt too wide) in paragraph at lines 24--30
+\tenrm can
+
+\hbox(4.30554+0.0)x0.0
+.\tenrm c
+.\tenrm a
+.\tenrm n
+.\glue(\rightskip) 0.0
+
+
+Overfull \hbox (10.2778pt too wide) in paragraph at lines 24--30
+\tenrm be
+
+\hbox(6.94444+0.0)x0.0
+.\tenrm b
+.\kern0.27779
+.\tenrm e
+.\glue(\rightskip) 0.0
+
+
+Overfull \hbox (19.50003pt too wide) in paragraph at lines 24--30
+\tenrm used
+
+\hbox(6.94444+0.0)x0.0
+.\tenrm u
+.\tenrm s
+.\tenrm e
+.\tenrm d
+.\glue(\rightskip) 0.0
+
+
+Overfull \hbox (8.88892pt too wide) in paragraph at lines 24--30
+\tenrm to
+
+\hbox(6.15079+0.0)x0.0
+.\tenrm t
+.\tenrm o
+.\glue(\rightskip) 0.0
+
+
+Overfull \hbox (13.05557pt too wide) in paragraph at lines 24--30
+\tenrm ex-
+
+\hbox(4.30554+0.0)x0.0
+.\tenrm e
+.\tenrm x
+.\discretionary
+.\tenrm -
+.\glue(\rightskip) 0.0
+
+
+Overfull \hbox (7.77777pt too wide) in paragraph at lines 24--30
+\tenrm e-
+
+\hbox(4.30554+0.0)x0.0
+.\tenrm e
+.\discretionary
+.\tenrm -
+.\glue(\rightskip) 0.0
+
+
+Overfull \hbox (18.33336pt too wide) in paragraph at lines 24--30
+\tenrm cute
+
+\hbox(6.15079+0.0)x0.0
+.\tenrm c
+.\tenrm u
+.\tenrm t
+.\tenrm e
+.\glue(\rightskip) 0.0
+
+
+Overfull \hbox (12.77779pt too wide) in paragraph at lines 24--30
+\tenrm ac-
+
+\hbox(4.30554+0.0)x0.0
+.\tenrm a
+.\tenrm c
+.\discretionary
+.\tenrm -
+.\glue(\rightskip) 0.0
+
+
+Overfull \hbox (21.16672pt too wide) in paragraph at lines 24--30
+\tenrm tions
+
+\hbox(6.67859+0.0)x0.0
+.\tenrm t
+.\tenrm i
+.\tenrm o
+.\tenrm n
+.\tenrm s
+.etc.
+
+
+Overfull \hbox (19.44449pt too wide) in paragraph at lines 24--30
+\tenrm with
+
+\hbox(6.94444+0.0)x0.0
+.\tenrm w
+.\tenrm i
+.\tenrm t
+.\tenrm h
+.\glue(\rightskip) 0.0
+
+
+Overfull \hbox (13.88892pt too wide) in paragraph at lines 24--30
+\tenrm the
+
+\hbox(6.94444+0.0)x0.0
+.\tenrm t
+.\tenrm h
+.\tenrm e
+.\glue(\rightskip) 0.0
+
+
+Overfull \hbox (30.05562pt too wide) in paragraph at lines 24--30
+\tenrm mouse. 
+
+\hbox(4.30554+0.0)x0.0
+.\tenrm m
+.\tenrm o
+.\tenrm u
+.\tenrm s
+.\tenrm e
+.etc.
+
+
+Overfull \vbox (10.0pt too high) has occurred while \output is active
+\vbox(0.0+0.0)x0.0
+.\glue(\topskip) 10.0
+.\hbox(0.0+0.0)x0.0
+..\hbox(0.0+0.0)x20.0
+..\glue(\rightskip) 0.0
+.\glue 0.0
+
+! Undefined control sequence.
+\normalsize ...\normalsize \rm \else \@normalsize 
+                                                  \fi 
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thehead ->\@oddhead 
+                      
+\@outputpage ...\let \glossary \@gobble \@thehead 
+                                                  }}\dp \@tempboxa \z@ \box ...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thefoot ->\@oddfoot 
+                      
+\@outputpage ...\let \glossary \@gobble \@thefoot 
+                                                  }}}\global \@colht \texthe...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+ [19]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \vbox (10.0pt too high) has occurred while \output is active
+\vbox(0.0+0.0)x0.0
+.\glue(\topskip) 10.0
+.\hbox(0.0+0.0)x0.0
+..\hbox(0.0+0.0)x0.0
+...\glue 0.0
+...\glue 0.0
+...\glue 0.0
+...\hbox(0.0+0.0)x0.0
+...\glue 0.0
+..\penalty 0
+..\glue(\rightskip) 0.0
+.\glue 0.0
+
+! Undefined control sequence.
+\normalsize ...\normalsize \rm \else \@normalsize 
+                                                  \fi 
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thehead ->\@oddhead 
+                      
+\@outputpage ...\let \glossary \@gobble \@thehead 
+                                                  }}\dp \@tempboxa \z@ \box ...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thefoot ->\@oddfoot 
+                      
+\@outputpage ...\let \glossary \@gobble \@thefoot 
+                                                  }}}\global \@colht \texthe...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+ [20]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \vbox (10.0pt too high) has occurred while \output is active
+\vbox(0.0+0.0)x0.0
+.\glue(\topskip) 3.05556
+.\hbox(6.94444+0.0)x0.0
+..\tenrm T
+..\tenrm h
+..\tenrm e
+..\glue(\rightskip) 0.0
+.\glue 0.0
+
+! Undefined control sequence.
+\normalsize ...\normalsize \rm \else \@normalsize 
+                                                  \fi 
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thehead ->\@oddhead 
+                      
+\@outputpage ...\let \glossary \@gobble \@thehead 
+                                                  }}\dp \@tempboxa \z@ \box ...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thefoot ->\@oddfoot 
+                      
+\@outputpage ...\let \glossary \@gobble \@thefoot 
+                                                  }}}\global \@colht \texthe...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+ [21]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \vbox (10.0pt too high) has occurred while \output is active
+\vbox(0.0+0.0)x0.0
+.\glue(\topskip) 3.16669
+.\hbox(6.83331+0.0)x0.0
+..\tenrm w
+..\tenrm x
+..\tenrm V
+..\tenrm i
+..\tenrm e
+..etc.
+.\glue 0.0
+
+! Undefined control sequence.
+\normalsize ...\normalsize \rm \else \@normalsize 
+                                                  \fi 
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thehead ->\@oddhead 
+                      
+\@outputpage ...\let \glossary \@gobble \@thehead 
+                                                  }}\dp \@tempboxa \z@ \box ...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thefoot ->\@oddfoot 
+                      
+\@outputpage ...\let \glossary \@gobble \@thefoot 
+                                                  }}}\global \@colht \texthe...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+ [22]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \vbox (10.0pt too high) has occurred while \output is active
+\vbox(0.0+0.0)x0.0
+.\glue(\topskip) 3.05556
+.\hbox(6.94444+0.0)x0.0
+..\tenrm c
+..\tenrm l
+..\tenrm a
+..\tenrm s
+..\tenrm s
+..etc.
+.\glue 0.0
+
+! Undefined control sequence.
+\normalsize ...\normalsize \rm \else \@normalsize 
+                                                  \fi 
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thehead ->\@oddhead 
+                      
+\@outputpage ...\let \glossary \@gobble \@thehead 
+                                                  }}\dp \@tempboxa \z@ \box ...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thefoot ->\@oddfoot 
+                      
+\@outputpage ...\let \glossary \@gobble \@thefoot 
+                                                  }}}\global \@colht \texthe...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+ [23]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \vbox (10.0pt too high) has occurred while \output is active
+\vbox(0.0+0.0)x0.0
+.\glue(\topskip) 5.69446
+.\hbox(4.30554+0.0)x0.0
+..\tenrm c
+..\tenrm a
+..\tenrm n
+..\glue(\rightskip) 0.0
+.\glue 0.0
+
+! Undefined control sequence.
+\normalsize ...\normalsize \rm \else \@normalsize 
+                                                  \fi 
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thehead ->\@oddhead 
+                      
+\@outputpage ...\let \glossary \@gobble \@thehead 
+                                                  }}\dp \@tempboxa \z@ \box ...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thefoot ->\@oddfoot 
+                      
+\@outputpage ...\let \glossary \@gobble \@thefoot 
+                                                  }}}\global \@colht \texthe...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+ [24]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \vbox (10.0pt too high) has occurred while \output is active
+\vbox(0.0+0.0)x0.0
+.\glue(\topskip) 3.05556
+.\hbox(6.94444+0.0)x0.0
+..\tenrm b
+..\kern0.27779
+..\tenrm e
+..\glue(\rightskip) 0.0
+.\glue 0.0
+
+! Undefined control sequence.
+\normalsize ...\normalsize \rm \else \@normalsize 
+                                                  \fi 
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thehead ->\@oddhead 
+                      
+\@outputpage ...\let \glossary \@gobble \@thehead 
+                                                  }}\dp \@tempboxa \z@ \box ...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thefoot ->\@oddfoot 
+                      
+\@outputpage ...\let \glossary \@gobble \@thefoot 
+                                                  }}}\global \@colht \texthe...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+ [25]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \vbox (10.0pt too high) has occurred while \output is active
+\vbox(0.0+0.0)x0.0
+.\glue(\topskip) 3.05556
+.\hbox(6.94444+0.0)x0.0
+..\tenrm u
+..\tenrm s
+..\tenrm e
+..\tenrm d
+..\glue(\rightskip) 0.0
+.\glue 0.0
+
+! Undefined control sequence.
+\normalsize ...\normalsize \rm \else \@normalsize 
+                                                  \fi 
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thehead ->\@oddhead 
+                      
+\@outputpage ...\let \glossary \@gobble \@thehead 
+                                                  }}\dp \@tempboxa \z@ \box ...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thefoot ->\@oddfoot 
+                      
+\@outputpage ...\let \glossary \@gobble \@thefoot 
+                                                  }}}\global \@colht \texthe...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+ [26]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \vbox (10.0pt too high) has occurred while \output is active
+\vbox(0.0+0.0)x0.0
+.\glue(\topskip) 3.84921
+.\hbox(6.15079+0.0)x0.0
+..\tenrm t
+..\tenrm o
+..\glue(\rightskip) 0.0
+.\glue 0.0
+
+! Undefined control sequence.
+\normalsize ...\normalsize \rm \else \@normalsize 
+                                                  \fi 
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thehead ->\@oddhead 
+                      
+\@outputpage ...\let \glossary \@gobble \@thehead 
+                                                  }}\dp \@tempboxa \z@ \box ...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thefoot ->\@oddfoot 
+                      
+\@outputpage ...\let \glossary \@gobble \@thefoot 
+                                                  }}}\global \@colht \texthe...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+ [27]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \vbox (10.0pt too high) has occurred while \output is active
+\vbox(0.0+0.0)x0.0
+.\glue(\topskip) 3.05556
+.\hbox(6.94444+0.0)x0.0
+..\tenrm d
+..\tenrm i
+..\tenrm s
+..\discretionary
+..\tenrm -
+..etc.
+.\glue 0.0
+
+! Undefined control sequence.
+\normalsize ...\normalsize \rm \else \@normalsize 
+                                                  \fi 
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thehead ->\@oddhead 
+                      
+\@outputpage ...\let \glossary \@gobble \@thehead 
+                                                  }}\dp \@tempboxa \z@ \box ...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thefoot ->\@oddfoot 
+                      
+\@outputpage ...\let \glossary \@gobble \@thefoot 
+                                                  }}}\global \@colht \texthe...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+ [28]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \vbox (10.0pt too high) has occurred while \output is active
+\vbox(0.0+0.0)x0.0
+.\glue(\topskip) 3.05556
+.\hbox(6.94444+1.94444)x0.0
+..\tenrm p
+..\tenrm l
+..\tenrm a
+..\kern-0.27779
+..\tenrm y
+..etc.
+.\glue -1.94444
+
+! Undefined control sequence.
+\normalsize ...\normalsize \rm \else \@normalsize 
+                                                  \fi 
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thehead ->\@oddhead 
+                      
+\@outputpage ...\let \glossary \@gobble \@thehead 
+                                                  }}\dp \@tempboxa \z@ \box ...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thefoot ->\@oddfoot 
+                      
+\@outputpage ...\let \glossary \@gobble \@thefoot 
+                                                  }}}\global \@colht \texthe...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+ [29]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \vbox (10.0pt too high) has occurred while \output is active
+\vbox(0.0+0.0)x0.0
+.\glue(\topskip) 5.69446
+.\hbox(4.30554+0.0)x0.0
+..\tenrm a
+..\glue(\rightskip) 0.0
+.\glue 0.0
+
+! Undefined control sequence.
+\normalsize ...\normalsize \rm \else \@normalsize 
+                                                  \fi 
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thehead ->\@oddhead 
+                      
+\@outputpage ...\let \glossary \@gobble \@thehead 
+                                                  }}\dp \@tempboxa \z@ \box ...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thefoot ->\@oddfoot 
+                      
+\@outputpage ...\let \glossary \@gobble \@thefoot 
+                                                  }}}\global \@colht \texthe...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+ [30]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \vbox (10.0pt too high) has occurred while \output is active
+\vbox(0.0+0.0)x0.0
+.\glue(\topskip) 3.05556
+.\hbox(6.94444+0.0)x0.0
+..\tenrm W
+..\kern-0.83334
+..\tenrm o
+..\tenrm r
+..\tenrm l
+..etc.
+.\glue 0.0
+
+! Undefined control sequence.
+\normalsize ...\normalsize \rm \else \@normalsize 
+                                                  \fi 
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thehead ->\@oddhead 
+                      
+\@outputpage ...\let \glossary \@gobble \@thehead 
+                                                  }}\dp \@tempboxa \z@ \box ...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thefoot ->\@oddfoot 
+                      
+\@outputpage ...\let \glossary \@gobble \@thefoot 
+                                                  }}}\global \@colht \texthe...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+ [31]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \vbox (10.0pt too high) has occurred while \output is active
+\vbox(0.0+0.0)x0.0
+.\glue(\topskip) 3.05556
+.\hbox(6.94444+0.0)x0.0
+..\tenrm w
+..\tenrm i
+..\tenrm t
+..\tenrm h
+..\glue(\rightskip) 0.0
+.\glue 0.0
+
+! Undefined control sequence.
+\normalsize ...\normalsize \rm \else \@normalsize 
+                                                  \fi 
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thehead ->\@oddhead 
+                      
+\@outputpage ...\let \glossary \@gobble \@thehead 
+                                                  }}\dp \@tempboxa \z@ \box ...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thefoot ->\@oddfoot 
+                      
+\@outputpage ...\let \glossary \@gobble \@thefoot 
+                                                  }}}\global \@colht \texthe...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+ [32]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \vbox (10.0pt too high) has occurred while \output is active
+\vbox(0.0+0.0)x0.0
+.\glue(\topskip) 5.69446
+.\hbox(4.30554+0.0)x0.0
+..\tenrm a
+..\glue(\rightskip) 0.0
+.\glue 0.0
+
+! Undefined control sequence.
+\normalsize ...\normalsize \rm \else \@normalsize 
+                                                  \fi 
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thehead ->\@oddhead 
+                      
+\@outputpage ...\let \glossary \@gobble \@thehead 
+                                                  }}\dp \@tempboxa \z@ \box ...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thefoot ->\@oddfoot 
+                      
+\@outputpage ...\let \glossary \@gobble \@thefoot 
+                                                  }}}\global \@colht \texthe...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+ [33]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \vbox (10.0pt too high) has occurred while \output is active
+\vbox(0.0+0.0)x0.0
+.\glue(\topskip) 3.16669
+.\hbox(6.83331+0.0)x0.0
+..\tenrm G
+..\tenrm L
+..\tenrm R
+..\tenrm e
+..\tenrm n
+..etc.
+.\glue 0.0
+
+! Undefined control sequence.
+\normalsize ...\normalsize \rm \else \@normalsize 
+                                                  \fi 
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thehead ->\@oddhead 
+                      
+\@outputpage ...\let \glossary \@gobble \@thehead 
+                                                  }}\dp \@tempboxa \z@ \box ...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thefoot ->\@oddfoot 
+                      
+\@outputpage ...\let \glossary \@gobble \@thefoot 
+                                                  }}}\global \@colht \texthe...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+ [34]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...bal \@botroom \bottomfraction 
+                                                  \@colht \global \@colnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@floatplacement ...er \@fpmin \floatpagefraction 
+                                                  \@colht 
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \vbox (10.0pt too high) has occurred while \output is active
+\vbox(0.0+0.0)x0.0
+.\glue(\topskip) 3.05556
+.\hbox(6.94444+0.0)x0.0
+..\tenrm d
+..\tenrm e
+..\tenrm r
+..\tenrm e
+..\tenrm r
+..etc.
+.\glue 0.0
+
+! Undefined control sequence.
+\normalsize ...\normalsize \rm \else \@normalsize 
+                                                  \fi 
+\@outputpage ...ut \vbox {\reset@font \normalsize 
+                                                  \baselineskip \z@ \lineski...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thehead ->\@oddhead 
+                      
+\@outputpage ...\let \glossary \@gobble \@thehead 
+                                                  }}\dp \@tempboxa \z@ \box ...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\@thefoot ->\@oddfoot 
+                      
+\@outputpage ...\let \glossary \@gobble \@thefoot 
+                                                  }}}\global \@colht \texthe...
+
+\@opcol ...lumn \@outputdblcol \else \@outputpage 
+                                                  \global \@colht \textheigh...
+<output> ...specialoutput \else \@makecol \@opcol 
+                                                  \@floatplacement \@startco...
+l.30 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+ [35]
+! Undefined control sequence.
+\@floatplacement ...global \@toproom \topfraction 
+                                                  \@colht \global \@botnum \...
+<output> ...se \@makecol \@opcol \@floatplacement 
+                                                  \@startcolumn \@whilesw \i...
+l.30 
+     
+(That makes 100 errors; please try again.) 
+Here is how much of TeX's memory you used:
+ 15 strings out of 11973
+ 139 string characters out of 87074
+ 24439 words of memory out of 2621401
+ 1982 multiletter control sequences out of 9500
+ 18996 words of font info for 72 fonts, out of 100000 for 255
+ 14 hyphenation exceptions out of 607
+ 8i,4n,8p,98b,67s stack positions out of 300i,40n,60p,3000b,4000s
+
+Output written on wxwrapper.dvi (35 pages, 2332 bytes).

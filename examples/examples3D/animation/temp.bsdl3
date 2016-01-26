@@ -1,0 +1,628 @@
+
+using 3D;
+define green2 whitted {
+  diffuse [0.3, 0.6, 0.2];
+  ambient [0.3, 0.6, 0.2];
+};
+
+using 3D;
+define brown whitted {
+  diffuse [0.3, 0.2, 0.2];
+  ambient [0.3, 0.2, 0.2];
+};
+
+using 3D;
+define ground 
+list {
+  box ([-3000, -1000, 0],[-50, 1000, -1]) {
+    green2;
+  };
+  box ([50, -1000, 0], [3000, 1000, -1]) {
+    green2;
+  };
+  box ([-50, -1000, 0],  [50, 1000, -1]) {
+    brown;
+  };
+};
+
+using 3D;
+define green whitted {
+  diffuse [0.2, 0.5, 0.2];
+  ambient [0.2, 0.5, 0.2];
+};
+
+using 3D;
+define tree 
+list {
+  cone (10, [0, 0, 0], 2, [0, 0, 200]) {
+    brown;
+    open;
+  };
+  disc (60, [0, 0, 100], [0, 0, 1]) {
+    green;
+  };
+  disc (50, [0, 0, 120], [0, 0, 1]) {
+    green;
+  };
+  disc (40, [0, 0, 140], [0, 0, 1]) {
+    green;
+  };
+  disc (30, [0, 0, 160], [0, 0, 1]) {
+    green;
+  };
+  disc (20, [0, 0, 180], [0, 0, 1]) {
+    green;
+  };
+};
+
+using 3D;
+define forest 
+list {
+  tree {
+    name "tree";
+    transform {
+      translate [-160, -60, 0];
+    };
+  };
+  tree {
+    name "tree";
+    transform {
+      translate [-120, 60, 0];
+    };
+  };
+  tree {
+    name "tree";
+    transform {
+      translate [-90, 220, 0];
+    };
+  };
+  tree {
+    name "tree";
+    transform {
+      translate [-260, 60, 0];
+    };
+  };
+  tree {
+    name "tree";
+    transform {
+      translate [-120, -90, 0];
+    };
+  };
+  tree {
+    name "tree";
+    transform {
+      translate [-120, -320, 0];
+    };
+  };
+  tree {
+    name "tree";
+    transform {
+      translate [260, -60, 0];
+    };
+  };
+  tree {
+    name "tree";
+    transform {
+      translate [320, 160, 0];
+    };
+  };
+  tree {
+    name "tree";
+    transform {
+      translate [180, 120, 0];
+    };
+  };
+  tree {
+    name "tree";
+    transform {
+      translate [190, 160, 0];
+    };
+  };
+  tree {
+    name "tree";
+    transform {
+      translate [320, -260, 0];
+    };
+  };
+  tree {
+    name "tree";
+    transform {
+      translate [160, -120, 0];
+    };
+  };
+};
+
+using 3D;
+define grey whitted {
+  diffuse [0.7, 0.7, 0.7];
+  ambient [0.7, 0.7, 0.7];
+};
+
+using 3D;
+define blue whitted {
+  diffuse [0.3, 0.2, 0.9];
+  ambient [0.3, 0.2, 0.9];
+};
+
+using 3D;
+define zange 
+list {
+  box ([-9, -1.8, 0], [-2, 1.8, 0.5]) {
+    blue;
+  };
+  box ([-9, -1.8, 0], [-2, 1.8, 0.5]) {
+    transform {
+      matrix [[0.984808, 0, -0.173648], [0, 1, 0], [0.173648, 0, 0.984808], [0.0520945, 0, 0.295442]];
+    };
+    blue;
+  };
+};
+
+using 3D;
+define red whitted {
+  diffuse [0.4, 0.1, 0.1];
+  ambient [0.4, 0.1, 0.1];
+};
+
+using 3D;
+define white whitted {
+  diffuse [1, 1, 1];
+  ambient [1, 1, 1];
+};
+
+using 3D;
+define flag 
+list {
+  triangle ([0, -15, -15], [0, 15, -15], [0, 15, 15]) {
+    red;
+  };
+  triangle ([0, -15, -15], [0, 15, 15], [0, -15, 15]) {
+    white;
+  };
+};
+
+using 3D;
+define posten 
+list {
+  cone (3, [0, 0, 0], 1.999, [0, 0, 70]) {
+    grey;
+    open;
+  };
+  box ([-10, -2, 70], [10, 2, 71]) {
+    grey;
+  };
+  zange {
+    name "zange";
+    transform {
+      translate [0, 0, 71];
+    };
+  };
+  zange {
+    name "zange";
+    transform {
+      matrix [[-1, 0, 0], [0, -1, 0], [0, 0, 1], [0, 0, 71]];
+    };
+  };
+  flag {
+    name "flag";
+    transform {
+      translate [9.5, 0, 52];
+    };
+  };
+  flag {
+    name "flag";
+    transform {
+      matrix [[-0.5, 0.866025, 0], [-0.866025, -0.5, 0], [0, 0, 1], [-4.75, 8.22724, 52]];
+    };
+  };
+  flag {
+    name "flag";
+    transform {
+      matrix [[-0.5, -0.866025, 0], [0.866025, -0.5, 0], [0, 0, 1], [-4.75, -8.22724, 52]];
+    };
+  };
+};
+
+using 3D;
+define brown2 whitted {
+  diffuse [0.6, 0.5, 0.5];
+  ambient [0.6, 0.5, 0.5];
+};
+
+using 3D;
+define head 
+list {
+  box ([7, 7, 144], [-7, -7, 132]) {
+    brown2;
+  };
+  box ([3, 4, 132], [-3, -4, 128]) {
+    brown2;
+  };
+};
+
+using 3D;
+define yellow whitted {
+  diffuse [1, 1, 0];
+  ambient [1, 1, 0];
+};
+
+using 3D;
+define body 
+list {
+  box ([10, 7, 128], [-10, -7, 78]) {
+    white;
+  };
+  box ([10.1, 7.07, 98], [-10.1, -7.07, 103]) {
+    red;
+  };
+  box ([10.2, 7.14, 100.5], [-10.2, -7.14, 103]) {
+    yellow;
+  };
+};
+
+using 3D;
+define ober 
+list {
+  box ([3, 5, 0], [-3, -5, -40]) {
+    red;
+  };
+  box ([3.03, 1.5, 0], [-3.03, -1.5, -40]) {
+    yellow;
+  };
+};
+
+using 3D;
+define unter 
+list {
+  box ([4, 3, 0], [-4, -3, -35]) {
+    red;
+  };
+  box ([4.04, 0.9, 0], [-4.04, -0.9, -35]) {
+    yellow;
+  };
+};
+
+using 3D;
+define black whitted {
+  diffuse [0, 0, 0];
+  ambient [0, 0, 0];
+};
+
+using 3D;
+define fuss 
+list {
+  box ([4, 3, 0], [-4, -3, -15]) {
+    transform {
+      matrix [[1, 0, 0], [0, 0.0871557, 0.996195], [0, -0.996195, 0.0871557], [0, 0, 0]];
+    };
+    black;
+  };
+};
+
+using 3D;
+define leg_left 
+list {
+  turn {
+    action (0, 24, 0, 0) {
+      alpha (-50, "sin", 0, 0.1, 0);
+      axis [1, 0, 0];
+      center [0, 0, 78];
+    };
+    list {
+      ober {
+        name "ober";
+        transform {
+          translate [7, 0, 78];
+        };
+      };
+      turn {
+        action (0, 24, 0, 0) {
+          alpha (-50, "const", 1, 1, 0);
+          axis [1, 0, 0];
+          center [0, 0, 38];
+        };
+        action (8, 32, 0, 0) {
+          alpha (-50, "sin", 0, 0.1, 0);
+          axis [1, 0, 0];
+          center [0, 0, 38];
+        };
+        list {
+          unter {
+            name "unter";
+            transform {
+              translate [7, 0, 38];
+            };
+          };
+          turn {
+            action (-2, 5, 0, 17) {
+              alpha (16.6667, "sin", 0, 0.05, 0);
+              axis [1, 0, 0];
+              center [0, 0, 3];
+            };
+            fuss {
+              name "fuss";
+              transform {
+                translate [7, 0, 3];
+              };
+            };
+          };
+        };
+      };
+    };
+  };
+};
+
+using 3D;
+define leg_right 
+list {
+  turn {
+    action (0, 24, 0, 0) {
+      alpha (50, "sin", 0, 0.1, 0);
+      axis [1, 0, 0];
+      center [0, 0, 78];
+    };
+    list {
+      ober {
+        name "ober";
+        transform {
+          translate [-7, 0, 78];
+        };
+      };
+      turn {
+        action (0, 24, 0, 0) {
+          alpha (-50, "const", 1, 1, 0);
+          axis [1, 0, 0];
+          center [0, 0, 38];
+        };
+        action (8, 32, 0, 0) {
+          alpha (50, "sin", 0, 0.1, 0);
+          axis [1, 0, 0];
+          center [0, 0, 38];
+        };
+        list {
+          unter {
+            name "unter";
+            transform {
+              translate [-7, 0, 38];
+            };
+          };
+          turn {
+            action (-2, 5, 0, 17) {
+              alpha (-16.6667, "sin", 0, 0.05, 0);
+              axis [1, 0, 0];
+              center [0, 0, 3];
+            };
+            fuss {
+              name "fuss";
+              transform {
+                translate [-7, 0, 3];
+              };
+            };
+          };
+        };
+      };
+    };
+  };
+};
+
+using 3D;
+define over 
+list {
+  box ([4, 4, 0], [-4, -4, -27]) {
+    white;
+  };
+};
+
+using 3D;
+define under 
+list {
+  box ([3, 3, 0], [-3, -3, -22]) {
+    white;
+  };
+};
+
+using 3D;
+define hand 
+list {
+  box ([1, 3, 0], [-1, -3, -12]) {
+    brown2;
+  };
+};
+
+using 3D;
+define omap 
+list {
+  box ([-3, -1, -2.4], [0, 0, -15.6]) {
+    white;
+  };
+};
+
+using 3D;
+define arm_left 
+list {
+  turn {
+    action (0, 24, 0, 0) {
+      alpha (-50, "sin", 0.05, 0.15, 0);
+      axis [1, 0, 0];
+      center [0, 0, 128];
+    };
+    list {
+      over {
+        name "over";
+        transform {
+          translate [14, 0, 128];
+        };
+      };
+      turn {
+        action (0, 24, 0, 0) {
+          alpha (-25, "sin", 0.05, 0.15, 0);
+          axis [1, 0, 0];
+          center [0, 0, 101];
+        };
+        action (0, 24, 0, 0) {
+          alpha (100, "const", 1, 1, 0);
+          axis [1, 0, 0];
+          center [0, 0, 101];
+        };
+        list {
+          under {
+            name "under";
+            transform {
+              translate [13, 0, 101];
+            };
+          };
+          hand {
+            name "hand";
+            transform {
+              translate [13, 0, 79];
+            };
+          };
+          omap {
+            name "omap";
+            transform {
+              translate [13, 0, 79];
+            };
+          };
+        };
+      };
+    };
+  };
+};
+
+using 3D;
+define arm_right 
+list {
+  turn {
+    action (0, 24, 0, 0) {
+      alpha (-50, "sin", 0, 0.1, 0);
+      axis [1, 0, 0];
+      center [0, 0, 128];
+    };
+    list {
+      over {
+        name "over";
+        transform {
+          translate [-14, 0, 128];
+        };
+      };
+      turn {
+        action (0, 24, 0, 0) {
+          alpha (-25, "sin", 0, 0.1, 0);
+          axis [1, 0, 0];
+          center [0, 0, 101];
+        };
+        action (0, 24, 0, 0) {
+          alpha (100, "const", 1, 1, 0);
+          axis [1, 0, 0];
+          center [0, 0, 101];
+        };
+        list {
+          under {
+            name "under";
+            transform {
+              translate [-13, 0, 101];
+            };
+          };
+          hand {
+            name "hand";
+            transform {
+              translate [-13, 0, 79];
+            };
+          };
+        };
+      };
+    };
+  };
+};
+
+using 3D;
+define robot 
+list {
+  move {
+    action (2, 14, 0, 0) {
+      direction ([0, 0, 1], "sin", 0, 0.1, 0);
+    };
+    list {
+      head {
+        name "head";
+      };
+      shear {
+        action (0, 24, 0, 0) {
+          shearfactor ([0, 0.16], "sin", 0, 0.1, 0);
+          axis [1, 0, 0];
+          center [0, 0, 0];
+        };
+        body {
+          name "body";
+        };
+      };
+      leg_left {
+        name "leg_left";
+      };
+      leg_right {
+        name "leg_right";
+      };
+      move {
+        action (0, 12, 0, 0) {
+          direction ([0, 0.5, 0], "sin", 0, 0.1, 0);
+        };
+        arm_left {
+          name "arm_left";
+        };
+      };
+      move {
+        action (0, 12, 0, 0) {
+          direction ([0, -0.5, 0], "sin", 0, 0.1, 0);
+        };
+        arm_right {
+          name "arm_right";
+        };
+      };
+    };
+  };
+};
+
+using 3D;
+
+camera {
+  on;
+  background [0.8, 0.8, .9];
+  perspective {
+    eye [400, -400, 300];
+    lookat [0, 0, 60];
+    up [0, 0, 1];
+    eyesep 1;
+    resolution (200, 200);
+    fov 45;
+  };
+};
+pointLight (1.2, [1, 1, 1]) {
+  on;
+  position [1000, 1000, 1000];
+};
+ambientLight (1, [1, 1, 1]) {
+  on;
+};
+ground {
+  name "ground";
+};
+forest {
+  name "forest";
+};
+posten {
+  name "posten";
+  transform {
+    translate [130, -200, 0];
+  };
+};
+move {
+  action (0, 60, 0, 0) {
+    direction ([0, 1000, 0], "saw", 0, 1, 0);
+  };
+  robot {
+    name "robot";
+    transform {
+      translate [0, -500, 0];
+    };
+  };
+};

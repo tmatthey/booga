@@ -1,0 +1,157 @@
+(ld): halt 4
+(ld): savename wxEdit
+(ld): filelist 47 1
+(ld): i /usr/lpp/xlC/lib/crt0.o
+(ld): i ./xlcdRxFqd.o
+(ld): i AdaptiveTraceCommand.o
+(ld): i AdaptiveTracer.o
+(ld): i AlignTool.o
+(ld): i DBBrowser.o
+(ld): i EditSelection.o
+(ld): i GLPolygonMapper.o
+(ld): i GravityCommand.o
+(ld): i InspectCommand.o
+(ld): i InspectSelectionCommand.o
+(ld): i ObjectFactory.o
+(ld): i PickCommand.o
+(ld): i RotateCommand.o
+(ld): i SharedEditor.o
+(ld): i TextureSelector.o
+(ld): i ToolBar.o
+(ld): i wxAnimator.o
+(ld): i wxEdit.o
+(ld): i wxTraversal3D.o
+(ld): lib ../../framework/lib/libwxwrapper.a
+(ld): lib ../../framework/lib/libglwrapper.a
+(ld): lib ../../framework/lib/libpersistence.a
+(ld): lib ../../framework/lib/libgraphicsdb.a
+(ld): lib /usr/lib/libcomponent.a
+(ld): lib /usr/lib/libnurbs.a
+(ld): lib /usr/lib/libanimation.a
+(ld): lib ../../framework/lib/libbuilding.a
+(ld): lib /usr/lib/libobject.a
+(ld): lib /usr/lib/libtexture.a
+(ld): lib /usr/lib/libpixmapOp.a
+(ld): lib /usr/lib/libbase.a
+(ld): lib /usr/local/lib/glut/libglut.a
+(ld): lib /usr/lib/libGLU.a
+(ld): lib /usr/lib/libGL.a
+(ld): lib /usr/local/lib/libwx_aix.a
+(ld): lib /usr/lib/libXm.a
+(ld): lib /usr/lib/libXGLW.a
+(ld): lib /usr/lib/libXext.a
+(ld): lib /usr/lib/libXmu.a
+(ld): lib /usr/lib/libX11.a
+(ld): lib /usr/local/lib/libmpege.a
+(ld): lib /usr/local/lib/jpeg/libjpeg.a
+(ld): lib /usr/lib/libm.a
+(ld): lib /usr/local/lib/libwww.a
+(ld): lib /usr/lib/libC.a
+(ld): lib /usr/lib/libc.a
+LIBRARY: Shared object libwxwrapper.a[libwxwrapper.a-shr.o]: 211 symbols imported.
+LIBRARY: Shared object libglwrapper.a[libglwrapper.a-shr.o]: 209 symbols imported.
+LIBRARY: Shared object libpersistence.a[libpersistence.a-shr.o]: 186 symbols imported.
+LIBRARY: Shared object libgraphicsdb.a[libgraphicsdb.a-shr.o]: 326 symbols imported.
+LIBRARY: Shared object libcomponent.a[libcomponent.a-shr.o]: 906 symbols imported.
+LIBRARY: Shared object libnurbs.a[libnurbs.a-shr.o]: 501 symbols imported.
+LIBRARY: Shared object libanimation.a[libanimation.a-shr.o]: 274 symbols imported.
+LIBRARY: Shared object libbuilding.a[libbuilding.a-shr.o]: 682 symbols imported.
+LIBRARY: Shared object libobject.a[libobject.a-shr.o]: 1564 symbols imported.
+LIBRARY: Shared object libtexture.a[libtexture.a-shr.o]: 531 symbols imported.
+LIBRARY: Shared object libpixmapOp.a[libpixmapOp.a-shr.o]: 87 symbols imported.
+LIBRARY: Shared object libbase.a[libbase.a-shr.o]: 768 symbols imported.
+LIBRARY: Shared object libglut.a[shr.o]: 165 symbols imported.
+LIBRARY: Shared object libGLU.a[shr.o]: 54 symbols imported.
+LIBRARY: Shared object libGL.a[shr.o]: 352 symbols imported.
+LIBRARY: Shared object libwx_aix.a[wx.shr.o]: 2730 symbols imported.
+LIBRARY: Shared object libXm.a[shr4.o]: 1372 symbols imported.
+LIBRARY: Shared object libXGLW.a[shr.o]: 7 symbols imported.
+LIBRARY: Shared object libXext.a[shr.o]: 186 symbols imported.
+LIBRARY: Shared object libX11.a[shr4.o]: 716 symbols imported.
+LIBRARY: Shared object libX11.a[shr4net.o]: 1 symbols imported.
+LIBRARY: Shared object libC.a[shr.o]: 391 symbols imported.
+LIBRARY: Shared object libc.a[aio.o]: 5 symbols imported.
+LIBRARY: Shared object libc.a[shr.o]: 1479 symbols imported.
+LIBRARY: Shared object libc.a[meth.o]: 2 symbols imported.
+FILELIST: Number of previously inserted files processed: 47
+(ld): exec /tmp/xlctdRxFqe
++(ld): rename .__tf1___ct__4PRefXT16GraphicsDataBase_FRC4POId .__ct__4PRefXT16GraphicsDataBase_FRC4POId
++(ld): rename __tf1___ct__4PRefXT16GraphicsDataBase_FRC4POId __ct__4PRefXT16GraphicsDataBase_FRC4POId
++(ld): rename .__tf1___ct__16SimpleIndexEntryXT8RCStringT4POId_FRC8RCStringRC4POId .__ct__16SimpleIndexEntryXT8RCStringT4POId_FRC8RCStringRC4POId
++(ld): rename __tf1___ct__16SimpleIndexEntryXT8RCStringT4POId_FRC8RCStringRC4POId __ct__16SimpleIndexEntryXT8RCStringT4POId_FRC8RCStringRC4POId
++(ld): rename .__tf1___ct__4PRefXT7GDBData_FRC4PRefXT7GDBData_ .__ct__4PRefXT7GDBData_FRC4PRefXT7GDBData_
++(ld): rename __tf1___ct__4PRefXT7GDBData_FRC4PRefXT7GDBData_ __ct__4PRefXT7GDBData_FRC4PRefXT7GDBData_
++(ld): rename .__tf1___ct__16SimpleIndexEntryXT8RCStringT4POId_Fv .__ct__16SimpleIndexEntryXT8RCStringT4POId_Fv
++(ld): rename __tf1___ct__16SimpleIndexEntryXT8RCStringT4POId_Fv __ct__16SimpleIndexEntryXT8RCStringT4POId_Fv
++(ld): rename .__tf1___ct__16SimpleIndexEntryXT8RCStringT5Value_Fv .__ct__16SimpleIndexEntryXT8RCStringT5Value_Fv
++(ld): rename __tf1___ct__16SimpleIndexEntryXT8RCStringT5Value_Fv __ct__16SimpleIndexEntryXT8RCStringT5Value_Fv
++(ld): rename .__tf1_getPtr__4PRefXT7GDBData_CFv .getPtr__4PRefXT7GDBData_CFv
++(ld): rename __tf1_getPtr__4PRefXT7GDBData_CFv getPtr__4PRefXT7GDBData_CFv
++(ld): rename .__tf1___dt__4PRefXT16GraphicsDataBase_Fv .__dt__4PRefXT16GraphicsDataBase_Fv
++(ld): rename __tf1___dt__4PRefXT16GraphicsDataBase_Fv __dt__4PRefXT16GraphicsDataBase_Fv
++(ld): rename .__tf1_getData__11SimpleIndexXT8RCStringT4PRefXT7GDBData__CFl .getData__11SimpleIndexXT8RCStringT4PRefXT7GDBData__CFl
++(ld): rename __tf1_getData__11SimpleIndexXT8RCStringT4PRefXT7GDBData__CFl getData__11SimpleIndexXT8RCStringT4PRefXT7GDBData__CFl
++(ld): rename .__tf1___dt__4PRefXT7PBinary_Fv .__dt__4PRefXT7PBinary_Fv
++(ld): rename __tf1___dt__4PRefXT7PBinary_Fv __dt__4PRefXT7PBinary_Fv
++(ld): rename .__tf1___ct__4PRefXT7GDBData_Fv .__ct__4PRefXT7GDBData_Fv
++(ld): rename __tf1___ct__4PRefXT7GDBData_Fv __ct__4PRefXT7GDBData_Fv
++(ld): rename .__tf1___dt__4PRefXT11GDBDataType_Fv .__dt__4PRefXT11GDBDataType_Fv
++(ld): rename __tf1___dt__4PRefXT11GDBDataType_Fv __dt__4PRefXT11GDBDataType_Fv
++(ld): rename .__tf1___rf__4PRefXT16GraphicsDataBase_CFv .__rf__4PRefXT16GraphicsDataBase_CFv
++(ld): rename __tf1___rf__4PRefXT16GraphicsDataBase_CFv __rf__4PRefXT16GraphicsDataBase_CFv
++(ld): rename .__tf1___dt__4PRefXT7GDBData_Fv .__dt__4PRefXT7GDBData_Fv
++(ld): rename __tf1___dt__4PRefXT7GDBData_Fv __dt__4PRefXT7GDBData_Fv
++(ld): rename .__tf1_find__11SimpleIndexXT8RCStringT4PRefXT7GDBData__CFRC8RCString .find__11SimpleIndexXT8RCStringT4PRefXT7GDBData__CFRC8RCString
++(ld): rename __tf1_find__11SimpleIndexXT8RCStringT4PRefXT7GDBData__CFRC8RCString find__11SimpleIndexXT8RCStringT4PRefXT7GDBData__CFRC8RCString
++(ld): rename .__tf1_find__11SimpleIndexXT8RCStringT5Value_CFRC8RCString .find__11SimpleIndexXT8RCStringT5Value_CFRC8RCString
++(ld): rename __tf1_find__11SimpleIndexXT8RCStringT5Value_CFRC8RCString find__11SimpleIndexXT8RCStringT5Value_CFRC8RCString
++(ld): rename .__tf1_count__11SimpleIndexXT8RCStringT4PRefXT7GDBData__CFv .count__11SimpleIndexXT8RCStringT4PRefXT7GDBData__CFv
++(ld): rename __tf1_count__11SimpleIndexXT8RCStringT4PRefXT7GDBData__CFv count__11SimpleIndexXT8RCStringT4PRefXT7GDBData__CFv
++(ld): rename .__tf1_getPtr__4PRefXT11GDBDataType_CFv .getPtr__4PRefXT11GDBDataType_CFv
++(ld): rename __tf1_getPtr__4PRefXT11GDBDataType_CFv getPtr__4PRefXT11GDBDataType_CFv
++(ld): rename .__tf1___dt__4PRefXT12GDBOperation_Fv .__dt__4PRefXT12GDBOperation_Fv
++(ld): rename __tf1___dt__4PRefXT12GDBOperation_Fv __dt__4PRefXT12GDBOperation_Fv
++(ld): rename .__tf1_find__11SimpleIndexXT8RCStringT4POId_CFRC8RCString .find__11SimpleIndexXT8RCStringT4POId_CFRC8RCString
++(ld): rename __tf1_find__11SimpleIndexXT8RCStringT4POId_CFRC8RCString find__11SimpleIndexXT8RCStringT4POId_CFRC8RCString
++(ld): rename .__tf1_deleteList__FRP4ListXTP11Animation3D_ .deleteList__FRP4ListXTP11Animation3D_
++(ld): rename __tf1_deleteList__FRP4ListXTP11Animation3D_ deleteList__FRP4ListXTP11Animation3D_
++(ld): rename .__tf1_getKey__11SimpleIndexXT8RCStringT4PRefXT7GDBData__CFl .getKey__11SimpleIndexXT8RCStringT4PRefXT7GDBData__CFl
++(ld): rename __tf1_getKey__11SimpleIndexXT8RCStringT4PRefXT7GDBData__CFl getKey__11SimpleIndexXT8RCStringT4PRefXT7GDBData__CFl
++(ld): rename .__tf1___dt__4PRefXT10GDBRepType_Fv .__dt__4PRefXT10GDBRepType_Fv
++(ld): rename __tf1___dt__4PRefXT10GDBRepType_Fv __dt__4PRefXT10GDBRepType_Fv
++(ld): rename .__tf1___ct__16SimpleIndexEntryXT8RCStringT5Value_FRC8RCStringRC5Value .__ct__16SimpleIndexEntryXT8RCStringT5Value_FRC8RCStringRC5Value
++(ld): rename __tf1___ct__16SimpleIndexEntryXT8RCStringT5Value_FRC8RCStringRC5Value __ct__16SimpleIndexEntryXT8RCStringT5Value_FRC8RCStringRC5Value
++(ld): rename .__tf1___ct__16SimpleIndexEntryXT8RCStringT4PRefXT7GDBData__FRC8RCStringRC4PRefXT7GDBData_ .__ct__16SimpleIndexEntryXT8RCStringT4PRefXT7GDBData__FRC8RCStringRC4PRefXT7GDBData_
++(ld): rename __tf1___ct__16SimpleIndexEntryXT8RCStringT4PRefXT7GDBData__FRC8RCStringRC4PRefXT7GDBData_ __ct__16SimpleIndexEntryXT8RCStringT4PRefXT7GDBData__FRC8RCStringRC4PRefXT7GDBData_
++(ld): rename .__tf1___as__4PRefXT7GDBData_FRC4PRefXT7GDBData_ .__as__4PRefXT7GDBData_FRC4PRefXT7GDBData_
++(ld): rename __tf1___as__4PRefXT7GDBData_FRC4PRefXT7GDBData_ __as__4PRefXT7GDBData_FRC4PRefXT7GDBData_
++(ld): rename .__tf1_getPtr__4PRefXT12GDBOperation_CFv .getPtr__4PRefXT12GDBOperation_CFv
++(ld): rename __tf1_getPtr__4PRefXT12GDBOperation_CFv getPtr__4PRefXT12GDBOperation_CFv
++(ld): rename .__tf1_getPtr__4PRefXT7PBinary_CFv .getPtr__4PRefXT7PBinary_CFv
++(ld): rename __tf1_getPtr__4PRefXT7PBinary_CFv getPtr__4PRefXT7PBinary_CFv
++(ld): rename .__tf1_getPOId__4PRefXT7GDBData_Fv .getPOId__4PRefXT7GDBData_Fv
++(ld): rename __tf1_getPOId__4PRefXT7GDBData_Fv getPOId__4PRefXT7GDBData_Fv
++(ld): rename .__tf1___ct__16SimpleIndexEntryXT8RCStringT4PRefXT7GDBData__Fv .__ct__16SimpleIndexEntryXT8RCStringT4PRefXT7GDBData__Fv
++(ld): rename __tf1___ct__16SimpleIndexEntryXT8RCStringT4PRefXT7GDBData__Fv __ct__16SimpleIndexEntryXT8RCStringT4PRefXT7GDBData__Fv
++(ld): rename .__tf1_getPtr__4PRefXT16GraphicsDataBase_CFv .getPtr__4PRefXT16GraphicsDataBase_CFv
++(ld): rename __tf1_getPtr__4PRefXT16GraphicsDataBase_CFv getPtr__4PRefXT16GraphicsDataBase_CFv
++(ld): rename .__tf1_getPtr__4PRefXT10GDBRepType_CFv .getPtr__4PRefXT10GDBRepType_CFv
++(ld): rename __tf1_getPtr__4PRefXT10GDBRepType_CFv getPtr__4PRefXT10GDBRepType_CFv
+(ld): resolve
+RESOLVE: 3738 of 23896 symbols were kept.
+(ld): addgl /usr/lib/glink.o
+ADDGL: Glink code added for 367 symbols.
+(ld): er full
+ER: There are no unresolved symbols.
+(ld): mismatch
+MISMATCH: No type mismatches exist.
+(ld): comprld
+COMPRLD: Kept 11696 of 11998 relocation entries.
+(ld): origin page 0x10000000 0x20000000
+(ld): libpath /usr/lib:/usr/local/lib/glut:/usr/local/lib:/usr/lib:/usr/local/lib:/usr/local/lib/jpeg:../../framework/lib:/usr/local/lib:/usr/lpp/xlC/lib:/usr/lib:/lib
+LIBPATH: Library path set to /usr/lib:/usr/local/lib/glut:/usr/local/lib:/usr/lib:/usr/local/lib:/usr/local/lib/jpeg:../../framework/lib:/usr/local/lib:/usr/lpp/xlC/lib:/usr/lib:/lib
+(ld): save 1L .
+SAVE: Section sizes = 467268+62948+976 (0x72144+0xF5E4+0x3D0 hex)
+SAVE: Size of TOC: 2416 (0x970 hex)
+(ld): rc
+RC: Highest return code was 0.

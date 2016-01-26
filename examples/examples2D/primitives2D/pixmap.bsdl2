@@ -1,0 +1,65 @@
+/*
+ * pixmap.bsdl2
+ *
+ * Copyright (C) 1994-96, Christoph Streit <streit@iam.unibe.ch>
+ *                        Stephan Amann <amann@iam.unibe.ch>
+ *                        University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: pixmap.bsdl2,v 1.2 1996/01/11 17:16:07 streit Exp $
+ * -----------------------------------------------------------------------------
+ */
+ 
+#ifndef _pixmap_bsdl2
+#define _pixmap_bsdl2
+
+// We're in 2D Namespace:
+using 2D;
+ 
+// We need a camera
+camera {
+  resolution (300, 300);          // Screen resolution.
+  window ([-30,-30], [500,500]);  // Part of the scene to be displayed.
+  background [.2, .2, .2];        // Color of the background.
+}
+
+//________________________________________________________________________ Scene
+
+// To be reused later in the scene.
+define Allee pixmap "allee.pixi";
+
+Allee;           // No transformations.
+
+Allee {          // Instance of a define with transformation attached.
+  translate [0, 230];
+}
+
+Allee {          // Instance of a define with transformations attached.
+  scale [1.2, 0.7];
+  translate [240, 0];
+}
+
+Allee {          // Instance of a define with transformations attached. 
+  transform {    // Transformations may be enclosed in the transform
+                 // construct.
+    scale [1.2, 0.7];
+    rotateOrigin 50;
+    translate [320, 230];
+  }
+}
+
+#endif // _pixmap_bsdl2
+ 
+
+

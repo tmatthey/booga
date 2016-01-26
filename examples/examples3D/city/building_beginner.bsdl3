@@ -1,0 +1,142 @@
+/*
+ * $RCSfile: building_beginner.bsdl3,v $
+ *
+ * An example with an arbour and two fronts which have a peek.
+ *
+ * Copyright (C) 1996, Thierry Matthey <matthey@iam.unibe.ch>
+ *                     University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: building_beginner.bsdl3,v 1.1 1997/05/26 13:45:10 matthey Exp $
+ * -----------------------------------------------------------------------------
+ */
+  
+using 3D;
+
+// Definition of the camera and the lightsource
+
+camera {
+  perspective {
+    eye [100,600,300];
+    lookat [0,0,0];
+    resolution (550, 300);
+  }
+  background [157/255,180/255,253/255];
+};
+
+pointLight (1.0, [1,1,1]) { position [-500,500,1000]; }
+pointLight (0.2, [1,1,1]) { position [200,800,1000]; }
+pointLight (0.2, [1,1,1]) { position [200,800,100]; }
+
+// Defintion of the colors and textures
+
+define green2         whitted { ambient [.2,.2,.2]; diffuse [.3,.6,.2]; }
+define grey           whitted { ambient [.2,.2,.2]; diffuse [.7,.7,.7]; }
+define sandstein      whitted { ambient [.3,.2,.25];diffuse [220/255,200/255,170/255];}
+define sandsteinWeiss whitted { ambient [.4,.4,.4]; diffuse [220/255,210/255,200/255];}
+define glasDunkel     whitted { ambient [.1,.1,.1]; diffuse [60/255,90/255,80/255];}
+define dachRot        whitted { ambient [.1,.1,.1]; diffuse [180/255,115/255,97/255];}
+define dach    whitted {ambient [180/255,115/255,97/255];diffuse [180/255,115/255,97/255];};
+define rock    whitted { ambient [.1,.1,.1]; diffuse [220/255,200/255,170/255];}
+  
+define parkett whitted { ambient [.2,.2,.2];diffuse [.3,.2,.2]; }
+define clouds  whitted { diffuse [.4,.4,.9];}// specular [1,1,1]; specpow 50;};
+//define fronttexture polygonmapper( "rock10.jpg",0.03,0.03,0);
+
+
+// Defintion of the window
+
+define window list {
+  box([-10,-8,2],[10,-7,-1]);
+  box([-10,8,0.5],[10,7,-1]);
+  box([-10,8,0.5],[-9,-7,-1]);
+  box([10,8,0.5],[9,-7,-1]);
+  box([-3-.2,-8,-.5],[-3+.2,8,-1]);
+  box([3-.2,8,-.5],[3+.2,-8,-1]);
+  box([-10,-8,-1],[10,8,-1.1]){glasDunkel;}
+  scale[0.3,0.3,0.3];
+  sandsteinWeiss;
+}
+
+// Defintion of the Building
+
+building (45, [125, 75, 0], [-125, 75, 0], [-125, -75, 0], [125, -75, 0]) {
+  sandstein;
+  frontrect (0, 0, 0, 1){
+    faceitem([0,0],[1,1],20,3){
+      window;
+      hole;
+      displacement[0.5,0.5];
+    }
+  };
+  frontrect (1, 0, 0, 1){
+    faceitem([0,0],[1,1],12,3){
+      window;
+      hole;
+      displacement[0.5,0.5];
+    }
+  }
+  frontrect (2, 0, 0, 1) {
+    faceitem([0,0],[1,1],20,3){
+      window;
+      hole;
+      displacement[0.5,0.5];
+    }
+  };
+  frontrect (3, 0, 0, 1){
+    faceitem([0,0],[1,1],12,3){
+      window;
+      hole;
+      displacement[0.5,0.5];
+    }
+  }
+  frontrect (0, 1, 0, 1){
+    faceitem([0,0],[1,1],12,3){
+      window;
+      hole;
+      displacement[0.5,0.5];
+    }
+  }
+  frontrect (1, 1, 0, 1){
+    faceitem([0,0],[1,1],4,3){
+      window;
+      hole;
+      displacement[0.5,0.5];
+    }
+  }
+  frontrect (2, 1, 0, 1){
+    faceitem([0,0],[1,1],12,3){
+      window;
+      hole;
+      displacement[0.5,0.5];
+    }
+  }
+  frontrect (3, 1, 0, 1){
+    faceitem([0,0],[1,1],4,3){
+      window;
+      hole;
+      displacement[0.5,0.5];
+    }
+  }
+  roofplane(2,30){dachRot;}
+  hole ([75, -25, 0],[-75, -25, 0],[-75, 25, 0],[75, 25, 0]);
+  bottomflat{height(0.01); grey;}
+  bottomborder(1,1,1,0.5){height(12); sandsteinWeiss;}
+  bottomborder(1,1,1,0.5){height(29); sandsteinWeiss;}
+};
+
+// ground
+box([-1000,-1000,-1],[1000,1000,0]){green2;}
+box([-75, -25, -1], [75, 25, 0.01]){grey;}
+

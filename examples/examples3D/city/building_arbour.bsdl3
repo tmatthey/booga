@@ -1,0 +1,166 @@
+/*
+ * $RCSfile: building_arbour.bsdl3,v $
+ *
+ * An example with an arbour and two fronts which have a peek.
+ *
+ * Copyright (C) 1996, Thierry Matthey <matthey@iam.unibe.ch>
+ *                     University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: building_arbour.bsdl3,v 1.5 1997/04/15 08:37:34 matthey Exp $
+ * -----------------------------------------------------------------------------
+ */
+  
+using 3D;
+
+// Definition of the camera and the lightsource
+
+#include "color.inc"
+#include "item.bsdl3"
+define fronttexture polygonmapper( "rock10.jpg",0.03,0.03,0);
+
+const nh 5; // Anzahl Stockwerke
+
+camera {
+  perspective {
+    eye [200,800,10];
+    lookat [200,20,140];
+    resolution (550, 300);
+  }
+  background [157/255,180/255,253/255];
+};
+
+pointLight (1, [1,1,1]) { position [-500,500,1000]; }
+pointLight (.2, [1,1,1]) { position [200,800,1000]; }
+pointLight (.2, [1,1,1]) { position [200,800,100]; }
+
+building (4*10*nh,      // height of the building
+                        // coords of the base
+         [0,0,0],[400,0,0],[400,200,0],[320,200,0],
+         [320,80,0],[80,80,0],[80,200,0], [0,200,0]){
+  // rectangular front [0,0]*[1,1]
+  frontrect(0){
+    // face with 5*nh elements distributed over the hole front [0,0]*[1,1]
+    // every element contains a item
+    faceitem([0,0],[1,1],400/80,nh){
+      fenster_iam00;
+      // cut out a hole for the item
+      hole;
+      // texture;
+      fronttexture;
+      // relative and local displacement of the item
+      // depending of the size of the element
+      displacement([0.5,0.5]);
+    }
+  }
+  frontrect(1){
+    faceitem([0,0],[1,1],200/80,nh){
+      fenster_iam00;
+      hole;
+      fronttexture;
+      displacement([0.5,0.5]);
+    }
+  }
+  // front with an additional peak at [0.5,1.2]
+  // in local coords
+  fronttri(2,0,[0.5,1.2]){  
+    faceitem([0,0],[1,1],80/80,nh){
+      fenster_iam00;
+      hole;
+      fronttexture;
+      displacement([0.5,0.5]);
+    }
+    // window in the top of the front
+    faceitem([0.4,1],[.6,1.14],1,1){
+      fenster_iam00{scale[1,.75,1];}
+      hole;
+      fronttexture;
+      displacement([0.5,0.45]);
+    }
+  }
+  frontrect(3){  
+    faceitem([0,0],[1,1],120/80,nh){
+      fenster_iam00;
+      hole;
+      fronttexture;
+      displacement([0.5,0.5]);
+    }
+  }
+  frontrect(4){
+    // arbour with 5 arcs  
+    facearbour([0,0],[1,0.2],5){
+      arbourdepth(50);
+      numberofpoints(7);
+      bezierparm1(0.8);
+      bezierparm2(0.6);
+      columndepth(0.2);
+      columnwidth(0.3);
+      fronttexture;
+      wallon;
+    }
+    // windows above the arbour
+    faceitem([0,0.2],[1,1],240/80,nh*0.8){
+      fenster_iam00;
+      hole;
+      fronttexture;
+      displacement([0.5,0.5]);
+    }
+  }
+  frontrect(5){  
+    faceitem([0,0],[1,1],120/80,nh){
+      fenster_iam00;
+      hole;
+      fronttexture;
+      displacement([0.5,0.5]);
+    }
+  }
+  fronttri(6,0,[0.5,1.2]){
+  // front is off 
+  // to show how the building is inside  
+    //off;
+    faceitem([0,0],[1,1],80/80,nh){
+      fenster_iam00;
+      hole;
+      fronttexture;
+      displacement([0.5,0.5]);
+    }
+    faceitem([0.4,1],[.6,1.14],1,1){
+      fenster_iam00{scale[1,.75,1];}
+      hole;
+      fronttexture;
+      displacement([0.5,0.45]);
+    }
+  }
+  frontrect(7){  
+    faceitem([0,0],[1,1],200/80,nh){
+      fenster_iam00;
+      hole;
+      fronttexture;
+      displacement([0.5,0.5]);
+    }
+  }
+  // the bottom
+  bottomflat{height(0.01);grey;};
+  // the floors
+  bottomflat{height(40);brown;}; // 1. storey
+  bottomflat{height(40*2);brown;}; // 2. storey
+  bottomflat{height(40*3);brown;}; // 3. storey
+  bottomflat{height(40*4);brown;}; // 4. storey
+  // a roof defined by points
+  roofpoint (10,[40,160,40],[40,40,40],[360,40,40],[360,160,40]){dachRot;};
+  fronttexture;
+}
+
+// ground
+polygon([-600,-100,-.1],[1000,-100,-.1],[1000,1000,-.1],[-600,1000,-1.]){green2;}

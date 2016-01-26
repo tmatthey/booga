@@ -1,0 +1,48 @@
+/*
+ * parkett.bsdl3
+ *
+ * Copyright (C) 1996, Thomas Teuscher <teuscher@iam.unibe.ch>
+ *                     University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: parkett.bsdl3,v 1.1 1996/04/18 14:41:40 streit Exp $
+ * -----------------------------------------------------------------------------
+ */
+
+#ifndef _parkett.bsdl3
+#define _parkett.bsdl3
+
+using 3D;
+
+camera {
+  perspective {
+  eye [7,7,10];
+  lookat [0,0,0];
+  resolution (200,200);
+  fov 50;
+  }
+  background [.6,.6,.6];
+}
+
+pointLight (1, [1, 1, 1]) {
+  position [170, 210, 300];
+}
+
+box ([3.001,-5.001,0.001],[-3.001,5.001,4.001]) {
+    shader("parkett.bsl");
+    scale [1,1,.1];
+  }
+
+#endif // _parkett.bsdl3
+

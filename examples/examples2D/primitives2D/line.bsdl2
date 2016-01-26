@@ -1,0 +1,76 @@
+/*
+ * line.bsdl2
+ *
+ * Copyright (C) 1994-96, Christoph Streit <streit@iam.unibe.ch>
+ *                        Stephan Amann <amann@iam.unibe.ch>
+ *                        University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: line.bsdl2,v 1.2 1996/01/11 16:46:36 streit Exp $
+ * -----------------------------------------------------------------------------
+ */
+ 
+#ifndef _line_bsdl2
+#define _line_bsdl2
+
+// We're in 2D Namespace:
+using 2D;
+ 
+// We need a camera
+camera {
+  resolution (300, 300);       // Screen resolution.
+  window ([0,0], [300,300]);   // Part of the scene to be displayed.
+  background [.5, .5, .5];     // Color of the background.
+}
+
+//_____________________________________________________________________ Textures
+
+define red   color [1,0,0];
+define green color [0,1,0];
+define blue  color [0,0,1];
+ 
+//________________________________________________________________________ Scene
+
+// Define of a line to be used later in the scene definition.
+define DefaultLine line ([0, 0], [120, 0]);
+
+line ([20, 60], [140, 60]) {  // No transformations, just a color.
+  red;
+}
+
+DefaultLine {          // Instance of a define with transformation attached.
+  green;
+  translate [20, 230];
+}
+
+DefaultLine {          // Instance of a define with transformations attached.
+  blue;
+  scale [0.7, 1];
+  translate [180, 60];
+}
+
+DefaultLine {          // Instance of a define with transformations attached. 
+  color 1.2*[0.7, 0.5, 0.1];
+
+  transform {          // Transformations may be enclosed in the transform
+                       // construct.
+    rotateOrigin 50;
+    translate [170, 170];
+  }
+}
+
+#endif // _line_bsdl2
+ 
+
+

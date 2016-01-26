@@ -1,0 +1,50 @@
+/*
+ * partsOfPrimitives.bsdl3
+ *
+ * Copyright (C) 1996, Thomas Teuscher<teuscher@iam.unibe.ch>
+ *                     University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: partsOfPrimitives.bsdl3,v 1.1 1996/06/06 11:49:30 streit Exp $
+ * -----------------------------------------------------------------------------
+ */
+
+#ifndef _partsOfPrimitives_bsdl3
+#define _partsOfPrimitives_bsdl3
+
+using 3D;
+
+camera {
+  perspective {
+  eye [12,0,6];
+  lookat [0,0,1.5];
+  resolution (500, 500);
+  }
+  background [.9,.9,.9];
+};
+
+pointLight (1, [1, 1, 1]) { position [30, 25, 30]; }
+
+sphere (3, [0,0,0]) {
+  shader("partOfSphere.bsl", [0,1,1], [.5,1,1]);
+  scale[1,1,.66];
+  translate[0,0,3.45];
+}
+
+torus (2.5, 2, [0,0,0], [0,0,1]) { 
+  shader("partOfTorus.bsl", 1.75);
+}
+
+#endif // _partsOfPrimitives_bsdl3
+

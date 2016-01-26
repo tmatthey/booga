@@ -1,0 +1,64 @@
+Compiling and Linking in SHARED mode.
+
+Compiling framework/pixmapOp/src/ColorTransformation.C
+
+Compiling framework/pixmapOp/src/ComputeBoundary.C
+
+Compiling framework/pixmapOp/src/ExtractChannel.C
+1540-497: (W) Waiting for license.
+
+Compiling framework/pixmapOp/src/GIFReader.C
+1540-497: (W) Waiting for license.
+
+Compiling framework/pixmapOp/src/GammaCorrection.C
+1540-497: (W) Waiting for license.
+
+Compiling framework/pixmapOp/src/ImageReader.C
+
+Compiling framework/pixmapOp/src/JPEGReader.C
+
+Compiling framework/pixmapOp/src/LabelConnectedComponents.C
+
+Compiling framework/pixmapOp/src/NeuroQuantize.C
+
+Compiling framework/pixmapOp/src/PPMReader.C
+
+Compiling framework/pixmapOp/src/PixiDiff.C
+
+Compiling framework/pixmapOp/src/PixiReader.C
+
+Compiling framework/pixmapOp/src/PixmapGenerator.C
+
+Compiling framework/pixmapOp/src/PixmapTransformer.C
+
+Compiling framework/pixmapOp/src/Thin.C
+
+Compiling framework/pixmapOp/src/neuroQuant.C
+ls: 0653-341 The file libpixmapOp.a does not exist.
+
+Building SHARED Library libpixmapOp.a
+rm: /tmp/libpixmapOp.a-tmp.a: A file or directory in the path name does not exist.
+gmake: [libpixmapOp.a] Error 2 (ignored)
+ar: Creating an archive file /tmp/libpixmapOp.a-tmp.a.
+a - ColorTransformation.o
+a - ComputeBoundary.o
+a - ExtractChannel.o
+a - GIFReader.o
+a - GammaCorrection.o
+a - ImageReader.o
+a - JPEGReader.o
+a - LabelConnectedComponents.o
+a - NeuroQuantize.o
+a - PPMReader.o
+a - PixiDiff.o
+a - PixiReader.o
+a - PixmapGenerator.o
+a - PixmapTransformer.o
+a - Thin.o
+a - neuroQuant.o
+rm: libpixmapOp.a: A file or directory in the path name does not exist.
+gmake: [libpixmapOp.a] Error 2 (ignored)
+ld: 0706-006 Cannot find or open library file: -l base
+	ld:open(): A file or directory in the path name does not exist.
+gmake: *** [libpixmapOp.a] Error 255
+gmake: Target `all' not remade because of errors.

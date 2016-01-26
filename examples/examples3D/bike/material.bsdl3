@@ -1,0 +1,33 @@
+/*
+ * material.bsdl3 
+ *
+ * Copyright (C) 1995, Bernhard Buehlmann <buehlmann@iam.unibe.ch>
+ *                     University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: material.bsdl3,v 1.5 1996/08/29 14:17:29 buhlmann Exp $
+ * -----------------------------------------------------------------------------
+ */
+
+#ifndef _material_bsdl3
+#define _material_bsdl3
+
+define metall whitted { diffuse [.9,.9,.95]; };
+define metall_s whitted { diffuse [.7,.65,.1]; };
+define rot whitted { diffuse [.9,.1,.1]; };
+define pneu whitted { diffuse [.01,.01,.01]; };
+define braun whitted { diffuse [.4,.35,.01]; }
+
+#endif // _material_bsdl3
+

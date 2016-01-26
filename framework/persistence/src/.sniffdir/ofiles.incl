@@ -1,0 +1,7 @@
+OFILES = AsciiMarshal.o DataBase.o FileBase.o \
+		Marshal.o PBinary.o PExtra.o \
+		PExtraTemplates.o POId.o PRCString.o \
+		PRef.o PersistenceFor.o Persistent.o \
+		PersistentManager.o Set.o SimpleIndex.o \
+		Transaction.o TransientBase.o 
+

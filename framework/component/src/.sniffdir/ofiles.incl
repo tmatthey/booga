@@ -1,0 +1,26 @@
+OFILES = AbstractPixmapOperation.o AbstractTraversal2D.o AbstractTraversal3D.o \
+		Antialiaser.o BSDL2DParser.o BSDL2DWriter.o \
+		BSDL3DParser.o BSDL3DWriter.o BSDLParser.o \
+		BSDLParserInit.o BSDLWriter.o Boundary2D.o \
+		CollectShared2D.o CollectShared3D.o CollectTexture3D.o \
+		CollectorFor.o Component.o ConvexHull2D.o \
+		Copy2D.o Copy3D.o File2D.o \
+		File3D.o FlatTriangleInterpolator.o GouraudTriangleInterpolator.o \
+		JPEGWriter.o MFile.o MTraversal.o \
+		MURL.o MultiFileStore.o Operation2D.o \
+		Operation2DTo3D.o Operation3D.o Operation3DTo2D.o \
+		OversamplingAntialiaser.o PPMWriter.o PSWriter2D.o \
+		PSWriter3D.o Parser3D.o PhongTriangleInterpolator.o \
+		Picker2D.o Picker3D.o PixiWriter.o \
+		Pixmap2DWriter.o PixmapGeneratorWrapper.o PixmapRenderer.o \
+		PixmapTransformerWrapper.o PreorderTraversal2D.o PreorderTraversal3D.o \
+		PrintWorld2D.o PrintWorld3D.o Rasterizer.o \
+		RayshadeWriter.o Raytracer.o ReadImage.o \
+		Renderer.o SetStandardView3D.o ShowNormals.o \
+		SingleFileStore.o SirdsRenderer.o Traversal.o \
+		TriangleInterpolator.o TriangleInterpolatorOption.o Triangulator.o \
+		URL2D.o URL3D.o URLContext.o \
+		VRMLObject.o VRMLParser.o VRMLState.o \
+		VRMLYaccImpl.o Visitor.o Wireframe.o \
+		ZBuffer.o 
+

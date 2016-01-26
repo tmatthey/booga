@@ -1,0 +1,9 @@
+OFILES = BinomialCoeffs.o Nurbs3D.o Nurbs3DAttr.o \
+		Nurbs3DBasisFuns.o Nurbs3DCreator.o Nurbs3DEvaluator.o \
+		Nurbs3DHandler.o Nurbs3DKnots.o Nurbs3DManipulator.o \
+		Nurbs3DParameters.o Nurbs3DPoints.o Nurbs3DWeights.o \
+		NurbsCircle3D.o NurbsCompound3D.o NurbsData3D.o \
+		NurbsInterpolation3D.o NurbsLine3D.o NurbsPolyLine3D.o \
+		NurbsRevolution3D.o NurbsSphere3D.o NurbsSquare3D.o \
+		NurbsSweeping3D.o NurbsSwinging3D.o NurbsTorus3D.o 
+

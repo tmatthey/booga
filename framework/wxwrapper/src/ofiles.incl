@@ -1,0 +1,11 @@
+OFILES = wxAdaptiveTraceCommand.o wxAdaptiveTracer.o wxAnimator.o \
+		wxBOOGAView.o wxCameraEditor.o wxClipboardCommands.o \
+		wxDialogDirector.o wxGLCanvas.o wxIOCon.o \
+		wxIOSb.o wxInspectSelectionCommand.o wxManagedButton.o \
+		wxManagedCheckBox.o wxManagedChoice.o wxManagedDialogBox.o \
+		wxManagedFrame.o wxManagedListBox.o wxManagedRadioBox.o \
+		wxManagedSlider.o wxManagedText.o wxMotionCommands.o \
+		wxNavigationBar.o wxSelectCommand.o wxSharedViewer.o \
+		wxView3D.o wxView3DPreferences.o wxViewCommand.o \
+		wxViewManager.o wxWindowsBridge.o 
+

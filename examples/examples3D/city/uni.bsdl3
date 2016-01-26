@@ -1,0 +1,68 @@
+/*
+ * $RCSfile: uni.bsdl3,v $
+ *
+ * Copyright (C) 1994-96, Bernhard Buehlmann <buehlmann@iam.unibe.ch>
+ *                        University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: uni.bsdl3,v 1.3 1997/05/26 13:45:20 matthey Exp $
+ * -----------------------------------------------------------------------------
+ */
+
+#ifndef _no_instance
+#define _no_instance
+
+#include "viewing.inc"
+#include "color.inc"
+#include "iam.bsdl3"
+#include "schuetzenmatt.bsdl3"
+#include "enghalde_a.bsdl3"
+#include "enghalde_b.bsdl3"
+//#include "birke.bsdl3"
+
+
+iam;
+schuetzenmatt {rotateZ(90);translate[100,-350,-iam_stock_h];}
+enghalde_a {translate[-20,-500,-iam_stock_h];}
+enghalde_b {rotateZ(-35);translate[450,-100,-iam_stock_h];}
+//birke {scale[10,10,10];translate[150,-100,-iam_stock_h];}
+//birke {scale[10,10,10];translate[250,-100,-iam_stock_h];}
+//birke {scale[10,10,10];translate[350,-100,-iam_stock_h];}
+
+list{
+  
+box([-1000,-1000,0],[1000,1000,-100]){translate[0,0,-iam_stock_h];grey;}  
+  box([-1000,168,0],[1000,1000,-iam_stock_h]);
+  box([-1000,-400,-iam_stock_h],[0,168,0]);
+  box([400,0,0],[1000,168,-iam_stock_h]);
+  box([0,80,-iam_stock_h],[30,168,0]);
+  box([400,80,-iam_stock_h],[370,168,0]);
+  green;
+//  polygonmapper("stone.jpg",0.1,0.1,0);
+  polyextrude(1,[0.4,0.4,0] ,[0.2,0.4,0] ,[-0.6,0.6,0] ,[-0.819588,-0.431691,0] ,
+    [-0.6,-0.5,0] ,[-0.6,-0.7,0] ,[1,-0.7,0] ,[1,0.5,0] ,[0.974219,0.63125,0] ,
+    [0.90625,0.725,0] ,[0.810156,0.78125,0] ,[0.7,0.8,0] ,[0.589844,0.78125,0] ,
+    [0.49375,0.725,0] ,[0.425781,0.63125,0] ,[0.4,0.5,0] ){
+    rotateZ(140);
+    scale[25,25,5];
+    translate[300,-230,-iam_stock_h];
+    white;
+  }
+}
+
+
+#endif
+// _ iam_bsdl3
+
+

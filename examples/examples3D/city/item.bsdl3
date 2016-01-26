@@ -1,0 +1,223 @@
+/*
+ * item.bsdl3 
+ *
+ * Copyright (C) 1994-96, Bernhard Buehlmann <buehlmann@iam.unibe.ch>
+ *                        University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: item.bsdl3,v 1.4 1997/05/26 13:45:18 matthey Exp $
+ * -----------------------------------------------------------------------------
+ */
+
+#ifndef _item_bsdl3
+#define _item_bsdl3
+
+#include "color.inc"
+
+
+//
+// IAM
+//
+
+const iam_b1 28;
+const iam_stock_h 40;
+const hib_stock_h 40;
+
+define f_balken_h box ([-.5, -10,-.2], [.5, 10 ,.2]);
+define f_balken_q box ([-5.5, -.5,-.2], [5.5, .5, .2]);
+
+define fenster_iam00 list {
+	f_balken_h { weiss;}
+	f_balken_h { translate [-5,0,0];weiss;}
+	f_balken_h { translate [5,0,0];weiss;}
+	f_balken_q { translate [0,3,0];weiss;}
+	f_balken_q { translate [0,10,0];weiss;}
+	f_balken_q { translate [0,-10,0];weiss;}
+
+	box ([-5.5, 10, -.1], [5.5, 12, .1]) {weiss;}
+
+	box ([-5, -12, 1.5], [-6, 12, -1.5]) {sandstein;}
+	box ([5, -12, -1.5], [6, 12, 1.5]){sandstein;}
+	box ([5.5, -10, 3], [-5.5, -12,-.15]) {sandstein;}  
+    box ([-6.5, 12, 3], [6.5, 14, -1.5]) {sandstein;} 
+    // Loecher auf den Seiten fuellen
+    box ([-6.5,14,0],[-5,-12,-1]);
+    box ([6.5,14,0],[5,-12,-1]);
+    // Fensterglass
+    box ([5.5,13,-1.4],[-5.5,-11,-1.5]){glasDunkel;};
+
+}
+
+define fenster_iam01 list {
+  box([0,0,0],[1,1,1]);
+}
+
+define fenster_iam02 list {
+  multiobject(4,[2,0,0]){
+    box([-3-0.1,-2-0.1,-0.1],[-3-0.1,4+0.1,0.1]);
+  }
+  multiobject(4,[0,2,0]){
+    box([-3-0.1,-2-0.1,-0.1],[3+0.1,-2+0.1,0.1]);
+  }
+  box([-3.1,-2,-0.1],[3.1,-4, 0.1]);
+  box([-3.1,-2,-0.1],[3.1, 4,-0.2]){glasDunkel;}
+  grey;
+  translate([0,0,-0.1]);
+}
+
+define fenster_iam03 list {
+  multiobject(9,[1,0,0]){
+    box([-4-0.1,-4,-0.4],[-4+0.1,0,-0.5]);
+  }
+  box([-4-0.1,-4,-0.4],[4.1,-3.8,-0.5]);
+  box([-4-0.1,0,-0.4],[4.1,-0.2,-0.5]);
+  box([-4-0.1,-4,-0.5],[4.1, 0,-0.6]){glasDunkel;}
+  grey;
+}
+
+define tuere_iam00 list {
+  box([-7,0,0],[-5.5,35,2]) {sandstein;}
+  box([ 7,0,0],[5.5,35,2])  {sandstein;}
+  box([-7,0,0],[7,.1,4])    {sandstein;}
+  box([ -7,33,0],[7,40,2])  {sandstein;}
+  switch {
+    on {
+      box([-6,0,-1],[6,35,1.1]) {brown;}
+    }
+    off {
+      box([-6,0,-1],[-5.9,35,11]) {brown;}
+    }
+  }
+}
+
+
+//
+// Bahnhof
+//
+
+const bh_e_b 30;    // Breite der Elemente
+const bh_e_bn 32;   // Anzahl Elemente
+const bh_e_h1  8;   // Hoehe des Elementes element_bh00
+const bh_e_h2 24;   // Hoehe des Elementes element_bh01
+const bh_h 13*bh_e_h1+3*bh_e_h2; // Gesamthohe des Bahnhofes
+
+define element_bh00 list {
+  box([0,0,0],[bh_e_b,bh_e_h1,-.5]) {gruenDunkel;}
+  box([0,0,0],[.5,bh_e_h1,.5]){gruenHell;}
+  box([0,bh_e_h1-.5,0],[bh_e_b,bh_e_h1,.5]){gruenHell;}
+}
+
+define element_bh01 list {
+  box([0,0,0],[bh_e_b,bh_e_h2,-.5]) {gruenSpiegel;}
+  box([0,0,0],[.5,bh_e_h2,.5]){gruenHell;}
+  box([0,bh_e_h2-.5,0],[bh_e_b,bh_e_h2,.5]){gruenHell;}
+}
+
+
+//
+// Spital
+//
+
+const sp_f_b 20;  // Breite des Fensters
+const sp_f_h 30;  // Hoehe des Fensters
+const sp_f_ht 16; // Translation des Fensters nach oben
+const sp_e_b 40;  // Breite des Elementes
+const sp_e_h 50;  // Hoehe des Elmentes
+
+define f_quer1 box ([0,-.3, -.3], [sp_f_b,.3,.3]) {weiss;}
+define f_hoch1 box ([-.3,0, -.3], [.3,30,0]) {weiss;}
+
+define fenster_sp00 list {
+        // Fensterrahmen
+	box ([0, 0, 1], [2, sp_f_h, 0]) {sandstein;}
+	box ([sp_f_b-2,0, 1], [sp_f_b, sp_f_h, 0])   {sandstein;}
+	box ([0, 0, 3], [sp_f_b, 2, 0])  {sandstein;}
+	box ([0, sp_f_h -2, 1], [sp_f_b, sp_f_h, 0]) {sandstein;}
+
+        // Hauptgitter
+	box ([sp_f_b/2-.5, 0,.3], [sp_f_b/2+.5, sp_f_h, 0])   {weiss;}
+	box ([0, 20,.7], [sp_f_b, 21, 0]) {weiss;}
+
+        // Gitter
+	f_hoch1 {translate [sp_f_b*0.25,0,0];}
+	f_hoch1 {translate [sp_f_b*0.75,0,0];}
+
+	f_quer1 {translate [0,3,0];}
+	f_quer1 {translate [0,6,0];}
+	f_quer1 {translate [0,9,0];}
+	f_quer1 {translate [0,12,0];}
+	f_quer1 {translate [0,15,0];}
+	f_quer1 {translate [0,18,0];}
+};
+
+define element_sp00 list {
+	box ([0, 0,2], [sp_e_b, 9,0]) {weiss;}
+	box ([0, sp_e_h-2,4], [sp_e_b, sp_e_h,0]) {sandstein;}
+
+	fenster_sp00 {translate [sp_e_b/2-sp_f_b/2,sp_f_ht,0];};
+}
+
+//
+//  Enghalde
+//
+
+define fenster_en00 list{
+  box([-10,-8,0.2],[10,-7,-1]){grey;}
+  box([-10,8,0.2],[10,7,-1]){grey;}
+  box([-10,8,0.2],[-9,-7,-1]){grey;}
+  box([10,8,0.2],[9,-7,-1]){grey;}
+  box([-3-.2,-8,-1.2],[-3+.2,8,-1]){grey;}
+  box([3-.2,8,-1.2],[3+.2,-8,-1]){grey;}
+}
+define fenster_en01 list{
+  box([-13,-8,0.2],[13,-7,-1]){grey;}
+  box([-13,8,0.2],[13,7,-1]){grey;}
+  box([-13,8,0.2],[-12,-7,-1]){grey;}
+  box([13,8,0.2],[12,-7,-1]){grey;}
+  box([-6-.2,-8,-1.2],[-6+.2,8,-1]){grey;}
+  box([0-.2,8,-1.2],[0+.2,-8,-1]){grey;}
+  box([6-.2,8,-1.2],[6+.2,-8,-1]){grey;}
+}
+const en02_b1 86;
+
+define fenster_en02 list{
+  box([-en02_b1,-8,0.2],[en02_b1,-7,-1]){grey;}
+  box([-en02_b1,8,0.2],[en02_b1,7,-1]){grey;}
+  box([-en02_b1,8,0.2],[-en02_b1+1,-7,-1]){grey;}
+  box([en02_b1,8,0.2],[en02_b1-1,-7,-1]){grey;}
+}
+define fenster_en03 list{
+  box([-8,-8,0.2],[8,-7,-1]){sandstein;}
+  box([-8,8,0.2],[8,7,-1]){sandstein;}
+  box([-8,8,1],[-7,-7,-1]){sandstein;}
+  box([8,8,0.2],[7,-7,-1]){sandstein;}
+  box([0-.2,8,-1.2],[0+.2,-8,-1]){sandstein;}
+}
+
+// HiB
+
+define window_hib list{
+  box([-1.8,-1.0,-0.1],[-1.7, 1.0,0]); // left up
+  box([-0.25,-1.0,-0.1],[ 0.25, 1.0,0]); // middel up
+  box([ 1.8,-1.0,-0.1],[ 1.7, 1.0,0]); // right up
+  box([-1.8,-1.0,-0.1],[ 1.8,-0.9,0]); // down
+  box([-1.8, 1.0,-0.1],[ 1.8, 0.9,0]); // up
+  box([-1.75,-0.95,-0.1],[ 1.75,0.95,-.05]){glasDunkel;}
+  scale([hib_stock_h/4,hib_stock_h/4,1]);
+}
+#endif
+// _ item_bsdl3
+
+
+

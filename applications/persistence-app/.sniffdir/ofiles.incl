@@ -1,0 +1,11 @@
+OFILES = AsciiMarshal.o DataBase.o FileBase.o \
+		GDBData.o GDBDataType.o GDBExport.o \
+		GDBOperation.o GDBRepType.o GDBStore.o \
+		GDBTraversal.o GraphicsDataBase.o ImportBSDL3.o \
+		Marshal.o PBinary.o PExtra.o \
+		PExtraTemplates.o POId.o PRCString.o \
+		PRef.o PersistenceFor.o Persistent.o \
+		PersistentManager.o Set.o SetStandardView3D.o \
+		SimpleIndex.o Transaction.o TransientBase.o \
+		persistence.o 
+

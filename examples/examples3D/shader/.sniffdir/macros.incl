@@ -1,0 +1,89 @@
+SNIFF_TARGET		= all
+SNIFF_TARGETS		= all 
+SNIFF_INCLUDE		= 
+
+SNIFF_ShSWS		= $(SHARED_SRC)/examples/examples3D/shader
+SNIFF_ShSWS_2		= '$$(SHARED_SRC)/examples/examples3D/shader'
+SNIFF_ShOWS		= $(SHARED_OBJ)/examples/examples3D/shader
+SNIFF_PROJECT_DIR	= examples/examples3D/shader
+SNIFF_RELATIVE_ROOT_DIR	= ../../..
+SNIFF_GENERATE_DIR	= .sniffdir
+SNIFF_GENERATE_DIR_ROOT	= 
+
+SNIFF_PROJECT		= shader.shared
+SNIFF_STATUSFILE	= .Sniff_LastUpdateOfProject_$(SNIFF_PROJECT)
+
+SNIFF_VCS		= RCS
+SNIFF_REPOSITORY_DIR	= $(REPOSITORY)/examples/examples3D/shader
+
+SNIFF_Lex_Source_DIR	= .
+SNIFF_Lex_Source_FILES	= 
+
+SNIFF_Yacc_Source_DIR	= .
+SNIFF_Yacc_Source_FILES	= 
+
+SNIFF_Shell_Script_DIR	= .
+SNIFF_Shell_Script_FILES	= 
+
+SNIFF_Emacs_Lisp_DIR	= .
+SNIFF_Emacs_Lisp_FILES	= 
+
+SNIFF_Python_DIR	= .
+SNIFF_Python_FILES	= 
+
+SNIFF_Make_DIR	= .
+SNIFF_Make_FILES	= 
+
+SNIFF_Header_Documentation_DIR	= docu
+SNIFF_Header_Documentation_FILES	= 
+
+SNIFF_Header_DIR	= .
+SNIFF_Header_FILES	= 
+
+SNIFF_Implementation_DIR	= .
+SNIFF_Implementation_FILES	= 
+
+SNIFF_Project_Description_DIR	= .
+SNIFF_Project_Description_FILES	= shader.shared 
+
+SNIFF_Document_Template_DIR	= docu/tmpl
+SNIFF_Document_Template_FILES	= 
+
+SNIFF_Image_DIR	= .
+SNIFF_Image_FILES	= allee.pixi beach.pixi booga.ppm  \
+	earth.ppm 
+
+SNIFF_Object_DIR	= .
+SNIFF_Object_FILES	= 
+
+SNIFF_Implementation_Documentation_DIR	= docu
+SNIFF_Implementation_Documentation_FILES	= 
+
+SNIFF_BOOGA_Scene_Description_DIR	= .
+SNIFF_BOOGA_Scene_Description_FILES	= boogaWorld.bsdl3 checkers.bsdl3 cloudyEarth.bsdl3  \
+	cloudyPlanet.bsdl3 diffSpecRGBSphere.bsdl3 marbleSphere.bsdl3  \
+	moonrise.bsdl3 parkett.bsdl3 partsOfPrimitives.bsdl3  \
+	planet.bsdl3 rgbCube.bsdl3 
+
+SNIFF_Generator_ConfigurationHandler_DIR	= .
+SNIFF_Generator_ConfigurationHandler_FILES	= 
+
+SNIFF_Generator_SpecifierAttribute_DIR	= .
+SNIFF_Generator_SpecifierAttribute_FILES	= 
+
+SNIFF_BOOGA_Shading_Language_DIR	= .
+SNIFF_BOOGA_Shading_Language_FILES	= booga.bsl bump.bsl checker2D.bsl  \
+	checker3D.bsl clouds.bsl diffSpec.bsl  \
+	diffspec.bsl earth.bsl eroded.bsl  \
+	grid2D.bsl grid3D.bsl marble.bsl  \
+	mask.bsl moon.bsl parkett.bsl  \
+	partOfSphere.bsl partOfTorus.bsl planet.bsl  \
+	refracted.bsl rgb.bsl texturemap.bsl  \
+	water.bsl wood.bsl 
+
+SNIFF_FILES	= $(SNIFF_Lex_Source_FILES) $(SNIFF_Yacc_Source_FILES) $(SNIFF_Shell_Script_FILES)  \
+	$(SNIFF_Emacs_Lisp_FILES) $(SNIFF_Python_FILES) $(SNIFF_Make_FILES)  \
+	$(SNIFF_Header_Documentation_FILES) $(SNIFF_Header_FILES) $(SNIFF_Implementation_FILES)  \
+	$(SNIFF_Project_Description_FILES) $(SNIFF_Document_Template_FILES) $(SNIFF_Image_FILES)  \
+	$(SNIFF_Object_FILES) $(SNIFF_Implementation_Documentation_FILES) $(SNIFF_BOOGA_Scene_Description_FILES)  \
+	$(SNIFF_Generator_ConfigurationHandler_FILES) $(SNIFF_Generator_SpecifierAttribute_FILES) $(SNIFF_BOOGA_Shading_Language_FILES) 

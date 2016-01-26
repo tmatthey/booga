@@ -1,0 +1,103 @@
+/*
+ * turnAround.bsdl3
+ *
+ * This an example to show how turn works. A ball is turning around tops
+ * in 4 halfturns and goes up and down from frame 0 to 60.
+ *
+ * Copyright (C) 1996, Thierry Matthey <matthey@iam.unibe.ch>
+ *                     University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: turnAround.bsdl3,v 1.3 1996/06/06 09:07:10 streit Exp $
+ * -----------------------------------------------------------------------------
+ */
+using 3D;
+
+//
+// Definition of the camera and lightsource
+//
+
+camera {
+  perspective {
+    eye [80,30,50];
+    lookat [0, 0, 0];
+    resolution (192, 192);
+  }
+  background [.3,.3,.3];
+};
+
+pointLight (2, [1,1,1]) { position [  40,   40, 20]; }
+
+//
+// Definition of colors
+//
+
+define white  whitted { diffuse [1,1,1]; }
+define blue  whitted { diffuse [0,0,1]; }
+define red   phong { diffuse [.4,.1,.1]; specular [.6,0,0]; specpow 5;}
+define yellow  whitted { diffuse [1,1,0]; }
+define cyan  phong { diffuse [1,1,.1]; specular [.6,0,0]; specpow 5;}
+define mirror whitted { diffuse [1,1,1]; reflectivity .9; }
+
+//
+// Definition of the ball
+//
+
+define ball list{
+  move {                // translation
+    action (0,60) {     // from frame 0 to 60
+      direction ([0,0,1],"sin",0.075, 0.175, 0); // up and down
+    }                                            // with the fct. "sin"
+    turn {                 // Tturn
+      action (0,10) {      // 1. arc, from 0 to 10
+        center [0,0,0];    // const. turn of 180 degrees around (0,0,0) in 10 frames 
+        axis [0,0,1];      // rotationaxis (0,0,1) 
+        alpha (180,"id", 0,  1, 0);
+      }
+      action (10,20) {     // turn
+        center [0,-20,0];  // 2. arc, from 10 to 20
+        axis [0,0,1];      // const. turn of 180 degrees around (0,-20,0) in 10 frames 
+        alpha (-180);      // rotationaxis (0,0,1) 
+      }
+      action (20,50) {
+        center [0,0,0];    // 3. arc, from 20 to 50
+        axis [0,0,1];      // const. turn of 180 degrees around (0,0,0) in 30 frames 
+        alpha (-180);      // rotationaxis (0,0,1) 
+      }
+      action (50,60) {
+        center ([0,20,0]); // 4. arc, from 50 to 60
+        axis ([0,0,1]);    // const. turn of 180 degrees around (0,20,0) in 10 frames 
+        alpha (-180);      // rotationaxis (0,0,1) 
+      }
+      sphere (2, [0, 10, 0]) { white;};
+    }
+  }
+}
+
+//
+// Definition of tops
+//
+
+define tops list {
+  cone (1, [0,0,0], 0, [0,0,3]) { red;}
+  cone (1, [0,-20,0], 0, [0,-20,3]) { red;}
+  cone (1, [0,20,0], 0, [0,20,3]) { red;}
+}
+
+//_____________________________________________________________
+
+polygon ([-35,-35,0],[35,-35,0],[35,35,0],[-35,35,0]) { yellow; }
+tops;
+
+ball;

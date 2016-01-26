@@ -1,0 +1,1 @@
+GEN_OFILES = BottomAttr.o BuildingObjectAttr.o FaceArbourAttr.o FaceAttr.o FaceTunnelAttr.o FrontAttr.o RoofAttr.o

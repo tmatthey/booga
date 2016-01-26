@@ -1,0 +1,26 @@
+#VRML V1.0 ascii
+
+#
+# lod.wrl
+#
+# Test of VRML level of detail feature.
+#
+# Copyright (C) 1996, Beat Liechti <liechti@isbe.ch>
+#                     Ingenieurschule Bern, Switzerland
+#
+# -----------------------------------------------------------------------------
+# $Id: lod.wrl,v 1.1 1996/02/28 10:16:46 streit Exp $
+# -----------------------------------------------------------------------------
+#
+
+Separator
+{
+  Material { diffuseColor [ 1 0 0,  0 1 0,  0 0 1, 1 1 0 ] } 
+  LOD
+  {
+    range [ 5, 10 ]
+    Sphere { radius 1 }                  # Highest level of detail
+    Cube { width 2 height 2 depth 2 }    # Next level of detail
+    Cylinder { radius 1 }                # Lowest level of detail
+  }
+}

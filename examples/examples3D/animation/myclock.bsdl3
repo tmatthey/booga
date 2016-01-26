@@ -1,0 +1,170 @@
+/*
+ * myclock.bsdl3
+ *
+ * This is a simple animation of an analog clock and shows the
+ * posibility of stepwise rotations.
+ * 
+ * Copyright (C) 1996, Thierry Matthey <matthey@iam.unibe.ch>
+ *                     University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: myclock.bsdl3,v 1.1 1996/06/06 09:06:58 streit Exp $
+ * -----------------------------------------------------------------------------
+ */
+
+using 3D;
+
+//
+// Definition of the camera an the lightsource
+//
+
+camera {
+  perspective {
+    eye [20,0,0];
+    lookat [0, 0, 0];
+    resolution (200, 200);
+  }
+  background [.3,.3,.3];
+};
+
+pointLight (3, [1,1,1]) { position [  20,   0, 0]; }
+
+//
+// Definition of colors
+//
+
+define white   matte { diffuse [1,1,1]; }
+define black   matte { diffuse [0,0,0]; }
+define red     phong { diffuse [.4,.1,.1]; }
+define yellow  matte { diffuse [1,1,0]; }
+define green   matte { diffuse [.2,.5,.2]; }
+define green2  matte { diffuse [.3,.6,.2]; }
+define brown   matte { diffuse [.3,.2,.2]; }
+define blue    matte { diffuse [.3,.2,.9]; }
+define grey    matte { diffuse [.7,.7,.7]; }
+
+//
+// Definiton of the point point
+//
+
+define point1 list {
+  sphere (0.2, [0,5.3,0]) { black;}
+}
+
+
+//
+// Definiton of face
+//
+
+define face list {
+  point1 {	rotateX (0); }
+  point1 {	rotateX (30); }
+  point1 {	rotateX (60); }
+  point1 {	rotateX (90); }
+  point1 {	rotateX (120); }
+  point1 {	rotateX (150); }
+  point1 {	rotateX (180); }
+  point1 {	rotateX (210); }
+  point1 {	rotateX (240); }
+  point1 {	rotateX (270); }
+  point1 {	rotateX (300); }
+  point1 {	rotateX (330); }
+  disc (6, [0,0,0], [1,0,0]) { white;};
+  disc (6, [0,0,0], [1,0,0]) { white; translate [-0.2,0,0];};
+  torus (6,0.3,[0,0,0],[1,0,0]) {
+    brown;
+    translate [-0.1,0,0];
+  }
+  text (1.5, 0.1, "BOOGA") {
+    font "ROMAN";
+    black;
+    translate [0.02,-3.1,2];
+  }
+  text (1, 0.1, "timeless") {
+    font "ROMAN";
+    black;
+    translate [0.02,-2.7,-3];
+  }    
+}
+
+//
+// Definiton of hand_second
+//
+
+define hand_second list {
+  box ([0.01,-0.05,-0.1], [0.05,0.05,5]) {
+    yellow;
+  }
+}
+
+
+//
+// Definition of hand_minute
+//
+
+define hand_minute list {
+  box ( [0.06,-0.1,-0.1], [0.1,0.1,4.5]) {
+    red;
+  }
+}
+
+//
+// Definiton of hand_hour
+//
+
+define hand_hour list{
+  box ([0.11,-0.12,-0.1], [0.15,0.12,3.0]) {
+    blue;
+  }
+}
+
+//
+// Definition of the clock
+//
+
+define clock list{
+  turn {                             // Rotation of secondhand
+    action (0,60,0) {                // from frame 0 to 60, endless
+      center [0,0,0];                // Rotationcenter (0,0,0)
+      axis [1,0,0];                  // Rotationaxis (1,0,0)
+      alpha (-360,"id", 0, 1, 1/60); // Constant rotation of -360 degres 
+                                     //  in 60 frames with a step of -6 degrees
+    }                                
+    hand_second;                     // Animated object is hand_second
+  } 
+  turn {                             // Rotation of minutehand
+    action (0,60*60,0) {             // from frame 0 to 60*60, endless
+      center [0,0,0];                // Rotationcenter (0,0,0)
+      axis [1,0,0];                  // Rotationaxis (1,0,0)
+      alpha (-360,"id", 0, 1, 1/60); // Constant rotation of -360 degres 
+                                     //  in 60*60 frames with a step of -6 degrees       
+    }
+    hand_minute;                     // Animated bject is hand_minute
+  } 
+  turn {                                   // Rotation of hourhand
+    action (0,60*60*12,0) {                // from frame 0 to 60*60*12, endless
+      center [0,0,0];                      // Rotationcenter (0,0,0)
+      axis [1,0,0];                        // Rotationaxis (1,0,0)
+      alpha (-360,"id", 0, 1, 1/60/12/60); // Constant rotation of -360 degres
+                                           //  in 60*60*12 frames with a step of -1/120 degrees       
+    }
+    hand_hour;                             // Animated object is hand_hour
+  }   
+//  sphere (0.2, [0, 0,0]) { white;}; // Sphere in the rotationcenter   
+}
+
+//_____________________________________________________________
+
+clock;
+face;

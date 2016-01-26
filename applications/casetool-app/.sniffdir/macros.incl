@@ -1,0 +1,83 @@
+SNIFF_TARGET		= casetool
+SNIFF_TARGETS		= casetool 
+SNIFF_INCLUDE		= 
+
+SNIFF_ShSWS		= $(SHARED_SRC)/applications/casetool-app
+SNIFF_ShSWS_2		= '$$(SHARED_SRC)/applications/casetool-app'
+SNIFF_ShOWS		= $(SHARED_OBJ)/applications/casetool-app
+SNIFF_PROJECT_DIR	= applications/casetool-app
+SNIFF_RELATIVE_ROOT_DIR	= ../..
+SNIFF_GENERATE_DIR	= .sniffdir
+SNIFF_GENERATE_DIR_ROOT	= 
+
+SNIFF_PROJECT		= casetool-app.shared
+SNIFF_STATUSFILE	= .Sniff_LastUpdateOfProject_$(SNIFF_PROJECT)
+
+SNIFF_VCS		= RCS
+SNIFF_REPOSITORY_DIR	= $(REPOSITORY)/applications/casetool-app
+
+SNIFF_Lex_Source_DIR	= .
+SNIFF_Lex_Source_FILES	= CTLex.l 
+
+SNIFF_Yacc_Source_DIR	= .
+SNIFF_Yacc_Source_FILES	= CTYacc.y 
+
+SNIFF_Shell_Script_DIR	= .
+SNIFF_Shell_Script_FILES	= 
+
+SNIFF_Emacs_Lisp_DIR	= .
+SNIFF_Emacs_Lisp_FILES	= 
+
+SNIFF_Python_DIR	= .
+SNIFF_Python_FILES	= 
+
+SNIFF_Make_DIR	= .
+SNIFF_Make_FILES	= app-specific.mk 
+
+SNIFF_Header_Documentation_DIR	= docu
+SNIFF_Header_Documentation_FILES	= 
+
+SNIFF_Header_DIR	= .
+SNIFF_Header_FILES	= CTAttributeDescription.h CTBaseclassDescription.h CTCPPRenderer2D.h  \
+	CTClassDescription2D.h CTClassDescription2DAttributes.h CTOperationDescription.h  \
+	CTOperationDescriptionAttr.h CTParser.h CTParserInit.h  \
+	CTParserUtils.h CTUMRenderer2D.h CTVariableDescription.h  \
+	TextBox2D.h TextBox2DAttr.h 
+
+SNIFF_Implementation_DIR	= .
+SNIFF_Implementation_FILES	= CTAttributeDescription.C CTBaseclassDescription.C CTCPPRenderer2D.C  \
+	CTClassDescription2D.C CTClassDescription2DAttributes.C CTOperationDescription.C  \
+	CTOperationDescriptionAttr.C CTParser.C CTParserInit.C  \
+	CTUMRenderer2D.C CTVariableDescription.C TextBox2D.C  \
+	TextBox2DAttr.C casetool.C 
+
+SNIFF_Project_Description_DIR	= .
+SNIFF_Project_Description_FILES	= casetool-app.shared 
+
+SNIFF_Document_Template_DIR	= docu/tmpl
+SNIFF_Document_Template_FILES	= 
+
+SNIFF_Image_DIR	= .
+SNIFF_Image_FILES	= 
+
+SNIFF_Object_DIR	= .
+SNIFF_Object_FILES	= 
+
+SNIFF_Implementation_Documentation_DIR	= docu
+SNIFF_Implementation_Documentation_FILES	= 
+
+SNIFF_BOOGA_Scene_Description_DIR	= .
+SNIFF_BOOGA_Scene_Description_FILES	= 
+
+SNIFF_Generator_ConfigurationHandler_DIR	= .
+SNIFF_Generator_ConfigurationHandler_FILES	= 
+
+SNIFF_Generator_SpecifierAttribute_DIR	= .
+SNIFF_Generator_SpecifierAttribute_FILES	= 
+
+SNIFF_FILES	= $(SNIFF_Lex_Source_FILES) $(SNIFF_Yacc_Source_FILES) $(SNIFF_Shell_Script_FILES)  \
+	$(SNIFF_Emacs_Lisp_FILES) $(SNIFF_Python_FILES) $(SNIFF_Make_FILES)  \
+	$(SNIFF_Header_Documentation_FILES) $(SNIFF_Header_FILES) $(SNIFF_Implementation_FILES)  \
+	$(SNIFF_Project_Description_FILES) $(SNIFF_Document_Template_FILES) $(SNIFF_Image_FILES)  \
+	$(SNIFF_Object_FILES) $(SNIFF_Implementation_Documentation_FILES) $(SNIFF_BOOGA_Scene_Description_FILES)  \
+	$(SNIFF_Generator_ConfigurationHandler_FILES) $(SNIFF_Generator_SpecifierAttribute_FILES) 

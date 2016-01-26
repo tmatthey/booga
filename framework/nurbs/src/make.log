@@ -1,0 +1,87 @@
+Compiling and Linking in SHARED mode.
+
+Compiling framework/nurbs/src/BinomialCoeffs.C
+
+Compiling framework/nurbs/src/Nurbs3D.C
+
+Compiling framework/nurbs/src/Nurbs3DAttr.C
+1540-497: (W) Waiting for license.
+
+Compiling framework/nurbs/src/Nurbs3DBasisFuns.C
+1540-497: (W) Waiting for license.
+
+Compiling framework/nurbs/src/Nurbs3DCreator.C
+
+Compiling framework/nurbs/src/Nurbs3DEvaluator.C
+
+Compiling framework/nurbs/src/Nurbs3DHandler.C
+
+Compiling framework/nurbs/src/Nurbs3DKnots.C
+
+Compiling framework/nurbs/src/Nurbs3DManipulator.C
+
+Compiling framework/nurbs/src/Nurbs3DParameters.C
+
+Compiling framework/nurbs/src/Nurbs3DPoints.C
+
+Compiling framework/nurbs/src/Nurbs3DWeights.C
+
+Compiling framework/nurbs/src/NurbsCircle3D.C
+
+Compiling framework/nurbs/src/NurbsCompound3D.C
+
+Compiling framework/nurbs/src/NurbsData3D.C
+
+Compiling framework/nurbs/src/NurbsInterpolation3D.C
+
+Compiling framework/nurbs/src/NurbsLine3D.C
+
+Compiling framework/nurbs/src/NurbsPolyLine3D.C
+
+Compiling framework/nurbs/src/NurbsRevolution3D.C
+
+Compiling framework/nurbs/src/NurbsSphere3D.C
+
+Compiling framework/nurbs/src/NurbsSquare3D.C
+
+Compiling framework/nurbs/src/NurbsSweeping3D.C
+
+Compiling framework/nurbs/src/NurbsSwinging3D.C
+
+Compiling framework/nurbs/src/NurbsTorus3D.C
+ls: 0653-341 The file libnurbs.a does not exist.
+
+Building SHARED Library libnurbs.a
+rm: /tmp/libnurbs.a-tmp.a: A file or directory in the path name does not exist.
+gmake: [libnurbs.a] Error 2 (ignored)
+ar: Creating an archive file /tmp/libnurbs.a-tmp.a.
+a - BinomialCoeffs.o
+a - Nurbs3D.o
+a - Nurbs3DAttr.o
+a - Nurbs3DBasisFuns.o
+a - Nurbs3DCreator.o
+a - Nurbs3DEvaluator.o
+a - Nurbs3DHandler.o
+a - Nurbs3DKnots.o
+a - Nurbs3DManipulator.o
+a - Nurbs3DParameters.o
+a - Nurbs3DPoints.o
+a - Nurbs3DWeights.o
+a - NurbsCircle3D.o
+a - NurbsCompound3D.o
+a - NurbsData3D.o
+a - NurbsInterpolation3D.o
+a - NurbsLine3D.o
+a - NurbsPolyLine3D.o
+a - NurbsRevolution3D.o
+a - NurbsSphere3D.o
+a - NurbsSquare3D.o
+a - NurbsSweeping3D.o
+a - NurbsSwinging3D.o
+a - NurbsTorus3D.o
+rm: libnurbs.a: A file or directory in the path name does not exist.
+gmake: [libnurbs.a] Error 2 (ignored)
+ld: 0706-006 Cannot find or open library file: -l object
+	ld:open(): A file or directory in the path name does not exist.
+gmake: *** [libnurbs.a] Error 255
+gmake: Target `all' not remade because of errors.

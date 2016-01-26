@@ -1,0 +1,419 @@
+/*
+ * BOOGALegos.bsdl3
+ *
+ * Copyright (C) 1994-96, Christoph Streit <streit@iam.unibe.ch>
+ *                        Stephan Amann <amann@iam.unibe.ch>
+ *                        University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: BOOGALegos.bsdl3,v 1.4 1996/12/11 12:02:22 streit Exp $
+ * -----------------------------------------------------------------------------
+ *
+ * Definitions for BOOGA legos
+ *
+ * The following objects are defined for use:
+ *   BOOGALegos::bottom2D   A bottom lego for 2D
+ *   BOOGALegos::top2D      A top lego for 2D
+ *   BOOGALegos::bottom3D   A bottom lego for 3D
+ *   BOOGALegos::top3D      A top lego for 3D
+ *   BOOGALegos::_2Dto2D    A operation 2D to 2D lego
+ *   BOOGALegos::generate2D A operation generate 2D lego
+ *   BOOGALegos::_3Dto3D    A operation 3D to 3D lego
+ *   BOOGALegos::generate3D A operation generate 3D lego
+ *   BOOGALegos::_3Dto2D    A operation 3D to 2D lego
+ *   BOOGALegos::_2Dto3D    A operation 2D to 3D lego
+ *   BOOGALegos::copy2D     A 2D copy lego
+ *   BOOGALegos::merge2D    A 2D merge lego
+ *   BOOGALegos::copy3D     A 3D copy lego
+ *   BOOGALegos::merge3D    A 3D merge lego
+ *
+ * The following macros are defined for use:
+ *   caption(string,color,xOffset,yOffset) 
+ *           Write caption in front of lego. Parameters are:
+ *                - string  : text
+ *                - color   : color of text
+ *                - xOffset : x position of text
+ *                - yOffset : y position of text
+ *
+ * The following constants can be used:
+ *   BOOGALegos::legoW        Total Width of std. lego
+ *   BOOGALegos::lego2W       Width of copy/merge
+ *   BOOGALegos::legoH        Total Height of lego
+ *   BOOGALegos::legoD        Total Depth of lego
+ *   BOOGALegos::tbH          Total height of top/bottom
+ *   BOOGALegos::gap          Gap for _3Dto2D, generate3D, ...
+ *
+ */
+
+#ifndef _BOOGALegos_bsdl3
+#define _BOOGALegos_bsdl3
+
+define BOOGALegos       namespace;  // "export"
+define BOOGALegos_Local namespace;  // local Stuff
+
+using BOOGALegos_Local;
+
+/* 
+ * Some constants (may be changed)
+ */ 
+const BOOGALegos_Local::boxH 4;  		  // Height of a box
+const BOOGALegos_Local::boxW 10;		  // Width of a box
+const BOOGALegos_Local::boxD 3;		  // Depth of a box
+const BOOGALegos_Local::adaptorH 1;		  // Height of Adaptor
+const BOOGALegos_Local::adaptorW 2;		  // Width of Adaptor
+
+/*
+ * Some constants : no more changes, please
+ */
+const BOOGALegos_Local::space2D ( boxW - 2*adaptorW ) / 3;  // 2D Spacing
+const BOOGALegos_Local::space3D ( boxW - 3*adaptorW ) / 4;  // 3D Spacing
+
+const BOOGALegos::legoW boxW;	          // Total Width of std. lego
+const BOOGALegos::lego2W 2*boxW+adaptorW;     // Width of copy/merge
+const BOOGALegos::legoH boxH+adaptorH;        // Total Height of lego
+const BOOGALegos::legoD boxD;	          // Total Depth of lego
+const BOOGALegos::tbH 2*adaptorH;             // Total height of top/bottom
+const BOOGALegos::gap adaptorW;               // Gap for _3Dto2D, generate3D, ...
+
+/*
+ * Some definitions to help build the blocks
+ */
+define BOOGALegos_Local::adaptor        3D::box ([0,0,0], [adaptorW,adaptorH,boxD]);
+define BOOGALegos_Local::adaptorSpace3D 3D::box ([0,0,0], [space3D,adaptorH,boxD]);
+define BOOGALegos_Local::adaptorSpace2D 3D::box ([0,0,0], [space2D,adaptorH,boxD]);
+
+define BOOGALegos_Local::topAdaptor2D 3D::list {
+  BOOGALegos_Local::adaptorSpace2D { 
+    3D::translate [0,0,0]; 
+  }
+  BOOGALegos_Local::adaptorSpace2D { 
+    3D::translate [BOOGALegos_Local::space2D+BOOGALegos_Local::adaptorW,0,0]; 
+  }
+  BOOGALegos_Local::adaptorSpace2D { 
+    3D::translate [2*(BOOGALegos_Local::space2D+BOOGALegos_Local::adaptorW),0,0]; 
+  }
+}
+
+define BOOGALegos_Local::bottomAdaptor2D 3D::list {
+  BOOGALegos_Local::adaptor { 
+    3D::translate [BOOGALegos_Local::space2D,0,0]; 
+  }
+  BOOGALegos_Local::adaptor { 
+    3D::translate [2*BOOGALegos_Local::space2D+BOOGALegos_Local::adaptorW,0,0]; 
+  }
+}
+
+define BOOGALegos_Local::topAdaptor3D 3D::list {
+  BOOGALegos_Local::adaptorSpace3D { 
+    3D::translate [0,0,0]; 
+  }
+  BOOGALegos_Local::adaptorSpace3D { 
+    3D::translate [BOOGALegos_Local::space3D+BOOGALegos_Local::adaptorW,0,0]; 
+  }  
+  BOOGALegos_Local::adaptorSpace3D { 
+    3D::translate [2*(BOOGALegos_Local::space3D+BOOGALegos_Local::adaptorW),0,0]; 
+  }
+  BOOGALegos_Local::adaptorSpace3D { 
+    3D::translate [3*(BOOGALegos_Local::space3D+BOOGALegos_Local::adaptorW),0,0]; 
+  }
+}
+
+define BOOGALegos_Local::bottomAdaptor3D 3D::list {
+  BOOGALegos_Local::adaptor { 
+    3D::translate [BOOGALegos_Local::space3D,0,0]; 
+  }
+  BOOGALegos_Local::adaptor { 
+    3D::translate [2*BOOGALegos_Local::space3D+BOOGALegos_Local::adaptorW,0,0]; 
+  }  
+  BOOGALegos_Local::adaptor { 
+    3D::translate [3*BOOGALegos_Local::space3D+2*BOOGALegos_Local::adaptorW,0,0]; 
+  }
+}
+
+/*
+ * The BOOGA building blocks
+ */
+define BOOGALegos::bottom2D 3D::list {
+  3D::box ([0,0,0], 
+           [BOOGALegos_Local::boxW, BOOGALegos_Local::adaptorH, BOOGALegos_Local::boxD]);
+  BOOGALegos_Local::topAdaptor2D { 
+    3D::translate [0,BOOGALegos_Local::adaptorH,0]; 
+  }
+}
+
+define BOOGALegos::top2D 3D::list {
+  BOOGALegos_Local::bottomAdaptor2D { 
+    3D::translate [0,2*BOOGALegos_Local::adaptorH,0]; 
+  }  
+  3D::box ([0,3*BOOGALegos_Local::adaptorH,0], 
+	   [BOOGALegos_Local::boxW, 
+             4*BOOGALegos_Local::adaptorH,
+	    BOOGALegos_Local::boxD]);
+}
+
+define BOOGALegos::bottom3D 3D::list {
+  3D::box ([0,0,0], 
+           [BOOGALegos_Local::boxW, BOOGALegos_Local::adaptorH, BOOGALegos_Local::boxD]);
+  BOOGALegos_Local::topAdaptor3D { 
+    3D::translate [0,BOOGALegos_Local::adaptorH,0]; 
+  }
+}
+
+define BOOGALegos::top3D 3D::list {
+  BOOGALegos_Local::bottomAdaptor3D { 
+    3D::translate [0,2*BOOGALegos_Local::adaptorH,0]; 
+  }  
+  3D::box ([0,3*BOOGALegos_Local::adaptorH,0], 
+	   [BOOGALegos_Local::boxW, 
+             4*BOOGALegos_Local::adaptorH,
+	    BOOGALegos_Local::boxD]);
+}
+
+define BOOGALegos::_2Dto2D 3D::list {
+  3D::box ([0,0,0], 
+	   [BOOGALegos_Local::boxW, 
+	    BOOGALegos_Local::boxH, 
+	    BOOGALegos_Local::boxD]);
+  BOOGALegos_Local::topAdaptor2D    { 
+    3D::translate [0,BOOGALegos_Local::boxH,0]; 
+  }
+  BOOGALegos_Local::bottomAdaptor2D {
+    3D::translate [0,-BOOGALegos_Local::adaptorH,0]; 
+  }
+}
+
+define BOOGALegos::generate2D 3D::list {
+  3D::box ([0,0,0], 
+	   [BOOGALegos::lego2W,
+	    BOOGALegos_Local::boxH, 
+	    BOOGALegos_Local::boxD]);
+  BOOGALegos_Local::topAdaptor2D    { 
+    3D::translate [0,BOOGALegos_Local::boxH,0]; 
+  }
+  BOOGALegos_Local::bottomAdaptor2D {
+    3D::translate [0,-BOOGALegos_Local::adaptorH,0]; 
+  }
+  BOOGALegos_Local::bottomAdaptor2D {
+    3D::translate [BOOGALegos_Local::boxW+BOOGALegos_Local::adaptorW,
+                   -BOOGALegos_Local::adaptorH,
+		 0]; 
+  }
+}
+
+define BOOGALegos::_3Dto3D 3D::list {
+  3D::box ([0,0,0], 
+	   [BOOGALegos_Local::boxW, 
+	    BOOGALegos_Local::boxH, 
+	    BOOGALegos_Local::boxD]);
+  BOOGALegos_Local::topAdaptor3D    { 
+    3D::translate [0,BOOGALegos_Local::boxH,0]; 
+  }
+  BOOGALegos_Local::bottomAdaptor3D { 
+    3D::translate [0,-BOOGALegos_Local::adaptorH,0]; 
+  }
+}
+
+define BOOGALegos::generate3D 3D::list {
+  3D::box ([0,0,0], 
+	   [BOOGALegos::lego2W,
+	    BOOGALegos_Local::boxH, 
+	    BOOGALegos_Local::boxD]);
+  BOOGALegos_Local::topAdaptor3D    { 
+    3D::translate [0,BOOGALegos_Local::boxH,0]; 
+  }
+  BOOGALegos_Local::bottomAdaptor3D {
+    3D::translate [0,-BOOGALegos_Local::adaptorH,0]; 
+  }
+  BOOGALegos_Local::bottomAdaptor3D {
+    3D::translate [BOOGALegos_Local::boxW+BOOGALegos_Local::adaptorW,
+                   -BOOGALegos_Local::adaptorH,
+		 0]; 
+  }
+}
+
+define BOOGALegos::_3Dto2D 3D::list {
+  3D::box ([0,0,0], 
+       	   [BOOGALegos::lego2W, 
+	    BOOGALegos_Local::boxH, 
+	    BOOGALegos_Local::boxD]);
+  BOOGALegos_Local::topAdaptor3D    { 
+    3D::translate [0,BOOGALegos_Local::boxH,0]; 
+  }
+  BOOGALegos_Local::bottomAdaptor3D { 
+    3D::translate [0,-BOOGALegos_Local::adaptorH,0];
+  }
+  BOOGALegos_Local::bottomAdaptor2D {
+    3D::translate [BOOGALegos_Local::boxW+BOOGALegos_Local::adaptorW,
+                   -BOOGALegos_Local::adaptorH,
+		   0]; 
+  }
+}
+
+define BOOGALegos::_3Dto2D_right 3D::list {
+  3D::box ([0,0,0], 
+       	   [BOOGALegos::lego2W, 
+	    BOOGALegos_Local::boxH, 
+	    BOOGALegos_Local::boxD]);
+  BOOGALegos_Local::topAdaptor3D    { 
+    3D::translate [BOOGALegos_Local::boxW+BOOGALegos_Local::adaptorW,
+                   BOOGALegos_Local::boxH,
+                   0]; 
+  }
+  BOOGALegos_Local::bottomAdaptor3D { 
+    3D::translate [0,-BOOGALegos_Local::adaptorH,0];
+  }
+  BOOGALegos_Local::bottomAdaptor2D {
+    3D::translate [BOOGALegos_Local::boxW+BOOGALegos_Local::adaptorW,
+                   -BOOGALegos_Local::adaptorH,
+		 0]; 
+  }
+}
+
+define BOOGALegos::_2Dto3D 3D::list {
+  3D::box ([0,0,0], 
+       	   [BOOGALegos::lego2W, 
+	    BOOGALegos_Local::boxH, 
+	    BOOGALegos_Local::boxD]);
+  BOOGALegos_Local::topAdaptor2D    { 
+    3D::translate [0,BOOGALegos_Local::boxH,0]; 
+  }
+  BOOGALegos_Local::bottomAdaptor2D { 
+    3D::translate [0,-BOOGALegos_Local::adaptorH,0];
+  }
+  BOOGALegos_Local::bottomAdaptor3D {
+    3D::translate [BOOGALegos_Local::boxW+BOOGALegos_Local::adaptorW,
+                   -BOOGALegos_Local::adaptorH,
+		   0]; 
+  }
+}
+
+define BOOGALegos::copy2D 3D::list{
+  3D::box ([0,0,0], 
+     	   [BOOGALegos::lego2W,
+	    BOOGALegos_Local::boxH,
+	    BOOGALegos_Local::boxD]);
+  BOOGALegos_Local::topAdaptor2D    { 
+    3D::translate [BOOGALegos::lego2W/4,BOOGALegos_Local::boxH,0]; 
+  }
+  BOOGALegos_Local::bottomAdaptor2D {
+    3D::translate [0,-BOOGALegos_Local::adaptorH,0]; 
+  }
+  BOOGALegos_Local::bottomAdaptor2D { 
+    3D::translate [BOOGALegos_Local::boxW+BOOGALegos_Local::adaptorW,
+                   -BOOGALegos_Local::adaptorH,
+		 0]; 
+  }
+}
+
+define BOOGALegos::merge2D 3D::list{
+  3D::box ([0,0,0], 
+	   [BOOGALegos::lego2W,
+	    BOOGALegos_Local::boxH,
+	    BOOGALegos_Local::boxD]);
+  BOOGALegos_Local::topAdaptor2D    { 
+    3D::translate [0,BOOGALegos_Local::boxH,0]; 
+  }
+  BOOGALegos_Local::topAdaptor2D    { 
+    3D::translate [BOOGALegos_Local::boxW+BOOGALegos_Local::adaptorW,
+	    	 BOOGALegos_Local::boxH,
+		 0]; 
+  }
+  BOOGALegos_Local::bottomAdaptor2D { 
+    3D::translate [BOOGALegos::lego2W/4,-BOOGALegos_Local::adaptorH,0]; 
+  }
+}
+
+define BOOGALegos::copy3D 3D::list{
+  3D::box ([0,0,0], 
+	   [BOOGALegos::lego2W,
+	    BOOGALegos_Local::boxH,
+	    BOOGALegos_Local::boxD]);
+  BOOGALegos_Local::topAdaptor3D    { 
+    3D::translate [BOOGALegos::lego2W/4,
+                   BOOGALegos_Local::boxH,
+                   0]; 
+  }
+  BOOGALegos_Local::bottomAdaptor3D {
+    3D::translate [0,-BOOGALegos_Local::adaptorH,0]; 
+  }
+  BOOGALegos_Local::bottomAdaptor3D { 
+    3D::translate [BOOGALegos_Local::boxW+BOOGALegos_Local::adaptorW,
+		 -BOOGALegos_Local::adaptorH,
+		 0]; 
+  }
+}
+
+define BOOGALegos::merge3D 3D::list{
+  3D::box ([0,0,0], 
+	   [BOOGALegos::lego2W,
+	    BOOGALegos_Local::boxH,
+	    BOOGALegos_Local::boxD]);
+  BOOGALegos_Local::topAdaptor3D    { 
+    3D::translate [0,BOOGALegos_Local::boxH,0]; 
+  }
+  BOOGALegos_Local::topAdaptor3D    { 
+    3D::translate [BOOGALegos_Local::boxW+BOOGALegos_Local::adaptorW,
+	  	 BOOGALegos_Local::boxH,
+	     	 0]; 
+  }
+  BOOGALegos_Local::bottomAdaptor3D { 
+    3D::translate [BOOGALegos::lego2W/4,-BOOGALegos_Local::adaptorH,0]; 
+  }
+}
+
+/*
+ * Simplify use of text
+ */
+const BOOGALegos_Local::textR .4;
+const BOOGALegos_Local::textS 5;
+
+define BOOGALegos_Local::textFront 3D::transform {
+  3D::rotateY 90;
+  3D::rotateZ -90;
+  3D::scale [.28,.5,.3];
+  3D::translate [BOOGALegos_Local::textR,
+                 1,
+                 BOOGALegos::legoD+BOOGALegos_Local::textR];
+}
+
+define BOOGALegos_Local::textBack 3D::transform {
+  3D::rotateY -90;
+  3D::rotateZ -90;
+  3D::scale [.28,.5,.3];
+  3D::translate [BOOGALegos_Local::textR,
+                 1,
+                 -BOOGALegos_Local::textR];
+}
+
+#define caption(string,color,xOffset,yOffset) \
+  3D::text (BOOGALegos_Local::textS,          \
+            BOOGALegos_Local::textR,          \
+            string) {	        	          \
+    font "ROMAN";			          \
+    color;			  	 \
+    BOOGALegos_Local::textFront; 		 \
+    translate [xOffset,yOffset, 0];           \
+  }					 \
+  3D::text (BOOGALegos_Local::textS,          \
+            BOOGALegos_Local::textR,          \
+            string) {		          \
+    font "ROMAN";		                	 \
+    scale [1,1,-1];		 	 \
+    color;			  	 \
+    BOOGALegos_Local::textBack; 	  	 \
+    translate [xOffset,yOffset, 0];           \
+  }		
+
+
+#endif

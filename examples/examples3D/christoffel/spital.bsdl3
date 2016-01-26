@@ -1,0 +1,135 @@
+/*
+ * spital.bsdl3 
+ *
+ * Copyright (C) 1994-96, Bernhard Buehlmann <buehlmann@iam.unibe.ch>
+ *                        University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: spital.bsdl3,v 1.1 1996/02/21 09:50:13 streit Exp $
+ * -----------------------------------------------------------------------------
+ */
+
+const f_b .8;
+
+define f_quer1 box ([-f_b,-.03, -.03], [f_b,.03,.03]) {weiss;}
+define f_hoch1 box ([-.03,-.03, 0], [.03,0,3]) {weiss;}
+
+define fenster1 list {
+	box ([-f_b-.2, -.1, 0], [-f_b, 0, 3]) {sandstein;}
+	box ([f_b+.2, -.1, 0], [f_b, 0, 3]) {sandstein;}
+
+	box ([-f_b-.2, -.3, 0], [f_b+.2, 0, .2]) {sandstein;}
+	box ([-f_b-.2, -.1, 2.8], [f_b+.2, 0, 3]) {sandstein;}
+
+	box ([-f_b, -.01, 0], [f_b+.2, 0, 3]) {glasDunkel;}
+
+
+	box ([-.05, -.03, 0], [.05, 0, 3]) {weiss;}
+	box ([-f_b, -.07, 2], [f_b, 0, 2.1]) {weiss;}
+
+	f_hoch1 {translate [-f_b/2,0,0];}
+	f_hoch1 {translate [f_b/2,0,0];}
+
+	f_quer1 {translate [0,0,.3];}
+	f_quer1 {translate [0,0,.6];}
+	f_quer1 {translate [0,0,.9];}
+	f_quer1 {translate [0,0,1.2];}
+	f_quer1 {translate [0,0,1.5];}
+	f_quer1 {translate [0,0,1.8];}
+}
+
+const k_e_b 2;
+const e_h 5;
+
+define element1 list {
+	box ([-k_e_b, -.2, 0], [k_e_b, 0, .9]) {weiss;}
+	box ([-k_e_b, -.02, 0], [k_e_b, 0, 1.8]) {sandstein;}
+	box ([-k_e_b, -.02, 0], [-f_b, 0, e_h]) {sandstein;}
+	box ([k_e_b, -.02, 0], [f_b, 0, e_h]) {sandstein;}
+	box ([-k_e_b, -.02, 4.8], [k_e_b, 0, e_h]) {sandstein;}
+	box ([-k_e_b, -.4, e_h], [k_e_b, 0, e_h+.2]) {sandstein;}
+
+	fenster1 {translate [0,0,1.8];}
+}
+
+define element2 list {
+	box ([-k_e_b, -.2, 0], [k_e_b, 0, .9]) {weiss;}
+	box ([-k_e_b, -.02, 0], [k_e_b, 0, 1.8]) {sandsteinWeiss;}
+	box ([-k_e_b, -.02, 0], [-f_b, 0, e_h]);
+	box ([k_e_b, -.02, 0], [f_b, 0, e_h]);
+	box ([-k_e_b, -.02, 4.8], [k_e_b, 0, e_h]);
+	box ([-k_e_b, -.4, e_h], [k_e_b, 0, e_h+.2]);
+
+	fenster1 {translate [0,0,1.8];}
+}
+
+define k_dach list {
+// ostseite
+	polygon ([-16*k_e_b-1, -1, -.5], [16*k_e_b+1, -1, -.5], [14*k_e_b, 5, 4],
+		[-14*k_e_b, 5, 4]);
+		
+	cylinder (.2, [-14*k_e_b, 5, 4], [14*k_e_b, 5, 4]);
+// suedseite
+	polygon ([-16*k_e_b-1, -1, -.5], [-14*k_e_b, 5, 4], [-14*k_e_b, 6*k_e_b, 4], [-16*k_e_b-1, 6*k_e_b, -.5]);
+// nordseite
+	polygon ([16*k_e_b+1, -1, -.5], [16*k_e_b+1, 6*k_e_b, -.5], [14*k_e_b, 6*k_e_b, 4], [14*k_e_b, 5, 4]);
+
+
+
+	rot; translate [0,0,15.5];
+}
+
+define wand_el list {
+element1;
+element2 {translate [0,0,5];}
+element2 {translate [0,0,10];}
+}
+
+define spital list {
+
+// --------- ostseite ------------
+wand_el {translate [-k_e_b, 0, 0];}
+wand_el {translate [k_e_b, 0, 0];}
+wand_el {translate [-3*k_e_b, 0, 0];}
+wand_el {translate [3*k_e_b, 0, 0];}
+wand_el {translate [-5*k_e_b, 0, 0];}
+wand_el {translate [5*k_e_b, 0, 0];}
+wand_el {translate [-7*k_e_b, 0, 0];}
+wand_el {translate [7*k_e_b, 0, 0];}
+wand_el {translate [-9*k_e_b, 0, 0];}
+wand_el {translate [9*k_e_b, 0, 0];}
+wand_el {translate [-11*k_e_b, 0, 0];}
+wand_el {translate [11*k_e_b, 0, 0];}
+wand_el {translate [-13*k_e_b, 0, 0];}
+wand_el {translate [13*k_e_b, 0, 0];}
+wand_el {translate [-15*k_e_b, 0, 0];}
+wand_el {translate [15*k_e_b, 0, 0];}
+
+
+// nordseite
+wand_el {rotateZ(90);translate [16*k_e_b, k_e_b, 0];}
+wand_el {rotateZ(90);translate [16*k_e_b, 3*k_e_b, 0];}
+wand_el {rotateZ(90);translate [16*k_e_b, 5*k_e_b, 0];}
+
+// suedseite
+wand_el {rotateZ(-90);translate [-16*k_e_b, k_e_b, 0];}
+wand_el {rotateZ(-90);translate [-16*k_e_b, 3*k_e_b, 0];}
+wand_el {rotateZ(-90);translate [-16*k_e_b, 5*k_e_b, 0];}
+
+
+k_dach;
+}
+
+
+

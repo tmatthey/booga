@@ -1,0 +1,1 @@
+GEN_OFILES = ColorConfigurationHandler.o PixmapConfigurationHandler.o ReportConfigurationHandler.o StatisticConfigurationHandler.o

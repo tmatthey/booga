@@ -1,0 +1,233 @@
+/*
+ * all.bsdl3 
+ *
+ * Copyright (C) 1994-96, Christoph Streit <streit@iam.unibe.ch>
+ *                        Stephan Amann <amann@iam.unibe.ch>
+ *                        University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: all.bsdl3,v 1.7 1996/02/08 16:37:55 streit Exp $
+ * -----------------------------------------------------------------------------
+ */
+
+// We're in 3D Namespace:
+using 3D;                
+
+// _______________________________________________________________________ scene
+
+// We need a camera
+camera {
+  perspective {
+    eye [0,0,6];               // Eye position
+    lookat [0,0,0];             // Looking to this point
+    up [0,1,0];                 // What direction is up? (y)
+    fov 60;                     // Field of view
+    resolution (600, 600);      // Screen resolution
+    eyesep 1;                   // For stereo images ...
+  }
+  background [.5,.5,.5];      // Color of Background
+}
+
+// We need a light
+pointLight (1, [1,1,1]) {    // Point light with intensity 1 
+                             // and color [1,1,1] (white)
+  position [0,0,100];
+}
+
+// Text color
+define textCol phong { diffuse [.2,.2,.7]; }
+
+// Texture for object
+define objectColor checker {
+  even {
+    phong {
+      ambient [.1,.1,.3];
+      diffuse [.3,.3,1];
+    }
+  }
+  odd {
+    phong {
+      ambient [.2,.1,.2];
+      diffuse [.9,.2,.9];
+      specular [.4,.2,.4];
+      specpow 20;
+    }
+  }
+}
+
+list {
+  box ([1,1,1], [-1,-1,-1]) {
+    objectColor;
+    scale [.3,.3,.3];
+    rotate (45, [.5,.5,.5]);
+    translate [-2.3,2.4,0];
+  }
+  text (.3,.05,"box") { 
+    font "ROMAN"; 
+    rotateZ 90; 
+    rotateX -90; 
+    rotateY 180; 
+    scale [.7,1.2,1.2];          
+    translate [-2.6,1.4,0]; // move to the right place
+    textCol;                // text color
+  }
+}
+
+list {
+  cone (.6, [-1.6,.5,1], 1.4, [-1.5, 2.3, 0]) {
+    objectColor;
+    scale [.4,.4,.4];
+    rotate (45, [.5,.5,.5]);
+    translate [.3,2.2,0];
+  } 
+  text (.3,.05,"cone") { 
+    font "ROMAN"; 
+    rotateZ 90; 
+    rotateX -90; 
+    rotateY 180; 
+    scale [.7,1.2,1.2];          
+    translate [-.6,1.4,0]; // move to the right place
+    textCol;                // text color
+  }
+}
+
+list {
+  cylinder (1, [-1.2,.5,1], [-1.5, 2.3, 0]) {
+    objectColor;
+    scale [.3,.45,.45];
+    rotate (45, [.5,.5,.5]);
+    translate [2,2.1,0];
+  }
+  text (.3,.05,"cylinder") { 
+    font "ROMAN"; 
+    rotateZ 90; 
+    rotateX -90; 
+    rotateY 180; 
+    scale [.7,1.2,1.2];          
+    translate [1,1.4,0]; // move to the right place
+    textCol;                // text color
+  }
+}
+
+list {
+  polygon ([-1.5, 2, 0], 
+           [-1.9, 2.8, 0], [-2.5, 2.8, 0], [-3, 2.2, 0], 
+           [-2.7, 1.6, 0], [-2.4, 1.8, 0], 
+           [-2.5, .2, 0], [-.5, .2, 0],
+           [-.6, 1.8, 0], [-.3, 1.6, 0], 
+           [0, 2.2, 0], [-.5, 2.8, 0], [-1.1, 2.8, 0]) {
+    objectColor;
+    scale [.4,.4,.4];
+    translate [-1.6,-.2,0];
+  }
+  text (.3,.05,"polygon") { 
+    font "ROMAN"; 
+    rotateZ 90; 
+    rotateX -90; 
+    rotateY 180; 
+    scale [.7,1.2,1.2];          
+    translate [-2.85,-.6,0]; // move to the right place
+    textCol;                // text color
+  }
+}
+
+list {
+  sphere (1.4, [-1.5,1.5,0]) {
+    objectColor;
+    scale [.25,.5,.5];
+    rotate (45, [.5,.5,.5]);
+    translate [.3,0,0];
+  }
+  text (.3,.05,"sphere") { 
+    font "ROMAN"; 
+    rotateZ 90; 
+    rotateX -90; 
+    rotateY 180; 
+    scale [.7,1.2,1.2];          
+    translate [-.7,-.6,0]; // move to the right place
+    textCol;                // text color
+  }
+}
+
+list {
+  text (.8,.1, "BOOGA") {
+    font "ROMAN";
+    objectColor { scale [.1,.1,.1]; }
+    rotateZ 90; 
+    rotateX -90; 
+    rotateY 180; 
+    scale [.5,.7,.7];
+    translate [.7,.2,0]; // move to the right place
+  }
+  text (.3,.05,"text") { 
+    font "ROMAN"; 
+    rotateZ 90; 
+    rotateX -90; 
+    rotateY 180; 
+    scale [.7,1.2,1.2];          
+    translate [1.4,-.6,0]; // move to the right place
+    textCol;                // text color
+  }
+}
+
+list {
+  torus (1, .4, [-1.5,1.5,0], [0,0,1]) {
+    objectColor;
+    scale [.5,.5,.5];
+    translate [-1.5,-2.6,0];
+  }
+  text (.3,.05,"torus") { 
+    font "ROMAN"; 
+    rotateZ 90; 
+    rotateX -90; 
+    rotateY 180; 
+    scale [.7,1.2,1.2];          
+    translate [-2.7,-2.9,0]; // move to the right place
+    textCol;                // text color
+  }
+}
+
+list {
+  triangle ([-3,.5,0.1], [-.5,1.5,0.1], [-1.5,2.8,0.1]) {
+    objectColor;
+    scale [.5,.5,.5];
+    translate [.5,-2.6,0];
+  }
+  text (.3,.05,"triangle") { 
+    font "ROMAN"; 
+    rotateZ 90; 
+    rotateX -90; 
+    rotateY 180; 
+    scale [.7,1.2,1.2];          
+    translate [-.9,-2.9,0]; // move to the right place
+    textCol;                // text color
+  }
+}
+
+list {
+  disc (1.4, [-1.5,1.5,0], [0,0,1]) {
+    objectColor;
+    scale [.5,.5,.5];
+    translate [2.5,-2.6,0];
+  }
+  text (.3,.05,"disc") { 
+    font "ROMAN"; 
+    rotateZ 90; 
+    rotateX -90; 
+    rotateY 180; 
+    scale [.7,1.2,1.2];          
+    translate [1.4,-2.9,0]; // move to the right place
+    textCol;                // text color
+  }
+}

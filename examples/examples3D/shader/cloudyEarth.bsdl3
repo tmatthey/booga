@@ -1,0 +1,48 @@
+/*
+ * cloudyEarth.bsdl3
+ *
+ * Copyright (C) 1996, Thomas Teuscher<teuscher@iam.unibe.ch>
+ *                     University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: cloudyEarth.bsdl3,v 1.1 1996/06/06 11:49:12 streit Exp $
+ * -----------------------------------------------------------------------------
+ */
+
+#ifndef _cloudyEarth_bsdl3
+#define _cloudyEarth_bsdl3
+
+using 3D;
+
+camera {
+  perspective {
+  eye [8,0,0];
+  lookat [0,0,0];
+  resolution (400,400);
+  }
+  background [.6,.6,.6];
+};
+
+pointLight (1, [1, 1, 1]) { position [20, 5, 2]; }
+
+sphere (2, [0,0,0]) {
+  rotateZ(-107);
+  rotateY(-30);
+  shader("earth.bsl");
+  shader("clouds.bsl", 0, 1.5, .95);
+}
+
+#endif // _cloudyEarth_bsdl3
+
+

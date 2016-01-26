@@ -1,0 +1,175 @@
+/*
+ * $RCSfile: building_nice.bsdl3,v $
+ *
+ * A simple example of a building with a roof, bottom but without faces
+ * and fronts. It contains an animated object.
+ *
+ * Copyright (C) 1997, Thierry Matthey <matthey@iam.unibe.ch>
+ *                     University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: building_nice.bsdl3,v 1.2 1997/05/26 13:45:12 matthey Exp $
+ * -----------------------------------------------------------------------------
+ */
+  
+using 3D;
+
+// Definition of the camera and the lightsource
+
+camera {
+  perspective {
+    resolution (300, 200);
+    eye [0,0,10];
+    up [0,1,0];
+    lookat [0,0,0];
+  }
+  background [.8,.8,.9];
+};
+
+pointLight (.8, [1,1,1]) { position [-500,500,1000]; }
+pointLight (.2, [1,1,1]) { position [500,500,100]; }
+ambientLight (.5, [1,1,1]);
+
+define green          whitted { ambient [.3,.4,.2]; diffuse [.3,.4,.2]; }
+define grey           whitted { ambient [.7,.7,.7]; diffuse [.7,.7,.7]; }
+define sandstein      whitted { ambient [220/255,200/255,170/255];diffuse [220/255,200/255,170/255];}
+define sandsteinWeiss whitted { ambient [.4,.4,.4]; diffuse [220/255,210/255,200/255];}
+define glasDunkel     whitted { ambient [60/255,90/255,80/255]; diffuse [60/255,90/255,80/255];}
+define dachRot        whitted { ambient [180/255,115/255,97/255]; diffuse [180/255,115/255,97/255];}
+define black          whitted { ambient [.1,.1,.1]; diffuse [0,0,0]; }
+define parkett        whitted { ambient [.3,.2,.2]; diffuse [.3,.2,.2]; }
+define rock           whitted { ambient [220/255,200/255,170/255.1]; diffuse [220/255,200/255,170/255];}
+
+// define rock    polygonmapper("rock10.jpg",0.3,0.3,0)   {ambient [.5,.5,.5];}
+// define parkett polygonmapper("parkett.jpg",0.03,0.03,0){ambient [120/255,80/255,38/255];}
+// define glasDunkel  polygonmapper("clouds.jpg",0.03,0.03,0) {ambient [180/255,200/255,220/255]; 
+//                                                                shiny;
+//                                                                specular [1,1,1];
+//                                                                specpow 20;};     
+// define dach    polygonmapper( "dach00.jpg",.2,.2,0){ambient [180/255,115/255,97/255];}
+
+// Defintion of the window
+
+define window list {
+  box([-10,-8,2],[10,-7,-1]);
+  box([-10,8,0.5],[10,7,-1]);
+  box([-10,8,0.5],[-9,-7,-1]);
+  box([10,8,0.5],[9,-7,-1]);
+  box([-3-.2,-8,-.5],[-3+.2,8,-1]);
+  box([3-.2,8,-.5],[3+.2,-8,-1]);
+  box([-10,-8,-1],[10,8,-1.1]){glasDunkel;}
+  rock;
+  scale[0.3,0.3,0.3];
+}
+
+// Defintion of the small window
+
+define windowSmall list {
+  box([-8,-7,2],[8,-6,-1]);
+  box([-8,7,0.5],[8,6,-1]);
+  box([-8,7,0.5],[-7,-6,-1]);
+  box([8,7,0.5],[7,-6,-1]);
+  box([-.2,-7,-.5],[.2,7,-1]);
+  box([-8,-7,-1],[8,7,-1.1]){glasDunkel;}
+  rock;
+  scale[0.25,0.25,0.3];
+}
+
+// Defintion of the door
+
+define door list {
+  box([-7,0,0.2],[-7+.5,25,-1]);
+  box([7,0,0.2],[7+.5,25,-1]);
+  box([-7,0,5],[7,0.2,-1]);
+  box([-7,25,0.2],[7,25-.5,-1]);
+  box([-7,0,-1],[7,25,-1.1]){parkett;}
+  box([-5,12,-1],[-2,13,-.8]){black;}
+  rock;
+  scale[0.3,0.3,0.3];
+}
+
+// Defintion of the chimney
+
+define chimney list {
+  box ([0,-.75,0],[-1.5,.75,3]);
+  box ([0.25,-1,3],[-1.75,1,3.25]);
+  rock;
+}
+
+// The nice house
+
+building (20,[-10,-20, 0],[ 10,-20, 0],[ 10, 20, 0],[-10, 20, 0]){ 
+  // Roof defined by points and ledge 2   
+  roofpoint(2,[0, 17,7.5],[0,-17,7.5]) {
+    dachRot;
+  }
+  // Defalut-texture
+  rock;
+  // Definiton of the border
+  bottomborder(0.5,0.5,0.5,0.1){height(9);}
+  // back-front
+  fronttri(0,0,[.3,1.25],[.7,1.25]){
+    faceitem([0,0],[1,1],2,2){
+      window;
+      hole;
+      displacement[0.5,0.4];
+    }
+    faceitem([0.3,1],[.7,1.3],1,1){
+      windowSmall;
+      hole;
+      displacement[0.5,0.3];
+    }
+  }
+  // left-front
+  frontrect(1,0,0,1){
+    faceitem([0,0],[1,1],3,2){
+      window;     
+      hole;
+      displacement[0.5,0.4];
+    }
+  }
+  // Front-front
+  fronttri(2,0,[.3,1.25],[.7,1.25]){
+    faceitem([0,0.5],[1,1],2,1){
+      window;
+      hole;
+      displacement[0.5,0.4];
+    }
+    faceitem([0,0],[1,0.5],1,1){
+      window;
+      hole;
+      door;
+      displacement[0.5,0];
+    }
+    faceitem([0.3,1],[.7,1.3],1,1){
+      windowSmall;
+      hole;
+      displacement[0.5,0.3];
+    }
+  }
+  // Right-front
+  frontrect(3,0,0,1){
+    faceitem([0,0],[1,1],3,2){
+      window;
+      hole;
+      displacement[0.5,0.4];
+    }
+  }
+  // Placing the chimney
+  snatch([5,6]){chimney;} 
+}
+
+// grass
+box([-1000,-300,-1],[1000,1000,0]){green;}
+

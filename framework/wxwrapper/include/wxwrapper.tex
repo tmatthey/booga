@@ -1,0 +1,212 @@
+	\documentclass[12pt]{article}
+		\usepackage{a4}
+		\usepackage{makeidx}
+		\title{wxwrapper Library Index}
+		\date{\today}
+		\def\mtl{{\tt\~\relax}}
+		\author{Generated with KDOC Revision: 1.14 }
+		\makeindex
+		\begin{document}
+		\maketitle
+		\pagestyle{headings}
+		\tableofcontents
+		\newpage
+		\sloppy
+\section[wxView3D]{\emph{wxView3D} class reference \small\sf (wxView3D.h)}
+\vspace{-0.6cm}
+\hrulefill
+\index{wxView3D}
+\begin{description}
+\item{Inherits:} wxGLCanvas
+ wxBOOGAView
+\end{description}
+\begin{description}
+\item[Description:] The wxView3D class can be used to display a World3D with a
+GLRenderer 
+\end{description}
+The wxView3D class can be used to display a World3D with a
+GLRenderer. The wxView msu be attached to a ViewManager.
+wxViewCommands can be used to execute actions with the mouse.
+
+
+\subsection{public members}
+\subsubsection*{wxView3D::wxView3D}
+\vspace{-0.65cm}
+\hrulefill
+\index{wxView3D!wxView3D}
+\index{wxView3D!wxView3D}
+\begin{flushleft}
+\texttt{wxView3D(wxWindow *parent, int x, int y, int w, int h,              long style=wxRETAINED, char *name="test");}
+\end{flushleft}
+
+parent is the parent pointer to the Window.
+
+
+\subsubsection*{wxView3D::\mtl wxView3D}
+\vspace{-0.65cm}
+\hrulefill
+\index{wxView3D!\mtl wxView3D}
+\index{\mtl wxView3D!wxView3D}
+\begin{flushleft}
+\texttt{\mtl wxView3D();}
+\end{flushleft}
+
+
+
+\subsubsection*{wxView3D::OnPaint}
+\vspace{-0.65cm}
+\hrulefill
+\index{wxView3D!OnPaint}
+\index{OnPaint!wxView3D}
+\begin{flushleft}
+\texttt{void OnPaint(void);}
+\end{flushleft}
+
+
+
+\subsubsection*{wxView3D::OnSize}
+\vspace{-0.65cm}
+\hrulefill
+\index{wxView3D!OnSize}
+\index{OnSize!wxView3D}
+\begin{flushleft}
+\texttt{void OnSize(int w, int h);}
+\end{flushleft}
+
+
+
+\subsubsection*{wxView3D::OnEvent}
+\vspace{-0.65cm}
+\hrulefill
+\index{wxView3D!OnEvent}
+\index{OnEvent!wxView3D}
+\begin{flushleft}
+\texttt{void OnEvent(wxMouseEvent\& event);}
+\end{flushleft}
+
+
+
+\subsubsection*{wxView3D::renderSelection}
+\vspace{-0.65cm}
+\hrulefill
+\index{wxView3D!renderSelection}
+\index{renderSelection!wxView3D}
+\begin{flushleft}
+\texttt{void renderSelection();}
+\end{flushleft}
+
+This method is used internally to render the boundingbox of selected objects.
+
+
+\subsubsection*{wxView3D::useRenderingQuality}
+\vspace{-0.65cm}
+\hrulefill
+\index{wxView3D!useRenderingQuality}
+\index{useRenderingQuality!wxView3D}
+\begin{flushleft}
+\texttt{void useRenderingQuality();}
+\end{flushleft}
+
+
+
+\subsubsection*{wxView3D::useMotionQuality}
+\vspace{-0.65cm}
+\hrulefill
+\index{wxView3D!useMotionQuality}
+\index{useMotionQuality!wxView3D}
+\begin{flushleft}
+\texttt{void useMotionQuality();}
+\end{flushleft}
+
+
+
+\subsubsection*{wxView3D::changeRenderingQuality}
+\vspace{-0.65cm}
+\hrulefill
+\index{wxView3D!changeRenderingQuality}
+\index{changeRenderingQuality!wxView3D}
+\begin{flushleft}
+\texttt{void changeRenderingQuality(GLRenderer::RenderingQuality q);}
+\end{flushleft}
+
+
+
+\subsubsection*{wxView3D::getRenderingQuality}
+\vspace{-0.65cm}
+\hrulefill
+\index{wxView3D!getRenderingQuality}
+\index{getRenderingQuality!wxView3D}
+\begin{flushleft}
+\texttt{GLRenderer::RenderingQuality getRenderingQuality();}
+\end{flushleft}
+
+
+
+\subsubsection*{wxView3D::changeMotionQuality}
+\vspace{-0.65cm}
+\hrulefill
+\index{wxView3D!changeMotionQuality}
+\index{changeMotionQuality!wxView3D}
+\begin{flushleft}
+\texttt{void changeMotionQuality(GLRenderer::RenderingQuality q);}
+\end{flushleft}
+
+
+
+\subsubsection*{wxView3D::getMotionQuality}
+\vspace{-0.65cm}
+\hrulefill
+\index{wxView3D!getMotionQuality}
+\index{getMotionQuality!wxView3D}
+\begin{flushleft}
+\texttt{GLRenderer::RenderingQuality getMotionQuality();}
+\end{flushleft}
+
+
+
+\subsubsection*{wxView3D::getMouseEvent}
+\vspace{-0.65cm}
+\hrulefill
+\index{wxView3D!getMouseEvent}
+\index{getMouseEvent!wxView3D}
+\begin{flushleft}
+\texttt{wxMouseEvent getMouseEvent();}
+\end{flushleft}
+
+
+
+\subsubsection*{wxView3D::adoptMouseCommand}
+\vspace{-0.65cm}
+\hrulefill
+\index{wxView3D!adoptMouseCommand}
+\index{adoptMouseCommand!wxView3D}
+\begin{flushleft}
+\texttt{void adoptMouseCommand(wxViewCommand* c);}
+\end{flushleft}
+
+
+
+\subsubsection*{wxView3D::orphanMouseCommand}
+\vspace{-0.65cm}
+\hrulefill
+\index{wxView3D!orphanMouseCommand}
+\index{orphanMouseCommand!wxView3D}
+\begin{flushleft}
+\texttt{wxViewCommand *orphanMouseCommand();}
+\end{flushleft}
+
+
+
+\subsubsection*{wxView3D::getRenderer}
+\vspace{-0.65cm}
+\hrulefill
+\index{wxView3D!getRenderer}
+\index{getRenderer!wxView3D}
+\begin{flushleft}
+\texttt{GLRenderer *getRenderer();}
+\end{flushleft}
+
+
+
+\printindex
+\end{document}

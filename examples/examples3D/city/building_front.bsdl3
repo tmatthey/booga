@@ -1,0 +1,105 @@
+/*
+ * $RCSfile: building_front.bsdl3,v $
+ *
+ * An example with fronts which are not rectangular or higher
+ * than the height of the building.
+ *
+ * Copyright (C) 1996, Thierry Matthey <matthey@iam.unibe.ch>
+ *                     University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: building_front.bsdl3,v 1.4 1997/04/15 08:37:38 matthey Exp $
+ * -----------------------------------------------------------------------------
+ */
+  
+using 3D;
+
+
+// Definition of the camera and the lightsource
+
+#include "color.inc"
+
+camera {
+  perspective {
+    eye [200,800,160];
+    lookat [200,20,100];
+    resolution (700/2, 400/2);
+  }
+  background [.3,.3,.3];
+};
+
+pointLight (2, [1,1,1]) { position [-1000,1000,1000]; }
+pointLight (2, [1,1,1]) { position [1000,-1000,1000]; }
+
+building (200,   // height and coords of the base of the building
+          [0,0,0],[400,0,0],[400,200,0],
+          [320,200,0],[320,80,0],[80,80,0],
+          [80,200,0],[0,200,0]){    
+  // a front with peaks at the top and the bottom 
+  // of the front
+  // points of bottom and top are not sorted 
+  frontrect(0,0);
+  frontrect(1,0);
+  fronttri(2,0,[0.75,1],[0.5,1.25],[1,-.1],
+               [.4,-.1],[0.6,0],[0.6,-.1],
+               [.4,0],[0.25,1],[0,-.1]){
+    facetunnel([0,.8],[1,1.],[0.8,.8],[1,1.01],0,0){
+      bezierparm1(1);
+      bezierparm2(0.7);
+      columnwidth(0.4);
+      red;
+    }
+    green;
+  }
+  frontrect(3,0){green;}
+  // front with 3 peaks - as a saw            
+  fronttri(4,0,[.2,1.0],[.3,1.1],[.4,1.0],
+               [.5,1.1],[.6,1.0],[.7,1.1],
+               [.8,1.0]){
+    facewall([.3,.9],[.7,1]){red;};             
+  }
+  
+  frontrect(5,0);         
+  // rectangular front which is 10% higher than the building             
+  frontrect(6,0,0,1.1);
+  // flat bottom 
+  fronttri(7,0,[0.75,1],[0.5,1.25],[1,-.1],
+               [.4,-.1],[0.6,0],[0.6,-.1],
+               [.4,0],[0.25,1],[0,-.1]){
+    faceitem([.3,.8],[.7,1.15],3,2){
+      dachRot;
+      switch{
+        off {box([-10,-10,0],[10,10,1]){green;}}
+        on  {list {box([-10,-10,0],[-9,10,5]);
+                    box([9,-10,0],[10,10,5]); 
+                     green;}}
+      }
+      displacement([0.5,.5]);
+      hole;
+    }            
+  }
+  bottomflat{height(0.01);grey;};
+  // roof defined by points
+  roofpoint (10,[40,160,50],[40,40,50],
+                [360,40,50],[360,160,50],
+                // additional points to get a nice
+                // roof with the not rectangular front   
+                [152.5,40,50],[200,40,50],[247.5,40,50]
+                ){dachRot;};
+  sandstein;
+}
+
+// ground 
+polygon([-100,-100,-20],[500,-100,-20],[500,300,-20],[-100,300,-20]){brown;}
+polyextrude(20,[-100,-100,-20],[500,-100,-20],[500,100,-20],[-100,300,-20]){green2;}

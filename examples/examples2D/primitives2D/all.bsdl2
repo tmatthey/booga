@@ -1,0 +1,106 @@
+/*
+ * all.bsdl2
+ *
+ * Copyright (C) 1994-96, Christoph Streit <streit@iam.unibe.ch>
+ *                        Stephan Amann <amann@iam.unibe.ch>
+ *                        University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: all.bsdl2,v 1.2 1996/01/11 18:18:09 streit Exp $
+ * -----------------------------------------------------------------------------
+ */
+ 
+#ifndef _all_bsdl2
+#define _all_bsdl2
+
+// We're in 2D Namespace:
+using 2D;
+ 
+// We need a camera
+camera {
+  resolution (600, 600);       // Screen resolution.
+  window ([0,0], [600,600]);   // Part of the scene to be displayed.
+  background [1, 1, 1];        // Color of the background.
+}
+
+//_____________________________________________________________________ Textures
+
+define red   color [1,0,0];
+define green color [0,0.8,0];
+define blue  color [0,0,1];
+define black color [0,0,0];
+ 
+//________________________________________________________________________ Scene
+
+//
+// circle
+//
+circle ([100, 100], 50) { red; }
+text (20, "circle") { 
+  black; 
+  translate [70, 20];
+}
+
+//
+// line
+//
+line ([170, 50], [270, 150]) { blue; }
+text (20, "line") { 
+  black; 
+  translate [205, 20];
+}
+
+//
+// pixmap
+//
+pixmap "allee.pixi" {
+  translate [300, 50];
+}
+text (20, "pixmap") { 
+  black; 
+  translate [330, 20];
+}
+
+//
+// point
+//
+list {
+  red;
+  point [480, 100];
+  point [500, 100];
+  point [520, 100];
+}
+text (20, "point") { 
+  black; 
+  translate [480, 20];
+}
+
+//
+// text
+//
+text (40, "Text") {
+  green;
+  font "ROMAN";
+  translate [60, 350];
+}
+text (20, "text") { 
+  black; 
+  translate [80, 300];
+}
+
+#endif // _all_bsdl2
+ 
+
+
+

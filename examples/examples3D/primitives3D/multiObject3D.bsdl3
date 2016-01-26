@@ -1,0 +1,64 @@
+/*
+ * $RCSfile: multiObject3D.bsdl3,v $
+ *
+ * Copyright (C) 1997, Thierry Matthey <matthey@iam.unibe.ch>
+ *                     University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: multiObject3D.bsdl3,v 1.1 1997/01/17 10:01:08 matthey Exp $
+ * -----------------------------------------------------------------------------
+ */
+
+#ifndef _box_bsdl3
+#define _box_bsdl3
+
+// We're in 3D Namespace:
+using 3D;                
+
+// _______________________________________________________________________ scene
+
+// We need a camera
+
+camera {
+  perspective {
+    eye [50,40,30];                // Eye position
+    lookat [10,10,10];             // Looking to this point
+    up [0,0,1];                 // What direction is up? (z)
+    resolution (300, 300);      // Screen resolution
+    eyesep 1;                   // For stereo images ...
+    fov 50;                     // Field of view: horizontal, vertical
+  }        
+  background [.5,.5,.5];      // Color of Background
+  on;
+}
+
+// We need a light
+pointLight (1, [1,1,1]) { // Point light with intensity 1 
+                              // and color [1,1,1] (white)
+  position [0,100,100];
+}
+
+// Texture for object
+define boxColor phong { ambient [.2,.2,.2];diffuse [.4,.1,.1]; }
+
+// a cube with 3*3*3 boxes
+multiobject(3,[2,0,0],3,[0,2,0],3,[0,0,2],
+            2,[20,0,0],2,[0,20,0],2,[0,0,20]){
+  box ([0,0,0], [1,1,1]) {
+    boxColor;
+  }
+}
+
+#endif 
+// _box_bsdl3

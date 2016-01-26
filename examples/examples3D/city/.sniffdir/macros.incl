@@ -1,0 +1,86 @@
+SNIFF_TARGET		= $(OFILES)
+SNIFF_TARGETS		= $(SNIFF_TARGET)
+SNIFF_INCLUDE		= 
+
+SNIFF_ShSWS		= $(SHARED_SRC)/examples/examples3D/city
+SNIFF_ShSWS_2		= '$$(SHARED_SRC)/examples/examples3D/city'
+SNIFF_ShOWS		= $(SHARED_OBJ)/examples/examples3D/city
+SNIFF_PROJECT_DIR	= examples/examples3D/city
+SNIFF_RELATIVE_ROOT_DIR	= ../../..
+SNIFF_GENERATE_DIR	= .sniffdir
+SNIFF_GENERATE_DIR_ROOT	= 
+
+SNIFF_PROJECT		= city-examples3D.shared
+SNIFF_STATUSFILE	= .Sniff_LastUpdateOfProject_$(SNIFF_PROJECT)
+
+SNIFF_VCS		= RCS
+SNIFF_REPOSITORY_DIR	= $(REPOSITORY)/examples/examples3D/city
+
+SNIFF_Lex_Source_DIR	= .
+SNIFF_Lex_Source_FILES	= 
+
+SNIFF_Yacc_Source_DIR	= .
+SNIFF_Yacc_Source_FILES	= 
+
+SNIFF_Shell_Script_DIR	= .
+SNIFF_Shell_Script_FILES	= 
+
+SNIFF_Emacs_Lisp_DIR	= .
+SNIFF_Emacs_Lisp_FILES	= 
+
+SNIFF_Python_DIR	= .
+SNIFF_Python_FILES	= 
+
+SNIFF_Make_DIR	= .
+SNIFF_Make_FILES	= 
+
+SNIFF_Header_Documentation_DIR	= docu
+SNIFF_Header_Documentation_FILES	= 
+
+SNIFF_Header_DIR	= .
+SNIFF_Header_FILES	= 
+
+SNIFF_Implementation_DIR	= .
+SNIFF_Implementation_FILES	= 
+
+SNIFF_Project_Description_DIR	= .
+SNIFF_Project_Description_FILES	= city-examples3D.shared 
+
+SNIFF_Document_Template_DIR	= docu/tmpl
+SNIFF_Document_Template_FILES	= 
+
+SNIFF_Image_DIR	= images
+SNIFF_Image_FILES	= 
+
+SNIFF_Object_DIR	= .
+SNIFF_Object_FILES	= 
+
+SNIFF_Implementation_Documentation_DIR	= docu
+SNIFF_Implementation_Documentation_FILES	= 
+
+SNIFF_BSDL_Source_DIR	= .
+SNIFF_BSDL_Source_FILES	= bern.bsdl3 birke.bsdl3 brick.bsl  \
+	building_arbour.bsdl3 building_beginner.bsdl3 building_castle.bsdl3  \
+	building_dormer.bsdl3 building_example.bsdl3 building_front.bsdl3  \
+	building_holes.bsdl3 building_layer.bsdl3 building_more.bsdl3  \
+	building_nice.bsdl3 building_plane.bsdl3 building_simple.bsdl3  \
+	building_tunnel.bsdl3 building_user.bsdl3 building_virtual.bsdl3  \
+	building_zeit.bsdl3 color.inc enghalde_a.bsdl3  \
+	enghalde_b.bsdl3 iam.bsdl3 item.bsdl3  \
+	polygonmapper.bsl schloss.bsdl3 schlossbuilding.bsdl3  \
+	schlosscurves.bsdl3 schlossholes.bsdl3 schuetzenmatt.bsdl3  \
+	shinypolygonmapper.bsl uni.bsdl3 viewing.inc 
+
+SNIFF_Bitmap_DIR	= .
+SNIFF_Bitmap_FILES	= brickyellow.jpg clouds.jpg dach00.jpg  \
+	parkett.jpg rock10.jpg stone.jpg 
+
+SNIFF_BSDL3_File_DIR	= .
+SNIFF_BSDL3_File_FILES	= 
+
+SNIFF_FILES	= $(SNIFF_Lex_Source_FILES) $(SNIFF_Yacc_Source_FILES) $(SNIFF_Shell_Script_FILES)  \
+	$(SNIFF_Emacs_Lisp_FILES) $(SNIFF_Python_FILES) $(SNIFF_Make_FILES)  \
+	$(SNIFF_Header_Documentation_FILES) $(SNIFF_Header_FILES) $(SNIFF_Implementation_FILES)  \
+	$(SNIFF_Project_Description_FILES) $(SNIFF_Document_Template_FILES) $(SNIFF_Image_FILES)  \
+	$(SNIFF_Object_FILES) $(SNIFF_Implementation_Documentation_FILES) $(SNIFF_BSDL_Source_FILES)  \
+	$(SNIFF_Bitmap_FILES) $(SNIFF_BSDL3_File_FILES) 

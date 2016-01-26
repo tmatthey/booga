@@ -1,0 +1,70 @@
+#
+# $RCSfile: Transform3DAttr.specifierAttr,v $
+#
+# Copyright (C) 1994-96, Christoph Streit <streit@iam.unibe.ch>
+#                        Stephan Amann <amann@iam.unibe.ch>
+#                        University of Berne, Switzerland
+#
+# All rights reserved.
+#
+# This software may be freely copied, modified, and redistributed
+# provided that this copyright notice is preserved on all copies.
+#
+# You may not distribute this software, in whole or in part, as part of
+# any commercial product without the express consent of the authors.
+#
+# There is no warranty or other guarantee of fitness of this software
+# for any purpose.  It is provided solely "as is".
+#
+# -----------------------------------------------------------------------------
+#  $Id: Transform3DAttr.specifierAttr,v 1.5 1996/04/18 12:42:45 streit Exp $
+# -----------------------------------------------------------------------------
+#
+
+include "booga/base/TransMatrix3D.h"
+include "booga/object/Transform3D.h"
+
+specifier Transform3D : public Transform3D
+
+attr Scale
+  argument Vector3D scaleFactor
+  make new Transform3D(TransMatrix3D::makeScale(scaleFactor))
+  setMethod addTransform(*this)
+
+attr Translate
+  argument Vector3D
+  make new Transform3D(TransMatrix3D::makeTranslate(value))
+  setMethod addTransform(*this)
+
+attr Rotate 
+  argument Real angle
+  argument Vector3D axis
+  make new Transform3D(TransMatrix3D::makeRotate(axis, dtor(angle)))
+  setMethod addTransform(*this)
+
+attr RotateX
+  argument Real angle
+  make new Transform3D(TransMatrix3D::makeRotateX(dtor(angle)))
+  setMethod addTransform(*this)
+
+attr RotateY
+  argument Real angle 
+  make new Transform3D(TransMatrix3D::makeRotateY(dtor(angle)))
+  setMethod addTransform(*this)
+
+attr RotateZ
+  argument Real angle
+  make new Transform3D(TransMatrix3D::makeRotateZ(dtor(angle)))
+  setMethod addTransform(*this)
+
+attr Matrix
+  argument TransMatrix3D
+
+  code TransMatrix3D inverse = value;
+  code if (!inverse.invert()) {
+  code   errMsg = "singular transformation matrix";
+  code   return NULL;
+  code }
+
+  make new Transform3D(value)
+  setMethod addTransform(*this)

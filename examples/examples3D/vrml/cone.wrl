@@ -1,0 +1,19 @@
+#VRML V1.0 ascii
+
+#
+# cone.wrl
+#
+# Test of VRML cone feature.
+#
+# Copyright (C) 1996, Beat Liechti <liechti@isbe.ch>
+#                     Ingenieurschule Bern, Switzerland
+#
+# -----------------------------------------------------------------------------
+# $Id: cone.wrl,v 1.1 1996/02/28 10:16:35 streit Exp $
+# -----------------------------------------------------------------------------
+#
+
+Material { diffuseColor [ 1 0 0, 0 1 0, 0 0 1 ] }
+MaterialBinding { value PER_PART }
+Cone { parts ALL bottomRadius 2.0 height 5.0 }
+

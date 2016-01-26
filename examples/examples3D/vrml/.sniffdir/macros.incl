@@ -1,0 +1,81 @@
+SNIFF_TARGET		= all
+SNIFF_TARGETS		= all 
+SNIFF_INCLUDE		= 
+
+SNIFF_ShSWS		= $(SHARED_SRC)/examples/examples3D/vrml
+SNIFF_ShSWS_2		= '$$(SHARED_SRC)/examples/examples3D/vrml'
+SNIFF_ShOWS		= $(SHARED_OBJ)/examples/examples3D/vrml
+SNIFF_PROJECT_DIR	= examples/examples3D/vrml
+SNIFF_RELATIVE_ROOT_DIR	= ../../..
+SNIFF_GENERATE_DIR	= .sniffdir
+SNIFF_GENERATE_DIR_ROOT	= 
+
+SNIFF_PROJECT		= vrml.shared
+SNIFF_STATUSFILE	= .Sniff_LastUpdateOfProject_$(SNIFF_PROJECT)
+
+SNIFF_VCS		= RCS
+SNIFF_REPOSITORY_DIR	= $(REPOSITORY)/examples/examples3D/vrml
+
+SNIFF_Lex_Source_DIR	= .
+SNIFF_Lex_Source_FILES	= 
+
+SNIFF_Yacc_Source_DIR	= .
+SNIFF_Yacc_Source_FILES	= 
+
+SNIFF_Shell_Script_DIR	= .
+SNIFF_Shell_Script_FILES	= 
+
+SNIFF_Emacs_Lisp_DIR	= .
+SNIFF_Emacs_Lisp_FILES	= 
+
+SNIFF_Python_DIR	= .
+SNIFF_Python_FILES	= 
+
+SNIFF_Make_DIR	= .
+SNIFF_Make_FILES	= 
+
+SNIFF_Header_Documentation_DIR	= docu
+SNIFF_Header_Documentation_FILES	= 
+
+SNIFF_Header_DIR	= .
+SNIFF_Header_FILES	= 
+
+SNIFF_Implementation_DIR	= .
+SNIFF_Implementation_FILES	= 
+
+SNIFF_Project_Description_DIR	= .
+SNIFF_Project_Description_FILES	= vrml.shared 
+
+SNIFF_Document_Template_DIR	= docu/tmpl
+SNIFF_Document_Template_FILES	= 
+
+SNIFF_Image_DIR	= .
+SNIFF_Image_FILES	= 
+
+SNIFF_Object_DIR	= .
+SNIFF_Object_FILES	= 
+
+SNIFF_Implementation_Documentation_DIR	= docu
+SNIFF_Implementation_Documentation_FILES	= 
+
+SNIFF_BOOGA_Scene_Description_DIR	= .
+SNIFF_BOOGA_Scene_Description_FILES	= 
+
+SNIFF_Generator_ConfigurationHandler_DIR	= .
+SNIFF_Generator_ConfigurationHandler_FILES	= 
+
+SNIFF_Generator_SpecifierAttribute_DIR	= .
+SNIFF_Generator_SpecifierAttribute_FILES	= 
+
+SNIFF_VRML_Scene_Descriptions_DIR	= .
+SNIFF_VRML_Scene_Descriptions_FILES	= cone.wrl cube.wrl cylinder.wrl  \
+	home.wrl house.wrl ifs.wrl  \
+	lod.wrl molekul1.wrl molekul2.wrl  \
+	scale.wrl sphere.wrl tricera.wrl 
+
+SNIFF_FILES	= $(SNIFF_Lex_Source_FILES) $(SNIFF_Yacc_Source_FILES) $(SNIFF_Shell_Script_FILES)  \
+	$(SNIFF_Emacs_Lisp_FILES) $(SNIFF_Python_FILES) $(SNIFF_Make_FILES)  \
+	$(SNIFF_Header_Documentation_FILES) $(SNIFF_Header_FILES) $(SNIFF_Implementation_FILES)  \
+	$(SNIFF_Project_Description_FILES) $(SNIFF_Document_Template_FILES) $(SNIFF_Image_FILES)  \
+	$(SNIFF_Object_FILES) $(SNIFF_Implementation_Documentation_FILES) $(SNIFF_BOOGA_Scene_Description_FILES)  \
+	$(SNIFF_Generator_ConfigurationHandler_FILES) $(SNIFF_Generator_SpecifierAttribute_FILES) $(SNIFF_VRML_Scene_Descriptions_FILES) 

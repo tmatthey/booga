@@ -1,0 +1,58 @@
+/*
+ * polygonExtrude.bsdl3
+ *
+ * Copyright (C) 1996, Thierry Matthey <matthey@iam.unibe.ch>
+ *                     University of Berne, Switzerland
+ *
+ * An example of extrusion of a polygon in the positive z direction. 
+ * Accepts holes in CW and CCW definition. 
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: polygonExtrude.bsdl3,v 1.1 1996/10/04 17:14:38 collison Exp $
+ * -----------------------------------------------------------------------------
+ */
+  
+using 3D;
+
+//
+// Definition of the camera and the lightsource
+//
+
+camera {
+  perspective {
+    eye [30,30,60];
+    lookat [-10,15,0];
+    resolution (200, 200);
+  }
+  background [.3,.3,.3];
+};
+
+pointLight (2, [1,1,1]) { position [50,50,150]; }
+
+define red     phong { ambient [.2,.2,.2];diffuse [.4,.1,.1]; }
+
+polyextrude (10,            // height
+  // Definition of the bottom (CW and CCW accepted) 
+  [-15, 20, 0], 
+  [-19, 28, 0],[-25, 28, 0], [-30, 22, 0], 
+  [-27, 16, 0],[-24, 18, 0], 
+  [-25, 2, 0], [-5, 2, 0],   
+  [-6, 18, 0], [-3, 16, 0], 
+  [0, 22, 0],  [-5, 28, 0], [-11, 28, 0]) {
+    // color
+    red;  
+    // Definition of a hole (CW and CCW accepted), 
+    //  should be on the same plane as the polygon
+    hole([-20,5,0],[-10,5,0],[-10,15,0],[-20,15,0]);
+}

@@ -1,0 +1,72 @@
+/*
+ * point.bsdl2
+ *
+ * Copyright (C) 1994-96, Christoph Streit <streit@iam.unibe.ch>
+ *                        Stephan Amann <amann@iam.unibe.ch>
+ *                        University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: point.bsdl2,v 1.2 1996/01/11 17:39:34 streit Exp $
+ * -----------------------------------------------------------------------------
+ */
+ 
+#ifndef _point_bsdl2
+#define _point_bsdl2
+
+// We're in 2D Namespace:
+using 2D;
+ 
+// We need a camera
+camera {
+  resolution (300, 300);       // Screen resolution.
+  window ([0,0], [300,300]);   // Part of the scene to be displayed.
+  background [.5, .5, .5];     // Color of the background.
+}
+
+//_____________________________________________________________________ Textures
+
+define red   color [1,0,0];
+define green color [0,1,0];
+define blue  color [0,0,1];
+define white color [1,1,1];
+ 
+//________________________________________________________________________ Scene
+
+point [150, 200] { red;   }
+point [130, 200] { green; }
+point [170, 200] { green; }
+point [150, 180] { blue;  }
+point [150, 220] { blue;  }
+
+define arrow list {
+  white;
+  line ([0,0], [100,0]);
+  line ([100,-10],[100,10]);
+  line ([100,-10],[140,0]);
+  line ([100, 10],[140,0]);
+};
+
+arrow {
+  rotateOrigin 55;
+  translate [50, 50];
+}
+
+text (20, "Here are points!") {
+  font "ROMAN";
+  white;
+  translate [100,70];
+}
+
+#endif // _point_bsdl2
+

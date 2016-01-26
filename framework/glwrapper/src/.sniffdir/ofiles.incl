@@ -1,0 +1,9 @@
+OFILES = GLAbstractBridge.o GLAbstractTraversal2D.o GLAbstractTraversal3D.o \
+		GLBBTraversal2D.o GLBBTraversal3D.o GLBSDLParserInit.o \
+		GLConstantTexture2D.o GLDisplayListOption.o GLInterpolatorTexture2D.o \
+		GLLightTexture3D.o GLMatte.o GLPhong.o \
+		GLPolygonMapper.o GLRasterizer.o GLRenderer.o \
+		GLTexture.o GLTraversal.o GLTraversal2D.o \
+		GLTraversal3D.o GLUtilities.o GLViewer2D.o \
+		GLViewer3D.o GLWhitted.o GlutBridge.o 
+

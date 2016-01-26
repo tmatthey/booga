@@ -1,0 +1,6 @@
+OFILES = CTAttributeDescription.o CTBaseclassDescription.o CTCPPRenderer2D.o \
+		CTClassDescription2D.o CTClassDescription2DAttributes.o CTOperationDescription.o \
+		CTOperationDescriptionAttr.o CTParser.o CTParserInit.o \
+		CTUMRenderer2D.o CTVariableDescription.o TextBox2D.o \
+		TextBox2DAttr.o casetool.o 
+

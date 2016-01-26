@@ -1,0 +1,789 @@
+#VRML V1.0 ascii
+Separator {
+Info {
+  string "Created by dusan
+date: Tue Nov 14 13:52:09 1995
+" }
+Complexity { fields [ SFFloat value ] value 0.5 }
+Separator {
+Separator {
+Material { #1
+ ambientColor 0.700 0.700 0.000
+ diffuseColor 0.700 0.700 0.000
+ specularColor 0.800 0.800 0.800
+ shininess 96.200 }
+Separator {
+MatrixTransform {
+ matrix 0.9763 0.2163 0.0000 0.0000
+	0.1837 -0.8293 0.5277 0.0000
+	0.1141 -0.5152 -0.8494 0.0000
+	0.3315 1.6585 -1.9065 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.942 }
+ }
+Material { #2
+ ambientColor 0.150 0.150 1.000
+ diffuseColor 0.150 0.150 1.000
+ specularColor 0.800 0.800 0.800
+ shininess 96.000 }
+Separator {
+MatrixTransform {
+ matrix -0.5911 -0.8066 0.0000 0.0000
+	-0.2109 0.1546 -0.9652 0.0000
+	0.7785 -0.5706 -0.2615 0.0000
+	1.9258 0.6768 0.0972 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.728 }
+ }
+Separator {
+MatrixTransform {
+ matrix 0.6179 -0.7863 0.0000 0.0000
+	-0.7169 -0.5633 0.4108 0.0000
+	-0.3230 -0.2538 -0.9117 0.0000
+	2.0287 0.8742 -0.3570 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.501 }
+ }
+Separator {
+MatrixTransform {
+ matrix -0.1919 0.9814 0.0000 0.0000
+	0.8011 0.1567 0.5776 0.0000
+	0.5669 0.1109 -0.8163 0.0000
+	1.5345 0.6715 -0.4808 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.785 }
+ }
+Separator {
+MatrixTransform {
+ matrix 0.3963 -0.9181 0.0000 0.0000
+	-0.7846 -0.3386 0.5194 0.0000
+	-0.4769 -0.2058 -0.8545 0.0000
+	-0.3300 0.0895 -0.5512 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.783 }
+ }
+Separator {
+MatrixTransform {
+ matrix -0.3665 -0.9304 0.0000 0.0000
+	-0.9234 0.3638 0.1222 0.0000
+	-0.1137 0.0448 -0.9925 0.0000
+	-0.9753 0.0903 -0.3032 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.733 }
+ }
+Separator {
+MatrixTransform {
+ matrix 0.9948 0.1016 0.0000 0.0000
+	0.0872 -0.8539 0.5131 0.0000
+	0.0521 -0.5105 -0.8583 0.0000
+	-0.6152 -0.2560 -0.2200 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.499 }
+ }
+Material { #4
+ ambientColor 0.500 0.500 0.500
+ diffuseColor 1.000 1.000 1.000
+ specularColor 1.000 1.000 1.000
+ shininess 96.000 }
+Separator {
+MatrixTransform {
+ matrix 0.9983 -0.0590 0.0000 0.0000
+	-0.0582 -0.9839 0.1692 0.0000
+	-0.0100 -0.1689 -0.9856 0.0000
+	3.6378 1.8512 1.3023 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.559 }
+ }
+Separator {
+MatrixTransform {
+ matrix 0.9935 0.1135 0.0000 0.0000
+	0.1094 -0.9577 0.2663 0.0000
+	0.0302 -0.2646 -0.9639 0.0000
+	1.1395 2.0620 1.9112 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.558 }
+ }
+Separator {
+MatrixTransform {
+ matrix 0.1410 -0.9900 0.0000 0.0000
+	-0.5474 -0.0779 -0.8332 0.0000
+	0.8249 0.1175 -0.5529 0.0000
+	-1.5928 1.9873 1.1045 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.558 }
+ }
+Separator {
+MatrixTransform {
+ matrix 0.6036 0.7973 0.0000 0.0000
+	0.2250 -0.1704 0.9593 0.0000
+	0.7649 -0.5790 -0.2822 0.0000
+	3.7772 0.8845 2.2465 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.558 }
+ }
+Separator {
+MatrixTransform {
+ matrix 0.5747 0.8184 0.0000 0.0000
+	0.6713 -0.4715 -0.5719 0.0000
+	-0.4680 0.3286 -0.8204 0.0000
+	4.1507 0.6325 0.9655 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.558 }
+ }
+Separator {
+MatrixTransform {
+ matrix 0.0692 0.9976 0.0000 0.0000
+	0.4127 -0.0286 0.9104 0.0000
+	0.9082 -0.0630 -0.4137 0.0000
+	1.5768 1.2370 2.8967 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.559 }
+ }
+Separator {
+MatrixTransform {
+ matrix 0.4299 -0.9029 0.0000 0.0000
+	-0.9012 -0.4291 0.0618 0.0000
+	-0.0558 -0.0266 -0.9981 0.0000
+	0.4765 0.9018 2.1858 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.558 }
+ }
+Separator {
+MatrixTransform {
+ matrix -0.0039 1.0000 0.0000 0.0000
+	0.4633 0.0018 0.8862 0.0000
+	0.8862 0.0034 -0.4633 0.0000
+	-2.3563 -0.4035 1.5898 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.558 }
+ }
+Separator {
+MatrixTransform {
+ matrix -0.3595 -0.9331 0.0000 0.0000
+	-0.9257 0.3566 0.1263 0.0000
+	-0.1179 0.0454 -0.9920 0.0000
+	-3.5187 -0.1065 0.9538 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.558 }
+ }
+Separator {
+MatrixTransform {
+ matrix 0.9972 -0.0742 0.0000 0.0000
+	-0.0699 -0.9399 -0.3342 0.0000
+	0.0248 0.3333 -0.9425 0.0000
+	-2.8025 -1.1918 0.5683 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.558 }
+ }
+Separator {
+MatrixTransform {
+ matrix 0.1566 0.9877 0.0000 0.0000
+	0.3329 -0.0528 0.9415 0.0000
+	0.9299 -0.1475 -0.3371 0.0000
+	2.4390 -1.0172 2.3700 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.559 }
+ }
+Separator {
+MatrixTransform {
+ matrix 0.6623 0.7492 0.0000 0.0000
+	0.6104 -0.5396 -0.5799 0.0000
+	-0.4345 0.3841 -0.8147 0.0000
+	2.6708 -1.4245 1.0957 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.558 }
+ }
+Separator {
+MatrixTransform {
+ matrix 0.4026 -0.9154 0.0000 0.0000
+	-0.9153 -0.4025 -0.0170 0.0000
+	0.0156 0.0069 -0.9999 0.0000
+	1.3943 -1.3098 1.5668 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.558 }
+ }
+Separator {
+MatrixTransform {
+ matrix 0.2124 0.9772 0.0000 0.0000
+	0.9522 -0.2069 -0.2248 0.0000
+	-0.2197 0.0477 -0.9744 0.0000
+	-2.8483 2.0953 0.5953 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.558 }
+ }
+Separator {
+MatrixTransform {
+ matrix -0.9854 0.1703 0.0000 0.0000
+	0.1483 0.8580 -0.4918 0.0000
+	-0.0837 -0.4846 -0.8707 0.0000
+	-1.6495 2.9683 -0.5095 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.681 }
+ }
+Separator {
+MatrixTransform {
+ matrix 0.9066 -0.4220 0.0000 0.0000
+	-0.3136 -0.6737 0.6692 0.0000
+	-0.2824 -0.6067 -0.7431 0.0000
+	-1.7878 2.4875 -0.1548 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.560 }
+ }
+Separator {
+MatrixTransform {
+ matrix 0.6179 -0.7863 0.0000 0.0000
+	-0.7169 -0.5633 0.4108 0.0000
+	-0.3230 -0.2538 -0.9117 0.0000
+	2.3883 1.1567 -0.5630 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.501 }
+ }
+Separator {
+MatrixTransform {
+ matrix 0.9948 0.1016 0.0000 0.0000
+	0.0872 -0.8539 0.5131 0.0000
+	0.0521 -0.5105 -0.8583 0.0000
+	-0.5718 -0.6820 0.0360 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.499 }
+ }
+Separator {
+MatrixTransform {
+ matrix -0.2438 -0.9698 0.0000 0.0000
+	-0.9408 0.2365 0.2428 0.0000
+	-0.2355 0.0592 -0.9701 0.0000
+	-3.6285 0.6820 -1.2537 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.558 }
+ }
+Separator {
+MatrixTransform {
+ matrix 1.0000 0.0020 0.0000 0.0000
+	0.0018 -0.9042 -0.4270 0.0000
+	-0.0008 0.4270 -0.9042 0.0000
+	-2.8395 -0.2720 -1.8140 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.557 }
+ }
+Separator {
+MatrixTransform {
+ matrix -0.8984 0.4391 0.0000 0.0000
+	0.3315 0.6782 -0.6559 0.0000
+	-0.2880 -0.5892 -0.7549 0.0000
+	-2.5628 1.0533 -2.0075 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.560 }
+ }
+Material { #6
+ ambientColor 0.760 0.140 0.760
+ diffuseColor 0.760 0.140 0.760
+ specularColor 0.800 0.800 0.800
+ shininess 96.000 }
+Separator {
+MatrixTransform {
+ matrix -0.9995 -0.0304 0.0000 0.0000
+	-0.0046 0.1505 -0.9886 0.0000
+	0.0301 -0.9881 -0.1506 0.0000
+	0.0040 3.8215 0.7455 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 1.747 }
+ }
+Separator {
+MatrixTransform {
+ matrix -0.2404 0.9707 0.0000 0.0000
+	0.8527 0.2112 -0.4778 0.0000
+	-0.4638 -0.1149 -0.8784 0.0000
+	0.7450 4.1375 -0.5355 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 1.747 }
+ }
+Separator {
+MatrixTransform {
+ matrix 0.0719 -0.9974 0.0000 0.0000
+	-0.8571 -0.0618 -0.5115 0.0000
+	0.5102 0.0368 -0.8593 0.0000
+	-0.7490 3.8990 -0.5650 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 1.748 }
+ }
+Separator {
+MatrixTransform {
+ matrix -0.9854 0.1703 0.0000 0.0000
+	0.1483 0.8580 -0.4918 0.0000
+	-0.0837 -0.4846 -0.8707 0.0000
+	-1.5485 3.5528 -0.8445 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.681 }
+ }
+Separator {
+MatrixTransform {
+ matrix -0.1919 0.9814 0.0000 0.0000
+	0.8011 0.1567 0.5776 0.0000
+	0.5669 0.1109 -0.8163 0.0000
+	0.9055 0.5485 -0.9342 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.785 }
+ }
+Separator {
+MatrixTransform {
+ matrix 0.3963 -0.9181 0.0000 0.0000
+	-0.7846 -0.3386 0.5194 0.0000
+	-0.4769 -0.2058 -0.8545 0.0000
+	0.2840 0.3545 -0.9578 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.783 }
+ }
+Separator {
+MatrixTransform {
+ matrix 0.9458 0.3248 0.0000 0.0000
+	0.2515 -0.7324 -0.6326 0.0000
+	-0.2055 0.5983 -0.7744 0.0000
+	0.6988 0.1732 -1.4320 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.857 }
+ }
+Separator {
+MatrixTransform {
+ matrix -0.9807 -0.1955 0.0000 0.0000
+	-0.1629 0.8172 -0.5528 0.0000
+	0.1081 -0.5422 -0.8333 0.0000
+	1.2350 -1.8368 -1.5220 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.872 }
+ }
+Separator {
+MatrixTransform {
+ matrix 0.5358 -0.8443 0.0000 0.0000
+	-0.5460 -0.3465 -0.7628 0.0000
+	0.6440 0.4087 -0.6467 0.0000
+	0.6875 -2.5855 -2.1450 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 2.265 }
+ }
+Separator {
+MatrixTransform {
+ matrix -0.9963 -0.0856 0.0000 0.0000
+	-0.0706 0.8214 -0.5660 0.0000
+	0.0485 -0.5639 -0.8244 0.0000
+	-1.2235 -4.1995 -1.5440 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 1.742 }
+ }
+Separator {
+MatrixTransform {
+ matrix 0.9763 0.2163 0.0000 0.0000
+	0.1837 -0.8293 0.5277 0.0000
+	0.1141 -0.5152 -0.8494 0.0000
+	0.5045 0.8775 -1.4095 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.942 }
+ }
+Separator {
+MatrixTransform {
+ matrix 0.3302 -0.9439 0.0000 0.0000
+	-0.8303 -0.2905 0.4756 0.0000
+	-0.4489 -0.1571 -0.8797 0.0000
+	2.0982 -0.3915 -2.8615 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.864 }
+ }
+Separator {
+MatrixTransform {
+ matrix 0.1664 -0.9861 0.0000 0.0000
+	-0.7726 -0.1304 -0.6213 0.0000
+	0.6127 0.1034 -0.7835 0.0000
+	0.0222 -0.9367 -3.0490 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.863 }
+ }
+Separator {
+MatrixTransform {
+ matrix 0.9822 0.1880 0.0000 0.0000
+	0.1859 -0.9710 0.1507 0.0000
+	0.0283 -0.1480 -0.9886 0.0000
+	-0.1210 -1.9855 -3.1630 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 2.044 }
+ }
+Separator {
+MatrixTransform {
+ matrix 0.3501 -0.9367 0.0000 0.0000
+	-0.7773 -0.2905 0.5580 0.0000
+	-0.5227 -0.1953 -0.8298 0.0000
+	-0.6080 -3.2310 -2.5230 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 1.742 }
+ }
+Separator {
+MatrixTransform {
+ matrix 0.5304 0.8478 0.0000 0.0000
+	0.8477 -0.5303 0.0086 0.0000
+	0.0073 -0.0046 -1.0000 0.0000
+	-2.0235 -3.0220 -2.0445 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 1.742 }
+ }
+Material { #8
+ ambientColor 0.300 0.300 0.300
+ diffuseColor 0.300 0.300 0.300
+ specularColor 0.400 0.400 0.400
+ shininess 96.000 }
+Separator {
+MatrixTransform {
+ matrix 0.9983 -0.0590 0.0000 0.0000
+	-0.0582 -0.9839 0.1692 0.0000
+	-0.0100 -0.1689 -0.9856 0.0000
+	3.6052 1.3017 1.3967 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.559 }
+ }
+Separator {
+MatrixTransform {
+ matrix 0.9935 0.1135 0.0000 0.0000
+	0.1094 -0.9577 0.2663 0.0000
+	0.0302 -0.2646 -0.9639 0.0000
+	1.2005 1.5280 2.0598 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.558 }
+ }
+Separator {
+MatrixTransform {
+ matrix 0.1410 -0.9900 0.0000 0.0000
+	-0.5474 -0.0779 -0.8332 0.0000
+	0.8249 0.1175 -0.5529 0.0000
+	-1.8983 1.9438 0.6395 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.558 }
+ }
+Separator {
+MatrixTransform {
+ matrix -0.3405 0.9402 0.0000 0.0000
+	0.9233 0.3344 0.1888 0.0000
+	0.1775 0.0643 -0.9820 0.0000
+	2.8725 0.7675 1.2975 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 1.552 }
+ }
+Separator {
+MatrixTransform {
+ matrix -0.6313 -0.7755 0.0000 0.0000
+	-0.5985 0.4872 0.6360 0.0000
+	-0.4932 0.4015 -0.7717 0.0000
+	1.6935 0.8845 1.6425 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 1.546 }
+ }
+Separator {
+MatrixTransform {
+ matrix 1.0000 0.0027 0.0000 0.0000
+	0.0026 -0.9603 0.2788 0.0000
+	0.0008 -0.2788 -0.9603 0.0000
+	2.1580 -0.2325 1.3660 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 1.542 }
+ }
+Separator {
+MatrixTransform {
+ matrix -0.5911 -0.8066 0.0000 0.0000
+	-0.2109 0.1546 -0.9652 0.0000
+	0.7785 -0.5706 -0.2615 0.0000
+	2.0792 0.5642 0.7998 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.728 }
+ }
+Separator {
+MatrixTransform {
+ matrix 0.6036 0.7973 0.0000 0.0000
+	0.2250 -0.1704 0.9593 0.0000
+	0.7649 -0.5790 -0.2822 0.0000
+	3.6518 0.9795 1.7115 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.558 }
+ }
+Separator {
+MatrixTransform {
+ matrix 0.5747 0.8184 0.0000 0.0000
+	0.6713 -0.4715 -0.5719 0.0000
+	-0.4680 0.3286 -0.8204 0.0000
+	3.7762 0.8955 1.2845 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.558 }
+ }
+Separator {
+MatrixTransform {
+ matrix 0.0692 0.9976 0.0000 0.0000
+	0.4127 -0.0286 0.9104 0.0000
+	0.9082 -0.0630 -0.4137 0.0000
+	1.3462 1.2530 2.3883 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.559 }
+ }
+Separator {
+MatrixTransform {
+ matrix 0.4299 -0.9029 0.0000 0.0000
+	-0.9012 -0.4291 0.0618 0.0000
+	-0.0558 -0.0266 -0.9981 0.0000
+	0.9795 1.1413 2.1513 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.558 }
+ }
+Separator {
+MatrixTransform {
+ matrix -0.0039 1.0000 0.0000 0.0000
+	0.4633 0.0018 0.8862 0.0000
+	0.8862 0.0034 -0.4633 0.0000
+	-2.6147 -0.4045 1.0953 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.558 }
+ }
+Separator {
+MatrixTransform {
+ matrix -0.3595 -0.9331 0.0000 0.0000
+	-0.9257 0.3566 0.1263 0.0000
+	-0.1179 0.0454 -0.9920 0.0000
+	-3.0022 -0.3055 0.8832 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.558 }
+ }
+Separator {
+MatrixTransform {
+ matrix -0.7648 0.6443 0.0000 0.0000
+	0.4863 0.5773 -0.6559 0.0000
+	-0.4226 -0.5017 -0.7548 0.0000
+	-2.3670 0.0425 0.3395 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 1.550 }
+ }
+Separator {
+MatrixTransform {
+ matrix 0.9972 -0.0742 0.0000 0.0000
+	-0.0699 -0.9399 -0.3342 0.0000
+	0.0248 0.3333 -0.9425 0.0000
+	-2.7635 -0.6673 0.7548 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.558 }
+ }
+Separator {
+MatrixTransform {
+ matrix 0.1566 0.9877 0.0000 0.0000
+	0.3329 -0.0528 0.9415 0.0000
+	0.9299 -0.1475 -0.3371 0.0000
+	2.2530 -0.9877 1.8440 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.559 }
+ }
+Separator {
+MatrixTransform {
+ matrix 0.6623 0.7492 0.0000 0.0000
+	0.6104 -0.5396 -0.5799 0.0000
+	-0.4345 0.3841 -0.8147 0.0000
+	2.3303 -1.1235 1.4193 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.558 }
+ }
+Separator {
+MatrixTransform {
+ matrix 0.4026 -0.9154 0.0000 0.0000
+	-0.9153 -0.4025 -0.0170 0.0000
+	0.0156 0.0069 -0.9999 0.0000
+	1.9048 -1.0853 1.5762 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.558 }
+ }
+Separator {
+MatrixTransform {
+ matrix 0.2124 0.9772 0.0000 0.0000
+	0.9522 -0.2069 -0.2248 0.0000
+	-0.2197 0.0477 -0.9744 0.0000
+	-2.3168 1.9798 0.4697 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.558 }
+ }
+Separator {
+MatrixTransform {
+ matrix 0.9066 -0.4220 0.0000 0.0000
+	-0.3136 -0.6737 0.6692 0.0000
+	-0.2824 -0.6067 -0.7431 0.0000
+	-1.9633 2.1105 0.2197 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.560 }
+ }
+Separator {
+MatrixTransform {
+ matrix 0.9458 0.3248 0.0000 0.0000
+	0.2515 -0.7324 -0.6326 0.0000
+	-0.2055 0.5983 -0.7744 0.0000
+	0.9142 -0.4542 -1.9740 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.857 }
+ }
+Separator {
+MatrixTransform {
+ matrix -0.3665 -0.9304 0.0000 0.0000
+	-0.9234 0.3638 0.1222 0.0000
+	-0.1137 0.0448 -0.9925 0.0000
+	-1.6518 0.3567 -0.2138 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.733 }
+ }
+Separator {
+MatrixTransform {
+ matrix -0.9991 -0.0426 0.0000 0.0000
+	-0.0395 0.9270 0.3729 0.0000
+	-0.0159 0.3725 -0.9279 0.0000
+	-2.0205 1.2060 0.1190 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 1.545 }
+ }
+Separator {
+MatrixTransform {
+ matrix 0.0071 -1.0000 0.0000 0.0000
+	-0.5513 -0.0039 -0.8343 0.0000
+	0.8343 0.0059 -0.5513 0.0000
+	-2.4155 0.4870 -0.8130 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 1.544 }
+ }
+Separator {
+MatrixTransform {
+ matrix -0.2438 -0.9698 0.0000 0.0000
+	-0.9408 0.2365 0.2428 0.0000
+	-0.2355 0.0592 -0.9701 0.0000
+	-3.1035 0.5500 -1.3893 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.558 }
+ }
+Separator {
+MatrixTransform {
+ matrix 1.0000 0.0020 0.0000 0.0000
+	0.0018 -0.9042 -0.4270 0.0000
+	-0.0008 0.4270 -0.9042 0.0000
+	-2.8405 0.2320 -1.5760 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.557 }
+ }
+Separator {
+MatrixTransform {
+ matrix -0.8984 0.4391 0.0000 0.0000
+	0.3315 0.6782 -0.6559 0.0000
+	-0.2880 -0.5892 -0.7549 0.0000
+	-2.7483 0.6738 -1.6405 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.560 }
+ }
+Separator {
+MatrixTransform {
+ matrix -0.9807 -0.1955 0.0000 0.0000
+	-0.1629 0.8172 -0.5528 0.0000
+	0.1081 -0.5422 -0.8333 0.0000
+	1.0930 -1.1243 -2.0040 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.872 }
+ }
+Separator {
+MatrixTransform {
+ matrix 0.3302 -0.9439 0.0000 0.0000
+	-0.8303 -0.2905 0.4756 0.0000
+	-0.4489 -0.1571 -0.8797 0.0000
+	1.3807 -0.6425 -2.4505 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.864 }
+ }
+Separator {
+MatrixTransform {
+ matrix 0.1664 -0.9861 0.0000 0.0000
+	-0.7726 -0.1304 -0.6213 0.0000
+	0.6127 0.1034 -0.7835 0.0000
+	0.6887 -0.8242 -2.5130 1.0000 }
+ Cylinder { parts SIDES radius 0.1 height 0.863 }
+ }
+ }
+Separator {
+Complexity { fields [ SFFloat value ] value 0.5 }
+Material { #1
+ ambientColor 0.700 0.700 0.000
+ diffuseColor 0.700 0.700 0.000
+ specularColor 0.800 0.800 0.800
+ shininess 96.200 }
+Separator {
+ Translation { translation 0.245 2.049 -2.155 }
+ DEF CPK16 Sphere { radius 0.316 } }
+Material { #2
+ ambientColor 0.150 0.150 1.000
+ diffuseColor 0.150 0.150 1.000
+ specularColor 0.800 0.800 0.800
+ shininess 96.000 }
+Separator {
+ Translation { translation 1.849 0.733 -0.254 }
+ DEF CPK7 Sphere { radius 0.248 } }
+Separator {
+ Translation { translation -0.637 -0.043 -0.348 }
+ USE CPK7 }
+Material { #4
+ ambientColor 0.500 0.500 0.500
+ diffuseColor 1.000 1.000 1.000
+ specularColor 1.000 1.000 1.000
+ shininess 96.000 }
+Separator {
+ Translation { translation -0.550 -0.895 0.164 }
+ DEF CPK1 Sphere { radius 0.195 } }
+Separator {
+ Translation { translation 2.568 1.298 -0.666 }
+ USE CPK1 }
+Separator {
+ Translation { translation 1.139 -1.422 1.562 }
+ USE CPK1 }
+Separator {
+ Translation { translation 2.532 -1.032 2.633 }
+ USE CPK1 }
+Separator {
+ Translation { translation 2.841 -1.575 0.934 }
+ USE CPK1 }
+Separator {
+ Translation { translation 1.692 1.229 3.151 }
+ USE CPK1 }
+Separator {
+ Translation { translation 1.109 2.329 1.837 }
+ USE CPK1 }
+Separator {
+ Translation { translation 0.225 0.782 2.203 }
+ USE CPK1 }
+Separator {
+ Translation { translation 4.338 0.501 0.806 }
+ USE CPK1 }
+Separator {
+ Translation { translation 3.840 0.837 2.514 }
+ USE CPK1 }
+Separator {
+ Translation { translation 3.654 2.126 1.255 }
+ USE CPK1 }
+Separator {
+ Translation { translation -3.777 -0.007 0.989 }
+ USE CPK1 }
+Separator {
+ Translation { translation -2.227 -0.403 1.837 }
+ USE CPK1 }
+Separator {
+ Translation { translation -2.822 -1.454 0.475 }
+ USE CPK1 }
+Separator {
+ Translation { translation -2.839 -0.524 -1.933 }
+ USE CPK1 }
+Separator {
+ Translation { translation -2.470 1.243 -2.191 }
+ USE CPK1 }
+Separator {
+ Translation { translation -3.891 0.748 -1.186 }
+ USE CPK1 }
+Separator {
+ Translation { translation -3.114 2.153 0.658 }
+ USE CPK1 }
+Separator {
+ Translation { translation -1.700 2.676 -0.342 }
+ USE CPK1 }
+Separator {
+ Translation { translation -1.440 2.009 1.337 }
+ USE CPK1 }
+Material { #6
+ ambientColor 0.760 0.140 0.760
+ diffuseColor 0.760 0.140 0.760
+ specularColor 0.800 0.800 0.800
+ shininess 96.000 }
+Separator {
+ Translation { translation 0.591 0.487 -1.161 }
+ DEF CPK15 Sphere { radius 0.327 } }
+Separator {
+ Translation { translation 1.306 -2.193 -1.281 }
+ DEF CPK17 Sphere { radius 0.304 } }
+Separator {
+ Translation { translation 2.457 -0.266 -3.067 }
+ USE CPK17 }
+Separator {
+ Translation { translation -0.311 -0.993 -3.317 }
+ USE CPK17 }
+Separator {
+ Translation { translation -1.162 -4.915 -1.051 }
+ USE CPK17 }
+Separator {
+ Translation { translation -1.285 -3.484 -2.037 }
+ DEF CPK5 Sphere { radius 0.255 } }
+Separator {
+ Translation { translation 0.069 -2.978 -3.009 }
+ USE CPK17 }
+Separator {
+ Translation { translation -2.762 -2.560 -2.052 }
+ USE CPK17 }
+Separator {
+ Translation { translation 0.008 3.690 1.609 }
+ USE CPK17 }
+Separator {
+ Translation { translation 0.000 3.953 -0.118 }
+ USE CPK5 }
+Separator {
+ Translation { translation -1.498 3.845 -1.012 }
+ USE CPK17 }
+Separator {
+ Translation { translation 1.490 4.322 -0.953 }
+ USE CPK17 }
+Material { #8
+ ambientColor 0.300 0.300 0.300
+ diffuseColor 0.300 0.300 0.300
+ specularColor 0.400 0.400 0.400
+ shininess 96.000 }
+Separator {
+ Translation { translation 1.022 -0.768 -2.245 }
+ DEF CPK6 Sphere { radius 0.270 } }
+Separator {
+ Translation { translation 2.156 0.508 1.151 }
+ USE CPK6 }
+Separator {
+ Translation { translation -2.744 -0.405 0.848 }
+ USE CPK6 }
+Separator {
+ Translation { translation -1.990 0.490 -0.169 }
+ USE CPK6 }
+Separator {
+ Translation { translation -2.051 1.922 0.407 }
+ USE CPK6 }
+Separator {
+ Translation { translation -2.841 0.484 -1.457 }
+ USE CPK6 }
+Separator {
+ Translation { translation 2.160 -0.973 1.581 }
+ USE CPK6 }
+Separator {
+ Translation { translation 1.231 1.261 2.134 }
+ USE CPK6 }
+Separator {
+ Translation { translation 3.589 1.027 1.444 }
+ USE CPK6 }
+ }
+}
+}

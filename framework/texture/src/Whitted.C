@@ -1,0 +1,178 @@
+/*
+ * $RCSfile: Whitted.C,v $
+ *
+ * Copyright (C) 1994-96, Stephan Amann <amann@iam.unibe.ch>
+ *                        Christoph Streit <streit@iam.unibe.ch>
+ *                        University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: Whitted.C,v 1.6 1996/10/04 11:33:46 collison Exp $
+ * -----------------------------------------------------------------------------
+ */
+
+#include "booga/object/Ray3DFactory.h"
+#include "booga/object/Ray3DUtilities.h"
+#include "booga/object/AmbientLight.h"
+#include "booga/object/DirectedLight.h"
+#include "booga/object/World3D.h"
+#include "booga/object/Path3D.h"
+#include "booga/object/Primitive3D.h"
+#include "booga/object/DummyMakeable.h"
+#include "booga/object/MakeableHandler.h"
+#include "booga/texture/TextureUtilities.h"
+#include "booga/texture/Whitted.h"
+#include "booga/texture/WhittedAttr.h"
+
+//______________________________________________________________________ Whitted
+
+implementRTTI(Whitted, Texture3D);
+
+Whitted::Whitted() 
+: myAmbient(Color(0,0,0)), 
+  myDiffuse(Color(0,0,0)) 
+{
+  myTransparency = 0.0;
+  myReflectivity = 0.0;
+  myRefractionIndex = 1.0;
+}
+
+Whitted::Whitted(Exemplar) 
+: myAmbient(Color(0,0,0)), 
+  myDiffuse(Color(0,0,0)) 
+{
+  myTransparency = 0.0;
+  myReflectivity = 0.0;
+  myRefractionIndex = 1.0;
+}
+
+Texture3D* Whitted::copy() const
+{
+  return new Whitted(*this);
+}
+
+/*
+ * Make sure, Context::setIncidencePosition has been called by 
+ * any component that would like to make use of Whitted textures!
+ */
+void Whitted::doTexturing(Texture3DContext& context) const
+{
+  // Refracting rays
+  Color refracting;
+  bool hasRefractingHit = false;
+  if (myTransparency > 0.0) {
+    Ray3D* refract = Ray3DFactory::createRefractedRay(context, myTransparency, myRefractionIndex);
+    hasRefractingHit = Ray3DUtilities::shadeSecondary(refract, refracting, context);
+    delete refract;
+  }
+    
+  // Reflecting rays
+  Color reflecting;
+  bool hasReflectingHit = false;
+  if (myReflectivity > 0.0) {
+    Ray3D* reflect = Ray3DFactory::createReflectedRay(context, myReflectivity);
+    hasReflectingHit = Ray3DUtilities::shadeSecondary(reflect, reflecting, context);
+    delete reflect;
+  }
+  
+  // collect ambient illumination
+  Color ambientIllumination(0,0,0);
+
+  forEachLight(AmbientLight, ambLight) {
+    ambLight->getIllumination(context);
+    ambientIllumination += context.getIllumination();
+  }
+  
+  // collect directed illumination
+  float cosAlpha;
+  Color directedIllumination(0,0,0);
+
+  forEachLight(DirectedLight, dirLight) {
+    dirLight->getDirection(context);
+    cosAlpha  = context.getNormalWCS() ^ context.getLightDirection();
+    if ((cosAlpha > 0) && dirLight->isVisible(context)) {
+      dirLight->getIllumination(context);
+      directedIllumination += context.getIllumination() * cosAlpha;
+    }        
+  }
+  
+  //
+  // Now for the final result:
+  //
+  // Ambient Contribution without any correction 
+  Color result(myAmbient*ambientIllumination);
+
+  // The more reflected and refracted contribution, the less the own
+  // diffuse color...
+  float diffuseFactor = 1;
+  
+  // Did the refracting ray hit any object? (No contribution else!)
+  if (hasRefractingHit) {
+    // Add the refracting contribution to the result
+    result += refracting*(float)myTransparency;
+    // Decrease contribution of diffuse color
+    diffuseFactor *= (1-myTransparency);
+  }
+  
+  // Did the reflecting ray hit any object? (No contribution else!)
+  if (hasReflectingHit) {
+    // Add the reflecting contribution to the result
+    result += reflecting*(float)myReflectivity;
+    // Decrease contribution of diffuse color
+    diffuseFactor *= (1-myReflectivity);
+  }
+  
+  // Finally add diffuse color and set color in context
+  result += myDiffuse*directedIllumination*diffuseFactor;
+
+  context.setColor(result);
+}
+
+int Whitted::setSpecifier(RCString& errMsg, Makeable* specifier)
+{
+  castSpecifier(WhittedAttr, whittedAttr, "whitted attribute");
+
+  // The WhittedAttr knows best which method has to be called.
+  // So let the object do the job.
+  whittedAttr->setAttribute(this);
+  delete whittedAttr;
+
+  return 1;
+}
+
+static const RCString whittedKeyword("whitted");
+
+RCString Whitted::getKeyword() const {
+  return whittedKeyword;
+}
+
+void Whitted::iterateAttributes(MakeableHandler *handler) {
+  Texture3D::iterateAttributes(handler);
+  DummyMakeable diffuse("diffuse", Value(getDiffuse()));
+  handler->handle(&diffuse);
+  if (!equal(getAmbient().brightness(), 0.0)) {
+    DummyMakeable ambient("ambient", Value(getAmbient()));
+    handler->handle(&ambient);
+  }
+  if (!equal(getReflectivity(), 0.0)) {
+    DummyMakeable reflectivity("reflectivity", Value(getReflectivity()));
+    handler->handle(&reflectivity);
+  }
+  if (!equal(getTransparency(), 0.0)) {
+    DummyMakeable transp("transparency", Value(getTransparency()));
+    handler->handle(&transp);
+    DummyMakeable index("refractionIndex", Value(getRefractionIndex()));
+    handler->handle(&index);
+  }
+}
+

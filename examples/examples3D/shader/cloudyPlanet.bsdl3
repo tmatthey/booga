@@ -1,0 +1,44 @@
+/*
+ * cloudyPlanet.bsdl3
+ *
+ * Copyright (C) 1996, Thomas Teuscher<teuscher@iam.unibe.ch>
+ *                     University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: cloudyPlanet.bsdl3,v 1.1 1996/06/06 11:49:13 streit Exp $
+ * -----------------------------------------------------------------------------
+ */
+
+#ifndef _cloudyPlanet_bsdl3
+#define _cloudyPlanet_bsdl3
+
+using 3D;
+
+camera {
+  perspective {
+  eye [2,2,2];
+  lookat [0,0,0];
+  resolution (150, 150);
+  }
+  background [.9,.9,.9];
+};
+
+pointLight (1, [1, 1, 1]) { position [200, 1500, 2000]; }
+
+sphere (1, [0,0,0]) {
+//  shader("planet.bsl");
+  shader("clouds.bsl", 0, 3, .8); 
+}
+
+#endif // _cloudyPlanet_bsdl3

@@ -1,0 +1,8 @@
+OFILES = GSBConetreeLayouter.o GSBConetreeNode.o GSBConetreeNode3D.o \
+		GSBFastTraversal3D.o GSBGLRenderer.o GSBNode.o \
+		GSBNode2D.o GSBNodeManager.o GSBNodeTools.o \
+		GSBPolyline.o GSBTreeLayouter.o GSBTreeNode.o \
+		GSBView.o GSBViewManager.o GSBwxConetreeView.o \
+		GSBwxFlythroughView.o GSBwxTreeView.o GSBwxWindowsBridge.o \
+		wxBrowser.o wxManagedCanvas.o 
+

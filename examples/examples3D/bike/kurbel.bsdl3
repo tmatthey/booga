@@ -1,0 +1,53 @@
+/*
+ * kurbel.bsdl3 
+ *
+ * Copyright (C) 1995, Bernhard Buehlmann <buehlmann@iam.unibe.ch>
+ *                     University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: kurbel.bsdl3,v 1.4 1996/08/29 14:17:27 buhlmann Exp $
+ * -----------------------------------------------------------------------------
+ */
+
+#ifndef _kurbel_bsdl3
+#define _kurbel_bsdl3
+
+#include "viewing.bsdl3"
+#include "material.bsdl3"
+
+const pedal_br .1;
+const kurbel_l .4;
+
+define pedal list {
+  cylinder (.01, [0,0,0], [0,pedal_br,0]){ close; }
+  box ([-.055, pedal_br, -.014], [-.05, .002, .014]);
+  box ([.055, .002, -.014], [.05, pedal_br, .015]);	
+  cylinder (.01, [-.055,pedal_br-.02,0], [.055,pedal_br-.02,0]) { close; }
+  cylinder (.01, [-.055,.02,0], [.055,.02,0]) { close; }	
+}
+
+define kurbel list {
+  cylinder (.015, [0,0,0], [0,0,kurbel_l]) { metall; }
+  pedal { rotateY(-40); translate [0,0,kurbel_l]; metall; } 
+}
+
+define pedale list {
+  kurbel { scale [1.5,1.5,1.5]; translate [0,.35,0]; }
+  kurbel { scale [1.5,-1.5,1.5]; translate [0,-.35,0]; rotateY (180); }
+  cylinder (.05, [0,-.35,0], [0,.35,0]) { metall;}
+  sphere (.05, [0,-.35,0]){ metall; }
+  sphere (.05, [0,.35,0]) { metall; }
+}
+
+#endif // _kurbel_bsdl3

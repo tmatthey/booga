@@ -1,0 +1,45 @@
+#%Module1.0
+########################################################################
+##
+## Setup for Project BOOGA : Common Part
+##
+# Mon Mar 27 14:05:00 1995  Stephan Amann <amann@iam.unibe.ch>
+
+# QuickArt Stuff
+#-----------------------------------
+setenv  PROJECT_HOME	/home/fcg/BOOGA
+setenv	SHARED_HOME	/home/fcg/BOOGA/workspaces
+
+setenv	WORKSPACE	$env(HOME)/booga
+setenv	CORE_SHARED_SRC	$env(SHARED_HOME)/core-dev/shared_src
+setenv	CORE_SHARED_OBJ	$env(SHARED_HOME)/core-dev/shared_obj/$env(PLATFORM)/$env(COMPILER)
+setenv	APP_SHARED_SRC	$env(SHARED_HOME)/app-dev/shared_src
+setenv	APP_SHARED_OBJ	$env(SHARED_HOME)/app-dev/shared_obj/$env(PLATFORM)/$env(COMPILER)
+setenv	REPOSITORY	$env(PROJECT_HOME)/repository
+
+# SNiFF Stuff
+#-----------------------------------
+setenv          SNIFF_DIR	/usr/local/sniff
+prepend-path    PATH		$env(SNIFF_DIR)/bin
+# prepend-path    LM_LICENSE_FILE $env(SNIFF_DIR)/license.dat
+
+# Stuff for building QuickArt
+#-----------------------------------
+prepend-path	PATH	$env(PROJECT_HOME)/bin
+
+
+# Special gcc with patches for shared libraries
+#------------------------------------------------------
+#prepend-path	PATH		/home/fcg/gcc/bin
+#prepend-path	MANPATH		/home/fcg/gcc/man
+#prepend-path	GCC_EXEC_PREFIX	/home/fcg/gcc/lib/gcc-lib
+#prepend-path	LD_LIBRARY_PATH	/home/fcg/gcc/lib
+
+# Stuff for gnats and tkgnats
+#------------------------------------------------------
+#prepend-path	LD_LIBRARY_PATH	/opt/local/tcltk/lib
+#setenv  	TCL_LIBRARY 	/opt/local/tcltk/lib/tcl
+#setenv  	TK_LIBRARY 	/opt/local/tcltk/lib/tk
+
+
+

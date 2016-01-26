@@ -1,0 +1,26 @@
+#VRML V1.0 ascii
+
+#
+# scale.wrl
+#
+# Test of VRML scale feature.
+#
+# Copyright (C) 1996, Beat Liechti <liechti@isbe.ch>
+#                     Ingenieurschule Bern, Switzerland
+#
+# -----------------------------------------------------------------------------
+# $Id: scale.wrl,v 1.1 1996/02/28 10:16:48 streit Exp $
+# -----------------------------------------------------------------------------
+#
+
+Translation { translation -23.026001 31.158001 18.839001 }
+Scale { scaleFactor 2.11 2.11 2.11 }
+Material { diffuseColor 0.2 0.9 0.2 }
+Cylinder { }
+
+Translation { translation 36.015999 31.158001 -31.452000 }
+Scale { scaleFactor 2.11 2.11 2.11 }
+Material { diffuseColor 0.9 0.2 0.2 }
+Cone { }
+
+

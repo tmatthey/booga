@@ -1,0 +1,71 @@
+/*
+ * LEGOTest2D.bsdl3
+ *
+ * Copyright (C) 1994-96, Christoph Streit <streit@iam.unibe.ch>
+ *                        Stephan Amann <amann@iam.unibe.ch>
+ *                        University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: LEGOTest2D.bsdl3,v 1.2 1996/06/05 15:44:27 streit Exp $
+ * -----------------------------------------------------------------------------
+ *
+ * Demonstrates the possibilities of BOOGALegos definitions
+ *
+ */
+
+#include "BOOGALegos.bsdl3"
+
+using 3D;
+
+const distance   BOOGALegos::legoH+1;
+const tbDistance BOOGALegos::tbH+1;
+
+camera {
+  perspective {
+    eye [16,12,50];             // Eye position
+    lookat [16,12,0];           // Looking to this point
+    up [0,1,0];                 // What direction is up? (y)
+    resolution (600, 600);      // Screen resolution
+  }
+  background [.5,.5,.5];        // Color of Background
+}
+ 
+pointLight (.5, [1,1,1]) { position [ 100,-100, 100]; }
+pointLight (1, [1,1,1])  { position [-100, 100, 100]; }
+pointLight (.5, [1,1,1]) { position [ 100, 100,-100]; }
+pointLight (1, [1,1,1])  { position [-100,-100,-100]; }
+
+pointLight (1, [1,1,1])  { position [11,0, 500]; }
+pointLight (1, [1,1,1])  { position [11,0,-500]; }
+
+define legoColor phong {
+  diffuse  [.1,.6,.1];
+  specular [.1,.6,.2];
+  specpow 10;
+}
+
+/*
+ * A 2D example 
+ */
+define example2D list {
+  BOOGALegos::bottom2D   { 3D::translate [BOOGALegos::lego2W/4, -3D::tbDistance,0]; }
+  BOOGALegos::merge2D    { 3D::translate [0,0,0]; }
+  BOOGALegos::_2Dto2D    { 3D::translate [0, 3D::distance,0]; }
+  BOOGALegos::generate2D { 3D::translate [BOOGALegos::legoW+BOOGALegos::gap, 3D::distance,0]; }
+  BOOGALegos::copy2D     { 3D::translate [0, 2*3D::distance,0]; }
+  BOOGALegos::_2Dto2D    { 3D::translate [BOOGALegos::lego2W/4, 3*3D::distance,0]; }
+  BOOGALegos::top2D      { 3D::translate [BOOGALegos::lego2W/4,3*3D::distance+3D::tbDistance,0]; }
+}
+
+example2D { legoColor; }

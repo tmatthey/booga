@@ -1,0 +1,88 @@
+SNIFF_TARGET		= all
+SNIFF_TARGETS		= all 
+SNIFF_INCLUDE		= 
+
+SNIFF_ShSWS		= 
+SNIFF_ShSWS_2		= ''
+SNIFF_ShOWS		= 
+SNIFF_PROJECT_DIR	= framework/base/src
+SNIFF_RELATIVE_ROOT_DIR	= ../../..
+SNIFF_GENERATE_DIR	= .sniffdir
+SNIFF_GENERATE_DIR_ROOT	= 
+
+SNIFF_PROJECT		= base_src.shared
+SNIFF_STATUSFILE	= .Sniff_LastUpdateOfProject_$(SNIFF_PROJECT)
+
+SNIFF_VCS		= RCS
+SNIFF_REPOSITORY_DIR	= $(REPOSITORY)/framework/base/src
+
+SNIFF_Lex_Source_DIR	= .
+SNIFF_Lex_Source_FILES	= 
+
+SNIFF_Yacc_Source_DIR	= .
+SNIFF_Yacc_Source_FILES	= 
+
+SNIFF_Shell_Script_DIR	= .
+SNIFF_Shell_Script_FILES	= 
+
+SNIFF_Emacs_Lisp_DIR	= .
+SNIFF_Emacs_Lisp_FILES	= 
+
+SNIFF_Python_DIR	= .
+SNIFF_Python_FILES	= 
+
+SNIFF_Make_DIR	= .
+SNIFF_Make_FILES	= lib-specific.mk 
+
+SNIFF_Header_Documentation_DIR	= docu
+SNIFF_Header_Documentation_FILES	= 
+
+SNIFF_Header_DIR	= .
+SNIFF_Header_FILES	= ValueMacros.h tess-interface.h tess-triangle.h  \
+	tess-triangulate.h 
+
+SNIFF_Implementation_DIR	= .
+SNIFF_Implementation_FILES	= AbstractPixmap.C Arcball.C BoundingBox.C  \
+	BoundingRect.C Color.C ColorOption.C  \
+	ColorTypes.C Configuration.C ConfigurationHandler.C  \
+	ConicRasterizer.C Geometry2D.C Geometry3D.C  \
+	LineRasterizer.C List.C MIterator.C  \
+	MPixmapExemplar.C Name.C Option.C  \
+	ParserUtilities.C PixmapOf.C PixmapOption.C  \
+	PixmapUtilities.C Quaternion.C RCString.C  \
+	ReferenceCounting.C Report.C ScopedName.C  \
+	Stack.C StaticInit.C Statistic.C  \
+	StreamOption.C StringUtilities.C Strip.C  \
+	SymTable.C Timer.C TransMatrix2D.C  \
+	TransMatrix3D.C Value.C ValueOption.C  \
+	Vector2D.C Vector3D.C Vector4D.C  \
+	mathutilities.C tess-construct.C tess-misc.C  \
+	tess-monotone.C tess-tri.C tess-triangle.C 
+
+SNIFF_Project_Description_DIR	= .
+SNIFF_Project_Description_FILES	= base_src.shared 
+
+SNIFF_Document_Template_DIR	= docu/tmpl
+SNIFF_Document_Template_FILES	= 
+
+SNIFF_Image_DIR	= images
+SNIFF_Image_FILES	= 
+
+SNIFF_Object_DIR	= .
+SNIFF_Object_FILES	= 
+
+SNIFF_Implementation_Documentation_DIR	= docu
+SNIFF_Implementation_Documentation_FILES	= 
+
+SNIFF_Generator_SpecifierAttribute_DIR	= .
+SNIFF_Generator_SpecifierAttribute_FILES	= 
+
+SNIFF_Generator_ConfigurationHandler_DIR	= .
+SNIFF_Generator_ConfigurationHandler_FILES	= 
+
+SNIFF_FILES	= $(SNIFF_Lex_Source_FILES) $(SNIFF_Yacc_Source_FILES) $(SNIFF_Shell_Script_FILES)  \
+	$(SNIFF_Emacs_Lisp_FILES) $(SNIFF_Python_FILES) $(SNIFF_Make_FILES)  \
+	$(SNIFF_Header_Documentation_FILES) $(SNIFF_Header_FILES) $(SNIFF_Implementation_FILES)  \
+	$(SNIFF_Project_Description_FILES) $(SNIFF_Document_Template_FILES) $(SNIFF_Image_FILES)  \
+	$(SNIFF_Object_FILES) $(SNIFF_Implementation_Documentation_FILES) $(SNIFF_Generator_SpecifierAttribute_FILES)  \
+	$(SNIFF_Generator_ConfigurationHandler_FILES) 

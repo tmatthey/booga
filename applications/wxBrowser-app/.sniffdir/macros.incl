@@ -1,0 +1,90 @@
+SNIFF_TARGET		= wxBrowser
+SNIFF_TARGETS		= wxBrowser 
+SNIFF_INCLUDE		= 
+
+SNIFF_ShSWS		= $(SHARED_SRC)/applications/wxBrowser-app
+SNIFF_ShSWS_2		= '$$(SHARED_SRC)/applications/wxBrowser-app'
+SNIFF_ShOWS		= $(SHARED_OBJ)/applications/wxBrowser-app
+SNIFF_PROJECT_DIR	= applications/wxBrowser-app
+SNIFF_RELATIVE_ROOT_DIR	= ../..
+SNIFF_GENERATE_DIR	= .sniffdir
+SNIFF_GENERATE_DIR_ROOT	= 
+
+SNIFF_PROJECT		= wxBrowser-app.shared
+SNIFF_STATUSFILE	= .Sniff_LastUpdateOfProject_$(SNIFF_PROJECT)
+
+SNIFF_VCS		= RCS
+SNIFF_REPOSITORY_DIR	= $(REPOSITORY)/applications/wxBrowser-app
+
+SNIFF_Lex_Source_DIR	= .
+SNIFF_Lex_Source_FILES	= 
+
+SNIFF_Yacc_Source_DIR	= .
+SNIFF_Yacc_Source_FILES	= 
+
+SNIFF_Shell_Script_DIR	= .
+SNIFF_Shell_Script_FILES	= 
+
+SNIFF_Emacs_Lisp_DIR	= .
+SNIFF_Emacs_Lisp_FILES	= 
+
+SNIFF_Python_DIR	= .
+SNIFF_Python_FILES	= 
+
+SNIFF_Make_DIR	= .
+SNIFF_Make_FILES	= app-specific.mk 
+
+SNIFF_Header_Documentation_DIR	= docu
+SNIFF_Header_Documentation_FILES	= 
+
+SNIFF_Header_DIR	= .
+SNIFF_Header_FILES	= GSBConetreeLayouter.h GSBConetreeNode.h GSBConetreeNode3D.h  \
+	GSBFastTraversal3D.h GSBGLRenderer.h GSBNode.h  \
+	GSBNode2D.h GSBNodeManager.h GSBNodeTools.h  \
+	GSBPolygon.h GSBPolyline.h GSBTreeLayouter.h  \
+	GSBTreeNode.h GSBView.h GSBViewManager.h  \
+	GSBwxConetreeView.h GSBwxFlythroughView.h GSBwxTreeView.h  \
+	GSBwxWindowsBridge.h wxBrowser.h wxManagedCanvas.h 
+
+SNIFF_Implementation_DIR	= .
+SNIFF_Implementation_FILES	= GSBConetreeLayouter.C GSBConetreeNode.C GSBConetreeNode3D.C  \
+	GSBFastTraversal3D.C GSBGLRenderer.C GSBNode.C  \
+	GSBNode2D.C GSBNodeManager.C GSBNodeTools.C  \
+	GSBPolyline.C GSBTreeLayouter.C GSBTreeNode.C  \
+	GSBView.C GSBViewManager.C GSBwxConetreeView.C  \
+	GSBwxFlythroughView.C GSBwxTreeView.C GSBwxWindowsBridge.C  \
+	wxBrowser.C wxManagedCanvas.C 
+
+SNIFF_Project_Description_DIR	= .
+SNIFF_Project_Description_FILES	= wxBrowser-app.shared 
+
+SNIFF_Document_Template_DIR	= docu/tmpl
+SNIFF_Document_Template_FILES	= 
+
+SNIFF_Image_DIR	= .
+SNIFF_Image_FILES	= 
+
+SNIFF_Object_DIR	= .
+SNIFF_Object_FILES	= 
+
+SNIFF_Implementation_Documentation_DIR	= docu
+SNIFF_Implementation_Documentation_FILES	= 
+
+SNIFF_BOOGA_Scene_Description_DIR	= .
+SNIFF_BOOGA_Scene_Description_FILES	= 
+
+SNIFF_Generator_ConfigurationHandler_DIR	= .
+SNIFF_Generator_ConfigurationHandler_FILES	= 
+
+SNIFF_Generator_SpecifierAttribute_DIR	= .
+SNIFF_Generator_SpecifierAttribute_FILES	= 
+
+SNIFF_Icon_Bitmaps_DIR	= .
+SNIFF_Icon_Bitmaps_FILES	= fil.xpm icontree.xpm icontree2.xpm 
+
+SNIFF_FILES	= $(SNIFF_Lex_Source_FILES) $(SNIFF_Yacc_Source_FILES) $(SNIFF_Shell_Script_FILES)  \
+	$(SNIFF_Emacs_Lisp_FILES) $(SNIFF_Python_FILES) $(SNIFF_Make_FILES)  \
+	$(SNIFF_Header_Documentation_FILES) $(SNIFF_Header_FILES) $(SNIFF_Implementation_FILES)  \
+	$(SNIFF_Project_Description_FILES) $(SNIFF_Document_Template_FILES) $(SNIFF_Image_FILES)  \
+	$(SNIFF_Object_FILES) $(SNIFF_Implementation_Documentation_FILES) $(SNIFF_BOOGA_Scene_Description_FILES)  \
+	$(SNIFF_Generator_ConfigurationHandler_FILES) $(SNIFF_Generator_SpecifierAttribute_FILES) $(SNIFF_Icon_Bitmaps_FILES) 

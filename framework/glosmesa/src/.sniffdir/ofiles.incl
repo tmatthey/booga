@@ -1,0 +1,10 @@
+OFILES = osmesa.o context.o matrix.o hash.o \
+	texobj.o dlist.o light.o teximage.o mmath.o eval.o \
+	vb.o pb.o pointers.o stencil.o accum.o alphabuf.o \
+	vbfill.o texstate.o points.o lines.o triangle.o \
+	quads.o get.o clip.o depth.o blend.o image.o \
+	alpha.o bitmap.o misc.o masking.o colortab.o \
+	copypix.o pixel.o span.o polygon.o enable.o \
+	drawpix.o fog.o feedback.o logic.o attrib.o rastpos.o \
+	shade.o rect.o scissor.o winpos.o xform.o texture.o \
+	varray.o vbrender.o readpix.o vbxform.o

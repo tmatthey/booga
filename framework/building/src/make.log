@@ -1,0 +1,120 @@
+Compiling and Linking in SHARED mode.
+
+Compiling framework/building/src/Bottom.C
+
+Compiling framework/building/src/BottomBorder.C
+
+Compiling framework/building/src/BottomFlat.C
+1540-497: (W) Waiting for license.
+
+Compiling framework/building/src/BottomUser.C
+1540-497: (W) Waiting for license.
+
+Compiling framework/building/src/Building.C
+1540-497: (W) Waiting for license.
+
+Compiling framework/building/src/BuildingAttr.C
+
+Compiling framework/building/src/BuildingObject.C
+
+Compiling framework/building/src/Face.C
+
+Compiling framework/building/src/FaceArbour.C
+
+Compiling framework/building/src/FaceDummy.C
+
+Compiling framework/building/src/FaceItem.C
+
+Compiling framework/building/src/FaceItemAttr.C
+
+Compiling framework/building/src/FaceTunnel.C
+
+Compiling framework/building/src/FaceWall.C
+
+Compiling framework/building/src/Front.C
+
+Compiling framework/building/src/FrontRect.C
+
+Compiling framework/building/src/FrontSimple.C
+
+Compiling framework/building/src/FrontTriangle.C
+
+Compiling framework/building/src/Roof.C
+
+Compiling framework/building/src/RoofBorder.C
+
+Compiling framework/building/src/RoofFlat.C
+
+Compiling framework/building/src/RoofLayer.C
+
+Compiling framework/building/src/RoofPlane.C
+
+Compiling framework/building/src/RoofPoint.C
+
+Compiling framework/building/src/RoofUser.C
+
+Compiling framework/building/src/Snatch.C
+
+Compiling framework/building/src/SnatchRoof.C
+
+Compiling framework/building/src/BottomAttr.C
+
+Compiling framework/building/src/BuildingObjectAttr.C
+
+Compiling framework/building/src/FaceArbourAttr.C
+
+Compiling framework/building/src/FaceAttr.C
+
+Compiling framework/building/src/FaceTunnelAttr.C
+
+Compiling framework/building/src/FrontAttr.C
+
+Compiling framework/building/src/RoofAttr.C
+ls: 0653-341 The file libbuilding.a does not exist.
+
+Building SHARED Library libbuilding.a
+rm: /tmp/libbuilding.a-tmp.a: A file or directory in the path name does not exist.
+gmake: [libbuilding.a] Error 2 (ignored)
+ar: Creating an archive file /tmp/libbuilding.a-tmp.a.
+a - Bottom.o
+a - BottomBorder.o
+a - BottomFlat.o
+a - BottomUser.o
+a - Building.o
+a - BuildingAttr.o
+a - BuildingObject.o
+a - Face.o
+a - FaceArbour.o
+a - FaceDummy.o
+a - FaceItem.o
+a - FaceItemAttr.o
+a - FaceTunnel.o
+a - FaceWall.o
+a - Front.o
+a - FrontRect.o
+a - FrontSimple.o
+a - FrontTriangle.o
+a - Roof.o
+a - RoofBorder.o
+a - RoofFlat.o
+a - RoofLayer.o
+a - RoofPlane.o
+a - RoofPoint.o
+a - RoofUser.o
+a - Snatch.o
+a - SnatchRoof.o
+a - BottomAttr.o
+a - BuildingObjectAttr.o
+a - FaceArbourAttr.o
+a - FaceAttr.o
+a - FaceTunnelAttr.o
+a - FrontAttr.o
+a - RoofAttr.o
+rm: libbuilding.a: A file or directory in the path name does not exist.
+gmake: [libbuilding.a] Error 2 (ignored)
+ld: 0706-006 Cannot find or open library file: -l object
+	ld:open(): A file or directory in the path name does not exist.
+ld: 0706-006 Cannot find or open library file: -l animation
+	ld:open(): A file or directory in the path name does not exist.
+gmake: *** [libbuilding.a] Error 255
+gmake: Target `all' not remade because of errors.

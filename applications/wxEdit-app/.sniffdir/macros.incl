@@ -1,0 +1,78 @@
+SNIFF_TARGET		= wxEdit
+SNIFF_TARGETS		= wxEdit 
+SNIFF_INCLUDE		= 
+
+SNIFF_ShSWS		= $(SHARED_SRC)/applications/wxEdit-app
+SNIFF_ShSWS_2		= '$$(SHARED_SRC)/applications/wxEdit-app'
+SNIFF_ShOWS		= $(SHARED_OBJ)/applications/wxEdit-app
+SNIFF_PROJECT_DIR	= applications/wxEdit-app
+SNIFF_RELATIVE_ROOT_DIR	= ../..
+SNIFF_GENERATE_DIR	= .sniffdir
+SNIFF_GENERATE_DIR_ROOT	= 
+
+SNIFF_PROJECT		= wxEdit-app.shared
+SNIFF_STATUSFILE	= .Sniff_LastUpdateOfProject_$(SNIFF_PROJECT)
+
+SNIFF_VCS		= RCS
+SNIFF_REPOSITORY_DIR	= $(REPOSITORY)/applications/wxEdit-app
+
+SNIFF_Lex_Source_DIR	= .
+SNIFF_Lex_Source_FILES	= 
+
+SNIFF_Yacc_Source_DIR	= .
+SNIFF_Yacc_Source_FILES	= 
+
+SNIFF_Shell_Script_DIR	= .
+SNIFF_Shell_Script_FILES	= 
+
+SNIFF_Emacs_Lisp_DIR	= .
+SNIFF_Emacs_Lisp_FILES	= 
+
+SNIFF_Python_DIR	= .
+SNIFF_Python_FILES	= 
+
+SNIFF_Make_DIR	= .
+SNIFF_Make_FILES	= app-specific.mk 
+
+SNIFF_Header_Documentation_DIR	= docu
+SNIFF_Header_Documentation_FILES	= 
+
+SNIFF_Header_DIR	= .
+SNIFF_Header_FILES	= AdaptiveTraceCommand.h AdaptiveTracer.h AlignTool.h  \
+	DBBrowser.h EditSelection.h GLPolygonMapper.h  \
+	GravityCommand.h InspectCommand.h InspectSelectionCommand.h  \
+	ObjectFactory.h PickCommand.h RotateCommand.h  \
+	SharedEditor.h TextureSelector.h ToolBar.h  \
+	wxAnimator.h wxTraversal3D.h 
+
+SNIFF_Implementation_DIR	= .
+SNIFF_Implementation_FILES	= AdaptiveTraceCommand.C AdaptiveTracer.C AlignTool.C  \
+	DBBrowser.C EditSelection.C GLPolygonMapper.C  \
+	GravityCommand.C InspectCommand.C InspectSelectionCommand.C  \
+	ObjectFactory.C PickCommand.C RotateCommand.C  \
+	SharedEditor.C TextureSelector.C ToolBar.C  \
+	wxAnimator.C wxEdit.C wxTraversal3D.C 
+
+SNIFF_Project_Description_DIR	= .
+SNIFF_Project_Description_FILES	= wxEdit-app.shared 
+
+SNIFF_Document_Template_DIR	= docu/tmpl
+SNIFF_Document_Template_FILES	= 
+
+SNIFF_Image_DIR	= images
+SNIFF_Image_FILES	= 
+
+SNIFF_Object_DIR	= .
+SNIFF_Object_FILES	= 
+
+SNIFF_Implementation_Documentation_DIR	= docu
+SNIFF_Implementation_Documentation_FILES	= 
+
+SNIFF_BSDL3_File_DIR	= .
+SNIFF_BSDL3_File_FILES	= 
+
+SNIFF_FILES	= $(SNIFF_Lex_Source_FILES) $(SNIFF_Yacc_Source_FILES) $(SNIFF_Shell_Script_FILES)  \
+	$(SNIFF_Emacs_Lisp_FILES) $(SNIFF_Python_FILES) $(SNIFF_Make_FILES)  \
+	$(SNIFF_Header_Documentation_FILES) $(SNIFF_Header_FILES) $(SNIFF_Implementation_FILES)  \
+	$(SNIFF_Project_Description_FILES) $(SNIFF_Document_Template_FILES) $(SNIFF_Image_FILES)  \
+	$(SNIFF_Object_FILES) $(SNIFF_Implementation_Documentation_FILES) $(SNIFF_BSDL3_File_FILES) 

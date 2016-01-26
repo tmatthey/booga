@@ -1,0 +1,259 @@
+Compiling and Linking in SHARED mode.
+
+Compiling framework/component/src/AbstractPixmapOperation.C
+
+Compiling framework/component/src/AbstractTraversal2D.C
+
+Compiling framework/component/src/AbstractTraversal3D.C
+
+Compiling framework/component/src/Antialiaser.C
+
+Compiling framework/component/src/BSDL2DParser.C
+
+Compiling framework/component/src/BSDL2DWriter.C
+
+Compiling framework/component/src/BSDL3DParser.C
+
+Compiling framework/component/src/BSDL3DWriter.C
+
+Compiling framework/component/src/BSDLParser.C
+
+Compiling framework/component/src/BSDLParserInit.C
+
+Compiling framework/component/src/BSDLWriter.C
+
+Compiling framework/component/src/Boundary2D.C
+
+Compiling framework/component/src/CollectShared2D.C
+
+Compiling framework/component/src/CollectShared3D.C
+
+Compiling framework/component/src/CollectTexture3D.C
+
+Compiling framework/component/src/CollectorFor.C
+
+Compiling framework/component/src/Component.C
+
+Compiling framework/component/src/ConvexHull2D.C
+
+Compiling framework/component/src/Copy2D.C
+
+Compiling framework/component/src/Copy3D.C
+
+Compiling framework/component/src/File2D.C
+
+Compiling framework/component/src/File3D.C
+
+Compiling framework/component/src/FlatTriangleInterpolator.C
+
+Compiling framework/component/src/GouraudTriangleInterpolator.C
+
+Compiling framework/component/src/JPEGWriter.C
+
+Compiling framework/component/src/MFile.C
+
+Compiling framework/component/src/MTraversal.C
+
+Compiling framework/component/src/MURL.C
+
+Compiling framework/component/src/MultiFileStore.C
+
+Compiling framework/component/src/Operation2D.C
+
+Compiling framework/component/src/Operation2DTo3D.C
+
+Compiling framework/component/src/Operation3D.C
+
+Compiling framework/component/src/Operation3DTo2D.C
+
+Compiling framework/component/src/OversamplingAntialiaser.C
+
+Compiling framework/component/src/PPMWriter.C
+
+Compiling framework/component/src/PSWriter2D.C
+
+Compiling framework/component/src/PSWriter3D.C
+
+Compiling framework/component/src/Parser3D.C
+
+Compiling framework/component/src/PhongTriangleInterpolator.C
+
+Compiling framework/component/src/Picker2D.C
+
+Compiling framework/component/src/Picker3D.C
+
+Compiling framework/component/src/PixiWriter.C
+
+Compiling framework/component/src/Pixmap2DWriter.C
+
+Compiling framework/component/src/PixmapGeneratorWrapper.C
+
+Compiling framework/component/src/PixmapRenderer.C
+
+Compiling framework/component/src/PixmapTransformerWrapper.C
+
+Compiling framework/component/src/PreorderTraversal2D.C
+
+Compiling framework/component/src/PreorderTraversal3D.C
+
+Compiling framework/component/src/PrintWorld2D.C
+
+Compiling framework/component/src/PrintWorld3D.C
+
+Compiling framework/component/src/Rasterizer.C
+
+Compiling framework/component/src/RayshadeWriter.C
+
+Compiling framework/component/src/Raytracer.C
+
+Compiling framework/component/src/ReadImage.C
+
+Compiling framework/component/src/Renderer.C
+
+Compiling framework/component/src/SetStandardView3D.C
+
+Compiling framework/component/src/ShowNormals.C
+
+Compiling framework/component/src/SingleFileStore.C
+
+Compiling framework/component/src/SirdsRenderer.C
+
+Compiling framework/component/src/Traversal.C
+
+Compiling framework/component/src/TriangleInterpolator.C
+
+Compiling framework/component/src/TriangleInterpolatorOption.C
+
+Compiling framework/component/src/Triangulator.C
+
+Compiling framework/component/src/URL2D.C
+
+Compiling framework/component/src/URL3D.C
+
+Compiling framework/component/src/URLContext.C
+
+Compiling framework/component/src/VRMLObject.C
+
+Compiling framework/component/src/VRMLParser.C
+
+Compiling framework/component/src/VRMLState.C
+
+Compiling framework/component/src/VRMLYaccImpl.C
+
+Compiling framework/component/src/Visitor.C
+
+Compiling framework/component/src/Wireframe.C
+
+Compiling framework/component/src/ZBuffer.C
+
+Compiling framework/component/src/BSDLYacc.C
+
+Compiling framework/component/src/VRMLYacc.C
+
+Compiling framework/component/src/BSDLLex.C
+
+Compiling framework/component/src/VRMLLex.C
+
+Compiling framework/component/src/RaytracerConfigurationHandler.C
+
+Compiling framework/component/src/ZBufferConfigurationHandler.C
+ls: 0653-341 The file libcomponent.a does not exist.
+
+Building SHARED Library libcomponent.a
+rm: /tmp/libcomponent.a-tmp.a: A file or directory in the path name does not exist.
+gmake: [libcomponent.a] Error 2 (ignored)
+ar: Creating an archive file /tmp/libcomponent.a-tmp.a.
+a - AbstractPixmapOperation.o
+a - AbstractTraversal2D.o
+a - AbstractTraversal3D.o
+a - Antialiaser.o
+a - BSDL2DParser.o
+a - BSDL2DWriter.o
+a - BSDL3DParser.o
+a - BSDL3DWriter.o
+a - BSDLParser.o
+a - BSDLParserInit.o
+a - BSDLWriter.o
+a - Boundary2D.o
+a - CollectShared2D.o
+a - CollectShared3D.o
+a - CollectTexture3D.o
+a - CollectorFor.o
+a - Component.o
+a - ConvexHull2D.o
+a - Copy2D.o
+a - Copy3D.o
+a - File2D.o
+a - File3D.o
+a - FlatTriangleInterpolator.o
+a - GouraudTriangleInterpolator.o
+a - JPEGWriter.o
+a - MFile.o
+a - MTraversal.o
+a - MURL.o
+a - MultiFileStore.o
+a - Operation2D.o
+a - Operation2DTo3D.o
+a - Operation3D.o
+a - Operation3DTo2D.o
+a - OversamplingAntialiaser.o
+a - PPMWriter.o
+a - PSWriter2D.o
+a - PSWriter3D.o
+a - Parser3D.o
+a - PhongTriangleInterpolator.o
+a - Picker2D.o
+a - Picker3D.o
+a - PixiWriter.o
+a - Pixmap2DWriter.o
+a - PixmapGeneratorWrapper.o
+a - PixmapRenderer.o
+a - PixmapTransformerWrapper.o
+a - PreorderTraversal2D.o
+a - PreorderTraversal3D.o
+a - PrintWorld2D.o
+a - PrintWorld3D.o
+a - Rasterizer.o
+a - RayshadeWriter.o
+a - Raytracer.o
+a - ReadImage.o
+a - Renderer.o
+a - SetStandardView3D.o
+a - ShowNormals.o
+a - SingleFileStore.o
+a - SirdsRenderer.o
+a - Traversal.o
+a - TriangleInterpolator.o
+a - TriangleInterpolatorOption.o
+a - Triangulator.o
+a - URL2D.o
+a - URL3D.o
+a - URLContext.o
+a - VRMLObject.o
+a - VRMLParser.o
+a - VRMLState.o
+a - VRMLYaccImpl.o
+a - Visitor.o
+a - Wireframe.o
+a - ZBuffer.o
+a - BSDLYacc.o
+a - VRMLYacc.o
+a - BSDLLex.o
+a - VRMLLex.o
+a - RaytracerConfigurationHandler.o
+a - ZBufferConfigurationHandler.o
+rm: libcomponent.a: A file or directory in the path name does not exist.
+gmake: [libcomponent.a] Error 2 (ignored)
+ld: 0706-006 Cannot find or open library file: -l pixmapOp
+	ld:open(): A file or directory in the path name does not exist.
+ld: 0706-006 Cannot find or open library file: -l object
+	ld:open(): A file or directory in the path name does not exist.
+ld: 0706-006 Cannot find or open library file: -l texture
+	ld:open(): A file or directory in the path name does not exist.
+ld: 0706-006 Cannot find or open library file: -l nurbs
+	ld:open(): A file or directory in the path name does not exist.
+ld: 0706-006 Cannot find or open library file: -l animation
+	ld:open(): A file or directory in the path name does not exist.
+ld: 0706-006 Cannot find or open library file: -l building
+	ld:open(): A file or directory in the path name does not exist.
+gmake: *** [libcomponent.a] Error 255

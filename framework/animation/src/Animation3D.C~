@@ -1,0 +1,239 @@
+/*
+ * $RCSfile: Animation3D.C,v $
+ *
+ * Copyright (C) 1995-96, Thierry Matthey <matthey@iam.unibe.ch>
+ *                        University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely as is.
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: Animation3D.C,v 1.7 1996/11/13 09:37:58 collison Exp $
+ * -----------------------------------------------------------------------------
+ */
+
+#include <strstream.h>
+#include "booga/base/Report.h"
+#include "booga/base/mathutilities.h"
+#include "booga/base/Value.h"
+#include "booga/animation/ActionInfo.h"
+#include "booga/animation/Animation3D.h"
+#include "booga/animation/Animation3DAttr.h"
+#include "booga/object/Path3D.h"
+#include "booga/object/DummyMakeable.h"
+#include "booga/object/MakeableHandler.h"
+
+//_________________________________________________________________ Animation3D
+
+implementRTTI(Animation3D, Object3D);
+
+Animation3D::Animation3D()
+{
+  myAnimatedObjects = NULL;
+  
+  if (myActionList.count() > 0){
+    for (long i = 0; i < myActionList.count(); i++)
+      delete myActionList.item(i);
+    myActionList.removeAll();
+  }
+  
+  myIsOn            = true;
+  myLastTransform.identity();
+}
+
+Animation3D::Animation3D(Exemplar exemplar)
+: Object3D(exemplar)
+{
+
+  myAnimatedObjects = NULL;
+ 
+  if (myActionList.count() > 0){
+    for (long i = 0; i < myActionList.count(); i++)
+      delete myActionList.item(i);
+    myActionList.removeAll();
+  }
+
+  myIsOn            = true;
+  myLastTransform.identity();
+
+}
+
+Animation3D::Animation3D(const Animation3D& animation)
+{
+  if (animation.myAnimatedObjects != NULL)
+    myAnimatedObjects = animation.myAnimatedObjects->copy();
+  else
+    myAnimatedObjects = NULL;
+
+  myIsOn          = animation.myIsOn;
+  myLastTransform = animation.myLastTransform;
+  
+  for (long i=0; i<animation.myActionList.count(); i++){
+    myActionList.append(new ActionInfo(*animation.myActionList.item(i)));
+  }
+}
+
+Animation3D::~Animation3D()
+{
+  if (myAnimatedObjects) 
+    delete myAnimatedObjects;
+  if (myActionList.count() > 0){
+    for (long i = 0; i < myActionList.count(); i++)
+      delete myActionList.item(i);
+    myActionList.removeAll();
+  }
+}
+
+long Animation3D::countSubobject() const
+{
+  return (myAnimatedObjects == NULL) ? 0 : 1;
+}
+
+Object3D* Animation3D::getSubobject(long index) 
+{
+  if (index != 0)
+    Report::error("[Animation3D::getSubobject] index out of range");
+
+  return myAnimatedObjects;
+}
+
+void Animation3D::adoptObject(Object3D *obj)
+{
+  if (myAnimatedObjects == obj) // self assignement
+    return;
+  
+  if (myAnimatedObjects)
+    delete myAnimatedObjects;
+  myAnimatedObjects = obj;
+}
+
+
+Object3D* Animation3D::makeUnique(Path3D* path, bool shared)
+{
+  //
+  // If we are at the end of the path or path == NULL, don't do anything.
+  //
+  if (path == NULL || path->isDone())
+    return this;
+  
+  // !!!!! Test! Test!!
+  if (shared == true) {
+    Animation3D* newAnim = (Animation3D*)copy();
+
+    if (newAnim->myAnimatedObjects != NULL) {
+      delete myAnimatedObjects;
+      path->next();
+      newAnim->myAnimatedObjects = myAnimatedObjects->makeUnique(path, true);
+      path->prev();
+    }
+    path->replace(newAnim);
+    return newAnim;
+  }
+  else {
+    path->next();
+    path->getObject()->makeUnique(path, false);
+    path->prev();
+
+    return this;
+  }
+}
+
+bool Animation3D::frame(Real frame)
+{
+  bool doFrameFlag = false;
+
+  if (isOn())
+    doFrameFlag = doFrame(frame);      
+  return doFrameFlag;
+}
+
+void Animation3D::adoptAction(ActionInfo* action)
+{
+  long i = 0;
+  for (i = 0; i < myActionList.count(); i++)
+    if (myActionList.item(i)->getStartFrame() > action->getStartFrame())
+      break;
+
+  myActionList.insert(i, action);
+}
+
+bool Animation3D::doTransform(const TransMatrix3D& transform)
+{
+  if (transform == myLastTransform)
+    return false;
+  else {
+    myLastTransform = transform;
+    setTransform(transform);
+    return true;
+  }  
+}
+
+void Animation3D::doComputeBounds()
+{
+  if (myAnimatedObjects)
+    myBounds.expand(myAnimatedObjects->getBounds());
+}
+
+bool Animation3D::doIntersect(Ray3D& ray)
+{
+  if (myAnimatedObjects != NULL)
+    return myAnimatedObjects->intersect(ray);
+  else
+    return false;
+}
+
+int Animation3D::setSpecifier(RCString& errMsg, Makeable* specifier)
+{
+  //
+  // There might be an object passed, so lets try to cast
+  // specifier to Object3D* :
+  //
+  Object3D* object = dynamic_cast(Object3D, specifier);
+  if (object != NULL) {
+    if (myAnimatedObjects != NULL)
+      delete myAnimatedObjects;
+    myAnimatedObjects = object;
+
+    return 1;
+  }
+
+  // Check for Animation3D attributes
+  Animation3DAttr* attr = dynamic_cast(Animation3DAttr, specifier);
+  if (attr != NULL) {
+    // The Animation3DAttr object knows best which method has to be called.
+    // So let the object do the job.
+    attr->setAttribute(this);
+
+    delete attr;
+    return 1;  
+  }
+
+  // Check for ActionInfo attributes
+  ActionInfo* action = dynamic_cast(ActionInfo, specifier);
+  if (action != NULL) {
+    adoptAction(action);
+    return 1;  
+  }
+
+  // 
+  // Let papa do the rest ...
+  //
+  return Object3D::setSpecifier(errMsg, specifier);
+}
+
+void Animation3D::iterateAttributes(MakeableHandler *handler)
+{
+  Object3D::iterateAttributes(handler);
+  for(long i=0; i<myActionList.count(); i++) {
+    handler->handle(myActionList.item(i));
+  }
+  handler->handle(getSubobject(0));
+}

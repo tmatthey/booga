@@ -1,0 +1,106 @@
+/*
+ * swing.bsdl3
+ *
+ * This is example to show the possibilities of animation.
+ *
+ * Copyright (C) 1996, Thierry Matthey <matthey@iam.unibe.ch>
+ *                     University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: swing.bsdl3,v 1.1 1996/06/06 09:07:02 streit Exp $
+ * -----------------------------------------------------------------------------
+ */
+ 
+using 3D;
+
+// 
+// Definition der Kamera und Lichtquellen
+//
+camera {
+  perspective {
+    eye [30,-10,30];
+    lookat [0, 0, 10];
+    resolution (512, 512);
+  }
+  background [.3,.3,.3];
+};
+
+pointLight (3, [1,1,1]) { position [  500,   500, 500]; }
+
+//
+// Definition Farben
+//
+define green   matte { diffuse [.2,.5,.2]; }
+define brown   matte { diffuse [.3,.2,.2]; }
+define grey    matte { diffuse [.7,.7,.7]; }
+
+//
+// Definition Hintergrund
+// 
+define ground list {
+  // Definition des Rasens
+  polygon ([-45,-45,0],[45,-45,0],[45,45,0],[-45,45,0]) { green; }
+}
+
+//
+// Definition Geruest
+//
+define stage list {
+  cylinder (.3, [5,5,0],[5,0,20]) {grey;}       // Definition
+  cylinder (.3, [5,-5,0],[5,0,20])  {grey;}     // des Geruestes
+  cylinder (.3, [-5,5,0],[-5,0,20]) {grey;}  
+  cylinder (.3, [-5,-5,0],[-5,0,20]) {grey;}  
+  cylinder (.3, [-5,0,20],[5,0,20]) {grey;}   
+} 
+
+//
+// Definition Schaukelsitz
+//
+define seat list {
+  cylinder (.1, [3,0,20],[3,0,5])   { grey;}  // Definition des
+  cylinder (.1, [-3,0,20],[-3,0,5]) { grey;}  // Sitzes
+  box ([-3.5,-1,4.8],[3.5,1,5])     { brown;}
+}
+
+//
+// Definition Schaukel
+//
+define swing list {  
+  stage;                    // Das Geruest
+  turn {                    // Rotation einleiten
+    action (0,12,0,12) {       // Rotation von Frame 0 bis 12, 12 Frames warten, 
+                                 // unendlich wiederholen
+      center ([0,0,20]);         // Rotationszentrum (0,0,20) (5. Zylinder des Geruestes) 
+      axis ([1,0,0]);            // Rotationsachse (1,0,0)
+      alpha (60, "sin",0,0.05,0);// Drehung um 60 Grad
+                                 // mit Sinusfunktion modelliert
+                                 // auf dem Intervall [0,0.05] definiert
+                                 // mit Schrittweite 0, d.h kontinuierlich
+                                 // entspricht dem Schwingen hinten
+    }
+    action (12,24,0,12) {      // Rotation von Frame 12 bis 24, 12 Frames warten, 
+                                 // unendlich wiederholen
+      center ([0,0,20]);
+      axis ([1,0,0]);
+      alpha (-60, "sin",0,0.05,0);   
+                                 // entspricht dem Schwingen vorne
+    }
+    seat;                  // Der Schaukelsitz mit Aufhaengung
+  }
+}
+
+// _____________________________________________
+
+ground;
+swing;

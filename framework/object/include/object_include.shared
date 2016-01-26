@@ -1,0 +1,466 @@
+@!OIO C++PROJECT sniff
+//Any:SniffAnyIO [
+ < "SNiFF+ Project Description File (PDF) Schema"
+	 "Frames" [
+	 # "Project Attributes" N
+		 {
+			 "ProjectDir" [ ! 1  "AnyString" ]
+			 "Release" [ ! 1  "AnyString" ]
+			 "RepositoryDir" [ ! 1  "AnyString" ]
+			 "VCSystem" [ ! 1  "AnyString" ]
+			 "MakefileSupport" [ ! 1  "AnyBool" ]
+			 "VPathSupport" [ ! 1  "AnyBool" ]
+			 "IncludeMacro" [ ! 1  "AnyString" ]
+			 "CreateSymbolicLinks" [ ! 1  "AnyBool" ]
+			 "SharedProject" [ ! 1  "AnyBool" ]
+			 "UpdateSWSimmediatly" [ ! 1  "AnyBool" ]
+			 "IsLibrary" [ ! 1  "AnyBool" ]
+			 "LinkObjects" [ ! 1  "AnyBool" ]
+			 "TabLength" [ ! 1  "AnyInt" ]
+			 "FileCount" [ ! 1  "AnyInt" ]
+			 "Target" [ ! 1  "AnyString" ]
+			 "FileSet" [ ! 1  "AnyArray" ]
+			 "SubProj" [ ! 1  "AnyArray" ]
+			 "OverrideIsLibrary" [ ! 1  "AnyArray" ]
+			 "OverrideLinkObjects" [ ! 1  "AnyArray" ]
+			 "GenerateDir" [ ! 1  "AnyString" ]
+			 "IgnoreStringsFile" [ ! 1  "AnyString" ]
+			 "MakeCommand" [ ! 1  "AnyString" ]
+			 "ClassPrefix" [ ! 1  "AnyString" ]
+			 "PreprocessorSwitch" [ ! 1  "AnyString" ]
+			 "DoPreprocessing" [ ! 1  "AnyBool" ]
+			 "LocationStateFile" [ ! 1  "AnyString" ]
+			 "LocationMakeSupport" [ ! 1  "AnyString" ]
+			 "DependenciesFile" [ ! 1  "AnyString" ]
+			 "MacrosFile" [ ! 1  "AnyString" ]
+			 "ObjectFilesFile" [ ! 1  "AnyString" ]
+			 "VPathFile" [ ! 1  "AnyString" ]
+			 "UseCache" [ ! 1  "AnyBool" ]
+			 "FileTypes" [ ! 1  "AnyDict" ]
+		 }
+	 #
+	 # "SubProjSchema" N
+		 {
+			 "SubProjName" [ ! 1  "AnyString" ]
+			 "SubProjDir" [ ! 1  "AnyString" ]
+		 }
+	 #
+	 # "File_Types_Info" N
+		 {
+			 "Name" [ ! 1  "AnyString" ]
+			 "Signatures" [ ! 1  "AnyString" ]
+			 "Type" [ ! 1  "AnyString" ]
+			 "Tools" [ ! 1  "AnyString" ]
+			 "Tool Names" [ ! 1  "AnyString" ]
+			 "Directory" [ ! 1  "AnyString" ]
+			 "Derived From" [ ! 1  "AnyString" ]
+			 "Icon" [ ! 1  "AnyString" ]
+			 "Parser" [ ! 1  "AnyString" ]
+			 "Retriever Priority" [ ! 1  "AnyString" ]
+			 "Create Symbolic Link" [ ! 1  "AnyBool" ]
+			 "Is Default File Type" [ ! 1  "AnyBool" ]
+		 }
+	 # ]
+ >
+ < "Project Attributes"
+	 "ProjectDir" [ "framework/object/include" ]
+	 "Release" [ "V2.1" ]
+	 "RepositoryDir" [ "" ]
+	 "VCSystem" [ "RCS" ]
+	 "MakefileSupport" [ T ]
+	 "VPathSupport" [ T ]
+	 "IncludeMacro" [ "" ]
+	 "CreateSymbolicLinks" [ F ]
+	 "SharedProject" [ T ]
+	 "UpdateSWSimmediatly" [ F ]
+	 "IsLibrary" [ F ]
+	 "LinkObjects" [ F ]
+	 "TabLength" [ 8 ]
+	 "FileCount" [ 108 ]
+	 "Target" [ "all::mostlyclean:clean:realclean:distclean:wc:check_obsolete_files" ]
+	 "FileSet" [ [
+		 "Aggregate2D.h"
+		 "Aggregate3D.h"
+		 "AmbientLight.h"
+		 "BOOGAObject.h"
+		 "BezierCurve3D.h"
+		 "BezierPatch3D.h"
+		 "BistableObject2D.h"
+		 "BistableObject2DAttr.h"
+		 "BistableObject3D.h"
+		 "BistableObject3DAttr.h"
+		 "BoundsUtilities.h"
+		 "Box3D.h"
+		 "Camera2D.h"
+		 "Camera3D.h"
+		 "Checker.h"
+		 "CheckerAttr.h"
+		 "Circle2D.h"
+		 "Cone3D.h"
+		 "ConstantTexture2D.h"
+		 "ConstantTexture3D.h"
+		 "Cylinder3D.h"
+		 "DirectedLight.h"
+		 "Disc3D.h"
+		 "DummyMakeable.h"
+		 "Function.h"
+		 "GeneralLight.h"
+		 "Grid3D.h"
+		 "InteractionObject2D.h"
+		 "InteractionObject3D.h"
+		 "InterpolationCurve3D.h"
+		 "InterpolatorTexture2D.h"
+		 "LevelOfDetail3D.h"
+		 "LightSource.h"
+		 "LightTexture.h"
+		 "Line2D.h"
+		 "Line3D.h"
+		 "List2D.h"
+		 "List3D.h"
+		 "MAggregate.h"
+		 "MBistableObject.h"
+		 "MInteractionObject.h"
+		 "MPrimitive.h"
+		 "MProxy.h"
+		 "MShared.h"
+		 "Makeable.h"
+		 "MakeableHandler.h"
+		 "MonoRomanFont.h"
+		 "MultiObject3D.h"
+		 "NullObject3D.h"
+		 "Object2D.h"
+		 "Object2DAttr.h"
+		 "Object3D.h"
+		 "Object3DAttr.h"
+		 "ObjectAttr.h"
+		 "ObjectSpecifier.h"
+		 "ObjectSpecifierAttr.h"
+		 "OrthographicViewing3D.h"
+		 "Path2D.h"
+		 "Path3D.h"
+		 "PathOf.h"
+		 "PatternTexture2D.h"
+		 "PatternTexture2DAttr.h"
+		 "PerspectiveViewing3D.h"
+		 "Pixmap2D.h"
+		 "PixmapTexture2D.h"
+		 "Point2D.h"
+		 "Point3D.h"
+		 "PointLight.h"
+		 "Polygon2D.h"
+		 "Polygon3D.h"
+		 "Polygon3DAttr.h"
+		 "PolygonExtrude.h"
+		 "PolygonExtrudeAttr.h"
+		 "Primitive2D.h"
+		 "Primitive3D.h"
+		 "Proxy2D.h"
+		 "Proxy3D.h"
+		 "Ray2D.h"
+		 "Ray3D.h"
+		 "Ray3DFactory.h"
+		 "Ray3DUtilities.h"
+		 "RomanFont.h"
+		 "Shared2D.h"
+		 "Shared3D.h"
+		 "Sphere3D.h"
+		 "StrokeFont.h"
+		 "Text2D.h"
+		 "Text3D.h"
+		 "Texture2D.h"
+		 "Texture2DAttr.h"
+		 "Texture2DContext.h"
+		 "Texture2DList.h"
+		 "Texture3D.h"
+		 "Texture3DAttr.h"
+		 "Texture3DContext.h"
+		 "Texture3DList.h"
+		 "Torus3D.h"
+		 "Transform2D.h"
+		 "Transform3D.h"
+		 "Triangle3D.h"
+		 "TriangleList3D.h"
+		 "ValueMakeable.h"
+		 "Viewing2D.h"
+		 "Viewing3D.h"
+		 "World.h"
+		 "World2D.h"
+		 "World3D.h"
+		 "object_include.shared"
+		 ] ]
+	 "SubProj" [ [ ] ]
+	 "OverrideIsLibrary" [ [ ] ]
+	 "OverrideLinkObjects" [ [ ] ]
+	 "GenerateDir" [ ".sniffdir" ]
+	 "IgnoreStringsFile" [ "$SNIFF_DIR/config/booga.parserconfiguration" ]
+	 "MakeCommand" [ "gmake" ]
+	 "ClassPrefix" [ "" ]
+	 "PreprocessorSwitch" [ "" ]
+	 "DoPreprocessing" [ F ]
+	 "LocationStateFile" [ "" ]
+	 "LocationMakeSupport" [ "" ]
+	 "DependenciesFile" [ "dependencies.incl" ]
+	 "MacrosFile" [ "macros.incl" ]
+	 "ObjectFilesFile" [ "ofiles.incl" ]
+	 "VPathFile" [ "vpath.incl" ]
+	 "UseCache" [ F ]
+	 "FileTypes" [
+	 {
+		 "Lex Source" [
+		 < "File_Types_Info"
+			 "Name" [ "Lex Source" ]
+			 "Signatures" [ "*.l" ]
+			 "Type" [ "Lex" ]
+			 "Tools" [ "SniffEdit:chmod u+w %f:chmod a-w %f:ls -la %f" ]
+			 "Tool Names" [ "Edit:Set Writable:Set Read Only:ls -la" ]
+			 "Directory" [ ]
+			 "Derived From" [ ]
+			 "Icon" [ ]
+			 "Parser" [ ]
+			 "Retriever Priority" [ "3" ]
+			 "Create Symbolic Link" [ F ]
+			 "Is Default File Type" [ F ]
+			 "Add/Remove Automatically" [ ]
+		 > ]
+		 "Yacc Source" [
+		 < "File_Types_Info"
+			 "Name" [ "Yacc Source" ]
+			 "Signatures" [ "*.y" ]
+			 "Type" [ "yacc" ]
+			 "Tools" [ "SniffEdit:chmod u+w %f:chmod a-w %f:ls -la %f" ]
+			 "Tool Names" [ "Edit:Set Writable:Set Read Only:ls -la" ]
+			 "Directory" [ ]
+			 "Derived From" [ ]
+			 "Icon" [ ]
+			 "Parser" [ ]
+			 "Retriever Priority" [ "4" ]
+			 "Create Symbolic Link" [ F ]
+			 "Is Default File Type" [ F ]
+			 "Add/Remove Automatically" [ ]
+		 > ]
+		 "Shell Script" [
+		 < "File_Types_Info"
+			 "Name" [ "Shell Script" ]
+			 "Signatures" [ "*.sh" ]
+			 "Type" [ "Shell" ]
+			 "Tools" [ "SniffEdit:csh:chmod u+w %f:chmod a-w %f:ls -la %f" ]
+			 "Tool Names" [ "Edit:Shell:Set Writable:Set Read Only:ls -la" ]
+			 "Directory" [ ]
+			 "Derived From" [ ]
+			 "Icon" [ "$SNIFF_DIR/icons/CatScript.image" ]
+			 "Parser" [ ]
+			 "Retriever Priority" [ "7" ]
+			 "Create Symbolic Link" [ T ]
+			 "Is Default File Type" [ F ]
+			 "Add/Remove Automatically" [ ]
+		 > ]
+		 "Emacs Lisp" [
+		 < "File_Types_Info"
+			 "Name" [ "Emacs Lisp" ]
+			 "Signatures" [ "*.el" ]
+			 "Type" [ "Elisp" ]
+			 "Tools" [ "SniffEdit:chmod u+w %f:chmod a-w %f:ls -la %f" ]
+			 "Tool Names" [ "Edit:Set Writable:Set Read Only:ls -la" ]
+			 "Directory" [ ]
+			 "Derived From" [ ]
+			 "Icon" [ "$SNIFF_DIR/icons/CatScript.image" ]
+			 "Parser" [ ]
+			 "Retriever Priority" [ "8" ]
+			 "Create Symbolic Link" [ F ]
+			 "Is Default File Type" [ F ]
+			 "Add/Remove Automatically" [ ]
+		 > ]
+		 "Python" [
+		 < "File_Types_Info"
+			 "Name" [ "Python" ]
+			 "Signatures" [ "*.py" ]
+			 "Type" [ "Python" ]
+			 "Tools" [ "SniffEdit:chmod u+w %f:chmod a-w %f:ls -la %f" ]
+			 "Tool Names" [ "Edit:Set Writable:Set Read Only:ls -la" ]
+			 "Directory" [ ]
+			 "Derived From" [ ]
+			 "Icon" [ ]
+			 "Parser" [ ]
+			 "Retriever Priority" [ "5" ]
+			 "Create Symbolic Link" [ F ]
+			 "Is Default File Type" [ F ]
+			 "Add/Remove Automatically" [ ]
+		 > ]
+		 "Make" [
+		 < "File_Types_Info"
+			 "Name" [ "Make" ]
+			 "Signatures" [ "Makefile:makefile:GNUmakefile:*.mk:*.cron" ]
+			 "Type" [ "Make" ]
+			 "Tools" [ "SniffEdit:chmod u+w %f:chmod a-w %f:ls -la %f" ]
+			 "Tool Names" [ "Edit:Set Writable:Set Read Only:ls -la" ]
+			 "Directory" [ ]
+			 "Derived From" [ ]
+			 "Icon" [ "$SNIFF_DIR/icons/CatMake.image" ]
+			 "Parser" [ ]
+			 "Retriever Priority" [ "6" ]
+			 "Create Symbolic Link" [ T ]
+			 "Is Default File Type" [ F ]
+			 "Add/Remove Automatically" [ ]
+		 > ]
+		 "Header Documentation" [
+		 < "File_Types_Info"
+			 "Name" [ "Header Documentation" ]
+			 "Signatures" [ "*.d" ]
+			 "Type" [ "Document" ]
+			 "Tools" [ "DocBrowser:SniffEdit:chmod u+w %f:chmod a-w %f:ls -la %f" ]
+			 "Tool Names" [ "DocBrowser:SniffEdit:Set Writable:Set Read Only:ls -la" ]
+			 "Directory" [ "docu" ]
+			 "Derived From" [ "Header" ]
+			 "Icon" [ "$SNIFF_DIR/icons/CatDocu.image" ]
+			 "Parser" [ ]
+			 "Retriever Priority" [ ]
+			 "Create Symbolic Link" [ F ]
+			 "Is Default File Type" [ F ]
+			 "Add/Remove Automatically" [ ]
+		 > ]
+		 "Header" [
+		 < "File_Types_Info"
+			 "Name" [ "Header" ]
+			 "Signatures" [ "*.h:*.H:*.hxx:*.ci" ]
+			 "Type" [ "Header" ]
+			 "Tools" [ "SniffEdit:chmod u+w %f:chmod a-w %f:ls -la %f" ]
+			 "Tool Names" [ "Edit:Set Writable:Set Read Only:ls -la" ]
+			 "Directory" [ ]
+			 "Derived From" [ ]
+			 "Icon" [ "$SNIFF_DIR/icons/CatHeader.image" ]
+			 "Parser" [ "SNiFF-C++" ]
+			 "Retriever Priority" [ "1" ]
+			 "Create Symbolic Link" [ F ]
+			 "Is Default File Type" [ F ]
+			 "Add/Remove Automatically" [ ]
+		 > ]
+		 "Implementation" [
+		 < "File_Types_Info"
+			 "Name" [ "Implementation" ]
+			 "Signatures" [ "*.c:*.cc:*.C:*.cxx:*.cpp" ]
+			 "Type" [ "Implementation" ]
+			 "Tools" [ "SniffEdit:chmod u+w %f:chmod a-w %f:ls -la %f" ]
+			 "Tool Names" [ "Edit:Set Writable:Set Read Only:ls -la" ]
+			 "Directory" [ ]
+			 "Derived From" [ ]
+			 "Icon" [ "$SNIFF_DIR/icons/CatSource.image" ]
+			 "Parser" [ "SNiFF-C++" ]
+			 "Retriever Priority" [ "2" ]
+			 "Create Symbolic Link" [ F ]
+			 "Is Default File Type" [ F ]
+			 "Add/Remove Automatically" [ ]
+		 > ]
+		 "Project Description" [
+		 < "File_Types_Info"
+			 "Name" [ "Project Description" ]
+			 "Signatures" [ "*.proj:*.shared" ]
+			 "Type" [ "Project" ]
+			 "Tools" [ "SniffOpen:SniffEdit:chmod u+w %f:chmod a-w %f:ls -la %f" ]
+			 "Tool Names" [ "Open Project:Edit PDF:Set Writable:Set Read Only:ls -la" ]
+			 "Directory" [ ]
+			 "Derived From" [ ]
+			 "Icon" [ "$SNIFF_DIR/icons/CatProj.image" ]
+			 "Parser" [ ]
+			 "Retriever Priority" [ ]
+			 "Create Symbolic Link" [ T ]
+			 "Is Default File Type" [ F ]
+			 "Add/Remove Automatically" [ ]
+		 > ]
+		 "Document Template" [
+		 < "File_Types_Info"
+			 "Name" [ "Document Template" ]
+			 "Signatures" [ "*.tmpl" ]
+			 "Type" [ "Document Template" ]
+			 "Tools" [ "ls -la %f" ]
+			 "Tool Names" [ "ls -la %f" ]
+			 "Directory" [ "docu/tmpl" ]
+			 "Derived From" [ ]
+			 "Icon" [ "$SNIFF_DIR/icons/CatDocu.image" ]
+			 "Parser" [ ]
+			 "Retriever Priority" [ "8" ]
+			 "Create Symbolic Link" [ F ]
+			 "Is Default File Type" [ F ]
+			 "Add/Remove Automatically" [ ]
+		 > ]
+		 "Image" [
+		 < "File_Types_Info"
+			 "Name" [ "Image" ]
+			 "Signatures" [ "*.image:*.im" ]
+			 "Type" [ "Image" ]
+			 "Tools" [ "ls -la %f" ]
+			 "Tool Names" [ "ls -la %f" ]
+			 "Directory" [ "images" ]
+			 "Derived From" [ ]
+			 "Icon" [ "$SNIFF_DIR/icons/CatImage.image" ]
+			 "Parser" [ ]
+			 "Retriever Priority" [ ]
+			 "Create Symbolic Link" [ F ]
+			 "Is Default File Type" [ F ]
+			 "Add/Remove Automatically" [ ]
+		 > ]
+		 "Object" [
+		 < "File_Types_Info"
+			 "Name" [ "Object" ]
+			 "Signatures" [ "*.o" ]
+			 "Type" [ "Object" ]
+			 "Tools" [ "nm -p %f::ls -la %f" ]
+			 "Tool Names" [ "nm -p:ls -la" ]
+			 "Directory" [ ]
+			 "Derived From" [ "Implementation" ]
+			 "Icon" [ "$SNIFF_DIR/icons/CatObj.image" ]
+			 "Parser" [ ]
+			 "Retriever Priority" [ ]
+			 "Create Symbolic Link" [ F ]
+			 "Is Default File Type" [ F ]
+			 "Add/Remove Automatically" [ ]
+		 > ]
+		 "Implementation Documentation" [
+		 < "File_Types_Info"
+			 "Name" [ "Implementation Documentation" ]
+			 "Signatures" [ "*.d" ]
+			 "Type" [ "Document" ]
+			 "Tools" [ "DocBrowser:SniffEdit:chmod u+w %f:chmod a-w %f:ls -la %f" ]
+			 "Tool Names" [ "DocBrowser:SniffEdit:Set Writable:Set Read Only:ls -la" ]
+			 "Directory" [ "docu" ]
+			 "Derived From" [ "Implementation" ]
+			 "Icon" [ "$SNIFF_DIR/icons/CatDocu.image" ]
+			 "Parser" [ ]
+			 "Retriever Priority" [ ]
+			 "Create Symbolic Link" [ F ]
+			 "Is Default File Type" [ F ]
+			 "Add/Remove Automatically" [ ]
+		 > ]
+		 "Generator SpecifierAttribute" [
+		 < "File_Types_Info"
+			 "Name" [ "Generator SpecifierAttribute" ]
+			 "Signatures" [ "*.specifierAttr" ]
+			 "Type" [ "Generator SpecifierAttribute" ]
+			 "Tools" [ "SniffEdit:chmod u+w %f:chmod a-w %f:ls -la %f" ]
+			 "Tool Names" [ "Edit:Set Writable:Set Read Only:ls -la" ]
+			 "Directory" [ ]
+			 "Derived From" [ ]
+			 "Icon" [ "$SNIFF_DIR/icons/CatScript.image" ]
+			 "Parser" [ ]
+			 "Retriever Priority" [ ]
+			 "Create Symbolic Link" [ F ]
+			 "Is Default File Type" [ F ]
+			 "Add/Remove Automatically" [ ]
+		 > ]
+		 "Generator ConfigurationHandler" [
+		 < "File_Types_Info"
+			 "Name" [ "Generator ConfigurationHandler" ]
+			 "Signatures" [ "*.confHandler" ]
+			 "Type" [ "Generator ConfigurationHandler" ]
+			 "Tools" [ "SniffEdit:chmod u+w %f:chmod a-w %f:ls -la %f" ]
+			 "Tool Names" [ "Edit:Set Writable:Set Read Only:ls -la" ]
+			 "Directory" [ ]
+			 "Derived From" [ ]
+			 "Icon" [ "$SNIFF_DIR/icons/CatScript.image" ]
+			 "Parser" [ ]
+			 "Retriever Priority" [ ]
+			 "Create Symbolic Link" [ F ]
+			 "Is Default File Type" [ F ]
+			 "Add/Remove Automatically" [ ]
+		 > ]
+	 } ]
+ > ]

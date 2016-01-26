@@ -1,0 +1,72 @@
+#
+# Report.conf 
+#
+# Copyright (C) 1995, Stephan Amann <amann@iam.unibe.ch>
+#		      Christoph Streit <streit@iam.unibe.ch>
+#                     University of Berne, Switzerland
+#
+# All rights reserved.
+#
+# This software may be freely copied, modified, and redistributed
+# provided that this copyright notice is preserved on all copies.
+#
+# You may not distribute this software, in whole or in part, as part of
+# any commercial product without the express consent of the authors.
+#
+# There is no warranty or other guarantee of fitness of this software
+# for any purpose.  It is provided solely "as is".
+#
+# -----------------------------------------------------------------------------
+#  $Id: ReportConfigurationHandler.confHandler,v 1.2 1995/04/21 12:35:18 amann Exp $
+# -----------------------------------------------------------------------------
+
+@author Stephan Amann
+@login amann
+
+@include <fstream.h>
+@include "booga/base/StreamOption.h"
+@include "booga/base/ValueOption.h"
+
+@configure Report
+@desc Report sends warnings and error messages to a configurable output stream.
+
+#___________________________________________________________________ ErrorStream
+#
+@option ErrorStream
+@desc Option ErrorStream declares to which output stream reports should be sent.
+#________________________________________ cerr
+@value cerr
+@desc Send reports to cerr (standard error stream)
+@code return new StreamOption(&cerr);
+#________________________________________ cout
+@value cout
+@desc Send reports to cout (standard output stream)
+@code return new StreamOption(&cout);
+#________________________________________ file
+@value file
+@desc Send reports to file. Set Filename using option 'ErrorStream.Filename'.
+@code // 
+@code // Get file name using option ErrorStream.Filename. 
+@code //
+@code getConfigurationOption(ValueOption,valueOption,"Report.ErrorStream.Filename");
+@code if (valueOption == NULL)
+@code   return NULL;
+@code
+@code //
+@code // Build return value. 
+@code //
+@code RCString filename;
+@code if (valueOption->getValue().toRCString(filename))
+@code   return new StreamOption(new ofstream(filename.chars()));
+@code else
+@code   return NULL;
+
+#__________________________________________________________ ErrorStream.Filename
+#
+@option ErrorStream.Filename
+@description Set filename for option/value pair 'Errorstream file'.
+#________________________________________ @string
+@value @string
+@description Set filename for option/value pair 'Errorstream file' to @string.
+@code return new ValueOption(Value(@string));
+

@@ -1,0 +1,77 @@
+SNIFF_TARGET		= all
+SNIFF_TARGETS		= all 
+SNIFF_INCLUDE		= 
+
+SNIFF_ShSWS		= $(SHARED_SRC)/framework/wxwrapper/include
+SNIFF_ShSWS_2		= '$$(SHARED_SRC)/framework/wxwrapper/include'
+SNIFF_ShOWS		= $(SHARED_OBJ)/framework/wxwrapper/include
+SNIFF_PROJECT_DIR	= framework/wxwrapper/include
+SNIFF_RELATIVE_ROOT_DIR	= ../../..
+SNIFF_GENERATE_DIR	= .sniffdir
+SNIFF_GENERATE_DIR_ROOT	= 
+
+SNIFF_PROJECT		= wxwrapper_include.shared
+SNIFF_STATUSFILE	= .Sniff_LastUpdateOfProject_$(SNIFF_PROJECT)
+
+SNIFF_VCS		= RCS
+SNIFF_REPOSITORY_DIR	= $(REPOSITORY)/framework/wxwrapper/include
+
+SNIFF_Lex_Source_DIR	= .
+SNIFF_Lex_Source_FILES	= 
+
+SNIFF_Yacc_Source_DIR	= .
+SNIFF_Yacc_Source_FILES	= 
+
+SNIFF_Shell_Script_DIR	= .
+SNIFF_Shell_Script_FILES	= 
+
+SNIFF_Emacs_Lisp_DIR	= .
+SNIFF_Emacs_Lisp_FILES	= 
+
+SNIFF_Python_DIR	= .
+SNIFF_Python_FILES	= 
+
+SNIFF_Make_DIR	= .
+SNIFF_Make_FILES	= 
+
+SNIFF_Header_Documentation_DIR	= docu
+SNIFF_Header_Documentation_FILES	= 
+
+SNIFF_Header_DIR	= .
+SNIFF_Header_FILES	= wxAdaptiveTraceCommand.h wxAdaptiveTracer.h wxAnimator.h  \
+	wxBOOGAView.h wxCameraEditor.h wxClipboardCommands.h  \
+	wxDialogDirector.h wxGLCanvas.h wxIOCon.h  \
+	wxIOSb.h wxInspectSelectionCommand.h wxManagedButton.h  \
+	wxManagedCheckBox.h wxManagedChoice.h wxManagedDialogBox.h  \
+	wxManagedFrame.h wxManagedListBox.h wxManagedRadioBox.h  \
+	wxManagedSlider.h wxManagedText.h wxMotionCommands.h  \
+	wxNavigationBar.h wxSelectCommand.h wxSharedViewer.h  \
+	wxView3D.h wxView3DPreferences.h wxViewCommand.h  \
+	wxViewManager.h wxWindowsBridge.h 
+
+SNIFF_Implementation_DIR	= .
+SNIFF_Implementation_FILES	= 
+
+SNIFF_Project_Description_DIR	= .
+SNIFF_Project_Description_FILES	= wxwrapper_include.shared 
+
+SNIFF_Document_Template_DIR	= docu/tmpl
+SNIFF_Document_Template_FILES	= 
+
+SNIFF_Image_DIR	= images
+SNIFF_Image_FILES	= 
+
+SNIFF_Object_DIR	= .
+SNIFF_Object_FILES	= 
+
+SNIFF_Implementation_Documentation_DIR	= docu
+SNIFF_Implementation_Documentation_FILES	= 
+
+SNIFF_BSDL3_File_DIR	= .
+SNIFF_BSDL3_File_FILES	= 
+
+SNIFF_FILES	= $(SNIFF_Lex_Source_FILES) $(SNIFF_Yacc_Source_FILES) $(SNIFF_Shell_Script_FILES)  \
+	$(SNIFF_Emacs_Lisp_FILES) $(SNIFF_Python_FILES) $(SNIFF_Make_FILES)  \
+	$(SNIFF_Header_Documentation_FILES) $(SNIFF_Header_FILES) $(SNIFF_Implementation_FILES)  \
+	$(SNIFF_Project_Description_FILES) $(SNIFF_Document_Template_FILES) $(SNIFF_Image_FILES)  \
+	$(SNIFF_Object_FILES) $(SNIFF_Implementation_Documentation_FILES) $(SNIFF_BSDL3_File_FILES) 

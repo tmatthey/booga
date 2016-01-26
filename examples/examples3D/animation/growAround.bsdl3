@@ -1,0 +1,118 @@
+/*
+ * growAround.bsdl3
+ *
+ * This example shows how the transformation gorw works. A ball
+ * is wobbling and a box does a refextion in x-direction.
+ *
+ * Copyright (C) 1996, Thierry Matthey <matthey@iam.unibe.ch>
+ *                     University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: growAround.bsdl3,v 1.1 1996/06/06 09:06:55 streit Exp $
+ * -----------------------------------------------------------------------------
+ */
+  
+using 3D;
+
+//
+// Definiton fo the camera and the lightsource
+//
+
+camera {
+  perspective {
+    eye [160,170,180];
+    lookat [0, 0, 0];
+    resolution (512, 512);
+  }
+  background [.3,.3,.3];
+};
+
+pointLight (2, [1,1,1]) { position [  40,   40, 20]; }
+
+//
+// Definiton of colors
+//
+
+define blue  matte { diffuse [0,0,1]; }
+define white  matte { diffuse [1,1,1]; }
+define black  matte { diffuse [0,0,0]; }
+define red   phong { diffuse [1,.1,.1]; specular [.6,0,0]; specpow 5;}
+define yellow  matte { diffuse [1,1,0]; }
+define grey    matte { diffuse [.7,.7,.7]; }
+define green   matte { diffuse [.2,.5,.2]; }
+define brown   matte { diffuse [.3,.2,.2]; }
+
+//
+// Definiton of a simple ball
+//
+
+define ball list {
+  grow {     // scaling
+    action (0,5,0) {   // from frame 0 to 5, endless
+      scalefactor ([2,1,1],"sin",0,0.05,0); // scales in x-direction
+      center ([0,0,5]); 
+    }
+    action (0,7,0) {   // from frame 0 to 7, endless
+      scalefactor ([1,2,1],"sin",0,0.05,0); //scales in y-direction
+      center ([0,0,5]);     
+    }
+    action (0,11,0) {  // from frame 0 to 11, endless
+       scalefactor ([1,1,2],"sin",0,0.05,0);  // scales in z-direction
+      center ([0,0,5]); 
+    }
+    sphere (5, [0,0,5]) {yellow;};    
+  }
+} 
+
+
+// 
+// Definition of a box
+//
+
+define mybox list {
+  grow {                 // scaling
+    action (0,30,0) {   // from frame 0 to 30, wait 10 frames, endless
+      scalefactor ([-1,1,1],"triangle",0,1,0);  // a refextion in x-direction
+      center ([0,0,3.5]);                       // modeled with "triangle"
+    }
+    list {
+      box ([25,25,1], [20,20,6]) {white;}
+      sphere (1, [24,24,1]) {white;}
+      sphere (1, [21,24,1]) {black;}
+      sphere (1, [21,21,1]) {grey;}
+      sphere (1, [24,21,1]) {green;}
+      sphere (1, [24,24,6]) {yellow;}
+      sphere (1, [21,24,6]) {red;}
+      sphere (1, [21,21,6]) {blue;}
+      sphere (1, [24,21,6]) {brown;}
+    }
+  } 
+}
+
+
+//
+// Definition of the background
+// 
+
+define ground list {
+  polygon ([-45,-45,0],[45,-45,0],[45,45,0],[-45,45,0]) { green; }
+}
+
+
+//_____________________________________________________________
+
+ground;
+ball;
+mybox;
+

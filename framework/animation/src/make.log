@@ -1,0 +1,58 @@
+Compiling and Linking in SHARED mode.
+
+Compiling framework/animation/src/ActionInfo.C
+
+Compiling framework/animation/src/Animation3D.C
+
+Compiling framework/animation/src/AnimationFunction.C
+
+Compiling framework/animation/src/Cycle3D.C
+
+Compiling framework/animation/src/Grow3D.C
+
+Compiling framework/animation/src/Move3D.C
+
+Compiling framework/animation/src/Shear3D.C
+
+Compiling framework/animation/src/Tumble3D.C
+
+Compiling framework/animation/src/TumbleCenter3D.C
+
+Compiling framework/animation/src/TumbleDirection3D.C
+
+Compiling framework/animation/src/TumblePath3D.C
+
+Compiling framework/animation/src/Turn3D.C
+
+Compiling framework/animation/src/ActionInfoAttr.C
+
+Compiling framework/animation/src/Animation3DAttr.C
+ls: 0653-341 The file libanimation.a does not exist.
+
+Building SHARED Library libanimation.a
+rm: /tmp/libanimation.a-tmp.a: A file or directory in the path name does not exist.
+gmake: [libanimation.a] Error 2 (ignored)
+ar: Creating an archive file /tmp/libanimation.a-tmp.a.
+a - ActionInfo.o
+a - Animation3D.o
+a - AnimationFunction.o
+a - Cycle3D.o
+a - Grow3D.o
+a - Move3D.o
+a - Shear3D.o
+a - Tumble3D.o
+a - TumbleCenter3D.o
+a - TumbleDirection3D.o
+a - TumblePath3D.o
+a - Turn3D.o
+a - ActionInfoAttr.o
+a - Animation3DAttr.o
+rm: libanimation.a: A file or directory in the path name does not exist.
+gmake: [libanimation.a] Error 2 (ignored)
+ld: 0706-006 Cannot find or open library file: -l base
+	ld:open(): A file or directory in the path name does not exist.
+ld: 0706-006 Cannot find or open library file: -l object
+	ld:open(): A file or directory in the path name does not exist.
+ld: 0706-006 Cannot find or open library file: -l nurbs
+	ld:open(): A file or directory in the path name does not exist.
+gmake: *** [libanimation.a] Error 255

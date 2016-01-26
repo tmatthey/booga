@@ -1,0 +1,106 @@
+SNIFF_TARGET		= all
+SNIFF_TARGETS		= all 
+SNIFF_INCLUDE		= 
+
+SNIFF_ShSWS		= 
+SNIFF_ShSWS_2		= ''
+SNIFF_ShOWS		= 
+SNIFF_PROJECT_DIR	= framework/object/src
+SNIFF_RELATIVE_ROOT_DIR	= ../../..
+SNIFF_GENERATE_DIR	= .sniffdir
+SNIFF_GENERATE_DIR_ROOT	= 
+
+SNIFF_PROJECT		= object_src.shared
+SNIFF_STATUSFILE	= .Sniff_LastUpdateOfProject_$(SNIFF_PROJECT)
+
+SNIFF_VCS		= RCS
+SNIFF_REPOSITORY_DIR	= $(REPOSITORY)/framework/object/src
+
+SNIFF_Lex_Source_DIR	= .
+SNIFF_Lex_Source_FILES	= 
+
+SNIFF_Yacc_Source_DIR	= .
+SNIFF_Yacc_Source_FILES	= 
+
+SNIFF_Shell_Script_DIR	= .
+SNIFF_Shell_Script_FILES	= 
+
+SNIFF_Emacs_Lisp_DIR	= .
+SNIFF_Emacs_Lisp_FILES	= 
+
+SNIFF_Python_DIR	= .
+SNIFF_Python_FILES	= 
+
+SNIFF_Make_DIR	= .
+SNIFF_Make_FILES	= lib-specific.mk 
+
+SNIFF_Header_Documentation_DIR	= docu
+SNIFF_Header_Documentation_FILES	= 
+
+SNIFF_Header_DIR	= .
+SNIFF_Header_FILES	= 
+
+SNIFF_Implementation_DIR	= .
+SNIFF_Implementation_FILES	= Aggregate2D.C Aggregate3D.C AmbientLight.C  \
+	BOOGAObject.C BezierCurve3D.C BezierPatch3D.C  \
+	BistableObject2D.C BistableObject2DAttr.C BistableObject3D.C  \
+	BistableObject3DAttr.C BoundsUtilities.C Box3D.C  \
+	Camera2D.C Camera3D.C Checker.C  \
+	CheckerAttr.C Circle2D.C Cone3D.C  \
+	ConstantTexture2D.C ConstantTexture3D.C Cylinder3D.C  \
+	DirectedLight.C Disc3D.C DummyMakeable.C  \
+	Function.C GeneralLight.C Grid3D.C  \
+	InteractionObject2D.C InteractionObject3D.C InterpolationCurve3D.C  \
+	InterpolatorTexture2D.C LevelOfDetail3D.C LightSource.C  \
+	LightTexture.C Line2D.C Line3D.C  \
+	List2D.C List3D.C MAggregate.C  \
+	MBistableObject.C MInteractionObject.C MPrimitive.C  \
+	MProxy.C MShared.C Makeable.C  \
+	MakeableHandler.C MonoRomanFont.C MultiObject3D.C  \
+	NullObject3D.C Object2D.C Object2DAttr.C  \
+	Object3D.C Object3DAttr.C ObjectAttr.C  \
+	ObjectSpecifier.C ObjectSpecifierAttr.C OrthographicViewing3D.C  \
+	PathOf.C PatternTexture2D.C PatternTexture2DAttr.C  \
+	PerspectiveViewing3D.C Pixmap2D.C PixmapTexture2D.C  \
+	Point2D.C Point3D.C PointLight.C  \
+	Polygon2D.C Polygon3D.C Polygon3DAttr.C  \
+	PolygonExtrude.C PolygonExtrudeAttr.C Primitive2D.C  \
+	Primitive3D.C Proxy2D.C Proxy3D.C  \
+	Ray2D.C Ray3D.C Ray3DFactory.C  \
+	Ray3DUtilities.C RomanFont.C Shared2D.C  \
+	Shared3D.C Sphere3D.C StrokeFont.C  \
+	Text2D.C Text3D.C Texture2D.C  \
+	Texture2DAttr.C Texture2DContext.C Texture2DList.C  \
+	Texture3D.C Texture3DAttr.C Texture3DContext.C  \
+	Texture3DList.C Torus3D.C Transform2D.C  \
+	Transform3D.C Triangle3D.C TriangleList3D.C  \
+	ValueMakeable.C Viewing2D.C Viewing3D.C  \
+	World.C World2D.C World3D.C 
+
+SNIFF_Project_Description_DIR	= .
+SNIFF_Project_Description_FILES	= object_src.shared 
+
+SNIFF_Document_Template_DIR	= docu/tmpl
+SNIFF_Document_Template_FILES	= 
+
+SNIFF_Image_DIR	= images
+SNIFF_Image_FILES	= 
+
+SNIFF_Object_DIR	= .
+SNIFF_Object_FILES	= 
+
+SNIFF_Implementation_Documentation_DIR	= docu
+SNIFF_Implementation_Documentation_FILES	= 
+
+SNIFF_Generator_SpecifierAttribute_DIR	= .
+SNIFF_Generator_SpecifierAttribute_FILES	= 
+
+SNIFF_Generator_ConfigurationHandler_DIR	= .
+SNIFF_Generator_ConfigurationHandler_FILES	= 
+
+SNIFF_FILES	= $(SNIFF_Lex_Source_FILES) $(SNIFF_Yacc_Source_FILES) $(SNIFF_Shell_Script_FILES)  \
+	$(SNIFF_Emacs_Lisp_FILES) $(SNIFF_Python_FILES) $(SNIFF_Make_FILES)  \
+	$(SNIFF_Header_Documentation_FILES) $(SNIFF_Header_FILES) $(SNIFF_Implementation_FILES)  \
+	$(SNIFF_Project_Description_FILES) $(SNIFF_Document_Template_FILES) $(SNIFF_Image_FILES)  \
+	$(SNIFF_Object_FILES) $(SNIFF_Implementation_Documentation_FILES) $(SNIFF_Generator_SpecifierAttribute_FILES)  \
+	$(SNIFF_Generator_ConfigurationHandler_FILES) 

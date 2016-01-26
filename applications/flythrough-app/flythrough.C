@@ -1,0 +1,1537 @@
+/*
+ * $RCSfile: flythrough.C,v $
+ *
+ * Copyright (C) 1994-96, Bernhard Buehlmann <buhlmann@iam.unibe.ch>
+ *                        Christoph Streit <streit@iam.unibe.ch>
+ *                        Stephan Amann <amann@iam.unibe.ch>
+ *                        Thierry Matthey <matthey@iam.unibe.ch>
+ *                        University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: flythrough.C,v 1.65 1996/09/13 08:04:13 streit Exp $
+ * -----------------------------------------------------------------------------
+ */
+
+#ifdef HAVE_OPENGL
+
+#include <strstream.h>
+#include <stdio.h> // FILE
+#include <GL/glut.h>
+
+#ifdef HAVE_MPEGE
+#include <mpeg/mpege.h>
+#endif
+
+#include "booga/base/Timer.h"
+#include "booga/base/ListUtilities.h"
+
+#include "booga/object/Ray3DFactory.h"
+#include "booga/object/Texture3D.h"
+#include "booga/object/Primitive3D.h"
+#include "booga/object/Camera3D.h"
+#include "booga/object/DirectedLight.h"
+#include "booga/object/AmbientLight.h"
+#include "booga/object/Viewing3D.h"
+#include "booga/object/InteractionObject3D.h"
+
+#include "booga/component/Parser3D.h"
+#include "booga/component/Collector3DFor.h"
+#include "booga/component/PixiWriter.h"
+#include "booga/component/Picker3D.h"
+#include "booga/component/ShowNormals.h"
+#include "booga/component/ConfigurationHandlers.h"
+
+#include "booga/glwrapper/GLTexture.h"
+#include "booga/glwrapper/GLBSDLParserInit.h"
+#include "booga/glwrapper/GLUtilities.h"
+#include "booga/glwrapper/GLRenderer.h"
+
+#include "booga/animation/Animation3D.h"
+ 
+//_____________________________________________________________________ Globals
+
+RCString in, out = "Noname"; // Input and output filenames.
+GLRenderer* renderer = NULL;
+World3D*    world    = NULL;
+GLRenderer::RenderingQuality motionQuality    = GLRenderer::WIREFRAME;
+GLRenderer::RenderingQuality renderingQuality = GLRenderer::SOLID_FLAT;
+
+enum AppMode { WALKTHROUGH = 1, INSPECT = 2, PICK = 3, RAYPAINT = 4, VR = 5 };
+AppMode appMode = INSPECT;
+
+enum MovingMode { NO_BUTTON_DOWN, LEFT_BUTTON_DOWN, MIDDLE_BUTTON_DOWN };
+MovingMode movingMode = NO_BUTTON_DOWN;
+
+static int oldX, oldY;
+static bool displayStatistics = false;
+static bool showNormals       = false;
+static bool backFaceCulling   = false;
+
+static Timer animTimer;                                        // Amiamtion
+static List<Animation3D*>* listAnimation = NULL;
+static List<Path3D*>* listAnimationPath = NULL;
+ 
+static int  timeout       = -1;
+static Real currentTime   = 0;
+static int  overhead      = 0;
+#ifdef HAVE_MPEGE
+static bool saveAnimFrame = false;
+#endif
+static Real frameStep     = 1;
+static int animation;
+static Real frame = 0;
+
+#ifdef HAVE_MPEGE 
+ImVfb* image = NULL;
+#endif
+GLubyte* pixels = NULL;
+static int currentFrameMPEG = 0;
+  
+const int SOLID_GOURAUD       = 1;
+const int SOLID_FLAT          = 2;
+const int WIREFRAME_GOURAUD   = 3;
+const int WIREFRAME_FLAT      = 4;
+const int WIREFRAME           = 5;
+const int BOUNDING_BOX        = 6;
+
+const int SAVE_FRAMEBUFFER  = 1;
+
+const int TOGGLE_STATISTICS   = 1;
+const int TOGGLE_BACK_CULL    = 2;
+const int TOGGLE_SHOW_NORMALS = 3;
+
+const int MAX_OVERHEAD        = 5;  // Animation
+const int EPSILON_TIME        = 5;  // [ms]
+const int ANIM_OFF            = -1;
+const int ANIM_IDLE           = 0;
+const int ANIM_SAVE           = -2;
+ 
+//__________________________________________________________________ Initialiser
+ 
+static void initParser();
+static void initRendering(int argc, char* argv[]);
+static void readWorld();
+static void saveFramebufferToFile();
+static void pickObject(int x, int y);
+static void raytrace(int fromX, int fromY, int toX, int toY, 
+                     const Path3D* selectedObj = NULL);
+static void raytraceObject(int x, int y);
+static void parseCmdLine(int argc, char* argv[], RCString& in, RCString& out);
+static void usage(const RCString& name);
+#ifdef HAVE_MPEGE
+static void saveFramebufferToMPEG();
+static void closeFramebufferToMPEG();
+#endif
+static void resetTimer();
+
+//____________________________________________________________________ Callbacks
+
+static void displayCallback();
+static void reshapeCallback(int width, int height);
+static void keyboardCallback(unsigned char key, int x, int y);
+static void mouseCallback(int button, int state, int x, int y);
+static void motionCallback(int x, int y);
+
+static void mainMenuCallback(int value);
+static void renderingQualityCallback(int value);
+static void motionQualityCallback(int value);
+static void appModeCallback(int value);
+static void toolsCallback(int value);
+static void optionsCallback(int value);
+static void frameRateCallback(int value);
+static void timeInBackbufferCallback(int value);
+static void timerCallback(int value);
+static void timerIdleCallback();
+static void animationCallback(int value);
+static void frameRateAnimationCallback(int value);
+static void frameStepAnimationCallback(int value);
+
+//__________________________________________________________________ Applikation
+
+int main(int argc, char* argv[])
+{
+  // 
+  //  Setup world.
+  // -----------------------------------------------------------
+  // Configuration::setOption(Name("Report.ErrorStream.Filename"),Name("/dev/console"));
+  // Configuration::setOption(Name("Report.ErrorStream"),Name("file"));
+  Configuration::setOption(Name("Report.ErrorStream"),Name("cerr"));
+  // Configure LightTexture !!!!!!
+  parseCmdLine(argc, argv, in, out);
+
+  renderer = new GLRenderer;
+  renderer->generateWorld(false);
+
+  readWorld();
+
+  // 
+  //  Start displaying of scene.
+  // -----------------------------------------------------------
+
+  initRendering(argc, argv); 
+  glutMainLoop();
+
+  return 0;
+}
+
+void initParser() 
+{
+  initGLBSDLParserGlobalNS();
+  initGLBSDLParser3DNS();
+}
+
+void initRendering(int argc, char* argv[])
+{
+  glutInit(&argc, argv);
+  glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
+
+  glutInitWindowSize(renderer->getCamera()->getViewing()->getResolutionX(), 
+		   renderer->getCamera()->getViewing()->getResolutionY());
+  glutCreateWindow("Flythrough");
+
+  renderer->setRenderingQuality(renderingQuality);
+
+  //
+  // Setup menus.
+  // 
+  
+  int applicationMode = glutCreateMenu(appModeCallback);
+  glutAddMenuEntry("Walkthrough", WALKTHROUGH);
+  glutAddMenuEntry("Inspect", INSPECT);
+  glutAddMenuEntry("Pick", PICK);
+  glutAddMenuEntry("Virtual Reality", VR);
+  glutAddMenuEntry("Raypaint", RAYPAINT);
+
+  int renderingQuality = glutCreateMenu(renderingQualityCallback);
+  glutAddMenuEntry("Solid Gouraud (best quality, slowest)", SOLID_GOURAUD);
+  glutAddMenuEntry("Solid Flat", SOLID_FLAT);
+  glutAddMenuEntry("Wireframe Gouraud", WIREFRAME_GOURAUD);
+  glutAddMenuEntry("Wireframe Flat", WIREFRAME_FLAT);
+  glutAddMenuEntry("Wireframe", WIREFRAME);
+  glutAddMenuEntry("Bounding Box (fastest)", BOUNDING_BOX);
+
+  int motionQuality = glutCreateMenu(motionQualityCallback);
+  glutAddMenuEntry("Solid Gouraud (best quality, slowest)", SOLID_GOURAUD);
+  glutAddMenuEntry("Solid Flat", SOLID_FLAT);
+  glutAddMenuEntry("Wireframe Gouraud", WIREFRAME_GOURAUD);
+  glutAddMenuEntry("Wireframe Flat", WIREFRAME_FLAT);
+  glutAddMenuEntry("Wireframe", WIREFRAME);
+  glutAddMenuEntry("Bounding Box (fastest)", BOUNDING_BOX);
+
+  // 
+  // Setup TOOLS Menu
+  //
+
+  int tools = glutCreateMenu(toolsCallback);
+  glutAddMenuEntry("Save framebuffer", SAVE_FRAMEBUFFER);
+
+  // 
+  // Setup OPTIONS Menu
+  //
+
+  int frameRate = glutCreateMenu(frameRateCallback);
+  glutAddMenuEntry(" 1", 1);
+  glutAddMenuEntry(" 5", 5);
+  glutAddMenuEntry("10", 10);
+  glutAddMenuEntry("15", 15);
+  glutAddMenuEntry("20", 20);
+  glutAddMenuEntry("25", 25);
+  glutAddMenuEntry("30", 30);
+  glutAddMenuEntry("Fastest", 10000);
+
+  int timeInBackbuffer = glutCreateMenu(timeInBackbufferCallback);
+  glutAddMenuEntry("0.0", 0);
+  glutAddMenuEntry("0.1", 1);
+  glutAddMenuEntry("0.5", 5);
+  glutAddMenuEntry("1.0", 10);
+  glutAddMenuEntry("1.5", 15);
+  glutAddMenuEntry("2.0", 20);
+  glutAddMenuEntry("3.0", 30);
+  glutAddMenuEntry("5.0", 50);
+  glutAddMenuEntry("as long as necessary", 10000);
+
+  int options = glutCreateMenu(optionsCallback);
+  glutAddSubMenu("Frames/sec", frameRate);
+  glutAddSubMenu("Time spent in backbuffer", timeInBackbuffer);
+
+  glutAddMenuEntry("Toggle statistics", TOGGLE_STATISTICS);
+  glutAddMenuEntry("Toggle show normals", TOGGLE_SHOW_NORMALS);
+  glutAddMenuEntry("Toggle culling back faces", TOGGLE_BACK_CULL);
+
+  // 
+  // Setup ANIMATION Menu
+  //
+ 
+  int frameStepAnimation = glutCreateMenu(frameStepAnimationCallback);
+  glutAddMenuEntry("-100",           -10000);
+  glutAddMenuEntry(" -50",            -5000);
+  glutAddMenuEntry(" -20",            -2000);
+  glutAddMenuEntry(" -10",            -1000);
+  glutAddMenuEntry("  -5",             -500);
+  glutAddMenuEntry("  -2",             -200);
+  glutAddMenuEntry("  -1",             -100);
+  glutAddMenuEntry("  -0.5",            -50);
+  glutAddMenuEntry("  -0.2",            -20);
+  glutAddMenuEntry("  -0.1",            -10);
+  glutAddMenuEntry("  -0.01",            -1);
+  glutAddMenuEntry("   0.01",             1);
+  glutAddMenuEntry("   0.1",             10);
+  glutAddMenuEntry("   0.2",             20);
+  glutAddMenuEntry("   0.5",             50);
+  glutAddMenuEntry("   1",              100);
+  glutAddMenuEntry("   2",              200);
+  glutAddMenuEntry("   5",              500);
+  glutAddMenuEntry("  10",             1000);
+  glutAddMenuEntry("  20",             2000);
+  glutAddMenuEntry("  50",             5000);
+  glutAddMenuEntry(" 100",            10000);
+ 
+  int frameRateAnimation = glutCreateMenu(frameRateAnimationCallback);
+  glutAddMenuEntry("25",            40);
+  glutAddMenuEntry("20",            50);
+  glutAddMenuEntry("10",           100);
+  glutAddMenuEntry(" 5",           200);
+  glutAddMenuEntry(" 4",           250);
+  glutAddMenuEntry(" 2",           500);
+  glutAddMenuEntry(" 1",          1000);
+  glutAddMenuEntry(" 0.5",        2000);
+  glutAddMenuEntry(" 0.2",        5000);
+  glutAddMenuEntry(" 0.1",       10000);
+  glutAddMenuEntry("as fast as possible",ANIM_IDLE);
+  
+  animation = glutCreateMenu(animationCallback);
+  glutAddMenuEntry("Save frames : No",  ANIM_SAVE);
+  glutAddMenuEntry("Animation Off",     ANIM_OFF);
+  glutAddSubMenu  ("Frames/sec", frameRateAnimation);
+  glutAddSubMenu  ("Framestep", frameStepAnimation);
+ 
+  // 
+  // Setup MAIN Menu
+  //
+
+  glutCreateMenu(mainMenuCallback);
+  glutAddSubMenu("Application mode", applicationMode);
+  glutAddSubMenu("Rendering quality", renderingQuality);
+  glutAddSubMenu("Motion quality", motionQuality);
+  glutAddSubMenu("Tools", tools);
+  glutAddSubMenu("Options", options);
+  glutAddSubMenu("Animation",animation);
+  glutAddMenuEntry("Quit", 666);
+  glutAttachMenu(GLUT_RIGHT_BUTTON);
+  
+  //
+  // Install callbacks.
+  //
+  glutReshapeFunc(reshapeCallback);
+  glutDisplayFunc(displayCallback);
+  glutKeyboardFunc(keyboardCallback);
+  glutMouseFunc(mouseCallback);
+  glutMotionFunc(motionCallback);
+}
+
+void readWorld()
+{
+  if (world != NULL) delete world;
+  world = new World3D;
+
+  Makeable::removeNamespaces();
+  
+  initParser();
+  
+  Parser3D parser;
+  parser.setFilename(in);
+  parser.execute(world);
+
+  //
+  // Collect all animation objects in the world.
+  //  
+  if (listAnimation != NULL){
+    //listAnimation->removeAll();
+    delete listAnimation;
+
+  }
+
+  listAnimation = new List<Animation3D*>;
+
+  if (listAnimationPath != NULL){
+    //listAnimationPath->removeAll();
+    delete listAnimationPath;
+
+  }
+  listAnimationPath = new List<Path3D*>;
+
+  Collector3DFor<Animation3D> animCollector;
+  animCollector.execute(world);
+  for (animCollector.first(); !animCollector.isDone(); animCollector.next()){
+    listAnimation->append(animCollector.getObject());
+    listAnimationPath->append(animCollector.getPath());
+  }
+
+  //
+  //  Init Animation
+  // 
+  for (long i=0; i<listAnimation->count(); i++){
+    if(listAnimation->item(i)->frame(frame))
+      listAnimation->item(i)->resetBounds(*listAnimationPath->item(i));
+  } 
+  world->getObjects()->computeBoundsLazy();
+
+  //
+  // Collect all cameras in the world.
+  //  
+  Collector3DFor<Camera3D> camCollector;
+  camCollector.execute(world);
+  Camera3D* camera = NULL;
+
+  //
+  // Look for first camera in world, that is switched on.
+  //
+  for (camCollector.first(); !camCollector.isDone(); camCollector.next())
+    if (camCollector.getObject()->isOn()) {
+      camera = camCollector.createTransformedObject(); 
+      break;
+    }
+
+  if (camera == NULL) {
+    Report::error("scene contains no active camera");
+    exit(1);
+  }
+
+  renderer->adoptCamera(camera);
+
+  //
+  // Collect all directed light sources in the world.
+  //  
+  Collector3DFor<DirectedLight> directedCollector;
+  directedCollector.execute(world);
+  List<DirectedLight*>* directed = new List<DirectedLight*>;
+
+  for (directedCollector.first(); !directedCollector.isDone(); directedCollector.next())
+    if (directedCollector.getObject()->isOn())
+      directed->append(directedCollector.createTransformedObject());
+
+  //
+  // Collect all ambient light sources in the world.
+  //  
+  Collector3DFor<AmbientLight> ambientCollector;
+  ambientCollector.execute(world);
+  List<AmbientLight*>* ambient = new List<AmbientLight*>;
+
+  for (ambientCollector.first(); !ambientCollector.isDone(); ambientCollector.next())
+    if (ambientCollector.getObject()->isOn())
+      ambient->append(ambientCollector.createTransformedObject());
+
+
+  if (directed->count() + ambient->count() <= 0) {
+    Report::error("scene contains no active light source");
+    exit(1);
+  }
+
+  renderer->adoptDirectedLightSources(directed);
+  renderer->adoptAmbientLightSources(ambient);
+}
+
+void saveFramebufferToFile()
+{
+  extern char* form(const char * ...);
+  static int currentFrame = 1;
+
+  AbstractPixmap* pixi = GLUtilities::createPixmapFromFramebuffer();
+  RCString filename = out;
+  filename += form(".%d.pixi", currentFrame++);
+
+  if (pixi->save(filename)) {
+    ostrstream os;
+    os << "Pixi " << filename << " created";
+    Report::hint(os);
+  }
+  
+  delete pixi;  
+}
+
+void pickObject(int x, int y)
+{
+  Picker3D picker;
+ 
+  picker.setCamera(renderer->getCamera()); 
+  picker.setPickOrigin(x, renderer->getCamera()->getViewing()->getResolutionY()-y);
+  picker.execute(world);
+    
+  //
+  // Got a hit?
+  //
+  if (picker.getPath() != NULL) {
+    //
+    // Draw bounding box around the selected object.
+    //
+    GLRenderer::RenderingQuality currentQuality = renderer->getRenderingQuality();
+    const Path3D* path = picker.getPath();
+    
+    glPushMatrix();
+      //
+      // The second last cummulated transform has to be applied, since the bounding
+      // box is already transformed with the object's own transformation.
+      //
+      path->last(); path->prev();
+      if (!path->isDone() && !path->getTransform().isIdentity()) {
+        static float m[16];
+        convert(picker.getPath()->getTransform().getTransMatrix(), m);
+        glMultMatrixf(m);
+      }
+
+      //
+      // Select the color of the bounding box.
+      //
+      glDisable(GL_COLOR_MATERIAL);
+      glDisable(GL_LIGHTING);
+      Color bgColor = renderer->getCamera()->getBackground();
+      if ((bgColor[0] + bgColor[1] + bgColor[2])/3.0 > .5)
+        glColor3f (0, 0, 0);
+      else
+        glColor3f (1, 1, 1);
+      glDrawBuffer(GL_FRONT);
+ 
+      //
+      // Draw the object in bounding box mode!
+      //
+      renderer->setRenderingQuality(GLRenderer::BOUNDING_BOX);
+      renderer->drawBounds(picker.getPath()->getLastObject()); 
+    glPopMatrix();
+    glFlush();
+    renderer->setRenderingQuality(currentQuality);
+
+    //
+    // Print the whole path to cerr.
+    //
+    cerr << "World";
+    for (picker.getPath()->first(); !picker.getPath()->isDone(); picker.getPath()->next()) 
+      cerr << "->" << typeid(picker.getPath()->getObject()).name();
+    cerr << endl;
+  }
+}
+
+void activateObject(int x, int y)
+{
+  Picker3D picker;
+ 
+  picker.setCamera(renderer->getCamera()); 
+  picker.setPickOrigin(x, renderer->getCamera()->getViewing()->getResolutionY()-y);
+  picker.execute(world);
+  
+  //
+  // Got a hit?
+  //
+  const Path3D* path = picker.getPath();
+  InteractionObject3D* iObject;
+  if (path != NULL) {
+    for (path->last(); !path->isDone(); path->prev()) {
+      iObject = dynamic_cast(InteractionObject3D, path->getObject());
+      if (iObject != NULL) {
+        iObject->activate(world, (Path3D*)path, x, y); // !!!!!
+        glutPostRedisplay();
+        return;
+      }
+    }
+    
+    Report::hint("[activateObject] There is no InteractiveObject here");
+  }
+}
+ 
+void raytrace(int fromX, int fromY, int toX, int toY, const Path3D* selectedObj)
+{
+  //
+  // Setup the texturing context.
+  //
+  Texture3DContext context;
+  Viewing3D* viewing = renderer->getCamera()->getViewing();
+  context.setWorld(world);
+  context.setAmbientLightSources(renderer->getAmbientLightSources());
+  context.setDirectedLightSources(renderer->getDirectedLightSources());
+  context.setIncidencePosition(viewing->getEye());
+  Color defaultColor = Color::getDefault();
+
+  Ray3D* ray = Ray3DFactory::createRay(Vector3D(0,0,0), Vector3D(1,0,0));
+  const Path3D* path = NULL;
+
+  //
+  // init OpenGL viewing:
+  //
+  glDrawBuffer(GL_FRONT);
+  glMatrixMode(GL_PROJECTION);
+  glPushMatrix();
+  glLoadIdentity();
+  gluOrtho2D(0, viewing->getResolutionX(), 
+             0, viewing->getResolutionY());
+
+  glMatrixMode(GL_MODELVIEW);
+  glLoadIdentity();
+
+  glDisable(GL_COLOR_MATERIAL);
+  glDisable(GL_DEPTH_TEST);
+  glDisable(GL_LIGHTING);
+
+  GLTexture::setTexturingType(GLTexture::BOOGA);
+  
+  GLfloat pixel[3];
+
+  //  GLfloat background[3] = { 
+  //          renderer->getCamera()->getBackground().getRed(),
+  //          renderer->getCamera()->getBackground().getGreen(),
+  //          renderer->getCamera()->getBackground().getBlue()
+  //          };
+
+  //
+  // Start raytracing.
+  //
+  for (int x = fromX; x <= toX; x++) {
+    for (int y = fromY; y <= toY; y++) {
+      //
+      // Clipping...
+      //
+      if (x < 0 || x >= viewing->getResolutionX() ||
+          y <= 0 || y > viewing->getResolutionY()) {
+        continue;
+      }  
+
+      ray->reset();
+      viewing->computeRayThrough(x, viewing->getResolutionY()-y, *ray);
+
+      if (!world->getObjects()->intersect(*ray)) {
+        //
+        // No HIT. Draw the background color.
+        //  -> the effect is rather bad! So the feature is disabled.
+        //
+        // glRasterPos2i(x, viewing->getResolutionY()-y);
+        // glDrawPixels(1, 1, GL_RGB, GL_FLOAT, background);
+      }
+      else if (((path = ray->getPath()) != NULL)  &&
+               (selectedObj == NULL || (*path) == (*selectedObj))) {
+        //
+        // HIT. Compute the texture color of the pixel and display it on 
+        // the screen.
+        //
+        context.setOCS2WCS(path->getLastTransform());
+        context.setPositionWCS(ray->getHitPoint());
+        context.setNormalOCS(ray->getBestHitObject()->normal(context.getPositionOCS()));
+        context.setColor(defaultColor);
+
+        Texture3D::texturing(context, path);
+
+        pixel[0] = context.getColor().getRed();
+        pixel[1] = context.getColor().getGreen();
+        pixel[2] = context.getColor().getBlue();
+        glRasterPos2i(x, viewing->getResolutionY()-y);
+        glDrawPixels(1, 1, GL_RGB, GL_FLOAT, pixel);
+      }
+    }
+  }
+
+  delete ray;
+  
+  GLTexture::setTexturingType(GLTexture::GL);
+  glFlush();
+  glMatrixMode(GL_PROJECTION);
+  glPopMatrix();
+  glMatrixMode(GL_MODELVIEW);
+}
+
+void raytraceObject(int x, int y)
+{
+  Picker3D picker;
+ 
+  picker.setCamera(renderer->getCamera()); 
+  picker.setPickOrigin(x, renderer->getCamera()->getViewing()->getResolutionY()-y);
+  picker.execute(world);
+    
+  //
+  // Got a hit?
+  //
+  if (picker.getPath() != NULL) {
+    //
+    // Compute the bounding rectangle of the selected object in screen coordinates.
+    //
+    const Path3D* path = picker.getPath();
+    BoundingBox bb = path->getLastObject()->getBounds();
+
+    //
+    // Step 1: Compute the bounding box with all transformations applied.
+    //
+    path->last(); path->prev();
+    if (!path->isDone())
+      bb.transform(path->getTransform().getTransMatrix());
+    
+    //
+    // Step 2: Transform to screen coordinates.
+    //
+    Vector3D bbMin = bb.getMin();
+    Vector3D bbMax = bb.getMax();
+    const Viewing3D* viewing = renderer->getCamera()->getViewing();
+    
+    Vector3D v1 = viewing->transformWorld2Screen(
+            Vector3D(bbMin.x(), bbMin.y(), bbMin.z())); // v v v
+    Vector3D v2 = viewing->transformWorld2Screen(
+            Vector3D(bbMax.x(), bbMin.y(), bbMin.z())); // ^ v v
+    Vector3D v3 = viewing->transformWorld2Screen(
+            Vector3D(bbMin.x(), bbMax.y(), bbMin.z())); // v ^ v
+    Vector3D v4 = viewing->transformWorld2Screen(
+            Vector3D(bbMin.x(), bbMin.y(), bbMax.z())); // v v ^
+    Vector3D v5 = viewing->transformWorld2Screen(
+            Vector3D(bbMax.x(), bbMax.y(), bbMin.z())); // ^ ^ v
+    Vector3D v6 = viewing->transformWorld2Screen(
+            Vector3D(bbMax.x(), bbMin.y(), bbMax.z())); // ^ v ^
+    Vector3D v7 = viewing->transformWorld2Screen(
+            Vector3D(bbMin.x(), bbMax.y(), bbMax.z())); // v ^ ^
+    Vector3D v8 = viewing->transformWorld2Screen(
+            Vector3D(bbMax.x(), bbMax.y(), bbMax.z())); // ^ ^ ^
+
+    //
+    // Step 3: Create the bounding rectangle in screen coordinates.
+    //
+    BoundingRect bbRect;
+    bbRect.expand(v1.x(), v1.y());
+    bbRect.expand(v2.x(), v2.y());
+    bbRect.expand(v3.x(), v3.y());
+    bbRect.expand(v4.x(), v4.y());
+    bbRect.expand(v5.x(), v5.y());
+    bbRect.expand(v6.x(), v6.y());
+    bbRect.expand(v7.x(), v7.y());
+    bbRect.expand(v8.x(), v8.y());
+
+    //
+    // Step 4: Trace the object.
+    //
+    raytrace(int(bbRect.getMin().x()), viewing->getResolutionY()-int(bbRect.getMax().y()),
+             int(bbRect.getMax().x()), viewing->getResolutionY()-int(bbRect.getMin().y()),
+             path);
+  }
+}
+
+void parseCmdLine(int argc, char* argv[], RCString& in, RCString& out)
+{
+  if ((argc == 2 && !strcmp(argv[1], "-h")) || argc>3) {
+    usage(argv[0]);
+    exit(0);
+  }
+  
+  int cur = 1;  
+  
+  if (cur < argc) 
+    in = argv[cur++];
+  if (cur < argc)
+    out = argv[cur];
+}
+
+void usage(const RCString& name)
+{
+  cerr << "Usage: " << name << " [in-file [out-file]]\n";
+  cerr << " where:\n";
+  cerr << "  in-file        : (optional) filename of input\n";
+  cerr << "  out-file       : (optional) filename of output\n";
+}
+
+#ifdef HAVE_MPEGE
+void saveFramebufferToMPEG()
+{
+  MPEGe_options* options = NULL;
+  extern char* form(const char * ...);
+  static int currentFrameMPEG = 0;
+  static GLint width, height;  
+  ImVfbPtr ptr;
+  GLint viewport[4];
+  static FILE* output;
+  int widthNow, heightNow;
+   
+  RCString filename = out;
+  filename += form(".mpeg");
+ 
+  //
+  // MPEG init
+  //
+ 
+  if (currentFrameMPEG == 0) {
+    output = fopen(filename.chars(),"w");
+    if (output) {
+      //
+      // Now fill up the structure with the (default) options 
+      //
+      options = new MPEGe_options;
+      options->gop_size=30;
+      options->frame_pattern=(char *)strdup("IBBPBBP");
+      options->slices_per_frame=1;
+      options->search_range[0]=10;
+      options->search_range[1]=10;
+      options->IQscale=5;
+      options->BQscale=7;
+      options->PQscale=15;
+      options->pixel_search=MPEGe_options::FULL;
+      options->psearchalg=MPEGe_options::P_LOGARITHMIC;
+      options->bsearchalg=MPEGe_options::B_CROSS2;
+      options->bit_rate=-1;                  // variable bit rate
+      options->buffer_size=327680 ;          // DEFAULT_BUFFER_SIZE
+      
+      if (!MPEGe_open(output, options)) {
+        ostrstream os;
+        os << "[saveFramebufferToMPEG] Can't open MPEG " << filename;
+        Report::recoverable(os);
+      }
+      else {
+        ostrstream os;
+        os << "[saveFramebufferToMPEG] MPEG " << filename << " open";
+        Report::recoverable(os);
+        glGetIntegerv(GL_VIEWPORT, viewport);
+        width  = viewport[2]-viewport[0];
+        height = viewport[3]-viewport[1];
+      }
+ 
+      if (options) {
+        delete options;
+      }
+    }
+    else {
+      ostrstream os;
+      os << "[saveFramebufferToMPEG] Can't open file " << filename;
+      Report::recoverable(os);
+    }
+  }
+  
+  if (!image) {
+    image = MPEGe_ImVfbAlloc(width,height, IMVFBRGB, 1);
+    if (!image) {
+      ostrstream os;
+      os << "[saveFramebufferToMPEG] Can't allocate memory for framebuffer";
+      Report::recoverable(os);
+    }
+    else {
+      ostrstream os;
+      os << "[saveFramebufferToMPEG] Memory for framebuffer allocated";
+      Report::recoverable(os);
+    }
+  }
+  
+  //
+  // MPEG save picture
+  //
+  
+  if (image) {
+    glGetIntegerv(GL_VIEWPORT, viewport);
+ 
+    widthNow  = viewport[2]-viewport[0];
+    heightNow = viewport[2]-viewport[0];
+    if (!pixels) {
+      pixels = new GLubyte[width*height*4];
+    }
+    
+    glReadPixels(viewport[0], viewport[1], width, height, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
+  
+    for (int y=0; y<height; y++) {
+      for (int x=0; x<width; x++) {
+        ptr=ImVfbQPtr(image,x,height-y-1);
+        if ((widthNow>x)&&(widthNow>y)) {
+          ImVfbSRed  (image, ptr, pixels[(y*width + x)*4  ] );
+          ImVfbSGreen(image, ptr, pixels[(y*width + x)*4+1] );
+          ImVfbSBlue (image, ptr, pixels[(y*width + x)*4+2] );
+          //  ImVfbSAlpha(image, ptr, pixels[(y*width + x)*4+3] );
+        }  
+        else {
+          ImVfbSRed  (image, ptr, 0L );
+          ImVfbSGreen(image, ptr, 0L );
+          ImVfbSBlue (image, ptr, 0L );
+        
+        }
+      }
+    }
+ 
+    if (!MPEGe_image(image)) {
+      ostrstream os;
+      os << "[saveFramebufferToMPEG] Can't save MPEGFrame nr." << currentFrameMPEG;
+      Report::recoverable(os);
+    }
+    else {
+      ostrstream os;
+      os << "[saveFramebufferToMPEG] MPEGFrame nr." << currentFrameMPEG << " saved";
+      Report::hint(os);
+    }
+  
+    currentFrameMPEG++;
+  }
+    
+  if ((width  != widthNow )||(height != height)) {
+     Report::warning("[saveFramebufferToMPEG] Don't drag it");
+  }
+}
+ 
+void closeFramebufferToMPEG()
+{
+  delete pixels;
+  MPEGe_close();
+  
+  currentFrameMPEG = 0;
+}
+
+#endif // HAVE_MPEGE
+ 
+//__________________________________________________________ Animation utilities
+
+static void turnHead(Real theta, Real phi)
+{
+  Viewing3D* viewing = renderer->getCamera()->getViewing();
+  
+  //
+  // n: Direction to the observer.
+  // v: Up direction.
+  // u: To the right.
+  //
+  Vector3D n = viewing->getLookat() - viewing->getEye(); 
+  n.normalize(); 
+
+  Vector3D v = viewing->getUp() - (n^viewing->getUp())*n;  
+  v.normalize(); 
+
+  Vector3D u = n * v; 
+  u.normalize();
+
+  TransMatrix3D phi_rot;
+  phi_rot.rotate(v, sin(dtor(-theta)), cos(dtor(-theta)));
+  TransMatrix3D rot = phi_rot;
+  rot.rotate(u*phi_rot, sin(dtor(-phi)), cos(dtor(-phi))); 
+  
+  TransMatrix3D rotateEye;
+  rotateEye.translate(-viewing->getEye());
+  rotateEye *= rot;
+  rotateEye.translate(viewing->getEye());
+
+  viewing->setLookat(viewing->getLookat() * rotateEye);
+}
+
+static void rotateAroundLookp(Real theta, Real phi)
+{
+  Viewing3D* viewing = renderer->getCamera()->getViewing();
+
+  //
+  // n: Direction to the observer.
+  // v: Up direction.
+  // u: To the right.
+  //
+  Vector3D n = viewing->getLookat() - viewing->getEye(); 
+  n.normalize(); 
+
+  Vector3D v = viewing->getUp() - (n^viewing->getUp())*n;  
+  v.normalize(); 
+
+  Vector3D u = n * v; 
+  u.normalize();
+  
+  TransMatrix3D phi_rot;
+  phi_rot.rotate(v, sin(dtor(-theta)), cos(dtor(-theta)));
+  TransMatrix3D rot = phi_rot;
+  rot.rotate(u*phi_rot, sin(dtor(-phi)), cos(dtor(-phi))); 
+  
+  TransMatrix3D rotateEye;
+  rotateEye.translate(-viewing->getLookat());
+  rotateEye *= rot;
+  rotateEye.translate(viewing->getLookat());
+
+  viewing->setEye(viewing->getEye() * rotateEye);
+}
+
+static void moveCamera(Real dx, Real dy)
+{
+  Viewing3D* viewing = renderer->getCamera()->getViewing();
+
+  Vector3D eyep  = viewing->getEye();	
+  Vector3D lookp = viewing->getLookat();	
+  Vector3D up    = viewing->getUp();
+  Vector3D direction = eyep - lookp;
+
+  Vector3D dist = eyep-lookp;
+
+  // Move left / right
+
+  Vector3D left = up*(eyep-lookp);
+  Vector3D l = -dx * left/left.length()*dist.length()*.005;
+  
+
+  // Move forward / backward
+
+  Vector3D m = dy * direction.normalized() * dist.length() * .005;
+  eyep += m - l; 
+  lookp += m - l;
+
+  viewing->setEye(eyep);
+  if (appMode == WALKTHROUGH)
+    viewing->setLookat(lookp);
+}
+
+void doAnimation(bool flag)           // * A C T I O N *
+{   
+   if ((timeout >= 0) || (flag)){  
+      long count = listAnimation->count();
+      bool redisplay = false;
+      frame += frameStep;
+      for (long i=0; i<count; i++){     // Do animation
+        if (listAnimation->item(i)->frame(frame)){
+	  //listAnimation->item(i)->resetBounds(*listAnimationPath->item(i));
+	  redisplay = true;
+	}
+      }
+      if (redisplay){                  // Redisplay if needed
+        world->getObjects()->computeBounds();
+        glutPostRedisplay();
+      }
+#ifdef HAVE_MPEGE      
+      if (saveAnimFrame == true)
+        saveFramebufferToMPEG();
+#endif        
+   }
+   else
+     glutPostRedisplay();
+}
+ 
+ 
+//____________________________________________________________________ Callbacks
+
+
+void displayCallback()
+{
+  glDrawBuffer(GL_BACK);
+
+  if (backFaceCulling)
+    glEnable(GL_CULL_FACE);
+  else
+    glDisable(GL_CULL_FACE);
+
+  renderer->execute(world);
+  if (displayStatistics)
+    renderer->displayStatistics();
+    
+  GLint drawBuffer;
+  glGetIntegerv(GL_DRAW_BUFFER, &drawBuffer);
+  if (drawBuffer == GL_BACK)
+    GLUtilities::swapBuffers();
+}
+
+void reshapeCallback(int width, int height)
+{
+  renderer->getCamera()->getViewing()->setResolution(width, height);
+  glutPostRedisplay();
+  resetTimer();
+}
+
+void keyboardCallback(unsigned char key, int, int)
+{
+  switch (key) {
+    case 27:    // ESC and 'q' will quit.
+    case 'q': 
+#ifdef HAVE_MPEGE      
+      closeFramebufferToMPEG();
+#endif      
+      exit(1); 
+      break;
+
+    case 'r':
+      readWorld();
+      glutReshapeWindow(renderer->getCamera()->getViewing()->getResolutionX(),
+                        renderer->getCamera()->getViewing()->getResolutionY());
+      glutPostRedisplay();
+      break;
+
+    case 's':                    // Stop animation
+      timeout = -1;
+      glutIdleFunc(0);
+      break;
+ 
+    case 'i':                   // Idle animation (as fast as possible)
+      timeout = 0;
+      glutIdleFunc(timerIdleCallback);
+      break;
+ 
+    case ' ':                   // Reset lookat.
+      renderer->getCamera()->getViewing()->setLookat(Vector3D(0,0,0));
+      glutPostRedisplay();
+      break; 
+
+    case 'w':                   // Save framebuffer 
+        saveFramebufferToFile();
+        break;
+
+    case 'f':                  // Stop animation and one step forward
+      glutIdleFunc(0);
+      timeout = -1;
+      doAnimation(true);
+      glutIdleFunc(0);
+      break;
+ 
+    case 'b':                 // Stop animation and one step back
+      glutIdleFunc(0);
+      timeout = -1;
+      frameStep *= -1;
+      doAnimation(true);
+      frameStep *= -1;
+      glutIdleFunc(0);
+      break;
+    
+    case 'c':                // Stop and reset animation
+      frame = -1;            // Go back to frame 0
+      frameStep = 1;         // frameStep = 1
+      timeout = -1;
+      doAnimation(true);
+      glutIdleFunc(0);
+      break;
+    
+    case 9:                  // Change sign of frameStep
+      frameStep *=-1;
+      break;
+    
+    case 'a':
+      cerr << "Animation:"<< endl
+           << " frame             : " << frame << endl
+           << " frameStep         : " << frameStep << endl
+           << " current MPEG-frame: " << currentFrameMPEG << endl;
+      break;
+      
+    case 'h':
+    case '?':
+      cerr << "Summary of keyboard commands:" << endl
+           << "  q, ESC :  Quit." << endl
+           << "  r      :  Reread the scene description file." << endl
+           << "  SPACE  :  Reset view." << endl
+           << "  w      :  Save contents of the file buffer." << endl
+           << "  s      :  Stop animation." << endl
+           << "  i      :  Run animation (as fast as possible)." << endl
+           << "  f      :  One step forward." << endl
+           << "  b      :  One step backward." << endl
+           << "  TAB    :  Change sign of frameStep." << endl
+           << "  c      :  Set actual frame = 0 and frameStep = 1." << endl
+           << "  a      :  Information about animation." << endl
+           << "  h, ?   :  This message." << endl
+           << endl;
+      break;
+  }
+}
+
+void mouseCallback(int button, int state, int x, int y)
+{
+  static int startX, startY;
+
+  //
+  // Left mouse button down.
+  //
+  if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
+    if (appMode == INSPECT || appMode == WALKTHROUGH) {
+      renderer->setRenderingQuality(motionQuality);
+      oldX = x;
+      oldY = y;
+    }
+    else if (appMode == PICK) {
+      pickObject(x, y);
+    }
+    else if (appMode == VR) {
+      activateObject(x, y);
+    }
+    else if (appMode == RAYPAINT)
+      raytraceObject(x, y);
+      
+    movingMode = LEFT_BUTTON_DOWN;
+  } 
+
+  //
+  // Left mouse button up.
+  //
+  else if (button == GLUT_LEFT_BUTTON && state == GLUT_UP) {
+    if (appMode == INSPECT || appMode == WALKTHROUGH) {
+      renderer->setRenderingQuality(renderingQuality);
+      glutPostRedisplay();
+    }
+
+    movingMode = NO_BUTTON_DOWN;
+  } 
+
+  //
+  // Middle mouse button down.
+  //
+  else if (button == GLUT_MIDDLE_BUTTON && state == GLUT_DOWN) {
+    if (appMode == INSPECT || appMode == WALKTHROUGH) {
+      renderer->setRenderingQuality(motionQuality);
+      oldX = x;
+      oldY = y;
+    }
+    else if (appMode == RAYPAINT) {
+      startX = x;
+      startY = y;
+    }
+    
+    movingMode = MIDDLE_BUTTON_DOWN;
+  } 
+
+  //
+  // Middle mouse button up.
+  //
+  else if (button == GLUT_MIDDLE_BUTTON && state == GLUT_UP) {
+    if (appMode == INSPECT || appMode == WALKTHROUGH) {
+      renderer->setRenderingQuality(renderingQuality);
+      glutPostRedisplay();
+    }
+    else if (appMode == RAYPAINT)
+      raytrace(min(x, startX), min(y, startY),
+               max(x, startX), max(y, startY));
+               
+    movingMode = NO_BUTTON_DOWN;
+  }
+  resetTimer();
+}
+
+void motionCallback(int x, int y)
+{
+  if (appMode != WALKTHROUGH && appMode != INSPECT)
+    return;
+    
+  switch (movingMode) {
+  case LEFT_BUTTON_DOWN:
+    moveCamera(x-oldX, y-oldY);
+    glutPostRedisplay();
+    break;
+    
+  case MIDDLE_BUTTON_DOWN:
+    if (appMode == INSPECT)
+      rotateAroundLookp(x-oldX, y-oldY);
+    else
+      turnHead(x-oldX, y-oldY);
+    glutPostRedisplay();
+    break;
+    
+  case NO_BUTTON_DOWN:
+    break;
+ 
+  default:
+    ostrstream os;
+    os << "[motionCallback] Unknown moving mode " << movingMode;
+    Report::recoverable(os);
+  }
+
+  oldX = x;
+  oldY = y;
+ 
+  resetTimer();
+}
+
+void mainMenuCallback(int value)
+{
+  if (value == 666) {
+    delete world;
+    delete renderer;
+#ifdef HAVE_MPEGE    
+    closeFramebufferToMPEG();
+#endif    
+    exit(0);
+  }
+}
+
+void renderingQualityCallback(int value)
+{
+  switch (value) {
+  case SOLID_GOURAUD:
+    renderingQuality = GLRenderer::SOLID_GOURAUD;
+    renderer->setRenderingQuality(GLRenderer::SOLID_GOURAUD);
+    break;
+
+  case SOLID_FLAT:
+    renderingQuality = GLRenderer::SOLID_FLAT;
+    renderer->setRenderingQuality(GLRenderer::SOLID_FLAT);
+    break;
+
+  case WIREFRAME_GOURAUD:
+    renderingQuality = GLRenderer::WIREFRAME_GOURAUD;
+    renderer->setRenderingQuality(GLRenderer::WIREFRAME_GOURAUD);
+    break;
+
+  case WIREFRAME_FLAT:
+    renderingQuality = GLRenderer::WIREFRAME_FLAT;
+    renderer->setRenderingQuality(GLRenderer::WIREFRAME_FLAT);
+    break;
+
+  case WIREFRAME:
+    renderingQuality = GLRenderer::WIREFRAME;
+    renderer->setRenderingQuality(GLRenderer::WIREFRAME);
+    break;
+
+  case BOUNDING_BOX:
+    renderingQuality = GLRenderer::BOUNDING_BOX;
+    renderer->setRenderingQuality(GLRenderer::BOUNDING_BOX);
+    break;
+    
+  default:
+    ostrstream os;
+    os << "[renderingQualityCallback] Unknown callback value " << value;
+    Report::recoverable(os);
+  }
+ 
+  resetTimer();
+}
+
+void motionQualityCallback(int value)
+{
+  switch (value) {
+  case SOLID_GOURAUD:
+    motionQuality = GLRenderer::SOLID_GOURAUD;
+    break;
+
+  case SOLID_FLAT:
+    motionQuality = GLRenderer::SOLID_FLAT;
+    break;
+
+  case WIREFRAME_GOURAUD:
+    motionQuality = GLRenderer::WIREFRAME_GOURAUD;
+    break;
+
+  case WIREFRAME_FLAT:
+    motionQuality = GLRenderer::WIREFRAME_FLAT;
+    break;
+
+  case WIREFRAME:
+    motionQuality = GLRenderer::WIREFRAME;
+    break;
+    
+  case BOUNDING_BOX:
+    motionQuality = GLRenderer::BOUNDING_BOX;
+    break;
+    
+  default:
+    ostrstream os;
+    os << "[motionQualityCallback] Unknown callback value " << value;
+    Report::recoverable(os);
+  }
+ 
+  resetTimer();
+}
+
+void appModeCallback(int value)
+{
+  switch (value) {
+  case WALKTHROUGH:
+    appMode = WALKTHROUGH;
+    break;
+    
+  case INSPECT:
+    appMode = INSPECT;
+    renderer->getCamera()->getViewing()->setLookat(Vector3D(0,0,0));
+    break;
+  
+  case PICK:
+    appMode = PICK;
+    break;
+    
+  case RAYPAINT:
+    appMode = RAYPAINT;
+    break;
+    
+  case VR:
+    appMode = VR;
+    glutPostRedisplay();
+    break;
+    
+  default:
+    ostrstream os;
+    os << "[appModeCallback] Unknown callback value " << value;
+    Report::recoverable(os);
+  }
+  resetTimer();
+}
+
+void toolsCallback(int value)
+{
+  switch (value) {
+  case SAVE_FRAMEBUFFER:
+    saveFramebufferToFile();
+    break;
+  default:
+    ostrstream os;
+    os << "[toolsCallback] Unknown callback value " << value;
+    Report::recoverable(os);
+  }
+ 
+  resetTimer();
+}
+
+void optionsCallback(int value)
+{
+  switch (value) {
+  case TOGGLE_STATISTICS:
+    displayStatistics  = !displayStatistics;
+    break;
+    
+  case TOGGLE_SHOW_NORMALS:
+    if (!showNormals) {
+      ShowNormals normal;
+      normal.computeNormalSize(true);
+      normal.execute(world);
+      showNormals = true;
+    } else {
+      readWorld();
+      showNormals = false;
+    }
+    glutPostRedisplay();
+    break;
+
+  case TOGGLE_BACK_CULL:
+    backFaceCulling = !backFaceCulling;
+    break;
+    
+  default:
+    ostrstream os;
+    os << "[optionsCallback] Unknown callback value " << value;
+    Report::recoverable(os);
+  }
+ 
+  resetTimer();
+}
+
+void frameRateCallback(int value)
+{
+  renderer->setFrameRate(value);
+ 
+  resetTimer();
+}
+
+void timeInBackbufferCallback(int value)
+{
+  renderer->setMaxTimeInBackbuffer(value / 10.);
+}
+ 
+void timerCallback(int value)
+{
+  currentTime = animTimer.getTime().getRealTime();
+  animTimer.reset();
+  animTimer.start();
+  
+  if (timeout>0) {
+    glutTimerFunc(timeout,timerCallback,value + 1);
+ 
+    if (currentTime *1000 - 20 > timeout)
+      overhead = (MAX_OVERHEAD <= overhead) ? MAX_OVERHEAD : overhead+1;
+    else
+      overhead = (0 >= overhead) ? 0 : overhead-1;
+ 
+    if (overhead == MAX_OVERHEAD)  
+    {
+      switch (renderingQuality) {
+      case GLRenderer::WIREFRAME:
+        renderingQuality = GLRenderer::BOUNDING_BOX;
+        renderer->setRenderingQuality(GLRenderer::BOUNDING_BOX);
+        break;
+      
+      case GLRenderer::WIREFRAME_FLAT:
+        renderingQuality = GLRenderer::WIREFRAME;
+        renderer->setRenderingQuality(GLRenderer::WIREFRAME);
+        break;
+      
+      case GLRenderer::WIREFRAME_GOURAUD:
+        renderingQuality = GLRenderer::WIREFRAME_FLAT;
+        renderer->setRenderingQuality(GLRenderer::WIREFRAME_FLAT);
+        break;
+      
+      case GLRenderer::SOLID_FLAT:
+        renderingQuality = GLRenderer::WIREFRAME_GOURAUD;
+        renderer->setRenderingQuality(GLRenderer::WIREFRAME_GOURAUD);
+        break;
+      
+      case GLRenderer::SOLID_GOURAUD:
+        renderingQuality = GLRenderer::SOLID_FLAT;
+        renderer->setRenderingQuality(GLRenderer::SOLID_FLAT);
+        break;
+ 
+      default:
+        break;
+      }
+    }
+  }  
+  
+  doAnimation(false);
+}
+ 
+void timerIdleCallback()
+{
+   doAnimation(false);   
+}
+ 
+void animationCallback(int value)
+{
+   switch (value) {
+     case ANIM_OFF:        // Off
+       timeout = -1;
+       glutIdleFunc(0);
+       break;
+#ifdef HAVE_MPEGE       
+     case ANIM_SAVE:
+       if (saveAnimFrame==true){    // no-save frames
+         saveAnimFrame = false;
+         glutSetMenu(animation);
+         glutChangeToMenuEntry(1,"Save frames : No",ANIM_SAVE);
+         closeFramebufferToMPEG();
+       } 
+       else {                   // save frames
+         saveAnimFrame = true;
+         glutSetMenu(animation);
+         glutChangeToMenuEntry(1,"Save frames : Yes",ANIM_SAVE);
+         saveFramebufferToMPEG();
+       }
+       break;
+#endif       
+     default:  
+       break;
+     }  
+}
+ 
+void frameRateAnimationCallback(int value)
+{
+  if (value > 0){                      // Timeout
+    overhead = 0;
+    timeout  = (value > EPSILON_TIME) ? value - EPSILON_TIME : 1;
+    resetTimer();
+    glutIdleFunc(0);
+    glutTimerFunc(timeout,timerCallback,1);
+  }
+  
+  if (value == ANIM_IDLE) {   // Idle, as fast as possible
+    timeout = 0;
+    glutIdleFunc(timerIdleCallback);
+  }
+}
+ 
+void frameStepAnimationCallback(int value)
+{
+  frameStep = (Real)value / 100.0;
+  frame = floor(frame/frameStep)*frameStep;
+}
+ 
+void resetTimer()
+{
+  if (timeout > 0){
+    animTimer.reset();
+    animTimer.start();
+  }
+}
+ 
+#else // HAVE_OPENGL -----------------------------------------------------------
+
+#include <stream.h>
+
+int main ()
+{
+  cerr << "\nThis application needs the OpenGL graphics package.\n" 
+       << "When compiling this application your site was \n"
+       << "configured not to use OpenGL.\n\n";
+}
+
+#endif // HAVE_OPENGL
+ 

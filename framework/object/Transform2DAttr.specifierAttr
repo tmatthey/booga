@@ -1,0 +1,60 @@
+#
+# $RCSfile: Transform2DAttr.specifierAttr,v $
+#
+# Copyright (C) 1994-96, Christoph Streit <streit@iam.unibe.ch>
+#                        Stephan Amann <amann@iam.unibe.ch>
+#                        University of Berne, Switzerland
+#
+# All rights reserved.
+#
+# This software may be freely copied, modified, and redistributed
+# provided that this copyright notice is preserved on all copies.
+#
+# You may not distribute this software, in whole or in part, as part of
+# any commercial product without the express consent of the authors.
+#
+# There is no warranty or other guarantee of fitness of this software
+# for any purpose.  It is provided solely "as is".
+#
+# -----------------------------------------------------------------------------
+#  $Id: Transform2DAttr.specifierAttr,v 1.5 1996/04/18 12:42:44 streit Exp $
+# -----------------------------------------------------------------------------
+#
+
+include "booga/base/TransMatrix2D.h"
+include "booga/object/Transform2D.h"
+
+specifier Transform2D : public Transform2D
+
+attr Scale
+  argument Vector2D scaleFactor
+  make new Transform2D(TransMatrix2D::makeScale(scaleFactor))
+  setMethod addTransform(*this)
+
+attr Translate
+  argument Vector2D
+  make new Transform2D(TransMatrix2D::makeTranslate(value))
+  setMethod addTransform(*this)
+
+attr Rotate 
+  argument Real   angle
+  argument Vector2D axis
+  make new Transform2D(TransMatrix2D::makeRotate(axis, dtor(angle)))
+  setMethod addTransform(*this)
+
+attr RotateOrigin
+  argument Real angle
+  make new Transform2D(TransMatrix2D::makeRotateOrigin(dtor(angle)))
+  setMethod addTransform(*this)
+
+attr Matrix
+  argument TransMatrix2D
+
+  code TransMatrix2D inverse = value;
+  code if (!inverse.invert()) {
+  code   errMsg = "singular transformation matrix";
+  code   return NULL;
+  code }
+
+  make new Transform2D(value)
+  setMethod addTransform(*this)

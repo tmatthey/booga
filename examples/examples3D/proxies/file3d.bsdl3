@@ -1,0 +1,62 @@
+/*
+ * file3D.bsdl3
+ *
+ * Copyright (C) 1995, Christoph Streit <streit@iam.unibe.ch>
+ *                     Stephan Amann <amann@iam.unibe.ch>
+ *                     University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: file3d.bsdl3,v 1.1 1996/05/01 12:15:54 amann Exp $
+ * -----------------------------------------------------------------------------
+ */
+
+#ifndef _file3D_bsdl3
+#define _file3D_bsdl3
+
+using 3D;
+
+// We need a camera
+camera {
+  perspective {
+    eye [0,0,6];                // Eye position
+    lookat [0,0,0];             // Looking to this point
+    up [0,1,0];                 // What direction is up? (y)
+    resolution (300, 300);      // Screen resolution
+    eyesep 1;                   // For stereo images ...
+    fov 100;                     // Field of view: horizontal, vertical
+  }        
+  background [.5,.5,.5];      // Color of Background
+}
+
+// We need a light
+pointLight (1, [1,1,1]) { 
+  position [0,50,100];
+}
+pointLight (1, [1,1,1]) { 
+  position [0,-50,-100];
+}
+
+define proxy file "filed-object.bsdl3" { rotateZ 45; }
+
+proxy;
+proxy { 
+  scale [.4,.4,.4]; 
+  rotateZ -45; 
+  translate [2,3.5,0];
+}
+
+file "filed-vrml.wrl" { translate [5,-6,-5]; }
+
+#endif // _file3D_bsdl3
+

@@ -1,0 +1,47 @@
+#!/bin/sh
+
+
+# clean all really
+find . -name core -exec rm {} \;
+find . -name *.o -exec rm {} \;
+find . -name lib*.a -exec rm {} \;
+#find . -name *~ -exec rm {} \;
+find . -name ii_files -exec rm -rf {} \;
+
+rm ./applications/animationRemove-app/animationRemove
+rm ./applications/buildingPlacer-app/buildingPlacer
+rm ./applications/bsdlWriter-app/bsdlWriter
+rm ./applications/bsdl2ray-app/bsdl2ray
+rm ./applications/MPIraytrace-app/MPIraytrace
+rm ./applications/flythrough-app/flythrough
+rm ./applications/thin-app/thin
+rm ./applications/togrey-app/togrey
+rm ./applications/triangleRemove-app/triangleRemove
+rm ./applications/triangulate-app/triangulate
+rm ./applications/viewer-app/viewer
+rm ./applications/wireframe-app/wireframe
+rm ./applications/wxBrowser-app/wxBrowser
+rm ./applications/wxEdit-app/wxEdit
+rm ./applications/wxFlythrough-app/wxFlythrough
+rm ./applications/zbuffer-app/zbuffer
+rm ./applications/depth2grey-app/depth2grey
+rm ./applications/gamma-app/gamma
+rm ./applications/graphicsdb-app/graphicsdb
+rm ./applications/labelCC-app/labelCC
+rm ./applications/osRenderer-app/osRenderer
+rm ./applications/persistence-app/persistence
+rm ./applications/picker-app/picker
+rm ./applications/pixi2jpeg-app/pixi2jpeg
+rm ./applications/pixi2ppm-app/pixi2ppm
+rm ./applications/pixidiff-app/pixidiff
+rm ./applications/pixiquant-app/pixiquant
+rm ./applications/ppm2pixi-app/ppm2pixi
+rm ./applications/rasterdemo-app/rasterdemo
+rm ./applications/rasterize-app/rasterize
+rm ./applications/raytrace-app/raytrace
+rm ./applications/sirds-app/sirds
+rm ./applications/sketch-app/sketch
+rm ./applications/terrainCreater-app/terrainCreater
+rm ./applications/city-app/city
+rm ./applications/convex-app/convex
+rm ./applications/casetool-app/casetool

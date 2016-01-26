@@ -1,0 +1,2 @@
+OFILES = bsdl2ray.o 
+

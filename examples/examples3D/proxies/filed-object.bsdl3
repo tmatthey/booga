@@ -1,0 +1,79 @@
+/*
+ * filed-object.bsdl3
+ *
+ * Copyright (C) 1995, Christoph Streit <streit@iam.unibe.ch>
+ *                     Stephan Amann <amann@iam.unibe.ch>
+ *                     University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: filed-object.bsdl3,v 1.1 1996/05/01 12:16:13 amann Exp $
+ * -----------------------------------------------------------------------------
+ */
+
+#ifndef _filed_object_bsdl3
+#define _filed_object_bsdl3
+
+using 3D;
+
+// I need some textures
+define pink phong {
+  ambient [.2,.1,.2];
+  diffuse [.9,.2,.9];
+  specular [.4,.2,.4];
+  specpow 20;
+}
+
+define green phong {
+  ambient [.2,.1,.2];
+  diffuse [.3,.9,.1];
+  specular [.4,.2,.4];
+  specpow 20;
+}
+
+define red matte {
+  diffuse [.8,.1,.2];
+}
+
+define wheel list {
+  disc (2, [0,0,0], [0,0,-1]) { pink; }
+  torus (2,.05,[0,0,-.025],[0,0,-1]) { green; }
+  
+  disc (2, [0,0,.5], [0,0,1]) { green; }
+  torus (2,.05,[0,0,.525],[0,0,1]) { pink; }
+  
+  torus (2,.25,[0,0,.25],[0,0,1]) { red; }
+  
+  text (6, 0.4, "Magic") {
+    font "ROMAN";
+    red;
+    scale [.1,.1,.1];
+    rotateZ -90;
+    rotateX -90;
+    translate [-1,.3,.55];
+  }
+  text (3, 0.4, "Wheel") {
+    font "ROMAN";
+    red;
+    scale [.2,.2,.2];
+    rotateZ -90;
+    rotateX -90;
+    translate [-1.15,-.9,.55];
+  }
+}
+
+wheel;
+wheel { scale [.4,.4,.4]; translate [-4,4,0]; }
+
+#endif // _filed_object_bsdl3
+

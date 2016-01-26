@@ -1,0 +1,88 @@
+/*
+ * $RCSfile: building_tunnel.bsdl3,v $
+ *
+ * A simple example of a building with a roof, bottom and 
+ * and tunnel. 
+ *
+ * Copyright (C) 1996, Thierry Matthey <matthey@iam.unibe.ch>
+ *                     University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: building_tunnel.bsdl3,v 1.3 1997/04/15 08:37:47 matthey Exp $
+ * -----------------------------------------------------------------------------
+ */
+  
+using 3D;
+
+//
+// Definition of the camera and the lightsource
+//
+
+#include "color.inc"
+
+camera {
+  perspective {
+    resolution (600/2, 400/2);
+    eye [100,-15,15];
+    lookat [0,0,0];
+  }
+  background [.3,.3,.3];
+};
+
+pointLight (2, [1,1,1]) { position [100,100,100]; }
+
+
+building (10,[-10,-10, 0],   // height of the building
+             [-10,-30, 0],   // coords of the bottom of the building
+             [ 10,-30, 0],   // the building has no userdefined faces
+             [ 10,-10, 0], 
+             [ 30,-10, 0],
+             [ 30, 10, 0],
+             [ 10, 10, 0],
+             [ 10, 30, 0],
+             [-10, 30, 0],
+             [-10, 10, 0],
+             [-30, 10, 0],
+             [-30,-10, 0]){
+             // bottom with texture
+             bottomflat{height(0.01);brown;};
+             // roof by points  
+             roofpoint  (2,[0,0,10],
+                           [-25,0,10],[25,0,10],[0,25,10],[0,-25,10]){dachRot;};
+             // texture of the fronts
+             sandstein;
+             frontrect(0);
+             frontrect(1);
+             frontrect(2);
+             frontrect(3);
+             frontrect(4){
+               // tunnel between front 4 an 10
+               facetunnel([0,0],[1,1],[0,0],[1,1],10,0){
+                 numberofpoints(10);
+                 bezierparm1(0.9);
+                 bezierparm2(0.7);
+                 columnwidth(0.3);
+               }
+             }
+             frontrect(5);
+             frontrect(6);
+             frontrect(7);
+             frontrect(8);
+             frontrect(9);
+             frontrect(10); // the other end of the tunnel
+             frontrect(11);
+          }
+
+// grass
+polygon([-40,-40,0],[40,-40,0],[40,40,0],[-40,40,0]){green;}

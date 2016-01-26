@@ -1,0 +1,2 @@
+OFILES = MPIRaytracer.o MPIraytrace.o 
+

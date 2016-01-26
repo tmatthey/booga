@@ -1,0 +1,109 @@
+/*
+ * sphere.bsdl3 
+ *
+ * Copyright (C) 1994-96, Christoph Streit <streit@iam.unibe.ch>
+ *                        Stephan Amann <amann@iam.unibe.ch>
+ *                        University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: sphere.bsdl3,v 1.4 1996/01/18 20:46:15 amann Exp $
+ * -----------------------------------------------------------------------------
+ */
+
+#ifndef _sphere_bsdl3
+#define _sphere_bsdl3
+
+// We're in 3D Namespace:
+using 3D;                
+
+// _______________________________________________________________________ scene
+
+// We need a camera
+camera {
+  orthographic {
+    eye [0,0,6];                // Eye position
+    lookat [0,0,0];
+    up [0,1,0];                 // What direction is up? (y)
+    resolution (300, 300);      // Screen resolution
+    eyesep 1;                   // For stereo images ...
+    fov 143;                    // Field of view: horizontal, vertical
+  }        
+  background [.5,.5,.5];      // Color of Background
+  off;
+}
+
+camera {
+  perspective {
+    eye [0,0,6];                // Eye position
+    lookat [0,0,0];             // Looking to this point
+    up [0,1,0];                 // What direction is up? (y)
+    resolution (300, 300);      // Screen resolution
+    eyesep 1;                   // For stereo images ...
+    fov 60;                     // Field of view: horizontal, vertical
+  }
+  background [.5,.5,.5];      // Color of Background
+  on;
+}
+
+// We need a light
+pointLight (1, [1,1,1]) {    // Point light with intensity 1 
+                             // and color [1,1,1] (white)
+  position [0,0,100];
+}
+
+// Texture for object
+define sphereColor checker {
+  even {
+    phong {
+      ambient [.1,.1,.3];
+      diffuse [.3,.3,1];
+    }
+  }
+  odd {
+    phong {
+      ambient [.2,.1,.2];
+      diffuse [.9,.2,.9];
+      specular [.4,.2,.4];
+      specpow 20;
+    }
+  }
+}
+
+// upper left: no transformation
+sphere (1.4, [-1.5,1.5,0]) {
+  sphereColor;
+}
+
+// upper right: translation
+sphere (1.4, [-1.5,1.5,0]) {
+  translate [3,0,0];
+  sphereColor;
+}
+
+// lower left: scale + translate
+sphere (1.4, [-1.5,1.5,0]) {
+  sphereColor;
+  scale [.5,1,1];
+  translate [-1,-3,0];
+}
+
+// lower right: scale + rotate + translate
+sphere (1.4, [-1.5,1.5,0]) {
+  sphereColor;
+  scale [.5,1,1];
+  rotate (45, [.5,.5,.5]);
+  translate [2.3,-2.3,0];
+}
+
+#endif // _sphere_bsdl3

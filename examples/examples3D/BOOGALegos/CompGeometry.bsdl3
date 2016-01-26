@@ -1,0 +1,103 @@
+/*
+ * CompGeometry.bsdl3
+ * 
+ * Shows the configuration of the convex hull (2D) application.
+ *
+ * Copyright (C) 1994-96, Christoph Streit <streit@iam.unibe.ch>
+ *                        Stephan Amann <amann@iam.unibe.ch>
+ *                        University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: CompGeometry.bsdl3,v 1.1 1996/06/06 08:23:54 streit Exp $
+ * -----------------------------------------------------------------------------
+ */
+
+#include "BOOGALegos.bsdl3"
+
+using 3D;
+
+const distance BOOGALegos::legoH+1;
+const tbDistance BOOGALegos::tbH+1;
+
+camera {
+  perspective {
+    eye [18,3,18];           // Eye position
+    lookat [5,8,0];          // Looking to this point
+    up [0,1,0];              // What direction is up? (y)
+    resolution (300, 600);   // Screen resolution
+  }
+  background [.5,.5,.5];     // Color of Background
+}
+ 
+pointLight (.5, [1,1,1]) { position [ 100,-100, 100]; }
+pointLight (.5, [1,1,1]) { position [-100, 100, 100]; }
+pointLight (.5, [1,1,1]) { position [ 100, 100,-100]; }
+pointLight (.5, [1,1,1]) { position [-100,-100,-100]; }
+
+pointLight (1, [1,1,1]) { position [11,0, 500]; }
+pointLight (1, [1,1,1]) { position [11,0,-500]; }
+
+define legoColor phong {
+  diffuse  [.1,.3,.1];
+}
+
+define textColor phong {
+  ambient [.5,.5,.5];
+  diffuse [1,1,1];
+}
+
+
+/*
+ * The convex hull application
+ */
+
+define convex list {
+  
+  // Display
+  BOOGALegos::bottom2D {
+    3D::translate [0, -3D::tbDistance, 0]; 
+  }
+  BOOGALegos::_2Dto2D { 
+    3D::translate [0, 0, 0]; 
+  } 
+  caption ("Display", textColor, 1.3, 0);
+
+  // Convex hull
+  BOOGALegos::_2Dto2D { 
+    3D::translate [0, 3D::distance, 0]; 
+  }
+  caption ("ConvexHull", textColor, 0.1, 3D::distance);
+
+  // Point Collector
+  BOOGALegos::_2Dto2D { 
+    3D::translate [0, 2*3D::distance, 0]; 
+  }
+  caption ("Collector", textColor, 1, 2*3D::distance+BOOGALegos::legoH/10);
+  list {
+    scale [.4,.4,1];
+    translate [0, 2*3D::distance, -0.3];
+    caption ("<Point>",   textColor, 9, 0);
+  }
+
+  // Parser
+  BOOGALegos::_2Dto2D { 
+    3D::translate [0, 3*3D::distance, 0]; 
+  }
+  caption ("Parser", textColor, 1.8, 3*3D::distance);
+  BOOGALegos::top2D {
+    3D::translate [0, 3*3D::distance+3D::tbDistance, 0]; 
+  }
+}
+
+convex { legoColor; translate [0,-2,0]; }

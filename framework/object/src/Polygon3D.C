@@ -1,0 +1,409 @@
+/*
+ * $RCSfile: Polygon3D.C,v $
+ *
+ * Copyright (C) 1994-96, Berhard Buehlmann <buhlmann@iam.unibe.ch>
+ *                        Stephan Amann <amann@iam.unibe.ch>
+ *                        Christoph Streit <streit@iam.unibe.ch>
+ *                        University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: Polygon3D.C,v 1.27 1998/04/29 12:06:23 buhlmann Exp $
+ * -----------------------------------------------------------------------------
+ */
+
+#include <strstream.h>
+
+#include "booga/base/Value.h"
+#include "booga/base/Geometry3D.h"
+#include "booga/object/Shared3D.h"
+#include "booga/object/List3D.h"
+#include "booga/object/Grid3D.h"
+#include "booga/object/Triangle3D.h"
+#include "booga/object/Polygon3D.h"
+#include "booga/object/Polygon3DAttr.h"
+#include "booga/object/MakeableHandler.h"
+#include "booga/object/DummyMakeable.h"
+
+// ____________________________________________________________________ Polygon3D
+
+implementRTTI(Polygon3D, Primitive3D);
+
+Polygon3D::Polygon3D(Exemplar exemplar)
+: Primitive3D(exemplar)
+{
+  myDecomposition = NULL;
+  computeNormal();
+}
+
+Polygon3D::Polygon3D(const List<Vector3D>& vertices, const List<List<Vector3D> >& holes)
+: myVertices(vertices)
+{
+  for(long i=0; i<holes.count(); i++)
+    addHole(holes.item(i));
+  
+  myDecomposition = NULL;
+  computeNormal();
+}
+
+Polygon3D::Polygon3D(const List<Vector3D>& vertices, const List<Vector3D>& hole)
+: myVertices(vertices)
+{
+  addHole(hole);
+  myDecomposition = NULL;
+  computeNormal();
+}
+ 
+Polygon3D::Polygon3D(const Polygon3D& poly)
+: Primitive3D(poly), myVertices(poly.myVertices), myHoles(poly.myHoles), myNormal(poly.myNormal)
+{
+  myPlaneDist = poly.myPlaneDist;
+  myProjectionIndex1 = poly.myProjectionIndex1;	
+  myProjectionIndex2 = poly.myProjectionIndex2;
+  myDecomposition = NULL;
+}
+
+Polygon3D::~Polygon3D()
+{
+  delete myDecomposition;
+}
+
+void Polygon3D::addVertex(const Vector3D& vertex)
+{
+  long count = myVertices.count();
+
+  //
+  // Check for valid vertex.
+  //
+  if (count > 0) {
+    if (myVertices.item(count-1) == vertex) {
+      ostrstream os;
+      os << "[Polygon3D::addVertex] two consecutive vertices ("
+         << vertex << ") must not have the same value";
+      Report::recoverable(os);
+      return;
+    }
+  }
+
+  if (myDecomposition != NULL) {
+    delete myDecomposition;
+    myDecomposition = NULL;
+  }
+  
+  myVertices.append(vertex);
+  computeNormal();
+}
+
+void Polygon3D::setVertex(int i, const Vector3D& vertex)
+{
+  if (i<0 || i>myVertices.count()) {
+      Report::recoverable("[Polygon3D::setVertex]: invalid index");
+	  return;
+  }
+
+  myVertices.item(i) = vertex;
+
+  if (myDecomposition != NULL) {
+    delete myDecomposition;
+    myDecomposition = NULL;
+  }
+  
+  computeNormal();
+}
+
+void Polygon3D::insertVertex(int i, const Vector3D& vertex)
+{
+  if (i<0 || i>myVertices.count()) {
+      Report::recoverable("[Polygon3D::insertVertex]: invalid index");
+	  return;
+  }
+
+  myVertices.append(myVertices.item(myVertices.count()-1));
+
+  for (int j=myVertices.count()-1; j>i; j--)
+	myVertices.item(j) = myVertices.item(j-1);
+
+  myVertices.item(i) = vertex;
+
+  if (myDecomposition != NULL) {
+    delete myDecomposition;
+    myDecomposition = NULL;
+  }
+  
+  computeNormal();
+
+}
+
+
+void Polygon3D::removeVertex(int i)
+{
+  if (i<0 || i>myVertices.count()) {
+      Report::recoverable("[Polygon3D::setVertex]: invalid index");
+	  return;
+  }
+
+  myVertices.remove(i);
+
+  if (myDecomposition != NULL) {
+    delete myDecomposition;
+    myDecomposition = NULL;
+  }
+  
+  computeNormal();
+}
+
+void Polygon3D::addHole(const List<Vector3D>& hole) 
+{
+  if (hole.count()>2)
+    myHoles.append(hole);
+  else {
+    ostrstream os;
+    os << "[Polygon3D::addHole] hole has less then 3 vertices ";
+    Report::recoverable(os);
+    return;
+  }
+}
+ 
+void Polygon3D::computeNormal()
+{
+  myNormal = Geometry3D::normal(myVertices);
+      
+  if (myVertices.count() > 0)
+    myPlaneDist = myNormal^myVertices.item(0);
+  else
+    myPlaneDist = 0;
+
+  //
+  // Find the projection for which the area of the projection is maximized.
+  //
+  Real nx = fabs(myNormal.x());
+  Real ny = fabs(myNormal.y());
+  Real nz = fabs(myNormal.z());
+  
+  if (nx > ny && nx > nz) {
+    myProjectionIndex1 = 1; myProjectionIndex2 = 2; 
+  } 
+  else if (ny > nz) {
+    myProjectionIndex1 = 0; myProjectionIndex2 = 2; 
+  } 
+  else {
+    myProjectionIndex1 = 0; myProjectionIndex2 = 1;
+  }
+}
+
+Object3D* Polygon3D::createDecomposition() const
+{
+  register long i;
+  //
+  // We already have a valid decomposition of the polygon object -> just make a copy.
+  //
+  if (myDecomposition != NULL)
+    return myDecomposition->copy();
+    
+  long count = myVertices.count();
+  if ((count < 3) || (Geometry3D::area(myVertices) < EPSILON*EPSILON)) {
+    Report::warning("[Polygon3D::createDecomposition] degenerate polygon");
+    return NULL;
+  }
+
+  Aggregate3D* triangles = NULL;
+
+  if (count > 10 || myHoles.count()>1) {
+    triangles = new Grid3D(15,15,15); 
+  }
+  else {
+    triangles = new List3D;
+  }
+
+  Geometry3D::Triangulation* triangulation = Geometry3D::createPolygonTriangulation(myVertices, myHoles);
+
+  if (triangulation){
+    Geometry3D::Triangle triangle;
+    List<Vector3D> points = triangulation->myPoints;
+    for(i=0; i < triangulation->myTriangleList.count();i++){
+      triangle = triangulation->myTriangleList.item(i);
+      triangles->adoptObject(new Triangle3D(points.item(triangle.myIndex1), myNormal,
+                                            points.item(triangle.myIndex3), myNormal,
+                                            points.item(triangle.myIndex2), myNormal));
+    }
+  }
+  
+  delete triangulation;
+  
+  ((Polygon3D*)this)->myDecomposition = new Shared3D(triangles);
+  ((Polygon3D*)this)->myDecomposition->computeBounds();
+  return myDecomposition->copy();
+}
+
+Vector3D Polygon3D::normal(const Vector3D&) const
+{
+  return getNormal();
+}
+ 
+Object3D* Polygon3D::copy() const
+{
+  return new Polygon3D(*this);
+}
+
+bool Polygon3D::doIntersect(Ray3D& ray)
+{
+  //
+  // Holes !!!!
+  //
+  if (myHoles.count() > 0 ||  myVertices.count() > 40){
+    if (myDecomposition == NULL)
+      delete Polygon3D::createDecomposition();
+ 
+    return myDecomposition->intersect(ray);
+  }
+  
+  // Calculate distance of ray/plane intersection
+  Real t = (myPlaneDist - (myNormal^ray.getOrigin())) / 
+                          (myNormal^ray.getDirection());
+ 
+  // has already a nearer intersection been found?
+  if (t < ray.getTolerance() || t > ray.getBestHitDistance())  
+    return false;  
+  
+  Vector3D pos = ray.getOrigin() + t*ray.getDirection();
+
+  int intersects = 0;
+  long numVertices = myVertices.count();
+  
+  Real x = pos[myProjectionIndex1];
+  Real y = pos[myProjectionIndex2];
+ 
+  //
+  // Traverse all polygon vertices ...
+  //
+  Real xi, yi;
+  Real xj, yj;
+  
+  for (long i=0; i<numVertices; i++) {
+    long j = (i+1)%numVertices;
+ 
+    //
+    // Makes algorithm a little bit nicer... (and hopefully faster).
+    //
+    xi = myVertices.item(i)[myProjectionIndex1]; 
+    yi = myVertices.item(i)[myProjectionIndex2]; 
+    xj = myVertices.item(j)[myProjectionIndex1];
+    yj = myVertices.item(j)[myProjectionIndex2];
+ 
+    //
+    // Test if end point of line segment is on ray.
+    //
+    if (yj == y) {              
+      if (xj >= x)
+        intersects++;
+    }
+    //
+    // Start/end point on different sides of ray ?
+    //
+    else if (yi != y && ((yi>y) == (yj<y))) { 
+      //
+      // Neither point to the left of the point ?
+      //
+      if (xi>=x && xj>=x)                     
+        intersects++;
+      //
+      // Is there a intersection of the ray with the segment ?
+      //
+      else if (xi>x || xj>x) {  
+        Real a = (xi-xj)/(yi-yj);
+        //
+        // Intersection point on the right side of the point ?
+        //
+        if (x <= a*(y-yi)+xi)   
+          intersects++;
+      }
+    }
+  } 
+
+  if (intersects % 2) {
+    ray.setBestHitObject(this);
+    ray.setBestHitDistance(t);
+    return true;
+  }
+
+  return false;
+}
+
+void Polygon3D::doComputeBounds()
+{
+  register long i, j;
+  for (i=0; i<myVertices.count(); i++)
+    myBounds.expand(myVertices.item(i));
+    
+  for (i=0; i<myHoles.count(); i++)
+    for (j=0; j<myHoles.item(i).count(); j++)
+      myBounds.expand(myHoles.item(i).item(j));
+}
+  
+Makeable* Polygon3D::make(RCString& errMsg, const List<Value*>* parameters) const
+{
+  Polygon3D* newPolygon = new Polygon3D(*this);
+
+  newPolygon->removeVertices();
+
+  for (int i=1; i<=parameters->count(); i++) {
+    getParameter(i, Vector3D, vertex);
+    newPolygon->addVertex(vertex);
+  }
+    
+  return newPolygon;
+}
+
+int Polygon3D::setSpecifier(RCString& errMsg, Makeable* specifier)
+{
+  // Check for Polygon3D attributes
+  Polygon3DAttr* attr = dynamic_cast(Polygon3DAttr, specifier);
+  if (attr != NULL) {
+    // The Polygon3D object knows best which method has to be called.
+    // So let the object do the job.
+    attr->setAttribute(this);
+     
+    delete attr;
+    return 1;  
+  }
+  
+  // 
+  // Let papa do the rest ...
+  //
+  return Primitive3D::setSpecifier(errMsg, specifier);
+}
+
+static const RCString polygon3DKeyword("polygon");
+
+RCString Polygon3D::getKeyword() const {
+  return polygon3DKeyword;
+}
+
+List<Value*>* Polygon3D::createParameters() {
+  List<Value*>* parameters = new List<Value*>;
+  for (long i=0; i<getVertices().count(); i++) {
+    parameters->append(new Value(getVertices().item(i)));
+  }
+  return parameters;
+}
+
+void Polygon3D::iterateAttributes(MakeableHandler* handler) {
+  this->Object3D::iterateAttributes(handler);
+  for (int i=0; i<myHoles.count(); i++) {
+    DummyMakeable hole("hole");
+    for (int j=0; j<myHoles.item(i).count(); j++) {
+      hole.addParameter(Value(myHoles.item(i).item(j)));
+    }
+    handler->handle(&hole);
+  }
+}

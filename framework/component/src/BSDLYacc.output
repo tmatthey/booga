@@ -1,0 +1,1093 @@
+
+
+Terminals which are not used:
+
+   tUMINUS
+
+
+Conflict in state 37 between rule 43 and token '+' resolved as reduce.
+Conflict in state 37 between rule 43 and token '-' resolved as reduce.
+Conflict in state 37 between rule 43 and token '*' resolved as reduce.
+Conflict in state 37 between rule 43 and token '/' resolved as reduce.
+Conflict in state 59 between rule 38 and token '+' resolved as reduce.
+Conflict in state 59 between rule 38 and token '-' resolved as reduce.
+Conflict in state 59 between rule 38 and token '*' resolved as shift.
+Conflict in state 59 between rule 38 and token '/' resolved as shift.
+Conflict in state 60 between rule 39 and token '+' resolved as reduce.
+Conflict in state 60 between rule 39 and token '-' resolved as reduce.
+Conflict in state 60 between rule 39 and token '*' resolved as shift.
+Conflict in state 60 between rule 39 and token '/' resolved as shift.
+Conflict in state 61 between rule 40 and token '+' resolved as reduce.
+Conflict in state 61 between rule 40 and token '-' resolved as reduce.
+Conflict in state 61 between rule 40 and token '*' resolved as reduce.
+Conflict in state 61 between rule 40 and token '/' resolved as reduce.
+Conflict in state 62 between rule 41 and token '+' resolved as reduce.
+Conflict in state 62 between rule 41 and token '-' resolved as reduce.
+Conflict in state 62 between rule 41 and token '*' resolved as reduce.
+Conflict in state 62 between rule 41 and token '/' resolved as reduce.
+
+Grammar
+rule 1    @1 ->		/* empty */
+rule 2    Entry -> @1 World
+rule 3    World ->		/* empty */
+rule 4    World -> World WorldElement
+rule 5    World -> World error
+rule 6    WorldElement -> Specifier
+rule 7    WorldElement -> Definition
+rule 8    Definition -> tDefine Identifier Specifier
+rule 9    Definition -> tDefine IDENTIFIER tNamespace ';'
+rule 10   Definition -> tConstant Identifier Value ';'
+rule 11   Specifiers -> Specifier
+rule 12   Specifiers -> Specifiers Specifier
+rule 13   OptSpecifiers -> ';'
+rule 14   OptSpecifiers -> '{' Specifiers '}'
+rule 15   OptSpecifiers -> '{' Specifiers '}' ';'
+rule 16   @2 ->		/* empty */
+rule 17   Specifier -> Identifier OptValueList @2 OptSpecifiers
+rule 18   Specifier -> Identifier tVerbatim StringValue OptSpecifiers
+rule 19   Specifier -> tUsing IDENTIFIER ';'
+rule 20   Values -> Value
+rule 21   Values -> Values ',' Value
+rule 22   OptValues ->		/* empty */
+rule 23   OptValues -> Values
+rule 24   OptValueList ->		/* empty */
+rule 25   OptValueList -> Value
+rule 26   OptValueList -> '(' Values ',' Value ')'
+rule 27   Value -> RealValue
+rule 28   Value -> VectorValue
+rule 29   Value -> StringValue
+rule 30   Value -> Identifier
+rule 31   Value -> Expression
+rule 32   RealValue -> NUMBER
+rule 33   VectorValue -> '[' Values ']'
+rule 34   StringValue -> STRING
+rule 35   Identifier -> IDENTIFIER
+rule 36   Identifier -> SCOPE IDENTIFIER
+rule 37   Expression -> '(' Value ')'
+rule 38   Expression -> Value '+' Value
+rule 39   Expression -> Value '-' Value
+rule 40   Expression -> Value '*' Value
+rule 41   Expression -> Value '/' Value
+rule 42   Expression -> Identifier '(' OptValues ')'
+rule 43   Expression -> '-' Value
+
+Terminals, with rules where they appear
+
+$ (-1)
+'(' (40) 26 37 42
+')' (41) 26 37 42
+'*' (42) 40
+'+' (43) 38
+',' (44) 21 26
+'-' (45) 39 43
+'/' (47) 41
+';' (59) 9 10 13 15 19
+'[' (91) 33
+']' (93) 33
+'{' (123) 14 15
+'}' (125) 14 15
+error (256) 5
+IDENTIFIER (258) 9 19 35 36
+SCOPE (259) 36
+NUMBER (260) 32
+STRING (261) 34
+tDefine (262) 8 9
+tConstant (263) 10
+tVerbatim (264) 18
+tUsing (265) 19
+tNamespace (266) 9
+tUMINUS (267)
+
+Nonterminals, with rules where they appear
+
+Entry (25)
+    on left: 2
+@1 (26)
+    on left: 1, on right: 2
+World (27)
+    on left: 3 4 5, on right: 2 4 5
+WorldElement (28)
+    on left: 6 7, on right: 4
+Definition (29)
+    on left: 8 9 10, on right: 7
+Specifiers (30)
+    on left: 11 12, on right: 12 14 15
+OptSpecifiers (31)
+    on left: 13 14 15, on right: 17 18
+Specifier (32)
+    on left: 17 18 19, on right: 6 8 11 12
+@2 (33)
+    on left: 16, on right: 17
+Values (34)
+    on left: 20 21, on right: 21 23 26 33
+OptValues (35)
+    on left: 22 23, on right: 42
+OptValueList (36)
+    on left: 24 25 26, on right: 17
+Value (37)
+    on left: 27 28 29 30 31, on right: 10 20 21 25 26 37 38 39 40 41
+    43
+RealValue (38)
+    on left: 32, on right: 27
+VectorValue (39)
+    on left: 33, on right: 28
+StringValue (40)
+    on left: 34, on right: 18 29
+Identifier (41)
+    on left: 35 36, on right: 8 10 17 18 30 42
+Expression (42)
+    on left: 37 38 39 40 41 42 43, on right: 31
+
+
+state 0
+
+    $default	reduce using rule 1 (@1)
+
+    Entry	go to state 74
+    @1  	go to state 1
+
+
+
+state 1
+
+    Entry  ->  @1 . World   (rule 2)
+
+    $default	reduce using rule 3 (World)
+
+    World	go to state 2
+
+
+
+state 2
+
+    Entry  ->  @1 World .   (rule 2)
+    World  ->  World . WorldElement   (rule 4)
+    World  ->  World . error   (rule 5)
+
+    error	shift, and go to state 3
+    IDENTIFIER	shift, and go to state 4
+    SCOPE	shift, and go to state 5
+    tDefine	shift, and go to state 6
+    tConstant	shift, and go to state 7
+    tUsing	shift, and go to state 8
+
+    $   	reduce using rule 2 (Entry)
+
+    WorldElement	go to state 9
+    Definition	go to state 10
+    Specifier	go to state 11
+    Identifier	go to state 12
+
+
+
+state 3
+
+    World  ->  World error .   (rule 5)
+
+    $default	reduce using rule 5 (World)
+
+
+
+state 4
+
+    Identifier  ->  IDENTIFIER .   (rule 35)
+
+    $default	reduce using rule 35 (Identifier)
+
+
+
+state 5
+
+    Identifier  ->  SCOPE . IDENTIFIER   (rule 36)
+
+    IDENTIFIER	shift, and go to state 13
+
+
+
+state 6
+
+    Definition  ->  tDefine . Identifier Specifier   (rule 8)
+    Definition  ->  tDefine . IDENTIFIER tNamespace ';'   (rule 9)
+
+    IDENTIFIER	shift, and go to state 14
+    SCOPE	shift, and go to state 5
+
+    Identifier	go to state 15
+
+
+
+state 7
+
+    Definition  ->  tConstant . Identifier Value ';'   (rule 10)
+
+    IDENTIFIER	shift, and go to state 4
+    SCOPE	shift, and go to state 5
+
+    Identifier	go to state 16
+
+
+
+state 8
+
+    Specifier  ->  tUsing . IDENTIFIER ';'   (rule 19)
+
+    IDENTIFIER	shift, and go to state 17
+
+
+
+state 9
+
+    World  ->  World WorldElement .   (rule 4)
+
+    $default	reduce using rule 4 (World)
+
+
+
+state 10
+
+    WorldElement  ->  Definition .   (rule 7)
+
+    $default	reduce using rule 7 (WorldElement)
+
+
+
+state 11
+
+    WorldElement  ->  Specifier .   (rule 6)
+
+    $default	reduce using rule 6 (WorldElement)
+
+
+
+state 12
+
+    Specifier  ->  Identifier . OptValueList @2 OptSpecifiers   (rule 17)
+    Specifier  ->  Identifier . tVerbatim StringValue OptSpecifiers   (rule 18)
+
+    IDENTIFIER	shift, and go to state 4
+    SCOPE	shift, and go to state 5
+    NUMBER	shift, and go to state 18
+    STRING	shift, and go to state 19
+    tVerbatim	shift, and go to state 20
+    '-' 	shift, and go to state 21
+    '(' 	shift, and go to state 22
+    '[' 	shift, and go to state 23
+
+    $default	reduce using rule 24 (OptValueList)
+
+    OptValueList	go to state 24
+    Value	go to state 25
+    RealValue	go to state 26
+    VectorValue	go to state 27
+    StringValue	go to state 28
+    Identifier	go to state 29
+    Expression	go to state 30
+
+
+
+state 13
+
+    Identifier  ->  SCOPE IDENTIFIER .   (rule 36)
+
+    $default	reduce using rule 36 (Identifier)
+
+
+
+state 14
+
+    Definition  ->  tDefine IDENTIFIER . tNamespace ';'   (rule 9)
+    Identifier  ->  IDENTIFIER .   (rule 35)
+
+    tNamespace	shift, and go to state 31
+
+    $default	reduce using rule 35 (Identifier)
+
+
+
+state 15
+
+    Definition  ->  tDefine Identifier . Specifier   (rule 8)
+
+    IDENTIFIER	shift, and go to state 4
+    SCOPE	shift, and go to state 5
+    tUsing	shift, and go to state 8
+
+    Specifier	go to state 32
+    Identifier	go to state 12
+
+
+
+state 16
+
+    Definition  ->  tConstant Identifier . Value ';'   (rule 10)
+
+    IDENTIFIER	shift, and go to state 4
+    SCOPE	shift, and go to state 5
+    NUMBER	shift, and go to state 18
+    STRING	shift, and go to state 19
+    '-' 	shift, and go to state 21
+    '(' 	shift, and go to state 33
+    '[' 	shift, and go to state 23
+
+    Value	go to state 34
+    RealValue	go to state 26
+    VectorValue	go to state 27
+    StringValue	go to state 28
+    Identifier	go to state 29
+    Expression	go to state 30
+
+
+
+state 17
+
+    Specifier  ->  tUsing IDENTIFIER . ';'   (rule 19)
+
+    ';' 	shift, and go to state 35
+
+
+
+state 18
+
+    RealValue  ->  NUMBER .   (rule 32)
+
+    $default	reduce using rule 32 (RealValue)
+
+
+
+state 19
+
+    StringValue  ->  STRING .   (rule 34)
+
+    $default	reduce using rule 34 (StringValue)
+
+
+
+state 20
+
+    Specifier  ->  Identifier tVerbatim . StringValue OptSpecifiers   (rule 18)
+
+    STRING	shift, and go to state 19
+
+    StringValue	go to state 36
+
+
+
+state 21
+
+    Expression  ->  '-' . Value   (rule 43)
+
+    IDENTIFIER	shift, and go to state 4
+    SCOPE	shift, and go to state 5
+    NUMBER	shift, and go to state 18
+    STRING	shift, and go to state 19
+    '-' 	shift, and go to state 21
+    '(' 	shift, and go to state 33
+    '[' 	shift, and go to state 23
+
+    Value	go to state 37
+    RealValue	go to state 26
+    VectorValue	go to state 27
+    StringValue	go to state 28
+    Identifier	go to state 29
+    Expression	go to state 30
+
+
+
+state 22
+
+    OptValueList  ->  '(' . Values ',' Value ')'   (rule 26)
+    Expression  ->  '(' . Value ')'   (rule 37)
+
+    IDENTIFIER	shift, and go to state 4
+    SCOPE	shift, and go to state 5
+    NUMBER	shift, and go to state 18
+    STRING	shift, and go to state 19
+    '-' 	shift, and go to state 21
+    '(' 	shift, and go to state 33
+    '[' 	shift, and go to state 23
+
+    Values	go to state 38
+    Value	go to state 39
+    RealValue	go to state 26
+    VectorValue	go to state 27
+    StringValue	go to state 28
+    Identifier	go to state 29
+    Expression	go to state 30
+
+
+
+state 23
+
+    VectorValue  ->  '[' . Values ']'   (rule 33)
+
+    IDENTIFIER	shift, and go to state 4
+    SCOPE	shift, and go to state 5
+    NUMBER	shift, and go to state 18
+    STRING	shift, and go to state 19
+    '-' 	shift, and go to state 21
+    '(' 	shift, and go to state 33
+    '[' 	shift, and go to state 23
+
+    Values	go to state 40
+    Value	go to state 41
+    RealValue	go to state 26
+    VectorValue	go to state 27
+    StringValue	go to state 28
+    Identifier	go to state 29
+    Expression	go to state 30
+
+
+
+state 24
+
+    Specifier  ->  Identifier OptValueList . @2 OptSpecifiers   (rule 17)
+
+    $default	reduce using rule 16 (@2)
+
+    @2  	go to state 42
+
+
+
+state 25
+
+    OptValueList  ->  Value .   (rule 25)
+    Expression  ->  Value . '+' Value   (rule 38)
+    Expression  ->  Value . '-' Value   (rule 39)
+    Expression  ->  Value . '*' Value   (rule 40)
+    Expression  ->  Value . '/' Value   (rule 41)
+
+    '+' 	shift, and go to state 43
+    '-' 	shift, and go to state 44
+    '*' 	shift, and go to state 45
+    '/' 	shift, and go to state 46
+
+    $default	reduce using rule 25 (OptValueList)
+
+
+
+state 26
+
+    Value  ->  RealValue .   (rule 27)
+
+    $default	reduce using rule 27 (Value)
+
+
+
+state 27
+
+    Value  ->  VectorValue .   (rule 28)
+
+    $default	reduce using rule 28 (Value)
+
+
+
+state 28
+
+    Value  ->  StringValue .   (rule 29)
+
+    $default	reduce using rule 29 (Value)
+
+
+
+state 29
+
+    Value  ->  Identifier .   (rule 30)
+    Expression  ->  Identifier . '(' OptValues ')'   (rule 42)
+
+    '(' 	shift, and go to state 47
+
+    $default	reduce using rule 30 (Value)
+
+
+
+state 30
+
+    Value  ->  Expression .   (rule 31)
+
+    $default	reduce using rule 31 (Value)
+
+
+
+state 31
+
+    Definition  ->  tDefine IDENTIFIER tNamespace . ';'   (rule 9)
+
+    ';' 	shift, and go to state 48
+
+
+
+state 32
+
+    Definition  ->  tDefine Identifier Specifier .   (rule 8)
+
+    $default	reduce using rule 8 (Definition)
+
+
+
+state 33
+
+    Expression  ->  '(' . Value ')'   (rule 37)
+
+    IDENTIFIER	shift, and go to state 4
+    SCOPE	shift, and go to state 5
+    NUMBER	shift, and go to state 18
+    STRING	shift, and go to state 19
+    '-' 	shift, and go to state 21
+    '(' 	shift, and go to state 33
+    '[' 	shift, and go to state 23
+
+    Value	go to state 49
+    RealValue	go to state 26
+    VectorValue	go to state 27
+    StringValue	go to state 28
+    Identifier	go to state 29
+    Expression	go to state 30
+
+
+
+state 34
+
+    Definition  ->  tConstant Identifier Value . ';'   (rule 10)
+    Expression  ->  Value . '+' Value   (rule 38)
+    Expression  ->  Value . '-' Value   (rule 39)
+    Expression  ->  Value . '*' Value   (rule 40)
+    Expression  ->  Value . '/' Value   (rule 41)
+
+    '+' 	shift, and go to state 43
+    '-' 	shift, and go to state 44
+    '*' 	shift, and go to state 45
+    '/' 	shift, and go to state 46
+    ';' 	shift, and go to state 50
+
+
+
+state 35
+
+    Specifier  ->  tUsing IDENTIFIER ';' .   (rule 19)
+
+    $default	reduce using rule 19 (Specifier)
+
+
+
+state 36
+
+    Specifier  ->  Identifier tVerbatim StringValue . OptSpecifiers   (rule 18)
+
+    ';' 	shift, and go to state 51
+    '{' 	shift, and go to state 52
+
+    OptSpecifiers	go to state 53
+
+
+
+state 37
+
+    Expression  ->  Value . '+' Value   (rule 38)
+    Expression  ->  Value . '-' Value   (rule 39)
+    Expression  ->  Value . '*' Value   (rule 40)
+    Expression  ->  Value . '/' Value   (rule 41)
+    Expression  ->  '-' Value .   (rule 43)
+
+
+    $default	reduce using rule 43 (Expression)
+
+
+
+state 38
+
+    Values  ->  Values . ',' Value   (rule 21)
+    OptValueList  ->  '(' Values . ',' Value ')'   (rule 26)
+
+    ',' 	shift, and go to state 54
+
+
+
+state 39
+
+    Values  ->  Value .   (rule 20)
+    Expression  ->  '(' Value . ')'   (rule 37)
+    Expression  ->  Value . '+' Value   (rule 38)
+    Expression  ->  Value . '-' Value   (rule 39)
+    Expression  ->  Value . '*' Value   (rule 40)
+    Expression  ->  Value . '/' Value   (rule 41)
+
+    '+' 	shift, and go to state 43
+    '-' 	shift, and go to state 44
+    '*' 	shift, and go to state 45
+    '/' 	shift, and go to state 46
+    ')' 	shift, and go to state 55
+
+    $default	reduce using rule 20 (Values)
+
+
+
+state 40
+
+    Values  ->  Values . ',' Value   (rule 21)
+    VectorValue  ->  '[' Values . ']'   (rule 33)
+
+    ',' 	shift, and go to state 56
+    ']' 	shift, and go to state 57
+
+
+
+state 41
+
+    Values  ->  Value .   (rule 20)
+    Expression  ->  Value . '+' Value   (rule 38)
+    Expression  ->  Value . '-' Value   (rule 39)
+    Expression  ->  Value . '*' Value   (rule 40)
+    Expression  ->  Value . '/' Value   (rule 41)
+
+    '+' 	shift, and go to state 43
+    '-' 	shift, and go to state 44
+    '*' 	shift, and go to state 45
+    '/' 	shift, and go to state 46
+
+    $default	reduce using rule 20 (Values)
+
+
+
+state 42
+
+    Specifier  ->  Identifier OptValueList @2 . OptSpecifiers   (rule 17)
+
+    ';' 	shift, and go to state 51
+    '{' 	shift, and go to state 52
+
+    OptSpecifiers	go to state 58
+
+
+
+state 43
+
+    Expression  ->  Value '+' . Value   (rule 38)
+
+    IDENTIFIER	shift, and go to state 4
+    SCOPE	shift, and go to state 5
+    NUMBER	shift, and go to state 18
+    STRING	shift, and go to state 19
+    '-' 	shift, and go to state 21
+    '(' 	shift, and go to state 33
+    '[' 	shift, and go to state 23
+
+    Value	go to state 59
+    RealValue	go to state 26
+    VectorValue	go to state 27
+    StringValue	go to state 28
+    Identifier	go to state 29
+    Expression	go to state 30
+
+
+
+state 44
+
+    Expression  ->  Value '-' . Value   (rule 39)
+
+    IDENTIFIER	shift, and go to state 4
+    SCOPE	shift, and go to state 5
+    NUMBER	shift, and go to state 18
+    STRING	shift, and go to state 19
+    '-' 	shift, and go to state 21
+    '(' 	shift, and go to state 33
+    '[' 	shift, and go to state 23
+
+    Value	go to state 60
+    RealValue	go to state 26
+    VectorValue	go to state 27
+    StringValue	go to state 28
+    Identifier	go to state 29
+    Expression	go to state 30
+
+
+
+state 45
+
+    Expression  ->  Value '*' . Value   (rule 40)
+
+    IDENTIFIER	shift, and go to state 4
+    SCOPE	shift, and go to state 5
+    NUMBER	shift, and go to state 18
+    STRING	shift, and go to state 19
+    '-' 	shift, and go to state 21
+    '(' 	shift, and go to state 33
+    '[' 	shift, and go to state 23
+
+    Value	go to state 61
+    RealValue	go to state 26
+    VectorValue	go to state 27
+    StringValue	go to state 28
+    Identifier	go to state 29
+    Expression	go to state 30
+
+
+
+state 46
+
+    Expression  ->  Value '/' . Value   (rule 41)
+
+    IDENTIFIER	shift, and go to state 4
+    SCOPE	shift, and go to state 5
+    NUMBER	shift, and go to state 18
+    STRING	shift, and go to state 19
+    '-' 	shift, and go to state 21
+    '(' 	shift, and go to state 33
+    '[' 	shift, and go to state 23
+
+    Value	go to state 62
+    RealValue	go to state 26
+    VectorValue	go to state 27
+    StringValue	go to state 28
+    Identifier	go to state 29
+    Expression	go to state 30
+
+
+
+state 47
+
+    Expression  ->  Identifier '(' . OptValues ')'   (rule 42)
+
+    IDENTIFIER	shift, and go to state 4
+    SCOPE	shift, and go to state 5
+    NUMBER	shift, and go to state 18
+    STRING	shift, and go to state 19
+    '-' 	shift, and go to state 21
+    '(' 	shift, and go to state 33
+    '[' 	shift, and go to state 23
+
+    $default	reduce using rule 22 (OptValues)
+
+    Values	go to state 63
+    OptValues	go to state 64
+    Value	go to state 41
+    RealValue	go to state 26
+    VectorValue	go to state 27
+    StringValue	go to state 28
+    Identifier	go to state 29
+    Expression	go to state 30
+
+
+
+state 48
+
+    Definition  ->  tDefine IDENTIFIER tNamespace ';' .   (rule 9)
+
+    $default	reduce using rule 9 (Definition)
+
+
+
+state 49
+
+    Expression  ->  '(' Value . ')'   (rule 37)
+    Expression  ->  Value . '+' Value   (rule 38)
+    Expression  ->  Value . '-' Value   (rule 39)
+    Expression  ->  Value . '*' Value   (rule 40)
+    Expression  ->  Value . '/' Value   (rule 41)
+
+    '+' 	shift, and go to state 43
+    '-' 	shift, and go to state 44
+    '*' 	shift, and go to state 45
+    '/' 	shift, and go to state 46
+    ')' 	shift, and go to state 55
+
+
+
+state 50
+
+    Definition  ->  tConstant Identifier Value ';' .   (rule 10)
+
+    $default	reduce using rule 10 (Definition)
+
+
+
+state 51
+
+    OptSpecifiers  ->  ';' .   (rule 13)
+
+    $default	reduce using rule 13 (OptSpecifiers)
+
+
+
+state 52
+
+    OptSpecifiers  ->  '{' . Specifiers '}'   (rule 14)
+    OptSpecifiers  ->  '{' . Specifiers '}' ';'   (rule 15)
+
+    IDENTIFIER	shift, and go to state 4
+    SCOPE	shift, and go to state 5
+    tUsing	shift, and go to state 8
+
+    Specifiers	go to state 65
+    Specifier	go to state 66
+    Identifier	go to state 12
+
+
+
+state 53
+
+    Specifier  ->  Identifier tVerbatim StringValue OptSpecifiers .   (rule 18)
+
+    $default	reduce using rule 18 (Specifier)
+
+
+
+state 54
+
+    Values  ->  Values ',' . Value   (rule 21)
+    OptValueList  ->  '(' Values ',' . Value ')'   (rule 26)
+
+    IDENTIFIER	shift, and go to state 4
+    SCOPE	shift, and go to state 5
+    NUMBER	shift, and go to state 18
+    STRING	shift, and go to state 19
+    '-' 	shift, and go to state 21
+    '(' 	shift, and go to state 33
+    '[' 	shift, and go to state 23
+
+    Value	go to state 67
+    RealValue	go to state 26
+    VectorValue	go to state 27
+    StringValue	go to state 28
+    Identifier	go to state 29
+    Expression	go to state 30
+
+
+
+state 55
+
+    Expression  ->  '(' Value ')' .   (rule 37)
+
+    $default	reduce using rule 37 (Expression)
+
+
+
+state 56
+
+    Values  ->  Values ',' . Value   (rule 21)
+
+    IDENTIFIER	shift, and go to state 4
+    SCOPE	shift, and go to state 5
+    NUMBER	shift, and go to state 18
+    STRING	shift, and go to state 19
+    '-' 	shift, and go to state 21
+    '(' 	shift, and go to state 33
+    '[' 	shift, and go to state 23
+
+    Value	go to state 68
+    RealValue	go to state 26
+    VectorValue	go to state 27
+    StringValue	go to state 28
+    Identifier	go to state 29
+    Expression	go to state 30
+
+
+
+state 57
+
+    VectorValue  ->  '[' Values ']' .   (rule 33)
+
+    $default	reduce using rule 33 (VectorValue)
+
+
+
+state 58
+
+    Specifier  ->  Identifier OptValueList @2 OptSpecifiers .   (rule 17)
+
+    $default	reduce using rule 17 (Specifier)
+
+
+
+state 59
+
+    Expression  ->  Value . '+' Value   (rule 38)
+    Expression  ->  Value '+' Value .   (rule 38)
+    Expression  ->  Value . '-' Value   (rule 39)
+    Expression  ->  Value . '*' Value   (rule 40)
+    Expression  ->  Value . '/' Value   (rule 41)
+
+    '*' 	shift, and go to state 45
+    '/' 	shift, and go to state 46
+
+    $default	reduce using rule 38 (Expression)
+
+
+
+state 60
+
+    Expression  ->  Value . '+' Value   (rule 38)
+    Expression  ->  Value . '-' Value   (rule 39)
+    Expression  ->  Value '-' Value .   (rule 39)
+    Expression  ->  Value . '*' Value   (rule 40)
+    Expression  ->  Value . '/' Value   (rule 41)
+
+    '*' 	shift, and go to state 45
+    '/' 	shift, and go to state 46
+
+    $default	reduce using rule 39 (Expression)
+
+
+
+state 61
+
+    Expression  ->  Value . '+' Value   (rule 38)
+    Expression  ->  Value . '-' Value   (rule 39)
+    Expression  ->  Value . '*' Value   (rule 40)
+    Expression  ->  Value '*' Value .   (rule 40)
+    Expression  ->  Value . '/' Value   (rule 41)
+
+
+    $default	reduce using rule 40 (Expression)
+
+
+
+state 62
+
+    Expression  ->  Value . '+' Value   (rule 38)
+    Expression  ->  Value . '-' Value   (rule 39)
+    Expression  ->  Value . '*' Value   (rule 40)
+    Expression  ->  Value . '/' Value   (rule 41)
+    Expression  ->  Value '/' Value .   (rule 41)
+
+
+    $default	reduce using rule 41 (Expression)
+
+
+
+state 63
+
+    Values  ->  Values . ',' Value   (rule 21)
+    OptValues  ->  Values .   (rule 23)
+
+    ',' 	shift, and go to state 56
+
+    $default	reduce using rule 23 (OptValues)
+
+
+
+state 64
+
+    Expression  ->  Identifier '(' OptValues . ')'   (rule 42)
+
+    ')' 	shift, and go to state 69
+
+
+
+state 65
+
+    Specifiers  ->  Specifiers . Specifier   (rule 12)
+    OptSpecifiers  ->  '{' Specifiers . '}'   (rule 14)
+    OptSpecifiers  ->  '{' Specifiers . '}' ';'   (rule 15)
+
+    IDENTIFIER	shift, and go to state 4
+    SCOPE	shift, and go to state 5
+    tUsing	shift, and go to state 8
+    '}' 	shift, and go to state 70
+
+    Specifier	go to state 71
+    Identifier	go to state 12
+
+
+
+state 66
+
+    Specifiers  ->  Specifier .   (rule 11)
+
+    $default	reduce using rule 11 (Specifiers)
+
+
+
+state 67
+
+    Values  ->  Values ',' Value .   (rule 21)
+    OptValueList  ->  '(' Values ',' Value . ')'   (rule 26)
+    Expression  ->  Value . '+' Value   (rule 38)
+    Expression  ->  Value . '-' Value   (rule 39)
+    Expression  ->  Value . '*' Value   (rule 40)
+    Expression  ->  Value . '/' Value   (rule 41)
+
+    '+' 	shift, and go to state 43
+    '-' 	shift, and go to state 44
+    '*' 	shift, and go to state 45
+    '/' 	shift, and go to state 46
+    ')' 	shift, and go to state 72
+
+    $default	reduce using rule 21 (Values)
+
+
+
+state 68
+
+    Values  ->  Values ',' Value .   (rule 21)
+    Expression  ->  Value . '+' Value   (rule 38)
+    Expression  ->  Value . '-' Value   (rule 39)
+    Expression  ->  Value . '*' Value   (rule 40)
+    Expression  ->  Value . '/' Value   (rule 41)
+
+    '+' 	shift, and go to state 43
+    '-' 	shift, and go to state 44
+    '*' 	shift, and go to state 45
+    '/' 	shift, and go to state 46
+
+    $default	reduce using rule 21 (Values)
+
+
+
+state 69
+
+    Expression  ->  Identifier '(' OptValues ')' .   (rule 42)
+
+    $default	reduce using rule 42 (Expression)
+
+
+
+state 70
+
+    OptSpecifiers  ->  '{' Specifiers '}' .   (rule 14)
+    OptSpecifiers  ->  '{' Specifiers '}' . ';'   (rule 15)
+
+    ';' 	shift, and go to state 73
+
+    $default	reduce using rule 14 (OptSpecifiers)
+
+
+
+state 71
+
+    Specifiers  ->  Specifiers Specifier .   (rule 12)
+
+    $default	reduce using rule 12 (Specifiers)
+
+
+
+state 72
+
+    OptValueList  ->  '(' Values ',' Value ')' .   (rule 26)
+
+    $default	reduce using rule 26 (OptValueList)
+
+
+
+state 73
+
+    OptSpecifiers  ->  '{' Specifiers '}' ';' .   (rule 15)
+
+    $default	reduce using rule 15 (OptSpecifiers)
+
+
+
+state 74
+
+    $   	go to state 75
+
+
+
+state 75
+
+    $   	go to state 76
+
+
+
+state 76
+
+    $default	accept

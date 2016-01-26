@@ -1,0 +1,79 @@
+/*
+ * zahnrad.bsdl3 
+ *
+ * Copyright (C) 1995, Bernhard Buehlmann <buehlmann@iam.unibe.ch>
+ *                     University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: zahnrad.bsdl3,v 1.4 1996/08/29 14:17:33 buhlmann Exp $
+ * -----------------------------------------------------------------------------
+ */
+
+#ifndef _zahnrad_bsdl3
+#define _zahnrad_bsdl3
+
+#include "viewing.bsdl3"
+#include "material.bsdl3"
+
+const zahnr_r .5; 
+const zahn_br .01;
+const zahn_a 180/17.6;
+define zacken grid [2,1,2] {
+  triangle ([-sin(zahn_a)*zahnr_r, zahnr_r, zahn_br],
+            [sin(zahn_a)*zahnr_r, zahnr_r, zahn_br],
+            [0, .58, 0]);
+  triangle ([-sin(zahn_a)*zahnr_r, zahnr_r, -zahn_br],
+            [sin(zahn_a)*zahnr_r, zahnr_r, -zahn_br],
+            [0, .58, 0]);
+  triangle ([-sin(zahn_a)*zahnr_r, zahnr_r, -zahn_br],
+            [-sin(zahn_a)*zahnr_r, zahnr_r, zahn_br],
+            [0, .58, 0]);
+  triangle ([sin(zahn_a)*zahnr_r, zahnr_r, -zahn_br],
+            [sin(zahn_a)*zahnr_r, zahnr_r, zahn_br],
+            [0, .58, 0]);
+  triangle ([-sin(zahn_a)*zahnr_r, zahnr_r, zahn_br],
+            [sin(zahn_a)*zahnr_r, zahnr_r, zahn_br], 
+            [sin(zahn_a)*zahnr_r*.8, zahnr_r*.8, zahn_br]);
+  triangle ([-sin(zahn_a)*zahnr_r, zahnr_r, zahn_br],
+            [-sin(zahn_a)*zahnr_r*.8, zahnr_r*.8, zahn_br], 
+            [sin(zahn_a)*zahnr_r*.8, zahnr_r*.8, zahn_br]);
+  triangle ([-sin(zahn_a)*zahnr_r, zahnr_r, -zahn_br],
+            [sin(zahn_a)*zahnr_r, zahnr_r, -zahn_br],
+            [sin(zahn_a)*zahnr_r*.8, zahnr_r*.8, -zahn_br]);
+  triangle ([-sin(zahn_a)*zahnr_r, zahnr_r, -zahn_br],
+            [sin(zahn_a)*zahnr_r*.8, zahnr_r*.8, -zahn_br],
+            [-sin(zahn_a)*zahnr_r*.8, zahnr_r*.8, -zahn_br]);
+  cylinder (zahn_br/2.0, [0,0,0], [0,zahnr_r*.8,0]);
+}
+
+define zahnrad1 grid [4,1,4] {
+  zacken { rotateZ (0); }
+  zacken { rotateZ (20); }
+  zacken { rotateZ (40); }
+  zacken { rotateZ (60); }
+  zacken { rotateZ (80); }
+  zacken { rotateZ (100); }
+  zacken { rotateZ (120); }
+  zacken { rotateZ (140); }
+  zacken { rotateZ (160); }
+  zacken { rotateZ (180); }
+}
+
+define zahnrad grid [1,2,1] {
+  zahnrad1 { metall; }	
+  zahnrad1 { rotateZ (180); }
+  cylinder (zahnr_r*.5, [0,0,zahn_br], [0,0,-zahn_br]) { close; metall; }
+}
+
+#endif // _zahnrad_bsdl3

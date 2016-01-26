@@ -1,0 +1,5 @@
+OFILES = GDB3CanonicalViews.o GDBConfiguration.o GDBData.o \
+		GDBDataType.o GDBExport.o GDBIconBuilderBSDL3.o \
+		GDBOperation.o GDBRepType.o GDBStore.o \
+		GDBTraversal.o GraphicsDataBase.o ImportBSDL3.o 
+

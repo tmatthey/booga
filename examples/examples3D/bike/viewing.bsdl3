@@ -1,0 +1,44 @@
+/*
+ * viewing.bsdl3 
+ *
+ * Copyright (C) 1995, Bernhard Buehlmann <buehlmann@iam.unibe.ch>
+ *                     University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: viewing.bsdl3,v 1.5 1996/08/29 14:17:32 buhlmann Exp $
+ * -----------------------------------------------------------------------------
+ */
+
+#ifndef _viewing_bsdl3
+#define _viewing_bsdl3
+
+using 3D;
+
+camera {
+  perspective {
+    eye [6,6,6];
+    lookat [0,0,0];
+    resolution (300, 300);
+    eyesep 1; 
+    fov 60;
+  }
+  background [0.5, 0.5, 0.5];
+}
+
+pointLight (1, [1,1,1]) { position [-20,20,10]; }
+
+pointLight (1, [1,1,1]) { position [10,-20,20]; }
+
+#endif // _viewing_bsdl3
+

@@ -1,0 +1,1 @@
+GEN_OFILES = Camera2DAttr.o Camera3DAttr.o Cone3DAttr.o Cylinder3DAttr.o LightSourceAttr.o MakeableAttr.o PointLightAttr.o Primitive2DAttr.o Primitive3DAttr.o Text2DAttr.o Text3DAttr.o Transform2DAttr.o Transform3DAttr.o Viewing3DAttr.o

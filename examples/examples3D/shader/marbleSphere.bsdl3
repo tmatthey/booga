@@ -1,0 +1,44 @@
+/*
+ * marbleSphere.bsdl3
+ *
+ * Copyright (C) 1996, Thomas Teuscher<teuscher@iam.unibe.ch>
+ *                     University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: marbleSphere.bsdl3,v 1.1 1996/06/06 11:49:24 streit Exp $
+ * -----------------------------------------------------------------------------
+ */
+
+#ifndef _marbleSphere_bsdl3
+#define _marbleSphere_bsdl3
+
+using 3D;
+
+camera {
+  perspective {
+  eye [2,2,2];
+  lookat [0,0,0];
+  resolution (200, 200);
+  }
+  background [.9,.9,.9];
+};
+
+pointLight (1, [1, 1, 1]) { position [20, 100, 150]; }
+
+sphere (1, [0,0,0]) {
+//  shader("bump.bsl", .1,50);
+  shader("marble.bsl",6);
+}
+
+#endif // _marbleSphere_bsdl3

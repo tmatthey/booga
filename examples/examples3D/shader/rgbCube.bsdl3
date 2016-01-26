@@ -1,0 +1,50 @@
+/*
+ * rgbCube.bsdl3
+ *
+ * Copyright (C) 1996, Thomas Teuscher<teuscher@iam.unibe.ch>
+ *                     University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: rgbCube.bsdl3,v 1.1 1996/06/06 11:49:34 streit Exp $
+ * -----------------------------------------------------------------------------
+ */
+
+#ifndef _rgbCube_bsdl3
+#define _rgbCube_bsdl3
+
+using 3D;
+
+camera {
+  perspective {
+  eye [2,2,2];
+  lookat [0,0,0];
+  resolution (200,200);
+  }
+  background [.9,.9,.9];
+//  background [1,1,1];
+};
+
+pointLight (1, [1, 1, 1]) { position [20, 150, 200]; }
+
+box ([0,0,0], [1,1,1]) {
+//sphere(1, [0,0,0]) {
+//  shader("grid2D.bsl",20,10,.05) {
+  shader("rgb.bsl") {
+    translate[-.25,-.25,-.25];
+  }
+  translate[-.25, -.25,-.25];
+}
+
+#endif // _rgbCube_bsdl3
+

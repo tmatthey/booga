@@ -1,0 +1,234 @@
+/*
+ * $RCSfile: InterpolationCurve3D.C,v $
+ *
+ * Copyright (C) 1994-96, Bernhard Buehlmann <buhlmann@iam.unibe.ch>
+ *                        University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: InterpolationCurve3D.C,v 1.2 1998/01/06 08:25:46 buhlmann Exp $
+ * -----------------------------------------------------------------------------
+ */
+
+#include <strstream.h>
+#include "booga/base/Value.h"
+#include "booga/object/BoundsUtilities.h"  // slapTest
+#include "booga/object/List3D.h"
+#include "booga/object/InterpolationCurve3D.h"
+#include "booga/object/Cylinder3D.h"
+#include "booga/object/Sphere3D.h"
+#include "booga/object/Line3D.h"
+#include "booga/object/Shared3D.h"
+#include "booga/object/BezierCurve3D.h"
+// ____________________________________________________________________ InterpolationCurve3D
+
+implementRTTI(InterpolationCurve3D, Primitive3D);
+
+InterpolationCurve3D::InterpolationCurve3D(Exemplar exemplar)
+: Primitive3D(exemplar)
+{
+  myRadius = .1;
+  myVectors.removeAll();
+  myDecomposition = NULL;
+}
+
+InterpolationCurve3D::InterpolationCurve3D() 
+{
+  myRadius = 0.0;
+  myVectors.removeAll();
+  myDecomposition = NULL;
+}
+
+InterpolationCurve3D::InterpolationCurve3D(const InterpolationCurve3D& c)
+: Primitive3D(c),myVectors(c.myVectors), myRadius(c.myRadius)
+{
+  myDecomposition = NULL;
+}
+
+InterpolationCurve3D::InterpolationCurve3D(const List<Vector3D>& list) : myVectors(list)
+{
+  myRadius = 0.0;
+  myDecomposition = NULL;
+}
+
+
+Object3D* InterpolationCurve3D::createDecomposition() const
+{
+  //
+  // We already have a valid decomposition of the polygon object -> just make a copy.
+  //
+  if (myDecomposition != NULL)
+    return myDecomposition->copy();
+
+  List3D* triangles = new List3D;
+
+  if (myVectors.count() < 3) {
+	  Report::warning("[InterpolationCurve3D::createDecomposition]: less than 3 points!");
+      return NULL;
+  }
+  
+  // check if first and last point are equal
+  Vector3D last_tangent; // stores the tangent if the curve is closed.
+  Vector3D tangent; // this stores the tanget vector.
+
+  if (myVectors.item(0).equal(myVectors.item(myVectors.count()-1))) {
+	  // first and last point are equal, 
+    BezierCurve3D *a = new BezierCurve3D;
+    BezierCurve3D *b = new BezierCurve3D;
+    BezierCurve3D::interpolate (myVectors.item(myVectors.count()-2), myVectors.item(0), myVectors.item(1), a, b);
+
+	last_tangent = a->getVertex(2);
+	tangent = b->getVertex(1);
+	delete a;
+	delete b;
+  }
+  // calculate first two bezier curves by interpolating the first three points:
+  
+  if (myVectors.count() > 2) {
+    BezierCurve3D *a = new BezierCurve3D;
+    BezierCurve3D *b = new BezierCurve3D;
+    BezierCurve3D::interpolate (myVectors.item(0), myVectors.item(1), myVectors.item(2), a, b);
+
+    if (!tangent.zero())
+      a->setVertex(1, tangent);
+    tangent = b->getVertex(1);
+    a->setRadius(getRadius());
+    a->setPrecision(getPrecision());
+    triangles->adoptObject(a);
+
+    if (myVectors.count() == 3) {
+      b->setRadius(getRadius());
+      b->setPrecision(getPrecision());
+      triangles->adoptObject(b);
+    } else 
+      delete b;
+  }
+
+  for (int i=1; i<myVectors.count()-2; i++) {
+    BezierCurve3D *a = new BezierCurve3D;
+    BezierCurve3D *b = new BezierCurve3D;
+    BezierCurve3D::interpolate (myVectors.item(i), myVectors.item(i+1), myVectors.item(i+2), a, b);
+    a->setVertex(1, tangent);
+
+    tangent = b->getVertex(1);
+    a->setRadius(getRadius());
+    a->setPrecision(getPrecision());
+    triangles->adoptObject(a);
+    if (i == myVectors.count()-3)	{
+      if (!last_tangent.zero())
+        b->setVertex(2, last_tangent);
+      b->setRadius(getRadius());
+      b->setPrecision(getPrecision());
+      triangles->adoptObject(b);
+    } else
+      delete b;
+  }
+  ((InterpolationCurve3D*)this)->myDecomposition = new Shared3D(triangles);
+  ((InterpolationCurve3D*)this)->myDecomposition->computeBounds();
+  return myDecomposition->copy();
+}
+
+Vector3D InterpolationCurve3D::evaluate(Real u) const
+{
+  if (u<0.0)
+	  return myVectors.item(0);
+  if (u>1.0)
+	  return myVectors.item(myVectors.count()-1);
+
+  if (myDecomposition == NULL)
+    delete InterpolationCurve3D::createDecomposition();
+
+  // select the correct curve and the u
+  int i = (int)((myVectors.count()-1.0)*u);
+  Real u2 = frac ((Real)(myVectors.count()-1.0)*u);
+
+  // check whether we are out of bounds:
+
+  if (i > myVectors.count()-2) {
+	  return myVectors.item(myVectors.count()-1);
+  }
+	
+  //
+  // myDecomposition
+  // Shared3D->Aggregate3D->BezierCurve
+  //
+
+  List3D *l = dynamic_cast(List3D,myDecomposition->getSubobject(0));
+  if (l) {
+    BezierCurve3D *b = dynamic_cast (BezierCurve3D,l->getSubobject(i));
+    return b->evaluate(u2);
+  } else
+    return myVectors.item(0);
+}
+
+
+Vector3D InterpolationCurve3D::normal(const Vector3D&) const
+{
+  return Vector3D(0,0,1);
+}
+
+Object3D* InterpolationCurve3D::copy() const
+{
+  return new InterpolationCurve3D(*this);
+}
+
+bool InterpolationCurve3D::doIntersect(Ray3D& ray)
+{
+  if (myRadius > 0.0) {
+  	if (myDecomposition == NULL)
+      delete InterpolationCurve3D::createDecomposition();
+    return myDecomposition->intersect(ray);
+  } else
+	  return false;
+}
+
+void InterpolationCurve3D::doComputeBounds()
+{
+  if(myDecomposition == NULL)
+	  delete createDecomposition();
+ myBounds.expand(myDecomposition->getBounds()); 
+}
+  
+Makeable* InterpolationCurve3D::make(RCString& errMsg, const List<Value*>* parameters) const
+{
+
+  InterpolationCurve3D* newCurve = new InterpolationCurve3D(*this);
+  getParameter(1, Real, r);
+  newCurve->setRadius(r);
+
+  for (int i=2; i<=parameters->count(); i++) {
+    getParameter(i, Vector3D, v);
+	newCurve->appendVector(v);
+  }
+
+  return newCurve;
+}
+
+static const RCString boxKeyword("interpolationcurve");
+
+RCString InterpolationCurve3D::getKeyword() const {
+  return boxKeyword;
+}
+
+List<Value*>* InterpolationCurve3D::createParameters() {
+  List<Value*>* parameters = new List<Value*>;
+  parameters->append(new Value(myRadius));
+  for (int i=0; i<myVectors.count(); i++) {
+    parameters->append(new Value(myVectors.item(i)));
+  }
+  return parameters;
+}
+
+
+
+

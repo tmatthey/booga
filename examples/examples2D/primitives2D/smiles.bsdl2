@@ -1,0 +1,131 @@
+/*
+ * smilies.bsdl2
+ *
+ * Copyright (C) 1994-96, Christoph Streit <streit@iam.unibe.ch>
+ *                        Stephan Amann <amann@iam.unibe.ch>
+ *                        University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: smiles.bsdl2,v 1.1 1996/01/11 17:00:47 streit Exp $
+ * -----------------------------------------------------------------------------
+ */
+ 
+#ifndef _smilies_bsdl2
+#define _smilies_bsdl2
+
+// We're in 2D Namespace.
+using 2D;
+
+// We need a camera.
+camera {
+  resolution (512, 512);       // Screen resolution.
+  window ([0,0], [512,512]);   // Part of the scene to be displayed.
+  background [0, 0, 0];        // Color of the background.
+}
+
+//_____________________________________________________________________ Textures
+
+define red   color [1,0,0];
+define green color [0,1,0];
+define blue  color [0,0,1];
+
+define eyePattern pattern (3, 2, 5, 2) {
+  solid   { red;   }
+  gap     { green; }
+}
+
+//________________________________________________________________________ Scene
+
+define eye list {
+  circle ([0, 0], 30) {
+    interpolate ([0,0,1], [135/256, 206/256, 250/256]);
+  }
+
+  list {
+    line ([-30,40], [0,60]) { eyePattern; }
+    line ([0,60], [30,40])  { eyePattern; }
+    line ([30,40], [50,40]) { eyePattern; }
+  }
+}
+
+define head list { 
+	circle ([200, 200], 200) {
+	  red;
+	}
+	circle ([100, 200], 70) {
+	  scale [2, 0.5];
+	  green;
+	}
+
+	eye {
+	  translate [100,270];
+	}
+	eye {
+	  transform {
+	    scale [-1, 1];
+	    translate [300,270];
+	  }
+	}
+	
+ 	translate [-200,-200];
+}
+
+line ([0,10], [512,10]) {
+  pattern (10, 20, 30, 40){
+    solid { green; }
+    gap   { red;   }
+  }
+}
+
+line ([0,25], [512,25]) {
+  pattern (150, 150){
+    solid { interpolate ([1,0,0], [0,0,1]); }
+    gap   { interpolate ([0,1,0], [1,0,0]); }
+  }
+}
+
+line ([0,40], [512,40]) {
+  interpolate ([1,0,0], [0,0,1]);
+}
+
+text (50, "Guguseli") { 
+  font "ROMAN";
+  green;
+  rotateOrigin 30;
+  translate [300,70];
+}
+
+//
+// Two smilies.
+//
+head {
+  transform {
+    scale [0.5, 0.5];
+    translate [150, 180];
+  }
+}
+
+head {
+  transform {
+    scale [0.3, 0.3];
+    rotateOrigin 30;
+    translate [350, 330];
+  }
+}
+
+pixmap "allee.pixi" {
+  translate [140,290];
+}
+
+#endif // _smilies_bsdl2

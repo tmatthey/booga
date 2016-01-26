@@ -1,0 +1,55 @@
+#
+# $RCSfile: PolygonMapperAttr.specifierAttr,v $
+#
+# Copyright (C) 1996, Thierry Matthey <matthey@iam.unibe.ch>
+#                     University of Berne, Switzerland
+#
+# All rights reserved.
+#
+# This software may be freely copied, modified, and redistributed
+# provided that this copyright notice is preserved on all copies.
+#
+# You may not distribute this software, in whole or in part, as part of
+# any commercial product without the express consent of the authors.
+#
+# There is no warranty or other guarantee of fitness of this software
+# for any purpose.  It is provided solely "as is".
+#
+# -----------------------------------------------------------------------------
+#  $Id: PolygonMapperAttr.specifierAttr,v 1.4 1997/04/30 11:52:28 buhlmann Exp $
+# -----------------------------------------------------------------------------
+#
+
+library texture
+
+include "booga/base/mathutilities.h"
+include "booga/base/Color.h"
+include "booga/object/Texture3DAttr.h"
+
+specifier PolygonMapper : public Texture3DAttr
+
+attr Specular
+  member Color
+  argument Vector3D
+    constraint value.x()>-EPSILON && value.y()>-EPSILON && value.z()>-EPSILON
+    error "negative component for color value"
+  build Color(value.x(), value.y(), value.z())
+
+attr SpecPow
+  member int
+  argument Real
+  constraint (value >= 1) && (frac(value) == 0)
+  build int(value)
+
+attr Reflectivity
+  member Real
+  argument Real
+  constraint (value < 1+EPSILON) && (value  > -EPSILON)
+  build Real(value)
+
+attr Ambient
+  member Color
+  argument Vector3D
+    constraint value.x()>-EPSILON && value.y()>-EPSILON && value.z()>-EPSILON
+    error "negative component for color value"
+  build Color(value.x(), value.y(), value.z())

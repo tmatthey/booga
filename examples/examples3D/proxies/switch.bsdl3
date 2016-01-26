@@ -1,0 +1,60 @@
+/*
+ * switch.bsdl3
+ *
+ * Copyright (C) 1995, Christoph Streit <streit@iam.unibe.ch>
+ *                     Stephan Amann <amann@iam.unibe.ch>
+ *                     University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: switch.bsdl3,v 1.2 1996/06/20 13:05:58 amann Exp $
+ * -----------------------------------------------------------------------------
+ */
+
+#ifndef _switch.bsdl3
+#define _switch.bsdl3
+
+using 3D;
+
+// We need a camera
+camera {
+  perspective {
+    eye [0,0,6];                // Eye position
+    lookat [0,0,0];             // Looking to this point
+    up [0,1,0];                 // What direction is up? (y)
+    resolution (300, 300);      // Screen resolution
+    eyesep 1;                   // For stereo images ...
+    fov 100;                     // Field of view: horizontal, vertical
+  }        
+  background [.5,.5,.5];      // Color of Background
+}
+
+// We need a light
+pointLight (1, [1,1,1]) { 
+  position [0,50,100];
+}
+pointLight (1, [1,1,1]) { 
+  position [0,-50,-100];
+}
+
+switch {
+  on {
+    sphere ("3", [0,0,0]) { phong { diffuse [1,.2,.4]; specular [.9,0,0]; } }
+  }
+  off {
+    file "/home/fcg/BOOGA/workspaces/core-dev/shared_src/examples/examples3D/bike/bike.bsdl3";
+  }
+}
+
+#endif // _switch.bsdl3
+

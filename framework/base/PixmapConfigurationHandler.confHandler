@@ -1,0 +1,70 @@
+#
+# PixmapConfigurationHandler.confHandler 
+#
+# Copyright (C) 1995, Stephan Amann <amann@iam.unibe.ch>
+#                     Christoph Streit <streit@iam.unibe.ch>
+#                     University of Berne, Switzerland
+#
+# All rights reserved.
+#
+# This software may be freely copied, modified, and redistributed
+# provided that this copyright notice is preserved on all copies.
+# 
+# You may not distribute this software, in whole or in part, as part of
+# any commercial product without the express consent of the authors.
+#
+# There is no warranty or other guarantee of fitness of this software
+# for any purpose.  It is provided solely "as is".
+#
+# -----------------------------------------------------------------------------
+#  $Id: PixmapConfigurationHandler.confHandler,v 1.4 1996/08/30 09:15:18 streit Exp $
+# -----------------------------------------------------------------------------
+ 
+@author Stephan Amann
+@login amann
+
+@include "booga/base/PixmapOf.h"
+@include "booga/base/ValueOption.h"
+@include "booga/base/PixmapOption.h"
+
+@configure Pixmap
+@desc Pixmap implements base funcionality for all pixmaps
+
+#___________________________________________________________________ Type
+#
+@option Type
+@desc Option Type declares which color model to use for pixmaps
+#________________________________________ RGB
+@value RGB
+@desc Use a RGB based pixmap as exemplar
+@code PixmapOption* pixiOpt = new PixmapOption(new PixmapOf<RGB>(1,1));
+@code return pixiOpt;
+#________________________________________ RGBChar
+@value RGBChar
+@desc Use a RGB based pixmap as exemplar
+@code PixmapOption* pixiOpt = new PixmapOption(new PixmapOf<RGBChar>(1,1));
+@code return pixiOpt;
+#________________________________________ Grey
+@value Grey
+@desc Use a Grey based pixmap as exemplar
+@code PixmapOption* pixiOpt = new PixmapOption(new PixmapOf<Grey>(1,1));
+@code return pixiOpt;
+#________________________________________ BW
+@value BW
+@desc Use a BW based pixmap as exemplar
+@code PixmapOption* pixiOpt = new PixmapOption(new PixmapOf<BW>(1,1));
+@code return pixiOpt;
+#___________________________________________________________________ ResX
+#
+@option ResX
+@desc Option ResX defines X resolution for pixmap
+#________________________________________ @string
+@value @string
+@code return new ValueOption(Value(@string));
+#___________________________________________________________________ ResY
+#
+@option ResY
+@desc Option ResY defines Y resolution for pixmap
+#________________________________________ @string
+@value @string
+@code return new ValueOption(Value(@string));

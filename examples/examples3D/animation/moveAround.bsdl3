@@ -1,0 +1,121 @@
+/*
+ * moveAround.bsdl3
+ *
+ * An example of a complex translation. The hole translation is done
+ * with 4 * 2 translations.
+ *
+ * Copyright (C) 1996, Thierry Matthey <matthey@iam.unibe.ch>
+ *                     University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: moveAround.bsdl3,v 1.3 1996/06/06 09:06:58 streit Exp $
+ * -----------------------------------------------------------------------------
+ */
+using 3D;
+
+//
+// Definition of the camera an the lightsource
+//
+
+camera {
+  perspective {
+    eye [80,30,50];
+    lookat [0, 0, 0];
+    resolution (512, 512);
+  }
+  background [.3,.3,.3];
+};
+
+pointLight (2, [1,1,1]) { position [  40,   40, 20]; }
+
+//
+// Defintion of colors
+//
+
+define white  matte { diffuse [1,1,1]; }
+define red   phong { diffuse [.4,.1,.1]; specular [.6,0,0]; specpow 5;}
+define yellow  matte { diffuse [1,1,0]; }
+
+//
+// Defintion of the animated ball
+//
+
+define ball list{
+  move {                                         // Translation
+    action (0,60) {                              // from frame 0 to 60
+      direction ([0,0,1],"sin",0.075, 0.175, 0); // up and down in z-axis with sin as fct.
+    }
+    move {                                           // Translation 
+      action (0,10) {                                // 1. arc, translation y-axis
+        direction ([0,10,0],"sin", 0.025,0.075, 0);
+      }
+      action (0,10) {                                // 1. arc, translation x-axis
+        direction ([-10,0,0],"sin", 0,0.05, 0);
+      }
+      action (10,20) {                               // 2. arc, translation y-axis
+        direction ([0,10,0],"sin", 0.025,0.075, 0);
+      }
+      action (10,20) {                               // 2. arc, translation x-axis
+        direction ([10,0,0],"sin", 0,0.05, 0);
+      }
+      action (20,50) {                               // 3. arc, translation y-axis
+        direction ([0,-30,0],"sin", 0.025,0.075, 0);
+      }
+      action (20,50) {                               // 3. arc, translation x-axis
+        direction ([-30,0,0],"sin", 0,0.05, 0);
+      }
+      action (50,60) {                               // 4. arc, translation y-axis
+        direction ([0,10,0],"sin", 0.025,0.075, 0);
+      }
+      action (50,60) {                               // 4. arc, translation x-axis
+        direction ([10,0,0],"sin", 0,0.05, 0);
+      }
+      turn {                  // Rotation
+        action (0,10) {       // 1. arc, from frame 0 to 10       
+          axis ([0,0,1]);
+          alpha (180);
+        }  
+        action (10,20) {      // 2. arc, from frame 10 to 20 
+          axis ([0,0,1]);
+          alpha (-180);
+        }
+        action (20,50) {      // 3. arc, from frame 20 to 50 
+          axis ([0,0,1]);
+          alpha (-180);
+        }
+        action (50,60) {      // 4. arc, from frame 50 to 60 
+          axis ([0,0,1]);
+          alpha (-180);
+        }
+        sphere (2, [0, 10, 0]) { white;};  // my ball
+      }
+    }
+  }
+}
+
+//
+// Definiton of the background
+//
+
+define ground list {
+  cone (1, [0,0,0], 0, [0,0,3]) { red;}
+  cone (1, [0,-20,0], 0, [0,-20,3]) { red;}
+  cone (1, [0,20,0], 0, [0,20,3]) { red;}
+  polygon ([-35,-35,0],[35,-35,0],[35,35,0],[-35,35,0]) { yellow; }
+}
+
+//_____________________________________________________________
+
+ground;
+ball;

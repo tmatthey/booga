@@ -1,0 +1,106 @@
+Compiling and Linking in SHARED mode.
+
+Compiling framework/glwrapper/src/GLAbstractBridge.C
+
+Compiling framework/glwrapper/src/GLAbstractTraversal2D.C
+
+Compiling framework/glwrapper/src/GLAbstractTraversal3D.C
+1540-497: (W) Waiting for license.
+
+Compiling framework/glwrapper/src/GLBBTraversal2D.C
+1540-497: (W) Waiting for license.
+
+Compiling framework/glwrapper/src/GLBBTraversal3D.C
+
+Compiling framework/glwrapper/src/GLBSDLParserInit.C
+
+Compiling framework/glwrapper/src/GLConstantTexture2D.C
+
+Compiling framework/glwrapper/src/GLInterpolatorTexture2D.C
+
+Compiling framework/glwrapper/src/GLLightTexture3D.C
+
+Compiling framework/glwrapper/src/GLMatte.C
+
+Compiling framework/glwrapper/src/GLPhong.C
+
+Compiling framework/glwrapper/src/GLPolygonMapper.C
+
+Compiling framework/glwrapper/src/GLRasterizer.C
+
+Compiling framework/glwrapper/src/GLRenderer.C
+
+Compiling framework/glwrapper/src/GLTexture.C
+
+Compiling framework/glwrapper/src/GLTraversal.C
+
+Compiling framework/glwrapper/src/GLTraversal2D.C
+
+Compiling framework/glwrapper/src/GLTraversal3D.C
+
+Compiling framework/glwrapper/src/GLUtilities.C
+
+Compiling framework/glwrapper/src/GLViewer2D.C
+"GLViewer2D.C", line 25.11: 1540-008: (S) Source file <GL/glut.h> cannot be opened.
+"GLViewer2D.C", line 54.16: 1540-013: (S) "GL_FRONT" is undefined.
+"GLViewer2D.C", line 54.3: 1540-013: (S) "glDrawBuffer" is undefined.
+"GLViewer2D.C", line 77.17: 1540-013: (S) "GLUT_LEFT_BUTTON" is undefined.
+"GLViewer2D.C", line 77.46: 1540-013: (S) "GLUT_DOWN" is undefined.
+"GLViewer2D.C", line 87.51: 1540-013: (S) "GLUT_UP" is undefined.
+"GLViewer2D.C", line 89.5: 1540-013: (S) "glutPostRedisplay" is undefined.
+"GLViewer2D.C", line 96.22: 1540-013: (S) "GLUT_MIDDLE_BUTTON" is undefined.
+"GLViewer2D.C", line 108.5: 1540-013: (S) "glutPostRedisplay" is undefined.
+"GLViewer2D.C", line 124.5: 1540-013: (S) "glutPostRedisplay" is undefined.
+"GLViewer2D.C", line 149.3: 1540-013: (S) "glutPostRedisplay" is undefined.
+"GLViewer2D.C", line 210.3: 1540-013: (S) "glutInit" is undefined.
+"GLViewer2D.C", line 211.23: 1540-013: (S) "GLUT_DOUBLE" is undefined.
+"GLViewer2D.C", line 211.37: 1540-013: (S) "GLUT_RGB" is undefined.
+"GLViewer2D.C", line 211.48: 1540-013: (S) "GLUT_DEPTH" is undefined.
+"GLViewer2D.C", line 211.3: 1540-013: (S) "glutInitDisplayMode" is undefined.
+"GLViewer2D.C", line 213.3: 1540-013: (S) "glutInitWindowSize" is undefined.
+"GLViewer2D.C", line 216.3: 1540-013: (S) "glutCreateWindow" is undefined.
+"GLViewer2D.C", line 221.3: 1540-013: (S) "glutDisplayFunc" is undefined.
+"GLViewer2D.C", line 222.3: 1540-013: (S) "glutKeyboardFunc" is undefined.
+"GLViewer2D.C", line 223.3: 1540-013: (S) "glutMouseFunc" is undefined.
+"GLViewer2D.C", line 224.3: 1540-013: (S) "glutMotionFunc" is undefined.
+"GLViewer2D.C", line 225.3: 1540-013: (S) "glutReshapeFunc" is undefined.
+"GLViewer2D.C", line 227.3: 1540-013: (S) "glutMainLoop" is undefined.
+gmake: *** [GLViewer2D.o] Error 1
+
+Compiling framework/glwrapper/src/GLViewer3D.C
+"GLViewer3D.C", line 25.11: 1540-008: (S) Source file <GL/glut.h> cannot be opened.
+"GLViewer3D.C", line 64.16: 1540-013: (S) "GL_BACK" is undefined.
+"GLViewer3D.C", line 64.3: 1540-013: (S) "glDrawBuffer" is undefined.
+"GLViewer3D.C", line 70.9: 1540-320: (S) Syntax error - found "GLint drawBuffer" : "GLint" is not a type name.
+"GLViewer3D.C", line 71.17: 1540-013: (S) "GL_DRAW_BUFFER" is undefined.
+"GLViewer3D.C", line 71.34: 1540-013: (S) "drawBuffer" is undefined.
+"GLViewer3D.C", line 71.3: 1540-013: (S) "glGetIntegerv" is undefined.
+"GLViewer3D.C", line 93.17: 1540-013: (S) "GLUT_LEFT_BUTTON" is undefined.
+"GLViewer3D.C", line 93.46: 1540-013: (S) "GLUT_DOWN" is undefined.
+"GLViewer3D.C", line 103.51: 1540-013: (S) "GLUT_UP" is undefined.
+"GLViewer3D.C", line 106.5: 1540-013: (S) "glutPostRedisplay" is undefined.
+"GLViewer3D.C", line 114.22: 1540-013: (S) "GLUT_MIDDLE_BUTTON" is undefined.
+"GLViewer3D.C", line 133.5: 1540-013: (S) "glutPostRedisplay" is undefined.
+"GLViewer3D.C", line 153.3: 1540-013: (S) "glutPostRedisplay" is undefined.
+"GLViewer3D.C", line 192.3: 1540-013: (S) "glutInit" is undefined.
+"GLViewer3D.C", line 193.23: 1540-013: (S) "GLUT_DOUBLE" is undefined.
+"GLViewer3D.C", line 193.37: 1540-013: (S) "GLUT_RGB" is undefined.
+"GLViewer3D.C", line 193.48: 1540-013: (S) "GLUT_DEPTH" is undefined.
+"GLViewer3D.C", line 193.3: 1540-013: (S) "glutInitDisplayMode" is undefined.
+"GLViewer3D.C", line 195.3: 1540-013: (S) "glutInitWindowSize" is undefined.
+"GLViewer3D.C", line 198.3: 1540-013: (S) "glutCreateWindow" is undefined.
+"GLViewer3D.C", line 203.3: 1540-013: (S) "glutDisplayFunc" is undefined.
+"GLViewer3D.C", line 204.3: 1540-013: (S) "glutKeyboardFunc" is undefined.
+"GLViewer3D.C", line 205.3: 1540-013: (S) "glutMouseFunc" is undefined.
+"GLViewer3D.C", line 206.3: 1540-013: (S) "glutMotionFunc" is undefined.
+"GLViewer3D.C", line 207.3: 1540-013: (S) "glutReshapeFunc" is undefined.
+"GLViewer3D.C", line 209.3: 1540-013: (S) "glutMainLoop" is undefined.
+gmake: *** [GLViewer3D.o] Error 1
+
+Compiling framework/glwrapper/src/GLWhitted.C
+
+Compiling framework/glwrapper/src/GlutBridge.C
+"GlutBridge.C", line 28.11: 1540-008: (S) Source file <GL/glut.h> cannot be opened.
+"GlutBridge.C", line 55.3: 1540-013: (S) "glutSwapBuffers" is undefined.
+gmake: *** [GlutBridge.o] Error 1
+gmake: Target `all' not remade because of errors.

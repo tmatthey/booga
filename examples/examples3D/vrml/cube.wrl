@@ -1,0 +1,19 @@
+#VRML V1.0 ascii
+
+#
+# cube.wrl
+#
+# Test of VRML cube feature.
+#
+# Copyright (C) 1996, Beat Liechti <liechti@isbe.ch>
+#                     Ingenieurschule Bern, Switzerland
+#
+# -----------------------------------------------------------------------------
+# $Id: cube.wrl,v 1.1 1996/02/28 10:16:36 streit Exp $
+# -----------------------------------------------------------------------------
+#
+
+Material { diffuseColor [ 1 0 0, 0 1 0, 0 0 1 ] }
+MaterialBinding { value PER_PART }
+Cube { width  4.0 height 2.0 depth  1.0 }
+

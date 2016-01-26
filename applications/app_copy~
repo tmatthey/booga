@@ -1,0 +1,41 @@
+#!/bin/sh
+
+
+# clean all really
+
+cp buildingPlacer-app/buildingPlacer ~/bin/
+cp bsdlWriter-app/bsdlWriter ~/bin/
+cp bsdl2ray-app/bsdl2ray ~/bin/
+cp MPIraytrace-app/MPIraytrace ~/bin/
+cp flythrough-app/flythrough ~/bin/
+cp thin-app/thin ~/bin/
+cp togrey-app/togrey ~/bin/
+cp triangleRemove-app/triangleRemove ~/bin/
+cp triangulate-app/triangulate ~/bin/
+cp viewer-app/viewer ~/bin/
+cp wireframe-app/wireframe ~/bin/
+cp wxBrowser-app/wxBrowser ~/bin/
+cp wxEdit-app/wxEdit ~/bin/
+cp wxFlythrough-app/wxFlythrough ~/bin/
+cp zbuffer-app/zbuffer ~/bin/
+cp depth2grey-app/depth2grey ~/bin/
+cp gamma-app/gamma ~/bin/
+cp graphicsdb-app/graphicsdb ~/bin/
+cp labelCC-app/labelCC ~/bin/
+cp osRenderer-app/osRenderer ~/bin/
+cp persistence-app/persistence ~/bin/
+cp picker-app/picker ~/bin/
+cp pixi2jpeg-app/pixi2jpeg ~/bin/
+cp pixi2ppm-app/pixi2ppm ~/bin/
+cp pixidiff-app/pixidiff ~/bin/
+cp pixiquant-app/pixiquant ~/bin/
+cp ppm2pixi-app/ppm2pixi ~/bin/
+cp rasterdemo-app/rasterdemo ~/bin/
+cp rasterize-app/rasterize ~/bin/
+cp raytrace-app/raytrace ~/bin/
+cp sirds-app/sirds ~/bin/
+cp sketch-app/sketch ~/bin/
+cp terrainCreater-app/terrainCreater ~/bin/
+cp city-app/city ~/bin/
+cp convex-app/convex ~/bin/
+cp casetool-app/casetool ~/bin/

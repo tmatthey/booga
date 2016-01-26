@@ -1,0 +1,2 @@
+OFILES = depth2grey.o 
+

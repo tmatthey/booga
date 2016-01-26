@@ -1,0 +1,76 @@
+/*
+ * $RCSfile: building_castle.bsdl3,v $
+ *
+ * A simple example of a castle.
+ *
+ * Copyright (C) 1996-97, Thierry Matthey <matthey@iam.unibe.ch>
+ *                        University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: building_castle.bsdl3,v 1.3 1997/04/15 08:37:35 matthey Exp $
+ * -----------------------------------------------------------------------------
+ */
+  
+using 3D;
+
+// Definition of the camera and the lightsource
+
+#include "color.inc"
+
+camera {
+  perspective {
+    resolution (600/2, 400/2);
+    eye [140,-30,70];
+    lookat [0,0,0];
+  }
+  background [.3,.3,.3];
+};
+
+pointLight (2, [1,1,1]) { position [100,100,100]; }
+
+// definition of the tower
+define tower building (10,[-2.5,-2.5, 0],   
+                          [ 2.5,-2.5, 0],   
+                          [ 2.5, 2.5, 0],   
+                          [-2.5, 2.5, 0]){
+                          // default texture of the tower
+                          sandstein;
+                          // roof defined by layers
+                          // [distance, height, flatness]
+                          rooflayer([0.5,0,0],[-.5,1,0],[-2.5,7,0]){dachRot;};
+                          // the balcony
+                          bottomborder(1,0.1,2,0.1){height(6);}
+                      }
+
+building (15,[-30,-30, 0],   // height of the building
+             [ 30,-30, 0],   // coords of the base of the building
+             [ 30, 30, 0],   // the building has no userdefined faces
+             [-30, 30, 0]){
+             // bottom with texture
+             bottomflat{height(0.01);brown;};
+             // roof with roofpoint and texture  
+             rooflayer([1,0,0],[-2.5,6,0]){dachRot;};
+             // the towers
+             roofuser{tower {translate[-27.5,-27.5,0];}}
+             roofuser{tower {translate[ 27.5,-27.5,0];}}
+             roofuser{tower {translate[ 27.5, 27.5,0];}}
+             roofuser{tower {translate[-27.5, 27.5,0];}}
+             // texture of the default fronts
+             sandstein;
+             // interior of the castle
+             hole([-25,-25,0],[ -25,25,0],[25,25,0],[25,-25,0]);
+          }
+
+// ground
+polygon([-40,-40,0],[40,-40,0],[40,40,0],[-40,40,0]){green;}

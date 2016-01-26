@@ -1,0 +1,66 @@
+/*
+ * polygonHole.bsdl3 
+ *
+ * Copyright (C) 1994-96, Thierry Matthey <matthey@iam.unibe.ch>
+ *                        University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: polygonHole.bsdl3,v 1.1 1996/10/04 17:14:44 collison Exp $
+ * -----------------------------------------------------------------------------
+ */
+
+#ifndef _polygonHole_bsdl3
+#define _polygonHole_bsdl3
+
+// We're in 3D Namespace:
+using 3D;                
+
+// _______________________________________________________________________ scene
+
+// We need a camera
+camera {
+  perspective {
+    eye [30,10,40];                // Eye position
+    lookat [0,0,0];             // Looking to this point
+    up [0,0,1];                 // What direction is up? (z)
+    resolution (300, 300);      // Screen resolution
+    eyesep 1;                   // For stereo images ...
+    fov 60;                     // Field of view: horizontal, vertical
+  }
+  background [.5,.5,.5];      // Color of Background
+}
+
+// We need a light
+pointLight (1, [1,1,1]) {    // Point light with intensity 1 
+                             // and color [1,1,1] (white)
+  position [0,0,100];}
+
+// Color definition
+define gold phong {ambient [.4,.4,.4];
+                   diffuse [230/255,220/255,40/255];
+                   specpow 30;
+                   specular [1,1,1];}
+
+// upper left: no transformation
+polygon ([-10.3, -15.8, 0], 
+         [17.9, -18.9, 0],
+         [13, 15, 0],[-12.3, 17.6, 0] ){
+         gold;
+         // And now some nice defintions of holes
+         // CCW and CW definitions allowed
+         hole([-8,-5,0],[5,10,0],[10,-5,0]);
+         hole([-10,-10,0],[-9,-10,0],[-9,-9,0],[-10,-9,0]);
+}         
+#endif // _polygonHole_bsdl3
+

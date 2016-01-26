@@ -1,0 +1,178 @@
+/*
+ * BOOGAOverview.bsdl2
+ *
+ * Copyright (C) 1994-96, Christoph Streit <streit@iam.unibe.ch>
+ *                        Stephan Amann <amann@iam.unibe.ch>
+ *                        University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: BOOGAoverview.bsdl2,v 1.1 1996/01/29 19:15:24 streit Exp $
+ * -----------------------------------------------------------------------------
+ */
+ 
+
+// We're in 2D Namespace:
+using 2D;
+ 
+// We need a camera
+camera {
+  resolution (600, 600);       // Screen resolution.
+  window ([0,0], [600,600]);   // Part of the scene to be displayed.
+  background [.7, .7, .7];     // Color of the background.
+}
+
+//_____________________________________________________________________ Textures
+
+define bubblesColor   color [1,0,0];
+define componentColor color [1,1,0];
+define arrowColor     color [1,1,1];
+
+//________________________________________________________________________ Scene
+
+/*
+ *  Definition of a box with dimensions of x:[0,1], y:[0,1], z:[0,1].
+ */
+define box list {
+  line ([0,0], [1,0]);
+  line ([1,0], [1,1]);
+  line ([1,1], [0,1]);
+  line ([0,1], [0,0]);
+}
+
+/*
+ * Deinition of an arrow of length 1 an aligned with the x axis.
+ */
+define arrow list {
+  line ([0.7,  0.1], [1,0]);
+  line ([0.7,  0.1], [0.8,  0.03]);
+  line ([0.7, -0.1], [1,0]);
+  line ([0.7, -0.1], [0.8, -0.03]);
+
+  line ([0, 0.03],  [0.8, 0.03]);
+  line ([0, -0.03], [0.8, -0.03]);
+  line ([0, 0.03],  [0, -0.03]);
+}
+
+/*
+ * 3D and 2D bubbles.
+ */
+list {
+  circle ([300,400], 50);  
+  text (50, "3D") {
+    translate [265, 380];
+  }
+
+  circle ([300,200], 50); 
+  text (50, "2D") {
+    translate [265, 180];
+  }
+
+  bubblesColor;
+}
+
+/*
+ * Components: 3D->3D, 2D->2D, 3D->2D, 2D->3D.
+ */
+list {
+  box {
+   scale [150,50];
+   translate [50,275];
+  }
+  text (30, "2D->3D") {
+    translate [60, 285];
+  }
+
+  box {
+   scale [150,50];
+   translate [400,275];
+  }
+  text (30, "3D->2D") {
+    translate [410, 285];
+  }
+
+  box {
+   scale [150,50];
+   translate [225,530];
+  }
+  text (30, "3D->3D") {
+    translate [235, 540];
+  }
+
+  box {
+   scale [150,50];
+   translate [225,30];
+  }
+  text (30, "2D->2D") {
+    translate [235, 40];
+  }
+
+  componentColor;
+}
+
+
+/*
+ * Arrows between the components and bubbles.
+ */
+list {
+  arrow { // 3D to 3D->2D
+   scale [100, 60];
+   rotateOrigin -25;
+   translate [360, 380];
+  }
+
+  arrow { // 2D->3D to 3D
+   scale [-100, 60];
+   rotateOrigin 180+25;
+   translate [150, 340];
+  }
+
+  arrow { // 3D->2D to 2D
+   scale [100, 60];
+   rotateOrigin 180+25;
+   translate [450, 250];
+  }
+
+  arrow { // 2D to 2D->3D
+   scale [100, 60];
+   rotateOrigin 180-25;
+   translate [240, 210];
+  }
+
+  arrow { // 3D to 3D->3D
+   scale [70, 40];
+   rotateOrigin 180-60;
+   translate [260, 450];
+  }
+
+  arrow { // 3D->3D to 3D
+   scale [70, 40];
+   rotateOrigin -120;
+   translate [375, 510];
+  }
+
+  arrow { // 2D to 2D->2D
+   scale [-70, 40];
+   rotateOrigin 180-60;
+   translate [340, 150];
+  }
+
+  arrow { // 2D->2D to 2D
+   scale [-70, 40];
+   rotateOrigin -120;
+   translate [225, 90];
+  }
+
+  arrowColor;
+}
+

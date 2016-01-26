@@ -1,0 +1,188 @@
+/*
+ * $RCSfile: Face.C,v $
+ *
+ * Copyright (C) 1996, Thierry Matthey <matthey@iam.unibe.ch>
+ *                     University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: Face.C,v 1.5 1997/04/10 11:56:15 matthey Exp $
+ * -----------------------------------------------------------------------------
+ */
+
+#include "booga/base/Report.h"
+#include "booga/base/RCString.h"
+#include "booga/base/Value.h"
+#include "booga/object/Transform3D.h"
+#include "booga/building/Face.h"
+#include "booga/building/Front.h"
+#include "booga/building/FaceAttr.h"
+#include "booga/building/Building.h"
+#include "booga/object/MakeableHandler.h"
+#include "booga/object/DummyMakeable.h"
+
+// ____________________________________________________________________ Face
+
+implementRTTI(Face, BuildingObject);
+
+Face::Face(Exemplar exemplar)
+:BuildingObject(exemplar)
+{
+  myFrom = Vector2D(0,0);
+  myTo = Vector2D(1,1);
+  myDepth = 0;
+  myRow = 1;
+  myColumn = 1;
+  myFrontIndex = 0;
+  myPolygonIndex = 0;
+  myParentFront = NULL;
+}
+
+Face::Face()
+{
+  myFrom = Vector2D(0,0);
+  myTo = Vector2D(1,1);
+  myDepth = 0;
+  myRow = 1;
+  myColumn = 1;
+  myFrontIndex = 0;
+  myPolygonIndex = 0;
+  myParentFront = NULL;
+}
+
+Face::Face(const Face& face) 
+:BuildingObject(face),myFrom(face.myFrom), myTo(face.myTo)
+{
+  myDepth = face.myDepth;
+  myRow = face.myRow;
+  myColumn = face.myColumn;
+  myFrontIndex = face.myFrontIndex;
+  myPolygonIndex = face.myPolygonIndex;
+  myParentFront = face.myParentFront;
+}
+
+
+int Face::setSpecifier(RCString& errMsg, Makeable* specifier)
+{
+  // Check for Face attributes
+  FaceAttr* attr = dynamic_cast(FaceAttr, specifier);
+  if (attr != NULL) {
+    // The Face object knows best which method has to be called.
+    // So let the object do the job.
+    attr->setAttribute(this);
+
+    delete attr;
+    return 1;  
+  }
+
+  // 
+  // Let papa do the rest ...
+  //
+  return BuildingObject::setSpecifier(errMsg, specifier);
+}
+
+Object3D* Face::createSubject(Building* building) const
+{
+  
+  // test if the index is allowed
+  if (!building->testIndex(getFrontIndex(),getPolygonIndex())){
+    ostrstream os;
+    os << "[Face::createSubject] face of front ("
+       <<  getFrontIndex() << ","
+       <<  getPolygonIndex() << ") is out of bounds";
+    Report::recoverable(os);     
+    return new NullObject3D();  
+  }
+    
+  if (building->getHeight() < EPSILON || ! isOn())
+    return new NullObject3D();
+
+  // add the translation in z-direction
+  List<Vector3D> vertices = building->getPolygon(getPolygonIndex());
+  Face* This = (Face*)this;
+  This->setTransform(TransMatrix3D::makeTranslate(0,0,-getDepth()));
+  return doCreateSubject(building);
+
+}
+
+Real Face::getWidth(Building* building) const
+{
+  Real x = 0;
+  List<Vector3D> vertices = building->getPolygon(getPolygonIndex());
+  if (vertices.count() > 0){
+    Vector3D a = vertices.item(getFrontIndex());
+    Vector3D b = vertices.item((getFrontIndex()+1) % vertices.count());
+    x = (a-b).length();
+  }
+  return x;
+}
+
+Building* Face::getParentBuilding() const
+{
+  if (myParentFront)
+    return myParentFront->getParentBuilding();
+  else
+    return NULL;
+}
+
+void Face::iterateAttributes(MakeableHandler *handler) {
+  this->BuildingObject::iterateAttributes(handler);
+  if (!equal(myDepth,0)) {
+    DummyMakeable depth("depth");
+    depth.addParameter(Value(myDepth));
+    handler->handle(&depth);
+  }
+}
+
+Vector3D Face::getVertexLocal(Building* building,long frontindex, long polygonindex) const                             
+{ 
+  Vector3D u = building->getVertex(frontindex,polygonindex);
+  TransMatrix3D transform = myTransform.getTransMatrix();
+  transform.invert();
+  return u * transform;
+}
+
+Vector3D Face::getVertexStart(Building* building) const
+{
+  return building->getVertex(myFrontIndex,
+                             myPolygonIndex); 
+}
+
+Vector3D Face::getVertexEnd(Building* building) const
+{
+  return building->getVertex((myFrontIndex + 1) % building->getPolygon(myPolygonIndex).count(),
+                             myPolygonIndex); 
+}
+
+Transform3D Face::getFrontTransform() const
+{
+  if (myParentFront)
+    return myParentFront->getTransform();
+  else
+    return Transform3D();
+}
+
+bool Face::isFaceInFront(Front* front) const
+{
+  if (front)
+    return front->isFaceInFront((Face*)this);
+  else if (myParentFront)
+    return myParentFront->isFaceInFront((Face*)this);
+  else
+    return false;
+}
+
+List<List<Vector3D> > Face::getAlternativeHoles(Building*) const
+{
+  return List<List<Vector3D> > (0);
+}

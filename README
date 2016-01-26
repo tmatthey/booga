@@ -1,0 +1,37 @@
+hi Thierry
+coole idee. die solaris-version sollte kein problem sein. ich habe
+MPIraytrace bereits unter solaris zum laufen gebracht.
+ich hatte sogar eine version, wo solaris und aix zusammen rechneten. ich
+habe dazu MPICH verwenet, eine public domain implementierung von MPI.
+
+Auf der Origin solle es eigentlich auch laufen. wir hatten BOOGA vor etwa 3
+jahren bereits auf silicon graphics portiert.
+du müsstest einen ganzen booga-workspace kopieren und dann die module
+entsprechend laden. es gibt im config-directoy bereits ein file irix-5.3.mk,
+wo die entsprechenden compilerflags drin sind.
+du brauchst warscheinlich gcc 2.7.2 oder so und die entsprechenden libraries
+(jpeg, glut, wxwindows, etc...).
+
+du brauchst auch alle .sniffdirs. ich koennte dir von meinem workspace ein
+tar machen. dort ist alles dabei.
+----------------------------------------------------------------------------
+hej lundgren
+
+ich habe speziell fuer dich einen prerelease von 1.7 nach
+/home/fcg/Work/BuhlmannWork/booga-1.7.tar.gz (2.3MB oder so)
+kopiert. es gibt ein verzeichnis modules, wo die module gespeichert sind.
+
+du musst module load irix.gcc laden (du kannst den modulepfad anpassen:
+module use ~/matthey/booga/modulefiles
+oder aehnlich, oder einfach en shellscript, welches die
+environment-variablen setzt.
+
+du brauchst noch gmake, dan sollte es gehen. gawk, bison und flex sollten
+nicht noetig sein.
+viel spass!
+
+----------------------------------------------------------------------------
+
+- booga/modules/neue_plattform (skript statt module)
+- booga/config/neue_plattform
+

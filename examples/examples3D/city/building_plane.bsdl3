@@ -1,0 +1,130 @@
+/*
+ * $RCSfile: building_plane.bsdl3,v $
+ *
+ * An example with roofplane. It shows the possibilities and the weakness
+ *
+ * Copyright (C) 1997, Thierry Matthey <matthey@iam.unibe.ch>
+ *                     University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: building_plane.bsdl3,v 1.2 1997/04/15 08:37:44 matthey Exp $
+ * -----------------------------------------------------------------------------
+ */
+  
+using 3D;
+
+// Definition of the camera and the lightsource
+
+#include "color.inc"
+
+camera {
+  perspective {
+    eye [-600,-2000,1500];
+    lookat [600,0,100];
+    resolution (600, 400);
+  }
+  background [.3,.3,.3];
+};
+
+pointLight (2, [1,1,1]) { position [-3000,-3000,2000]; }
+
+building (200,  // height of the building
+                // coords of the base
+           [0,0,0],[400,0,0],[400,300,0],[0,300,0]){
+  // the bottom
+  bottomflat{height(0.01);grey;};
+  // a roof defined by angel
+  roofplane (10,30){dachRot;} 
+  sandstein;
+  hole([100,100,0],[100,200,0],[200,200,0],[200,100,0]);
+  translate[0,-300, 0];  
+}
+
+building (20, [-1061.77, 342.547, 0], [-1060.71, 341.136, 0], 
+              [-955.234, 315.913, 0], [-946.15, 362.126, 0], 
+              [-1045.1, 385.763, 0], [-1046.87, 385.41, 0]) {
+  sandstein;
+  roofplane (1,30) {
+    dachRot;
+  };
+  translate[1061.77, -342.547, 0];
+  scale([5,5,5]);
+  translate[500,0, 0];  
+};
+
+// the roof is well defined with ledge = 0
+building (20, [-1282.35, -21.343, 0], 
+  [-1285.17, -11.289, 0], 
+  [-1276.17, -8.908, 0], 
+  [-1275.48, -10.901, 0],
+  [-1274.41, -12.407, 0], 
+  [-1273.01, -13.384, 0],
+  [-1271.34, -13.79, 0],
+  [-1269.47, -13.582, 0],
+  [-1267.94, -12.852, 0], 
+  [-1266.85, -11.656, 0],
+  [-1266.21, -10.058, 0],
+  [-1266.05, -8.121, 0],
+  [-1266.38, -5.909, 0],
+  [-1263.38, -16.228, 0],
+  [-1246.36, -11.553, 0],
+  [-1257.48, 34.484, 0],
+  [-1266.91, 32.103, 0],
+  [-1264.36, 21.519, 0],
+  [-1291.52, 14.64, 0],
+  [-1294.25, 25.576, 0],
+  [-1303.87, 23.019, 0],
+  [-1292.31, -23.813, 0]) {
+  translate[1282.35, 21.343, 0];
+  scale([10,10,10]);
+  translate[100, 100, 0];  
+  sandstein;
+  roofplane (0,40) {
+    dachRot;
+  };
+};
+
+// this building has not a well defined roof
+// and a front with a peak
+building (20, [-1236.04, 286.897, 0],
+  [-1234.02, 313.09, 0],
+  [-1330.15, 329.671, 0], 
+  [-1330.41, 325.526, 0], 
+  [-1336.23, 319.793, 0], 
+  [-1339.67, 318.911, 0], 
+  [-1308.36, 196.85, 0], 
+  [-1230.58, 217.135, 0], 
+  [-1135.5, 240.065, 0], 
+  [-1132.06, 270.492, 0], 
+  [-1127.21, 283.722, 0], 
+  [-1205.18, 308.063, 0], 
+  [-1214.88, 310.003, 0], 
+  [-1215.23, 308.328, 0], 
+  [-1229.34, 311.15, 0], 
+  [-1231.37, 287.778, 0], 
+  [-1230.05, 222.162, 0], 
+  [-1234.46, 222.074, 0], 
+  [-1235.25, 240.065, 0]) {
+  sandstein;
+  translate[1236.04, -286.897, 0];
+  scale([5,5,5]);
+  translate[1000,-400,0];
+  roofplane (1,30) {
+    dachRot;
+  };
+  fronttri(0,0,[0.5,1.1]);
+};
+
+// ground
+polygon([-1000,-1000,-.1],[5000,-1000,-.1],[5000,3000,-.1],[-1000,3000,-1.]){green2;}

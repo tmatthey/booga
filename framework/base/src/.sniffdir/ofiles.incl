@@ -1,0 +1,17 @@
+OFILES = AbstractPixmap.o Arcball.o BoundingBox.o \
+		BoundingRect.o Color.o ColorOption.o \
+		ColorTypes.o Configuration.o ConfigurationHandler.o \
+		ConicRasterizer.o Geometry2D.o Geometry3D.o \
+		LineRasterizer.o List.o MIterator.o \
+		MPixmapExemplar.o Name.o Option.o \
+		ParserUtilities.o PixmapOf.o PixmapOption.o \
+		PixmapUtilities.o Quaternion.o RCString.o \
+		ReferenceCounting.o Report.o ScopedName.o \
+		Stack.o StaticInit.o Statistic.o \
+		StreamOption.o StringUtilities.o Strip.o \
+		SymTable.o Timer.o TransMatrix2D.o \
+		TransMatrix3D.o Value.o ValueOption.o \
+		Vector2D.o Vector3D.o Vector4D.o \
+		mathutilities.o tess-construct.o tess-misc.o \
+		tess-monotone.o tess-tri.o tess-triangle.o 
+

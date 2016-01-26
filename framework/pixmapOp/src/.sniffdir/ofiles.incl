@@ -1,0 +1,7 @@
+OFILES = ColorTransformation.o ComputeBoundary.o ExtractChannel.o \
+		GIFReader.o GammaCorrection.o ImageReader.o \
+		JPEGReader.o LabelConnectedComponents.o NeuroQuantize.o \
+		PPMReader.o PixiDiff.o PixiReader.o \
+		PixmapGenerator.o PixmapTransformer.o Thin.o \
+		neuroQuant.o 
+

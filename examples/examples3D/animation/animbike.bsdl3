@@ -1,0 +1,322 @@
+/*
+ * animbike.bsdl3 
+ *
+ * The bike ist putted together and then turned around.
+ *
+ * Copyright (C) 1996, Bernhard Buehlmann <buehlmann@iam.unibe.ch>
+ *                     Thierry Matthey <matthey@iam.unibe.ch>
+ *                     University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: animbike.bsdl3,v 1.3 1996/06/06 09:06:50 streit Exp $
+ * -----------------------------------------------------------------------------
+ */
+
+
+
+
+#ifndef _bike_bsdl3
+#define _bike_bsdl3
+ 
+#include "../bike/viewing.bsdl3"
+#include "../bike/material.bsdl3"
+#include "../bike/zahnrad.bsdl3"
+#include "../bike/kurbel.bsdl3" 
+#include "../bike/bremse.bsdl3"
+#include "../bike/rad.bsdl3"
+
+//
+//  Some constants
+// -----------------------------------------------------------------------------
+define bikeColor rot;
+
+const front_wheel [2.05, 0, .1];  // offsets
+const back_wheel  [-1.7, 0, .1];
+const rahmen_r    .1;             // radius of frame
+
+const f_p1 [1.5,0,1.7];
+const f_p2 [-.4,0,1.3];
+const f_p4 back_wheel + ([0,0,0]-back_wheel)*.8;
+const f_p5 f_p2 + (back_wheel-f_p2)*.2;
+
+const rahmen_naben_b naben_breite+[0,.05,0];
+const gabel_angle 20;
+
+//
+//  The frame of the bike
+// -----------------------------------------------------------------------------
+define ramen list {
+  cylinder (rahmen_r, [0,0,0], f_p1); 
+  cylinder (rahmen_r, [0,0,0], f_p2);
+  cylinder (rahmen_r, f_p1, f_p2);
+
+  cylinder (rahmen_r/2, f_p4+rahmen_naben_b, back_wheel+rahmen_naben_b);
+  cylinder (rahmen_r/2, f_p4-rahmen_naben_b, back_wheel-rahmen_naben_b);
+  cylinder (rahmen_r/2, f_p4+rahmen_naben_b, [0,0,0]);
+  sphere (rahmen_r+.01, f_p2);
+  cylinder (rahmen_r/2, f_p4-rahmen_naben_b, [0,0,0]);
+  sphere (rahmen_r/2, f_p4-rahmen_naben_b);
+  sphere (rahmen_r/2, f_p4+rahmen_naben_b);
+
+  cylinder (rahmen_r/2, f_p5+rahmen_naben_b, back_wheel+rahmen_naben_b);
+  cylinder (rahmen_r/2, f_p5-rahmen_naben_b, back_wheel-rahmen_naben_b);
+  cylinder (rahmen_r/2, f_p5+rahmen_naben_b, f_p2);
+  cylinder (rahmen_r/2, f_p5-rahmen_naben_b, f_p2);
+  sphere (rahmen_r/2, f_p5-rahmen_naben_b);
+  sphere (rahmen_r/2, f_p5+rahmen_naben_b);
+
+  sphere (rahmen_r, f_p1);
+  sphere (rahmen_r, back_wheel+rahmen_naben_b);
+  sphere (rahmen_r, back_wheel-rahmen_naben_b);
+
+  //
+  // der vorbau: winkel muss identisch mit winkel der gabel sein 
+  cylinder (rahmen_r+.005, [0,0,-.15], [0,0,.1]) {
+    rotateY gabel_angle;
+    translate f_p1;
+  }
+
+  //
+  // das tretlager: 
+  cylinder (.1, [0,-.27,0], [0,.27,0]){close;}
+}
+
+//
+//  Der Sattel
+// -----------------------------------------------------------------------------
+define sattel list {
+  pneu;
+  cylinder (.12, [-.3,0,0], [.3,0,0]) {
+    close;
+    scale [1,1,.3];
+  }
+  cylinder (.1, [-.15,0,-.1], [.15,0,-.1]) {
+    close;
+    scale [1,.7,.3];
+  }
+  sphere (.1,[.19,0,-.1]) { scale [1,1,.3]; }
+  sphere (.12,[.3,0,0])  { scale [1,1,.3]; }
+  sphere (.22,[-.2,0,0]) { scale [1,1.1,.2]; }
+
+  cylinder (rahmen_r-.04, -0.7*f_p2, [0,0,0]) { braun; }
+}
+
+//
+//  Der Lenker
+// -----------------------------------------------------------------------------
+const lenker_r .05;
+const vorbau [.3,0,0];
+const lenker_b [0,.7,0];
+const bar_end [.4,0,0];
+define lenker list {
+  sphere (lenker_r, [0,0,0]);
+  cylinder (lenker_r, [0,0,0], vorbau) { metall; };
+  cylinder (lenker_r, vorbau, vorbau+lenker_b);
+  sphere (lenker_r, vorbau-lenker_b);
+  sphere (lenker_r, vorbau+lenker_b);
+
+  cylinder (lenker_r, vorbau, vorbau-lenker_b);
+
+  cylinder (lenker_r, vorbau-lenker_b, vorbau-lenker_b+bar_end);
+  sphere (lenker_r, vorbau-lenker_b+bar_end);
+  cylinder (lenker_r, vorbau-lenker_b+bar_end,
+            vorbau-lenker_b+bar_end+[.1,.1,0]){close;}
+  sphere (lenker_r, vorbau+lenker_b+bar_end);
+  cylinder (lenker_r, vorbau+lenker_b, vorbau+lenker_b+bar_end);
+  cylinder (lenker_r, vorbau+lenker_b+bar_end, 
+            vorbau+lenker_b+bar_end+[.1,-.1,0]){close;}
+	
+  //
+  // die griffe: 
+  cylinder (lenker_r+.01, vorbau+(lenker_b*.5), vorbau+(lenker_b*.9)) {
+    close; 
+    pneu;
+  }
+  cylinder (lenker_r+.01, vorbau-(lenker_b*.5),
+		vorbau-(lenker_b*.9)) { close; pneu;}
+}
+
+//
+//  Die Gabel
+// -----------------------------------------------------------------------------
+const gabel_size [0,0,1.3];
+const gabel_r .06;
+const gabel_join [0,0,1.4];
+const gabel_top [0,0,1.9];
+define gabel list {
+  metall;
+  sphere (gabel_r, rahmen_naben_b) {metall_s;}
+  sphere (gabel_r, -rahmen_naben_b);
+
+  cylinder (gabel_r, rahmen_naben_b, gabel_size+rahmen_naben_b); 
+  cylinder (gabel_r, -rahmen_naben_b, gabel_size-rahmen_naben_b);
+
+  sphere (gabel_r, gabel_size+rahmen_naben_b);
+  sphere (gabel_r, gabel_size-rahmen_naben_b);
+
+  cylinder (gabel_r, gabel_size-rahmen_naben_b, gabel_join);
+  cylinder (gabel_r, gabel_size+rahmen_naben_b, gabel_join);
+  cylinder (gabel_r, gabel_join, gabel_top);
+
+  // die bremsen:
+  cylinder (gabel_r/3, rahmen_naben_b+(gabel_join*.78), 
+            rahmen_naben_b+(gabel_join*.78)+[.1,0,0]) {
+    close;
+    metall_s;
+  }
+  cylinder (gabel_r/3, -rahmen_naben_b+(gabel_join*.78), 
+            -rahmen_naben_b+(gabel_join*.78)+[.1,0,0]) {
+    close;
+    metall_s;
+  }
+
+  bremse { scale [.4,.4,.4]; translate  rahmen_naben_b+(gabel_join*.78)+[.1,0,0];}
+  bremse { scale [.4,-.4,.4]; translate  -rahmen_naben_b+(gabel_join*.78)+[.1,0,0];}
+}
+
+//
+// theBike
+//
+// The bike is putted together from frame 0 to 50 with the fct. "smoothstep".
+//
+// Backwheel, frontwheel, gear, and pedal are rotating from frame 50 1000 times.
+// One rotation of 3600 degrees is done in 10 frames.
+//
+
+define theBike list {
+  move {                               
+    action (0,50) {
+      direction ([10,0,0],"smoothstep",0,1,0);
+    }
+    ramen  {
+      bikeColor; 
+      translate [-10,0,0];
+    }
+  }
+  move {                              // move saddel
+    action (0,50) {
+      direction ([-10,0,0],"smoothstep",0,1,0);
+    }
+    sattel {
+      translate f_p2*1.7; 
+      translate [10,0,0];
+    }
+  }
+  move {                              // move fork
+    action (0,50) {
+      direction ([0,10,0],"smoothstep",0,1,0);
+    }
+    gabel {
+      rotateY gabel_angle;
+      translate front_wheel;
+      translate [0,-10,0];
+    }
+  }
+  move {                               // move steering wheel
+    action (0,50) {
+      direction ([0,-10,0],"smoothstep",0,1,0);
+    }
+    lenker {
+      translate gabel_top;
+      rotateY gabel_angle;
+      translate front_wheel;
+      translate [0,10,0];
+    }
+  }
+  move {                                // move frontwheel
+    action (0,50) {
+      direction ([0,0,10],"smoothstep",0,1,0);
+    }
+    turn {                     // rotation of the wheel
+      action (50,60,1000) {    // 1000 turns
+        axis([0,1,0]);         // rotationcenter
+        alpha(360);            // in 10 frames a konst. rotation of 360 degrees
+      }                        // center of rotation is the boundingbox
+      rad {
+        rotateY gabel_angle;
+        translate front_wheel;
+        translate [0,0,-10];
+      }        
+    }
+  }
+  move {                                // move backwheel
+    action (0,50) {
+      direction ([0,0,-10],"smoothstep",0,1,0);
+    }
+    turn {                                 // rotation of the wheel
+      action (50,60,1000) {
+        axis([0,1,0]);
+        alpha(360);    
+      }
+      rad {
+        translate back_wheel;
+        translate [0,0,10];
+      }
+    }
+  }
+  move {                                   // move gear
+    action (0,50) {
+      direction ([10,10,0],"smoothstep",0,1,0);
+    }
+    turn {                                   // rotation of the gear
+      action (50,60,10000) {
+        axis([0,1,0]);
+        alpha(360);    
+      }
+      zahnrad { 
+        scale [.8,.8,.8]; 
+        rotateX (90); 
+        translate [0,-.3,0];
+        translate [-10,-10,0];
+      }
+    }
+  }   
+  move {                                    // move pedale
+    action (0,50) {
+      direction ([10,-10,0],"smoothstep",0,1,0);
+    }
+    turn {                                    // rotation of the pedale
+      action (50,60,1000) {
+        axis([0,1,0]);
+        alpha(360);    
+      }
+      pedale {
+        rotateY (40);
+        translate [-10,10,0];
+      }        
+    }
+  }
+}
+
+//
+// THE BIKE instance
+// 
+// The bike does 1000 turns from frame 50. One turn is done in  
+// 100 frames. The rotationcenter is (0,0,1)
+// 
+//_____________________________________________________________
+
+turn {
+  action (50,150,100) {
+    axis([0,0,1]);
+    center([0,0,0]);
+    alpha(360,"id",0,1,0);    
+  }
+  theBike {translate [0,-7,0];}
+}
+
+define mirror whitted { diffuse [1,1,1]; reflectivity .9; }
+polygon ([-4,-4,-1.2],[4,-4,-1.2],[4,4,-1.2],[-4,4,-1.2]) { mirror; }
+
+#endif // _bike_bsdl3

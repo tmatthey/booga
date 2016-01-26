@@ -1,0 +1,73 @@
+/*
+ * text.bsdl2
+ *
+ * Copyright (C) 1994-96, Christoph Streit <streit@iam.unibe.ch>
+ *                        Stephan Amann <amann@iam.unibe.ch>
+ *                        University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: text.bsdl2,v 1.2 1996/01/11 17:47:45 streit Exp $
+ * -----------------------------------------------------------------------------
+ */
+ 
+#ifndef _test_bsdl2
+#define _test_bsdl2
+
+// We're in 2D Namespace:
+using 2D;
+ 
+// We need a camera
+camera {
+  resolution (300, 300);          // Screen resolution.
+  window ([-30,-30], [500,500]);  // Part of the scene to be displayed.
+  background [.5, .5, .5];        // Color of the background.
+}
+
+//_____________________________________________________________________ Textures
+
+define red   color [1,0,0];
+define green color [0,1,0];
+define blue  color [0,0,1];
+define white color [1,1,1];
+ 
+//________________________________________________________________________ Scene
+
+
+text (40, "This is text @#$%.") {
+  font "ROMAN";
+  white;
+}
+
+text (40, "MONO ROMAN") {
+  font "MONO_ROMAN";
+  blue;
+  translate [0, 60];
+}
+
+text (40, "This is text @#$%.") {
+  font "ROMAN";
+  green;
+  scale [0.6, 2];
+  translate [50, 130];
+}
+text (40, "This is text @#$%.") {
+  font "ROMAN";
+  red;
+  rotateOrigin -30;
+  translate [30, 400];
+}
+
+#endif // _test_bsdl2
+
+

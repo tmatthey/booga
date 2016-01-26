@@ -1,0 +1,7 @@
+OFILES = AdaptiveTraceCommand.o AdaptiveTracer.o AlignTool.o \
+		DBBrowser.o EditSelection.o GLPolygonMapper.o \
+		GravityCommand.o InspectCommand.o InspectSelectionCommand.o \
+		ObjectFactory.o PickCommand.o RotateCommand.o \
+		SharedEditor.o TextureSelector.o ToolBar.o \
+		wxAnimator.o wxEdit.o wxTraversal3D.o 
+

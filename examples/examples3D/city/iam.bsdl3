@@ -1,0 +1,223 @@
+/*
+ * iam.bsdl3 
+ *
+ * Copyright (C) 1997, Thierry Matthey <matthey@iam.unibe.ch>
+ *                     University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: iam.bsdl3,v 1.4 1997/05/26 13:45:17 matthey Exp $
+ * -----------------------------------------------------------------------------
+ */
+
+#ifndef _iam_bsdl3
+#define _iam_bsdl3
+
+#include "viewing.inc"
+#include "color.inc"
+#include "item.bsdl3"
+
+define iam_turm building (iam_stock_h*5,
+    [180,-6,0],[185,-11,0],[215,-11,0],[220,-6,0],
+    [220,24,0],[215,29,0],[185,29,0],[180,24,0]){
+  roofpoint(3,[200,9,15]){dachIam;}
+  frontrect(0){textureWall;}  
+  frontrect(1,0){
+    textureWall;
+    faceitem([0,1/4],[1,1],1,4){
+      fenster_iam00 {scale[0.9,0.9,0.9];}; 
+      displacement[.5,0.5];
+      hole;
+    }
+    faceitem([0,0],[1,1/4],1,1){
+      tuere_iam00; //{scale[0.9,0.9,0.9];}; 
+      displacement[.5,0];
+      hole;
+    }
+  }
+  frontrect(2){textureWall;}  
+  frontrect(3){textureWall;}  
+  frontrect(4){textureWall;}  
+  frontrect(5){textureWall;}  
+  frontrect(6){textureWall;}  
+  frontrect(7){textureWall;}  
+  translate[0,0,-iam_stock_h];
+}
+    
+define  iam list {
+  building(iam_stock_h*2,
+           [0,0,0],[105,0,0],[105,4,0],[180,4,0],
+           [220,4,0],[295,4,0],[295,0,0],[400,0,0],
+           [400,80,0],[370,80,0],[370,175,0],
+           [290,175,0],[290,168,0],[220,168,0],[180,168,0],
+           [110,168,0],[110,175,0],[30,175,0],
+           [30,80,0],[0,80,0]){
+   frontrect(0,0,-.5,1){ 
+    textureWall;
+    faceitem([0,-.5],[1,1],3,3){
+      fenster_iam00 {scale[0.9,0.9,0.9];};
+      displacement[.5,0.5];
+      hole;
+    }
+   }
+   frontrect(1,0,-.5,1){
+    textureWall;
+   }
+   frontrect(2,0,-.5,1){ 
+    textureWall;
+    faceitem([0,-.5],[1,1],3,3){
+      fenster_iam00 {scale[0.9,0.9,0.9];};
+      displacement[.5,0.5];
+      hole;
+    }
+   }
+   frontrect(4,0,-.5,1){ 
+    textureWall;
+    faceitem([0,0],[1,1],2,2){
+      fenster_iam00 {scale[0.9,0.9,0.9];};
+      displacement[.5,0.5];
+      hole;
+    }
+    faceitem([0.5,-.5],[1,0],1,1){
+      fenster_iam00 {scale[0.9,0.9,0.9];};
+      displacement[.5,0.5];
+      hole;
+    }
+    faceitem([0,-.5],[.5,0],1,1){
+      tuere_iam00; // {scale[0.9,0.9,0.9];};
+      displacement[.5,0];
+      hole;
+    }
+   }
+   frontrect(5,0,-.5,1){
+    textureWall;
+   }
+   frontrect(6,0,-.5,1){ 
+    textureWall;
+    faceitem([0,-.5],[1,1],3,3){
+      fenster_iam00 {scale[0.9,0.9,0.9];};
+      displacement[.5,0.5];
+      hole;
+    }
+   }
+   frontrect(7,0,-.5,1){ 
+    textureWall;
+    faceitem([0,-.5],[1,1],3,3){
+      fenster_iam00 {scale[0.9,0.9,0.9];};
+      displacement[.5,0.5];
+      hole;
+    }
+   }
+   frontrect(8){
+    textureWall;
+   }
+   frontrect(9){ 
+    textureWall;
+    faceitem([0,0],[1,1],3,2){
+      fenster_iam00 {scale[0.9,0.9,0.9];};
+      displacement[.5,0.5];
+      hole;
+    }
+   }
+   frontrect(10){ 
+    textureWall;
+    faceitem([0,0],[1,1],2,2){
+      fenster_iam00 {scale[0.9,0.9,0.9];};
+      displacement[.5,0.5];
+      hole;
+    }
+   }
+   frontrect(11){ 
+    textureWall;
+    facewall([0,0],[1,1]);
+   }
+   frontrect(12){
+    textureWall;
+    faceitem([0,0],[1,1],2,2){
+      fenster_iam00 {scale[0.9,0.9,0.9];};
+      displacement[.5,0.5];
+      hole;
+    }
+   }
+   frontrect(13){ 
+    textureWall;
+    faceitem([0,0],[1,1],1,1){
+      list {
+        tuere_iam00 {scale[0.9,0.9,0.9];};  
+        box([-10,-4,0],[10,0,5]){grey;}
+      }  
+      displacement[.5,0];
+      hole;
+    }
+   }
+   frontrect(14){ 
+    textureWall;
+    faceitem([0,0],[1,1],2,2){
+      fenster_iam00 {scale[0.9,0.9,0.9];};
+      displacement[.5,0.5];
+      hole;
+    }
+   }
+   frontrect(15){ 
+    textureWall;
+    facewall([0,0],[1,1]);
+   }
+   frontrect(16){ 
+    textureWall;
+    faceitem([0,0],[1,1],2,2){
+      fenster_iam00 {scale[0.9,0.9,0.9];};
+      displacement[.5,0.5];
+      hole;
+    }
+   }
+   frontrect(17){ 
+    textureWall;
+    faceitem([0,0],[1,1],3,2){
+      fenster_iam00 {scale[0.9,0.9,0.9];};
+      displacement[.5,0.5];
+      hole;
+    }
+   }
+   frontrect(18){ 
+    textureWall;
+    facewall([0,0],[1,1]);
+   }
+   frontrect(19,0,-.5,1){ 
+    textureWall;
+    faceitem([0,0],[1,1],2,2){
+      fenster_iam00 {scale[0.9,0.9,0.9];};
+      displacement[.5,0.5];
+      hole;
+    }
+   }
+ 
+  bottomflat{height(0.01);brown;}
+  bottomflat{height(iam_stock_h);brown;}
+  roofflat {brown;}
+  textureWall;
+  rooflayer([5,0,0],[-37.5,40,0]){dachIam;};
+  bottomuser{
+    iam_turm;
+  }
+  }
+}
+
+#ifndef _no_instance
+   iam;
+#endif
+// _no_instance
+
+#endif
+// _ iam_bsdl3
+
+

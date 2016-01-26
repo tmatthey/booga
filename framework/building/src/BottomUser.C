@@ -1,0 +1,118 @@
+/*
+ * $RCSfile: BottomUser.C,v $
+ *
+ * Copyright (C) 1996, Thierry Matthey <matthey@iam.unibe.ch>
+ *                     University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: BottomUser.C,v 1.7 1997/04/21 13:29:32 matthey Exp $
+ * -----------------------------------------------------------------------------
+ */
+
+#include "booga/base/TransMatrix3D.h"
+#include "booga/object/NullObject3D.h"
+#include "booga/building/BottomUser.h"
+#include "booga/building/Building.h"
+#include "booga/object/MakeableHandler.h"
+#include "booga/object/DummyMakeable.h"
+
+// ____________________________________________________________________ BottomUser
+
+implementRTTI(BottomUser, Bottom);
+
+BottomUser::BottomUser(Exemplar exemplar)
+:Bottom(exemplar)
+{
+  myObject = NULL;
+}
+
+BottomUser::BottomUser()
+:Bottom()
+{
+  myObject = NULL;
+}
+
+BottomUser::BottomUser(const BottomUser& bottomuser) : Bottom(bottomuser)
+{
+  if(bottomuser.myObject != NULL)
+    myObject = bottomuser.myObject->copy();
+  else
+    myObject = NULL;
+}
+
+BottomUser::~BottomUser()
+{
+  if (myObject)
+    delete myObject;
+}
+
+Object3D* BottomUser::copy() const
+{
+  return new BottomUser(*this);
+}
+
+Makeable* BottomUser::make(RCString& errMsg, const List<Value*>* parameters) const
+{
+  checkParameterNumber(0);
+  return new BottomUser(*this);
+}
+
+Object3D* BottomUser::orphanObject()
+{
+  Object3D* tmp = myObject;
+  myObject = NULL;
+  
+  return tmp;
+}
+
+int BottomUser::setSpecifier(RCString& errMsg, Makeable* specifier)
+{
+  Object3D* object = dynamic_cast(Object3D, specifier);
+  if (object != NULL) {
+    if (myObject != NULL)
+      delete myObject;
+    myObject = object;
+
+    return 1;
+  } 
+  
+  // 
+  // Let papa do the rest ...
+  //
+  return Bottom::setSpecifier(errMsg, specifier);
+}
+
+Object3D* BottomUser::doCreateSubject(Building* building) const
+{
+ if (myObject){
+   Object3D* object = myObject->copy();
+   object->addTransform(TransMatrix3D::makeTranslate(
+     Vector3D(0,0,building->getVertex(0,0).z())));
+   return object;
+ }
+ else
+   return new NullObject3D;
+}
+
+void BottomUser::iterateAttributes(MakeableHandler *handler) {
+  this->Bottom::iterateAttributes(handler);
+  if (myObject)
+    handler->handle(myObject);
+}
+
+static const RCString bottomuserKeyword("bottomuser");
+
+RCString BottomUser::getKeyword() const {
+  return bottomuserKeyword;
+}

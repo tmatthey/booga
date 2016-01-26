@@ -1,0 +1,314 @@
+/*
+ * ballbreaker.bsdl3
+ *
+ * This is example to show the possibilities of animation.
+ *
+ * Copyright (C) 1996, Thierry Matthey <matthey@iam.unibe.ch>
+ *                     University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: ballbreaker.bsdl3,v 1.3 1996/06/06 09:06:51 streit Exp $
+ * -----------------------------------------------------------------------------
+ */
+ 
+using 3D;
+
+// 
+// Definition of the camera and lightsource
+//
+
+camera {
+  perspective {
+    eye [80,0,50];
+    lookat [0, 0, 0];
+    resolution (512, 512);
+  }
+  background [.3,.3,.3];
+};
+
+pointLight (2, [1,1,1]) { position [  500,   500, 500]; }
+
+//
+// Definition of colors
+//
+
+define white   matte { diffuse [1,1,1]; }
+define red     phong { diffuse [.4,.1,.1]; specular [.6,0,0]; specpow 5;}
+define yellow  matte { diffuse [1,1,0]; }
+define green   matte { diffuse [.2,.5,.2]; }
+define green2  matte { diffuse [.3,.6,.2]; }
+define brown   matte { diffuse [.3,.2,.2]; }
+define blue    matte { diffuse [.3,.2,.9]; }
+define grey    matte { diffuse [.7,.7,.7]; }
+
+//
+// Definition of a tree
+//  
+
+define tree list{
+  cone (1,[0,0,0],0.2,[0,0,20]) { brown;}  
+  disc (6,[0,0,10],[0,0,1])     { green;}  
+  disc (5,[0,0,12],[0,0,1])     { green;}  
+  disc (4,[0,0,14],[0,0,1])     { green;}  
+  disc (3,[0,0,16],[0,0,1])     { green;}  
+  disc (2,[0,0,18],[0,0,1])     { green;}  
+}
+
+//
+// Definition of forest
+//
+// The forest contains 2 trees. Shear with the fct. "smoothstep"
+// gives the effect of blowing in the wind.
+// 
+
+define forest list{
+  shear {
+    action (0,4,0,8) {    // Shear of x =-.1 in  4 frames
+      axis [0,0,1];
+      center ([0,0,0]);
+      shearfactor ([-0.1,0],"smoothstep", 0,1, 0);
+    }
+    action (4,8,0,8) {  // Shear of x = .1 in  4 frames
+      axis [0,0,1];
+      center ([0,0,0]);    
+      shearfactor ([0.1,0],"smoothstep", 0,1, 0);
+    }
+    list {                 // 2 trees
+      tree {
+        translate [-6,0,0];
+      }
+      tree {
+        translate [6, 0,0];
+      }    
+    }
+  }
+}    
+
+//
+// Definition of the ball
+//
+// This are all movements of the ball. The ball has a self rotation.
+//
+
+define ball list{
+  move {
+    action (0,18) {
+      direction ([0,18,0]);                 // translate to the box
+    }
+    action (18,24) {
+      direction ([0,0,6]);                  // translate up along the box
+    }
+    action (24,24 + 3.14159) {   
+      direction ([0,0,2],"sin",0,0.025,0);  // turn around the edge of the box, z-direction
+    }
+    action (24,24 + 3.14159) {
+      direction ([0,2,0],"sin",0.075,0.1,0);// turn around the edge of the box, y-direction
+    }
+    action (24,24 + 3.14159) {
+      direction ([0,2,0],"const",1,1,0);    // to compensate the turn in x-direction
+    }
+    action (24 + 3.14159, 49 + 3.14159) {   // translate over the box
+      direction ([0,25,0]);
+    }
+    action (44 + 3.14159,49 + 3.14159) {
+      direction ([0,0,-8], "quad", 0.5,1,0); // falling down the box
+    }
+    turn {
+      action (0,3.14159,16) {                // the ball rolls (self-rotation)
+        center([0, -30, 4]);                 
+        axis [1,0,0];
+        alpha (-90);
+      }
+      grow {                                 // the ball been killed by the hammer
+        action (64,65) {
+          scalefactor([2.5,2.5,0.01]);
+          center ([0,-30,0]);
+        }
+        sphere (2, [0, -30, 4]) { white;};    // my ball
+      }
+    }
+  }
+}
+
+//
+// Definition of a animated hammer
+//
+// The hammer destroyes the ball.
+//
+
+define hammer list {
+  turn {
+    action (50,65) {
+      center ([0,40,4]);
+      axis ([1,0,0]);
+      alpha (90,"quad",0.5,1,0);
+    }
+    list {                             // Definition of the hammer
+      cylinder (1,[0,40,4],[0,40,29]);
+      cylinder (3,[0,36,29],[0,44,29]);
+    }
+  }
+  cone (6,[0,40,0],1,[0,40,4]);       // Definition of the stand
+  sphere (1,[0,40,4]);
+}
+
+//
+// Definition of a jumpball
+//
+// This is a simple ball which jumps.
+//
+
+define jumpball list {
+  move {                  // translation
+    action (0,8,0,8) {      // from frame 0 to 8 down, endless, waiting 8 frames
+      direction ([0,0,-10],"quad",0.5,1,0); // the fct. "quad" gives the effect of gravitation
+    }
+    action (8,16,0,8) {     // from frame 8 to 16 up, endless, waiting 8 frames
+      direction ([0,0,-10],"quad",0,0.5,0); // the fct. "quad" gives the effect of gravitation
+    }
+    sphere (2, [0,0,22]) { white;};
+  }
+}    
+
+//
+// Definition of a swing
+//
+// The swing contains a stage and an animated seat. The seat is swinging along
+// the y-axis. The swing is done by 4 turns and is endless.
+//
+
+define swing list {
+  cylinder (.3, [5,5,0],[5,0,20])   { grey;} // the stage of the swing
+  cylinder (.3, [5,-5,0],[5,0,20])  { grey;}
+  cylinder (.3, [-5,5,0],[-5,0,20]) { grey;}
+  cylinder (.3, [-5,-5,0],[-5,0,20]){ grey;}
+  cylinder (.3, [-5,0,20],[5,0,20]) { grey;}
+  turn {
+    action (0,6,0,18) {
+      center ([0,0,20]);          // swings back, backpart
+      axis ([1,0,0]);
+      alpha (60, "quad",0,0.5,0); // the fct. "quad" gives the effect of gravitation
+    }
+    action (6,12,0,18) {
+      center ([0,0,20]);          // swings forward, backpart
+      axis ([1,0,0]);
+      alpha (60, "quad",0.5,1,0); // the fct. "quad" gives the effect of gravitation
+    }
+    action (12,18,0,18) {
+      center ([0,0,20]);           // swings forward, frontpart
+      axis ([1,0,0]);
+      alpha (-60, "quad",0,0.5,0); // the fct. "quad" gives the effect of gravitation
+    }
+    action (18,24,0,18) {
+      center ([0,0,20]);           // swings back, frontpart
+      axis ([1,0,0]);
+      alpha (-60, "quad",0.5,1,0); // the fct. "quad" gives the effect of gravitation
+    }
+    list {  
+      cylinder (.1, [3,0,20],[3,0,5])   { grey;} // the seat of the swing
+      cylinder (.1, [-3,0,20],[-3,0,5]) { grey;}
+      box ([-3.5,-1,4.8],[3.5,1,5])     { brown;}
+    }
+  }
+}
+
+//
+// Definition of a jet
+//
+// A simple jet.
+//
+
+define jet list {
+  cylinder (2, [0,-15,0],[0,7,0]) {grey;}
+  cone (2,[0,7,0],.1,[0,12,0]) {grey;}
+  polygon ([0,5,0],[8,-20,0],[0,-15,0],[-8,-20,0]) {grey;}
+  polygon ([0,-15,0],[0,-15,5],[0,-5,0]) {red;}
+} 
+
+//
+// Fly around a jet.
+// 
+
+define flying_jet list {
+  tumble {
+    action (0,100) {
+      tumblepath ("smoothstep",0,1,0) { // The path of the jet
+        nurbs "curve" {
+          uknots (3,0,0,0,1,1,1);
+          vectors (4,[0, -300, 0],[20, -100, 0],[20, 100, 20],[20, 300, 20]);
+          weights (4,1,1,1,1);
+        }
+      }
+      tumblecenter {         // The rotationcenter
+        nurbs "curve" {
+          uknots (3,0,0,0,1,1,1);
+          vectors (4,[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0]);
+          weights (4,1,1,1,1);
+        }
+      }
+      tumbledirection {     // Vector of direction of the object is defined as
+        nurbs "curve" {     // the difference tumblecenter and tumbledirection
+          uknots (3,0,0,0,1,1,1);
+          vectors (4,[5, 0, 0],[0, 0, -5],[-5, 0, 0],[0, 0, 5]);
+          weights (4,1,1,1,1);
+        }
+      }
+    }    
+    jet;
+  }  
+}
+ 
+//
+// Definition of the background
+//
+// Contains the ground, a box and a torus which is deformed by the ball.
+//
+
+define ground list {
+  polygon ([-45,-45,0],[45,-45,0],[45,45,0],[-45,45,0]) { green2; }
+  box ([10,10,0], [-10,-10,10]) {  // a box
+    red;
+  }
+  grow {                                    // Deformation of the torus by the ball
+    action (33 + 3.14159 - 1,33 + 3.14159) {  // before passing the torus
+      scalefactor ([1/0.9,0.81,1/0.9],"quad", 0.5,1,0);
+      center ([0,0,12]);
+    }
+    action (33 + 3.14159,33 + 3.14159 + 1) {  // after passing the torus
+      scalefactor ([0.9,1/0.81,0.9],"quad", 0.5,1,0);
+      center ([0,0,12]);
+    }
+    action (0,1) {                            // to compensate
+      scalefactor ([0.9,1/0.81,0.9],"const", 1,1,0);
+      center ([0,0,12]);
+    }
+    torus (3,1,[0,-1,0],[0,1,0]) {
+      blue;
+      translate [0,0,12];
+    }
+  }
+}
+
+//_____________________________________________________________
+
+ground;
+forest   {translate [-30,-30,0];}
+jumpball {translate [8,8,10];}
+jumpball {translate [-8,8,10];}
+jumpball {translate [8,-8,10];}
+jumpball {translate [-8,-8,10];}
+ball;
+hammer;
+swing {translate [30,-30,0];}
+flying_jet  {translate [-2,-300,5];};

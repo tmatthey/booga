@@ -1,0 +1,61 @@
+/*
+ * christoffel.bsdl3 
+ *
+ * Copyright (C) 1994-96, Bernhard Buehlmann <buehlmann@iam.unibe.ch>
+ *                        University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: christoffel.bsdl3,v 1.1 1996/02/21 09:50:10 streit Exp $
+ * -----------------------------------------------------------------------------
+ */
+
+#include "viewing.inc.bsdl3"
+#include "material.inc.bsdl3"
+
+#include "kirche.bsdl3"
+#include "spital.bsdl3"
+#include "bahnhof.bsdl3"
+#include "svb1.bsdl3"
+
+camera {
+  perspective {
+    eye [-88.5648, 22.7183, 12.0611];
+    lookat [32.2986, 20.3285, 18.6313];
+    fov 64;
+    resolution (2*550, 2*230);
+  }
+  background [.2,.2,.8];
+}
+
+
+box ([-300, -300, 0], [300, 300, -.1]) {asphalt;}
+
+define birke cylinder (3, [0,0,0],[0,0,6]);
+
+
+birke {translate [-20,35,0];}
+birke {translate [10,35,0];}
+birke {translate [20,35,0];}
+
+
+spital {rotateZ(210);translate [40,-20,0];}
+
+spital {translate [0,50,0];}
+kirche {translate [0,-20,0];}
+
+bahnhof {rotateZ-(90); translate [40,25,0];}
+
+
+svb1 {scale [.7,.7,1];rotateZ(-90);translate [-6,37,0];}
+svb1 {scale [.7,.7,1];rotateZ(90);translate [-25,0,0];}

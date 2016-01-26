@@ -1,0 +1,12 @@
+OFILES = Matte.o Phong.o PolygonMapper.o \
+		Shader.o ShaderArithExpNode.o ShaderAssExpNode.o \
+		ShaderCmpStmtNode.o ShaderCompExpNode.o ShaderDeclNode.o \
+		ShaderExpNode.o ShaderForNode.o ShaderFuncNode.o \
+		ShaderFunction.o ShaderHeadNode.o ShaderIdExpNode.o \
+		ShaderIfNode.o ShaderIfThenElseNode.o ShaderLogicExpNode.o \
+		ShaderNode.o ShaderParExpNode.o ShaderParser.o \
+		ShaderProgNode.o ShaderRealValueNode.o ShaderShaderNode.o \
+		ShaderStmtNode.o ShaderStringValueNode.o ShaderValidTypeNode.o \
+		ShaderVecValueNode.o ShaderWhileNode.o TextureUtilities.o \
+		Whitted.o 
+

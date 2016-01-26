@@ -1,0 +1,75 @@
+#
+# $RCSfile: Viewing3DAttr.specifierAttr,v $
+#
+# Copyright (C) 1994-96, Stephan Amann <amann@iam.unibe.ch>
+#                        Christoph Streit <streit@iam.unibe.ch>
+#                        University of Berne, Switzerland
+#
+# All rights reserved.
+#
+# This software may be freely copied, modified, and redistributed
+# provided that this copyright notice is preserved on all copies.
+#
+# You may not distribute this software, in whole or in part, as part of
+# any commercial product without the express consent of the authors.
+#
+# There is no warranty or other guarantee of fitness of this software
+# for any purpose.  It is provided solely "as is".
+#
+# -----------------------------------------------------------------------------
+#  $Id: Viewing3DAttr.specifierAttr,v 1.4 1996/07/26 13:17:10 streit Exp $
+# -----------------------------------------------------------------------------
+#
+
+include <math.h>
+include "booga/object/ObjectAttr.h"
+
+specifier Viewing3D : public ObjectAttr
+
+attr Eye
+  member Vector3D
+  argument Vector3D
+  setMethod setEye(myEye)
+
+attr Lookat
+  member Vector3D
+  argument Vector3D
+  setMethod setLookat(myLookat)
+
+attr Up
+  member Vector3D
+  argument Vector3D
+  setMethod setUp(myUp)
+
+attr Fov
+  member Real HFov
+  member Real VFov
+  argument Real hFov
+    constraint hFov > EPSILON
+    error "negative value for field of view"
+  optional Real vFov
+    default -1
+    constraint vFov > EPSILON
+    error "negative value for field of view"
+
+  buildArgument dtor(hFov), dtor(vFov)
+  setMethod setFov(myHFov, myVFov)
+
+attr EyeSeparation
+  member Real EyeSep
+  argument Real
+  setMethod setEyeSeparation(myEyeSep)
+
+attr Resolution
+  member Real ResX
+  member Real ResY
+  argument Real resX
+    constraint (frac(resX) < EPSILON) && resX >= 1
+    warning "expecting integer number (real passed -> converting to int)"
+  argument Real resY
+    constraint (frac(resY) < EPSILON) && resY >= 1
+    warning "expecting integer number (real passed -> converting to int)"
+
+  buildArgument resX, resY
+  setMethod setResolution(int(rint(myResX)), int(rint(myResY)))
+

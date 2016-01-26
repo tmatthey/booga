@@ -1,0 +1,211 @@
+/*
+ * $RCSfile: building_zeit.bsdl3,v $
+ *
+ * Zytglocken - tower of Bern.
+ *
+ * Copyright (C) 1996, Thierry Matthey <matthey@iam.unibe.ch>
+ *                     University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: building_zeit.bsdl3,v 1.5 1997/05/26 13:45:12 matthey Exp $
+ * -----------------------------------------------------------------------------
+ */
+  
+using 3D;
+
+// Definition of the camera and the lightsource
+
+#include "color.inc"
+
+camera {
+  perspective {
+    resolution (300, 600);
+    eye [50,80,70];
+    lookat [0,0,62];
+    up [0,0,1];
+  }
+  background [.3,.3,.3];
+};
+pointLight (1.0, [1,1,1]) { position [-500,500,1000]; }
+pointLight (.3, [1,1,1]) { position [500,800,200]; }
+ambientLight (0.3, [1,1,1]);
+
+// definition of the tower
+
+define zeiger list {
+  	
+  sphere (.2, [0, 1.3, .4]) {scale [1,1,.3];}
+}
+
+define clock list {
+  disc (10,[0,0,0.005],[0,0,1]){gold;}
+  disc (7,[0,0,0.01],[0,0,1]);
+  turn {
+    action(0,60*12,0){
+      alpha(-360,"id",0,1,1/(60*60));
+      center([0,0,0]);
+      axis([0,0,1]);
+    }
+    box ([-.08, 6.75,.25], [.08, -6, 0.1]) {gold;}
+  }
+  turn {
+    action(0,60,0){ 
+      alpha(-360,"id",0,1,1/(60*60));
+      center([0,0,0]);
+      axis([0,0,1]);
+    }  
+    box ([-.08, 9,.25], [.08, -6.5, 0.1]) {gold;}
+  }
+  sphere (0.5, [0, 0, .6]) {scale [1,1,.3];gold;}
+
+}       
+        
+define dormer 
+  building(4,[-10,-2,0],[0,-2,0],[0,2,0],[-10,2,0]){
+    frontrect(0,0);
+    fronttri(1,0,[0.9,1] ,[0.865625,1.19687] ,[0.775,1.3375] ,[0.646875,1.42188] ,[0.5,1.45] ,
+[0.353125,1.42188] ,[0.225,1.3375] ,[0.134375,1.19687] ,[0.1,1] ){
+      faceitem([0,0],[1,1.2],1,1){
+        list{
+          box([.15,.1,-1],[.85,1.2,-.01]);
+          box([.25,1.19,-1],[.75,1.32,-.01]);
+          scale[4,4,1];dachRot;
+        }
+hole([0.8,0.8] ,
+[0.8,4] ,[0.903125,4.525] ,[1.175,4.9] ,[1.55937,5.125] ,[2,5.2] ,
+[2.44062,5.125] ,[2.825,4.9] ,[3.09687,4.525] ,[3.2,4] ,[3.2,0.8] );
+
+//0.2 0.2 m
+//0.2 1 l
+//0.2 1.4 0.8 1.4 0.8 1 c
+//0.8 0.2 l
+
+      }
+    }
+    frontrect(2);
+    fronttri(3,0 ,[0.9,1] ,[0.865625,1.19687] ,
+    [0.775,1.3375] ,[0.646875,1.42188] ,[0.5,1.45] ,
+    [0.353125,1.42188] ,[0.225,1.3375] ,
+    [0.134375,1.19687],[0.1,1] );
+    sandstein;
+    roofpoint(0.5){dachRot;}
+//1 1 m
+//0.9 1 l
+//0.9 1.6 0.1 1.6 0.1 1 c
+//0 1 l
+    
+  }
+
+define  oberteil                   // Dach
+                    building(10,[-3.5,-3.5, 0], [ 3.5,-3.5, 0],   // coords of the base of the building
+                     [ 3.5, 3.5, 0], [-3.5, 3.5, 0]){
+                      frontrect(0){
+                        facearbour([0,0.3],[1,1],1){
+                          walloff;
+                          bezierparm1(0.9);
+                          bezierparm2(0.9);
+                        }
+                      }
+                      frontrect(1){
+                        facearbour([0,0.3],[1,1],1){
+                          walloff;
+                          bezierparm1(0.9);
+                          bezierparm2(0.9);
+                        }
+                      }
+                      frontrect(2){
+                        facearbour([0,0.3],[1,1],1){
+                          walloff;
+                          bezierparm1(0.9);
+                          bezierparm2(0.9);
+                        }
+                      }
+                      frontrect(3){
+                        facearbour([0,0.3],[1,1],1){
+                          walloff;
+                          bezierparm1(0.9);
+                          bezierparm2(0.9);
+                        }
+                      }
+                      bottomborder(1,1,0.3,0.1){height(3);}
+                      rooflayer([1,0,1],[-.5,1,1],[-3.25,30,1],[-3.4,40,1]){dachGreen;}
+                      roofuser {
+                        height(40);
+                        sphere(0.5,[0,0,0]){dachGreen;}; 
+                      }
+                    }
+                  
+define mittelteil               
+             building (40,[-14.5,-14.5, 0], [ 14.5,-14.5, 0],   // coords of the base of the building
+                     [ 14.5, 14.5, 0], [-14.5, 14.5, 0]){
+                  roofuser {                    dachGreen;
+                    height(20);
+ oberteil;
+}
+                  // Mittelteil
+                  frontrect(0,0){
+                    faceitem([0,0],[1,1],1,1){
+                      clock;
+                      displacement[0.5,0.5];
+                    }
+                  }
+                  frontrect(1,0);
+                  frontrect(2,0){
+                    faceitem([0,0],[1,1],1,1){
+                      clock;
+                      displacement[0.5,0.5];
+                    }
+                  }
+                  frontrect(3,0);
+                  roofborder(1,1,5,1){height(-5);}
+                  rooflayer  ([3.5,0,1],[0,1.5,1],[-4,4,1],
+                              [-6.5,7,1],[-9,12,1],[-11,20,1]){dachRot;};
+                  snatch([0,12.5]){dormer;} 
+                  snatch([0,-12.5]){dormer;} 
+                }
+turn {
+  action(0,48,0){
+    center[0,0,0];
+    axis[0,0,1];
+    alpha(360,"id",0,1,0);
+  }              
+building (20,[-15,-15, 0],    // height of the building
+             [ 15,-15, 0],   // coords of the base of the building
+             [ 15, 15, 0], 
+             [-15, 15, 0]){
+             roofuser{mittelteil;}
+              // roof defined by points  
+              rooflayer  ([2,0,1],[-.5,2,1]){dachRot;};
+              // texture of the default fronts
+              sandstein;
+              bottomborder(.5,.5,.7,.5){height(11);}
+              bottomborder(.5,.5,.7,.5){height(18);}
+              frontrect(0,0){
+                // tunnel between front 0 and 2
+                facetunnel([0.25,0],[.75,.55],[0.25,0],[.75,.55],2,0){
+                  bezierparm1(1);
+                  bezierparm2(0.6);
+                  columnwidth(0.2);
+                  numberofpoints(11);
+                  walloff;
+                }
+              }
+              frontrect(1,0);
+              frontrect(2,0);
+              frontrect(3,0);
+            } 
+         
+}
+// grass
+box([-1000,-1000,-1],[1000,1000,0]){grey;}

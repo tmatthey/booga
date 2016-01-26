@@ -1,0 +1,174 @@
+/*
+ * tumbleAround.bsdl3
+ *
+ * This example shows how the transformation tumble works.
+ * There are 2 jets which moves and turns around. The path and
+ * direction of the jets is modeled by nurbs.
+ *
+ * Copyright (C) 1996, Thierry Matthey <matthey@iam.unibe.ch>
+ *                     University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: tumbleAround.bsdl3,v 1.2 1996/06/06 09:07:04 streit Exp $
+ * -----------------------------------------------------------------------------
+ */
+  
+using 3D;
+
+//
+// Definiton fo the camera and the lightsource
+//
+
+camera {
+  perspective {
+    eye [160,170,180];
+    lookat [0, 0, 0];
+    resolution (512, 512);
+  }
+  background [.3,.3,.3];
+};
+
+pointLight (2, [1,1,1]) { position [  40,   40, 20]; }
+
+//
+// Definiton of colors
+//
+
+define blue  matte { diffuse [0,0,1]; }
+define red   phong { diffuse [1,.1,.1]; specular [.6,0,0]; specpow 5;}
+define yellow  matte { diffuse [1,1,0]; }
+define grey    matte { diffuse [.7,.7,.7]; }
+define green   matte { diffuse [.2,.5,.2]; }
+define brown   matte { diffuse [.3,.2,.2]; }
+
+//
+// Definiton of a simple jet
+//
+
+define jet list {
+  cylinder (2, [0,-15,0],[0,7,0]) {grey;}
+  cone (2,[0,7,0],.1,[0,12,0]) {grey;}
+  polygon ([0,5,0],[8,-20,0],[0,-15,0],[-8,-20,0]) {grey;}
+  polygon ([0,-15,0],[0,-15,5],[0,-5,0]) {red;}
+} 
+
+//
+// Definiton of a tree
+//  
+
+define tree list{
+  cone (1,[0,0,0],0.2,[0,0,20]) { brown;}  
+  disc (6,[0,0,10],[0,0,1])     { green;}  
+  disc (5,[0,0,12],[0,0,1])     { green;}  
+  disc (4,[0,0,14],[0,0,1])     { green;}  
+  disc (3,[0,0,16],[0,0,1])     { green;}  
+  disc (2,[0,0,18],[0,0,1])     { green;}  
+}
+
+//
+// Definition of the background
+// 
+
+define ground list {
+  polygon ([-45,-45,0],[45,-45,0],[45,45,0],[-45,45,0]) { yellow; }
+}
+
+//
+// Fly around jet 1.
+// 
+
+define flying_jet1 list {
+  tumble {
+    action (0,100) {
+      tumblepath ("smoothstep",0,1,0) { // The path of the jet
+        nurbs "curve" {
+          uknots (3,0,0,0,1,1,1);
+          vectors (4,[0, -300, 0],[20, -100, 0],[20, 100, 20],[20, 300, 20]);
+          weights (4,1,1,1,1);
+        }
+      }
+      tumblecenter {         // The rotationcenter
+        nurbs "curve" {
+          uknots (3,0,0,0,1,1,1);
+          vectors (4,[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0]);
+          weights (4,1,1,1,1);
+        }
+      }
+      tumbledirection {     // Vector of direction of the object is defined as
+        nurbs "curve" {     // the differences tumblecenter and tumbledirection
+          uknots (3,0,0,0,1,1,1);
+          vectors (4,[5, 0, 0],[0, 0, -5],[-5, 0, 0],[0, 0, 5]);
+          weights (4,1,1,1,1);
+        }
+      }
+    }    
+    jet;
+  }  
+}
+
+//
+// Fly around jet 2.
+// 
+
+define flying_jet2 list {
+  tumble {
+    action (0,100) {
+      tumblepath ("quad",0.5,1,0) { // The path of the jet
+        nurbs "curve" {
+          uknots (3,0,0,0,1,1,1);
+          vectors (4,[0, -300, 0],[150, -100, 0],[-150, 100, 0],[0, 300, 0]);
+          weights (4,1,1,1,1);
+        }
+      }
+      tumblecenter {         // The rotationcenter
+        nurbs "curve" {
+          uknots (3,0,0,0,1,1,1);
+          vectors (4,[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0]);
+          weights (4,1,1,1,1);
+        }
+      }
+      tumbledirection {     // Vector of direction of the object is defined as
+        nurbs "curve" {     // the differences tumblecenter and tumbledirection
+          uknots (3,0,0,0,1,1,1);
+          vectors (4,[0, 0, 5],[-5, 0, 0],[0, 0, -5],[5, 0, 0]);
+          weights (4,1,1,1,1);
+        }
+      }
+    }    
+    jet;
+  }  
+}
+
+//
+// Shows the path of jet 2 
+//
+
+define path2 list {
+  nurbs "curve" {
+    uknots (3,0,0,0,1,1,1);
+    vectors (4,[0, -300, 0],[150, -100, 0],[-150, 100, 0],[0, 300, 0]);
+    weights (4,1,1,1,1);
+    translate [-20,150,5];
+    precision 0.5;
+  }
+}
+
+//_____________________________________________________________
+
+ground;
+tree;
+// path2;
+
+flying_jet1 {translate [20,-150,5];};
+flying_jet2 {translate [-20,-150,5];};

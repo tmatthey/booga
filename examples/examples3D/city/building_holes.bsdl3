@@ -1,0 +1,70 @@
+/*
+ * $RCSfile: building_holes.bsdl3,v $
+ *
+ * A simple example of a building with a roof, bottom but without faces
+ * and fronts. It contains 5 holes.
+ *
+ * Copyright (C) 1996, Thierry Matthey <matthey@iam.unibe.ch>
+ *                     University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: building_holes.bsdl3,v 1.4 1997/04/15 08:37:39 matthey Exp $
+ * -----------------------------------------------------------------------------
+ */
+  
+using 3D;
+
+// Definition of the camera and the lightsource
+
+#include "color.inc"
+
+camera {
+  perspective {
+    resolution (600/2, 400/2);
+    eye [100,-100,40];
+    lookat [0,0,0];
+  }
+  background [.3,.3,.3];
+};
+
+pointLight (2, [1,1,1]) { position [100,100,100]; }
+
+
+building (10,[-10,-10, 0],   // height of the building
+             [-10,-30, 0],   // coords of the bottom of the building
+             [ 10,-30, 0],   // the building has no userdefined faces
+             [ 10,-10, 0], 
+             [ 30,-10, 0],
+             [ 30, 10, 0],
+             [ 10, 10, 0],
+             [ 10, 30, 0],
+             [-10, 30, 0],
+             [-10, 10, 0],
+             [-30, 10, 0],
+             [-30,-10, 0]){
+             // bottom with texture
+             bottomflat{height(0.01);brown;};
+             // roof with 30 deg. and texture  
+             roofplane(1,30){dachRot;};
+             // texture of the default faces
+             sandstein;
+             hole([5,5,0],[5,-5,0],[-5,-5,0],[-5,5,0]);
+             hole([25,5,0],[25,-5,0],[15,-5,0],[15,5,0]);
+             hole([-15,5,0],[-15,-5,0],[-25,-5,0],[-25,5,0]);
+             hole([5,25,0],[5,15,0],[-5,15,0],[-5,25,0]);
+             hole([5,-15,0],[5,-25,0],[-5,-25,0],[-5,-15,0]);                   
+          }
+
+// grass
+polygon([-40,-40,0],[40,-40,0],[40,40,0],[-40,40,0]){green;}

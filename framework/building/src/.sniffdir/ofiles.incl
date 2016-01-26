@@ -1,0 +1,10 @@
+OFILES = Bottom.o BottomBorder.o BottomBorderAttr.o BottomFlat.o \
+		BottomUser.o Building.o BuildingAttr.o \
+		BuildingObject.o Face.o FaceArbour.o \
+		FaceDummy.o FaceItem.o FaceItemAttr.o \
+		FaceTunnel.o FaceWall.o Front.o \
+		FrontRect.o FrontSimple.o FrontTriangle.o \
+		Roof.o RoofBorder.o RoofFlat.o \
+		RoofLayer.o RoofPlane.o RoofPoint.o \
+		RoofUser.o Snatch.o SnatchRoof.o 
+

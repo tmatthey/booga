@@ -1,0 +1,2 @@
+OFILES = picker.o 
+

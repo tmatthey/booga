@@ -1,0 +1,28 @@
+#%Module1.0
+########################################################################
+##
+##      Setup for Project BOOGA
+##
+# Mon Mar 27 14:05:00 1995  Stephan Amann <amann@iam.unibe.ch>
+
+
+# QuickArt Stuff
+#-----------------------------------
+setenv  PLATFORM	aix-3.2.5
+setenv  COMPILER	cset
+
+module load common.aix
+
+setenv SHARED_SRC $env(CORE_SHARED_SRC)
+setenv SHARED_OBJ $env(CORE_SHARED_OBJ)
+
+setenv CONFIGURATION ""
+
+prepend-path    LIBPATH $env(SHARED_OBJ)/framework/lib
+prepend-path    LIBPATH $env(WORKSPACE)/framework/lib
+ 
+prepend-path    PATH    $env(SHARED_OBJ)/applications/bin
+prepend-path    PATH    $env(WORKSPACE)/applications/bin
+ 
+
+

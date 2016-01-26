@@ -1,0 +1,145 @@
+/*
+ * TumbleCenter3D.C
+ *
+ * Copyright (C) 1995-96, Thierry Matthey <matthey@iam.unibe.ch>
+ *                        University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: TumbleCenter3D.C,v 1.3 1996/11/13 09:38:09 collison Exp $
+ * -----------------------------------------------------------------------------
+ */
+
+#include <string.h>
+#include "booga/base/Report.h"
+#include "booga/base/Value.h"
+#include "booga/animation/ActionInfo.h"
+#include "booga/animation/TumbleCenter3D.h"
+#include "booga/object/InterpolationCurve3D.h"          
+#include "booga/nurbs/Nurbs3DEvaluator.h"          
+#include "booga/object/DummyMakeable.h"
+#include "booga/object/MakeableHandler.h"
+
+// ____________________________________________________________________ TumbleCenter3D
+
+implementRTTI(TumbleCenter3D, ActionInfoAttr);
+
+TumbleCenter3D::TumbleCenter3D(Exemplar)
+{
+  myNurbs = NULL;
+  myCurve = NULL;
+}
+
+TumbleCenter3D::TumbleCenter3D(const TumbleCenter3D& tumbleCenter)
+:ActionInfoAttr(tumbleCenter)
+{
+ if (tumbleCenter.myNurbs != NULL)
+    myNurbs = (Nurbs3D*)tumbleCenter.myNurbs->copy();
+  else
+    myNurbs = NULL;
+
+  if (tumbleCenter.myCurve != NULL)
+    myCurve = (InterpolationCurve3D*)tumbleCenter.myCurve->copy();
+  else
+    myCurve = NULL;
+}         
+
+TumbleCenter3D::TumbleCenter3D(Nurbs3DEvaluator* nurbsEvaluator, InterpolationCurve3D* curve)
+{
+  if (nurbsEvaluator)
+    myNurbs = (Nurbs3D*)nurbsEvaluator->copyNurbs();
+  else
+    myNurbs = NULL;
+  if (curve)
+    myCurve = (InterpolationCurve3D*)curve->copy();
+  else
+    myCurve = NULL;
+}
+
+TumbleCenter3D::~TumbleCenter3D()
+{
+  delete myCurve;
+  delete myNurbs;
+}
+
+void TumbleCenter3D::setAttribute(ActionInfo* actionInfo) const
+{
+  if (myNurbs) {
+    actionInfo->setTumbleCenter(new Nurbs3D(*myNurbs));
+  }
+  else if (myCurve) {
+    actionInfo->adoptTumbleCenter(new InterpolationCurve3D(*myCurve));
+  }
+  else {
+    ostrstream os;
+    os << "[TumbleCenter3D::setAttribute] curve not specified";
+    Report::recoverable(os);       
+  }
+
+}
+
+Makeable* TumbleCenter3D::make(RCString&, const List<Value*>*) const
+{
+  TumbleCenter3D* newCenter = new TumbleCenter3D(*this);
+
+  newCenter->myNurbs = NULL;
+  newCenter->myCurve = NULL;
+        
+  return newCenter;
+}
+
+int TumbleCenter3D::setSpecifier (RCString &errMsg, Makeable *specifier)
+{
+  Nurbs3D* nurbs = dynamic_cast(Nurbs3D, specifier);
+
+  if (nurbs != NULL) {
+    if (!strcmp(nurbs->whatAmI(),"curve")) {
+      myNurbs = nurbs;
+      return 1;
+    }
+    else {
+      myNurbs = NULL;
+      errMsg = "[TumbleCenter3D::setSpecifier] nurbs is not a curve";
+      return 0;
+    }
+  }
+
+  InterpolationCurve3D* Curve = dynamic_cast(InterpolationCurve3D, specifier);
+
+  if (Curve != NULL) {
+      myCurve = Curve;
+	  return 1;
+  } else {
+      myCurve = NULL;
+      errMsg = "[TumbleCenter3D::setSpecifier] object is not a curve";
+      return 0;
+  }
+  
+  // 
+  // Let papa do the rest ...
+  //
+  return ActionInfoAttr::setSpecifier(errMsg, specifier);
+}
+
+static const RCString tumblecenterKeyword("tumblecenter");
+
+RCString TumbleCenter3D::getKeyword() const {
+  return tumblecenterKeyword;
+}
+
+void TumbleCenter3D::iterateAttributes(MakeableHandler *handler) {
+  if (myNurbs)
+    handler->handle(myNurbs);
+  else
+    handler->handle(myCurve);
+}

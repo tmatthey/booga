@@ -1,0 +1,93 @@
+/*
+ * $RCSfile: building_zeit.bsdl3,v $
+ *
+ * Zytglocken - tower of Bern.
+ *
+ * Copyright (C) 1996, Thierry Matthey <matthey@iam.unibe.ch>
+ *                     University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: building_zeit.bsdl3,v 1.4 1997/04/15 08:37:51 matthey Exp $
+ * -----------------------------------------------------------------------------
+ */
+  
+using 3D;
+
+// Definition of the camera and the lightsource
+
+using 3D;
+define sandstein whitted {
+  diffuse [0.862745, 0.784314, 0.666667];
+  ambient [0.862745, 0.784314, 0.666667];
+};
+
+using 3D;
+define dachRot whitted {
+  diffuse [0.705882, 0.45098, 0.380392];
+  ambient [0.705882, 0.45098, 0.380392];
+};
+
+using 3D;
+define aareBlau whitted {
+  diffuse [0.4, 0.4, 0.9];
+  ambient [0.4, 0.4, 0.9];
+};
+
+using 3D;
+define green2 whitted {
+  diffuse [0.3, 0.5, 0.2];
+  ambient [0.3, 0.5, 0.2];
+};
+
+using 3D;
+
+camera {
+  on;
+  background [0.3, 0.3, 0.3];
+  perspective {
+    eye [-1850, 190, 375];
+    lookat [-1000, 300, 0];
+    up [0, 0, 1];
+    eyesep 1;
+    resolution (800, 550);
+    fov 45;
+  };
+};
+pointLight (1, [1, 1, 1]) {
+  on;
+  position [-2000, -1000, 1000];
+};
+ambientLight (1, [1, 1, 1]) {
+  on;
+};
+building (20, [-1289.7, 428.9, 0], [-1262.5, 480.7, 0], [-1334.5, 515.1, 0], [-1339.1, 512.9, 0], [-1343.4, 447.6, 0]) {
+  transform {
+    translate [0, 0, 35.7383];
+  };
+  sandstein;
+  roofplane (0, 30) {
+    dachRot;
+  };
+  hole ([-1321.3, 496.1, 0], [-1283, 477.3, 0], [-1296.5, 449.8, 0], [-1324.1, 460.1, 0], [-1323.4, 475.4, 0], [-1321.2, 475.3, 0], [-1321, 484, 0], [-1323.1, 484.2, 0], [-1322.7, 496.7, 0]);
+};
+building (20, [-1331.6, 532.2, 0], [-1260.4, 498.1, 0], [-1251.4, 500.9, 0], [-1247.2, 508.5, 0], [-1308.4, 538.5, 0], [-1306.7, 542.4, 0], [-1309.5, 544.2, 0], [-1308.1, 551.6, 0], [-1305.6, 550.9, 0], [-1303.2, 560.7, 0], [-1312.4, 563.2, 0], [-1311.7, 566, 0], [-1307.1, 570.8, 0], [-1303.6, 566.7, 0], [-1273.5, 597.1, 0], [-1276.4, 599.7, 0], [-1272.1, 604.4, 0], [-1268.7, 601.6, 0], [-1257.4, 613, 0], [-1266.3, 623.4, 0], [-1270.5, 623.8, 0], [-1325.6, 571.2, 0], [-1334.9, 539.1, 0], [-1333.6, 538.8, 0], [-1333.8, 537.4, 0], [-1333.7, 536, 0], [-1333.2, 534.8, 0], [-1332.4, 533.9, 0], [-1331.2, 533.3, 0]) {
+  transform {
+    translate [0, 0, 32.1504];
+  };
+  sandstein;
+  roofplane (0, 30) {
+    dachRot;
+  };
+};
+

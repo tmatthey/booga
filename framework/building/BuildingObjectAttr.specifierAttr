@@ -1,0 +1,33 @@
+#
+# $RCSfile: BuildingObjectAttr.specifierAttr,v $
+#
+# Copyright (C) 1996, Thierry Mattheyt <matthey@iam.unibe.ch>
+#
+# All rights reserved.
+#
+# This software may be freely copied, modified, and redistributed
+# provided that this copyright notice is preserved on all copies.
+#
+# You may not distribute this software, in whole or in part, as part of
+# any commercial product without the express consent of the authors.
+#
+# There is no warranty or other guarantee of fitness of this software
+# for any purpose.  It is provided solely "as is".
+#
+# -----------------------------------------------------------------------------
+#  $Id: BuildingObjectAttr.specifierAttr,v 1.1 1997/01/17 10:34:43 matthey Exp $
+# -----------------------------------------------------------------------------
+#
+
+library building
+
+include "booga/object/ObjectAttr.h"
+
+specifier BuildingObject : public ObjectAttr
+
+attr On
+  setMethod turnOn
+
+attr Off
+  setMethod turnOff
+

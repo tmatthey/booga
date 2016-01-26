@@ -1,0 +1,41 @@
+/*
+ * bremse.bsdl3 
+ *
+ * Copyright (C) 1995, Bernhard Buehlmann <buehlmann@iam.unibe.ch>
+ *                     University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: bremse.bsdl3,v 1.4 1996/08/29 14:17:25 buhlmann Exp $
+ * -----------------------------------------------------------------------------
+ */
+
+#ifndef _bremse_bsdl3
+#define _bremse_bsdl3
+
+#include "viewing.bsdl3"
+#include "material.bsdl3"
+
+const bremskabel_e [.1,.2,.3];
+
+define bremse list {
+  cylinder (.1, [0,0,0], [.2,0,0]) { close; metall; }
+  sphere (.1, [.2,0,0]){ metall; }	
+  cylinder (.1, [.1,0,0], [.1,0,-.3]) { close; metall; }
+  cylinder (.06, [.1,0,0], [.1,.2,.3]) { close; metall; }
+  sphere (.06, [.1,.2,.3]) { metall; };
+  cylinder (.06, [.1,0,-.2], [.1,-.2,-.2]) { close; metall; }
+  box ([.3,-.25,-.25],[-.1,-.2,-.15]) { pneu; } 	
+}
+
+#endif // _bremse_bsdl3

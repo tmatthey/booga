@@ -1,0 +1,80 @@
+SNIFF_TARGET		= all
+SNIFF_TARGETS		= all 
+SNIFF_INCLUDE		= 
+
+SNIFF_ShSWS		= $(SHARED_SRC)/framework/pixmapOp/src
+SNIFF_ShSWS_2		= '$$(SHARED_SRC)/framework/pixmapOp/src'
+SNIFF_ShOWS		= $(SHARED_OBJ)/framework/pixmapOp/src
+SNIFF_PROJECT_DIR	= framework/pixmapOp/src
+SNIFF_RELATIVE_ROOT_DIR	= ../../..
+SNIFF_GENERATE_DIR	= .sniffdir
+SNIFF_GENERATE_DIR_ROOT	= 
+
+SNIFF_PROJECT		= pixmapOp_src.shared
+SNIFF_STATUSFILE	= .Sniff_LastUpdateOfProject_$(SNIFF_PROJECT)
+
+SNIFF_VCS		= RCS
+SNIFF_REPOSITORY_DIR	= $(REPOSITORY)/framework/pixmapOp/src
+
+SNIFF_Lex_Source_DIR	= .
+SNIFF_Lex_Source_FILES	= 
+
+SNIFF_Yacc_Source_DIR	= .
+SNIFF_Yacc_Source_FILES	= 
+
+SNIFF_Shell_Script_DIR	= .
+SNIFF_Shell_Script_FILES	= 
+
+SNIFF_Emacs_Lisp_DIR	= .
+SNIFF_Emacs_Lisp_FILES	= 
+
+SNIFF_Python_DIR	= .
+SNIFF_Python_FILES	= 
+
+SNIFF_Make_DIR	= .
+SNIFF_Make_FILES	= lib-specific.mk 
+
+SNIFF_Header_Documentation_DIR	= docu
+SNIFF_Header_Documentation_FILES	= 
+
+SNIFF_Header_DIR	= .
+SNIFF_Header_FILES	= neuroQuant.h 
+
+SNIFF_Implementation_DIR	= .
+SNIFF_Implementation_FILES	= ColorTransformation.C ComputeBoundary.C ExtractChannel.C  \
+	GIFReader.C GammaCorrection.C ImageReader.C  \
+	JPEGReader.C LabelConnectedComponents.C NeuroQuantize.C  \
+	PPMReader.C PixiDiff.C PixiReader.C  \
+	PixmapGenerator.C PixmapTransformer.C Thin.C  \
+	neuroQuant.C 
+
+SNIFF_Project_Description_DIR	= .
+SNIFF_Project_Description_FILES	= pixmapOp_src.shared 
+
+SNIFF_Document_Template_DIR	= docu/tmpl
+SNIFF_Document_Template_FILES	= 
+
+SNIFF_Image_DIR	= images
+SNIFF_Image_FILES	= 
+
+SNIFF_Object_DIR	= .
+SNIFF_Object_FILES	= 
+
+SNIFF_Implementation_Documentation_DIR	= docu
+SNIFF_Implementation_Documentation_FILES	= 
+
+SNIFF_BOOGA_Scene_Description_DIR	= .
+SNIFF_BOOGA_Scene_Description_FILES	= 
+
+SNIFF_Generator_ConfigurationHandler_DIR	= .
+SNIFF_Generator_ConfigurationHandler_FILES	= 
+
+SNIFF_Generator_SpecifierAttribute_DIR	= .
+SNIFF_Generator_SpecifierAttribute_FILES	= 
+
+SNIFF_FILES	= $(SNIFF_Lex_Source_FILES) $(SNIFF_Yacc_Source_FILES) $(SNIFF_Shell_Script_FILES)  \
+	$(SNIFF_Emacs_Lisp_FILES) $(SNIFF_Python_FILES) $(SNIFF_Make_FILES)  \
+	$(SNIFF_Header_Documentation_FILES) $(SNIFF_Header_FILES) $(SNIFF_Implementation_FILES)  \
+	$(SNIFF_Project_Description_FILES) $(SNIFF_Document_Template_FILES) $(SNIFF_Image_FILES)  \
+	$(SNIFF_Object_FILES) $(SNIFF_Implementation_Documentation_FILES) $(SNIFF_BOOGA_Scene_Description_FILES)  \
+	$(SNIFF_Generator_ConfigurationHandler_FILES) $(SNIFF_Generator_SpecifierAttribute_FILES) 

@@ -1,0 +1,31 @@
+#!/bin/tcsh
+setenv  PLATFORM "solaris-2.6"
+setenv  COMPILER "gnu-2.8.1"
+setenv COMP "gnu"
+setenv WORKSPACE "$HOME/booga"
+setenv PROJECT_HOME "$WORKSPACE"
+setenv SHARED_HOME "$WORKSPACE"
+setenv CORE_SHARED_SRC "$WORKSPACE" 
+setenv	CORE_SHARED_OBJ "$WORKSPACE"
+setenv	APP_SHARED_SRC "$WORKSPACE"
+setenv	APP_SHARED_OBJ "$WORKSPACE"
+setenv	REPOSITORY "$WORKSPACE"
+setenv 	PATH "$PATH"":$PROJECT_HOME/bin"
+setenv SHARED_SRC "$CORE_SHARED_SRC"
+setenv SHARED_OBJ "$CORE_SHARED_OBJ"
+setenv CONFIGURATION ""
+if ( $?LIBPATH == 0 ) then
+        setenv LIBPATH $SHARED_OBJ/framework/lib
+else
+	setenv    LIBPATH "$LIBPATH"":$SHARED_OBJ/framework/lib"
+endif
+setenv    LIBPATH "$LIBPATH"":$WORKSPACE/framework/lib"
+setenv    PATH    "$PATH"":$SHARED_OBJ/applications/bin"
+setenv    PATH    "$PATH"":$WORKSPACE/applications/bin"
+if ( $?LD_LIBRARY_PATH != 0 ) then
+        setenv LD_LIBRARY_PATH $LIBPATH
+endif
+ 
+
+
+

@@ -1,0 +1,50 @@
+#
+# $RCSfile: RaytracerConfigurationHandler.confHandler,v $ 
+#
+# Copyright (C) 1994-96, Stephan Amann <amann@iam.unibe.ch>
+#                        Christoph Streit <streit@iam.unibe.ch>
+#                        University of Berne, Switzerland
+#
+# All rights reserved.
+#
+# This software may be freely copied, modified, and redistributed
+# provided that this copyright notice is preserved on all copies.
+#
+# You may not distribute this software, in whole or in part, as part of
+# any commercial product without the express consent of the authors.
+#
+# There is no warranty or other guarantee of fitness of this software
+# for any purpose.  It is provided solely "as is".
+#
+# -----------------------------------------------------------------------------
+#  $Id: RaytracerConfigurationHandler.confHandler,v 1.6 1996/08/01 12:01:10 streit Exp $
+# -----------------------------------------------------------------------------
+ 
+@author Stephan Amann
+@login amann
+
+@include <strstream.h>
+@include "booga/base/ValueOption.h"
+
+@configure Raytracer
+@desc Raytracer is a rendering component
+#___________________________________________________ Ray.Depth
+#
+@option Ray.Depth
+@desc Option Ray.Depth defines how deep the ray tree may be.
+#________________________________________ 
+@value @string
+@code istrstream iss(@string.chars());
+@code Real depth;
+@code iss >> depth;
+@code return new ValueOption(depth);
+#___________________________________________________ Ray.Cutoff
+#
+@option Ray.Cutoff
+@desc Option Ray.Cutoff the minimum contribution of a ray.
+#________________________________________ 
+@value @string
+@code istrstream iss(@string.chars());
+@code Real cutoff;
+@code iss >> cutoff;
+@code return new ValueOption(cutoff);

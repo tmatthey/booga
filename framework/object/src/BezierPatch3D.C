@@ -1,0 +1,311 @@
+/*
+ * $RCSfile: BezierPatch3D.C,v $
+ *
+ * Copyright (C) 1994-96, Bernhard Buehlmann <buhlmann@iam.unibe.ch>
+ *                        University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ */
+#include <strstream.h>
+
+#include "booga/base/Value.h"
+#include "booga/object/Shared3D.h"
+#include "booga/object/Grid3D.h"
+#include "booga/object/Triangle3D.h"
+#include "booga/object/BezierPatch3D.h"
+#include "booga/base/Report.h"
+
+// ____________________________________________________________________ BezierPatch3D
+
+implementRTTI(BezierPatch3D, Primitive3D);
+
+BezierPatch3D::BezierPatch3D(Exemplar exemplar)
+: Primitive3D(exemplar)
+{
+  myDecomposition = NULL;
+//  computeNormal();
+}
+
+BezierPatch3D::BezierPatch3D()
+{
+  myDecomposition = NULL;
+//  computeNormal();
+}
+
+BezierPatch3D::BezierPatch3D(const List<Vector3D>& vertices)
+{
+  myDecomposition = NULL;
+  if (vertices.count() == 16) {
+    for (int i=0; i<16; i++)
+      myVertices[i] = vertices.item(i);
+  } else {
+    Report::warning("[BezierPatch3D::BezierPatch3D]: you must specify a List<Vector3D> with 16 items!");
+  }
+//  computeNormal();
+}
+
+BezierPatch3D::BezierPatch3D(const BezierPatch3D& patch)
+: Primitive3D(patch)
+{
+  for (int i=0; i<16; i++)
+    myVertices[i] = patch.getVertex(i);
+  myDecomposition = NULL;
+}
+
+BezierPatch3D::~BezierPatch3D()
+{
+  delete myDecomposition;
+}
+
+void BezierPatch3D::setVertex(int i, const Vector3D& vertex)
+{
+  if (i >= 0 && i < 16) {
+    myVertices[i] = vertex;
+  }
+  else {
+    ostrstream os;
+    os << "[BezierPatch3D::setVertex]: you must specify an index < 16, your index was " << i;
+    Report::warning(os);
+  }
+  if (myDecomposition != NULL) {
+    delete myDecomposition;
+    myDecomposition = NULL;
+  }
+}
+
+bool BezierPatch3D::doIntersect(Ray3D& ray)
+{
+  if (myDecomposition == NULL)
+    delete BezierPatch3D::createDecomposition();
+
+  return myDecomposition->intersect(ray);
+}
+
+Object3D* BezierPatch3D::createDecomposition() const
+{
+  //
+  // We already have a valid decomposition of the polygon object -> just make a copy.
+  //
+  if (myDecomposition != NULL)
+    return myDecomposition->copy();
+  
+  Grid3D* triangles = new Grid3D(4,4,4);
+ 
+  doDecomposition (triangles, 3);
+
+  ((BezierPatch3D*)this)->myDecomposition = new Shared3D(triangles);
+  ((BezierPatch3D*)this)->myDecomposition->computeBounds();
+  return myDecomposition->copy();
+}
+
+void BezierPatch3D::doDecomposition (Aggregate3D *l, int level) const
+{
+  if (level > 0) { // do recursion
+    // subdivide patch:
+    BezierPatch3D *left = new BezierPatch3D();
+    BezierPatch3D *right = new BezierPatch3D();
+    BezierPatch3D *left0 = new BezierPatch3D();
+    BezierPatch3D *right0 = new BezierPatch3D();
+    BezierPatch3D *left1 = new BezierPatch3D();
+    BezierPatch3D *right1 = new BezierPatch3D();
+    
+    subdivide_s (left, right);
+    
+    left->subdivide_t (left0, left1);
+    right->subdivide_t (right0, right1);
+    
+    left0->doDecomposition(l, level-1);
+    left1->doDecomposition(l, level-1);
+    right0->doDecomposition(l, level-1);
+    right1->doDecomposition(l, level-1);
+
+    delete left;
+    delete right;
+  } else { // triangulate!
+    Vector3D n0;
+    Vector3D n3;
+    Vector3D n12 = (myVertices[13]-myVertices[12])*(myVertices[12]-myVertices[8]);
+    Vector3D n15 = (myVertices[15]-myVertices[14])*(myVertices[15]-myVertices[11]);
+    
+    // check if we have degenerate triangles:
+    
+    if (myVertices[0].equal(myVertices[3])) {
+      n0 = (myVertices[5]-myVertices[0])*(myVertices[4]-myVertices[0]);
+      n0.normalize();
+      n12 = (myVertices[13]-myVertices[12])*(myVertices[12]-myVertices[8]);
+      n12.normalize();
+      n15 = (myVertices[15]-myVertices[14])*(myVertices[15]-myVertices[10]);
+      n15.normalize();
+      l->adoptObject (new Triangle3D (myVertices[0], n0, myVertices[15], n15, myVertices[12], n12));
+    } else if (myVertices[3].equal(myVertices[15])) {
+      n0 = (myVertices[5]-myVertices[0])*(myVertices[4]-myVertices[0]);
+      n0.normalize();
+      n15 = (myVertices[15]-myVertices[14])*(myVertices[15]-myVertices[10]);
+      n15.normalize();
+      n12 = (myVertices[13]-myVertices[12])*(myVertices[12]-myVertices[8]);
+      n12.normalize();
+      l->adoptObject (new Triangle3D (myVertices[0], n0, myVertices[15], n15, myVertices[12], n12));    
+    } else if (myVertices[15].equal(myVertices[12])) {
+      n0 = (myVertices[1]-myVertices[0])*(myVertices[5]-myVertices[0]);
+      n0.normalize();
+      n3 = (myVertices[3]-myVertices[2])*(myVertices[7]-myVertices[3]);
+      n3.normalize();
+      n15 = (myVertices[15]-myVertices[10])*(myVertices[15]-myVertices[11]);
+      n15.normalize();
+      l->adoptObject (new Triangle3D (myVertices[0], n0, myVertices[3], n3, myVertices[15], n15));
+
+    } else if (myVertices[12].equal(myVertices[0])) {
+      n0 = (myVertices[1]-myVertices[0])*(myVertices[5]-myVertices[0]);
+      n0.normalize();
+      n3 = (myVertices[3]-myVertices[2])*(myVertices[7]-myVertices[3]);
+      n3.normalize();
+      n15 = (myVertices[15]-myVertices[10])*(myVertices[15]-myVertices[11]);
+      n15.normalize();
+      l->adoptObject (new Triangle3D (myVertices[0], n0, myVertices[3], n3, myVertices[15], n15));    
+    } else {
+      n0 = (myVertices[1]-myVertices[0])*(myVertices[4]-myVertices[0]);
+      n0.normalize();
+      n3 = (myVertices[3]-myVertices[2])*(myVertices[7]-myVertices[3]);
+      n3.normalize();
+      n12 = (myVertices[13]-myVertices[12])*(myVertices[12]-myVertices[8]);
+      n12.normalize();
+      n15 = (myVertices[15]-myVertices[14])*(myVertices[15]-myVertices[11]);
+      n15.normalize();
+      l->adoptObject (new Triangle3D (myVertices[0], n0, myVertices[3], n3, myVertices[15], n15));
+      l->adoptObject (new Triangle3D (myVertices[0], n0, myVertices[15], n15, myVertices[12], n12));
+    } 
+  }
+}
+
+void BezierPatch3D::subdivide_s (BezierPatch3D *left, BezierPatch3D *right) const
+{
+  Vector3D c0[4], c1[4], c2[4], c3[4];
+  register long i;
+  for (i=0; i<4; i++) {
+    c0[i] = myVertices[i];
+    c1[i] = myVertices[i+4];
+    c2[i] = myVertices[i+8];
+    c3[i] = myVertices[i+12];
+  }
+  
+  Vector3D l0[4], l1[4], l2[4], l3[4];
+  Vector3D r0[4], r1[4], r2[4], r3[4];
+  
+  subdivideCurve (c0, l0, r0);
+  subdivideCurve (c1, l1, r1);
+  subdivideCurve (c2, l2, r2);
+  subdivideCurve (c3, l3, r3);    
+
+  for (i=0; i<4; i++) {
+    left->setVertex(i, l0[i]);
+    right->setVertex(i, r0[i]);
+    left->setVertex(i+4, l1[i]);
+    right->setVertex(i+4, r1[i]);
+    left->setVertex(i+8, l2[i]);
+    right->setVertex(i+8, r2[i]);
+    left->setVertex(i+12, l3[i]);
+    right->setVertex(i+12, r3[i]);
+  }
+}
+
+void BezierPatch3D::subdivide_t (BezierPatch3D *left, BezierPatch3D *right) const
+{
+  Vector3D c0[4], c1[4], c2[4], c3[4];
+  register long i;
+  for (i=0; i<4; i++) {
+    c0[i] = myVertices[(4*i)];
+    c1[i] = myVertices[(4*i)+1];
+    c2[i] = myVertices[(4*i)+2];
+    c3[i] = myVertices[(4*i)+3];
+  }
+  
+  Vector3D l0[4], l1[4], l2[4], l3[4];
+  Vector3D r0[4], r1[4], r2[4], r3[4];
+  
+  subdivideCurve (c0, l0, r0);
+  subdivideCurve (c1, l1, r1);
+  subdivideCurve (c2, l2, r2);
+  subdivideCurve (c3, l3, r3);    
+
+  for (i=0; i<4; i++) {
+    left->setVertex(i, l0[i]);
+    right->setVertex(i, r0[i]);
+    left->setVertex(i+4, l1[i]);
+    right->setVertex(i+4, r1[i]);
+    left->setVertex(i+8, l2[i]);
+    right->setVertex(i+8, r2[i]);
+    left->setVertex(i+12, l3[i]);
+    right->setVertex(i+12, r3[i]);
+  }
+}
+void BezierPatch3D::subdivideCurve (Vector3D *c, Vector3D *left, Vector3D *right) const
+{
+  Vector3D h  = c[1] + ((c[2] - c[1])/2.0);
+  Vector3D l1 = c[0] + ((c[1] - c[0])/2.0);
+  Vector3D r2 = c[3] + ((c[2] - c[3])/2.0);
+  Vector3D l2 = l1   + ((h    - l1)/2.0);
+  Vector3D r1 = r2   + ((h    - r2)/2.0);
+  Vector3D l3 = l2   + ((r1   - l2)/2.0);
+  
+  left[0] = c[0]; left[1] = l1;
+  left[2] = l2; left[3] = l3;
+  right[0] = l3; right[1] = r1;
+  right[2] = r2; right[3] = c[3];
+}
+
+Object3D* BezierPatch3D::copy() const
+{
+  return new BezierPatch3D(*this);
+}
+
+Vector3D BezierPatch3D::normal (const Vector3D&) const
+{
+  return Vector3D(0,0,1); // !!!!!!! TO DO !!!!!!!
+}
+
+void BezierPatch3D::doComputeBounds()
+{
+  register long i;
+  for (i=0; i<16; i++)
+    myBounds.expand(myVertices[i]);
+}
+  
+Makeable* BezierPatch3D::make(RCString& errMsg, const List<Value*>* parameters) const
+{
+  BezierPatch3D* newPatch = new BezierPatch3D(*this);
+
+  for (int i=1; i<=parameters->count(); i++) {
+    getParameter(i, Vector3D, vertex);
+    newPatch->setVertex(i-1, vertex);
+  }
+    
+  return newPatch;
+}
+
+static const RCString BezierPatch3DKeyword("bezierpatch");
+
+RCString BezierPatch3D::getKeyword() const {
+  return BezierPatch3DKeyword;
+}
+
+List<Value*>* BezierPatch3D::createParameters() {
+  List<Value*>* parameters = new List<Value*>;
+  for (long i=0; i<16; i++) {
+    parameters->append(new Value(getVertex(i)));
+  }
+  return parameters;
+}
+
+void BezierPatch3D::iterateAttributes(MakeableHandler* handler) {
+  this->Object3D::iterateAttributes(handler);
+}

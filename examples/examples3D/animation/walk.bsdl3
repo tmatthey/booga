@@ -1,0 +1,345 @@
+/*
+ * walk.bsdl3
+ *
+ * This is a simple animation of a robot
+ * 
+ * Copyright (C) 1996, Thierry Matthey <matthey@iam.unibe.ch>
+ *                     University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: walk.bsdl3,v 1.1 1996/06/06 09:07:11 streit Exp $
+ * -----------------------------------------------------------------------------
+ */
+
+using 3D;
+
+//
+// Definition of the camera an the lightsource
+//
+
+camera {
+  perspective {
+    eye [400,-260,120];
+    lookat [0, 0, 60];
+    resolution (192, 192);
+  }
+  background [.7,.7,.7];
+};
+
+pointLight (1, [1,1,1]) { position [  300,   300, 300]; }
+pointLight (1, [1,1,1]) { position [  -300,   -300, 300]; }
+
+//
+// Definition of colors
+//
+
+define white   whitted { diffuse [1,1,1]; }
+define black   whitted { diffuse [0,0,0]; }
+define red     whitted { diffuse [.4,.1,.1]; }
+define yellow  whitted { diffuse [1,1,0]; }
+define green   whitted { diffuse [.2,.5,.2]; }
+define green2  whitted { diffuse [.3,.6,.2]; }
+define brown   whitted { diffuse [.3,.2,.2]; }
+define blue    whitted { diffuse [.3,.2,.9]; }
+define grey    whitted { diffuse [.7,.7,.7]; }
+
+
+const ober_x  3;	// Oberschenkel
+const ober_y  5;
+const ober_z 40;
+
+const body_x 10;        // Bauch
+const body_y  7;
+const body_z 50;
+
+const unter_x  4;       // Unterschenkel
+const unter_y  3;
+const unter_z 35;
+
+const fuss_x  4;        // Fuss
+const fuss_y  3;
+const fuss_z 15;
+
+const head_x  7;        // Kopf
+const head_y  7;
+const head_z  12;
+
+const hals_x  3;        // Hals
+const hals_y  4;
+const hals_z  4;
+
+const over_x  4;        // Oberarm
+const over_y  4;
+const over_z 27;
+
+const under_x  3;       // Unterarm
+const under_y  3;
+const under_z 22;
+
+const hand_x  1;        // Hand
+const hand_y  3;
+const hand_z 12;
+
+const leg_z ober_z + unter_z + fuss_y;
+const arm_z leg_z + body_z;
+
+const angle -50;
+
+//
+// Definition of the robot
+//
+
+define body list {
+  box ([body_x,body_y,body_z+leg_z], [-body_x,-body_y,leg_z]) {
+    yellow; 
+  }
+}
+
+define head list {
+  box ([head_x,head_y,body_z+leg_z+hals_z+head_z], [-head_x,-head_y,body_z+hals_z+leg_z]) {
+    black; 
+  }
+  box ([hals_x,hals_y,body_z+leg_z+hals_z], [-hals_x,-hals_y,body_z+leg_z]) {
+    blue;
+  }
+}
+
+define ober list {
+  box ([ober_x,ober_y,0], [-ober_x,-ober_y,-ober_z])  {
+    white;
+
+  }
+}
+
+define unter list {
+  box ([unter_x,unter_y,0], [-unter_x,-unter_y,-unter_z])  {
+    red;
+  }
+}
+
+define fuss list {
+  box ([fuss_x,fuss_y,0], [-fuss_x,-fuss_y,-fuss_z])  {
+    green;
+    rotateX(85);
+  }
+}
+
+define over list {
+  box ([over_x,over_y,0], [-over_x,-over_y,-over_z])  {
+    green2;
+
+  }
+}
+
+define under list {
+  box ([under_x,under_y,0], [-under_x,-unter_y,-under_z])  {
+    grey;
+  }
+}
+
+define hand list {
+  box ([hand_x,hand_y,0], [-hand_x,-hand_y,-hand_z])  {
+    brown;
+  }
+}
+
+//
+//
+//
+
+define leg_left list {
+  turn {
+    action (0,24,0) {
+      axis ([1,0,0]);
+      alpha(angle,"sin",0,0.1,0);
+      center([0,0,ober_z+unter_z+fuss_y]);
+    }
+    list {   
+      ober {translate [body_x - ober_x ,0,ober_z+unter_z+fuss_y];}
+      turn {
+        action (0,24,0) {
+          axis ([1,0,0]);
+          alpha(angle,"const",1);
+          center([0,0,unter_z+fuss_y]);
+        }
+        action (8,32,0) {
+          axis ([1,0,0]);
+          alpha(angle,"sin",0,0.1,0);
+          center([0,0,unter_z+fuss_y]);
+        }
+        list {    
+          unter {translate [body_x - ober_x ,0,unter_z+fuss_y];}  
+          turn {
+            action (-2,5,0,17) {
+              axis ([1,0,0]);
+              alpha(-angle/3,"sin",0,0.05,0);
+              center([0,0,fuss_y]);
+            }    
+            fuss {translate [body_x - ober_x ,0,fuss_y];}
+          }
+        } 
+      }
+    }
+  }
+}
+
+define leg_right list {
+  turn {
+    action (0,24,0) {
+      axis ([1,0,0]);
+      alpha(-angle,"sin",0,0.1,0);
+      center([0,0,ober_z+unter_z+fuss_y]);
+    }
+    list {   
+      ober {translate [- body_x + ober_x ,0,ober_z+unter_z+fuss_y];}
+      turn {
+        action (0,24,0) {
+          axis ([1,0,0]);
+          alpha(angle,"const",1);
+          center([0,0,unter_z+fuss_y]);
+        }
+        action (8,32,0) {
+          axis ([1,0,0]);
+          alpha(-angle,"sin",0,0.1,0);
+          center([0,0,unter_z+fuss_y]);
+        } 
+        list {    
+          unter {translate [-body_x + ober_x ,0,unter_z+fuss_y];}  
+          turn {
+            action (-2,5,0,17) {
+              axis ([1,0,0]);
+              alpha(angle/3,"sin",0,0.05,0);
+              center([0,0,fuss_y]);
+            }    
+            fuss {translate [-body_x + ober_x ,0,fuss_y];}
+          }
+        } 
+      }
+    }
+  }
+}
+
+define arm_left list {
+  turn {
+    action (0,24,0) {
+      axis ([1,0,0]);
+      alpha(angle,"sin",0.05,0.15,0);
+      center([0,0,arm_z]);
+    }
+    list {   
+      over {translate [body_x + over_x ,0,arm_z];}
+      turn {
+        action (0,24,0) {
+          axis ([1,0,0]);
+          alpha(angle/2,"sin",0.05,0.15,0);
+          center([0,0,arm_z-over_z]);
+        }
+        action (0,24,0) {
+          axis ([1,0,0]);
+          alpha(100,"const",1);
+          center([0,0,arm_z-over_z]);
+        }
+        list {    
+          under {translate [body_x + ober_x ,0,arm_z-over_z];}  
+          hand {translate [body_x + ober_x ,0,arm_z-over_z-under_z];}
+        } 
+      }
+    }
+  }
+}
+
+define arm_right list {
+  turn {
+    action (0,24,0) {
+      axis ([1,0,0]);
+      alpha(angle,"sin",0,0.1,0);
+      center([0,0,arm_z]);
+    }
+    list {   
+      over {translate [-body_x - over_x ,0,arm_z];}
+      turn {
+        action (0,24,0) {
+          axis ([1,0,0]);
+          alpha(angle/2,"sin",0,0.1,0);
+          center([0,0,arm_z-over_z]);
+        }
+        action (0,24,0) {
+          axis ([1,0,0]);
+          alpha(100,"const",1);
+          center([0,0,arm_z-over_z]);
+        }
+        list {    
+          under {translate [-body_x - ober_x ,0,arm_z-over_z];}    
+          hand {translate  [-body_x - ober_x ,0,arm_z-over_z-under_z];}
+        } 
+      }
+    }
+  }
+}
+
+define robot list {
+  move {
+    action (2,14,0) {
+      direction([0,0,1],"sin",0,0.1,0);
+    }
+    list {
+      head;
+      shear {
+        action (0,24,0) {
+          shearfactor ([0,0.16],"sin",0,0.1,0);
+          axis ([1,0,0]);
+          center ([0,0,0]);
+        }
+        body;
+      }
+      leg_left;
+      leg_right;
+      move {
+        action (0,12,0) {
+          direction([0,0.5,0],"sin",0,0.1,0);
+        }
+        arm_left;
+      }
+      move {
+        action (0,12,0) {
+          direction([0,-0.5,0],"sin",0,0.1,0);
+        }
+        arm_right;
+      }
+    }
+  }
+}
+
+//
+// Definition of the background
+//
+
+define ground list {
+  polygon ([-100,-10,0],[100,-10,0],[100,10,0],[-100,10,0]) { yellow; }
+}
+
+//_____________________________________________________________
+
+ground {translate [0,-100,0];}
+ground {translate [0,-50,0];}
+ground {translate [0, 0,0];}
+ground {translate [0, 50,0];}
+ground {translate [0, 100,0];}
+
+move {
+  action (0,60,0) {
+    direction ([0,1040,0],"saw",0,1,0);
+  }    
+  robot {translate [0,-520,0];}
+}

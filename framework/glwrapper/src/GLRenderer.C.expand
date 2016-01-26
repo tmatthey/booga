@@ -1,0 +1,781 @@
+/*
+ * $RCSfile: GLRenderer.C,v $ 
+ *
+ * Copyright (C) 1994-96, Bernhard Buehlmann <buhlmann@iam.unibe.ch>
+ *                        Christoph Streit <streit@iam.unibe.ch>
+ *                        Stephan Amann <amann@iam.unibe.ch>
+ *                        University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: GLRenderer.C,v 1.47 1997/09/17 12:33:38 buhlmann Exp $
+ * -----------------------------------------------------------------------------
+ */
+
+#include <stdio.h>
+#include <strstream.h>
+
+#ifdef HAVE_OPENGL
+# include <GL/gl.h>
+#endif
+
+#include "booga/object/Triangle3D.h"
+#include "booga/object/Polygon3D.h"
+#include "booga/object/Text3D.h"
+#include "booga/object/Box3D.h"
+#include "booga/object/Sphere3D.h"
+#include "booga/object/Cylinder3D.h"
+#include "booga/object/Cone3D.h"
+#include "booga/object/Torus3D.h"
+#include "booga/object/Line3D.h"
+#include "booga/object/Camera3D.h"
+#include "booga/object/AmbientLight.h"
+#include "booga/object/PointLight.h"
+#include "booga/object/Aggregate2D.h"
+#include "booga/object/Pixmap2D.h"
+#include "booga/object/Viewing3D.h"
+#include "booga/object/World2D.h"
+
+#include "booga/glwrapper/GLTraversal3D.h"
+#include "booga/glwrapper/GLBBTraversal3D.h"
+#include "booga/glwrapper/GLUtilities.h"
+#include "booga/glwrapper/GLRenderer.h"
+
+static void concatGLMatrix(const TransMatrix3D& mat);
+static TransMatrix3D getGLMatrix();
+
+//___________________________________________________________________ GLRenderer
+
+implementRTTI(GLRenderer, Renderer);
+
+GLRenderer::GLRenderer()
+{
+  myGenerateWorld = true;
+  myRenderingQuality = SOLID_GOURAUD;
+  myTriangleCount = 0;
+  adoptTraversal(new GLTraversal3D);
+}
+
+void GLRenderer::setRenderingQuality(RenderingQuality quality)
+{
+  GLAbstractTraversal3D* newTraversal = NULL;
+  if (myRenderingQuality == BOUNDING_BOX && quality != BOUNDING_BOX)
+    newTraversal = new GLTraversal3D;
+  else if (myRenderingQuality != BOUNDING_BOX && quality == BOUNDING_BOX)
+    newTraversal = new GLBBTraversal3D;
+    
+  if (newTraversal != NULL) {
+    newTraversal->setMaxTimeInBackbuffer(getMaxTimeInBackbuffer());
+    newTraversal->setFrameRate(getFrameRate());
+    adoptTraversal(newTraversal);
+  }
+
+  myRenderingQuality = quality;
+}
+
+Real GLRenderer::getMaxTimeInBackbuffer() const
+{
+  return dynamic_cast(GLAbstractTraversal3D, getTraversal())->getMaxTimeInBackbuffer();
+}
+
+void GLRenderer::setMaxTimeInBackbuffer(Real maxTimeInBackbuffer)
+{
+  dynamic_cast(GLAbstractTraversal3D, getTraversal())->setMaxTimeInBackbuffer(maxTimeInBackbuffer);
+}
+
+bool GLRenderer::doCheckPendingEvents() const
+{
+  return dynamic_cast(GLAbstractTraversal3D, getTraversal())->doCheckPendingEvents();
+}
+
+void GLRenderer::setCheckPendingEvents(bool check)
+{
+  dynamic_cast(GLAbstractTraversal3D, getTraversal())->setCheckPendingEvents(check);
+}
+
+int GLRenderer::getFrameRate() const
+{
+  return dynamic_cast(GLAbstractTraversal3D, getTraversal())->getFrameRate();
+}
+
+void GLRenderer::setFrameRate(int frameRate)
+{
+  dynamic_cast(GLAbstractTraversal3D, getTraversal())->setFrameRate(frameRate);
+}
+
+void GLRenderer::displayStatistics() const
+{
+  int width  = getCamera()->getViewing()->getResolutionX();
+  int height = getCamera()->getViewing()->getResolutionY();
+
+  glViewport(0, 0, (GLint)width, (GLint)height);
+
+  glMatrixMode(GL_PROJECTION);
+    glPushMatrix();
+    glLoadIdentity();
+    glOrtho(0, width, 0, height, -1.0, 1.0);
+
+  glMatrixMode(GL_MODELVIEW);
+    glPushMatrix();
+    glLoadIdentity();
+ 
+  glDisable(GL_DEPTH_TEST);
+  glDisable(GL_LIGHTING);
+  glDisable(GL_COLOR_MATERIAL);
+  glShadeModel(GL_FLAT);
+
+  //
+  // Set good contrast color.
+  //
+  Color bgColor = getCamera()->getBackground();
+  if ((bgColor[0] + bgColor[1] + bgColor[2])/3.0 > .5)
+    glColor3f (0, 0, 0);
+  else
+    glColor3f (1, 1, 1);
+      
+  glRasterPos2f(0, 3);
+  
+  ostrstream os;
+  os << myTriangleCount << " triangles";
+  GLUtilities::drawText(os);
+
+  glPopMatrix();
+  glMatrixMode(GL_PROJECTION);
+  glPopMatrix();
+  glMatrixMode(GL_MODELVIEW);  
+}
+
+void GLRenderer::installLightSources()
+{
+  register long lightNumber = 0;
+  Color color;
+  GLfloat luminance;
+
+  //
+  // Register all the point light sources in the GL rendering engine.
+  //
+  const List<DirectedLight*>* directedLights = getDirectedLightSources();
+
+  if (directedLights != NULL) {
+    PointLight* pointLight = NULL;
+    Vector3D pos;
+    GLfloat lightPos[4];
+    GLfloat diffuse[4];
+  
+    for (register long i=0; i<directedLights->count(); i++) {
+      pointLight = dynamic_cast(PointLight, directedLights->item(i));
+
+      if (pointLight != NULL && pointLight->isOn()) {
+        pos = pointLight->getTransform().transformAsPoint(pointLight->getPosition());
+        color = pointLight->getColor();
+        luminance = pointLight->getLuminance();
+
+        lightPos[0] = pos[0];
+        lightPos[1] = pos[1];
+        lightPos[2] = pos[2];
+        lightPos[3] = 1.0;
+ 
+        diffuse[0] = color.getRed()*luminance;
+        diffuse[1] = color.getGreen()*luminance;
+        diffuse[2] = color.getBlue()*luminance;
+        diffuse[3] = 1.0;
+ 
+        glLightfv((GLenum)(lightNumber | GL_LIGHT0), GL_DIFFUSE, diffuse);
+        glLightfv((GLenum)(lightNumber | GL_LIGHT0), GL_POSITION, lightPos);
+        glEnable ((GLenum)(lightNumber | GL_LIGHT0));
+
+        lightNumber++;
+      }
+    }
+  }
+
+  //
+  // Register all the ambient light sources in the GL rendering engine.
+  //
+  const List<AmbientLight*>* ambientLights = getAmbientLightSources();
+
+  if (ambientLights != NULL) {
+    AmbientLight* ambientLight = NULL;
+    GLfloat ambient[4];
+
+    for (register long i=0; i<ambientLights->count(); i++) {
+      ambientLight = ambientLights->item(i);
+      if (ambientLight->isOn()) {
+        Color color = ambientLight->getColor();
+        Real luminance = ambientLight->getLuminance();
+  
+        ambient[0] = color.getRed()*luminance;
+        ambient[1] = color.getGreen()*luminance;
+        ambient[2] = color.getBlue()*luminance;
+        ambient[3] = 1.0;
+ 
+        glLightfv((GLenum) (lightNumber | GL_LIGHT0), GL_AMBIENT, ambient);
+        glEnable((GLenum) (lightNumber |  GL_LIGHT0));
+
+        lightNumber++;
+      }
+    }
+  }
+}
+
+bool GLRenderer::preprocessing()
+{
+  if (!Renderer::preprocessing())
+    return false;
+ 
+  //
+  // Clear display.
+  //
+  Color bgColor = getCamera()->getBackground();
+  glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_FALSE);
+  glClearColor(bgColor[0], bgColor[1], bgColor[2], 1.0);
+
+  if (myRenderingQuality > WIREFRAME_GOURAUD)
+    glClear((GLbitfield) (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT));
+  else
+    glClear(GL_COLOR_BUFFER_BIT);
+
+  glColorMaterial(GL_FRONT_AND_BACK, GL_DIFFUSE);
+  glEnable(GL_NORMALIZE);
+
+  //
+  // Setup viewing parameters and light sources of the GL rendering engine.
+  //
+  GLUtilities::setupViewingMatrix(getCamera()->getViewing());
+  installLightSources();
+
+  //
+  // Setup rendering quality.
+  //
+  switch (myRenderingQuality) {
+  case BOUNDING_BOX:
+  case WIREFRAME:
+    glDisable(GL_DEPTH_TEST);
+    glDisable(GL_LIGHTING);
+    glDisable(GL_COLOR_MATERIAL);
+    //
+    // Set good contrast color.
+    //
+    if ((bgColor[0] + bgColor[1] + bgColor[2])/3.0 > .5)
+      glColor3f (0, 0, 0);
+    else
+      glColor3f (1, 1, 1);
+    break;
+  case WIREFRAME_FLAT:
+    glDisable(GL_DEPTH_TEST);
+    glEnable(GL_LIGHTING);
+    glEnable(GL_COLOR_MATERIAL);
+    glShadeModel(GL_FLAT);
+    break;
+  case WIREFRAME_GOURAUD:
+    glDisable(GL_DEPTH_TEST);
+    glEnable(GL_LIGHTING);
+    glEnable(GL_COLOR_MATERIAL);
+    glShadeModel(GL_SMOOTH);
+    break;
+  case SOLID_FLAT:
+    glEnable(GL_DEPTH_TEST);
+    glEnable(GL_LIGHTING);
+    glDisable(GL_COLOR_MATERIAL);
+    glShadeModel(GL_FLAT);
+    break;
+  case SOLID_GOURAUD:
+  case SOLID_GOURAUD_TRANSP:
+    glEnable(GL_DEPTH_TEST);
+    glEnable(GL_LIGHTING);
+    glDisable(GL_COLOR_MATERIAL);
+    glShadeModel(GL_SMOOTH);
+    break;
+  }
+
+  myTriangleCount = 0;
+  
+  return true;
+}
+
+bool GLRenderer::postprocessing()
+{
+  glFlush();
+  
+  if (myGenerateWorld == true) {
+    getResult()->getObjects()->adoptObject(
+            new Pixmap2D(GLUtilities::createPixmapFromFramebuffer()));
+    getResult()->getObjects()->computeBounds();
+  }
+  
+  return Renderer::postprocessing();
+}
+
+void GLRenderer::drawBounds(Object3D* object)
+{
+#ifdef HAVE_OPENGL
+  Vector3D from = object->getBounds().getMin();
+  Vector3D ext = object->getBounds().getMax() - from;
+  from = from + ext/2;
+
+  glPushMatrix();
+    glTranslatef((GLfloat)from.x(), (GLfloat)from.y(), (GLfloat)from.z());
+    glScalef((GLfloat)ext.x(), (GLfloat)ext.y(), (GLfloat)ext.z());
+ 
+    if (myRenderingQuality <= WIREFRAME_GOURAUD)
+      GLUtilities::drawCube(GLUtilities::WIRE);
+    else
+      GLUtilities::drawCube(GLUtilities::SOLID);
+  glPopMatrix();
+
+  myTriangleCount +=12;
+
+#endif // HAVE_OPENGL 
+}
+
+Traversal::Result GLRenderer::visit(LightSource*)
+{
+  //
+  // Light sources are not handled.
+  //
+  return Traversal::PRUNE;
+}
+
+Traversal::Result GLRenderer::visit(Triangle3D* triangle)
+{
+#ifdef HAVE_OPENGL
+ 
+  if (myRenderingQuality < WIREFRAME_GOURAUD) {
+    glBegin(GL_LINE_LOOP);
+      const Vector3D& v1 = triangle->getVertex(0);
+      const Vector3D& v2 = triangle->getVertex(1);
+      const Vector3D& v3 = triangle->getVertex(2);
+      glVertex3f((GLfloat)v1.x(), (GLfloat)v1.y(), (GLfloat)v1.z());
+      glVertex3f((GLfloat)v2.x(), (GLfloat)v2.y(), (GLfloat)v2.z());
+      glVertex3f((GLfloat)v3.x(), (GLfloat)v3.y(), (GLfloat)v3.z());
+    glEnd();
+  }
+  else {
+    if (myRenderingQuality == WIREFRAME_GOURAUD)
+      glBegin(GL_LINE_LOOP);
+    else
+      glBegin(GL_TRIANGLES);
+
+      const Vector3D& v1 = triangle->getVertex(0);
+      const Vector3D& v2 = triangle->getVertex(1);
+      const Vector3D& v3 = triangle->getVertex(2);
+      const Vector3D& n1 = triangle->getNormal(0);
+      const Vector3D& n2 = triangle->getNormal(1);
+      const Vector3D& n3 = triangle->getNormal(2);
+
+      glNormal3f((GLfloat)n1.x(), (GLfloat)n1.y(), (GLfloat)n1.z());
+      glVertex3f((GLfloat)v1.x(), (GLfloat)v1.y(), (GLfloat)v1.z());
+      glNormal3f((GLfloat)n2.x(), (GLfloat)n2.y(), (GLfloat)n2.z());
+      glVertex3f((GLfloat)v2.x(), (GLfloat)v2.y(), (GLfloat)v2.z());
+      glNormal3f((GLfloat)n3.x(), (GLfloat)n3.y(), (GLfloat)n3.z());
+      glVertex3f((GLfloat)v3.x(), (GLfloat)v3.y(), (GLfloat)v3.z());
+
+    glEnd();
+  }
+
+  myTriangleCount++;
+
+#endif // HAVE_OPENGL 
+
+  return Traversal::CONTINUE;
+}
+
+#ifdef WIN32
+void __stdcall vertexCallback( void *vertex )
+#else
+void vertexCallback( void *vertex )
+#endif
+{
+  GLdouble *pointer = ( GLdouble * )vertex;
+  glVertex3dv(pointer);
+  glTexCoord2dv(pointer);
+}
+
+Traversal::Result GLRenderer::visit(Polygon3D* polygon)
+{
+#ifdef HAVE_OPENGL
+
+  if (myRenderingQuality > WIREFRAME_GOURAUD) {
+    GLUtriangulatorObj *tobj = gluNewTess();
+
+#ifdef WIN32
+  gluTessCallback(tobj, GLU_BEGIN, (void (__stdcall *)()) glBegin );
+    gluTessCallback(tobj, GLU_VERTEX, (void (__stdcall *)())vertexCallback);
+    gluTessCallback(tobj, GLU_END, glEnd);
+#else
+    gluTessCallback(tobj, (GLenum)GLU_BEGIN, (void (*)())glBegin );
+    gluTessCallback(tobj, (GLenum)GLU_VERTEX, (void (*)())vertexCallback);
+    gluTessCallback(tobj, (GLenum)GLU_END, glEnd);
+#endif
+
+    const List<Vector3D>& v = polygon->getVertices();
+    long numVertices = v.count();
+
+  glNormal3dv(&(polygon->normal(Vector3D(0,0,0))[0]));
+  gluBeginPolygon(tobj);
+
+    for (long i=0; i<numVertices; i++) 
+    gluTessVertex(tobj, &v.item(i)[0], &v.item(i)[0]);
+  List<List<Vector3D> > holes = polygon->getHoles();
+  for (long j=0; j< holes.count(); j++) {
+    gluNextContour(tobj, (GLenum)GLU_INTERIOR);
+    for (long k=0; k<holes.item(j).count(); k++) 
+        gluTessVertex(tobj, &holes.item(j).item(k)[0], &holes.item(j).item(k)[0]);
+  }
+  gluEndPolygon(tobj);
+  gluDeleteTess(tobj);
+  } else {
+  
+    const List<Vector3D>& v = polygon->getVertices();
+    long numVertices = v.count();
+  
+    glBegin(GL_LINE_LOOP);
+    for (long i=0; i<numVertices; i++)
+      glVertex3dv(&v.item(i)[0]);
+    glEnd();
+
+  List<List<Vector3D> > holes = polygon->getHoles();
+  for (long j=0; j< holes.count(); j++) {
+      glBegin(GL_LINE_LOOP);
+      for (long k=0; k<holes.item(j).count(); k++)
+      glVertex3dv(&holes.item(j).item(k)[0]);
+      glEnd();
+  }
+  }
+  myTriangleCount++;
+#endif // HAVE_OPENGL 
+  
+  return Traversal::CONTINUE;
+}
+
+Traversal::Result GLRenderer::visit(Text3D* text)
+{
+  RCString chars         = text->getText();
+  const StrokeFont* font = text->getFont();
+  Real height            = text->getHeight();
+  Real radius            = text->getRadius();
+  
+  if (chars.length() <= 0 || font == NULL)
+    return Traversal::CONTINUE;
+    
+#ifdef HAVE_OPENGL
+
+  const CharRec* ch = NULL;
+  StrokeRec* stroke = NULL;
+  Vector2D*  coord  = NULL;
+  int numStrokes, numCoords;
+  Real scaleFactor = height/font->getTop();
+
+  //
+  // For every character in the text, look up the strokes in the font definition
+  // and create line segments out of it.
+  //
+  glPushMatrix();
+    for (int i=0; i<chars.length(); i++) {
+      ch = font->getChar(chars[i]);
+      if (ch != NULL) {
+        for (numStrokes=ch->myNumStrokes, stroke=ch->myStrokes; 
+             numStrokes > 0; 
+             numStrokes--, stroke++) {
+
+          glBegin(GL_LINE_STRIP);
+            for (numCoords=stroke->myNumCoords, coord=stroke->myCoords; 
+                 numCoords > 0; 
+                 numCoords--, coord++)
+              glVertex3f(0, (*coord).x()*scaleFactor, (*coord).y()*scaleFactor);
+              if (myRenderingQuality > WIREFRAME)
+                glNormal3f(1, 0, 0);
+          glEnd();
+        }
+
+        glTranslatef(0, ch->myRight*scaleFactor+2*radius, 0);
+      }
+    }
+  glPopMatrix();
+   
+#endif // HAVE_OPENGL 
+
+  return Traversal::CONTINUE;
+}
+
+Traversal::Result GLRenderer::visit(Box3D* box)
+{
+#ifdef HAVE_OPENGL
+
+  Vector3D from = box->getFrom();
+  Vector3D ext = box->getTo() - from;
+  from = from + ext/2;
+
+  glPushMatrix();
+    glTranslatef((GLfloat)from.x(), (GLfloat)from.y(), (GLfloat)from.z());
+    glScalef((GLfloat)ext.x(), (GLfloat)ext.y(), (GLfloat)ext.z());
+    glMatrixMode(GL_TEXTURE);
+    glPushMatrix();
+    glScalef((GLfloat)ext.x(), (GLfloat)ext.y(), (GLfloat)ext.z());
+
+  
+    if (myRenderingQuality <= WIREFRAME_GOURAUD)
+      GLUtilities::drawCube(GLUtilities::WIRE);
+    else
+      GLUtilities::drawCube(GLUtilities::SOLID);
+  glPopMatrix();
+  glMatrixMode(GL_MODELVIEW);
+  glPopMatrix();
+
+  myTriangleCount +=12;
+ 
+#endif // HAVE_OPENGL 
+
+  return Traversal::CONTINUE;
+}
+
+Traversal::Result GLRenderer::visit(Sphere3D* sphere)
+{
+#ifdef HAVE_OPENGL
+
+  int resX = 3;
+  int resY = 3;
+
+  if (sphere->getPrecision() > .7) {
+    resX = 24;
+    resY = 24;
+  } else if (sphere->getPrecision() >= .5) {
+    resX = 12;
+    resY = 12;
+  } else if (sphere->getPrecision() >= .3) {
+    resX = 6;
+    resY = 6;
+  } else {
+    resX = 3;
+    resY = 3;
+  }
+
+
+  glPushMatrix();
+    glTranslatef(sphere->getCenter().x(), 
+                 sphere->getCenter().y(), 
+                 sphere->getCenter().z());
+ 
+    if (myRenderingQuality >= SOLID_GOURAUD) {
+      GLUtilities::drawSphere(sphere->getRadius(), resX, resY, GLUtilities::SOLID);
+      myTriangleCount += resX*resY*2;
+    }
+    else if (myRenderingQuality > WIREFRAME_GOURAUD) {
+      GLUtilities::drawSphere(sphere->getRadius(), resX, resY, GLUtilities::SOLID);
+      myTriangleCount += resX*resY*2;
+    }
+    else {
+      GLUtilities::drawSphere(sphere->getRadius(), resX, resY, GLUtilities::WIRE);
+      myTriangleCount += resX*resY*2;
+    }
+  glPopMatrix();
+
+#endif // HAVE_OPENGL 
+
+  return Traversal::CONTINUE;
+}
+
+Traversal::Result GLRenderer::visit(Line3D* line)
+{
+#ifdef HAVE_OPENGL
+ 
+  glBegin(GL_LINE_STRIP);
+    glVertex3f(line->getFrom().x(), line->getFrom().y(), line->getFrom().z());
+    glVertex3f(line->getTo().x(),   line->getTo().y(), line->getTo().z());
+  glEnd();
+#endif // HAVE_OPENGL 
+  return Traversal::CONTINUE;
+}
+ 
+Traversal::Result GLRenderer::visit(Cylinder3D* cylinder)
+{
+#ifdef HAVE_OPENGL
+
+  //
+  // Compute tesselation factor.
+  //
+ /*
+  TransMatrix3D modelmat = getGLMatrix();
+  Vector3D dist1 = cylinder->getStart()*modelmat - getCamera()->getViewing()->getEye();
+  Vector3D dist2 = cylinder->getEnd()*modelmat   - getCamera()->getViewing()->getEye();
+ 
+  Real minDist = min(dist1.length(), dist2.length());
+  Real factor  = getCamera()->getViewing()->getEyeSeparation()/minDist;
+  int resX = int(32*factor > 3 ? 32*factor : 3);
+  int resY = int(3*factor > 1 ?  3*factor : 1);
+*/
+  int resX = 6;
+  int resY = 1;
+
+  if (cylinder->getPrecision() > .7) {
+    resX = 24;
+    resY = 3;
+  } else if (cylinder->getPrecision() >= .5) {
+    resX = 12;
+    resY = 2;
+  } else if (cylinder->getPrecision() >= .3) {
+    resX = 6;
+    resY = 1;
+  } else {
+    resX = 3;
+    resY = 1;
+  }
+
+  //
+  // Draw cylinder.
+  //
+  glPushMatrix();
+    //
+    // Transform to canonical form.
+    //
+    concatGLMatrix(cylinder->getCanonicalTransform().getTransMatrix());
+
+    if (myRenderingQuality > WIREFRAME_GOURAUD)
+      GLUtilities::drawCone(1, 1, 1, cylinder->isClosed(), 
+                                     resX, resY, GLUtilities::SOLID);
+    else
+      GLUtilities::drawCone(1, 1, 1, cylinder->isClosed(), 
+                                     resX, resY, GLUtilities::WIRE);
+
+  glPopMatrix();
+
+  myTriangleCount += resX*resY*2;
+  if (cylinder->isClosed())
+    myTriangleCount += resX*2;
+  
+#endif // HAVE_OPENGL 
+
+  return Traversal::CONTINUE;
+}
+
+Traversal::Result GLRenderer::visit(Cone3D* cone)
+{ 
+#ifdef HAVE_OPENGL
+
+  //
+  // Compute tesselation factor.
+  //
+
+  int resX = 6;
+  int resY = 1;
+
+  if (cone->getPrecision() > .7) {
+    resX = 24;
+    resY = 3;
+  } else if (cone->getPrecision() >= .5) {
+    resX = 12;
+    resY = 2;
+  } else if (cone->getPrecision() >= .3) {
+    resX = 6;
+    resY = 1;
+  } else {
+    resX = 3;
+    resY = 1;
+  }
+
+
+  //
+  // Draw cone.
+  //
+  Real distance = cone->getDistance();
+  glPushMatrix();
+    //
+    // Transform to canonical form.
+    //
+    concatGLMatrix(cone->getCanonicalTransform().getTransMatrix());
+    glTranslatef(0,0,distance);
+
+    if (myRenderingQuality > WIREFRAME_GOURAUD)
+      GLUtilities::drawCone(distance, 1, 1-distance, cone->isClosed(), 
+                            resX, resY, GLUtilities::SOLID);
+    else
+      GLUtilities::drawCone(distance, 1, 1-distance, cone->isClosed(), 
+                            resX, resY, GLUtilities::WIRE);
+
+  glPopMatrix();
+
+  myTriangleCount += resX*resY*2;
+  if (cone->isClosed())
+    myTriangleCount += resX*2;
+  
+#endif // HAVE_OPENGL 
+
+  return Traversal::CONTINUE;
+}
+
+Traversal::Result GLRenderer::visit(Torus3D* torus)
+{
+#ifdef HAVE_OPENGL
+
+  glPushMatrix();
+    concatGLMatrix(torus->getCanonicalTransform().getTransMatrix());
+
+    if (myRenderingQuality >= SOLID_GOURAUD) {
+       GLUtilities::drawTorus(torus->getTubeRadius(), torus->getSweptRadius(), 
+                              24, 24, GLUtilities::SOLID);
+       myTriangleCount += 24*24*2;
+     }       
+     else if (myRenderingQuality > WIREFRAME_GOURAUD) {
+       GLUtilities::drawTorus(torus->getTubeRadius(), torus->getSweptRadius(), 
+                              24, 12, GLUtilities::SOLID);      
+       myTriangleCount += 24*12*2;
+    } 
+    else {
+       GLUtilities::drawTorus(torus->getTubeRadius(), torus->getSweptRadius(), 
+                              6, 6, GLUtilities::WIRE); 
+       myTriangleCount += 6*6*2;
+    }
+ glPopMatrix();
+
+#endif // HAVE_OPENGL 
+
+  return Traversal::CONTINUE;
+}
+
+Traversal::Result GLRenderer::dispatch(Makeable* obj)
+{
+ 
+  
+  tryConcrete(Triangle3D,  obj);
+  tryConcrete(Sphere3D,    obj);
+  tryConcrete(Cylinder3D,  obj);
+  tryConcrete(Cone3D,      obj);
+  tryConcrete(Polygon3D,   obj);
+  tryConcrete(Box3D,       obj);
+  tryConcrete(Torus3D,     obj);
+  tryConcrete(Text3D,      obj);
+  tryConcrete(Line3D,      obj);
+  tryConcrete(LightSource, obj);
+  
+  //
+  // Create decomposition for unknown objects.
+  //
+  return Traversal::UNKNOWN;
+}
+
+//______________________________________________________________________ STATICS
+
+void concatGLMatrix(const TransMatrix3D& mat)
+{
+  static GLfloat m[16];
+  convert(mat, m);
+  glMultMatrixf(m);
+}
+
+TransMatrix3D getGLMatrix()
+{
+  static GLfloat m[16];
+  glGetFloatv(GL_MODELVIEW_MATRIX, m);
+  return TransMatrix3D(m);
+}
+

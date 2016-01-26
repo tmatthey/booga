@@ -1,0 +1,54 @@
+/*
+ * svb1.bsdl3 
+ *
+ * Copyright (C) 1994-96, Bernhard Buehlmann <buehlmann@iam.unibe.ch>
+ *                        University of Berne, Switzerland
+ *
+ * All rights reserved.
+ *
+ * This software may be freely copied, modified, and redistributed
+ * provided that this copyright notice is preserved on all copies.
+ *
+ * You may not distribute this software, in whole or in part, as part of
+ * any commercial product without the express consent of the authors.
+ *
+ * There is no warranty or other guarantee of fitness of this software
+ * for any purpose.  It is provided solely "as is".
+ *
+ * -----------------------------------------------------------------------------
+ *  $Id: svb1.bsdl3,v 1.1 1996/02/21 09:50:14 streit Exp $
+ * -----------------------------------------------------------------------------
+ */
+
+const svb_b 10;
+const svb_h 3;
+
+define svb_saeule cylinder (.1, [0,0,0],[0,0,svb_h]) {beton;}
+
+define svb1 list {
+// dach	
+box ([-svb_b, -svb_b, svb_h], [svb_b, svb_b, svb_h+.3]){beton;}
+// box
+box ([0, -svb_b+3, 0], [svb_b-3, svb_b-3, svb_h]);	 
+// saeulen
+svb_saeule {translate [-svb_b+.3, -svb_b+.3, 0];}
+svb_saeule {translate [0, -svb_b+.3, 0];}
+svb_saeule {translate [2, -svb_b+.3, 0];}
+svb_saeule {translate [4, -svb_b+.3, 0];}
+svb_saeule {translate [6, -svb_b+.3, 0];}
+svb_saeule {translate [-2, -svb_b+.3, 0];}
+svb_saeule {translate [-4, -svb_b+.3, 0];}
+svb_saeule {translate [-6, -svb_b+.3, 0];}
+svb_saeule {translate [svb_b-.3, -svb_b+.3, 0];}
+
+svb_saeule {translate [-svb_b+.3, svb_b-.3, 0];}
+svb_saeule {translate [0, svb_b-.3, 0];}
+svb_saeule {translate [2, svb_b-.3, 0];}
+svb_saeule {translate [4, svb_b-.3, 0];}
+svb_saeule {translate [6, svb_b-.3, 0];}
+svb_saeule {translate [-2, svb_b-.3, 0];}
+svb_saeule {translate [-4, svb_b-.3, 0];}
+svb_saeule {translate [-6, svb_b-.3, 0];}
+svb_saeule {translate [svb_b-.3, svb_b-.3, 0];}
+}
+
