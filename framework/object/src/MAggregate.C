@@ -75,7 +75,7 @@ INLINE void MAggregate<TObject, TAggregate, TPath>
     return;
     
   myElements.append(newObject);
-  myBounds.expand(newObject->getBounds());
+  this->myBounds.expand(newObject->getBounds());
 }
 
 template <class TObject, class TAggregate, class TPath>
@@ -160,7 +160,7 @@ INLINE void MAggregate<TObject, TAggregate, TPath>
 {
   long count = countSubobject();
   for (long i=0; i< count; i++)
-    myBounds.expand(getSubobject(i)->getBounds());
+    this->myBounds.expand(getSubobject(i)->getBounds());
 }
 
 template <class TObject, class TAggregate, class TPath>

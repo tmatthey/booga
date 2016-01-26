@@ -98,7 +98,7 @@ INLINE void MProxy<TObject, TProxy, TPath, TRay>
   for (path->first(); path->getObject() != this && !path->isDone(); path->next())
     newPath.append(path->getObject());
   
-  computeBounds();                         // recompute bounds of this  
+  this->computeBounds();                         // recompute bounds of this  
   TObject::recomputeBounds(newPath);       // recompute bounds along new path
 }
 
@@ -115,7 +115,7 @@ INLINE TObject* MProxy<TObject, TProxy, TPath, TRay>
   // !!!!! Test! Test!!
   if (shared == true) {
     MProxy<TObject, TProxy, TPath, TRay>* newProxy = 
-      (MProxy<TObject, TProxy, TPath, TRay>*)copy();
+      (MProxy<TObject, TProxy, TPath, TRay>*)this->copy();
 
     if (newProxy->mySubject != NULL) {
       delete mySubject;
@@ -164,7 +164,7 @@ INLINE void MProxy<TObject, TProxy, TPath, TRay>
 {
   TObject* obj = getSubject();
   if (obj)
-    myBounds.expand(obj->getBounds());  
+    this->myBounds.expand(obj->getBounds());  
 }
 
 template <class TObject, class TProxy, class TPath, class TRay>

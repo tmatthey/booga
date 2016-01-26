@@ -256,7 +256,7 @@ template <class TSearchObject, class TObjectBase,
 INLINE Traversal::Result 
 CollectorFor<TSearchObject,TObjectBase,TOperation,TPathOf,TWorld,TShared>::visit(TSearchObject* /* obj */)
 {
-  myCollection.append(new TPathOf(*(getTraversal()->getPath())));
+  myCollection.append(new TPathOf(*(this->getTraversal()->getPath())));
   
   return Traversal::CONTINUE;
 }

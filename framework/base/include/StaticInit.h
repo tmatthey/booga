@@ -32,10 +32,10 @@
 class className##Init {                        \
 public:                                        \
   className##Init();                           \
-  ~##className##Init();                        \
+  ~className##Init();                        \
 private:                                       \
   static int ourInitCount;                     \
-  static className##* ourExemplar;             \
+  static className* ourExemplar;             \
 };                                             \
 static className##Init the##className##Init
 
@@ -44,13 +44,13 @@ friend class className##Init
 
 #define implementInitExemplar(className)       \
 int className##Init::ourInitCount;             \
-className##* className##Init::ourExemplar;     \
+className* className##Init::ourExemplar;     \
 className##Init::className##Init()             \
 {                                              \
   if (ourInitCount++ == 0)                     \
-    ourExemplar = new className##(anExemplar); \
+    ourExemplar = new className(anExemplar); \
 }                                              \
-className##Init::~##className##Init()          \
+className##Init::~className##Init()          \
 {                                              \
   if (--ourInitCount == 0)                     \
     delete ourExemplar;                        \
@@ -65,7 +65,7 @@ className##Init::~##className##Init()          \
 class className##Init {                        \
 public:                                        \
   className##Init();                           \
-  ~##className##Init();                        \
+  ~className##Init();                        \
 private:                                       \
   static int ourInitCount;                     \
 };                                             \
@@ -76,9 +76,9 @@ int className##Init::ourInitCount;             \
 className##Init::className##Init()             \
 {                                              \
   if (ourInitCount++ == 0)                     \
-    className##::initClass();                  \
+    className::initClass();                  \
 }                                              \
-className##Init::~##className##Init()          \
+className##Init::~className##Init()          \
 {                                              \
   if (--ourInitCount == 0) {                   \
     /* T::exitClass() */                       \

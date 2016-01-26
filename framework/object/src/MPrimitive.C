@@ -97,7 +97,7 @@ INLINE TObject* MPrimitive<TObject, TPrimitive, TPath, TRay, TPrimitiveAttr>
   // of ourself.
   //
   if (shared == true) {
-    TObject* newPrimitive = copy();
+    TObject* newPrimitive = this->copy();
     path->replace(newPrimitive);
     return newPrimitive;
   }

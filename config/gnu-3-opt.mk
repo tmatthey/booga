@@ -29,7 +29,7 @@ compiler_buildType := STATIC
 
 # C++ compiler
 CXX             = g++
-CXXFLAGS        = -g -Wall  -DTEMPLATE_IN_HEADER  
+CXXFLAGS        = -g -Wall -O9 -ffast-math -finline-functions -funroll-loops -DNDEBUG -DTEMPLATE_IN_HEADER  
 SHARED_CXXFLAGS = -fPIC
 STATIC_CXXFLAGS = 
 SHARED_LDFLAGS  = 

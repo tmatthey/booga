@@ -125,7 +125,7 @@ INLINE T& List<T>::item(long index) const
   if (index < 0 || index >= myCount) {
     std::stringstream os;
     os << "[List<T>::item] index " << index << " out of range";
-    Report::error(os);
+    Report::error(RCString(os));
   }
      
   long i = index < myFree ? index : index + mySize - myCount; 

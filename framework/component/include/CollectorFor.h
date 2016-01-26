@@ -121,7 +121,7 @@ template <class TSearchObject, class TObjectBase,
 inline TSearchObject*
 CollectorFor<TSearchObject,TObjectBase,TOperation,TPathOf,TWorld,TShared>::getObject() const
 {
-  return (TSearchObject*)curItem()->getLastObject();
+  return (TSearchObject*)this->curItem()->getLastObject();
 }
 
 template <class TSearchObject, class TObjectBase,
@@ -130,7 +130,7 @@ template <class TSearchObject, class TObjectBase,
 inline TPathOf* 
 CollectorFor<TSearchObject,TObjectBase,TOperation,TPathOf,TWorld,TShared>::getPath() const
 {
-  return curItem();
+  return this->curItem();
 }
 
 template <class TSearchObject, class TObjectBase,
@@ -139,7 +139,7 @@ template <class TSearchObject, class TObjectBase,
 inline TSearchObject*
 CollectorFor<TSearchObject,TObjectBase,TOperation,TPathOf,TWorld,TShared>::createTransformedObject() const
 {
-  return (TSearchObject*)curItem()->createLastTransformedObject();
+  return (TSearchObject*)this->curItem()->createLastTransformedObject();
 }
 
 /*

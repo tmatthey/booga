@@ -52,9 +52,9 @@ inline DynamicMatrix<T> DynamicMatrix<T>::operator* (const DynamicMatrix<T>& a)
   int              n, m, k;
   DynamicMatrix<T> res;
 
-  n = getCountU ();
+  n = this->getCountU ();
   m = a.getCountV ();
-  k = getCountV ();
+  k = this->getCountV ();
   if (k == a.getCountU())
   {
     for (x = 0; x < n; x++)
@@ -63,7 +63,7 @@ inline DynamicMatrix<T> DynamicMatrix<T>::operator* (const DynamicMatrix<T>& a)
       {
 	res.set (x, y, 0);
 	for (z = 0; z < k; z++)
-	  res[x][y] += get (x, z) * a.get (z, y);
+	  res[x][y] += this->get (x, z) * a.get (z, y);
       }
     }
   }
@@ -73,12 +73,12 @@ inline DynamicMatrix<T> DynamicMatrix<T>::operator* (const DynamicMatrix<T>& a)
 template <class T>
 inline void DynamicMatrix<T>::transpose (void)
 {
-  int uct = getCountU (), vct = getCountV ();
+  int uct = this->getCountU (), vct = this->getCountV ();
 
   DynamicMatrix<T> a (vct, uct);
   for (int x = 0; x < vct; x++)
     for (int y = 0; y < uct; y++)
-      a.set (x, y, get(y, x));
+      a.set (x, y, this->get(y, x));
 
   *this = a;
 }
@@ -108,7 +108,7 @@ template <class T>
 inline void SquareMatrix<T>::inverse (void)
 {
   register int i, j;
-  int      uct = getCountU ();
+  int      uct = this->getCountU ();
 
   T *I = new T[uct*uct];  // Inverse of N
   T temp;			// Temp element for swapping
@@ -125,15 +125,15 @@ inline void SquareMatrix<T>::inverse (void)
   {
     il = j;			// Row with largest pivot candidate
     for (i = j + i; i < uct; i++) // Find largest pivot
-      if (fabs(get(i, j)) > fabs(get(i, j)))
+      if (fabs(this->get(i, j)) > fabs(this->get(i, j)))
 	il = i;
 
     if (il != j)		// Swap if necessary to put pivot on diagonal
     {
       for (i = 0; i < uct; i++) // Swap rows il and j in N and I
       {
-	temp = get (il, i);
-	set (il, i, get(j, i));
+	temp = this->get (il, i);
+	set (il, i, this->get(j, i));
 	set (j, i, temp);
 	temp = I[il*uct+i];
 	I[il*uct+i] = I[j*uct+i];
@@ -141,10 +141,10 @@ inline void SquareMatrix<T>::inverse (void)
       }
     }
 
-    if (get(j, j) == 0.0)
+    if (this->get(j, j) == 0.0)
       Report::error ("[SquareMatrix<T>::inverse] Matrix is singular, can't inverse");
 
-    temp = get (j, j);		// Scale row j to get a unit diagonal
+    temp = this->get (j, j);		// Scale row j to get a unit diagonal
     for (i = 0; i < uct; i++)
     {
       (*this)[j][i] /= temp;
@@ -155,11 +155,11 @@ inline void SquareMatrix<T>::inverse (void)
     {
       if (i != j)
       {
-		temp = get (i, j);
+		temp = this->get (i, j);
 		for (int k = 0; k < uct; k++)
         {
 		 I[i*uct+k] -= temp * I[j*uct+k];
-		 (*this)[i][k] -= temp * get (j, k);
+		 (*this)[i][k] -= temp * this->get (j, k);
 		}
       }
     }

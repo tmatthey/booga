@@ -210,7 +210,7 @@ template <class TObject, class TShared, class TPath, class TRay>
 INLINE void MShared<TObject, TShared, TPath, TRay>
 ::doComputeBounds()
 {
-  myBounds = getObject()->getBounds();
+  this->myBounds = getObject()->getBounds();
 }
 
 template <class TObject, class TShared, class TPath, class TRay>
@@ -225,7 +225,7 @@ INLINE Makeable* MShared<TObject, TShared, TPath, TRay>
 ::make(RCString& errMsg, const List<Value*>* parameters) const
 {
   checkParameterNumber(0);
-  return copy();
+  return this->copy();
 }
 
 template <class TObject, class TShared, class TPath, class TRay>

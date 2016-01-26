@@ -40,7 +40,7 @@ BEGIN {
 
 	ARGV[1] = ARGV[2] = ARGV[3] = ARGV[4] = "";
 	
-	includeFile   ;
+	includeFile[100];
 	headerPrinted = 0;
 
          libname       = "object"; # Name of the library we are working in.
@@ -293,6 +293,7 @@ function printHeader(fileName)
     print "#include \"booga/base/Value.h\"";
     
     for (i in includeFile)
+      if (includeFile[i] != "")
       print "#include " includeFile[i];
     
     printf "\n";
@@ -444,7 +445,7 @@ function printAttributeSource()
   if (optNumber > 0) {
     print  "  long provided_ = (!parameters ? 0 : parameters->count());";
     print  "  if (provided_ < " argNumber " || provided_ > " argNumber+optNumber ") {";
-    print  "    std::stringstream str; str \<\< provided_;";
+    print  "    std::stringstream str; str << provided_;";
     printf "    errMsg = RCString(\"between " argNumber " and " argNumber+optNumber;
     print  " parameter(s) required, \")"
     print  "             + str.str().c_str();";
