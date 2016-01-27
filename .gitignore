@@ -1,0 +1,6 @@
+*.o
+*.a
+*Attr.h
+*Attr.C
+GNUmakefile
+applications/bin/*
