@@ -1,4 +1,4 @@
-# BOOGA #
+![booga.png](https://bitbucket.org/repo/LEkpn7/images/101562783-booga.png)
 
 BOOGA (Berne`s Object-Oriented Graphics Architecture) is an object-oriented graphics framework aimed at a wide range of application areas within the domain of computer graphics, namely Geometric Modelling, Image Synthesis, Image Processing, Image Analysis, Scene Recognition, and Computational Geometry. It provides data abstractions and mechanisms for 2D and 3D objects and includes a component layer to model high-level operations that generate or manipulate graphical objects of different types. The key concepts underlying the BOOGA-framework are explained in [AmStBi96]. A more detailed description (in german) is given in [Streit97].
 
