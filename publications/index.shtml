@@ -1,0 +1,272 @@
+<!--#config sizefmt="abbrev" -->
+<!--#config timefmt="%d/%m/%Y %H:%M:%S"-->
+
+<H1>BOOGA</H1>
+
+<table border="0" width="600" cellspacing="6">
+<tr><td width="600"><p align="center"><strong>B</strong>erne`s <b>O</b>bject-<b>O</b>riented <b>G</b>raphics <b>A</b>rchitecture</p>
+
+    <p align="center">A project of the <a href="http://www.cgg.unibe.ch/">fcg Research
+    group</a> of the <a href="http://www.iam.unibe.ch">Insitute of Computer Science</a> of the
+    <a href="http://www.unibe.ch">University of Berne</a></p></td></tr>
+</table>
+<table border="0" width="600" cellspacing="6">
+  <tr>
+    <td width="258"><p align="center"><img src="img/zytglogge.gif" alt="zytglogge.gif (11525 Byte)" WIDTH="108" HEIGHT="300"></td>
+    <td width="326">BOOGA (<b>B</b>erne`s <b>O</b>bject-<b>O</b>riented <b>G</b>raphics <b>A</b>rchitecture)
+    is an object-oriented graphics framework aimed at a wide range of application areas within
+    the domain of computer graphics, namely <i>Geometric Modelling, Image Synthesis, Image
+    Processing, Image Analysis, Scene Recognition, and Computational Geometry.</i> It provides
+    data abstractions and mechanisms for 2D and 3D objects and includes a component layer to
+    model high-level operations that generate or manipulate graphical objects of different
+    types. The key concepts underlying the BOOGA-framework are explained in [AmStBi96]. A more
+    detailed description (in german) is given in [Streit97]. </td>
+
+  </tr>
+  <tr>
+    <td width="258" valign="top"><p align="right">The framework serves as a research platform
+    for computer graphics at the University of Berne. It currently consists of more than
+    200'000 lines of C++ code distributed over more than 600 classes. </td>
+    <td width="326" valign="top"><p align="center"><img src="img/heiliggeist.jpg" alt="heiliggeist.jpg (7277 Byte)" WIDTH="249" HEIGHT="213"></td>
+  </tr>
+  <tr>
+    <td width="258" valign="top"><p align="center"><img src="img/sideboard.jpg" alt="sideboard.jpg (5078 Byte)" align="right" WIDTH="250" HEIGHT="147"></td>
+    <td width="326" valign="top">A wide variaty of applications
+
+    have allready been built using the BOOGA-framework e.g. scene-previewers, object-browsers,
+    3D-editors, ray-tracer, wireframe-renderer, sirds-renderer, graphics database and more.
+    Many of the applications might also be interesting to a technically oriented computer
+    graphics user. </td>
+  </tr>
+  <tr>
+    <td width="258" valign="top">Interested? <p>&nbsp;</td>
+    <td width="326" valign="top"></td>
+  </tr>
+</table>
+
+<H2>Publications</H2>
+
+
+<table border="0" width="600" cellpadding="5">
+  <tr>
+    <td width="28%" valign="top" bgcolor="#DDE0FF" align="right"><p align="right">Title:</td>
+    <td width="72%" valign="top" bgcolor="#FFFFFF"><strong>BOOGA -A Component-Oriented
+    Framework for Computer Grahics</strong></td>
+  </tr>
+  <tr>
+    <td width="28%" valign="top" bgcolor="#DDE0FF" align="right"><p align="right">Author:</td>
+    <td width="72%" valign="top">Amann St., Streit Ch., and Bieri H. (1997). In GraphiCon '97
+    Proceedings, Moskow, pp. 193-200. </td>
+  </tr>
+  <tr>
+    <td width="28%" valign="top" bgcolor="#DDE0FF" align="right"><p align="right">Abstract:</td>
+    <td width="72%" valign="top">This paper describes the core characteristics of BOOGA, a
+    framework for 2D and 3D computer graphics. BOOGA offers a unified 3-layer model for many
+    areas, including rendering, image processing, computational geometry and scene
+    reconstruction. The framework consists of ready-to-use components to support rapid
+    application development. New components may be seamlessly integrated into the existing
+    system. </td>
+  </tr>
+  <tr>
+    <td width="28%" valign="top" bgcolor="#DDE0FF" align="right"><p align="right">Download:</td>
+    <td width="72%" valign="top"><small><a href="papers/boogapaper.pdf">(english, Download PDF (296K)</a></small></td>
+  </tr>
+  <tr>
+    <td width="28%" valign="top" bgcolor="#FFFFFF" align="right"></td>
+    <td width="72%" valign="top"><hr></td>
+  </tr>
+  <tr>
+    <td width="28%" valign="top" bgcolor="#DDE0FF" align="right"><p align="right">Title:</td>
+    <td width="72%" valign="top" bgcolor="#FFFFFF"><strong>BOOGA - Ein Komponentenframework
+    für Grafikanwendungen</strong></td>
+  </tr>
+  <tr>
+    <td width="28%" valign="top" bgcolor="#DDE0FF" align="right"><p align="right">Author:</td>
+    <td width="72%" valign="top">PH.D. Thesis in Computer Graphics (in german), Streit Ch.,
+    1997</td>
+  </tr>
+  <tr>
+    <td width="28%" valign="top" bgcolor="#DDE0FF" align="right"><p align="right">Abstract:</td>
+    <td width="72%" valign="top">Die vorliegende Arbeit befasst sich mit dem Entwurf und der
+    Realisierung eines exiblen Grafiksystems für die Unterstützung der verschiedensten
+    Teilgebiete der Computergrafik. Beschrieben wird das Grafiksystem Booga , welches sich
+    durch grosse Flexibilität, gute Erweiterbarkeit der Grundfunktionalität und leichte
+    Erlernbarkeit auszeichnet. Diese generellen Eigenschaften liessen sich erst durch das neu
+    eingeführte Konzept des Komponentenframeworks und den konsequenten Einsatz der
+    Objekttechnologie erreichen. Die Arbeit zeigt die zugrundliegenden Prinzipien von Booga
+    detailliert auf, beschreibt wichtige Eigenschaften des Systems und präsentiert
+    illustrative Beispielanwendungen.</td>
+  </tr>
+  <tr>
+    <td width="28%" valign="top" bgcolor="#DDE0FF" align="right"><p align="right">Download:</td>
+    <td width="72%" valign="top"><small><a href="papers/ThesisStreit.pdf">(german, download PDF,
+    1.4MB)</a></small></td>
+  </tr>
+  <tr>
+    <td width="28%" valign="top" bgcolor="#FFFFFF" align="right"></td>
+    <td width="72%" valign="top"><hr></td>
+  </tr>
+  <tr>
+    <td width="28%" valign="top" bgcolor="#DDE0FF" align="right">Title:</td>
+    <td width="72%" valign="top"><strong>Komponentenorientierte Entwicklung von
+    Grafikapplikationen mit BOOGA</strong></td>
+  </tr>
+  <tr>
+    <td width="28%" valign="top" bgcolor="#DDE0FF" align="right">Author:</td>
+    <td width="72%" valign="top">Ph.D. Thesis in Computer Graphics (in german), Amann, St.
+    (1997). </td>
+  </tr>
+  <tr>
+    <td width="28%" valign="top" bgcolor="#DDE0FF" align="right">Abstract:</td>
+    <td width="72%" valign="top">Wiederverwendung von Software ist nicht nur für die
+    Industrie ein immer noch zentrales Anliegen, auch eine universitäre Umgebung kann von
+    einer konsequenten Umsetzung wiederverwendungsorientierter Konzepte profitieren. Die
+    vorliegende Arbeit stellt die Wiederverwendung und die damit zusammenhängende
+    Fragestellungen ins Zentrum des Interesses. Die bei der Entwicklung des
+    Komponentenframeworks BOOGA gemachten Erfahrungen dienen als praktische Grundlage der
+    Ausführungen.<p>Wichtige Eigenschaften von BOOGA sind eine grosse Flexibilität, eine
+    einfache Erweiterbarkeit, eine gute Erlernbarkeit und ein breites Anwendungsgebiet
+    innerhalb der Computergrafik. Die Umsetzung dieser Eigenschaften in BOOGA, kombiniert mit
+    einem hohen Wiederverwendungspotential von Architektur und Implementierung, wird in dieser
+    Arbeit diskutiert und mit Beispielen illustriert.</p>
+    <p>Neben der Realisierung einer Forschungsplattform sowie einer Diskussion der praktischen
+    Erfahrungen, bildet vor allem auch die Einführung des Konzeptes des
+    Komponentenframeworks, sowie eines an den Einsatz eines Komponentenframeworks angepassten
+    Vorgehensmodelles zur Anwendungsentwicklung einen wesentlichen Bestandteil der
+    vorliegenden Arbeit.</td>
+  </tr>
+  <tr>
+    <td width="28%" valign="top" bgcolor="#DDE0FF" align="right">Download:</td>
+    <td width="72%" valign="top"><small><a href="papers/ThesisAmann.pdf">(german, Download PDF
+    (4.1MB)</a></small></td>
+  </tr>
+  <tr>
+    <td width="28%" valign="top" bgcolor="#FFFFFF" align="right"></td>
+    <td width="72%" valign="top"><hr></td>
+  </tr>
+  <tr>
+    <td width="28%" valign="top" bgcolor="#DDE0FF" align="right">Title:</td>
+    <td width="72%" valign="top"><a name="DeepRay"><strong>Supercomputing at the Desktop: An
+    Improved Interface Using Internet Facilities</strong></a></td>
+  </tr>
+  <tr>
+    <td width="28%" valign="top" bgcolor="#DDE0FF" align="right">Author:</td>
+    <td width="72%" valign="top">Bühlmann B., Bieri H. (1998).<strong> </strong>Proceedings
+    of HPCN98 in Amsterdam </td>
+  </tr>
+  <tr>
+    <td width="28%" valign="top" bgcolor="#DDE0FF" align="right">Abstract:</td>
+    <td width="72%" valign="top">The traditional complex access procedure still prevents a lot
+    of scientists to migrate their applications to massively parallel computers and to benefit
+    from their computing power. We present a new approach for obtaining a simpler user
+    interface using standard components of today's Internet technologies. By means of a
+    parallel raytracing application, called DeepRay, as an example we show how to implement a
+    simple yet powerful interface to supercomputers.</td>
+  </tr>
+  <tr>
+    <td width="28%" valign="top" bgcolor="#DDE0FF" align="right">Download:</td>
+    <td width="72%" valign="top"><small><a href="papers/hpcn98.pdf">(english, Download PDF, 160K)</a></small></td>
+  </tr>
+  <tr>
+    <td width="28%" valign="top" bgcolor="#FFFFFF" align="right"></td>
+    <td width="72%" valign="top"><hr></td>
+  </tr>
+  <tr>
+    <td width="28%" valign="top" bgcolor="#DDE0FF" align="right">Title:</td>
+    <td width="72%" valign="top"><strong>An Object-Oriented Approach to Model Scenes of
+    Buildings</strong></td>
+  </tr>
+  <tr>
+    <td width="28%" valign="top" bgcolor="#DDE0FF" align="right">Author:</td>
+    <td width="72%" valign="top">Matthey T., Bieri H. CGI98 Computer Graphics International
+    98, Hannover<font FACE="Times-Italic" SIZE="2"><i> </i></td>
+  </tr>
+  <tr>
+    <td width="28%" valign="top" bgcolor="#DDE0FF" align="right">Abstract:</td>
+    <td width="72%" valign="top">This paper presents an object-oriented approach for
+    describing and modelling buildings by means of computer graphics. The approach is based on
+    an object- and component-oriented graphics framework. Scenes of buildings are
+    conventionally modelled by a set of primitives and some aggregates. The present approach,
+    however, uses highly abstract objects which represent certain parts of real buildings.
+    These objects form together a high-level hierarchical construction set and are responsible
+    for providing decompositions into primitives where necessary. Dependencies and side
+    effects are handled by the abstract objects themselves. First results show that the new
+    approach leads to simple and flexible representations without losing the broadness
+    necessary to describe real buildings. However, as its main application domain is urban
+    planning, it does not attempt complete photorealism.</td>
+  </tr>
+  <tr>
+    <td width="28%" valign="top" bgcolor="#DDE0FF" align="right">Download:</td>
+    <td width="72%" valign="top"><small><a href="papers/papermatthey.pdf">(english, Download PDF,
+    160K)</a></small></td>
+  </tr>
+  <tr>
+    <td width="28%" valign="top" bgcolor="#FFFFFF" align="right"></td>
+    <td width="72%" valign="top"><hr></td>
+  </tr>
+  <tr>
+    <td width="28%" valign="top" bgcolor="#DDE0FF" align="right">Title:</td>
+    <td width="72%" valign="top"><strong>An Architecture of a Universal DBMS for Graphics
+    Applications</strong></td>
+  </tr>
+  <tr>
+    <td width="28%" valign="top" bgcolor="#DDE0FF" align="right">Author:</td>
+    <td width="72%" valign="top">Collison A., Bieri H.CGI98 Computer Graphics International 98
+    </td>
+  </tr>
+  <tr>
+    <td width="28%" valign="top" bgcolor="#DDE0FF" align="right">Abstract:</td>
+    <td width="72%" valign="top">This paper presents a new architecture of a database
+    management system intended to be used together with existing graphics software. In the
+    first place, a system with this architecture shall be capable of coping with the large
+    variety of data representations typically found in the graphics domain. Data is stored in
+    its original form, without prior conversions, thus conserving the maximum information
+    content. A special typing model separating semantics from implementation ensures type
+    safeness and at the same time provides the flexibility and extensibility needed to cope
+    with multiple data representations. Secondly, software components enable seamless
+    integration of existing graphics operations offered by various software packages. The
+    components together with a composition mechanism act as the data manipulation language of
+    the architecture. The architecture to be presented has been implemented in a prototype
+    system called GSCOPE.</td>
+  </tr>
+  <tr>
+    <td width="28%" valign="top" bgcolor="#DDE0FF" align="right">Download:</td>
+    <td width="72%" valign="top"><small><a href="papers/papercollison.pdf">(english, download PDF,
+    140K)</a></small></td>
+  </tr>
+  <tr>
+    <td width="28%" valign="top" bgcolor="#FFFFFF" align="right"></td>
+    <td width="72%" valign="top"><hr></td>
+  </tr>
+  <tr>
+    <td width="28%" valign="top" bgcolor="#DDE0FF" align="right">Title:</td>
+    <td width="72%" valign="top"><strong>Rekonstruktion der Vergangenheit</strong></td>
+  </tr>
+  <tr>
+    <td width="28%" valign="top" bgcolor="#DDE0FF" align="right">Author:</td>
+    <td width="72%" valign="top">Bieri H.P., Unipress 119, Dezember 2003
+    </td>
+  </tr>
+  <tr>
+    <td width="28%" valign="top" bgcolor="#DDE0FF" align="right">Abstract:</td>
+    <td width="72%" valign="top">Das Modellieren und Visualisieren von
+    Objekten aus der Vergangenheit auf dem Computer hat nicht nur sehr
+    viele Anwendungen, es ist auch für die Informatik selbst von
+    grossem Interesse.</td>
+  </tr>
+  <tr>
+    <td width="28%" valign="top" bgcolor="#DDE0FF" align="right">Download:</td>
+    <td width="72%" valign="top"><small><a href="papers/unipress200312.pdf">(german, download PDF,
+    640K)</a></small></td>
+  </tr>
+</table>
+
+<H2>Downloads</H2>
+
+<ul>
+<li><tt><a href="booga2014.zip">booga.zip</a></tt>  (Source code) (<!--#fsize virtual="booga2014.zip" -->, <!--#flastmod file="booga2014.zip"-->)
+<li><tt><a href="flex++-2.3.8-7.zip">flex++-2.3.8-7.zip</a></tt>  (Source code) (<!--#fsize virtual="flex++-2.3.8-7.zip" -->, <!--#flastmod file="flex++-2.3.8-7.zip"-->)
+<li><a href="teapot">Teapot</a>
+</ul>
+<hr>
+<p>Last update: <!--#echo var="LAST_MODIFIED"-->.</p>
