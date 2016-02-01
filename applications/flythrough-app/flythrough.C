@@ -742,9 +742,10 @@ void usage(const RCString& name)
 }
 
 #ifdef HAVE_MPEGE
+MPEGe_options mpege_options;
+
 void saveFramebufferToMPEG()
 {
-  MPEGe_options* options = NULL;
   static int currentFrameMPEG = 0;
   static GLint width, height;  
   ImVfbPtr ptr;
@@ -765,22 +766,21 @@ void saveFramebufferToMPEG()
       //
       // Now fill up the structure with the (default) options 
       //
-      options = new MPEGe_options;
-      options->gop_size=30;
-      options->frame_pattern=(char *)strdup("IBBPBBP");
-      options->slices_per_frame=1;
-      options->search_range[0]=10;
-      options->search_range[1]=10;
-      options->IQscale=5;
-      options->BQscale=7;
-      options->PQscale=15;
-      options->pixel_search=MPEGe_options::FULL;
-      options->psearchalg=MPEGe_options::P_LOGARITHMIC;
-      options->bsearchalg=MPEGe_options::B_CROSS2;
-      options->bit_rate=-1;                  // variable bit rate
-      options->buffer_size=327680 ;          // DEFAULT_BUFFER_SIZE
+      mpege_options.gop_size=30;
+      mpege_options.frame_pattern=(char *)strdup("IBBPBBP");
+      mpege_options.slices_per_frame=1;
+      mpege_options.search_range[0]=10;
+      mpege_options.search_range[1]=10;
+      mpege_options.IQscale=5;
+      mpege_options.BQscale=7;
+      mpege_options.PQscale=15;
+      mpege_options.pixel_search=MPEGe_options::FULL;
+      mpege_options.psearchalg=MPEGe_options::P_LOGARITHMIC;
+      mpege_options.bsearchalg=MPEGe_options::B_CROSS2;
+      mpege_options.bit_rate=-1;                  // variable bit rate
+      mpege_options.buffer_size=327680 ;          // DEFAULT_BUFFER_SIZE
       
-      if (!MPEGe_open(output, options)) {
+      if (!MPEGe_open(output, &mpege_options)) {
         std::stringstream os;
         os << "[saveFramebufferToMPEG] Can't open MPEG " << filename;
         Report::recoverable(os);
@@ -794,9 +794,6 @@ void saveFramebufferToMPEG()
         height = viewport[3]-viewport[1];
       }
  
-      if (options) {
-        delete options;
-      }
     }
     else {
       std::stringstream os;
@@ -852,7 +849,7 @@ void saveFramebufferToMPEG()
       }
     }
  
-    if (!MPEGe_image(image)) {
+    if (!MPEGe_image(image, &mpege_options)) {
       std::stringstream os;
       os << "[saveFramebufferToMPEG] Can't save MPEGFrame nr." << currentFrameMPEG;
       Report::recoverable(os);
@@ -874,8 +871,7 @@ void saveFramebufferToMPEG()
 void closeFramebufferToMPEG()
 {
   delete pixels;
-  MPEGe_close();
-  
+  MPEGe_close(&mpege_options);
   currentFrameMPEG = 0;
 }
 
@@ -1475,14 +1471,14 @@ void animationCallback(int value)
      case ANIM_SAVE:
        if (saveAnimFrame==true){    // no-save frames
          saveAnimFrame = false;
-         glutSetMenu(animation);
-         glutChangeToMenuEntry(1,"Save frames : No",ANIM_SAVE);
+         //         glutSetMenu(animation);
+         // glutChangeToMenuEntry(1,"Save frames : No",ANIM_SAVE);
          closeFramebufferToMPEG();
        } 
        else {                   // save frames
          saveAnimFrame = true;
-         glutSetMenu(animation);
-         glutChangeToMenuEntry(1,"Save frames : Yes",ANIM_SAVE);
+         //         glutSetMenu(animation);
+         // glutChangeToMenuEntry(1,"Save frames : Yes",ANIM_SAVE);
          saveFramebufferToMPEG();
        }
        break;

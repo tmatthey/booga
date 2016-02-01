@@ -64,10 +64,10 @@ HAVE_SRGP  =
 
 # MPEGE include files and library
 HAVE_MPEGE  = 
-#HAVE_MPEGE  = -DHAVE_MPEGE
-#MPEGE_INC   = -I/usr/local/include
-#MPEGE_LPATH = -L/usr/local/lib
-#MPEGE_LIB   = -lmpege 
+HAVE_MPEGE  = -DHAVE_MPEGE
+MPEGE_INC   = -I$(HOME)/include
+MPEGE_LPATH = -L$(HOME)/lib
+MPEGE_LIB   = -lmpege 
 
 # wxWin includes and library
 #HAVE_WXWIN  =
@@ -123,9 +123,9 @@ STATIC_LIB_EXT = a
 
 # yacc compiler and lexical analysis program generator
 # -------------------------------------------------------
-BISON++  = bison++
+BISON++  = $(HOME)/bin/bison++
 B++FLAGS = -vd
-FLEX++   = /home/tma/tools/bin/flex++
+FLEX++   = $(HOME)/bin/flex++
 F++FLAGS = -d
 
 # GNU awk program
